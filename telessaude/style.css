@@ -1,0 +1,499 @@
+/*
+Theme Name: Portal Telessaúde Brasil - WordPress version
+Theme URI: http://www.bvsalud.org/
+Version: 1.0
+Author: BIREME (DGI)
+*/
+
+/*
+	CSS RESET
+	http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+		display: inline-block;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+	/* END CSS RESET */
+	.spacer {
+		clear: both;
+		height: 1px;
+		width: 100%;
+	}
+
+	
+	/* MODELO */
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		color: #333333;
+	}
+	a {
+		color: #333333;
+		text-decoration: none;
+	}
+	
+	h3 {
+		font-family: "Myriad Pro", "Trebuchet MS", Arial, Helvetica, sans-serif; 
+		color: #007dc4;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	h3 a {
+		color: #0072bd;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	.container {
+		margin: 0 auto;
+		width: 100%;
+	}
+	.bar {
+		font-size: 11px;
+	}
+	.bar a {
+		color: #000;
+		text-decoration: none;
+	}
+	.bar div {
+		float: right;
+		margin: 0px 5px;
+		margin-top: 95px;
+	}
+	.bar .wrapper {
+		margin: 0px;
+		position: absolute;
+		width: 1004px;
+	}
+	.bar div li {
+		float: left;
+		margin: 0px 5px;
+	}
+	.top,.bar, .wrapper {
+		margin: 0 auto;
+		width: 1004px;
+	}
+	.top #parent {
+		float: left;
+	}
+	.top .institutions {
+		float: right;
+	}
+	.top .institutions a.MS {
+		display: block;
+		width: 240px;
+		height: 45px;
+		background: url(images/logo_MS.png) top left no-repeat;
+		margin: 25px 0px;
+	}
+	.top .institutions a span {
+		display: none;
+	}
+	
+	.middle {
+		margin-bottom: 30px;
+	}
+	.search_IAHx {
+		background: #cce3f2;
+		border-color: #0072bd;
+		border-width: 1px 0px 1px 0px;
+		border-style: solid;
+		padding: 5px 0px;
+		width: 100%;
+	}
+	.search_IAHx form {
+		margin: 0 auto;
+		width: 455px;
+	}
+	.search_IAHx form .searchInput{
+		background: #FFF;
+		box-shadow: inset 2px 2px 5px #bfbfbf;
+		-webkit-box-shadow: inset 2px 2px 5px #bfbfbf;
+		-moz-box-shadow: inset 2px 2px 5px #bfbfbf;
+		border: 1px solid #848484;
+		float: left;
+		width: 325px;
+	}
+	.search_IAHx form .searchInput input#textEntry{
+		background: none;
+		border: none;
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		font-size: 12px;
+		margin: 0px;
+		padding: 2px 3px 0px 3px;
+		width: 315px;
+	}
+	.search_IAHx form input#submit{
+	    background: #e05a5a;
+		/* Mozilla: */
+    	background: -moz-linear-gradient(top, #e05a5a, #970d0b);
+    	/* Chrome, Safari:*/
+    	background: -webkit-gradient(linear, left top, left bottom, from(#e05a5a), to(#970d0b));
+	    /* MSIE */
+	    filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#e05a5a', EndColorStr='#970d0b', GradientType=0);
+		border: 2px solid #c50e0e;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		color: #FFF;
+		font-family: "Trebuchet MS";
+		font-size: 12px;
+		font-weight: bold;
+		letter-spacing: 1px;
+		padding: 1px 3px;
+		margin-left: 15px;
+	}
+	.search_IAHx form input#submit:hover {
+		border-color: #a20a0a;
+	}
+	.highlights {
+		background: none;
+	}
+	
+	.highlights .wrapper {
+		background: #f0f0eb url(images/shadown.jpg) repeat-y 715px 0px;
+	}
+	.firstColumn {
+		width: 715px;
+		float: left;
+	}
+	
+	.firstColumn .widget {
+		width: 48.5%;
+		float: left;
+		margin: 0.5%;
+	}
+	
+	
+	.vhl_collection_thumb {
+		float: left;
+		border: 1px solid #0070c5;
+		padding: 2px;
+		margin: 10px 0px 0px 0px;
+	}
+	
+	.secondColumn {
+		xwidth: 218px;
+		xfloat: left;
+		display: none;
+	}
+	.thirdColumn {
+		width: 289px;
+		float: right;
+		background: #FFFFFF url(images/border_3coluna.jpg) no-repeat top left;
+		min-height: 400px;
+	}
+	.firstColumn ul li  {
+		width: 95%;
+	}
+	
+	.thirdColumn .widget {
+		width: 90%;
+		margin: 0px 5% 5% 5%;
+	}
+	/*.secondColumn ul li  {
+		width: 95%;
+	}*/
+	.firstColumn ul li,
+	.secondColumn ul li  {
+		font-size: 14px;
+		padding: 5px 0px 5px 0px;
+		line-height: 15px;
+		font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+		list-style: disc;
+	}
+	.firstColumn ul, .secondColumn ul {
+		margin-top: 10px;
+		float: left;
+		width: 99%;
+		padding-left: 25px;
+	}
+	DIV.thumbnail.widget.vhl-collection ul {
+		width: 155px;
+	}
+	DIV.thumbnail.widget.vhl-collection ul li {
+		width: auto;
+	}
+	.firstColumn .highlights ul {
+		margin: 0px;
+	}
+	.thirdColumn {
+		font-size: 12px;
+	}
+	.thirdColumn a {
+		color: #065798;
+		font-weight: bold;
+		line-height: 15px;
+	}
+	.widget_rss li {
+		margin-top: 10px;
+	}
+	.thirdColumn .rssSummary {
+		font-size: 10px;
+		color: #333333;
+		line-height: 13px;
+		display: block;
+	}
+	h3 {
+		margin-top: 15px;
+		float: left;
+		width: 100%;
+	}
+	.cases {
+		background: #eaf4fc;
+		border-top: 1px solid #0072bd;
+	}
+	
+	.cases ul {
+		width: 100%;
+		float: left;
+		margin-bottom: 15px;
+	}
+	.cases ul li {
+		width: 45%;
+		display: inline-block;
+		margin: 15px 4% 0px 0px;
+		font-size: 12px;
+	}
+	.cases ul li p {
+		margin-top: 5px;
+	}
+	.cases ul li a.post-title {
+		color: #007dc4;
+		font-size: 15px;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	.cases ul li img {
+		float: left;
+		margin: 0px 10px 5px 0px;
+		
+	}
+	.footer {
+		background: #d3d3d3;
+	}
+	
+	.footer .widget_nav_menu UL.menu {
+		margin-top: 18px;
+		margin-bottom: 18px;
+		float: left;
+		width: 100%;
+	}
+	.footer .widget_nav_menu LI {
+		float: left;
+		width: 155px;
+		margin-right: 40px;
+		font-size: 12px;
+	}
+	.footer .widget_nav_menu LI A {
+		font-size: 110%;
+		font-weight: bold;
+		color: #065798;
+		text-decoration: none;
+	}
+	.footer .widget_nav_menu LI LI A {
+		font-size: 100%;
+		font-weight: normal;
+		color: #333; 
+		text-decoration: none;
+	}
+	.footer .widget_nav_menu LI LI A:hover {
+		color: #007dc4;
+	}
+	.footer .widget_nav_menu LI UL {
+		margin: 4px 0px 12px 0px;
+	}
+	.footer .widget_nav_menu LI UL LI {
+		float: none;
+		margin-bottom: 8px;
+		font-size: 90%;
+	}
+	.footer .widget_nav_menu {
+	padding-bottom: 40px;
+	}
+	.institutionalFooter {
+		margin-top: 30px;
+		clear: both;
+		font-size: 12px;
+		border-top: 1px solid #8bb0c0;
+	}
+	
+	.institutionalFooter ul li {
+		float: left;
+	}
+	.institutionalFooter ul li a {
+		display: block;
+		height: 52px;
+		margin: 10px 30px;
+	}
+	.institutionalFooter ul li.logo_telessaude a {
+		background: url(images/telessaude.png);
+		width: 251px;
+	}
+	.institutionalFooter ul li.logo_telessaude a:hover {
+		background: url(images/telessaude_hover.png);
+	}
+	.institutionalFooter ul li.logo_bvs a {
+		background: url(images/bvs.png);
+		width: 52px;
+	}
+	.institutionalFooter ul li.logo_bvs a:hover {
+		background: url(images/bvs_hover.png);
+	}
+	.institutionalFooter ul li.logo_rnp a {
+		background: url(images/rnp.png);
+		width: 106px;
+	}
+	.institutionalFooter ul li.logo_rnp a:hover {
+		background: url(images/rnp_hover.png);
+	}
+	.institutionalFooter ul li.logo_rute a {
+		background: url(images/rute.png);
+		width: 170px;
+	}
+	.institutionalFooter ul li.logo_rute a:hover {
+		background: url(images/rute_hover.png);
+	}
+	.institutionalFooter ul li.logo_una-sus a {
+		background: url(images/unasus.png);
+		width: 125px;
+	}
+	.institutionalFooter ul li.logo_una-sus a:hover {
+		background: url(images/unasus_hover.png);
+	}
+	.institutionalFooter ul li span {
+		display: none;
+	}
+	
+	.post {
+		font-size: 12px;
+		line-height: 15px;
+		width: 700px;
+		float: left;
+	}	
+	.post p {
+		margin-top: 5px;
+	}
+	.storycontent {
+		margin: 1%;
+		width: 98%;
+		display: inline-block;
+	}
+	.slider ul li {
+		background:none repeat scroll 0 0 #CCCCCC;
+		border-top-width:2px;
+		float:left;
+		list-style:none outside none;
+		margin: 0px;
+		padding:0;
+		width: 265px;
+		height: 160px;
+	}
+	.slider {
+		width: 265px;
+		height: 160px;
+		float: left;
+		border: 1px solid #000000;
+	}
+	.carousel-control {
+		display: none;
+	} 
+	.carousel-pagination {
+		width: 265px;
+		text-align: right;
+	}
+	.carousel-pagination p a {
+		color: #bfbfbf;
+		background: none;
+		padding: 3px 6px 3px 6px;
+		margin: 5px 2px 1px;
+		display: inline-block;
+	}
+	.carousel-pagination p a:hover {
+		cursor: hand;
+	}
+	.carousel-pagination p a.active {
+		background: #00629C;
+		color: #000;
+		}
+	.miniHighlights {
+		float: left;
+		width: 285px;
+	}
+	.miniHighlights div.widget {
+		margin: 0px 10px;
+	}
+	.miniHighlights h3 {
+		margin: 5px 0px;
+	}
+	
+	.miniHighlights .widget_rss  {
+		font-size: 12px;
+	}
+	.miniHighlights .widget_rss a {
+		color: #065798;
+		font-weight: bold;
+		line-height: 15px;
+	}
+	
+	.breadCrumb {
+		margin-top: 10px;
+		font-size: 15px;
+	}
+	.post a {
+		text-decoration: underline;
+		color: #007dc4;
+	}
+	.post ul {
+		padding-left: 20px;
+		margin: 10px;
+	}
+	.post li {
+		list-style: disc;
+		margin: 5px;
+	}
+	.middle.home {
+	}
+	.widget_links li {
+		margin-top: 10px;
+	}
