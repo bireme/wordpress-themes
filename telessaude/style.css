@@ -73,13 +73,17 @@ Author: BIREME (DGI)
 		text-decoration: none;
 	}
 	
-	h3 {
+	h3, h4 {
 		font-family: "Myriad Pro", "Trebuchet MS", Arial, Helvetica, sans-serif; 
 		color: #007dc4;
 		font-weight: bold;
 		font-size: 20px;
+		margin: 15px 0px 8px 0px;
 	}
-	h3 a {
+	h4 {
+		font-size: 16px;
+	}
+	h3 a, h4 a {
 		color: #0072bd;
 		font-weight: bold;
 		text-decoration: none;
@@ -213,15 +217,14 @@ Author: BIREME (DGI)
 	}
 	
 	.secondColumn {
-		xwidth: 218px;
-		xfloat: left;
 		display: none;
 	}
 	.thirdColumn {
-		width: 289px;
+		width: 273px;
 		float: right;
 		background: #FFFFFF url(images/border_3coluna.jpg) no-repeat top left;
 		min-height: 400px;
+		padding-left: 16px;
 	}
 	.firstColumn ul li  {
 		width: 95%;
@@ -265,6 +268,9 @@ Author: BIREME (DGI)
 		font-weight: bold;
 		line-height: 15px;
 	}
+	.thirdColumn a:hover {
+		text-decoration: underline;
+	}
 	.widget_rss li {
 		margin-top: 10px;
 	}
@@ -274,10 +280,8 @@ Author: BIREME (DGI)
 		line-height: 13px;
 		display: block;
 	}
-	h3 {
-		margin-top: 15px;
-		float: left;
-		width: 100%;
+	.thirdColumn LI {
+		margin-bottom: 8px;
 	}
 	.cases {
 		background: #eaf4fc;
@@ -309,10 +313,26 @@ Author: BIREME (DGI)
 		margin: 0px 10px 5px 0px;
 		
 	}
+	.storyaboutperson P {
+		line-height: 130%;
+		font-size: 90%;
+	}
+	.storyimage IMG {
+		float: left;
+		margin: 0px 4px 4px 0px;
+	}
+	.thirdColumn UL {
+		margin-left: 8px;
+	}
+	.thirdColumn .slider UL {
+		margin-left: 0px;
+	}
 	.footer {
 		background: #d3d3d3;
 	}
-	
+	.footer .widgettitle {
+		float: left;
+	}
 	.footer .widget_nav_menu UL.menu {
 		margin-top: 18px;
 		margin-bottom: 18px;
@@ -410,6 +430,7 @@ Author: BIREME (DGI)
 		line-height: 15px;
 		width: 700px;
 		float: left;
+		margin-left: 14px;
 	}	
 	.post p {
 		margin-top: 5px;
@@ -486,7 +507,6 @@ Author: BIREME (DGI)
 	}
 	.post ul {
 		padding-left: 20px;
-		margin: 10px;
 	}
 	.post li {
 		list-style: disc;

@@ -10,7 +10,7 @@ get_header();
 
 <div class="middle wrapper">
 	<div class="post single">
-	<div class="breadCrumb"><a href="<?php bloginfo('home'); ?>">Home</a> / <span class="active"><?php the_title(); ?></span></div>
+	<div class="breadCrumb"><a href="<?php bloginfo('home'); ?>">Home</a> / <a href="/?post_type=relato">Relatos de Experiência</a> <span class="active"><?php wp_title(); ?></span></div>
     <div <?php post_class() ?> id="post-<?php the_ID(); ?>">
         <h3 class="storytitle"><?php the_title(); ?></h3>
 		<div class="mediaplayer">
