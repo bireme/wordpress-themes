@@ -1,0 +1,409 @@
+/*
+Theme Name: BVS MS
+Theme URI: http://bvsms.saude.gov.br
+Author: BIREME | OPAS | OMS
+Author URI: http://new.paho.org/bireme/
+Description: Tema modelo para o BVS Site do Ministério da Saúde versão WordPress
+Version: 1.0
+License: GNU General Public License
+Tags: bvs, bvs site, vhl, vhl-collection
+*/
+
+/* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+:focus {/* remember to define focus styles! */
+    outline: 0;
+}
+body {
+    background: #fff;
+    line-height: 1;
+}
+strong {
+    font-weight: bold;
+}
+ol, ul {
+    list-style: none;
+}
+table {/* tables still need 'cellspacing="0"' in the markup */
+    border-collapse: separate;
+    border-spacing: 0;
+}
+caption, th, td {
+    font-weight: normal;
+    text-align: left;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: "";
+}
+blockquote, q {
+    quotes: "" "";
+}
+a img {
+    border: 0;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+
+/* =Structure
+----------------------------------------------- */
+
+BODY {
+   margin: 0px;
+   background: url(images/bg.jpg) repeat-x;
+   background-color:#d6dede; /* fundo das páginas */
+   font-family: Arial;
+   font-size: 12px;
+}
+
+.spacer {
+    clear: both;
+}
+.header {
+}
+
+.header .logoBVS a span, .header .identification a span  {
+    display: none;
+}
+.header .logoBVS {
+    float: left;
+    margin: 10px;
+}
+.header .logoBVS a {
+    display: block;
+    width: 75px;
+    height: 73px;
+    background: url(images/logobvs.gif) top right no-repeat;
+}
+
+.header .identification {
+    float: left;
+    margin: 35px 0px 0px 20px;
+}
+.header .identification a {
+    display: block;
+    width: 300px;
+    height: 50px;
+}
+
+.bar {
+    background: #089342;
+    text-align: right;
+    padding: 5px;
+    clear: both;
+    margin-left: 115px;
+    color: #FFF;
+    font-size: 80%;
+}
+
+.bar ul li {
+    display: inline;
+}
+
+.bar li.contact a {
+    color: #FFF;
+    background: url(images/bt_contact2.gif) top left no-repeat;
+    margin-right: 15px;
+    padding: 1px 0 1px 30px;
+}
+
+
+.container {
+    background: #FFF url(images/fundo_top.jpg) top right no-repeat;
+    width: 990px;
+    margin: 0 auto;
+}
+.content {
+    min-height: 500px;
+    margin: 7px;
+}
+
+.content.index {
+    background: #FFF;
+}
+.footer {
+    border-left: 50px solid #089342; /*cor da lateral*/
+    background: #E7E8E9;
+    padding: 10px;
+    font-size: 90%;
+    line-height: 115%;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+h3 {
+    color: #089342;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px 5px 10px 5px;
+    margin-bottom: 5px;
+}
+
+h3 a {
+    color: #089342;
+}
+
+h3 a.rsswidget img {
+    display: none;
+}
+
+.column1 {
+    border: 1px solid #bebebe;
+    width: 200px;
+    float: left;
+}
+
+.column1 ul {
+    margin: 10px;
+    font-size: 90%;
+    line-height: 110%;
+}
+.column1 ul li {
+    margin-bottom: 10px;
+}
+
+.column1 h3 {
+    border-bottom: 2px dotted #dedede;
+}
+
+.column2 {
+    width: 542px;
+    float: left;
+    margin: 0px 10px;
+    background: url(images/fundo_search.png) top left no-repeat;
+}
+
+.column2 .vhl-collection ul {
+    margin: 10px;
+}
+.column2 .vhl-collection ul li {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.column2 .vhl-collection ul li ul {
+    margin: 5px 10px;
+}
+.column2 .vhl-collection ul li ul li {
+    font-weight: normal;
+}
+.column2 .children li {
+    margin: 0px 5px 0px 0px;
+    display: inline;
+    line-height: 115%;
+}
+.column2 .widget_categoryposts {
+    border: 1px solid #dedede;
+}
+
+.column2 .widget_categoryposts ul {
+    margin: 0px 5px;
+}
+.column2 .widget_categoryposts ul li {
+    width: 30%;
+    margin: 1%;
+    float: left;
+    
+}
+.column2 .widget_categoryposts ul li .post-title {
+    font-weight: bold;
+    clear: both;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.column2 .widget_categoryposts ul li img {
+    clear: both;
+    float: left;
+    margin: 0px 10px 10px 0px;
+}
+
+.column3 {
+    width: 210px;
+    float: left;
+    background: #ffffff;
+}
+
+
+.widget {
+    margin: 2px;
+    margin-bottom: 20px;
+}
+
+.vhl-search {
+    min-height: 100px;
+}
+.vhl-search h3 {
+    color: #000;
+    border-bottom: 2px dotted #FFF;
+    padding: 5px;
+    margin: 10px;
+}
+.vhl-search form {
+    margin: 5px 20px;
+}
+
+.vhl-search .vhl-search-input {
+    width: 355px;
+    border: 1px solid #9a9a9a;
+}
+
+.vhl-search .vhl-search-submit {
+    color: #FFF;
+    background-color: #089342;
+    border: 2px solid #FFF;
+    font-size: 100%;
+    padding: 0px 15px;
+}
+
+.column3 .widget {
+    border: 1px solid #dedede;    
+}
+
+.column3 li {
+    margin: 10px;
+}
+
+.column3 .widget_categoryposts li .post-title {
+    float: right;
+    width: 135px;
+}
+.column3 .widget_categoryposts li {
+    min-height: 55px;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.breadCrumb, .breadCrumb a {
+    font-size: 130%;
+    color: #089342;
+    font-weight: bold;
+}
+
+.breadCrumb .active {
+    font-size: 80%;
+    color: #089342;
+}
+
+.content h2 {
+    font-size: 150%;
+    color: #089342;
+    margin: 10px 0px;
+}
+.post {
+    margin: 20px;
+}
+
+.post a {
+    color: #089342;
+    text-decoration: underline;
+}
+
+.content.index h3 {
+    text-transform: none;
+    font-size: 120%;
+    margin: 15px 0px 0px 0px;
+    padding: 0px;
+}
+
+.content .posts_list li {
+    margin: 10px 20px 0px 30px;
+}
+.content .excerpt {
+    font-size: 110%;
+    margin-top: 5px;
+}
+
+.the_content {
+    font-size: 110%;
+    line-height: 140%;
+    margin: 0px 20px;
+}
+.the_content p {
+    margin-top: 10px;
+}
+.the_content ul {
+    margin: 10px;
+}
+.the_content li {
+    list-style: disc;
+    list-style-position: outside;
+    margin: 10px 40px;
+}
+
+.alignleft {
+    float: left;
+    margin: 10px;
+    margin-left: 0px;
+}
+.alignright {
+    float: right;
+    margin: 10px;
+    margin-right: 0px;
+}
+p.wp-caption-text {
+    margin: 0px;
+    text-align: center;
+    font-size: 90%;
+    background: #dedede;
+    font-style: italic;
+}
+/*nova barra set.2011*/
+
+#barra-brasil-v3 {
+            position:relative;
+            clear:both;
+            overflow:hidden;
+            min-width:1000px;
+            height:28px;
+            background:#00500f;
+        }
+
+        #barra-brasil-v3 span {
+            display:block;
+            width:50%;
+            height:28px;
+            background:url(images/barra-brasil-v3-bgx.gif) 0 bottom repeat-x;
+        }
+
+        #barra-brasil-v3 span .imagemGov {
+            position:absolute;
+            top:4px;
+            left:50%;
+            height: 24px;
+            width: 1000px;
+            background: url(images/barra-brasil-v3-verde.gif) right top no-repeat;
+            margin-left:-500px;
+        }
+
+        #barra-brasil-v3 span .brasilgov {
+            width: 100px;
+            height: 24px;
+            float:right;
+            display:block;
+            border: 0 !important;
+        }
