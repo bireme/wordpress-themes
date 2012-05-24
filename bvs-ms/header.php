@@ -22,6 +22,7 @@
 		<?php 
 			wp_head();
 		?>
+		<noscript>Seu navegador não suporta JavaScript</noscript>
 	</head>
 	<body <?php body_class(); ?>>
 		<?php include "barragov.php"; ?>

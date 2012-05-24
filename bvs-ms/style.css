@@ -6,7 +6,7 @@ Author URI: http://new.paho.org/bireme/
 Description: Tema modelo para o BVS Site do Ministério da Saúde versão WordPress
 Version: 1.0
 License: GNU General Public License
-Tags: bvs, bvs site, vhl, vhl-collection, plugin
+Tags: bvs, bvs site, vhl, vhl-collection
 */
 
 /* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
@@ -186,7 +186,9 @@ h3 a.rsswidget img {
 .column1 ul li {
     margin-bottom: 10px;
 }
-
+.column1 ul li li {
+    font-size: 110%;
+}
 .column1 h3 {
     border-bottom: 2px dotted #dedede;
 }
@@ -216,10 +218,13 @@ h3 a.rsswidget img {
     display: inline;
     line-height: 115%;
     padding-right: 6px;
-    border-right: 1px solid;
+    border-right: 1px solid #666;
 }
 .column2 .children li:last-child {
     border-right: none;
+}
+.column2 .children li A {
+    color: #666;
 }
 .column2 .widget_categoryposts {
     border: 1px solid #dedede;
