@@ -43,6 +43,9 @@ strong {
 ol, ul {
     list-style: none;
 }
+ol {
+    list-style: decimal;
+}
 table {/* tables still need 'cellspacing="0"' in the markup */
     border-collapse: separate;
     border-spacing: 0;
@@ -177,7 +180,17 @@ h3 a.rsswidget img {
     width: 200px;
     float: left;
 }
-
+.column1 A:hover {
+    color: #089342;
+    text-decoration: underline;
+}
+.column1 .textwidget A {
+    color: #089342;
+    text-decoration: underline;
+}
+.column1 .textwidget A:hover {
+    text-decoration: none;
+}
 .column1 ul {
     margin: 10px;
     font-size: 90%;
@@ -365,7 +378,7 @@ h3 a.rsswidget img {
 .the_content p A:hover, .the_content li A:hover {
     text-decoration: none;
 }
-.the_content ul {
+.the_content ul, .the_content ol {
     margin: 10px;
 }
 .the_content li {
