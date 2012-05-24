@@ -358,6 +358,13 @@ h3 a.rsswidget img {
 .the_content p {
     margin-top: 10px;
 }
+.the_content p A, .the_content li A {
+    color: #089342;
+    text-decoration: underline;
+}
+.the_content p A:hover, .the_content li A:hover {
+    text-decoration: none;
+}
 .the_content ul {
     margin: 10px;
 }
@@ -366,7 +373,24 @@ h3 a.rsswidget img {
     list-style-position: outside;
     margin: 10px 40px;
 }
-
+.vhl_collection UL.list-child {
+    list-style: none;
+    padding: 0px;
+    margin: 22px 0px 20px 22px;
+}
+.vhl_collection UL.list-child LI {
+    line-height: 150%;
+}
+.vhl_collection UL.list-child LI A {
+    color: #089342;
+}
+.vhl_collection UL.list-child LI A:hover {
+    text-decoration: underline;
+}
+.vhl_collection .page_item {
+    font-size: 120%;
+    font-weight: bold;
+}
 .alignleft {
     float: left;
     margin: 10px;

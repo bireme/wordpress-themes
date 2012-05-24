@@ -14,7 +14,9 @@ get_header(); ?>
                                 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
                                         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                                                 <h3><?php the_title(); ?></h3>
-                                                <? wp_list_pages("title_li=&post_type=vhl_collection&child_of=" . get_the_ID()); ?>
+                                                <ul class="list-child">
+													<? wp_list_pages("title_li=&post_type=vhl_collection&child_of=" . get_the_ID()); ?>
+												</ul>
                                                 <div class="the_content">
                                                          <?php the_content(); ?> 
                                                 </div><!-- .the_contentt -->
