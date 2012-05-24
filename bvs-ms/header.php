@@ -28,10 +28,10 @@
 		<div class="container">
 			<div class="header">
 				<div class="logoBVS">
-					<a href="<?php bloginfo('url'); ?>" alt="<?php bloginfo('name'); ?>"><span><?php bloginfo('name'); ?></span></a>
+					<h1><a href="<?php bloginfo('url'); ?>" alt="<?php bloginfo('name'); ?>"><span><?php bloginfo('name'); ?></span></a></h1>
 				</div><!-- /logoBVS -->
 				<div class="identification">
-					<a href="<?php bloginfo('url'); ?>" alt="<?php bloginfo('name'); ?>"><span><?php bloginfo('name'); ?></span></a>
+					<h2><a href="<?php bloginfo('url'); ?>" alt="<?php bloginfo('name'); ?>"><span><?php bloginfo('name'); ?></span></a></h2>
 				</div><!-- /identification -->
 				<div class="bar">
 					<ul>

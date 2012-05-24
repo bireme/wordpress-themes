@@ -215,6 +215,11 @@ h3 a.rsswidget img {
     margin: 0px 5px 0px 0px;
     display: inline;
     line-height: 115%;
+    padding-right: 6px;
+    border-right: 1px solid;
+}
+.column2 .children li:last-child {
+    border-right: none;
 }
 .column2 .widget_categoryposts {
     border: 1px solid #dedede;
@@ -241,7 +246,9 @@ h3 a.rsswidget img {
     float: left;
     margin: 0px 10px 10px 0px;
 }
-
+.column2 .widget_text {
+    border: 1px solid #dedede;
+}
 .column3 {
     width: 210px;
     float: left;
