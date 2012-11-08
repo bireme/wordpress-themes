@@ -11,26 +11,20 @@ get_header();
 		<div class="firstColumn">
 			<div class="post single">
 				<div class="breadCrumb"><a href="<?php bloginfo('home'); ?>">Home</a> <span class="active"><?php wp_title(); ?></span></div>
-				
-				<ul>
-				
+				<ul class="archiveList">
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					<li>
-						<h3 class="storytitle"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+						<h3 class="storytitle"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 						<div class="storycontent">
+							<div class="storythumb"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php echo get_the_post_thumbnail($page->ID, 'thumbnail'); ?></a></div>
 							<?php the_excerpt(); ?>
+							<span class="storymore"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">Veja o relato completo<a/></span>
 						</div>
 					</li>
 					<?php endwhile; else: ?>
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					<?php endif; ?>
 				</ul>
-				
-				
-				
-				
-				
-				
 			</div>
 		</div><!--/firstColumn-->
 		

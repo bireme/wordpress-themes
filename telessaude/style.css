@@ -79,6 +79,7 @@ Author: BIREME (DGI)
 		font-weight: bold;
 		font-size: 20px;
 		margin: 15px 0px 8px 0px;
+		line-height: 110%;
 	}
 	h4 {
 		font-size: 16px;
@@ -86,7 +87,7 @@ Author: BIREME (DGI)
 	h3 a, h4 a {
 		color: #0072bd;
 		font-weight: bold;
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 	.container {
 		margin: 0 auto;
@@ -128,12 +129,44 @@ Author: BIREME (DGI)
 		width: 240px;
 		height: 45px;
 		background: url(images/logo_MS.png) top left no-repeat;
-		margin: 25px 0px;
+		margin: 10px 0px 0px 0px;
+		float: right;
+		clear: both;
+	}
+	.top .institutions a.SUS {
+		display: block;
+		width: 83px;
+		height: 33px;
+		background: url(images/sus_logo.jpg) top left no-repeat;
+		margin: 10px 0px 0px 0px;
+		float: right;
+		clear: both;
 	}
 	.top .institutions a span {
 		display: none;
 	}
 	
+	.top .links {
+		clear: right;
+		float: right;
+	}
+	.top .links ul {
+		margin: 0px;
+	}
+	.top .links li {
+		display: inline-block;
+		font-size: 10px;
+		color: #333333;
+		margin: 0px 0px 0px 10px;
+		border-left: 1px solid #333333;
+		padding-left: 10px;
+	}
+	.top .links li:first-child {
+		border: none;
+	}
+	.top .links a:hover {
+		text-decoration: underline;
+	}	
 	.middle {
 		margin-bottom: 30px;
 	}
@@ -202,7 +235,7 @@ Author: BIREME (DGI)
 		float: left;
 	}
 	
-	.firstColumn .widget {
+	.firstColumn .widget.vhl-collection {
 		width: 48.5%;
 		float: left;
 		margin: 0.5%;
@@ -384,7 +417,7 @@ Author: BIREME (DGI)
 	.institutionalFooter ul li a {
 		display: block;
 		height: 52px;
-		margin: 10px 30px;
+		margin: 15px 60px;
 	}
 	.institutionalFooter ul li.logo_telessaude a {
 		background: url(images/telessaude.png);
@@ -428,7 +461,7 @@ Author: BIREME (DGI)
 	.post {
 		font-size: 12px;
 		line-height: 15px;
-		width: 700px;
+		width: 660px;
 		float: left;
 		margin-left: 14px;
 	}	
@@ -437,7 +470,7 @@ Author: BIREME (DGI)
 	}
 	.storycontent {
 		margin: 1%;
-		width: 98%;
+		width: 96%;
 		display: inline-block;
 	}
 	.slider ul li {
@@ -500,6 +533,7 @@ Author: BIREME (DGI)
 	.breadCrumb {
 		margin-top: 10px;
 		font-size: 15px;
+		line-height: 110%;
 	}
 	.post a {
 		text-decoration: underline;
@@ -512,8 +546,35 @@ Author: BIREME (DGI)
 		list-style: disc;
 		margin: 5px;
 	}
+	H3.storytitle A:hover {
+		text-decoration: underline !important;
+	}
+	.post ul.archiveList {
+		padding-left: 0px;
+	}
+	.post .archiveList li {
+		list-style: none;
+		margin: 0px 0px 8px 0px;
+	}
+	.post .archiveList li .storycontent {
+		margin: 0px;
+	}
+	.post .archiveList li .storycontent .storythumb {
+		float: left;
+		margin: 4px 6px 6px 0px;
+	}
+	.storymore A {
+		font-size: 85%;
+		text-decoration: none;
+	}
+	.storymore A:hover {
+		text-decoration: underline;
+	}
 	.middle.home {
 	}
 	.widget_links li {
 		margin-top: 10px;
+	}
+	strong {
+		font-weight: bold;
 	}

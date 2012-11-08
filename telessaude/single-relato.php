@@ -17,13 +17,13 @@ get_header();
 			<?php echo get_post_meta($post->ID, 'relatos_video_code', true) ?>
 		</div>
         <div class="storycontent">
-			<h4>Descrição</h4>
+			<h4>Relato de Experiência</h4>
             <?php the_content(__('(more...)')); ?>
-			<h4>Assuntos Abordados</h4>
+			<h4>Assuntos abordados</h4>
 			<?php echo get_post_meta($post->ID, 'relatos_assuntos', true) ?>
 		</div>
 		<div class="childPages">
-			<ul>                
+			<ul>
 			  <?php
 				 global $id;
 				 $post_type = get_post_type( $id );
@@ -45,9 +45,9 @@ get_header();
 	<div class="thirdColumn">
 		<div class="storyrelatedcontent">
 			<div class="storymoreinfo">
-				<h3>Saiba Mais</h3>
+				
 				<div class="storyaboutperson">
-					<h4>Sobre a Pessoa</h4>
+					<h4>Quem é</h4>
 					<div class="storyimage">
 						<?php
 							$fotourl= get_post_meta($post->ID, 'relatos_foto', true);
@@ -57,17 +57,13 @@ get_header();
 					<?php echo get_post_meta($post->ID, 'relatos_sobre', true) ?>
 				</div>
 				<div class="storylinksperson">
-					<h4>Publicações</h4>
+					<h4>Saiba mais</h4>
 					<?php echo get_post_meta($post->ID, 'relatos_links', true) ?>
 				</div>
-				<div class="storyliterature">
-					<h4>Literatura Relacionada</h4>
-					<?php echo get_post_meta($post->ID, 'relatos_literatura', true) ?>
+				<div class="storyrelatedlinks">
+					<h4>Links Relacionados</h4>
+					<?php echo get_post_meta($post->ID, 'relatos_linksRelacionados', true) ?>
 				</div>
-			</div>
-			<div class="storyrelatedlinks">
-				<h3>Links Relacionados</h3>
-				<?php echo get_post_meta($post->ID, 'relatos_linksRelacionados', true) ?>
 			</div>
 		</div>		
 		<div class="spacer"> </div>
