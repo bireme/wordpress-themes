@@ -318,7 +318,7 @@ function widget_PesquisaLILACSwidget($args) {
                           </div>
                           <div class="searchItens">
                           </div>
-                          <div class="search_advanced"><a href="http://pesquisa.bvsalud.org/portal/advanced?lang=pt">Pesquisa avançada</a></div></form>
+                          <div class="search_advanced"><a href="http://bases.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&base=LILACS&lang=p&form=A">Pesquisa via formulário iAH</a></div></form>
 
              <?php echo $after_widget; ?>
 

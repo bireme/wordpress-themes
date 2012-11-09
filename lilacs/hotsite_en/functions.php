@@ -315,7 +315,7 @@ function widget_PesquisaLILACS_EN_widget($args) {
                     <input type="submit" value="Search" name="submit" class="submit">
                 </div>
                 <div class="search_advanced">
-                    <a href="http://pesquisa.bvsalud.org/portal/advanced?lang=en">Advanced search</a>
+                    <a href="http://bases.bireme.br/cgi-bin/wxislind.exe/iah/online/?IsisScript=iah/iah.xis&base=LILACS&lang=i&form=A">Search by iAH form</a>
                 </div>
              </form>
 
