@@ -387,12 +387,6 @@ ul.children li:first-child {
 	float: left;
 }
 
-/*widget col 1*/
-.widget_links .blogroll LI {
-	margin: 12px 0px 0px 0px;
-
-}
-
 /*widget col 3*/
 
 .widget_links .blogroll LI IMG {
@@ -404,6 +398,11 @@ ul.children li:first-child {
 	clear: both;
 }
 
+/*widget col 1*/
+.firstColumn .widget_links .blogroll LI {
+	margin: 12px 0px 0px 0px;
+	float: none;
+}
 
 /*nova barra set.2011*/
 
