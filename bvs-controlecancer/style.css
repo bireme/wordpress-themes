@@ -365,7 +365,7 @@ ul.children li:first-child {
 	clear: both;
 }
 #vhl_collection-6 ul li.page-item-197 {
-    background: url(images/tema_prevencao.jpg) top left no-repeat;
+    background: url(images/tema_prevencao-2.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-199 {
     background: url(images/tema_tratamento.jpg) top left no-repeat;
@@ -377,7 +377,7 @@ ul.children li:first-child {
     background: url(images/tema_paliativo.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-205 {
-    background: url(images/tema_saudemulher.jpg) top left no-repeat;
+    background: url(images/tema_saudemulher-2.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-207 {
     background: url(images/tema_epidemiologia.jpg) top left no-repeat;
@@ -386,6 +386,24 @@ ul.children li:first-child {
 #vhl_collection-6 ul {
 	float: left;
 }
+
+/*widget col 1*/
+.widget_links .blogroll LI {
+	margin: 12px 0px 0px 0px;
+
+}
+
+/*widget col 3*/
+
+.widget_links .blogroll LI IMG {
+	float: left;
+	margin: 0px 4px 4px 0px;
+}
+
+.widget_links .blogroll LI {
+	clear: both;
+}
+
 
 /*nova barra set.2011*/
 
