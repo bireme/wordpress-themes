@@ -401,6 +401,8 @@ ul.children li:first-child {
 /*widget col 1*/
 .firstColumn .widget_links .blogroll LI {
 	margin: 12px 0px 0px 0px;
+}
+.firstColumn .widget_links .blogroll LI IMG {
 	float: none;
 }
 
