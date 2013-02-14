@@ -52,7 +52,14 @@
         		</a>
             </div>
 			<div class="institutions">
-				<a href="http://portalsaude.saude.gov.br/" class="MS" title="Ministério da Saúde" alt="Ministério da Saúde"><span>Ministério da Saúde</span></a>
+				<a href="http://portalsaude.saude.gov.br/portalsaude/index.cfm" class="SUS"><span>SUS - Sistema Único de Saúde</span></a>
+				<a href="http://portalsaude.saude.gov.br/portalsaude/index.cfm" class="MS" title="Ministério da Saúde" alt="Ministério da Saúde"><span>Ministério da Saúde</span></a>
+			</div>
+			<div class="links">
+				<ul>
+					<li><a href="http://www.telessaudebrasil.org.br/php/index.php" target="_blank">portal antigo</a></li>
+					<li><a href="/formulario-de-contato">contato</a></li>
+				</ul>
 			</div>
         </div>
 		<div class="spacer"></div>

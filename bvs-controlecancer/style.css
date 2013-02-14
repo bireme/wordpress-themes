@@ -1,0 +1,443 @@
+/*
+Theme Name: BVS Controle de Cancer WP
+Theme URI: http://www.bvsalud.org/
+Version: 1.0
+Author: BIREME (DGI)
+*/
+
+/*
+    CSS RESET
+    http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+*/
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* END CSS RESET */
+    .spacer {
+        width: 100%;
+        height: 1px;
+        clear: both;
+    }
+    body {
+        background: #ffeffe;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 15px;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover {
+    	text-decoration: underline;
+	}
+    p {
+        margin-bottom: 5px;
+    }
+    strong {
+        font-weight: bold;
+    }
+    h1, h2, h3 {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    h3 {
+        color: #444444;
+	    font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+   	 	font-size: 20px;
+    	font-weight: bold;
+    	line-height: 110%;
+    	margin: 15px 0 8px; 
+    	border-bottom: 2px solid #fedde3;
+    }
+    h3 span {
+        
+    }
+    
+    h3 a {
+    	color: #444444;
+    	text-decoration: none;
+    }
+    
+    .container {
+        max-width: 1004px;
+        min-width: 780px;
+        margin: 0 auto;
+        position: relative;
+        background: #FFF;
+    }
+        .bar {
+            padding-top:2px;
+            position:absolute;
+            right:0;
+            top:0;
+            width:50%;
+            font-size:75%;
+            font-weight:bold;
+            text-align:right;
+            margin: 2px 5px;
+        }
+        .bar, .bar a {
+            color:white;
+        }
+            #otherVersions img {
+                display: none;
+            }
+            #otherVersions li {
+                display: inline-block;
+                padding: 0px 5px;
+                border-left: 1px solid #fff;
+            }
+            #otherVersions li:first-child {
+                border: none;
+            }
+            #otherVersions, #contact {
+                display: inline-block;
+            }
+            #contact {
+                background: url(images/bt_contact.gif) top left no-repeat;
+                padding: 2px;
+                padding-left: 20px;
+            }
+        .top {
+            background: url("images/banner.jpg") no-repeat scroll right top #e8526b;
+            height: 110px;
+            display: block;
+        }
+            #parent {
+                float: left;
+                margin: 8px 20px;
+            }
+            
+            #parent img{
+            	display: none;
+            }
+            
+            #identification {
+                float: left;
+                width: 60%;
+            }
+                #identification h1 {
+                    color: #FFF;
+                    font-size: 180%;
+                    margin: 75px 0 0 100px; 
+                    display: none;
+                }
+            #institutionList {
+                float: right;
+                width: 125px;
+                margin: 20px 20px 0px 0px;
+            }
+                #institutionList li {
+                    display: inline-block;
+                }
+        .middle {
+            clear:both;
+            padding:0.3em;
+            position:relative;
+        }
+           .middle .widget {
+               
+           }
+           
+           .widget ul {
+               margin-left: 10px;
+           }
+           .widget ul li {
+               margin-top: 5px;
+           }
+           .widget_rss .rss-date {
+                clear: both;
+                color: #333333;
+                display: block;
+                font-size: 90%;
+                font-weight: bold;   
+           }
+           .widget_rss a {
+               font-weight: bold;
+               text-decoration: none;
+               text-transform: capitalize;
+           }
+           .widget_rss h3 span img {
+               display: none;
+           }
+            .middle .firstColumn {
+                float: left;
+                width: 17.5%;
+                padding: 0px 0.5%;
+            }
+            .middle .secondColumn {
+                float:left;
+                margin-left:0.3em;
+                margin-right:0.3em;
+                width:58%;
+            }
+            
+            .middle .thirdColumn {
+                float:left;
+                width:22.4%;
+            }
+
+            .middle h3 {
+                font-size: 15px;
+                background: none;
+                clear: both;
+            }
+
+            .middle .post .storycontent a img {
+                float: left;
+                margin: 0px 10px 10px 0px;
+            }
+           .post {
+                font-size: 12px;
+                line-height: 15px;
+                width: 740px;
+                float: left;
+                margin: 10px 20px 20px 10px;
+            }   
+            .post p {
+                margin-top: 5px;
+            }
+            
+            .post h3 {
+                font-size: 20px;
+                line-height: 25px;
+            }
+        .childPages {
+            margin-left: 20px;
+        }
+        .childPages ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: #ed7e8e;
+            border-left: 180px solid #e8546c;
+            display: block;
+            padding: 12px;
+            font-size: 90%;
+            line-height: 130%;
+            color: #FFF;
+        }
+        
+        
+
+/* WIDGETS */
+        .widget {
+            margin-bottom: 10px;
+        }
+        .vhl-network {
+        }
+            .vhl-network ul {
+                margin: 8px 8px 8px 10px;
+            }
+                .vhl-network li {
+                    margin-bottom:10px; 
+                }
+        .vhl-search {
+        }
+            .vhl-search form {
+                margin: 2.5%;
+                display: inline-block;
+                width: 95%;
+            }
+                .vhl-search form .vhl-search-input {
+                    width: 70%;
+                }
+        .vhl-collection {
+            
+        }
+            .vhl-collection ul {
+                padding: 8px;
+                margin: 8px;
+            }
+                .vhl-collection ul li.page_item {
+                    margin: 0px 0px 8px 0px;
+                    font-weight: bold;
+                    font-size: 110%;
+                }
+                    .vhl-collection ul li.page_item ul {
+                        margin: 4px 00px 0px 0px;
+                        padding: 0px;
+                    }
+                        .vhl-collection ul li.page_item ul li.page_item{
+                            margin: 0;
+                            font-weight: normal;
+                            font-size: 90%;
+                            display: inline-block;
+                        }
+
+
+.post.single ul {
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.post.single .childPages {
+	font-weight: bold;
+}
+
+.post.single .children {
+	font-weight: normal
+}
+
+
+
+#vhl-search-input {
+	font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+.vhl-search-submit {
+	font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+ul.children li {
+	border-left: 1px solid #444444;
+	padding-left: 7px;
+	padding-right: 2px;
+}
+ul.children li:first-child {
+	border: none;
+}
+
+/* Definições exclusivas para atender a demanda dos Temas
+ * Observar possível atualização do plugin BVS-Site que poderá gerar conflito
+ * #vhl-collection-6 é o ID de Temas
+ */
+
+#vhl_collection-6 ul li {
+	width: 45%;
+	display: block;
+	float: left;
+	margin: 0% 2% 1% 0%;
+	height: 65px;
+    background: url(images/tema_default.gif) top left no-repeat;
+    padding: 0px;
+}
+#vhl_collection-6 ul li a {
+	margin-left: 105px;
+	display: block;
+	clear: both;
+}
+#vhl_collection-6 ul li.page-item-197 {
+    background: url(images/tema_prevencao-2.jpg) top left no-repeat;
+}
+#vhl_collection-6 ul li.page-item-199 {
+    background: url(images/tema_tratamento.jpg) top left no-repeat;
+}
+#vhl_collection-6 ul li.page-item-201 {
+    background: url(images/tema_tipos.jpg) top left no-repeat;
+}
+#vhl_collection-6 ul li.page-item-203 {
+    background: url(images/tema_paliativo.jpg) top left no-repeat;
+}
+#vhl_collection-6 ul li.page-item-205 {
+    background: url(images/tema_saudemulher-2.jpg) top left no-repeat;
+}
+#vhl_collection-6 ul li.page-item-207 {
+    background: url(images/tema_epidemiologia.jpg) top left no-repeat;
+}
+
+#vhl_collection-6 ul {
+	float: left;
+}
+
+/*widget col 3*/
+
+.widget_links .blogroll LI IMG {
+	float: left;
+	margin: 0px 4px 4px 0px;
+}
+
+.widget_links .blogroll LI {
+	clear: both;
+}
+
+/*widget col 1*/
+.firstColumn .widget_links .blogroll LI {
+	margin: 12px 0px 0px 0px;
+}
+.firstColumn .widget_links .blogroll LI IMG {
+	float: none;
+}
+
+/*nova barra set.2011*/
+
+#barra-brasil-v3 {
+            position:relative;
+            clear:both;
+            overflow:hidden;
+            min-width:1000px;
+            height:28px;
+            background:#00500f;
+        }
+
+        #barra-brasil-v3 span {
+            display:block;
+            width:50%;
+            height:28px;
+            background:url(images/barra-brasil-v3-bgx.gif) 0 bottom repeat-x;
+        }
+
+        #barra-brasil-v3 span .imagemGov {
+            position:absolute;
+            top:4px;
+            left:50%;
+            height: 24px;
+            width: 1000px;
+            background: url(images/barra-brasil-v3-verde.gif) right top no-repeat;
+            margin-left:-500px;
+        }
+
+        #barra-brasil-v3 span .brasilgov {
+            width: 100px;
+            height: 24px;
+            float:right;
+            display:block;
+            border: 0 !important;
+        }

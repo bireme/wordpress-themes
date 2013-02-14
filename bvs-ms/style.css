@@ -43,8 +43,8 @@ strong {
 ol, ul {
     list-style: none;
 }
-ol {
-    list-style: decimal;
+ol li {
+    list-style: decimal !important;
 }
 table {/* tables still need 'cellspacing="0"' in the markup */
     border-collapse: separate;
@@ -103,7 +103,7 @@ BODY {
 
 .header .identification {
     float: left;
-    margin: 35px 0px 0px 20px;
+    margin: 55px 0px 0px 20px;
 }
 .header .identification a {
     display: block;
@@ -180,8 +180,8 @@ h3 a.rsswidget img {
     width: 200px;
     float: left;
 }
-.column1 A:hover {
-    color: #089342;
+.column1 A:hover, .column2 A:hover, .column3 A:hover {
+    color: #089342 !important;
     text-decoration: underline;
 }
 .column1 .textwidget A {
