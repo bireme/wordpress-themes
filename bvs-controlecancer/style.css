@@ -199,7 +199,7 @@ Author: BIREME (DGI)
            .widget_rss a {
                font-weight: bold;
                text-decoration: none;
-               text-transform: capitalize;
+               /*text-transform: capitalize;*/
            }
            .widget_rss h3 span img {
                display: none;
@@ -344,6 +344,19 @@ ul.children li {
 ul.children li:first-child {
 	border: none;
 }
+/* Themes - 2 columns */
+.double li {
+	float: left;
+	width: 45%;
+	margin: 0% 2% 1% 0%;
+}
+.double li img {
+	float: left;
+	margin: 0 6px 0 0;
+}
+.double li h4 a {
+	font-weight: bold;
+}
 
 /* Definições exclusivas para atender a demanda dos Temas
  * Observar possível atualização do plugin BVS-Site que poderá gerar conflito
@@ -377,7 +390,7 @@ ul.children li:first-child {
     background: url(images/tema_paliativo.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-205 {
-    background: url(images/tema_saudemulher-2.jpg) top left no-repeat;
+    background: url(images/tema_saudemulher.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-207 {
     background: url(images/tema_epidemiologia.jpg) top left no-repeat;
