@@ -72,8 +72,8 @@ Author: BIREME (DGI)
         text-decoration: none;
     }
     a:hover {
-    	text-decoration: underline;
-	}
+        text-decoration: underline;
+    }
     p {
         margin-bottom: 5px;
     }
@@ -86,20 +86,20 @@ Author: BIREME (DGI)
     }
     h3 {
         color: #444444;
-	    font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
-   	 	font-size: 20px;
-    	font-weight: bold;
-    	line-height: 110%;
-    	margin: 15px 0 8px; 
-    	border-bottom: 2px solid #fedde3;
+        font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 110%;
+        margin: 15px 0 8px; 
+        border-bottom: 2px solid #fedde3;
     }
     h3 span {
         
     }
     
     h3 a {
-    	color: #444444;
-    	text-decoration: none;
+        color: #444444;
+        text-decoration: none;
     }
     
     .container {
@@ -153,7 +153,7 @@ Author: BIREME (DGI)
             }
             
             #parent img{
-            	display: none;
+                display: none;
             }
             
             #identification {
@@ -199,7 +199,7 @@ Author: BIREME (DGI)
            .widget_rss a {
                font-weight: bold;
                text-decoration: none;
-               text-transform: capitalize;
+               /*text-transform: capitalize;*/
            }
            .widget_rss h3 span img {
                display: none;
@@ -312,37 +312,50 @@ Author: BIREME (DGI)
 
 
 .post.single ul {
-	margin-left: 20px;
-	margin-top: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .post.single .childPages {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .post.single .children {
-	font-weight: normal
+    font-weight: normal
 }
 
 
 
 #vhl-search-input {
-	font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
-	font-size: 12px;
+    font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 12px;
 }
 
 .vhl-search-submit {
-	font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
-	font-size: 12px;
+    font-family: "Myriad Pro","Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 12px;
 }
 
 ul.children li {
-	border-left: 1px solid #444444;
-	padding-left: 7px;
-	padding-right: 2px;
+    border-left: 1px solid #444444;
+    padding-left: 7px;
+    padding-right: 2px;
 }
 ul.children li:first-child {
-	border: none;
+    border: none;
+}
+/* Themes - 2 columns */
+.double li {
+    float: left;
+    width: 45%;
+    margin: 0% 2% 1% 0%;
+}
+.double li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+.double li h4 a {
+    font-weight: bold;
 }
 
 /* Definições exclusivas para atender a demanda dos Temas
@@ -351,18 +364,18 @@ ul.children li:first-child {
  */
 
 #vhl_collection-6 ul li {
-	width: 45%;
-	display: block;
-	float: left;
-	margin: 0% 2% 1% 0%;
-	height: 65px;
+    width: 45%;
+    display: block;
+    float: left;
+    margin: 0% 2% 1% 0%;
+    height: 65px;
     background: url(images/tema_default.gif) top left no-repeat;
     padding: 0px;
 }
 #vhl_collection-6 ul li a {
-	margin-left: 105px;
-	display: block;
-	clear: both;
+    margin-left: 105px;
+    display: block;
+    clear: both;
 }
 #vhl_collection-6 ul li.page-item-197 {
     background: url(images/tema_prevencao-2.jpg) top left no-repeat;
@@ -377,33 +390,33 @@ ul.children li:first-child {
     background: url(images/tema_paliativo.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-205 {
-    background: url(images/tema_saudemulher-2.jpg) top left no-repeat;
+    background: url(images/tema_saudemulher.jpg) top left no-repeat;
 }
 #vhl_collection-6 ul li.page-item-207 {
     background: url(images/tema_epidemiologia.jpg) top left no-repeat;
 }
 
 #vhl_collection-6 ul {
-	float: left;
+    float: left;
 }
 
 /*widget col 3*/
 
 .widget_links .blogroll LI IMG {
-	float: left;
-	margin: 0px 4px 4px 0px;
+    float: left;
+    margin: 0px 4px 4px 0px;
 }
 
 .widget_links .blogroll LI {
-	clear: both;
+    clear: both;
 }
 
 /*widget col 1*/
 .firstColumn .widget_links .blogroll LI {
-	margin: 12px 0px 0px 0px;
+    margin: 12px 0px 0px 0px;
 }
 .firstColumn .widget_links .blogroll LI IMG {
-	float: none;
+    float: none;
 }
 
 /*nova barra set.2011*/
