@@ -96,3 +96,12 @@ body.single .site-content {
 	padding: 10px;	
 	}
 	
+.single1column {
+	width: 65% !important;
+	float: left !important;	
+	}
+	
+.single2column {
+	width: 33%;
+	float: left;	
+	}

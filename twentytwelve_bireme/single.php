@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="site-content">
-		<div id="content" role="main">
+		<div id="content single1column" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -27,7 +27,10 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
-	</div><!-- #primary -->
+	<div class="single2column">
+		<?php dynamic_sidebar( 'level2' ); ?>
 
-<?php get_sidebar(); ?>
+	</div>
+
+	</div><!-- #primary -->
 <?php get_footer(); ?>
