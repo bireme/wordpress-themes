@@ -1,0 +1,179 @@
+<?php
+/**
+ * The Header for our theme.
+ *
+ * Displays all of the <head> section and everything up till <div id="main">
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twelve
+ * @since Twenty Twelve 1.0
+ */
+?><!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html <?php language_attributes(); ?>>
+<!--<![endif]-->
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
+<title><?php wp_title( '|', true, 'right' ); ?></title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
+<!--[if lt IE 9]>
+<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<noscript>Your browser does not support JavaScript!</noscript>
+<?php 
+	$settings = get_option( "wp_bvs_theme_settings" );
+	$total_columns = $settings['layout']['total'];
+	$languages = $settings['header'][language];
+	$title = $settings['header'][title_view];
+	$logo = $settings['header']['logo'];
+   $general_background = $settings['colors']['general-background'];
+   $general_container = $settings['colors']['general-container'];
+   $general_title_first = $settings['colors']['general-title-first'];
+   $general_title_second = $settings['colors']['general-title-second'];
+   $general_title_third = $settings['colors']['general-title-third'];
+   $general_background_img = $settings['layout']['background'];
+   $general_color = $settings['colors']['general-text'];
+   $general_link_active = $settings['colors']['general-link-active'];
+   $general_link_visited = $settings['colors']['general-link-visited'];
+	$header_banner = $settings['header']['banner'];
+	$header_background_color = $settings['colors']['header-background'];	
+	$header_title_color = $settings['colors']['header-title-first'];
+	$header_link_color = $settings['colors']['header-link-active'];
+	$top_sidebar = $settings['layout']['top-sidebar'];
+	$footer_sidebar = $settings['layout']['footer-sidebar'];
+	$language_position = $settings['header']['language-position'];
+	//layout[top-sidebar]
+	//print_r($settings);
+	//echo $language_position;
+?>
+<link rel='stylesheet' id='generic_css'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/generic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='columns'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/<?php echo $total_columns; ?>_columns.css' type='text/css' media='all' />
+<?php wp_head(); ?>
+<style>
+body {
+		background: #<?php echo $general_background;?> !important;	
+		color: #<?php echo $general_color;?>;
+		background-image: url('<?php echo $general_background_img;?>') !important;
+		background-position: top center !important;
+	}
+	a {
+		color: #<?php echo $general_link_active;?>;		
+		}
+	a:visited {
+		color: #<?php echo $general_link_visited;?>;		
+		}
+.container {
+		background: #<?php echo $general_container;?> !important;	
+	}
+.bar a {
+	color: #<?php echo $header_link_color;?>;	
+	}
+
+.header {
+	background: #<?php echo $header_background_color;?> url(<?php echo $header_banner;?>)top left no-repeat;	
+	}
+.header h1 a {
+	color: #<?php echo $header_title_color;?>;
+	}
+#content h1, .content h1 a {
+	color: #<?php echo $general_title_first;?> !important;
+	}
+#content h2, .content h2 a {
+	color: #<?php echo $general_title_second;?> !important;
+	}
+#content h3, .content h3 a {
+	color: #<?php echo $general_title_third;?> !important;
+	}
+<?php 
+	if ($language_position == 2) {
+?>
+.bar {
+	margin-top: 96px;
+   position: absolute;
+   width: 1000px;	
+}
+<?php
+	}
+?>
+				
+</style>
+</head>
+
+<body <?php body_class(); ?>>
+<!-- header default twentytwelve 
+
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<h3 class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
+			<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+		</nav>
+
+		<?php $header_image = get_header_image();
+		if ( ! empty( $header_image ) ) : ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
+		<?php endif; ?>
+	</header>
+
+	<div id="main" class="wrapper">
+-->
+<div class="container <?php echo $total_columns;?>_columns">
+	<div class="header">
+		<div class="bar">
+			<div id="otherVersions">
+				<?php
+					if ($languages == true) {
+						?>
+						<ul id="languages_list">
+							<li>
+								<a href="#">
+									English
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Español
+								</a>
+							</li>
+		            </ul>
+					<?
+					} 
+				?>
+         </div>
+	      <div id="contact"> 
+	      	<span><a href="#">Contato</a></span>
+	      </div>
+      </div>
+        <div class="top">
+            <div id="parent">
+            	<a href="http://regional.bvsalud.org/php/index.php" alt="Portal Regional da BVS">
+	                <img src="<?php echo $logo;?>" alt="BVS LOGO"/>
+        		</a>
+            </div>
+           	<?php
+					if ($title == true) {
+						?>
+			            <div class="site_name">
+								<h1><a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a></h1>            
+			            </div>
+					<?
+					} 
+				?>
+        </div>
+		<div class="spacer"></div>	
+	</div>
