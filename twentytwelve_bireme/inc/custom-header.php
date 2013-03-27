@@ -7,7 +7,6 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-
 /**
  * Sets up the WordPress core custom header arguments and settings.
  *
@@ -148,4 +147,3 @@ function twentytwelve_admin_header_image() {
 		<?php endif; ?>
 	</div>
 <?php } ?>
-

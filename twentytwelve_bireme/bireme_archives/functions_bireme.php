@@ -8,9 +8,10 @@
 if ( is_admin() ) require_once( TEMPLATEPATH . '/bireme_archives/admin_settings.php' );
 
 $settings = get_option( "wp_bvs_theme_settings" );
-$total_columns = $settings['layout']['total'];
-$top_sidebar = $settings['layout']['top-sidebar'];
-$footer_sidebar = $settings['layout']['footer-sidebar'];
+$layout = $settings['layout'];
+$total_columns = $layout['total'];
+$top_sidebar = $layout['top-sidebar'];
+$footer_sidebar = $layout['footer-sidebar'];
 
 // sidebars do template
 register_sidebar( array(

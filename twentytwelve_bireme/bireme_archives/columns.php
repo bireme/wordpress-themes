@@ -8,8 +8,10 @@
 	}
 ?>
 <?php 
+	$colors = $settings['colors'];
+	$layout = $settings['layout'];
 	for($i=1; $i <= $total_columns; $i++) {
-		$column_width = $settings['layout'][''.$i.''];
+		$column_width = $layout[''.$i.''];
 		if ($i==1){
 			$column_name='first';			
 		} elseif($i==2) {
@@ -22,20 +24,20 @@
 		?>
 		<style>
 			.column_<?php echo $i;?> .widget {
-				background: #<?php echo $settings['colors'][''.$column_name.'-background'];?>;
-				color: #<?php echo $settings['colors'][''.$column_name.'-text'];?>;
+				background: #<?php echo $colors[''.$column_name.'-background'];?>;
+				color: #<?php echo $colors[''.$column_name.'-text'];?>;
 			}
 			.column_<?php echo $i;?> a {
-				color: #<?php echo $settings['colors'][''.$column_name.'-link-active'];?>;
+				color: #<?php echo $colors[''.$column_name.'-link-active'];?>;
 			}
 			.column_<?php echo $i;?> a:visited {
-				color: #<?php echo $settings['colors'][''.$column_name.'-link-visited'];?>;
+				color: #<?php echo $colors[''.$column_name.'-link-visited'];?>;
 			}
 			.column_<?php echo $i;?> h3, .column_<?php echo $i;?> h3 a {
-				color: #<?php echo $settings['colors'][''.$column_name.'-title-first'];?>;							
+				color: #<?php echo $colors[''.$column_name.'-title-first'];?>;							
 			}
 			.column_<?php echo $i;?> h3 {
-				border-color: #<?php echo $settings['colors'][''.$column_name.'-title-first'];?>;	
+				border-color: #<?php echo $colors[''.$column_name.'-title-first'];?>;	
 			}
 		</style>
 		<div class="column column_<?php echo $i;?>" style="width: <?php echo $column_width; ?>; ">
