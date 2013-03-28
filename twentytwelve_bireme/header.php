@@ -60,6 +60,7 @@
 ?>
 <link rel='stylesheet' id='generic_css'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/generic.css' type='text/css' media='all' />
 <link rel='stylesheet' id='columns'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/<?php echo $total_columns; ?>_columns.css' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_template_directory_uri(); ?>/bireme_archives/custom/custom.css' type='text/css' media='all' />
 <?php wp_head(); ?>
 <style>
 body {
