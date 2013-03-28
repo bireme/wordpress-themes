@@ -10,7 +10,9 @@ body {
 }
 
 .bar {
-	font-size: 80%;	
+	font-size: 80%;
+	float: right;
+	padding: 4px;
 	}
 
 .bar div {
@@ -23,18 +25,18 @@ body {
 .header {
 	height: 110px;	
 	}
-	#parent {
-		margin-top: 10px;		
-		float: left;
-		margin-left: 10px;
-		}
-	.site_name {
-		float: left;
-		font-size: 150%;
-		margin-top: 50px;
-		margin-left: 30px;
-		width: 300px;		
-		}
+#parent {
+	margin-top: 10px;		
+	float: left;
+	margin-left: 10px;
+	}
+.site_name {
+	float: left;
+	font-size: 150%;
+	margin-top: 50px;
+	margin-left: 30px;
+	width: 300px;		
+	}
 		
 .column {
 	float: left;
@@ -70,6 +72,40 @@ body {
 .widget ul li {
 	line-height: 150%;	
 	}
+
+/* Themes - 1 columns */
+.vhl-themes li {
+    margin: 0% 2% 1% 0%;
+}
+.vhl-themes li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+.vhl-themes li h4 a {
+    font-weight: normal;
+}
+
+/* Themes - 2 columns */
+.double li {
+    float: left;
+    width: 45%;
+    margin: 0% 2% 1% 0%;
+	height: 45px;
+	line-height: 120% !important;
+}
+.double li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+.double li h4 {
+	clear: none;
+	
+}
+.double li h4 a {
+    font-weight: normal;
+}
+
+
 	
 .footer {
 	padding: 10px;
