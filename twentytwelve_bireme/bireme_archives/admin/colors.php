@@ -23,8 +23,8 @@ $colors = $settings["colors"];
 
 ?>
 
-<link rel="stylesheet" href="<? bloginfo('stylesheet_directory') ?>/bireme_archives/admin/colorpicker/css/colorpicker.css" type="text/css" />
-<script src="<? bloginfo('stylesheet_directory') ?>/bireme_archives/admin/colorpicker/js/colorpicker.js" language="javascript"></script>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory') ?>/bireme_archives/admin/colorpicker/css/colorpicker.css" type="text/css" />
+<script src="<?php bloginfo('stylesheet_directory') ?>/bireme_archives/admin/colorpicker/js/colorpicker.js" language="javascript"></script>
 
 <style type="text/css">
 		.colorbox{
@@ -69,14 +69,14 @@ $colors = $settings["colors"];
 <h2 class="title" id="title-pallete" >Escolha uma paleta de cores</h2>
 <table class="form-table" id="table-pallete">		
 	<tr>
-		<? $field = "background"; ?>
+		<?php $field = "background"; ?>
 		<th><label>Paletas disponíveis: </label> </th>
 		<td>
 			<select name="colors[pallete]">
 				<option value=""></option>
-				<? foreach($palletes as $item): ?>
-					<option value="<?= $item ?>"><?= $item ?></option>
-				<? endforeach ?>
+				<?php foreach($palletes as $item): ?>
+					<option value="<?php echo $item; ?>"><?php echo $item; ?></option>
+				<?php endforeach ?>
 			</select>
 		</td>
 	</tr> 
@@ -90,7 +90,7 @@ $colors = $settings["colors"];
 <h2 class="title">ou defina cores para seu BVS Site</h2>
 <table class="form-table">
 	<tbody>
-		<? 
+		<?php 
 		$currentblock = ""; 
 		foreach($default_settings['colors'] as $key => $item): ?>
 		
@@ -100,19 +100,20 @@ $colors = $settings["colors"];
 				
 				if($key_strip[0] != $currentblock) {
 					$currentblock = $key_strip[0];
+
 					print "<tr><th colspan=2 class='td-title'>$color_dict[$currentblock]:</th></tr>";
 				}
 			?>
 			
 			<tr>
-				<th><label><?= $color_dict[$key] ?>:</label></th>
+				<th><label><?php echo $color_dict[$key]; ?>:</label></th>
 				<td>
-					<input class="colorfield" id="wp_bvs_color_<?= $field ?>" name="colors[<?= $field ?>]" type="text" value="<?php echo esc_html( stripslashes( $colors[$field] ) ); ?>">
-					<div class="colorbox" style="background-color: #<?= $colors[$field] ?>"></div>
+					<input class="colorfield" id="wp_bvs_color_<?php  echo $field; ?>" name="colors[<?php echo $field; ?>]" type="text" value="<?php echo esc_html( stripslashes( $colors[$field] ) ); ?>">
+					<div class="colorbox" style="background-color: #<?php  echo $colors[$field]; ?>"></div>
 				</td>
 			</tr>
 		
 		
-		<? endforeach ?>
+		<?php endforeach ?>
 	</tbody>
 </table>

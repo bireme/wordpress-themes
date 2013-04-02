@@ -31,32 +31,36 @@
 <noscript>Your browser does not support JavaScript!</noscript>
 <?php 
 	$settings = get_option( "wp_bvs_theme_settings" );
-	$total_columns = $settings['layout']['total'];
-	$languages = $settings['header'][language];
-	$title = $settings['header'][title_view];
-	$logo = $settings['header']['logo'];
-   $general_background = $settings['colors']['general-background'];
-   $general_container = $settings['colors']['general-container'];
-   $general_title_first = $settings['colors']['general-title-first'];
-   $general_title_second = $settings['colors']['general-title-second'];
-   $general_title_third = $settings['colors']['general-title-third'];
-   $general_background_img = $settings['layout']['background'];
-   $general_color = $settings['colors']['general-text'];
-   $general_link_active = $settings['colors']['general-link-active'];
-   $general_link_visited = $settings['colors']['general-link-visited'];
-	$header_banner = $settings['header']['banner'];
-	$header_background_color = $settings['colors']['header-background'];	
-	$header_title_color = $settings['colors']['header-title-first'];
-	$header_link_color = $settings['colors']['header-link-active'];
-	$top_sidebar = $settings['layout']['top-sidebar'];
-	$footer_sidebar = $settings['layout']['footer-sidebar'];
-	$language_position = $settings['header']['language-position'];
+	$layout = $settings['layout'];
+	$header = $settings['header'];
+	$colors = $settings['colors'];
+	$total_columns = $layout['total'];
+	$languages = $header['language'];//$settings['header'][language];
+	$title = $header['title_view'];//$settings['header'][title_view];
+	$logo = $header['logo'];//$settings['header']['logo'];
+   $general_background = $colors['general-background'];//$settings['colors']['general-background'];
+   $general_container = $colors['general-container'];//$settings['colors']['general-container'];
+   $general_title_first = $colors['general-title-first'];//$settings['colors']['general-title-first'];
+   $general_title_second = $colors['general-title-second'];//$settings['colors']['general-title-second'];
+   $general_title_third = $colors['general-title-third'];//$settings['colors']['general-title-third'];
+   $general_background_img = $layout['background'];//$settings['layout']['background'];
+   $general_color = $colors['general-text'];//$settings['colors']['general-text'];
+   $general_link_active = $colors['general-link-active'];//$settings['colors']['general-link-active'];
+   $general_link_visited = $colors['general-link-visited'];//$settings['colors']['general-link-visited'];
+	$header_banner = $header['banner'];//$settings['header']['banner'];
+	$header_background_color = $colors['header-background'];//$settings['colors']['header-background'];	
+	$header_title_color = $colors['header-title-frist'];//$settings['colors']['header-title-first'];
+	$header_link_color = $colors['header-link-active'];//$settings['colors']['header-link-active'];
+	$top_sidebar = $layout['top-sidebar'];//$settings['layout']['top-sidebar'];
+	$footer_sidebar = $layout['footer-sidebar'];//$settings['layout']['footer-sidebar'];
+	$language_position = $header['language-position'];//$settings['header']['language-position'];
 	//layout[top-sidebar]
-	//print_r($settings);
+	//print_r($colors);
 	//echo $language_position;
 ?>
 <link rel='stylesheet' id='generic_css'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/generic.css' type='text/css' media='all' />
 <link rel='stylesheet' id='columns'  href='<?php echo get_template_directory_uri(); ?>/bireme_archives/css/<?php echo $total_columns; ?>_columns.css' type='text/css' media='all' />
+<link rel='stylesheet' href='<?php echo get_template_directory_uri(); ?>/bireme_archives/custom/custom.css' type='text/css' media='all' />
 <?php wp_head(); ?>
 <style>
 body {
@@ -151,7 +155,7 @@ body {
 								</a>
 							</li>
 		            </ul>
-					<?
+					<?php
 					} 
 				?>
          </div>
@@ -169,9 +173,9 @@ body {
 					if ($title == true) {
 						?>
 			            <div class="site_name">
-								<h1><a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a></h1>            
+								<h1><a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a></h1>            
 			            </div>
-					<?
+					<?php
 					} 
 				?>
         </div>
