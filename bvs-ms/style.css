@@ -134,7 +134,7 @@ BODY {
 
 
 .container {
-    background: #FFF url(images/fundo_top.jpg) top right no-repeat;
+    background: #FFF url(images/fundo_top.jpg) top left no-repeat;
     width: 990px;
     margin: 0 auto;
 }
@@ -424,35 +424,132 @@ p.wp-caption-text {
 /*nova barra set.2011*/
 
 #barra-brasil-v3 {
-            position:relative;
-            clear:both;
-            overflow:hidden;
-            min-width:1000px;
-            height:28px;
-            background:#00500f;
-        }
+    position:relative;
+    clear:both;
+    overflow:hidden;
+    height:28px;
+    background:#00500f;
+}
 
-        #barra-brasil-v3 span {
-            display:block;
-            width:50%;
-            height:28px;
-            background:url(images/barra-brasil-v3-bgx.gif) 0 bottom repeat-x;
-        }
+#barra-brasil-v3 span {
+    display:block;
+    width:50%;
+    height:28px;
+    background:url(images/barra-brasil-v3-bgx.gif) 0 bottom repeat-x;
+}
 
-        #barra-brasil-v3 span .imagemGov {
-            position:absolute;
-            top:4px;
-            left:50%;
-            height: 24px;
-            width: 1000px;
-            background: url(images/barra-brasil-v3-verde.gif) right top no-repeat;
-            margin-left:-500px;
-        }
+#barra-brasil-v3 span .imagemGov {
+    position:absolute;
+    top:4px;
+    left:50%;
+    height: 24px;
+    width: 1000px;
+    background: url(images/barra-brasil-v3-verde.gif) right top no-repeat;
+    margin-left:-500px;
+}
 
-        #barra-brasil-v3 span .brasilgov {
-            width: 100px;
-            height: 24px;
-            float:right;
-            display:block;
-            border: 0 !important;
-        }
+#barra-brasil-v3 span .brasilgov {
+    width: 100px;
+    height: 24px;
+    float:right;
+    display:block;
+    border: 0 !important;
+}
+
+
+/* RESPONSIVE LAYOUT */
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+    .container, . {
+        width: 100%;
+    }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .content {
+        margin: 0px;
+    }    
+    .identification {
+        width: 90%;
+        margin:0;
+    }
+    #barra-brasil-v3 {
+        width: 100% !important;
+    }
+    #barra-brasil-v3 span .imagemGov {
+        width: 100%;
+        margin-left:-50%;
+    }
+    .header .logoBVS {
+        margin: 10px 10px 0 0;
+    }
+    .header .logoBVS a {
+        background-size: 80%;
+    }
+     .container {
+        width: 100%;
+        background-size: 500px;
+        background-position: 20px 7px;
+    }
+    .column1, .column2, .column3 {
+        width: 100%;
+    }
+    .column2 {
+        background: none;
+        margin-left: 0px;
+    }
+    .column2 .widget_categoryposts ul li {
+        width: auto;
+    }
+    .column3 .widget_categoryposts li .post-title {
+        width: 80%;
+    }
+    .bar {
+        position: absolute;
+        top:102px;
+        margin-left: 0px;
+        width: 95%;
+    }
+    .vhl-search h3 {
+        margin: 10px 0 0 10px;
+    }
+    .vhl-search form {
+        margin: 5px 0px 0px 15px;
+    }
+    .vhl-search .vhl-search-input {
+        width: 60%;
+    }
+    .vhl-search .vhl-search-submit {
+        width: 30%;
+    }
+    #vhl_search-2 {
+        position: absolute;
+        top: 124px;
+        height: 90px;
+        left: 0px;
+    }
+    #posthighlights_container {
+        display: none;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .header {
+        height: 190px;
+    }
+    .container {
+        width: 98%;
+    }  
+     .identification {
+        width: 100%;
+        margin:0 !important;
+    }
+
+}
+
+
