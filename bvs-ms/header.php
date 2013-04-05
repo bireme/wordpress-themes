@@ -17,6 +17,7 @@
 	    <meta property="og:description" content="<?php bloginfo('description'); ?>"/>
 	    <meta name="description" content="<?php bloginfo('description'); ?>" /> 
 		<meta name="keywords" content="" /> 
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<?php 

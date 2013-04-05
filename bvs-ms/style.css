@@ -455,21 +455,19 @@ p.wp-caption-text {
     display:block;
     border: 0 !important;
 }
-
-
 /* RESPONSIVE LAYOUT */
 /* Large desktop */
 @media (min-width: 1200px) { ... }
  
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { 
+@media only screen and (min-width: 768px) and (max-width: 979px) { 
     .container, . {
         width: 100%;
     }
 }
  
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     .content {
         margin: 0px;
     }    
@@ -487,13 +485,16 @@ p.wp-caption-text {
     .header .logoBVS {
         margin: 10px 10px 0 0;
     }
+    
+
     .header .logoBVS a {
-        background-size: 80%;
+        background-size: 50px;
+        width: 60px;
     }
-     .container {
+    .container {
         width: 100%;
-        background-size: 500px;
-        background-position: 20px 7px;
+        background-size: 410px auto;
+        background-position: 15px 9px;
     }
     .column1, .column2, .column3 {
         width: 100%;
@@ -538,7 +539,7 @@ p.wp-caption-text {
 }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
     .header {
         height: 190px;
     }
@@ -549,9 +550,5 @@ p.wp-caption-text {
         width: 100%;
         margin:0 !important;
     }
-
 }
-
-/* fim do arquivo */
-
 
