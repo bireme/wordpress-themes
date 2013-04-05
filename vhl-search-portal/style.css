@@ -1,0 +1,439 @@
+/*
+Theme Name: BVS Search Portal
+Theme URI: http://www.bvsalud.org/
+Version: 1.0
+Author: BIREME (DGI)
+*/
+
+/*
+	CSS RESET
+	http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* END CSS RESET */
+
+
+
+
+.spacer {
+	width: 100%;
+	height: 1px;
+	clear: both;
+}
+
+body {
+	background: #FFF;
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+strong {
+	font-weight: bold;
+}
+h1, h2, h3 {
+	font-family: Helvetica, Arial, sans-serif;
+}
+a {
+	color: #333;
+}
+
+.container {
+	width: 100%;
+	margin: 0px;
+	background: #FFF;
+}
+.bar {
+	width: 100%;
+	padding: 8px 0px 4px 0px;
+	background: url(images/top_bg.jpg) repeat-x;
+}
+.bar .barInner {
+	width: 974px;
+	margin: 0px auto;
+}
+.bar, .bar a {
+	color: #FFF;
+	text-decoration: none;
+}
+.topMenu {
+	float: left;
+}
+.bar .topMenu LI {
+	display: inline-block;
+	padding: 0px 5px;
+	zoom: 1;
+	*display:inline;
+}
+#otherVersions img {
+	display: none;
+}
+#otherVersions li {
+	display: inline-block;
+	padding: 0px 5px;
+	border-left: 1px solid #fff;
+	zoom: 1;
+	*display:inline;
+}
+#otherVersions li:first-child {
+	border: none;
+}
+#otherVersions, #contact {
+	display: inline-block;
+	float: right;
+}
+#contact {
+	background: url(images/bt_contact.gif) top left no-repeat;
+	padding-left: 20px;
+	margin-right: 12px;
+}
+.bar .topMenu LI A:hover, #otherVersions A:hover, #contact A:hover {
+	color: #ccffff;
+}
+.topSlot {
+	float: right;
+	margin: 20px 12px 0px 0px;
+}
+.top {
+	clear: both;
+	width: 974px;
+	margin: 0px auto;
+	padding: 0px 12px;
+}
+.top #parent {
+	float: left;
+	margin: 18px 6px 14px 0px;
+}
+
+
+.middle {
+	clear: both;
+	width: 980px;
+	margin: 0px auto;
+}
+.middle .searchVHL {
+	background: url(images/search-bg.png) no-repeat;
+	padding: 20px 0px;
+	height: 148px;
+}
+.searchVHL FORM {
+	margin: 20px 0px 15px 0px;
+}
+.middle .searchVHL .widgettitle {
+	display: none;
+}
+.middle .searchVHL .vhl-search-input {
+	border: 1px solid #848484; 
+	-webkit-border-radius:8px 0px 0px 8px; 
+	-moz-border-radius:8px 0px 0px 8px; 
+	border-radius:8px 0px 0px 8px; 
+	-webkit-box-shadow:0 1px 2px #666 inset; 
+	-moz-box-shadow:0 1px 2px #666 inset; 
+	box-shadow:0 1px 2px #666 inset; 
+	width:285px;
+	padding: 10px 0px 9px 0px;
+	-webkit-padding-before: 9px;
+	-webkit-padding-after: 8px;
+	text-indent: 5px;
+}
+.middle .searchVHL .vhl-search-submit {
+	background: url(images/search-button-bg.png) repeat-x;
+	border: 1px solid #475f78;
+	-webkit-border-radius:0px 8px 8px 0px; 
+	-moz-border-radius:0px 8px 8px 0px;
+	border-radius:0px 8px 8px 0px;
+	color: #FFF;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 9px 10px 8px 10px;
+	margin-left: -3px;
+	width: 90px;
+}
+.middle .searchVHL .vhl-search-submit:hover {
+	color: #065798;
+}
+.middle .searchVHL .searchbox_block {
+	width: 420px;
+	margin: 0px auto 0px auto;
+}
+.middle .searchVHL .searchbox_block A {
+	text-decoration: none;
+}
+.middle .searchVHL .searchbox_block A:hover {
+	text-decoration: underline;
+}
+.middle .searchVHL .searchbox_block.vhl-search {
+	width: 390px;
+	margin: 48px auto 0px auto;
+}
+
+.middle .searchVHL .searchOptions {
+	margin-bottom: 25px;
+}
+.middle .searchVHL .searchOptions LI {
+	display: inline-block;
+	margin-right: 38px;
+	zoom: 1;
+	*display:inline;
+}
+.middle .searchVHL .searchOptions LI A {	
+	display: inline-block;
+	color: #333;
+	text-decoration: none;
+	padding: 2px 0px 2px 20px;
+}
+.middle .searchVHL .searchOptions LI A:hover {
+	color: #007dc4;
+}	
+#advancedSearch {
+	background: url(images/icon_advancedSearch.gif) no-repeat;
+}
+#help {
+	background: url(images/icon_help.gif) no-repeat;
+}
+.middle .searchVHL .textwidget P {
+	font-size: 140%;
+	line-height: 140%;
+	color: #666;
+	/*margin-left: 45px;*/
+	font-weight: lighter;
+}
+.middle .searchVHL .textwidget P SMALL {
+	font-size: 80%;
+}
+.middle .post {
+	margin: 10px;
+}
+.middle h2, .footer h2 {
+	font-size: 140%;
+	font-weight: bold;
+	letter-spacing: -0.2px;
+}
+.middle .browseVHL {
+	margin-top: 32px;
+}
+.middle .collections {
+    margin-left: 22px;
+}
+.middle .collections_3col {
+    padding: 0px 4px;
+}
+.middle .vhl-collection {
+	width: 294px;
+	margin: 0px 12px;
+	float: left;
+}
+.widget {
+	margin-bottom: 10px;
+}
+.vhl-network {
+}
+.vhl-network ul {
+	margin: 8px 8px 8px 10px;
+}
+.vhl-network li {
+	margin-bottom:10px;	
+}
+.vhl-collection .collectiontitle, .footer .widgettitle {
+	color: #007dc4;
+}
+.vhl-collection ul {
+	padding: 8px;
+	margin: 8px;
+}
+.vhl-collection ul li.page_item {
+	margin: 0px 0px 12px 0px;
+	padding-bottom: 6px;
+	font-weight: normal;
+	font-size: 110%;
+	list-style: url(images/pointer.gif);
+	border-bottom: 1px solid #d9d9d9;
+}
+.vhl-collection ul li.page_item A {
+	text-decoration: none;
+	color: #666;
+}
+.vhl-collection ul li.page_item A:hover {
+	color: #007dc4;
+}
+
+.vhl-collection ul li.page_item ul {
+	display: none;
+	margin: 4px 00px 0px 0px;
+	padding: 0px;
+}
+.vhl-collection ul li.page_item ul li.page_item{
+	margin: 0;
+	font-weight: normal;
+	font-size: 90%;
+	display: inline-block;
+}
+.middle .post .storycontent p {
+	font-size: 16px;
+	line-height: 18px;
+	margin-bottom: 5px;
+}
+.middle .post .storycontent a img {
+	float: left;
+	margin: 0px 10px 10px 0px;
+}
+.footer {
+	background: #d3d3d3;
+	border-top: 1px solid #8bb0c0;
+}
+.footerArea {
+	width: 974px;
+	margin: 0px auto;
+	padding: 32px 12px 12px 12px;
+}
+.footerArea .footer-block {
+	margin: 0px 0px 12px 0px;
+}
+.footerArea .widget_nav_menu div UL {
+	margin-top: 18px;
+}
+.footerArea .widget_nav_menu div LI {
+	float: left;
+	width: 122px;
+	margin-right: 40px;
+}
+.footerArea .widget_nav_menu div LI A {
+	font-size: 110%;
+	font-weight: bold;
+	color: #065798;
+	text-decoration: none;
+}
+.footerArea .widget_nav_menu div LI LI A {
+	font-size: 100%;
+	font-weight: normal;
+	color: #333; 
+	text-decoration: none;
+}
+.footerArea .widget_nav_menu div LI LI A:hover {
+	color: #007dc4;
+}
+.footerArea .widget_nav_menu div LI UL {
+	margin: 4px 0px 12px 0px;
+}
+.footerArea .widget_nav_menu div LI UL LI {
+	float: none;
+	margin-bottom: 8px;
+	font-size: 90%;
+}
+.footer .widget_nav_menu {
+	padding-bottom: 40px;
+}
+.institutionalFooter {
+	clear: both;
+}
+.InstitutionalInfoInner {
+	width: 974px;
+	margin: 0px auto;
+}
+.institutionalFooter IMG {
+	float: left;
+	margin-right: 4px;
+}
+.InstitutionalInfo {
+	padding: 18px 0px;
+	border-top: 1px solid #8bb0c0;
+}
+.Institution-info {
+	padding-top: 16px;
+}
+.Institution-info P {
+	font-size: 85%;
+	line-height: 120%;
+}
+.Institution-info P STRONG {
+	font-size: 105%;
+}
+.menu-mapa-do-site-pt-container {
+	width: 810px;
+	margin: 0px auto;
+}
+
+
+/**************** SLIDER ****************/
+
+.sliderInner {
+	width: 900px;
+	margin: 30px auto;
+}
+.sliderItem {
+	float: left;
+	width: 245px;
+	margin: 0px 27px;
+}
+.sliderItem A {
+	text-decoration: none;
+}
+.sliderItem A:hover {
+	color: #0089DA;
+}
+.sliderItem A:hover .sliderImg {
+	background: url(images/slider-img-shadow-hover.png) no-repeat;
+}
+.sliderImg {
+	background: url(images/slider-img-shadow.png) no-repeat;
+}
+.sliderImg IMG {
+	border-radius: 8px;
+	margin: 8px;
+}
+.sliderCaption {
+	padding: 7px;
+}
+.sliderCaption STRONG {
+	font-size: 110%;
+	display: block;
+	margin-bottom: 3px;
+	line-height: 120%;
+	color: #133B5E;
+}
+.sliderCaption SPAN {
+	line-height: 150%;
+}
