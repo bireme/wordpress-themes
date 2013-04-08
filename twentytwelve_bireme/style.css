@@ -661,6 +661,10 @@ section[role="banner"] {
 .column li a:hover {
 	text-decoration: underline;
 }
+.vhl-collection li {
+	font-weight: bold;
+	margin-top:8px;
+}
 .children {
 	margin-top: 0 !important;
 }
@@ -669,9 +673,12 @@ section[role="banner"] {
 	padding: 0 0.3em 0 0.6em;
 	font-size: 90%;
 	border-left: 1px solid;
+	font-weight: normal;
+	margin-top:0px;
 }
 .children li:first-child {
 	border-left: none;
+	padding: 0px;
 }
 
 

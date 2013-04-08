@@ -178,6 +178,9 @@ body {
 					<?php
 					} 
 				?>
+			<div class="headerWidget">
+				<?php dynamic_sidebar( 'header' ); ?>
+			</div>
         </div>
 		<div class="spacer"></div>	
 	</div>
