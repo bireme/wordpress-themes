@@ -531,7 +531,7 @@ a:hover {
 }
 .site-content {
 	margin: 24px 0 0;
-	margin: 1.714285714rem 0 0;
+	margin: 0.714285714rem 0 0;
 }
 .widget-area {
 	margin: 24px 0 0;
@@ -655,6 +655,9 @@ section[role="banner"] {
 
 
 /* CONTENT */
+.breadcrumb {
+	padding: 10px;
+}
 .column li a {
 	text-decoration: none;
 }
