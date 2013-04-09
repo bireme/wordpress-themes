@@ -1148,7 +1148,11 @@ article.format-quote .entry-content blockquote {
 	color: #6a6a6a;
 	background: #efefef;
 }
-
+.siteInfo {
+	font-size: 80%;
+	text-align: center;
+	padding: 12px;
+}
 /* Status posts */
 .format-status .entry-header {
 	margin-bottom: 24px;

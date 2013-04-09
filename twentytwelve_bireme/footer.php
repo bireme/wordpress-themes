@@ -21,6 +21,13 @@
 	<?php dynamic_sidebar('footer'); ?>	
 	<div class="spacer"></div>
 </div>
+<div class="siteInfo">
+	<?php 
+		echo '<a href="http://wordpress.org" title="WordPress.org">WordPress</a> version ' . get_bloginfo ( 'version' );  
+	?>
+	 | 
+	<?php echo '<a href="https://github.com/bireme/bvs-site-wp-plugin" title="plugin repository">BVS-Site Plugin</a> version ' . BVS_VERSION;  ?>
+</div>
 </div><!-- .container -->
 <?php wp_footer(); ?>
 </body>
