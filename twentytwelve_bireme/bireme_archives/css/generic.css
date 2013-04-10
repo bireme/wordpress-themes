@@ -89,7 +89,7 @@ body {
 .double li {
     float: left;
     width: 45%;
-    margin: 0% 2% 1% 0%;
+    margin: 0% 3% 1% 2%;
 	height: 45px;
 	line-height: 120% !important;
 }

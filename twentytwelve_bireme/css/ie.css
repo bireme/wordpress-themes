@@ -241,3 +241,12 @@ body.full-width .site-content {
 	position: relative;
 	z-index: 1;
 }
+.ie .vhl-search-input {
+	width: 75%;
+}
+.ie .bar {
+	width: 50%;
+}
+.ie .header {
+	background: url("/wp-content/uploads/2013/03/banner.jpg") no-repeat scroll left top;
+}
