@@ -8,7 +8,14 @@
  */
 
 get_header(); ?>
-	<div class="breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="home">Home</a> > <?php the_title(); ?></div>
+
+<?php
+
+    $current_language = get_bloginfo('language');
+    $site_lang = substr($current_language, 0,2);
+
+?>
+	<div class="breadcrumb"><a href="<?php echo esc_url( home_url( '/'.( $site_lang ) ) ); ?>" class="home">Home</a> > <?php the_title(); ?></div>
 	<div id="primary" class="site-content">
 		<div id="content" class="single1column" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>

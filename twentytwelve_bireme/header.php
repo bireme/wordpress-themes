@@ -129,13 +129,13 @@ $site_lang = substr($current_language, 0,2);
 			</div>
 	        <div class="top top_<?php echo ($current_language);?>">
 	            <div id="parent">
-	            	<a href="http://regional.bvsalud.org/php/index.php" alt="Portal Regional da BVS">
+	            	<a href="http://regional.bvsalud.org/php/index.php?lang=<?php echo ( $site_lang ) ?>" alt="Portal Regional da BVS">
 		                <img src="<?php echo $logo;?>" alt="BVS LOGO"/>
 	        		</a>
 	            </div>
 	           	<?php if ($title == true) {	?>
 		            <div class="site_name">
-						<h1><a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a></h1>            
+						<h1><a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/'.( $site_lang ) ) ); ?>"><span><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span></a></h1>            
 		            </div>
 				<?php } ?>
 				<div class="headerWidget">
