@@ -20,8 +20,8 @@ register_sidebar( array(
     'description' => '',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
+    'before_title' => '<strong class="widget-title">',
+    'after_title' => '</strong>',
 ) );
 
 //SideBar Auxiliar Top só aparece se ativado
@@ -32,8 +32,8 @@ if ($top_sidebar == true){
         'description' => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
+        'before_title' => '<strong class="widget-title">',
+        'after_title' => '</strong>',
     ) );
 }
 
@@ -46,8 +46,8 @@ for($i=1; $i <= $total_columns; $i++) {
         'description' => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
+        'before_title' => '<strong class="widget-title">',
+        'after_title' => '</strong>',
     ) );
 
 }
@@ -59,8 +59,8 @@ if ($footer_sidebar == true){
         'description' => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
+        'before_title' => '<strong class="widget-title">',
+        'after_title' => '</strong>',
     ) );
 }
 
@@ -70,8 +70,8 @@ register_sidebar( array(
     'description' => '',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
+    'before_title' => '<strong class="widget-title">',
+    'after_title' => '</strong>',
 ) );
 
 register_sidebar( array(
@@ -80,8 +80,8 @@ register_sidebar( array(
     'description' => 'Widgets que aparecerão em segundo nível',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
+    'before_title' => '<strong class="widget-title">',
+    'after_title' => '</strong>',
 ) );
 
 $custom_header_file = TEMPLATEPATH . '/bireme_archives/custom/custom-header.php';

@@ -144,3 +144,31 @@ body.single .site-content {
 	width: 33%;
 	float: left;	
 	}
+
+.column strong.widget-title {
+        line-height: 150%;
+        color: #333333;
+        margin-bottom: 5px;
+}
+strong {
+        display: block;
+        font-size: 1.17em;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
+}
+.vhl-themes li strong {
+    clear: none;
+}
+.vhl-themes li strong a {
+    font-weight: bold;
+}
+.double li strong {
+    clear: none;
+
+}
+.double li strong a {
+    font-weight: bold;
+}
