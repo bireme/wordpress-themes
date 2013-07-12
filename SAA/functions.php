@@ -9,16 +9,8 @@
 
     register_sidebar(array(
     'name' => 'Sidebar',
-      'before_widget' => '<section class="s-list row-fluid margin-bottom25">',
+      'before_widget' => '<section class="s-list row-fluid margin-bottom25"  id="%1$s">',
       'after_widget' => '</section>',
-      'before_title' => '<h2 class="h2-home">',
-      'after_title' => '</h2>',
-    )); 
-
-    register_sidebar(array(
-    'name' => 'Enquete',
-      'before_widget' => '<section class="row-fluid radius10 bg-balls margin-bottom25"><div class="padding10">',
-      'after_widget' => '</div></section>',
       'before_title' => '<h2 class="h2-home">',
       'after_title' => '</h2>',
     )); 

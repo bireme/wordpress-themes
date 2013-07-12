@@ -5,9 +5,7 @@
 				<section id="main">
 					<h2 class="h2-home">Destaques SAA Informa</h2>
 					<article class="m-banners">
-						<a href="#" class="m-banners-item">
-							<img src="<?php bloginfo('template_directory'); ?>/Imagens/banners/banner1.jpg" alt="Banner 01">
-						</a>
+						<?php LenSlider::lenslider_output_slider('5b4bb7bbe0'); ?>
 					</article>
 
 					<article class="m-blocs">
@@ -16,13 +14,6 @@
 							<?php
 								wp_list_categories('sort_column=name&number=4&title_li=');
 							?>
-
-							<!-- <li class="m-categorias-li">
-								<a href="#" class="m-categorias-lia">
-									nome
-									<span class="quantity">12</span>
-								</a>
-							</li> -->	
 						</ul>
 					</article>
 
@@ -60,7 +51,7 @@
 					</article>
 
 					<article class="m-featured">
-						<?php query_posts('showposts=1&category_name=Noticias&offset=0');?>
+						<?php query_posts('showposts=1&category_name=featured&meta_key=position&meta_value=1');?>
 						<?php if (have_posts()): while (have_posts()) : the_post();?>
 						<a href="<?php the_Permalink()?>">
 							<h2 class="h2-home"><?php the_title();?></h2>
@@ -73,7 +64,8 @@
 						<?php endif;?>
 
 						<div class="m-featured-part2">
-							<?php query_posts('showposts=2&category_name=Noticias&offset=1,2');?>
+							<?php //query_posts('showposts=2&category_name=featured&meta_key=position&meta_value=2&meta_key=position&meta_value=3');?>
+							<?php query_posts(array('showposts' => '2', 'category_name' => 'featured', 'meta_key' => 'position', 'meta_value' => array('2','3')));?>
 							<?php if (have_posts()): while (have_posts()) : the_post();?>
 								<a href="<?php the_Permalink()?>" class="row-fluid margin-bottom10">
 									<div class="m-featured-part2-image">
@@ -86,7 +78,7 @@
 							<?php endwhile; else:?>
 							<?php endif;?>
 							
-							<?php query_posts('showposts=2&category_name=Noticias&offset=3,4');?>
+							<?php query_posts('showposts=2&category_name=featured&meta_key=position&meta_value=4,5');?>
 							<?php if (have_posts()): while (have_posts()) : the_post();?>
 								<a href="<?php the_Permalink()?>" class="row-fluid margin-top10 margin-bottom10">
 									<i class="i-list"></i>
