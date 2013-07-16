@@ -13,15 +13,16 @@
 
 			<div class="pull-right">
 				<ul class="f-patrocinios">
-					<li class="f-patrocinios-li">
-						<img src="<?php bloginfo('template_directory'); ?>/Imagens/brasil-sem-miseria.jpg" alt="Brasil Sem Miséria">
-					</li>
-					<li class="f-patrocinios-li">
-						<img src="<?php bloginfo('template_directory'); ?>/Imagens/disque-saude.jpg" alt="Disque Saúde">
-					</li>
-					<li class="f-patrocinios-li">
-						<img src="<?php bloginfo('template_directory'); ?>/Imagens/portal-da-saude.jpg" alt="Portal da Saúde">
-					</li>
+					
+					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('adv01') ) : else : ?>
+					<?php endif; ?>
+				
+					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('adv02') ) : else : ?>
+					<?php endif; ?>
+				
+					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('adv03') ) : else : ?>
+					<?php endif; ?>
+					
 				</ul>
 			</div>
 

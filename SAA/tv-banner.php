@@ -15,6 +15,7 @@
 	
 	<div class="tv-row-fluid">
 		<div class="tv-main-banner-qrcode">
+			
 			<img src="http://qrfree.kaywa.com/?l=1&s=8&d=www.wesleyamaro.com.br" alt="QRCode">
 			<p class="tv-main-banner-qrcode-p">Leia a matéria completa <br>escaneando o QRcode ao lado</p>
 		</div>

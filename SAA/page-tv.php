@@ -60,13 +60,16 @@
 						<div class="tv-main-banner-content">
 							<h2 class="tv-categoria"><?php the_category(', ');?></h2>
 							<h1 class="tv-main-banner-content-tit"><?php the_title();?></h1>
-							<p class="tv-main-banner-content-p"><?php wp_limit_post(224,' [...]',true);?></p>
+							<?php the_excerpt(); ?>
 						</div>
 					</div>
 					
 					<div class="tv-row-fluid">
 						<div class="tv-main-banner-qrcode">
-							<img src="http://qrfree.kaywa.com/?l=1&s=8&d=www.wesleyamaro.com.br" alt="QRCode">
+							<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-QrCode') ) : else : ?>
+							<?php endif; ?>	
+							<?php $key="qr-code"; echo get_post_meta($post->ID,$key,true);?>		
+							<!-- <img src="http://qrfree.kaywa.com/?l=1&s=8&d=www.wesleyamaro.com.br" alt="QRCode"> -->
 							<p class="tv-main-banner-qrcode-p">Leia a matéria completa <br>escaneando o QRcode ao lado</p>
 						</div>
 
@@ -142,5 +145,6 @@
 
 	<!-- SCRIPTS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/Js/tv.js"></script>
 </body>
 </html>

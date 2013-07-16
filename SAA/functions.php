@@ -16,19 +16,45 @@
     )); 
   
     register_sidebar(array(
-    'name' => 'Featured Home',
+    'name' => 'Category Left Block',
       'before_widget' => '<div class="block">',
       'after_widget' => '</div>',
       'before_title' => '<h2 class="h2-home">',
       'after_title' => '</h2>',
     )); 
-
+    register_sidebar(array(
+    'name' => 'Category Right Block',
+      'before_widget' => '<div class="block">',
+      'after_widget' => '</div>',
+      'before_title' => '<h2 class="h2-home">',
+      'after_title' => '</h2>',
+    ));
     register_sidebar(array(
     'name' => 'Tv-Sidebar',
       'before_widget' => '<section class="s-list row-fluid margin-bottom25">',
       'after_widget' => '</section>',
       'before_title' => '<h2 class="tv-sidebar-tit">',
       'after_title' => '</h2>',
+    ));
+    register_sidebar(array(
+    'name' => 'Tv-QrCode',
+      'before_widget' => '<div style="float:left;">',
+      'after_widget' => '</div>',
+    ));
+    register_sidebar(array(
+    'name' => 'adv01',
+      'before_widget' => '<li class="f-patrocinios-li" id="%1$s">',
+      'after_widget' => '</li>',
+    )); 
+    register_sidebar(array(
+    'name' => 'adv02',
+      'before_widget' => '<li class="f-patrocinios-li" id="%1$s">',
+      'after_widget' => '</li>',
+    )); 
+    register_sidebar(array(
+    'name' => 'adv03',
+      'before_widget' => '<li class="f-patrocinios-li" id="%1$s">',
+      'after_widget' => '</li>',
     )); 
     
   function wp_limit_post($max_char, $more_link_text = '[...]',$notagp = false, $stripteaser = 0, $more_file = '') {
@@ -72,4 +98,6 @@
         }
      }
   }
+
+  add_theme_support( 'post-thumbnails' ); 
 ?>

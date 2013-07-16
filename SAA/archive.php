@@ -19,7 +19,7 @@
 										<div class="m-results-text">
 											<span class="s-recents-h3">Fique ligado, mostras</span>
 											<h2 class="s-recents-h4"><?php the_title();?></h2>
-											<span class="s-recents-data"><?php the_time('d/m/Y');?> - <?php the_time('g:i');?></span>
+											<span class="s-recents-data"><?php the_time('d/m/Y');?> - <?php the_time('G\hi'); ?></span>
 											<p class="m-results-text-p">
 												<?php wp_limit_post(250,' [...]',true);?>
 											</p>

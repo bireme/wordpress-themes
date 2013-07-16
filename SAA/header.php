@@ -50,7 +50,7 @@
 		<div class="line-yellow"></div>
 	</div>
 	
-	<div class="row-fluid">
+	<div class="row-fluid" id="container">
 	<div id="box">
 		<header class="h">
 			<a href="<?php echo get_settings('home'); ?>">
