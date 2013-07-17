@@ -7,7 +7,6 @@
 	Author URL: http://www.wesleyamaro.com.br
 	Tags: Portal
 */
-
 /* FONT-FACE */
 @font-face{font-family: 'Open Sans'; font-style: normal; font-weight: 400; src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff'); }
 @font-face{font-family: 'Open Sans'; font-style: normal; font-weight: 600; src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff'); }
@@ -126,7 +125,7 @@ a:hover, a:hover p{text-decoration:underline;}
 .m-featured a:hover{color:rgb(51,51,51); text-decoration:underline;}
 .m-featured-part1{width:450px; float:left; font-size:12px; padding-right:5px; border-right:1px solid rgb(194,194,194); line-height:18px;}
 .m-featured-part1:hover{color:rgb(51,51,51); text-decoration:underline;}
-.m-featured-part1 img{max-width:250px; overflow:hidden; float:left; margin:3px 10px 5px 0;}
+.img-featured {width:250px !important;height: auto;overflow:hidden; float:left; margin:3px 10px 5px 0;}
 .m-featured-part2{width:179px; float:right; font-size:12px; line-height:18px;}
 .m-featured-part2-image{max-width:73px; float:left; margin-top:3px;}
 .m-featured-part2-image img{max-width:73px; overflow:hidden; float:left;}

@@ -49,7 +49,6 @@
 		</div>
 		<div class="line-yellow"></div>
 	</div>
-	
 	<div class="row-fluid" id="container">
 	<div id="box">
 		<header class="h">
@@ -77,7 +76,7 @@
 				<div class="pull-right">
 					<span class="h-nav-border-right"></span>
 
-					<a href="#" class="pull-left">
+					<a href="contato" class="pull-left">
 						<i class="i-mail"></i>
 						<span class="i-mail-txt">Contato</span>
 					</a>

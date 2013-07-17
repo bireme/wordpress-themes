@@ -4,12 +4,10 @@
 			<div class="c-ajusta">
 				<section id="main">
 					<div id="category">
-						<span class="tit-results">Resultados para:</span><h1 class="h2-home no-float"><?php single_cat_title();?></h1>
+						<span class="tit-results">Resultados para:</span><h1 class="h2-home no-float"><?php echo the_search_query(); ?></h1>
 
 						<ul class="m-results">
-						
 							<?php if (have_posts()): while (have_posts()) : the_post();?>
-							
 								<li class="m-results-li">
 									<a href="<?php the_Permalink()?>" class="m-results-lia">
 										<figure class="m-results-img">

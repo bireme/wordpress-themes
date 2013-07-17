@@ -63,13 +63,10 @@
 							<?php the_excerpt(); ?>
 						</div>
 					</div>
-					
 					<div class="tv-row-fluid">
 						<div class="tv-main-banner-qrcode">
 							<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-QrCode') ) : else : ?>
 							<?php endif; ?>	
-							<?php $key="qr-code"; echo get_post_meta($post->ID,$key,true);?>		
-							<!-- <img src="http://qrfree.kaywa.com/?l=1&s=8&d=www.wesleyamaro.com.br" alt="QRCode"> -->
 							<p class="tv-main-banner-qrcode-p">Leia a matéria completa <br>escaneando o QRcode ao lado</p>
 						</div>
 
