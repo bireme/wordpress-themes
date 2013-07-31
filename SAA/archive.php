@@ -16,7 +16,7 @@
 											<?php if ( has_post_thumbnail() ) {
 												the_post_thumbnail('medium', array('class' => 'list-img'));
 											}else{
-												echo "<img src='http://www.kross.pl/sites/default/files/styles/bike_zoom/public/default_images/proj_no_photo.png' class='list-img' alt='No Photo'>";
+												echo "<img src='" . get_stylesheet_directory_uri() . "/Imagens/proj_no_photo.png' class='list-img' alt='No Photo'>";
 											} ?>
 										</figure>
 

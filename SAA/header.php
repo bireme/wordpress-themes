@@ -23,13 +23,6 @@
 	</title>
 
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
- 
-	<!-- Facebook -->
-	<meta property="og:title" content="Wesley Amaro"/>
-	<meta property="og:site_name" content="Wesley Amaro"/>
-	<meta property="og:url" content="http://www.wesleyamaro.com.br"/>
-	<meta property="og:image" content="http://www.wesleyamaro.com.br/imagens/fb-share.jpg"/>
-	<meta property="og:description" content=""/>
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="favicon.ico" />

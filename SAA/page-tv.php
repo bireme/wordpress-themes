@@ -24,13 +24,7 @@
 
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
  
-	<!-- Facebook -->
-	<meta property="og:title" content="Wesley Amaro"/>
-	<meta property="og:site_name" content="Wesley Amaro"/>
-	<meta property="og:url" content="http://www.wesleyamaro.com.br"/>
-	<meta property="og:image" content="http://www.wesleyamaro.com.br/imagens/fb-share.jpg"/>
-	<meta property="og:description" content=""/>
-
+	
 	<!-- FAVICON -->
 	<link rel="shortcut icon" href="favicon.ico" />
 
@@ -58,7 +52,7 @@
 									<?php if ( has_post_thumbnail() ) {
 										the_post_thumbnail('medium');
 									}else{
-										echo "<img src='http://www.kross.pl/sites/default/files/styles/bike_zoom/public/default_images/proj_no_photo.png' alt='No Photo'>";
+										echo "<img src='" . get_stylesheet_directory_uri() . "/Imagens/proj_no_photo.png' alt='No Photo'>";
 									} ?>
 								</div>
 
@@ -66,7 +60,7 @@
 									<h2 class="tv-categoria">
 										<?php
 											//exclude these from displaying
-											$exclude = array("featured" , "Banners");
+											$exclude = array("featured" , "Banners" , "destaques");
 
 											// Set initial counter to limit display of only one category
 											$g = 0;
@@ -81,7 +75,7 @@
 												if (!in_array($category->cat_name, $exclude) && $g < 2)
 												{
 													//add category with link to categorystring
-													$catagorystring .= '<a href="'.get_bloginfo(url).get_option('category_base').'/'.$category->slug.'">'.$category->name.'</a>, ';
+													$catagorystring .= '<a href="'.get_bloginfo(url).'/'.'category'.'/'.$category->slug.'">'.$category->name.'</a>, ';
 
 											        // Add to counter after category loop
 											        $g++;

@@ -13,7 +13,11 @@
 								<li class="m-results-li">
 									<a href="<?php the_Permalink()?>" class="m-results-lia">
 										<figure class="m-results-img">
-											<img src="<?php echo get_option('home');?>/<?php $key="img";echo get_post_meta($post->ID,$key,true);?>" alt="<?php the_title();?>" class="list-img">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail('medium', array('class' => 'list-img'));
+											}else{
+												echo "<img src='" . get_stylesheet_directory_uri() . "/Imagens/proj_no_photo.png' class='list-img' alt='No Photo'>";
+											} ?>
 										</figure>
 
 										<div class="m-results-text">

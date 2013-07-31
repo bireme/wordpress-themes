@@ -7,7 +7,7 @@
 						<span class="s-recents-h3">
 						<?php
 							//exclude these from displaying
-							$exclude = array("featured" , "Banners");
+							$exclude = array("featured" , "Banners" , "destaques");
 
 							// Set initial counter to limit display of only one category
 							$g = 0;
@@ -22,7 +22,7 @@
 								if (!in_array($category->cat_name, $exclude) && $g < 2)
 								{
 									//add category with link to categorystring
-									$catagorystring .= '<a href="'.get_bloginfo(url).get_option('category_base').'/'.$category->slug.'">'.$category->name.'</a>, ';
+									$catagorystring .= '<a href="'.get_bloginfo(url).'/'.'category'.'/'.$category->slug.'">'.$category->name.'</a>, ';
 
 							        // Add to counter after category loop
 							        $g++;
@@ -40,7 +40,7 @@
 							<?php if ( has_post_thumbnail() ) {
 								the_post_thumbnail('medium', array('class' => 'pull-left-img img-single'));
 							}else{
-								echo "<img src='http://www.kross.pl/sites/default/files/styles/bike_zoom/public/default_images/proj_no_photo.png' class='pull-left-img img-single' alt='No Photo'>";
+								echo "<img src='" . get_stylesheet_directory_uri() . "/Imagens/proj_no_photo.png' class='pull-left-img img-single' alt='No Photo'>";
 							} ?>
 
 							<?php the_content();?>
