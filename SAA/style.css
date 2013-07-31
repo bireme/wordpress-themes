@@ -1,10 +1,9 @@
 /*
 	Theme Name: SAA Informa
-	Theme URI: http://www.wesleyamaro.com.br
-	Description: Projeto Bireme
+	Description: Tema desenvolvido para o boletim de notícias da SubSecretaria de Assuntos Administrativos do Ministério da Saúde
 	Version: 1.0
-	Author: Wesley Amaro
-	Author URL: http://www.wesleyamaro.com.br
+	Author: BIREME | OPAS | OMS
+	Author URL: https://github.com/bireme/wordpress-themes
 	Tags: Portal
 */
 /* FONT-FACE */
@@ -72,6 +71,7 @@ a:hover, a:hover p{text-decoration:underline;}
 .margin-bottom10{margin-bottom:10px;}
 .margin-top10{margin-top:10px;}
 .margin-bottom25{margin-bottom:25px;}
+.margin-bottom100{margin-bottom:100px;}
 .margin-bottom15{margin-bottom:15px;}
 .margin-bottom5{margin-bottom:5px;}
 .margin-top15{margin-top:15px;}
@@ -84,6 +84,8 @@ a:hover, a:hover p{text-decoration:underline;}
 .border-top{border-top:1px solid rgb(194,194,194);}
 .no-float{float:none !important; width:auto !important;}
 .pull-left-img{float:left !important; margin:3px 15px 10px 0;}
+.banner-automate{display:none;}
+.img-single{max-width:300px;}
 
 /* HEADER (h) */
 .h{width:100%; float:left;}
@@ -202,7 +204,7 @@ textarea{padding:4px 10px; font:13px "Open Sans", Helvetica, Arial, Sans-Serif; 
 #tv-main{width:1500px; height:100%; overflow:hidden; float:left; position:relative;}
 .tv-main-header{width:1410px; float:left; padding:45px;}
 .tv-main-header-logo{width:1047px; height:118px; float:left; background:url(Imagens/tv-logo.png) no-repeat; text-indent:-999px; font-size:14px;}
-.tv-main-banner{width:100%; float:left; padding:45px 0; font-size:29px;}
+.tv-main-banner{width:100%; max-height:580px; float:left; padding:45px 0; font-size:29px; overflow:hidden;}
 .tv-main-banner-padding{padding:0 45px; position:relative; overflow:hidden;}
 .tv-main-banner-image{width:574px; height:410px; float:left; overflow:hidden; margin-bottom:30px;}
 .tv-main-banner-image img{width:570px; height:406px; float:left; border:2px solid rgb(255,255,255);}
