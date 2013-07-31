@@ -25,7 +25,10 @@
                             	<span class="ban-img-txt-categoria">
                             		<?php 
                             			foreach((get_the_category()) as $cat) {
-											if (!($cat->cat_name=='Banners')) echo $cat->cat_name . ' ';
+											if (!($cat->cat_name=='Banners' || $cat->cat_name=='destaques' || $cat->cat_name=='featured')){
+												echo $cat->cat_name;
+												break;	
+											}
 										} 
 									?>
                             	</span>

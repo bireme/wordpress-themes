@@ -4,7 +4,35 @@
 			<div class="c-ajusta">
 				<section id="main">
 					<?php if (have_posts()): while (have_posts()) : the_post();?>
-						<span class="s-recents-h3"><?php the_category(', ');?></span>
+						<span class="s-recents-h3">
+						<?php
+							//exclude these from displaying
+							$exclude = array("featured" , "Banners");
+
+							// Set initial counter to limit display of only one category
+							$g = 0;
+
+							//set up an empty categorystring
+							$catagorystring = '';
+
+							//loop through the categories for this post
+							foreach((get_the_category()) as $category)
+							{
+								//if not in the exclude array
+								if (!in_array($category->cat_name, $exclude) && $g < 2)
+								{
+									//add category with link to categorystring
+									$catagorystring .= '<a href="'.get_bloginfo(url).get_option('category_base').'/'.$category->slug.'">'.$category->name.'</a>, ';
+
+							        // Add to counter after category loop
+							        $g++;
+								}
+							}
+
+							//strip off last comma (and space) and display
+							echo substr($catagorystring, 0, strrpos($catagorystring, ','));
+						?>
+						</span>
 						<h1 class="h2-home"><?php the_title();?></h1>
 						<span class="s-recents-data"><?php the_time('d/m/Y');?> - <?php the_time('G\hi'); ?></span>
 
