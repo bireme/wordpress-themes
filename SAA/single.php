@@ -9,7 +9,12 @@
 						<span class="s-recents-data"><?php the_time('d/m/Y');?> - <?php the_time('G\hi'); ?></span>
 
 						<div id="single" class="row-fluid margin-top10">
-							<img src="<?php echo get_settings('home');?>/<?php $key="img"; echo get_post_meta($post->ID,$key,true);?>" alt="<?php the_title();?>" class="pull-left-img">
+							<?php if ( has_post_thumbnail() ) {
+								the_post_thumbnail('medium', array('class' => 'pull-left-img img-single'));
+							}else{
+								echo "<img src='http://www.kross.pl/sites/default/files/styles/bike_zoom/public/default_images/proj_no_photo.png' class='pull-left-img img-single' alt='No Photo'>";
+							} ?>
+
 							<?php the_content();?>
 
 							<div class="comentarios row-fluid">

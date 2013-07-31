@@ -22,7 +22,13 @@
                         <a class="effect" href='<?php the_Permalink()?>'>
                             <img src="<?php echo get_settings('home');?>/<?php $key="banner-img"; echo get_post_meta($post->ID,$key,true);?>" width="510" height="330" alt="<?php the_title();?>" />
                             <span class="ban-img-txt">
-                            	<span class="ban-img-txt-categoria"><?php echo single_cat_title('');?></span>
+                            	<span class="ban-img-txt-categoria">
+                            		<?php 
+                            			foreach((get_the_category()) as $cat) {
+											if (!($cat->cat_name=='Banners')) echo $cat->cat_name . ' ';
+										} 
+									?>
+                            	</span>
                             	<span class="ban-img-txt-titulo"><?php the_title();?></span>                               
                                 <?php wp_limit_post(140,' [...]',true);?>
                             </span>

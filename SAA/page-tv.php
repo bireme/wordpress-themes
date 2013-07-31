@@ -49,35 +49,41 @@
 			</header>
 
 			<article id="tv-banner" class="tv-main-banner tv-bg-gray">
-				<div id="tv-banner-load" class="tv-main-banner-padding">
-					<?php query_posts('showposts=1&category_name=Noticias&offset=0');?>
-					<?php if (have_posts()): while (have_posts()) : the_post();?>	
-					<div class="tv-row-fluid">
-						<div class="tv-main-banner-image">
-							<img src="<?php echo get_settings('home');?>/<?php $key="img"; echo get_post_meta($post->ID,$key,true);?>" alt="<?php the_title();?>">
-						</div>
+				<?php query_posts('showposts=8&category_name=Noticias&offset=0');?>
+				<?php if (have_posts()): while (have_posts()) : the_post();?>	
+					<div class="banner-automate row-fluid margin-bottom100">
+						<div class="tv-main-banner-padding">
+							<div class="tv-row-fluid">
+								<div class="tv-main-banner-image">
+									<?php if ( has_post_thumbnail() ) {
+										the_post_thumbnail('medium');
+									}else{
+										echo "<img src='http://www.kross.pl/sites/default/files/styles/bike_zoom/public/default_images/proj_no_photo.png' alt='No Photo'>";
+									} ?>
+								</div>
 
-						<div class="tv-main-banner-content">
-							<h2 class="tv-categoria"><?php the_category(', ');?></h2>
-							<h1 class="tv-main-banner-content-tit"><?php the_title();?></h1>
-							<?php the_excerpt(); ?>
+								<div class="tv-main-banner-content">
+									<h2 class="tv-categoria"><?php the_category(', ');?></h2>
+									<h1 class="tv-main-banner-content-tit"><?php the_title();?></h1>
+									<?php the_excerpt(); ?>
+								</div>
+							</div>
+							<div class="tv-row-fluid">
+								<div class="tv-main-banner-qrcode">
+									<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-QrCode') ) : else : ?>
+									<?php endif; ?>	
+									<p class="tv-main-banner-qrcode-p">Leia a matéria completa <br>escaneando o QRcode ao lado</p>
+								</div>
+
+								<div class="tv-main-banner-author">
+									por: <?php the_author();?><br>
+									<?php the_time('d/m/Y');?> - <?php the_time('G\hi'); ?>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="tv-row-fluid">
-						<div class="tv-main-banner-qrcode">
-							<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-QrCode') ) : else : ?>
-							<?php endif; ?>	
-							<p class="tv-main-banner-qrcode-p">Leia a matéria completa <br>escaneando o QRcode ao lado</p>
-						</div>
-
-						<div class="tv-main-banner-author">
-							por: <?php the_author();?><br>
-							<?php the_time('d/m/Y');?> - <?php the_time('G\hi'); ?>
-						</div>
-					</div>
-					<?php endwhile; else:?>
-					<?php endif;?>
-				</div>
+				<?php endwhile; else:?>
+				<?php endif;?>
 			</article>
 
 			<footer class="tv-main-footer">
