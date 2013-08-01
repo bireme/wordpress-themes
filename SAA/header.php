@@ -58,25 +58,17 @@
 				</form>
 			</section>
 
-			<nav class="h-nav">
-				<ul class="h-nav-ul">
-					<li>
-						<a href="<?php echo get_settings('home'); ?>">Home</a>
-					</li>
-					<?php wp_list_pages('sort_column=menu_order&title_li=');?>
-				</ul>
-				
+			<nav id="site-navigation"  class="h-nav" role="navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'h-nav-ul' ) ); ?>
 				<div class="pull-right">
 					<span class="h-nav-border-right"></span>
-
 					<a href="contato" class="pull-left">
 						<i class="i-mail"></i>
 						<span class="i-mail-txt">Contato</span>
 					</a>
-
 					<a href="#" class="i-amaior">Aumentar Fonte</a>
-
 					<a href="#" class="i-amenor">Reduzir Fonte</a>
 				</div>
-			</nav>
+			</nav><!-- #site-navigation -->
+
 		</header>

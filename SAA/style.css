@@ -31,7 +31,7 @@ a:hover, a:hover p{text-decoration:underline;}
 .logo-ministerio, .logo-governo, .f-logo, .i-list, .i-vermais, .i-votar, .i-btEnviar, .simplePagerNav li a, .currentPage a
 {background:url(Imagens/sprite.png) no-repeat;}
 
-.h-nav, .h-nav-ul li a:hover, .bg-risc
+.h-nav, .h-nav-ul li a:hover, .bg-risc, .nav-menu, .menu-item
 {background:url(Imagens/bgs.png) repeat-x;}
 
 .barra-gov-acess-content, .barra-gov-brazil{height:24px; position:absolute; z-index:99; bottom:0px;}
@@ -92,10 +92,11 @@ a:hover, a:hover p{text-decoration:underline;}
 .h-logo{width:484px; height:52px; float:left; background:url(Imagens/saa-informa-logo.png) no-repeat; margin:35px 20px 35px 20px; text-decoration:none; text-indent:-999px; font-size:10px; overflow:hidden;}
 .h-search{float:right; margin:53px 20px 0 0;}
 .h-nav{width:100%; float:left; max-height:40px; border-top:1px solid rgb(147,153,155); border-bottom:1px solid rgb(147,153,155);}
-.h-nav-ul{float:left; list-style:none; border-right:1px solid rgb(147,153,155);}
-.h-nav-ul li{max-height:40px; min-height:40px; float:left; display:inline; border-left:1px solid rgb(147,153,155); border-right:1px solid rgb(215,219,220);}
+.h-nav-ul, .nav-menu{float:left; list-style:none; border-right:1px solid rgb(147,153,155);}
+.h-nav-ul li, .menu-item{max-height:40px; min-height:40px; float:left; display:inline; border-left:1px solid rgb(147,153,155); border-right:1px solid rgb(215,219,220);}
 .h-nav-ul li a{float:left; padding:11px 22px; text-decoration:none; color:rgb(0,0,0);}
 .h-nav-ul li a:hover{background-position:0px -44px; text-decoration:none !important;}
+.sub-menu li.menu-item{float: none;}
 .h-nav-border-right{height:40px; float:right; border-right:1px solid rgb(147,153,155);}
 
 /* BANNER */

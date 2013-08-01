@@ -99,4 +99,29 @@
      }
   }
   add_theme_support( 'post-thumbnails' ); 
+  // This theme uses wp_nav_menu() in one location.
+  register_nav_menu( 'primary', __( 'Primary Menu', 'SAA' ) );
+
+  function twentytwelve_scripts_styles() {
+    global $wp_styles;
+
+    /*
+     * Adds JavaScript to pages with the comment form to support
+     * sites with threaded comments (when in use).
+     */
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+      wp_enqueue_script( 'comment-reply' );
+
+    /*
+     * Adds JavaScript for handling the navigation menu hide-and-show behavior.
+     */
+    wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+  }
+  function twentytwelve_page_menu_args( $args ) {
+    if ( ! isset( $args['show_home'] ) )
+      $args['show_home'] = true;
+    return $args;
+  }
+  add_filter( 'wp_page_menu_args', 'twentytwelve_page_menu_args' );
+
 ?>
