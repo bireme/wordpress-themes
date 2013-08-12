@@ -42,6 +42,11 @@
       'after_widget' => '</div>',
     ));
     register_sidebar(array(
+    'name' => 'Tv-forecast',
+      'before_widget' => '<div style="float:right;">',
+      'after_widget' => '</div>',
+    ));
+    register_sidebar(array(
     'name' => 'adv01',
       'before_widget' => '<li class="f-patrocinios-li" id="%1$s">',
       'after_widget' => '</li>',

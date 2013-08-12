@@ -201,11 +201,11 @@ textarea{padding:4px 10px; font:13px "Open Sans", Helvetica, Arial, Sans-Serif; 
 .currentPage a{width:26px; height:26px; line-height:26px; text-align:center; background-position:-311px -81px !important; margin-top:1px; text-decoration:none; color:rgb(255,255,255) !important;}
 
 /* TV */
-#tv{width:1920px; height:1080px; margin:0 auto; background:url(Imagens/tv-bg.jpg) no-repeat; overflow:hidden;}
+#tv{width:1920px; height:1080px; margin:0 auto; background:#FFF; overflow:hidden;}
 #tv-main{width:1500px; height:100%; overflow:hidden; float:left; position:relative;}
 .tv-main-header{width:1410px; float:left; padding:45px;}
 .tv-main-header-logo{width:1047px; height:118px; float:left; background:url(Imagens/tv-logo.png) no-repeat; text-indent:-999px; font-size:14px;}
-.tv-main-banner{width:100%; max-height:580px; float:left; padding:45px 0; font-size:29px; overflow:hidden;}
+.tv-main-banner{width:94%; max-height:580px; float:left; padding:45px 0; margin:0 45px; font-size:29px; overflow:hidden;}
 .tv-main-banner-padding{padding:0 45px; position:relative; overflow:hidden;}
 .tv-main-banner-image{width:574px; height:410px; float:left; overflow:hidden; margin-bottom:30px;}
 .tv-main-banner-image img{width:570px; height:406px; float:left; border:2px solid rgb(255,255,255);}
@@ -223,11 +223,11 @@ textarea{padding:4px 10px; font:13px "Open Sans", Helvetica, Arial, Sans-Serif; 
 .tv-categoria{width:100%; float:left; color:rgb(0,180,255); font-size:29px;}
 .tv-categoria a{text-decoration:none; color:rgb(0,180,255);}
 .tv-row-fluid{width:100%; float:left;}
-.tv-bg-gray{background:rgb(213,211,194);}
+.tv-bg-gray{background:rgb(221,224,229) url("Imagens/bg-balls.gif"); border-radius:6px;}
 .font29{font-size:29px;}
 .font36{font-size:36px;}
 
-#tv-sidebar{width:420px; height:100%; overflow:hidden; float:right; position:relative; background:url(Imagens/tv-bg-sidebar.png);}
+#tv-sidebar{width:420px; height:100%; overflow:hidden; float:right; position:relative; background:rgb(240,243,249);}
 .tv-sidebar-padding{padding:30px; overflow:hidden; height:auto;}
 .tv-sidebar-tit{width:100%; float:left; font-size:39px; color:rgb(26,59,109); padding-bottom:15px;}
 .tv-sidebar-recents-ul{width:100%; float:left; list-style:none; font-size:18px;}
@@ -236,7 +236,7 @@ textarea{padding:4px 10px; font:13px "Open Sans", Helvetica, Arial, Sans-Serif; 
 .tv-sidebar-recents-data{font-size:17px; font-style:italic;}
 
 #tv-sidebar ul{width:100%; float:left; list-style:none; font-size:18px;}
-#tv-sidebar ul li{width:100%; float:left; margin-bottom:10px; padding-top:10px; border-top:1px solid rgb(255,255,255);}
+#tv-sidebar ul li{width:100%; float:left; margin-bottom:10px; padding-top:10px; border-top:1px solid rgb(153,153,153);}
 #tv-sidebar ul li a{color:rgb(26,59,109); font-size:26px; font-weight:600; line-height:34px;}
 #tv-sidebar ul li .post-date{font-size:17px; font-style:italic;}
 .post-cats .post-cats-list a{font-weight:600; font-size:85% !important;}

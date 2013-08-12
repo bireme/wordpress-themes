@@ -40,6 +40,10 @@
 		<section id="tv-main">
 			<header class="tv-main-header">
 				<h1 class="tv-main-header-logo">SAA Informa - Boletim Informativo da Subsecretaria de Assuntos Administrativos</h1>
+				<div class="forecast">
+					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-forecast') ) : else : ?>
+					<?php endif; ?>
+				</div>
 			</header>
 
 			<article id="tv-banner" class="tv-main-banner tv-bg-gray">
@@ -81,7 +85,6 @@
 											        $g++;
 												}
 											}
-
 											//strip off last comma (and space) and display
 											echo substr($catagorystring, 0, strrpos($catagorystring, ','));
 										?>
@@ -133,37 +136,6 @@
 			<div class="tv-sidebar-padding">
 				<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-Sidebar') ) : else : ?>
 				<?php endif; ?>
-
-				<!-- <h2 class="tv-sidebar-tit">Mais Recentes</h2>
-				<ul class="tv-sidebar-recents-ul">
-					<li>
-						<span class="tv-sidebar-recents-categoria">CGDI</span><br>
-						<span class="tv-sidebar-recents-h3">Mostra Memória da Loucura é inaugurada<br></span>
-						<span class="tv-sidebar-recents-data">24/05/2013 - 14:45hs</span><br>
-						Em comemoração ao dia Nacional da Luta Antimanicomial, 18 de maio, o Centro Cultural do Ministério da Saúde (CCMS)/ CGDI/ SAA/ SE inaugurou a exposição Memória da Loucura.
-					</li>
-
-					<li>
-						<span class="tv-sidebar-recents-categoria">CGMAP</span><br>
-						<span class="tv-sidebar-recents-h3">Servidora recebe prêmio em congresso nacional<br></span>
-						<span class="tv-sidebar-recents-data">24/05/2013 - 12:17hs</span><br>
-						Eurisdete Pereira Lopes, recebeu o “Prêmio 19 de Março”, categoria Pregão 2012, objeto: “REDE CEGONHA”,
-					</li>
-
-					<li>
-						<span class="tv-sidebar-recents-categoria">CGSG</span><br>
-						<span class="tv-sidebar-recents-h3">Transporte noturno tem novos horários<br></span>
-						<span class="tv-sidebar-recents-data">24/05/2013 - 11:32hs</span><br>
-						A partir desta segunda-feira (12), os horários noturnos do transporte do MS com destino à Rodoviária do Plano Piloto serão das 20h às 24h, com intervalos de 30 minutos.
-					</li>
-
-					<li>
-						<span class="tv-sidebar-recents-categoria">CGESP</span><br>
-						<span class="tv-sidebar-recents-h3">Ginástica Laboral volta com o programa “Geração Saúde”<br></span>
-						<span class="tv-sidebar-recents-data">24/05/2013 - 11:15hs</span><br>
-						Equipe da ginástica laboral retornou nesta segunda-feira (6). Participe!
-					</li>
-				</ul> -->
 			</div>
 		</aside>
 	</div>
