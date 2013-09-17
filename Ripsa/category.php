@@ -32,7 +32,7 @@
 						<div class="row-fluid margintop05">
 							<div class="pull-left marginright10">
 								<input type="radio" name="txtFiltro" id="txtIndicadoresDemograficos">
-								<label for="txtIndicadoresDemograficos" class="search-radio-txt">Nos indicadores Demográficos</label>
+								<label for="txtIndicadoresDemograficos" class="search-radio-txt">Neste grupo</label>
 							</div>
 							
 							<div class="pull-left">
@@ -70,8 +70,7 @@
 						<?php if (have_posts()): while (have_posts()) : the_post();?>
 							<li class="category-li">
 								<a href="<?php the_Permalink()?>" class="m-results-lia">
-									<?php the_title();?>
-								</a> - <?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?>
+									<?php the_title();?> - <?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?></a>
 							</li>
 						<?php endwhile; else:?>
 	      				<?php endif;?>

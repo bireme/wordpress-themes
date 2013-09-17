@@ -36,24 +36,11 @@
 				    );
 				    $categories = get_categories($args);
 				?>
-				
 				<ul class="content-catlist">
     				<?php foreach($categories as $category) : ?>
 					    <li>
 					    	<div class="group_key">
-								<?php
-									global $post;
-									// load all 'category' terms for the post
-									$terms = get_the_terms($post->ID, 'category');
-									// we will use the first term to load ACF data from
-									if( !empty($terms) )
-									{
-										$term = array_pop($terms);
-										$custom_field = get_field('grupo', 'category_' . $term->term_id );
-										// do something with $custom_field
-									}
-									echo $custom_field;
-								?>
+								<?php the_field('grupo', 'category_' . $category->term_id); ?>
 					    	</div>
 					    	<a href="<?php echo get_category_link( $category->term_id );?>" title="Ver todos os posts da categoria <?php echo $category->name; ?>">
 					        	<span class="row-fluid content-catlist-tit"><?php echo $category->name;?></span>

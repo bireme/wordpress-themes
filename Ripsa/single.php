@@ -147,7 +147,7 @@
 						<div class="padding7">
 							<h3 class="row-fluid single-h3">Serviços</h3>
 							
-							<a href="<?php $key="base_de_dados"; echo get_post_meta($post->ID,$key,true);?>" class="row-fluid single-servicos">
+							<a href="<?php $key="bases_de_dados"; echo get_post_meta($post->ID,$key,true);?>" class="row-fluid single-servicos">
 								<i class="i-basedados"></i><span class="single-servicos-text">Base de Dados</span>
 							</a>
 
