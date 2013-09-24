@@ -1,0 +1,809 @@
+# Translation of Rede Pan-Amazônica in Portuguese (Brazil)
+# This file is distributed under the same license as the Rede Pan-Amazônica package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2013-05-20 12:08-0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Rede Pan-Amazônica\n"
+"POT-Creation-Date: \n"
+"Last-Translator: Eduardo Zulian <eduardozulian@gmail.com>\n"
+"Language-Team: \n"
+
+#: inc/post-type-agenda.php:113
+msgid "View Agenda"
+msgstr "Ver agenda"
+
+#: inc/post-type-agenda.php:114
+msgid "Search Agenda"
+msgstr "Pesquisar agenda"
+
+#: inc/post-type-agenda.php:115
+msgid "Nothing Found"
+msgstr "Nada encontrado"
+
+#: inc/post-type-agenda.php:116
+msgid "Nothing Found in the Trash"
+msgstr "Nada na lixeira"
+
+#: inc/post-type-agenda.php:175
+msgctxt "tipo do evento da agenda"
+msgid "Tipo da Agenda"
+msgstr "Tipo da Agenda"
+
+#: inc/post-type-agenda.php:380
+msgctxt "tipos da agenda"
+msgid "Show all types"
+msgstr "Mostrar todos os tipos"
+
+#: inc/post-type-agenda.php:408
+msgid "Date"
+msgstr "Data"
+
+#: inc/post-type-agenda.php:409
+msgid "Type"
+msgstr "Tipo"
+
+#: inc/post-type-documentos.php:34
+msgid "Publication Source"
+msgstr "Editora"
+
+#: inc/post-type-documentos.php:41
+msgid "Year"
+msgstr "Ano"
+
+#: inc/post-type-documentos.php:55
+msgid "Author"
+msgstr "Autor"
+
+#: inc/post-type-documentos.php:62
+msgid "Collaborators"
+msgstr "Colaboradores"
+
+#: inc/post-type-documentos.php:69
+msgid "Language"
+msgstr "Idioma"
+
+#: inc/post-type-documentos.php:75
+msgid "Portuguese"
+msgstr "Português"
+
+#: inc/post-type-documentos.php:79
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: inc/post-type-documentos.php:83
+msgid "English"
+msgstr "Inglês"
+
+#: inc/post-type-documentos.php:89
+msgid "Link"
+msgstr "Link"
+
+#: inc/post-type-documentos.php:114
+msgctxt "post type general name"
+msgid "Documents"
+msgstr "Documentos"
+
+#: inc/post-type-documentos.php:115
+msgctxt "post type singular name"
+msgid "Document"
+msgstr "Documento"
+
+#: inc/post-type-documentos.php:116
+msgctxt "documento"
+msgid "Add New"
+msgstr "Adicionar nova"
+
+#: inc/post-type-documentos.php:117
+msgid "Add New Document"
+msgstr "Adicionar documento"
+
+#: inc/post-type-documentos.php:118
+msgid "Edit Document"
+msgstr "Editar documento"
+
+#: inc/post-type-documentos.php:119
+msgid "New Document"
+msgstr "Novo documento"
+
+#: inc/post-type-documentos.php:120
+msgid "View Document"
+msgstr "Ver documento"
+
+#: inc/post-type-documentos.php:122
+msgid "No Document Found"
+msgstr "Nenhum documento encontrado"
+
+#: inc/post-type-documentos.php:123
+msgid "No Document Found in the trash"
+msgstr "Nenhum documento na lixeira"
+
+#: inc/post-type-documentos.php:149
+msgid "About the document"
+msgstr "Sobre o documento"
+
+#: inc/theme-options.php:58
+#: inc/theme-options.php:141
+msgid "Pan-Amazonian Network Options"
+msgstr "Opções da Rede Pan-Amazônica"
+
+#: inc/theme-options.php:97
+msgid "Sorry, this file type is not permitted for security reasons."
+msgstr "Desculpe, este arquivo não é permitido por questões de segurança."
+
+#: inc/theme-options.php:145
+msgid "%s Group"
+msgstr "Grupo %s"
+
+#: inc/theme-options.php:158
+msgid "Featured Text"
+msgstr "Texto destaque"
+
+#: inc/theme-options.php:162
+#: inc/theme-options.php:229
+msgid "Text"
+msgstr "Texto"
+
+#: inc/theme-options.php:169
+msgctxt "theme options page"
+msgid "Link"
+msgstr "Link"
+
+#: inc/theme-options.php:169
+#: inc/theme-options.php:181
+#: inc/theme-options.php:187
+msgctxt "theme options page"
+msgid "<span class=\"description\">(with http://)</span>"
+msgstr "<span class=\"description\">(com http://)</span>"
+
+#: inc/theme-options.php:177
+msgid "Social Networks"
+msgstr "Redes Sociais"
+
+#: inc/theme-options.php:181
+msgctxt "theme options page"
+msgid "Facebook"
+msgstr "Facebook"
+
+#: inc/theme-options.php:187
+msgctxt "theme options page"
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/theme-options.php:197
+msgid "Logo"
+msgstr "Logo"
+
+#: inc/theme-options.php:201
+msgid "Group Thumbnail"
+msgstr "Miniatura do grupo"
+
+#: inc/theme-options.php:208
+msgid "Upload an image from your computer"
+msgstr "Subir uma image do seu computador"
+
+#: inc/theme-options.php:213
+msgid "Remove image"
+msgstr "Remover imagem"
+
+#: inc/theme-options.php:225
+msgid "Footer Text"
+msgstr "Texto do rodapé"
+
+#: inc/theme-options.php:241
+msgid "Save Changes"
+msgstr "Salvar alterações"
+
+#: inc/theme-options.php:271
+msgid "Settings saved."
+msgstr "Opções salvas."
+
+#: inc/widgets.php:34
+msgid "Display the latest posts from all Network"
+msgstr "Mostra todos os posts da rede"
+
+#: inc/widgets.php:35
+msgid "Network Now"
+msgstr "Acontece na rede"
+
+#: inc/widgets.php:185
+msgid "Number of posts:"
+msgstr "Número de posts:"
+
+#: inc/widgets.php:205
+msgid "Display the latest Documents"
+msgstr "Mostra os últimos documentos"
+
+#: inc/widgets.php:206
+msgid "Documents"
+msgstr "Documentos"
+
+#: inc/widgets.php:259
+#: inc/widgets.php:276
+msgid "See all Published Documents"
+msgstr "Veja todos os documentos"
+
+#: inc/widgets.php:268
+#: inc/widgets.php:691
+msgid "By %s"
+msgstr "Por %s"
+
+#: inc/widgets.php:323
+msgid "Number of documents:"
+msgstr "Número de documentos:"
+
+#: inc/widgets.php:345
+msgid "Display the group Agenda"
+msgstr "Mostra a Agenda do grupo"
+
+#: inc/widgets.php:346
+msgid "Agenda"
+msgstr "Agenda"
+
+#: inc/widgets.php:406
+msgid "Events"
+msgstr "Eventos"
+
+#: inc/widgets.php:407
+msgid "Meetings"
+msgstr "Reuniões"
+
+#: inc/widgets.php:440
+msgid "See the Agenda"
+msgstr "Veja a agenda"
+
+#: inc/widgets.php:489
+msgid "Number of events:"
+msgstr "Número de eventos:"
+
+#: inc/widgets.php:509
+msgid "Display the users"
+msgstr "Mostra os usuários"
+
+#: inc/widgets.php:510
+msgid "Group Users"
+msgstr "Usuários do grupo"
+
+#: inc/widgets.php:637
+msgid "Number of users:"
+msgstr "Número de usuários:"
+
+#: page-templates/contact.php:27
+msgid "New message received"
+msgstr "Nova mensagem recebida através do site"
+
+#: page-templates/contact.php:31
+msgid "Email successfully sent!"
+msgstr "Email enviado com sucesso!"
+
+#: page-templates/contact.php:34
+msgid "Error sending email, please try again"
+msgstr "Email não enviado, tente novamente"
+
+#: page-templates/contact.php:43
+msgid "Name:"
+msgstr "Nome:"
+
+#: page-templates/contact.php:46
+msgid "Email:"
+msgstr "Email:"
+
+#: page-templates/contact.php:49
+msgid "Message:"
+msgstr "Mensagem:"
+
+#: page-templates/contact.php:52
+msgid "Send"
+msgstr "Enviar"
+
+#: search.php:13
+msgid "Subscribe to this search results"
+msgstr "Assine os resultados desta busca"
+
+#: search.php:13
+msgid "Search results feed"
+msgstr "Feed dos resultados da busca"
+
+#: search.php:14
+msgid "%1$s Results for %2$s"
+msgstr "%1$s Resultados com %2$s"
+
+#: searchform.php:2
+#: searchform.php:6
+#: searchform.php:8
+msgid "Search"
+msgstr "Busca"
+
+#: sidebar.php:52
+msgid "Workgroup"
+msgstr "Grupo de trabalho"
+
+#: sidebar.php:57
+msgid "All"
+msgstr "Todos"
+
+#: sidebar.php:73
+msgid "Clear fields"
+msgstr "Limpar campos"
+
+#: single-agenda.php:15
+#: single-documento.php:12
+msgid "More on &ldquo;%s&rdquo;"
+msgstr "Mais sobre &ldquo;%s&rdquo;"
+
+#: single-agenda.php:57
+msgid "Event Website"
+msgstr "Site do evento"
+
+#: single-agenda.php:57
+msgid "More Info"
+msgstr "Mais informações"
+
+#: single-agenda.php:61
+#: single-documento.php:45
+msgid "Download File"
+msgstr "Baixar arquivo"
+
+#: tag.php:12
+msgid "Subscribe to this tag"
+msgstr "Assinar os posts com esta tag"
+
+#: tag.php:12
+msgid "Tag feed"
+msgstr "Feed da tag"
+
+msgid "Panamazônica"
+msgstr "Panamazônica"
+
+msgid "O tema padrão pros blogs da Rede Panamazônica"
+msgstr "O tema padrão pros blogs da Rede Panamazônica"
+
+msgid "flutuante, hacklab"
+msgstr "flutuante, hacklab"
+
+msgid "http://flutuante.com.br/"
+msgstr "http://flutuante.com.br/"
+
+msgid "two-columns, right-sidebar, custom-background, custom-menu, editor-style, microformats, post-formats, rtl-language-support, threaded-comments, sticky-post, theme-options, translation-ready"
+msgstr "two-columns, right-sidebar, custom-background, custom-menu, editor-style, microformats, post-formats, rtl-language-support, threaded-comments, sticky-post, theme-options, translation-ready"
+
+#: archive-agenda.php:17
+#: archive-agenda.php:19
+msgid "Past Events"
+msgstr "Eventos passados"
+
+#: archive-agenda.php:17
+msgid "View Future Events"
+msgstr "Ver eventos futuros"
+
+#: archive-agenda.php:17
+#: archive-agenda.php:19
+msgid "Future Events"
+msgstr "Eventos futuros"
+
+#: archive-agenda.php:19
+#: archive-agenda.php:46
+msgid "View Past Events"
+msgstr "Ver eventos passados"
+
+#: archive-agenda.php:34
+#: archive-agenda.php:35
+#: search.php:26
+#: search.php:27
+msgid "More info on &ldquo;%s&rdquo;"
+msgstr "Mais informações sobre &ldquo;%s&rdquo;"
+
+#: archive-agenda.php:35
+#: search.php:27
+msgid "More info"
+msgstr "Mais informações"
+
+#: archive-agenda.php:46
+msgid "No events scheduled."
+msgstr "Nenhum evento programado."
+
+#: archive-documento.php:19
+#: inc/widgets.php:238
+msgid "Published Documents"
+msgstr "Documentos publicados"
+
+#: archive-documento.php:19
+#: inc/post-type-documentos.php:121
+#: sidebar.php:7
+#: sidebar.php:72
+msgid "Search Documents"
+msgstr "Buscar documentos"
+
+#: archive-documento.php:33
+#: content.php:4
+#: page-templates/all-network-sites.php:15
+#: page-templates/team.php:15
+#: page.php:6
+#: search.php:39
+msgid "Read, comment and share &ldquo;%s&rdquo;"
+msgstr "Ler, comentar e compartilhar &ldquo;%s&rdquo;"
+
+#: archive-documento.php:57
+msgid "No documents found"
+msgstr "Nenhum documento encontrado"
+
+#: archive.php:9
+msgid "Daily Archives: %s"
+msgstr "Arquivos do dia %s"
+
+#: archive.php:11
+msgid "Monthly Archives: %s"
+msgstr "Arquivos do mês %s"
+
+#: archive.php:11
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:13
+msgid "Yearly Archives: %s"
+msgstr "Arquivos do ano %s"
+
+#: archive.php:13
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: archive.php:15
+#: functions.php:1073
+msgid "Archives"
+msgstr "Arquivos"
+
+#: author.php:11
+msgid "Subscribe to this author"
+msgstr "Assinar os posts deste autor"
+
+#: author.php:11
+msgid "Author feed"
+msgstr "Feed do autor"
+
+#: author.php:22
+#: functions.php:860
+#: page-templates/team.php:49
+msgid "Curriculum Lattes"
+msgstr "Currículo Lattes"
+
+#: author.php:31
+#: page-templates/team.php:58
+msgid "Country: %s"
+msgstr "País: %s"
+
+#: author.php:34
+#: page-templates/team.php:61
+msgid "Institution: %s"
+msgstr "Instituição: %s"
+
+#: author.php:36
+#: page-templates/team.php:64
+msgid "Occupation: %s"
+msgstr "Ocupação: %s"
+
+#: author.php:39
+#: page-templates/team.php:67
+msgid "Activity: %s"
+msgstr "Atividade: %s"
+
+#: author.php:42
+#: page-templates/team.php:70
+msgid "Themes of Interest: %s"
+msgstr "Temas de interesse: %s"
+
+#: category.php:12
+msgid "Subscribe to this category"
+msgstr "Assinar esta categoria"
+
+#: category.php:12
+msgid "Category feed"
+msgstr "Feed da categoria"
+
+#: comments.php:12
+msgid "One reaction"
+msgid_plural "%1$s reactions"
+msgstr[0] "Uma reação"
+msgstr[1] "%1$s reações"
+
+#: comments.php:17
+msgid "Leave a response!"
+msgstr "Deixe uma resposta!"
+
+#: comments.php:27
+msgid "Comment navigation"
+msgstr "Navegação dos comentários"
+
+#: comments.php:28
+msgid "%s Older comments"
+msgstr "%s Comentários antigos"
+
+#: comments.php:29
+msgid "Newer comments %s"
+msgstr "Comentários recentes %s"
+
+#: comments.php:39
+msgid "Comments are closed."
+msgstr "Os comentários estão fechados."
+
+#: content.php:4
+#: page-templates/all-network-sites.php:15
+#: page-templates/contact.php:10
+#: page-templates/team.php:15
+#: page.php:6
+#: single-agenda.php:15
+#: single-documento.php:12
+msgid "Edit"
+msgstr "Editar"
+
+#: content.php:17
+#: single-agenda.php:90
+#: single-documento.php:86
+msgid "%s Read more"
+msgstr "%s Leia mais"
+
+#: content.php:18
+#: page-templates/all-network-sites.php:18
+#: page-templates/team.php:18
+#: page.php:9
+#: single-agenda.php:91
+#: single-documento.php:87
+msgid "Pages:"
+msgstr "Páginas: "
+
+#: functions.php:30
+msgid "Primary Menu"
+msgstr "Menu primário"
+
+#: functions.php:31
+msgid "Secondary Menu"
+msgstr "Menu secundário"
+
+#: functions.php:91
+msgid "Primary Aside"
+msgstr "Aparte primário"
+
+#: functions.php:92
+msgid "Sidebar content"
+msgstr "Conteúdo da lateral"
+
+#: functions.php:228
+msgid "Post navigation"
+msgstr "Navegação entre posts"
+
+#: functions.php:238
+msgid "%s Older posts"
+msgstr "%s Mais antigos"
+
+#: functions.php:242
+#: header.php:45
+msgid "Home"
+msgstr "Capa"
+
+#: functions.php:243
+msgid "Newer posts %s"
+msgstr "Mais recentes %s"
+
+#: functions.php:294
+msgid "Page %s"
+msgstr "Página %s"
+
+#: functions.php:322
+#: functions.php:342
+msgid "%1$sEdit%2$s"
+msgstr "%1$sEditar%2$s"
+
+#: functions.php:341
+msgid "%1$s at %2$s"
+msgstr "%1$s às %2$s"
+
+#: functions.php:341
+msgid "Permalink"
+msgstr "Permalink"
+
+#: functions.php:346
+msgid "Your comment is awaiting moderation."
+msgstr "Seu comentário está aguardando moderação."
+
+#: functions.php:569
+msgid "Thematic Groups"
+msgstr "Grupos temáticos"
+
+#: functions.php:652
+#: inc/widgets.php:69
+msgid "Latest news"
+msgstr "Acontece na rede"
+
+#: functions.php:686
+#: inc/widgets.php:130
+msgid "By %1$s in %2$s"
+msgstr "Por %1$s em %2$s"
+
+#: functions.php:861
+msgid "Phone"
+msgstr "Telefone"
+
+#: functions.php:862
+msgid "Mobile"
+msgstr "Celular"
+
+#: functions.php:875
+msgid "Extra Profile Information"
+msgstr "Informações extras"
+
+#: functions.php:879
+msgid "Country"
+msgstr "País"
+
+#: functions.php:887
+msgid "Institution"
+msgstr "Instituição"
+
+#: functions.php:895
+msgid "Occupation"
+msgstr "Ocupação"
+
+#: functions.php:903
+msgid "Activity"
+msgstr "Atividade"
+
+#: functions.php:906
+msgid "Your role in the Network"
+msgstr "Seu papel na Rede"
+
+#: functions.php:911
+msgid "Themes of interest"
+msgstr "Temas de interesse"
+
+#: functions.php:986
+msgid "Team"
+msgstr "Equipe"
+
+#: functions.php:1011
+msgid "Add your team by writing their usernames, comma-separated:"
+msgstr "Adicione sua equipe preenchendo seus nomes de usuário, separados por vírgula:"
+
+#: functions.php:1109
+msgid "Add to Menu"
+msgstr "Adicionar ao Menu"
+
+#: functions.php:1206
+msgid "About the Document"
+msgstr "Sobre o documento"
+
+#: functions.php:1207
+msgid "Provide the document data, such as source, year of publication, authors and collaborators. Remember: the more information you add, the easier will be to find this document through the search."
+msgstr "Preencha as informações do documento, como fonte, ano de publicação, autores e colaboradores. Lembre-se: quanto mais informação você preencher, mais fácil vai ser encontrar o documento pela busca."
+
+#: functions.php:1230
+msgid "About the Agenda"
+msgstr "Sobre a agenda"
+
+#: functions.php:1231
+msgid "Select the event type (event or meeting) and enter the area above, along other data you consider important."
+msgstr "Selecione o tipo  da agenda (evento ou reunião) e preencha a área abaixo com as informações que você julgar importantes."
+
+#: functions.php:1250
+#: inc/widgets.php:651
+msgid "The most recent posts on your site"
+msgstr "Os posts mais recentes no seu site"
+
+#: functions.php:1251
+#: functions.php:1276
+#: inc/widgets.php:652
+#: inc/widgets.php:677
+msgid "Recent Posts"
+msgstr "Posts recentes"
+
+#: functions.php:1332
+#: inc/widgets.php:182
+#: inc/widgets.php:320
+#: inc/widgets.php:486
+#: inc/widgets.php:634
+#: inc/widgets.php:734
+msgid "Title:"
+msgstr "Título:"
+
+#: functions.php:1335
+#: inc/widgets.php:737
+msgid "Number of posts to show:"
+msgstr "Número de posts:"
+
+#: functions.php:1339
+#: inc/widgets.php:741
+msgid "Display post date?"
+msgstr "Mostrad data do post?"
+
+#: inc/custom-uploader.php:253
+msgid "Gallery (%s)"
+msgstr "Galeria (%s)"
+
+#: inc/opcoes-de-contato.php:19
+msgid "Contact"
+msgstr "Contato"
+
+#: inc/opcoes-de-contato.php:24
+msgid "Enter the email that will receive the messages sent through the contact form"
+msgstr "Informe o e-mail para onde devem ser enviados os formulários de contato"
+
+#: inc/opcoes-de-contato.php:25
+msgid "If you leave this field blak, messages will be sent to the admin email, set in Settings > General"
+msgstr "Caso nenhum e-mail seja informado, o formulário será enviado para o e-mail do administrador do site, informado em Configurações > Geral."
+
+#: inc/opcoes-de-contato.php:34
+msgid "Save"
+msgstr "Salvar"
+
+#: inc/post-type-agenda.php:13
+msgid "Theme"
+msgstr "Tema"
+
+#: inc/post-type-agenda.php:20
+msgid "Start Date"
+msgstr "Data de início"
+
+#: inc/post-type-agenda.php:27
+msgid "End Date"
+msgstr "Data de término"
+
+#: inc/post-type-agenda.php:34
+msgid "Time"
+msgstr "Horário"
+
+#: inc/post-type-agenda.php:41
+#: inc/post-type-documentos.php:48
+msgid "Place"
+msgstr "Local"
+
+#: inc/post-type-agenda.php:48
+msgid "Speaker(s)"
+msgstr "Palestrante(s)"
+
+#: inc/post-type-agenda.php:55
+msgid "Organizer"
+msgstr "Organizador"
+
+#: inc/post-type-agenda.php:62
+msgid "Event website"
+msgstr "Site do evento"
+
+#: inc/post-type-agenda.php:70
+msgid "Participants"
+msgstr "Participantes"
+
+#: inc/post-type-agenda.php:77
+msgid "Record link"
+msgstr "Link da ata"
+
+#: inc/post-type-agenda.php:107
+msgctxt "post type general name"
+msgid "Agenda"
+msgstr "Agenda"
+
+#: inc/post-type-agenda.php:108
+msgctxt "post type singular name"
+msgid "Agenda"
+msgstr "Agenda"
+
+#: inc/post-type-agenda.php:109
+msgctxt "image"
+msgid "Add New"
+msgstr "Adicionar novo"
+
+#: inc/post-type-agenda.php:110
+msgid "Add New Agenda"
+msgstr "Adicionar nova agenda"
+
+#: inc/post-type-agenda.php:111
+msgid "Edit Agenda"
+msgstr "Editar agenda"
+
+#: inc/post-type-agenda.php:112
+msgid "New Agenda"
+msgstr "Nova agenda"
+
