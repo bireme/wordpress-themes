@@ -96,7 +96,6 @@ function panamazonica_register_sidebars() {
   		'before_title' => '<h3 class="widget-title">',
   		'after_title' => '</h3>',
   	) );
-
 }
 
 /**
@@ -1345,5 +1344,20 @@ function register_widget_post_recent_new() {
 }
 
 add_action( 'widgets_init', 'register_widget_post_recent_new' );
+
+
+//homepage featured news 
+if ( function_exists('register_sidebar') )
+
+   	register_sidebar( array (
+  		'name' => __( 'Featured News','panamazonica' ),
+  		'description' => __( 'News from the management group of the network','panamazonica' ),
+  		'id' => 'featured-news',
+  		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+  		'after_widget' => '</div>',
+  		'before_title' => '<h3 class="widget-title">',
+  		'after_title' => '</h3>',
+  	) );
+  
 
 ?>

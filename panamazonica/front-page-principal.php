@@ -48,7 +48,8 @@
         	<?php endwhile; endif; wp_reset_postdata(); ?>
         </div><!-- /slider -->
     </div><!-- /slider-wrapper -->
-    
+    <?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Featured News') ) : else : ?>
+	<?php endif; ?>	
     <?php panamazonica_grupos_tematicos(); ?>
         			
     <div class="container cf">

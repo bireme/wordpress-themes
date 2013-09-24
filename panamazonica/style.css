@@ -1457,7 +1457,44 @@ form#contato-panamazonica input[type="submit"]:active{
 	background: #bd122b;
 	color: #fff;
 }
-
+/* Featured news */
+.widget_wp_category_post_list_itg {
+	background:rgb(247,247,247);
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+	margin-bottom:0px !important;
+    padding: 24px;
+}
+.widget_wp_category_post_list_itg h3 {
+/*	display: none;*/
+}
+li.wp-cpl {
+	display:inline-block;
+	vertical-align:top;
+	width: 235px;
+	padding: 0 22px;
+	border-right: 1px solid #dfdfdf;
+}
+li.wp-cpl:last-child {
+	border-right: none;
+}
+li.wp-cpl a {
+	font-family: 'Arbutus Slab',serif;
+    font-weight: 400;
+	font-size: 120%;
+	color: #BD122B;
+}
+li.wp-cpl p {
+	color: #888;
+	font-size: 85%;
+}
+li.wp-cpl img {
+	background: #fff;
+	-moz-box-shadow: 0 0 6px rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 0 6px rgba(0,0,0,.2);
+	box-shadow: 0 0 6px rgba(0,0,0,.2);
+	padding: 3px;
+}
 /* Tabs */
 .ui-tabs {
 	position: relative;
