@@ -1,0 +1,331 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: refnet\n"
+"POT-Creation-Date: 2013-09-25 16:20-0300\n"
+"PO-Revision-Date: 2013-09-25 16:21-0300\n"
+"Last-Translator: Julio Takayama <takayama@paho.org>\n"
+"Language-Team: BIREME <takayama@paho.org>\n"
+"Language: english\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../functions.php:21
+msgid "Status"
+msgstr "Status"
+
+#: ../functions.php:24
+#, fuzzy
+msgid "Responsable"
+msgstr "Responsável"
+
+#: ../functions.php:27 ../single-search_strategy.php:21
+msgid "Description of the search"
+msgstr "Descrição da busca"
+
+#: ../functions.php:30 ../single-search_strategy.php:25
+msgid "Deadlines"
+msgstr "Prazos"
+
+#: ../functions.php:33 ../single-search_strategy.php:30
+msgid "Main subject of the search"
+msgstr "Assunto principal da busca"
+
+#: ../functions.php:36 ../single-search_strategy.php:32
+msgid "Secondary subject of the search"
+msgstr "Assunto secundário da busca"
+
+#: ../functions.php:39 ../single-search_strategy.php:34
+msgid "Other secondary subject of the search"
+msgstr "Outros assuntos secundários da busca"
+
+#: ../functions.php:42
+#, fuzzy
+msgid "VHL Databases"
+msgstr "Bases de dados da BVS"
+
+#: ../functions.php:45
+#, fuzzy
+msgid "Other VHL Databases"
+msgstr "Outras bases de dados da BVS"
+
+#: ../functions.php:48 ../single-search_strategy.php:43
+msgid "Other Databases"
+msgstr "Outras bases de dados"
+
+#: ../functions.php:51 ../single-search_strategy.php:45
+msgid "More Other Databases"
+msgstr "Mais outras bases de dados"
+
+#: ../functions.php:54 ../single-search_strategy.php:50
+msgid "Publication year"
+msgstr "Ano de publicação"
+
+#: ../functions.php:57 ../single-search_strategy.php:52
+msgid "Country or Region of publication"
+msgstr "País ou regiaão de publicação"
+
+#: ../functions.php:60 ../single-search_strategy.php:54
+msgid "Country or Region as subject"
+msgstr "País ou região como assunto"
+
+#: ../functions.php:63 ../single-search_strategy.php:56
+msgid "Text language"
+msgstr "Idioma do texto"
+
+#: ../functions.php:66 ../single-search_strategy.php:58
+msgid "Other Text language"
+msgstr "Outros idiomas do texto"
+
+#: ../functions.php:69 ../single-search_strategy.php:60
+msgid "Publication type"
+msgstr "Tipo de publicação"
+
+#: ../functions.php:72 ../single-search_strategy.php:62
+msgid "Other Publication type"
+msgstr "Outro tipo de publicação"
+
+#: ../functions.php:75
+#, fuzzy
+msgid "Conditions (gender, age etc)"
+msgstr "Condições: gênero, idade, etc"
+
+#: ../functions.php:78 ../single-search_strategy.php:66
+msgid "Other Conditions"
+msgstr "Outras condições"
+
+#: ../functions.php:81 ../single-search_strategy.php:71
+msgid "VHL instance"
+msgstr "Instância da BVS"
+
+#: ../functions.php:84 ../single-search_strategy.php:73
+msgid "Type of search strategy"
+msgstr "Tipo de estratégia de busca"
+
+#: ../functions.php:87
+#, fuzzy
+msgid "iAH Search Expression for LILACS"
+msgstr "Expressão de busca para iAH"
+
+#: ../functions.php:90
+#, fuzzy
+msgid "iAHx Search Expression for LILACS"
+msgstr "Expressão de busca para iAHx"
+
+#: ../functions.php:93
+#, fuzzy
+msgid "URL to Search Results for LILACS"
+msgstr "URL para resultado de busca"
+
+#: ../functions.php:96
+#, fuzzy
+msgid "iAH Search Expression for MEDLINE"
+msgstr "Expressão de busca para iAH"
+
+#: ../functions.php:99
+#, fuzzy
+msgid "iAHx Search Expression for MEDLINE"
+msgstr "Expressão de busca para iAHx"
+
+#: ../functions.php:102
+#, fuzzy
+msgid "URL to Search Results for MEDLINE"
+msgstr "URL para resultado de busca"
+
+#: ../functions.php:105
+#, fuzzy
+msgid "iAH Search Expression for COCHRANE"
+msgstr "Expressão de busca para iAH"
+
+#: ../functions.php:108
+#, fuzzy
+msgid "iAHx Search Expression for COCHRANE"
+msgstr "Expressão de busca para iAHx"
+
+#: ../functions.php:111
+#, fuzzy
+msgid "URL to Search Results for COCHRANE"
+msgstr "URL para resultado de busca"
+
+#: ../functions.php:156
+msgid "Home"
+msgstr "Página inicial"
+
+#: ../functions.php:174 ../functions.php:182
+msgid "Espanol"
+msgstr "Español"
+
+#: ../functions.php:175 ../functions.php:179
+msgid "English"
+msgstr "English"
+
+#: ../functions.php:178 ../functions.php:183
+msgid "Portugues"
+msgstr "Português"
+
+#: ../search.php:15
+#, fuzzy
+msgid "Search Results for: "
+msgstr "Resultados de busca para: %s"
+
+#: ../single-search_strategy.php:23
+msgid "Responsible"
+msgstr "Responsável"
+
+#: ../single-search_strategy.php:28
+msgid "Search subject"
+msgstr "Assunto da busca"
+
+#: ../single-search_strategy.php:37
+msgid "Databases"
+msgstr "Bases de dados"
+
+#: ../single-search_strategy.php:39
+msgid "VHLs Databases"
+msgstr "Bases de dados da BVS"
+
+#: ../single-search_strategy.php:41
+msgid "Other VHLs Databases"
+msgstr "Outras bases de dados da BVS"
+
+#: ../single-search_strategy.php:48
+msgid "General Search Filters"
+msgstr "Filtros de busca gerais"
+
+#: ../single-search_strategy.php:64
+msgid "Conditions: gender, age etc"
+msgstr "Condições: gênero, idade, etc"
+
+#: ../single-search_strategy.php:69
+msgid "Search Strategy Scope"
+msgstr "Escopo da estratégia de busca"
+
+#: ../single-search_strategy.php:76
+msgid "LILACS Strategy"
+msgstr "Estratégia para LILACS"
+
+#: ../single-search_strategy.php:78 ../single-search_strategy.php:87
+#: ../single-search_strategy.php:96
+msgid "iAH Search Expression"
+msgstr "Expressão de busca para iAH"
+
+#: ../single-search_strategy.php:80 ../single-search_strategy.php:89
+#: ../single-search_strategy.php:98
+msgid "iAHx Search Expression"
+msgstr "Expressão de busca para iAHx"
+
+#: ../single-search_strategy.php:82 ../single-search_strategy.php:91
+#: ../single-search_strategy.php:100
+msgid "URL to Search Results"
+msgstr "URL para resultado de busca"
+
+#: ../single-search_strategy.php:85
+msgid "MEDLINE Strategy"
+msgstr "Estratégia para MEDLINE"
+
+#: ../single-search_strategy.php:94
+msgid "Cochrane Strategy"
+msgstr "Estratégia para Cochrane"
+
+#~ msgid "About %s"
+#~ msgstr "Sobre %s"
+
+#~ msgid "&larr; Older Comments"
+#~ msgstr "&larr; Comentários mais antigos"
+
+#~ msgid "Newer Comments &rarr;"
+#~ msgstr "Comentários mais recentes &rarr;"
+
+#~ msgid "Permalink to %s"
+#~ msgstr "Link permanente para %s"
+
+#~ msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+#~ msgstr "Continuar lendo <span class=\"meta-nav\">&rarr;</span>"
+
+#~ msgid "Leave a reply"
+#~ msgstr "Deixe um comentário"
+
+#~ msgid "1 Reply"
+#~ msgstr "1 comentário"
+
+#~ msgid "% Replies"
+#~ msgstr "% Comentários"
+
+#~ msgid "Edit"
+#~ msgstr "Editar"
+
+#~ msgid "Pages:"
+#~ msgstr "Páginas:"
+
+#~ msgid "Primary Menu"
+#~ msgstr "Menu primário"
+
+#~ msgid "Page %s"
+#~ msgstr "Página %s"
+
+#~ msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+#~ msgstr "<span class=\"meta-nav\">&larr;</span> Posts mais antigos"
+
+#~ msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+#~ msgstr "Posts mais recentes <span class=\"meta-nav\">&rarr;</span>"
+
+#~ msgid "(Edit)"
+#~ msgstr "(Editar)"
+
+#~ msgid "Post author"
+#~ msgstr "Autor do post"
+
+#~ msgid "Reply"
+#~ msgstr "Comentar"
+
+#~ msgid ", "
+#~ msgstr ", "
+
+#~ msgid "View all posts by %s"
+#~ msgstr "Ver todos os posts de %s"
+
+#~ msgid ""
+#~ "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-"
+#~ "author\"> by %4$s</span>."
+#~ msgstr ""
+#~ "Este post foi enviado em %1$s e marcado %2$s em %3$s<span class=\"by-"
+#~ "author\"> por %4$s</span>."
+
+#~ msgid ""
+#~ "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+#~ "span>."
+#~ msgstr ""
+#~ "Este post foi enviado em %1$s em %3$s<span class=\"by-author\"> por %4$s</"
+#~ "span>."
+
+#~ msgid ""
+#~ "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+#~ msgstr ""
+#~ "Este post foi enviado em %3$s<span class=\"by-author\"> por %4$s</span>."
+
+#~ msgid ""
+#~ "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span "
+#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
+#~ "time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
+#~ "&times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel="
+#~ "\"gallery\">%8$s</a>."
+#~ msgstr ""
+#~ "<span class=\"meta-prep meta-prep-entry-date\">Publicado </span> <span "
+#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
+#~ "time></span> em <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
+#~ "&times; %5$s</a> em <a href=\"%6$s\" title=\"Return to %7$s\" rel="
+#~ "\"gallery\">%8$s</a>."
+
+#~ msgid "&larr; Previous"
+#~ msgstr "&larr; Anterior"
+
+#~ msgid "Next &rarr;"
+#~ msgstr "Próximo &rarr;"
+
+#~ msgid "About the search"
+#~ msgstr "Sobre a busca"
