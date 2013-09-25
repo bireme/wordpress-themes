@@ -182,8 +182,16 @@ msgstr ""
 "intente nuevamente con nuevas palavras clave."
 
 #: ../searchform.php:11
+msgid "Search form"
+msgstr "Formulario de búsqueda"
+
+#: ../searchform.php:12
+msgid "Search by"
+msgstr "Búsqueda por"
+
+#: ../searchform.php:14
 msgid "Search"
-msgstr "Asunto de la búsqueda"
+msgstr "Buscar"
 
 #: ../single-search_strategy.php:19
 msgid "About the search"
