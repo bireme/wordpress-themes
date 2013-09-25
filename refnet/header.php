@@ -10,6 +10,10 @@
  */
 ?>
 
+<?php
+	load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+?>
+
 <!DOCTYPE html>
 	<!--[if IE 7]>
 	<html class="ie ie7" <?php language_attributes(); ?>>
