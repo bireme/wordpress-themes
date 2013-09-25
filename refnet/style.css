@@ -1,0 +1,27 @@
+/*
+Theme Name: BVS 2012 Child
+Theme URI: https://github.com/bireme/bvs-site-wp-plugin
+Description: The child theme default to develop one BVS Site
+Author: BIREME/OPAS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+Version: 1.0
+*/
+
+/*
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../bvs-2012/style.css');
+
+.site_name {
+	margin-top:40px;
+	width:500px;
+}
+
+.site_name small {
+	font-size:80%
+}

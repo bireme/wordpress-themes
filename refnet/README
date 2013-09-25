@@ -1,0 +1,11 @@
+Theme Name: BVS 2012 Child
+Theme URI: https://github.com/bireme/bvs-site-wp-plugin
+Description: The child theme default to develop one BVS Site
+Author: BIREME/OPAS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+Version: 1.0
+
+
+This WP theme is a child theme of BVS-2012 related to Reference Librarian Network project.
+To use it, please, rename it to bvs-2012-child.
