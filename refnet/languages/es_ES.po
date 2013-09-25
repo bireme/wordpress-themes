@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: refnet\n"
-"POT-Creation-Date: 2013-09-25 16:23-0300\n"
-"PO-Revision-Date: 2013-09-25 16:23-0300\n"
+"POT-Creation-Date: 2013-09-25 16:41-0300\n"
+"PO-Revision-Date: 2013-09-25 16:41-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: BIREME <takayama@paho.org>\n"
 "Language: english\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;__\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
@@ -20,7 +20,6 @@ msgid "Status"
 msgstr "Status"
 
 #: ../functions.php:24
-#, fuzzy
 msgid "Responsable"
 msgstr "Responsable"
 
@@ -45,12 +44,10 @@ msgid "Other secondary subject of the search"
 msgstr "Otros asuntos secundarios de la búsqueda"
 
 #: ../functions.php:42
-#, fuzzy
 msgid "VHL Databases"
 msgstr "Bases de datos de la BVS"
 
 #: ../functions.php:45
-#, fuzzy
 msgid "Other VHL Databases"
 msgstr "Otras bases de datos de la BVS"
 
@@ -91,7 +88,6 @@ msgid "Other Publication type"
 msgstr "Otros tipos de publicación"
 
 #: ../functions.php:75
-#, fuzzy
 msgid "Conditions (gender, age etc)"
 msgstr "Condiciones: género, edad, etc"
 
@@ -108,47 +104,38 @@ msgid "Type of search strategy"
 msgstr "Tipo de estrategia de búsqueda"
 
 #: ../functions.php:87
-#, fuzzy
 msgid "iAH Search Expression for LILACS"
 msgstr "Expresión de búsqueda para iAH"
 
 #: ../functions.php:90
-#, fuzzy
 msgid "iAHx Search Expression for LILACS"
 msgstr "Expresión de búsqueda para iAHx"
 
 #: ../functions.php:93
-#, fuzzy
 msgid "URL to Search Results for LILACS"
 msgstr "URL del resultado de búsqueda"
 
 #: ../functions.php:96
-#, fuzzy
 msgid "iAH Search Expression for MEDLINE"
 msgstr "Expresión de búsqueda para iAH"
 
 #: ../functions.php:99
-#, fuzzy
 msgid "iAHx Search Expression for MEDLINE"
 msgstr "Expresión de búsqueda para iAHx"
 
 #: ../functions.php:102
-#, fuzzy
 msgid "URL to Search Results for MEDLINE"
 msgstr "URL del resultado de búsqueda"
 
 #: ../functions.php:105
-#, fuzzy
 msgid "iAH Search Expression for COCHRANE"
 msgstr "Expresión de búsqueda para iAH"
 
 #: ../functions.php:108
-#, fuzzy
 msgid "iAHx Search Expression for COCHRANE"
 msgstr "Expresión de búsqueda para iAHx"
 
 #: ../functions.php:111
-#, fuzzy
 msgid "URL to Search Results for COCHRANE"
 msgstr "URL del resultado de búsqueda"
 
@@ -168,10 +155,39 @@ msgstr "English"
 msgid "Portugues"
 msgstr "Português"
 
+#: ../header.php:81
+msgid "Reference Librarian Network"
+msgstr "Rede de Referencistas"
+
+#: ../header.php:83
+msgid "Search strategies repository on the VHL information sources"
+msgstr ""
+"Repositorio de estrategias de búsqueda en las fuentes de información de la "
+"BVS"
+
 #: ../search.php:15
-#, fuzzy
 msgid "Search Results for: "
 msgstr "Resultados de búsqueda para: %s"
+
+#: ../search.php:42
+msgid "Nothing Found"
+msgstr "No encontrado"
+
+#: ../search.php:46
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo siento, pero no hay recuperación para su criterio de búsqueda. Por favor "
+"intente nuevamente con nuevas palavras clave."
+
+#: ../searchform.php:11
+msgid "Search"
+msgstr "Asunto de la búsqueda"
+
+#: ../single-search_strategy.php:19
+msgid "About the search"
+msgstr "Acerca de la búsqueda"
 
 #: ../single-search_strategy.php:23
 msgid "Responsible"
@@ -327,6 +343,3 @@ msgstr "Estrategia para Cochrane"
 
 #~ msgid "Next &rarr;"
 #~ msgstr "Proximo &rarr;"
-
-#~ msgid "About the search"
-#~ msgstr "Acerca de la búsqueda"
