@@ -82,7 +82,7 @@
 	            		<?php if ($title == true) {	?>
 		   		<div class="site_name">
 					<h1>
-						<a title="<?php  _e('Reference Librarian Network', 'refnet'); ?>" href="<?php echo $bannerLink;?>"><span><?php  _e('Reference Librarian Network', 'refnet'); ?></span></a>
+						<a title="<?php  _e('Reference Librarian Network', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('Reference Librarian Network', 'refnet'); ?></span></a>
 						<br/>
 						<small><?php _e('Search strategies repository on the VHL information sources','refnet') ?></small>
 					</h1>
