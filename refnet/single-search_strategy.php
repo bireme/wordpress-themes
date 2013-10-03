@@ -6,10 +6,10 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-
-get_header(); ?>
-
+?>
 	<?php 
+		load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+		get_header(); 
 		echo create_bread_crumb(get_the_title()); 
 	?>
 	<div id="primary" class="site-content">

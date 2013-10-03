@@ -180,8 +180,17 @@ msgstr ""
 "novamente com novas palavras chave"
 
 #: ../searchform.php:11
+msgid "Search form"
+msgstr "Formulário de busca"
+
+#: ../searchform.php:12
+msgid "Search by"
+msgstr "Busca por"
+
+
+#: ../searchform.php:14
 msgid "Search"
-msgstr "Assunto da busca"
+msgstr "Buscar"
 
 #: ../single-search_strategy.php:19
 msgid "About the search"
