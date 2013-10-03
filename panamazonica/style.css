@@ -437,7 +437,7 @@ a.rss:hover {
 	margin-bottom: 24px;
 	margin-bottom: 1.5rem;
 	padding: 24px 0;
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 }
 
 .content {
@@ -509,6 +509,7 @@ img.aligncenter {
 }
 
 /* Navigation */
+.sub-site-title a {color:#BD122B}
 
 .navigation {
 	overflow: hidden;

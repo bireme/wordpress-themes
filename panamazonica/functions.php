@@ -149,10 +149,10 @@ function panamazonica_load_scripts() {
 	wp_enqueue_script( 'cookiebar', get_template_directory_uri() . '/js/jquery.cookieBar.js', array( 'jquery' ), '' );
 
 	//jQuery do projeto
-	wp_enqueue_script('panamazonica_projeto', get_stylesheet_directory_uri().'/js/panamazonica.js', array('jquery'));
+	wp_enqueue_script('panamazonica_projeto', get_template_directory_uri().'/js/panamazonica.js', array('jquery'));
 
 	//jQuery validate
-	wp_enqueue_script('panamazonica_validate', get_stylesheet_directory_uri().'/js/jquery.validate.js', array('jquery'));
+	wp_enqueue_script('panamazonica_validate', get_template_directory_uri().'/js/jquery.validate.js', array('jquery'));
 
 	// Comment reply
 	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() )
@@ -571,8 +571,8 @@ function panamazonica_grupos_tematicos() {
 	    	<?php
 	    	if ( $network_sites = wp_get_sites( array( 'sort_column' => 'blogname' ) ) ) :
 	    		foreach ( $network_sites as $network_site ) :
-		    		// Pula o site principal
-		    		if ( $network_site['blog_id'] == 1 )
+		    		// Pula o site principal e omite o site da biblioteca
+		    		if ( $network_site['blog_id'] == 1 || $network_site['path'] == '/biblioteca/')
 		    			continue;
 
 		    		$site = get_blog_details( $network_site['blog_id'] );
@@ -818,19 +818,19 @@ add_action( 'admin_enqueue_scripts', 'panamazonica_enqueue_admin_scripts' );
 function panamazonica_ew_remove_widgets( $widgets ) {
 
 	$unallowed_widgets = array(
-		'WP_Widget_Archives',
-		'WP_Widget_Calendar',
-		'WP_Widget_Categories',
-		'WP_Widget_Links',
-		'WP_Widget_Meta',
-		'WP_Widget_Pages',
-		'WP_Widget_Recent_Comments',
-		'WP_Widget_Recent_Posts',
-		'WP_Widget_RSS',
-		'WP_Widget_Search',
-		'WP_Widget_Tag_Cloud',
+		//'WP_Widget_Archives',
+		//'WP_Widget_Calendar',
+		//'WP_Widget_Categories',
+		//'WP_Widget_Links',
+		//'WP_Widget_Meta',
+		//'WP_Widget_Pages',
+		//'WP_Widget_Recent_Comments',
+		//'WP_Widget_Recent_Posts',
+		//'WP_Widget_RSS',
+		//'WP_Widget_Search',
+		//'WP_Widget_Tag_Cloud',
 		//'WP_Widget_Text',
-		'WP_Nav_Menu_Widget',
+		//'WP_Nav_Menu_Widget',
 	);
 
 	foreach ( $widgets as $key => $widget )
