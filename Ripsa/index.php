@@ -29,12 +29,11 @@
 
 			<div class="padding15-25">	
 				<?php
-				    $args = array(
-				        'orderby' => 'name',
-				        'order' => 'ASC',
-				        'exclude' => '1'
-				    );
-				    $categories = get_categories($args);
+				    $categories = get_categories(array('exclude' => 1));
+				    foreach($categories as $cat) {
+					$categories_ordered[] = get_field('sort', 'category_' . $cat->term_id);
+				    }
+				    array_multisort($categories_ordered, $categories);
 				?>
 				<ul class="content-catlist">
     				<?php foreach($categories as $category) : ?>

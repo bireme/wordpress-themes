@@ -29,7 +29,7 @@
 							the_category();
 							?>
 						</span>
-						<h1 class="single-h1 marginbottom15"><?php the_title();?> - <?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
+						<h1 class="single-h1 marginbottom15"><?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php the_title();?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
 
 						<div class="single-topicos">
 							<div class="row-fluid">
@@ -91,7 +91,7 @@
 							</div>
 						</div>
 
-						<div class="single-topicos">
+						<div class="single-topicos" id="calculation">
 							<div class="row-fluid">
 								<h2 class="single-h2"><span class="single-topics-seta">-</span>Métodos de Cálculo</h2>
 							</div>
@@ -126,6 +126,43 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="single-topicos">
+                                                        <div class="row-fluid">
+                                                                <h2 class="single-h2"><span class="single-topics-seta">-</span>Notas</h2>
+                                                        </div>
+
+                                                        <div class="row-fluid single-topicos-open">
+                                                                <div class="single-topicos-content">
+                                                                        <?php $key="notas"; echo get_post_meta($post->ID,$key,true);?>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
+						<div class="single-topicos">
+							<div class="row-fluid">
+								<?php $g_section_ttl = get_post_meta($post->ID, 'section-title', true);?>
+								<?php
+									if (!empty($g_section_ttl)) {
+										echo '<h2 class="single-h2"><span class="single-topics-seta">-</span>';
+										echo get_post_meta($post->ID, 'section-title', true);
+										echo '</h2>';
+									}				
+								?>
+                                                        </div>
+
+                                                        <div class="row-fluid single-topicos-open">
+                                                                <div class="single-topicos-content">
+									<?php $g_section_cont = get_post_meta($post->ID, 'section-content', true);?>
+									<?php
+										if (!empty($g_section_cont)) {
+											echo get_post_meta($post->ID,'section-content' ,true);
+										}
+									?>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
 					</div>
 				<?php endwhile; else:?>
   				<?php endif;?>

@@ -101,6 +101,7 @@ img{border:0;}
 .single-servicos{cursor:pointer; color:rgb(49,49,49); text-decoration:none; margin-bottom:5px; padding-top:5px; border-top:1px solid rgb(200,222,245);}
 .single-servicos:hover .single-servicos-text{color:rgb(49,49,49); text-decoration:underline;}
 .single-servicos-text{float:right; width:140px;}
+.single-topicos-content .notes{font-size: 90%;font-style:italic;} 
 
 /* CATEGORY */
 .category-ul{margin-left:50px; list-style:square; float:left;}
@@ -116,9 +117,13 @@ table{width:100%; float:left; margin:10px 0; border:none; border:1px solid rgb(2
 table td{padding:2px 4px;}
 table thead{background:rgb(15,111,159) !important; color:rgb(255,255,255);}
 table thead tr th{font-weight:bold;}
-table tr:hover{background:rgb(15,111,159) !important; color:rgb(255,255,255) !important;}
+table tr:hover {background:rgb(15,111,159) !important; color:rgb(255,255,255) !important;}
 table tr:nth-child(even) {background:rgb(227,227,227); color:rgb(49,49,49); }
 table tr:nth-child(odd) {background:rgb(255,255,255); color:rgb(49,49,49);}
+#calculation table thead, 
+#calculation table tr:nth-child(even),
+#calculation table tr:hover {background:rgb(255,255,255) !important; color:rgb(49,49,49) !important;}
+
 
 /* FORMS */
 label{float:left; font-weight:600;}
