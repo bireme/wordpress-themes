@@ -20,7 +20,7 @@
 			?>
 		<?php if ( have_posts() ) : ?>
 
-			<?php twentytwelve_content_nav( 'nav-above' ); ?>
+			<?php //twentytwelve_content_nav( 'nav-above' ); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -28,14 +28,12 @@
 					<header class="entry-header">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 					</header>
-					<p class="post-status"><?php echo bir_show_custom_field(get_the_ID(), 'status'); ?></p>
+					<p class="post-date"><?php echo get_the_date(); ?></p>
 					<p class="post-description_of_the_search"><?php echo bir_show_custom_field(get_the_ID(), 'description_of_the_search'); ?></p>
-					<p class="post-vhls_databases"><?php echo bir_show_custom_field(get_the_ID(), 'vhls_databases'); ?></p>
-					<p class="post-date"><?php the_date(); ?></p>
 				</article>
 			<?php endwhile; ?>
 
-			<?php twentytwelve_content_nav( 'nav-below' ); ?>
+			<?php //twentytwelve_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
@@ -53,6 +51,7 @@
 		<?php endif; ?>
 
 		</div><!-- #content -->
+	<?php wp_pagenavi(); ?>
 	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
