@@ -20,23 +20,25 @@
 					$custom_field_keys = array ("description_of_the_search", "responsible", "deadlines");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='about'></i>";
 						_e('About the search','refnet');
 						echo "</h5>";
 					}
 				?>
 				<dl>
-				<?php
-					$html4label = "<dt>label</dt>";
-					$html4custom_field = "<dd>custom_field</dd>";
-					echo bir_show_custom_field(get_the_ID(), 'description_of_the_search', __('Description of the search','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'responsible', __('Responsible','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'deadlines', __('Deadlines','refnet'), $html4label, $html4custom_field);
-				?>
+			<?php
+				$html4label = "<dt>label</dt>";
+				$html4custom_field = "<dd>custom_field</dd><br/>";
+				echo bir_show_custom_field(get_the_ID(), 'description_of_the_search', __('Description of the search','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field(get_the_ID(), 'responsible', __('Responsible','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field(get_the_ID(), 'deadlines', __('Deadlines','refnet'), $html4label, $html4custom_field);
+			?>
 				</dl>
 				<?php 
 					$custom_field_keys = array ("main_subject_of_the_search", "secondary_subject_of_the_search", "other_secondary_subject_of_the_search");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='subject'></i>";
 						_e('Search subject','refnet');
 						echo "</h5>";
 					}
@@ -52,6 +54,7 @@
 					$custom_field_keys = array ("vhls_databases", "other_vhls_databases", "other_databases", "more_other_databases");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='databases'></i>";
 						_e('Databases','refnet');
 						echo "</h5>";
 					}
@@ -68,6 +71,7 @@
 					$custom_field_keys = array ("publication_year", "country_or_region_of_publication", "country_or_region_as_subject", "text_language", "other_text_language", "publication_type", "other_publication_type", "conditions", "other_conditions");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='filters'></i>";
 						_e('General Search Filters','refnet');
 						echo "</h5>";
 					}
@@ -89,6 +93,7 @@
 					$custom_field_keys = array ("vhl_instance", "type_of_search_strategy");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='vhl-instance'></i>";
 						_e('Search Strategy Scope','refnet');
 						echo "</h5>";
 					}
@@ -103,6 +108,7 @@
 					$custom_field_keys = array ("lilacs_iah_search_expression", "lilacs_iahx_search_expression", "lilacs_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='lilacs-strategy'></i>";
 						_e('LILACS Strategy','refnet');
 						echo "</h5>";
 					}
@@ -118,6 +124,7 @@
 					$custom_field_keys = array ("medline_iah_search_expression", "medline_iahx_search_expression", "medline_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='medline-strategy'></i>";
 						_e('MEDLINE Strategy','refnet');
 						echo "</h5>";
 					}
@@ -133,6 +140,7 @@
 					$custom_field_keys = array ("cochrane_iah_search_expression", "cochrane_iahx_search_expression", "cochrane_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
+						echo "<i class='cochrane-strategy'></i>";
 						_e('Cochrane Strategy','refnet');
 						echo "</h5>";
 					}
@@ -149,7 +157,9 @@
 			
 			
 			<?php while ( have_posts() ) : the_post(); ?>
+				<?php echo "<div class='revisions'>"; ?>
 				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php echo "</div>"; ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
