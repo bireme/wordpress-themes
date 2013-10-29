@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: refnet\n"
-"POT-Creation-Date: 2013-09-25 16:41-0300\n"
-"PO-Revision-Date: 2013-09-25 16:41-0300\n"
+"POT-Creation-Date: 2013-10-29 17:53-0300\n"
+"PO-Revision-Date: 2013-10-29 17:56-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: BIREME <takayama@paho.org>\n"
 "Language: english\n"
@@ -10,10 +10,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.7\n"
-"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../comments.php:32
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr "Um comentário em &ldquo;%2$s&rdquo;"
+
+#: ../comments.php:43
+msgid "Comment navigation"
+msgstr "Navegar nos comentários"
+
+#: ../comments.php:44
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentários mais antigos"
+
+#: ../comments.php:45
+msgid "Newer Comments &rarr;"
+msgstr "Comentários mais recentes &rarr;"
+
+#: ../comments.php:54
+msgid "Comments are closed."
+msgstr "Comentários estão fechados."
 
 #: ../functions.php:21
 msgid "Status"
@@ -23,23 +44,23 @@ msgstr "Status"
 msgid "Responsable"
 msgstr "Responsável"
 
-#: ../functions.php:27 ../single-search_strategy.php:21
+#: ../functions.php:27 ../single-search_strategy.php:32
 msgid "Description of the search"
 msgstr "Descrição da busca"
 
-#: ../functions.php:30 ../single-search_strategy.php:25
+#: ../functions.php:30 ../single-search_strategy.php:34
 msgid "Deadlines"
 msgstr "Prazos"
 
-#: ../functions.php:33 ../single-search_strategy.php:30
+#: ../functions.php:33 ../single-search_strategy.php:48
 msgid "Main subject of the search"
 msgstr "Assunto principal da busca"
 
-#: ../functions.php:36 ../single-search_strategy.php:32
+#: ../functions.php:36 ../single-search_strategy.php:49
 msgid "Secondary subject of the search"
 msgstr "Assunto secundário da busca"
 
-#: ../functions.php:39 ../single-search_strategy.php:34
+#: ../functions.php:39 ../single-search_strategy.php:50
 msgid "Other secondary subject of the search"
 msgstr "Outros assuntos secundários da busca"
 
@@ -51,39 +72,39 @@ msgstr "Bases de dados da BVS"
 msgid "Other VHL Databases"
 msgstr "Outras bases de dados da BVS"
 
-#: ../functions.php:48 ../single-search_strategy.php:43
+#: ../functions.php:48 ../single-search_strategy.php:66
 msgid "Other Databases"
 msgstr "Outras bases de dados"
 
-#: ../functions.php:51 ../single-search_strategy.php:45
+#: ../functions.php:51 ../single-search_strategy.php:67
 msgid "More Other Databases"
 msgstr "Mais outras bases de dados"
 
-#: ../functions.php:54 ../single-search_strategy.php:50
+#: ../functions.php:54 ../single-search_strategy.php:81
 msgid "Publication year"
 msgstr "Ano de publicação"
 
-#: ../functions.php:57 ../single-search_strategy.php:52
+#: ../functions.php:57 ../single-search_strategy.php:82
 msgid "Country or Region of publication"
 msgstr "País ou regiaão de publicação"
 
-#: ../functions.php:60 ../single-search_strategy.php:54
+#: ../functions.php:60 ../single-search_strategy.php:83
 msgid "Country or Region as subject"
 msgstr "País ou região como assunto"
 
-#: ../functions.php:63 ../single-search_strategy.php:56
+#: ../functions.php:63 ../single-search_strategy.php:84
 msgid "Text language"
 msgstr "Idioma do texto"
 
-#: ../functions.php:66 ../single-search_strategy.php:58
+#: ../functions.php:66 ../single-search_strategy.php:85
 msgid "Other Text language"
 msgstr "Outros idiomas do texto"
 
-#: ../functions.php:69 ../single-search_strategy.php:60
+#: ../functions.php:69 ../single-search_strategy.php:86
 msgid "Publication type"
 msgstr "Tipo de publicação"
 
-#: ../functions.php:72 ../single-search_strategy.php:62
+#: ../functions.php:72 ../single-search_strategy.php:87
 msgid "Other Publication type"
 msgstr "Outro tipo de publicação"
 
@@ -91,15 +112,15 @@ msgstr "Outro tipo de publicação"
 msgid "Conditions (gender, age etc)"
 msgstr "Condições: gênero, idade, etc"
 
-#: ../functions.php:78 ../single-search_strategy.php:66
+#: ../functions.php:78 ../single-search_strategy.php:89
 msgid "Other Conditions"
 msgstr "Outras condições"
 
-#: ../functions.php:81 ../single-search_strategy.php:71
+#: ../functions.php:81 ../single-search_strategy.php:103
 msgid "VHL instance"
 msgstr "Instância da BVS"
 
-#: ../functions.php:84 ../single-search_strategy.php:73
+#: ../functions.php:84 ../single-search_strategy.php:104
 msgid "Type of search strategy"
 msgstr "Tipo de estratégia de busca"
 
@@ -155,15 +176,15 @@ msgstr "English"
 msgid "Portugues"
 msgstr "Português"
 
-#: ../header.php:81
+#: ../header.php:85
 msgid "Reference Librarian Network"
 msgstr "Rede de Referencistas"
 
-#: ../header.php:83
+#: ../header.php:87
 msgid "Search strategies repository on the VHL information sources"
 msgstr "Repositório de estratégias de busca nas fontes de informação da BVS"
 
-#: ../search.php:15
+#: ../search.php:17
 msgid "Search Results for: "
 msgstr "Resultados de busca para: %s"
 
@@ -183,86 +204,77 @@ msgstr ""
 msgid "Search form"
 msgstr "Formulário de busca"
 
-#: ../searchform.php:12
-msgid "Search by"
-msgstr "Busca por"
-
-
-#: ../searchform.php:14
-msgid "Search"
-msgstr "Buscar"
-
-#: ../single-search_strategy.php:19
+#: ../single-search_strategy.php:24
 msgid "About the search"
 msgstr "Sobre a busca"
 
-#: ../single-search_strategy.php:23
+#: ../single-search_strategy.php:33
 msgid "Responsible"
 msgstr "Responsável"
 
-#: ../single-search_strategy.php:28
+#: ../single-search_strategy.php:42
 msgid "Search subject"
 msgstr "Assunto da busca"
 
-#: ../single-search_strategy.php:37
+#: ../single-search_strategy.php:58
 msgid "Databases"
 msgstr "Bases de dados"
 
-#: ../single-search_strategy.php:39
+#: ../single-search_strategy.php:64
 msgid "VHLs Databases"
 msgstr "Bases de dados da BVS"
 
-#: ../single-search_strategy.php:41
+#: ../single-search_strategy.php:65
 msgid "Other VHLs Databases"
 msgstr "Outras bases de dados da BVS"
 
-#: ../single-search_strategy.php:48
+#: ../single-search_strategy.php:75
 msgid "General Search Filters"
 msgstr "Filtros de busca gerais"
 
-#: ../single-search_strategy.php:64
+#: ../single-search_strategy.php:88
 msgid "Conditions: gender, age etc"
 msgstr "Condições: gênero, idade, etc"
 
-#: ../single-search_strategy.php:69
+#: ../single-search_strategy.php:97
 msgid "Search Strategy Scope"
 msgstr "Escopo da estratégia de busca"
 
-#: ../single-search_strategy.php:76
+#: ../single-search_strategy.php:112
 msgid "LILACS Strategy"
 msgstr "Estratégia para LILACS"
 
-#: ../single-search_strategy.php:78 ../single-search_strategy.php:87
-#: ../single-search_strategy.php:96
+#: ../single-search_strategy.php:118 ../single-search_strategy.php:134
+#: ../single-search_strategy.php:150
 msgid "iAH Search Expression"
 msgstr "Expressão de busca para iAH"
 
-#: ../single-search_strategy.php:80 ../single-search_strategy.php:89
-#: ../single-search_strategy.php:98
+#: ../single-search_strategy.php:119 ../single-search_strategy.php:135
+#: ../single-search_strategy.php:151
 msgid "iAHx Search Expression"
 msgstr "Expressão de busca para iAHx"
 
-#: ../single-search_strategy.php:82 ../single-search_strategy.php:91
-#: ../single-search_strategy.php:100
+#: ../single-search_strategy.php:120 ../single-search_strategy.php:136
+#: ../single-search_strategy.php:152
 msgid "URL to Search Results"
 msgstr "URL para resultado de busca"
 
-#: ../single-search_strategy.php:85
+#: ../single-search_strategy.php:128
 msgid "MEDLINE Strategy"
 msgstr "Estratégia para MEDLINE"
 
-#: ../single-search_strategy.php:94
+#: ../single-search_strategy.php:144
 msgid "Cochrane Strategy"
 msgstr "Estratégia para Cochrane"
 
+#~ msgid "Search by"
+#~ msgstr "Busca por"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
 #~ msgid "About %s"
 #~ msgstr "Sobre %s"
-
-#~ msgid "&larr; Older Comments"
-#~ msgstr "&larr; Comentários mais antigos"
-
-#~ msgid "Newer Comments &rarr;"
-#~ msgstr "Comentários mais recentes &rarr;"
 
 #~ msgid "Permalink to %s"
 #~ msgstr "Link permanente para %s"
