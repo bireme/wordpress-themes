@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="banner">
 			<div class="identification">
-				<span class="VHLLink"><a href="http://regional.bvsalud.org/php/index.php?lang=en"></a></span>
+				<span class="VHLLink"><a href="http://bvsalud.org/php/index.php?lang=en"></a></span>
 				<h1><a href="<?php echo get_option('home'); ?>/"><span><?php bloginfo('name'); ?></span></a></h1>
 			</div><!-- /identification -->
                  <div style="display: block;" class="bar">
