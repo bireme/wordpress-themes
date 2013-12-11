@@ -177,12 +177,12 @@ msgid "Portugues"
 msgstr "Português"
 
 #: ../header.php:85
-msgid "Reference Librarian Network"
-msgstr "Rede de Referencistas"
+msgid "Topic-specific queries"
+msgstr "Pesquisa em temas específicos"
 
 #: ../header.php:87
-msgid "Search strategies repository on the VHL information sources"
-msgstr "Repositório de estratégias de busca nas fontes de informação da BVS"
+msgid "Repository of search strategies on the VHL"
+msgstr "Repositório de estratégias de busca na BVS"
 
 #: ../search.php:17
 msgid "Search Results for: "
