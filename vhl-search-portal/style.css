@@ -147,7 +147,30 @@ a {
 	float: left;
 	margin: 18px 6px 14px 0px;
 }
-
+.top #identification_pt-BR, .top #identification_en-US, .top #identification_es-ES {
+	float: left;
+}
+.top #identification_pt-BR h1 {
+	background: url(images/pt/title.png) no-repeat;
+	width: 228px;
+	height: 35px;
+	margin-top: 36px;
+}
+.top #identification_en-US h1 {
+	background: url(images/en/title.png) no-repeat;
+	width: 228px;
+	height: 35px;
+	margin-top: 36px;
+}
+.top #identification_es-ES h1 {
+	background: url(images/es/title.png) no-repeat;
+	width: 250px;
+	height: 35px;
+	margin-top: 36px;
+}
+.top #identification_pt-BR H1 SPAN, .top #identification_en-US H1 SPAN, .top #identification_es-ES H1 SPAN {
+	display: none;
+}
 
 .middle {
 	clear: both;
@@ -155,12 +178,26 @@ a {
 	margin: 0px auto;
 }
 .middle .searchVHL {
+	/* standard searchbox */
 	background: url(images/search-bg.png) no-repeat;
-	padding: 20px 0px;
 	height: 148px;
+	padding: 62px 0px 20px 0px;
+
+		
+	/* styles for doodle like highlight
+	padding: 5px 0px 20px 0px;
+	background: url(images/search-bg-selo.png) no-repeat;
+	height: 228px;
+	*/
 }
 .searchVHL FORM {
+	/* 
+	* standard searchbox
 	margin: 20px 0px 15px 0px;
+	*/
+	
+	/* styles for doodle like highlight */
+	margin: 0px 0px 15px 0px;
 }
 .middle .searchVHL .widgettitle {
 	display: none;
@@ -190,7 +227,7 @@ a {
 	cursor: pointer;
 	padding: 9px 10px 8px 10px;
 	margin-left: -3px;
-	width: 90px;
+	width: 102px;
 }
 .middle .searchVHL .vhl-search-submit:hover {
 	color: #065798;
@@ -207,7 +244,13 @@ a {
 }
 .middle .searchVHL .searchbox_block.vhl-search {
 	width: 390px;
+	/* 
+	* standard searchbox
 	margin: 48px auto 0px auto;
+	*/
+	
+	/* styles for doodle like highlight */
+	margin: 10px auto 0px auto;
 }
 
 .middle .searchVHL .searchOptions {
@@ -257,6 +300,8 @@ a {
 }
 .middle .collections {
     margin-left: 22px;
+	clear: both;
+	padding-top: 40px;
 }
 .middle .collections_3col {
     padding: 0px 4px;
@@ -436,4 +481,26 @@ a {
 }
 .sliderCaption SPAN {
 	line-height: 150%;
+}
+
+/**************** MEDIA QUERIES ****************/
+@media (min-width: 525px) and (max-width: 767px) {
+	.top, .footerArea {width: 93%;}
+        .middle, .bar .barInner, .sliderInner{width:100%;}
+	.menu-mapa-do-site-pt-container {width:97%;}
+	.middle .searchVHL{background-position: 50% 0 !important;}
+	.middle .vhl-collection{width:auto;}
+}
+
+@media (max-width: 525px) {
+	.top, .footerArea {width: 93%;}
+	.middle, .bar .barInner, .sliderInner{width:100%;}
+	.bar .barInner{font-size: 80%;}
+	.menu-mapa-do-site-pt-container {width:97%;}
+	.searchbox_block.vhl-search {width: 100% !important;}
+	.searchbox_block.widget_text{width: 100% !important;font-size: 80%;}
+	.searchbox_block.widget_text img{width:14px;}
+	.sliderItem{margin: 0 16% !important;}
+	.middle .searchVHL{background-position: 50% 0 !important;}
+	.middle .searchVHL .vhl-search-input {width: 58% !important; margin-left:6%;}
 }
