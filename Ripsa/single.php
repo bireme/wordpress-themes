@@ -31,6 +31,10 @@
 						</span>
 						<h1 class="single-h1 marginbottom15"><?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php the_title();?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
 
+						<div class="warning">
+							<?php $key="alertas"; echo get_post_meta($post->ID,$key,true);?>
+						</div>
+
 						<div class="single-topicos">
 							<div class="row-fluid">
 								<h2 class="single-h2"><span class="single-topics-seta">-</span>Conceituação</h2>
