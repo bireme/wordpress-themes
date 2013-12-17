@@ -1,7 +1,7 @@
 /*
 Theme Name: BVS Search Portal
 Theme URI: http://www.bvsalud.org/
-Version: 1.0
+Version: 1.1
 Author: BIREME (DGI)
 */
 
@@ -459,11 +459,11 @@ a {
 .sliderItem A:hover {
 	color: #0089DA;
 }
-.sliderItem A:hover .sliderImg {
-	background: url(images/slider-img-shadow-hover.png) no-repeat;
-}
 .sliderImg {
 	background: url(images/slider-img-shadow.png) no-repeat;
+}
+.sliderImg:hover {
+	background: url(images/slider-img-shadow-hover.png) no-repeat;
 }
 .sliderImg IMG {
 	border-radius: 8px;
@@ -472,15 +472,23 @@ a {
 .sliderCaption {
 	padding: 7px;
 }
-.sliderCaption STRONG {
+.sliderCaption strong a {
 	font-size: 110%;
 	display: block;
 	margin-bottom: 3px;
 	line-height: 120%;
 	color: #133B5E;
 }
-.sliderCaption SPAN {
+.sliderCaption p {
 	line-height: 150%;
+	margin-bottom: 6px;
+}
+.readmorelink {
+	font-size: 85%;
+	color: #0089DA;
+}
+.readmorelink:after {
+	content: ' >>';
 }
 
 /**************** MEDIA QUERIES ****************/
