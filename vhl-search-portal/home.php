@@ -11,7 +11,12 @@ get_header();
             <?php dynamic_sidebar(  'search_vhl_' . $current_language ); ?>
 		<?php endif; ?>
 	</div><!--/searchVHL-->
+
+
 	<div class="slider">
+		<?php if ( is_active_sidebar( 'slider_' . $current_language ) ) : ?>
+			<?php dynamic_sidebar(  'slider_' . $current_language ); ?>
+		<?php endif; ?>
 		<div class="sliderInner">
 			<?php
 			    $recentPosts = new WP_Query();
@@ -24,8 +29,7 @@ get_header();
 				</div>
 				<div class="sliderCaption">
 					<strong><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></strong>
-					<?php the_excerpt(); ?>
-					<a href="<?php the_permalink() ?>" class="readmorelink">Read More</a>
+					<a href="<?php the_permalink() ?>" class="readmorelink"><?php the_content(__('(more...)')); ?></a>
 				</div>
 			</div>
 			<?php endwhile; ?>

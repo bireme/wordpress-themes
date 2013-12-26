@@ -365,6 +365,14 @@ a {
 	float: left;
 	margin: 0px 10px 10px 0px;
 }
+.alignleft {
+	float: left;
+	margin: 0 8px 8px 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 8px 8px;
+}
 .footer {
 	background: #d3d3d3;
 	border-top: 1px solid #8bb0c0;
