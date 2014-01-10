@@ -212,6 +212,10 @@ msgstr "Acerca de la búsqueda"
 msgid "Responsible"
 msgstr "Responsable"
 
+#: ../single-search_strategy.php:34
+msgid "Search details"
+msgstr "Detalles de la búsqueda"
+
 #: ../single-search_strategy.php:42
 msgid "Search subject"
 msgstr "Asunto de la búsqueda"

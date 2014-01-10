@@ -31,6 +31,7 @@
 				$html4custom_field = "<dd>custom_field</dd><br/>";
 				echo bir_show_custom_field(get_the_ID(), 'description_of_the_search', __('Description of the search','refnet'), $html4label, $html4custom_field);
 				echo bir_show_custom_field(get_the_ID(), 'url_to_search_result', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field(get_the_ID(), 'search_details', __('Search details','refnet'), $html4label, $html4custom_field);
 				//echo bir_show_custom_field(get_the_ID(), 'responsible', __('Responsible','refnet'), $html4label, $html4custom_field);
 				//echo bir_show_custom_field(get_the_ID(), 'deadlines', __('Deadlines','refnet'), $html4label, $html4custom_field);
 			?>
