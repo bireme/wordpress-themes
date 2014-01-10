@@ -49,7 +49,7 @@
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'main_subject_of_the_search', __('Main subject of the search','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'secondary_subject_of_the_search', __('Secondary subject of the search','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'other_secondary_subject_of_the_search', __('Other secondary subject of the search','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'other_secondary_subject_of_the_search', __('Other secondary subject of the search','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
@@ -64,9 +64,9 @@
 				<dl>
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'vhls_databases', __('VHLs Databases','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'other_vhls_databases', __('Other VHLs Databases','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'other_vhls_databases', __('Other VHLs Databases','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'other_databases', __('Other Databases','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'more_other_databases', __('More Other Databases','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'more_other_databases', __('More Other Databases','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
@@ -82,12 +82,12 @@
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'publication_year', __('Publication year','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'country_or_region_of_publication', __('Country or Region of publication','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'country_or_region_as_subject', __('Country or Region as subject','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'country_or_region_as_subject', __('Country or Region as subject','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'text_language', __('Text language','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'other_text_language', __('Other Text language','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'other_text_language', __('Other Text language','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'publication_type', __('Publication type','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'other_publication_type', __('Other Publication type','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'conditions', __('Conditions: gender, age etc','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'other_publication_type', __('Other Publication type','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field(get_the_ID(), 'limits', __('Conditions: gender, age etc','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'other_conditions', __('Other Conditions','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
@@ -119,7 +119,7 @@
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'lilacs_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'lilacs_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'lilacs_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
@@ -135,7 +135,7 @@
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'medline_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'medline_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'medline_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'medline_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
@@ -151,7 +151,7 @@
 				<?php
 					echo bir_show_custom_field(get_the_ID(), 'cochrane_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field(get_the_ID(), 'cochrane_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
+					//echo bir_show_custom_field(get_the_ID(), 'cochrane_url_to_search_results', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 			</div>
