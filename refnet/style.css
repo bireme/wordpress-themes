@@ -17,6 +17,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 -------------------------------------------------------------- */
 @import url('../bvs-2012/style.css');
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,300italic,500italic,700,700italic&subset=latin,latin-ext);
+
+body {background-repeat: repeat-x !important;}
 /***** SPRITE  *****/
 .about,
 .subject,
@@ -60,7 +62,7 @@ body.custom-font-enabled {
 	border-bottom: 3px solid #4871b4;
 }
 .site_name {
-	margin:26px 0 0 16px;
+	margin:26px 0 0 12px;
 	width:700px;
 }
 .site_name h1 {

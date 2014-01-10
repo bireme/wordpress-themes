@@ -178,7 +178,7 @@ msgstr "Português"
 
 #: ../header.php:85
 msgid "Topic-specific queries"
-msgstr "Búsqueda en temas específicos"
+msgstr "Estrategias de búsqueda para temas específicos"
 
 #: ../header.php:87
 msgid "Repository of search strategies on the VHL"

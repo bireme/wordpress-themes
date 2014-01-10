@@ -82,9 +82,9 @@
 	            		<?php if ($title == true) {	?>
 		   		<div class="site_name">
 					<h1>
-						<a title="<?php  _e('Topic-specific queries', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('Topic-specific queries', 'refnet'); ?></span></a>
+						<a title="<?php  _e('Repository of search strategies on the VHL', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('Repository of search strategies on the VHL', 'refnet'); ?></span></a>
 						<br/>
-						<small><?php _e('Repository of search strategies on the VHL','refnet') ?></small>
+						<small><?php _e('Topic-specific queries','refnet') ?></small>
 					</h1>
 		        	</div>
 				<?php } ?>
