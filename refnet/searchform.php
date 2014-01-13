@@ -7,10 +7,11 @@
  * @since Twenty Eleven 1.0
  */
 ?>
+	<strong class="widget-title"><?php _e('Search','refnet') ?></strong>
         <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                 <label for="s" class="assistive-text"><?php _e( 'Search form', 'refnet' ); ?></label>
                 <input type="text" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search by', 'refnet' ); ?>" />
                 <input type="hidden" class="field" name="l" id="l" value="<?php global $site_lang; echo $site_lang; ?>" />
-                <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'refnet' ); ?>" />
+                <input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'OK', 'refnet' ); ?>" />
         </form>
 

@@ -15,6 +15,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:88
+msgid "Latest"
+msgstr "Mais Recentes"
+
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:267
+msgid "See more"
+msgstr "Veja mais"
+
 #: ../comments.php:32
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
@@ -200,9 +208,21 @@ msgstr ""
 "Não foram encontrados resultados para seu critério de busca. Por favor tente "
 "novamente com novas palavras chave"
 
-#: ../searchform.php:11
+#: ../searchform.php:10
+msgid "Search"
+msgstr "Busca"
+
+#: ../searchform.php:12
 msgid "Search form"
 msgstr "Formulário de busca"
+
+#: ../searchform.php:13
+msgid "Search by"
+msgstr "Buscar por"
+
+#: ../searchform.php:15
+msgid "OK"
+msgstr "OK"
 
 #: ../single-search_strategy.php:24
 msgid "About the search"
@@ -271,97 +291,3 @@ msgstr "Estratégia para MEDLINE"
 msgid "Cochrane Strategy"
 msgstr "Estratégia para Cochrane"
 
-#~ msgid "Search by"
-#~ msgstr "Busca por"
-
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "About %s"
-#~ msgstr "Sobre %s"
-
-#~ msgid "Permalink to %s"
-#~ msgstr "Link permanente para %s"
-
-#~ msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr "Continuar lendo <span class=\"meta-nav\">&rarr;</span>"
-
-#~ msgid "Leave a reply"
-#~ msgstr "Deixe um comentário"
-
-#~ msgid "1 Reply"
-#~ msgstr "1 comentário"
-
-#~ msgid "% Replies"
-#~ msgstr "% Comentários"
-
-#~ msgid "Edit"
-#~ msgstr "Editar"
-
-#~ msgid "Pages:"
-#~ msgstr "Páginas:"
-
-#~ msgid "Primary Menu"
-#~ msgstr "Menu primário"
-
-#~ msgid "Page %s"
-#~ msgstr "Página %s"
-
-#~ msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-#~ msgstr "<span class=\"meta-nav\">&larr;</span> Posts mais antigos"
-
-#~ msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr "Posts mais recentes <span class=\"meta-nav\">&rarr;</span>"
-
-#~ msgid "(Edit)"
-#~ msgstr "(Editar)"
-
-#~ msgid "Post author"
-#~ msgstr "Autor do post"
-
-#~ msgid "Reply"
-#~ msgstr "Comentar"
-
-#~ msgid ", "
-#~ msgstr ", "
-
-#~ msgid "View all posts by %s"
-#~ msgstr "Ver todos os posts de %s"
-
-#~ msgid ""
-#~ "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-"
-#~ "author\"> by %4$s</span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %1$s e marcado %2$s em %3$s<span class=\"by-"
-#~ "author\"> por %4$s</span>."
-
-#~ msgid ""
-#~ "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
-#~ "span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %1$s em %3$s<span class=\"by-author\"> por %4$s</"
-#~ "span>."
-
-#~ msgid ""
-#~ "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %3$s<span class=\"by-author\"> por %4$s</span>."
-
-#~ msgid ""
-#~ "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span "
-#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
-#~ "time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
-#~ "&times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel="
-#~ "\"gallery\">%8$s</a>."
-#~ msgstr ""
-#~ "<span class=\"meta-prep meta-prep-entry-date\">Publicado </span> <span "
-#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
-#~ "time></span> em <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
-#~ "&times; %5$s</a> em <a href=\"%6$s\" title=\"Return to %7$s\" rel="
-#~ "\"gallery\">%8$s</a>."
-
-#~ msgid "&larr; Previous"
-#~ msgstr "&larr; Anterior"
-
-#~ msgid "Next &rarr;"
-#~ msgstr "Próximo &rarr;"
