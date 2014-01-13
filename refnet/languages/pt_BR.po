@@ -184,6 +184,18 @@ msgstr "English"
 msgid "Portugues"
 msgstr "Português"
 
+#: ../header.php:80
+msgid "VHL Search Strategies"
+msgstr "Estratégias de Busca na BVS"
+
+#: ../header.php:81
+msgid "en/logo-bvs-en.png"
+msgstr "pt/logo-bvs-pt.png"
+
+#: ../header.php:81
+msgid "VHL LOGO"
+msgstr "LOGO da BVS"
+
 #: ../header.php:85
 msgid "Topic-specific queries"
 msgstr "Estratégias de busca para temas específicos"
