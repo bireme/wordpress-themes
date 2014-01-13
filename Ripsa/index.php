@@ -5,23 +5,23 @@
 				<div class="padding15-25">
 					<form action="">
 						<div class="row-fluid">
-							<label for="txtSearch">Pesquisa<br> Entre uma ou mais palavras</label>
+							<label for="txtSearch"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
 						</div>
 
 						<div class="row-fluid">
 							<div class="pull-left">
 								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
-								<button class="search-btn">Pesquisar</button>
+								<button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
 							</div>
 
-							<div class="pull-right">
-								<label class="search-label" for="txtIndicadores">Conjunto de Indicadores:</label>
+							<!--div class="pull-right">
+								<label class="search-label" for="txtIndicadores"><?php _e( 'Conjunto de Indicadores:', 'Ripsa' ); ?></label>
 								<select name="txtIndicadores" id="txtIndicadores">
 									<option value="2012">IDB 2012</option>
 									<option value="2011">IDB 2011</option>
 									<option value="2010">IDB 2010</option>
 								</select>
-							</div>
+							</div-->
 						</div>
 					</form>
 				</div>

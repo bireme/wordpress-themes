@@ -1,11 +1,12 @@
 /*
 	Theme Name: RIPSA - Portal de Fichas de Qualificação
 	Theme URI: http://www.wesleyamaro.com.br
-	Description: Projeto Bireme
+	Description: Fichas IDB da RIPSA
 	Version: 1.0
-	Author: Wesley Amaro
-	Author URL: http://www.wesleyamaro.com.br
+	Author: MTI/BIREME
+	Author URL: http://github.com/bireme/wordpress-themes
 	Tags: Portal
+	Text Domain: Ripsa
 */
 
 /* FONT-FACE */
@@ -132,6 +133,11 @@ input[type=radio]{float:left; margin:3px 5px 10px 0;}
 select{height:29px; max-height:29px; min-height:29px; padding:4px !important;}
 input[type=text], input[type=password], select, textarea{float:left; padding:5px; background:rgb(255,255,255); border:1px solid rgb(132,132,132); font:12px "Open Sans", Helvetica, Arial, Sans-Serif;}
 input[type=text]:hover, input[type=password]:hover, select:hover, textarea:hover, select:focus, textarea:focus, input[type=text]:focus, input[type=password]:focus{border-color:rgb(6,39,107);}
+
+/* PRINT FRENDLY PLUGIN */
+div.printfriendly{margin:0 !important; padding:0;}
+.printfriendly a:hover {text-decoration:underline !important;}
+.printfriendly a img{vertical-align: middle !important; margin-right:9px !important;}
 
 /* FOOTER */
 .footer{width:100%; float:left; background:rgb(232,242,242); color:rgb(102,102,102); margin-top:30px;}

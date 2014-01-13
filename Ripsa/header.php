@@ -50,15 +50,17 @@
 			</a>
 			<div class="header-desenho"></div>
 
-			<!-- <nav class="header-idiomas">
+			<!--nav class="header-idiomas">
 				<ul class="header-idiomas-ul">
 					<li class="header-idiomas-li">
 						<a class="header-idiomas-lia" href="#">English</a>
 					</li>
-
 					<li class="header-idiomas-li">
-						<a class="header-idiomas-lia" href="#">Spanish</a>
+						<a class="header-idiomas-lia" href="#">Español</a>
+					</li>
+					<li class="header-idiomas-li">
+						<a class="header-idiomas-lia" href="#">Português</a>
 					</li>
 				</ul>
-			</nav> -->
+			</nav-->
 		</header>

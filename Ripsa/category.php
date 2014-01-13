@@ -11,33 +11,34 @@
 					
 					<form action="">
 						<div class="row-fluid">
-							<label for="txtSearch">Pesquisa<br> Entre uma ou mais palavras</label>
-						</div>
-						<div class="row-fluid">
-							<div class="pull-left">
-								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
-								<button class="search-btn">Pesquisar</button>
-							</div>
+                                                        <label for="txtSearch"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
+                                                </div>
 
-							<div class="pull-right">
-								<label class="search-label" for="txtIndicadores">Conjunto de Indicadores:</label>
-								<select name="txtIndicadores" id="txtIndicadores">
-									<option value="2012">IDB 2012</option>
-									<option value="2011">IDB 2011</option>
-									<option value="2010">IDB 2010</option>
-								</select>
-							</div>
-						</div>
+                                                <div class="row-fluid">
+                                                        <div class="pull-left">
+                                                                <input type="text" class="search-input" id="txtSearch" name="txtSearch">
+                                                                <button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
+                                                        </div>
+
+                                                        <!--div class="pull-right">
+                                                                <label class="search-label" for="txtIndicadores"><?php _e( 'Conjunto de Indicadores:', 'Ripsa' ); ?></label>
+                                                                <select name="txtIndicadores" id="txtIndicadores">
+                                                                        <option value="2012">IDB 2012</option>
+                                                                        <option value="2011">IDB 2011</option>
+                                                                        <option value="2010">IDB 2010</option>
+                                                                </select>
+                                                        </div-->
+                                                </div>
 
 						<div class="row-fluid margintop05">
 							<div class="pull-left marginright10">
 								<input type="radio" name="txtFiltro" id="txtIndicadoresDemograficos">
-								<label for="txtIndicadoresDemograficos" class="search-radio-txt">Neste grupo</label>
+								<label for="txtIndicadoresDemograficos" class="search-radio-txt"><?php _e( 'Neste grupo', 'Ripsa' ); ?></label>
 							</div>
 							
 							<div class="pull-left">
 								<input type="radio" name="txtFiltro" id="txtIndicadoresTodos">
-								<label for="txtIndicadoresTodos" class="search-radio-txt">Em todos os indicadores</label>
+								<label for="txtIndicadoresTodos" class="search-radio-txt"><?php _e( 'Em todos os indicadores', 'Ripsa' ); ?></label>
 							</div>
 						</div>
 					</form>
