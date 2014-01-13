@@ -69,9 +69,11 @@
 						} 
 					?>	
 				</div>
+				<!--
 				<div id="contact"> 
 					<span><a href="<?php echo $contactPage;?>">Contato</a></span>
 				</div>
+				-->
 			</div>
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
