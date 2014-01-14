@@ -222,7 +222,7 @@ msgstr "Repositorio de estrategias de búsqueda en la BVS"
 
 #: ../search.php:17
 msgid "Search Results for: "
-msgstr "Resultados de búsqueda para: %s"
+msgstr "Resultados de búsqueda para: "
 
 #: ../search.php:42
 msgid "Nothing Found"

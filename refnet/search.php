@@ -8,13 +8,13 @@
  */
 ?>
 	<?php
-		get_header(); 
+		get_header();
 	?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 			<?php
-				$search_title =  __('Search Results for: ', 'twentytwelve');
+				$search_title =  __('Search Results for: ', 'refnet');
 				$search_title .= '<span>' . get_search_query() . '</span>';
 				echo create_bread_crumb($search_title);
 			?>
