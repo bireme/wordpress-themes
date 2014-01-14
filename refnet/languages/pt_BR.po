@@ -15,11 +15,36 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:88
+#: ../../../../wp-pagenavi/wp-pagenavi.php:20
+msgid "Page %CURRENT_PAGE% of %TOTAL_PAGES%"
+msgstr "Página %CURRENT_PAGE% de %TOTAL_PAGES%"
+
+#: ../../../../wp-pagenavi/wp-pagenavi.php:23
+msgid "&laquo; First"
+msgstr "&laquo; Primeira"
+
+#: ../../../../wp-pagenavi/wp-pagenavi.php:24
+msgid "Last &raquo;"
+msgstr "Ãtima &raquo;"
+
+#: ../../../../wp-pagenavi/wp-pagenavi.php:25
+msgid "&laquo;"
+msgstr "&laquo;"
+
+#: ../../../../wp-pagenavi/wp-pagenavi.php:26
+msgid "&raquo;"
+msgstr "&raquo;"
+
+#: ../../../../wp-pagenavi/wp-pagenavi.php:27
+#: ../../../../wp-pagenavi/wp-pagenavi.php:28
+msgid "..."
+msgstr "..."
+
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:89
 msgid "Latest"
 msgstr "Mais Recentes"
 
-#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:267
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:268
 msgid "See more"
 msgstr "Veja mais"
 
@@ -172,6 +197,10 @@ msgstr "URL para resultado de busca"
 msgid "Home"
 msgstr "Página inicial"
 
+#: ../functions.php:164
+msgid "Search Result"
+msgstr "Resultado de Busca"
+
 #: ../functions.php:174 ../functions.php:182
 msgid "Espanol"
 msgstr "Español"
@@ -206,7 +235,7 @@ msgstr "Repositório de estratégias de busca na BVS"
 
 #: ../search.php:17
 msgid "Search Results for: "
-msgstr "Resultados de busca para: "
+msgstr "Resultado de busca para: "
 
 #: ../search.php:42
 msgid "Nothing Found"

@@ -15,11 +15,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:88
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:89
 msgid "Latest"
-msgstr "Más recientes"
+msgstr "Más Recientes" 
 
-#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:267
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:268
 msgid "See more"
 msgstr "Ver más"
 
@@ -188,6 +188,10 @@ msgstr "URL del resultado de búsqueda"
 msgid "Home"
 msgstr "Página inicial"
 
+#: ../functions.php:164
+msgid "Search Result"
+msgstr "Resultado de la búsqueda"
+
 #: ../functions.php:174 ../functions.php:182
 msgid "Espanol"
 msgstr "Español"
@@ -222,7 +226,7 @@ msgstr "Repositorio de estrategias de búsqueda en la BVS"
 
 #: ../search.php:17
 msgid "Search Results for: "
-msgstr "Resultados de búsqueda para: "
+msgstr "Resultado de búsqueda para: "
 
 #: ../search.php:42
 msgid "Nothing Found"

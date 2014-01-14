@@ -133,7 +133,13 @@ if(is_plugin_active('multi-language-framework')) {
 
 function append_query_string() {
 	global $site_lang;
-	return add_query_arg("l", $site_lang, get_permalink());
+
+	if ( isset( $_GET['s'] ) )
+        {
+		return add_query_arg(array('l' => $site_lang, 'se' => $_GET['s']), get_permalink());
+        } else {
+		return add_query_arg("l", $site_lang, get_permalink());
+	}
 }
 add_filter('the_permalink','append_query_string');
 
@@ -154,6 +160,9 @@ function create_bread_crumb($post_title){
         }
 	$bread_crumb .= '" class="home">';
 	$bread_crumb .= __('Home', 'refnet');
+	if ( isset($_GET['se']) and is_single()){
+		$bread_crumb .= '</a> > <a href="' . site_url() . '?l=' . $site_lang . '&s=' . $_GET['se'] . '">' . __('Search Result','refnet');
+	}
 	$bread_crumb .= "</a> > " . trim($post_title) . "</div>";
 
 	return $bread_crumb;
@@ -168,7 +177,7 @@ function create_language_list($current_lang){
 	} else {
 		$current_url = $_SERVER['REQUEST_URI'];
 	}
-	
+
 	switch ($current_lang) {
 		case "pt_BR":
 			echo '<li><a href="' . preg_replace("/l=[a-zA-Z_]{5}/", "l=es_ES", $current_url)  . '">' . __('Espanol','refnet') . '</a></li>';
