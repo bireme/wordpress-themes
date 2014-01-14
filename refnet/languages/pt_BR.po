@@ -15,31 +15,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../../../../wp-pagenavi/wp-pagenavi.php:20
-msgid "Page %CURRENT_PAGE% of %TOTAL_PAGES%"
-msgstr "Página %CURRENT_PAGE% de %TOTAL_PAGES%"
-
-#: ../../../../wp-pagenavi/wp-pagenavi.php:23
-msgid "&laquo; First"
-msgstr "&laquo; Primeira"
-
-#: ../../../../wp-pagenavi/wp-pagenavi.php:24
-msgid "Last &raquo;"
-msgstr "Ãtima &raquo;"
-
-#: ../../../../wp-pagenavi/wp-pagenavi.php:25
-msgid "&laquo;"
-msgstr "&laquo;"
-
-#: ../../../../wp-pagenavi/wp-pagenavi.php:26
-msgid "&raquo;"
-msgstr "&raquo;"
-
-#: ../../../../wp-pagenavi/wp-pagenavi.php:27
-#: ../../../../wp-pagenavi/wp-pagenavi.php:28
-msgid "..."
-msgstr "..."
-
 #: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:89
 msgid "Latest"
 msgstr "Mais Recentes"
