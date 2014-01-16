@@ -88,3 +88,171 @@ function create_language_list($current_lang){
 
 	echo '</ul>';
 }
+
+function bir_show_custom_field_translated($post_id, $key, $label="", $html4label="", $html4custom_field="", $single=true, $separator=",") {
+/*
+        Samples for $html4label and $html4custom_field. Keep always the strings "label" and "custom_field", because the function will replace them using regular expression.
+
+        $html4label
+                "<li>label</li>"
+                "<dt>label</dt>"
+        $html4custom_field
+                "<li>custom_field</li>"
+                "<dd>custom_field</dd>"
+                "<p>custom_field</p>"
+*/
+        $customField = get_post_meta($post_id, $key, $single);
+
+        if (!is_array($customField)) {
+                if (trim($customField)!= "") {
+                        if ($html4label != "")
+                                echo preg_replace("/label/", $label, $html4label);
+                        else
+                                echo $label;
+
+                        if ($html4custom_field != "")
+                                echo preg_replace("/custom_field/", bir_translate_custom_field_values($customField), $html4custom_field);
+                        else
+                                echo bir_translate_custom_field_values($customField);
+                }
+        } else {
+                if ($html4label != "")
+                        echo preg_replace("/label/", $label, $html4label);
+                else
+                         echo $label;
+
+                $count = count($customField);
+                $lastValue = end($customField);
+                $text = "";
+                foreach ( $customField as $value) {
+                        $text .= bir_translate_custom_field_values($value);
+                        if ($value != $lastValue) $text .= $separator . " ";
+                }
+                if ($html4custom_field != "")
+                        echo preg_replace("/custom_field/", $text, $html4custom_field);
+                else
+                         echo $text;
+        }
+}
+
+function bir_translate_custom_field_values($custom_field_value) {
+
+	$custom_field_value_translated = "";
+
+	switch ($custom_field_value) {
+		// Case para o campo VHL's databases dp field group Databases
+		case "MEDLINE":
+			$custom_field_value_translated = __('MEDLINE','refnet');
+			break;
+		case "LILACS":
+			$custom_field_value_translated = __('LILACS','refnet');
+			break;
+		case "CDSR - Cochrane Systematic Reviews Database":
+			$custom_field_value_translated = __('CDSR - Cochrane Systematic Reviews Database','refnet');
+			break;
+		case "CENTRAL Controlled Clinical Trials : CENTRAL Controlled Clinical Trials":
+			$custom_field_value_translated = __('CENTRAL Controlled Clinical Trials : CENTRAL Controlled Clinical Trials','refnet');
+			break;
+		case "DARE - Database of Abstracts of Review of Effects":
+			$custom_field_value_translated = __('DARE - Database of Abstracts of Review of Effects','refnet');
+			break;
+		case "NHS Economic Evaluations Database":
+			$custom_field_value_translated = __('NHS Economic Evaluations Database','refnet');
+			break;
+		case "HTA - Health Technology Assessment Database":
+			$custom_field_value_translated = __('HTA - Health Technology Assessment Database','refnet');
+			break;
+		case "WHOLIS (WHO Library Database)":
+			$custom_field_value_translated = __('WHOLIS (WHO Library Database)','refnet');
+			break;
+		case "PAHO (PAHO Library Database)":
+			$custom_field_value_translated = __('PAHO (PAHO Library Database)','refnet');
+			break;
+		case "All VHL's databases":
+			$custom_field_value_translated = __("All VHL's databases",'refnet');
+			break;
+		//Case para o campo Text Language do field group General Search Fielters
+		case "English":
+			$custom_field_value_translated = __('English','refnet');
+			break;
+		case "Spanish":
+			$custom_field_value_translated = __('Spanish','refnet');
+			break;
+		case "Portuguese":
+			$custom_field_value_translated = __('Portuguese','refnet');
+			break;
+		case "Any Language":
+			$custom_field_value_translated = __('Any Language','refnet');
+			break;
+		//Case para o campo Publication Type do field group General Search Fielters
+		case "Journal Article":
+			$custom_field_value_translated = __('Journal Article','refnet');
+			break;
+		case "Grey literature (non conventional literature)":
+			$custom_field_value_translated = __('Grey literature (non conventional literature)','refnet');
+			break;
+		case "Thesis":
+			$custom_field_value_translated = __('Thesis','refnet');
+			break;
+		case "Book chapter":
+			$custom_field_value_translated = __('Book chapter','refnet');
+			break;
+		//Case para o campo Limits do field group General Search Fielters
+		case "Infant, newborn (birth to 1 month)":
+			$custom_field_value_translated = __('Infant, newborn (birth to 1 month)','refnet');
+			break;
+		case "Infant (1 to 23 months)":
+			$custom_field_value_translated = __('Infant (1 to 23 months)','refnet');
+			break;
+		case "Child, pre-school (2 to 5 years)":
+			$custom_field_value_translated = __('Child, pre-school (2 to 5 years)','refnet');
+			break;
+		case "Child (6 to 12 years)":
+			$custom_field_value_translated = __('Child (6 to 12 years)','refnet');
+			break;
+		case "Adolescent (13 to 18 years)":
+			$custom_field_value_translated = __('Adolescent (13 to 18 years)','refnet');
+			break;
+		case "Adult (19 to 44 years)":
+			$custom_field_value_translated = __('Adult (19 to 44 years)','refnet');
+			break;
+		case "Middle Age (45 to 64 years)":
+			$custom_field_value_translated = __('Middle Age (45 to 64 years)','refnet');
+			break;
+		case "Aged (65 and older)":
+			$custom_field_value_translated = __('Aged (65 and older)','refnet');
+			break;
+		case "Female":
+			$custom_field_value_translated = __('Female','refnet');
+			break;
+		case "Male":
+			$custom_field_value_translated = __('Male','refnet');
+			break;
+		case "Humans":
+			$custom_field_value_translated = __('Humans','refnet');
+			break;
+		case "Animals":
+			$custom_field_value_translated = __('Animals','refnet');
+			break;
+		//Case para o campo Type of search strategy do field group Search Strategy Scope
+		case "None":
+			$custom_field_value_translated = __('None','refnet');
+			break;
+		case "Regional themes":
+			$custom_field_value_translated = __('Regional themes','refnet');
+			break;
+		case "National themes":
+			$custom_field_value_translated = __('National themes','refnet');
+			break;
+		case "Reference queries/Clusters":
+			$custom_field_value_translated = __('Reference queries/Clusters','refnet');
+			break;
+		case "Commemorative dates, Campaigns":
+			$custom_field_value_translated = __('Commemorative dates, Campaigns','refnet');
+			break;
+		default:
+			$custom_field_value_translated = $custom_field_value;
+			break;
+	}
+	return $custom_field_value_translated;
+}

@@ -180,13 +180,149 @@ msgstr "Resultado de Busca"
 msgid "Espanol"
 msgstr "Español"
 
-#: ../functions.php:175 ../functions.php:179
+#: ../functions.php:175 ../functions.php:176 ../functions.php:179
 msgid "English"
 msgstr "English"
 
 #: ../functions.php:178 ../functions.php:183
 msgid "Portugues"
 msgstr "Português"
+
+#: ../functions.php:145
+msgid "MEDLINE"
+msgstr "MEDLINE"
+
+#: ../functions.php:148
+msgid "LILACS"
+msgstr "LILACS"
+
+#: ../functions.php:151
+msgid "CDSR - Cochrane Systematic Reviews Database"
+msgstr "CDSR - Cochrane Systematic Reviews Database"
+
+#: ../functions.php:154
+msgid "CENTRAL Controlled Clinical Trials"
+msgstr "CENTRAL Controlled Clinical Trials"
+
+#: ../functions.php:157
+msgid "DARE - Database of Abstracts of Review of Effects"
+msgstr "DARE - Database of Abstracts of Review of Effects"
+
+#: ../functions.php:160
+msgid "NHS Economic Evaluations Database"
+msgstr "NHS Economic Evaluations Database"
+
+#: ../functions.php:163
+msgid "HTA - Health Technology Assessment Database"
+msgstr "HTA - Health Technology Assessment Database"
+
+#: ../functions.php:166
+msgid "WHOLIS (WHO Library Database)"
+msgstr "WHOLIS (WHO Library Database)"
+
+#: ../functions.php:169
+msgid "PAHO (PAHO Library Database)"
+msgstr "PAHO (PAHO Library Database)"
+
+#: ../functions.php:172
+msgid "All VHL's databases"
+msgstr "All VHL's databases"
+
+#: ../functions.php:179
+msgid "Spanish"
+msgstr "Spanish"
+
+#: ../functions.php:182
+msgid "Portuguese"
+msgstr "Portuguese"
+
+#: ../functions.php:185
+msgid "Any Language"
+msgstr "Any Language"
+
+#: ../functions.php:189
+msgid "Journal Article"
+msgstr "Journal Article"
+
+#: ../functions.php:192
+msgid "Grey literature (non conventional literature)"
+msgstr "Grey literature (non conventional literature)"
+
+#: ../functions.php:195
+msgid "Thesis"
+msgstr "Thesis"
+
+#: ../functions.php:198
+msgid "Book chapter"
+msgstr "Book chapter"
+
+#: ../functions.php:202
+msgid "Infant, newborn (birth to 1 month)"
+msgstr "Infant, newborn (birth to 1 month)"
+
+#: ../functions.php:205
+msgid "Infant (1 to 23 months)"
+msgstr "Infant (1 to 23 months)"
+
+#: ../functions.php:208
+msgid "Child, pre-school (2 to 5 years)"
+msgstr "Child, pre-school (2 to 5 years)"
+
+#: ../functions.php:211
+msgid "Child (6 to 12 years)"
+msgstr "Child (6 to 12 years)"
+
+#: ../functions.php:214
+msgid "Adolescent (13 to 18 years)"
+msgstr "Adolescent (13 to 18 years)"
+
+#: ../functions.php:217
+msgid "Adult (19 to 44 years)"
+msgstr "Adult (19 to 44 years)"
+
+#: ../functions.php:220
+msgid "Middle Age (45 to 64 years)"
+msgstr "Middle Age (45 to 64 years)"
+
+#: ../functions.php:223
+msgid "Aged (65 and older)"
+msgstr "Aged (65 and older)"
+
+#: ../functions.php:226
+msgid "Female"
+msgstr "Female"
+
+#: ../functions.php:229
+msgid "Male"
+msgstr "Male"
+
+#: ../functions.php:232
+msgid "Humans"
+msgstr "Humans"
+
+#: ../functions.php:235
+msgid "Animals"
+msgstr "Animals"
+
+#: ../functions.php:239
+msgid "None"
+msgstr "None"
+
+#: ../functions.php:242
+msgid "Regional themes"
+msgstr "Regional themes"
+
+#: ../functions.php:245
+msgid "National themes"
+msgstr "National themes"
+
+#: ../functions.php:248
+msgid "Reference queries/Clusters"
+msgstr "Reference queries/Clusters"
+
+#: ../functions.php:251
+msgid "Commemorative dates, Campaigns"
+msgstr "Commemorative dates, Campaigns"
 
 #: ../header.php:80
 msgid "VHL Search Strategies"
