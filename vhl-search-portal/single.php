@@ -4,11 +4,14 @@
  * @subpackage Classic_Theme
  */
 get_header();
+$site_lang = substr($current_language, 0,2);
 ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <div class="middle">
+    <div class="breadcrumb"><a href="<?php bloginfo('url'); ?>/<?php echo ($site_lang);?>/" title="<?php bloginfo('name'); ?>">Home</a> / </div>
+
     <h2 class="storytitle"><?php the_title(); ?></a></h2>
 
     <div <?php post_class() ?> id="post-<?php the_ID(); ?>">

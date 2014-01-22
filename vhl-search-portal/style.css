@@ -356,11 +356,6 @@ a {
 	font-size: 90%;
 	display: inline-block;
 }
-.middle .post .storycontent p {
-	font-size: 16px;
-	line-height: 18px;
-	margin-bottom: 5px;
-}
 .middle .post .storycontent a img {
 	float: left;
 	margin: 0px 10px 10px 0px;
@@ -378,7 +373,7 @@ a {
 	border-top: 1px solid #8bb0c0;
 }
 .footerArea {
-	width: 974px;
+	width: 950px;
 	margin: 0px auto;
 	padding: 32px 12px 12px 12px;
 }
@@ -390,7 +385,7 @@ a {
 }
 .footerArea .widget_nav_menu div LI {
 	float: left;
-	width: 122px;
+	width: 125px;
 	margin-right: 40px;
 }
 .footerArea .widget_nav_menu div LI A {
@@ -418,6 +413,7 @@ a {
 }
 .footer .widget_nav_menu {
 	padding-bottom: 40px;
+	margin-left: 75px;
 }
 .institutionalFooter {
 	clear: both;
@@ -444,12 +440,15 @@ a {
 .Institution-info P STRONG {
 	font-size: 105%;
 }
-.menu-mapa-do-site-pt-container {
-	width: 810px;
-	margin: 0px auto;
+
+/**************** SINGLE ****************/
+.breadcrumb {
+	margin-bottom: 20px;
 }
-
-
+.storycontent p {
+	line-height: 130%;
+	margin-bottom: 12px;
+}
 /**************** SLIDER ****************/
 
 .sliderInner {

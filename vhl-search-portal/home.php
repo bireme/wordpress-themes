@@ -29,7 +29,7 @@ get_header();
 				</div>
 				<div class="sliderCaption">
 					<strong><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></strong>
-					<a href="<?php the_permalink() ?>" class="readmorelink"><?php the_content(__('(more...)')); ?></a>
+					<!--a href="<?php the_permalink() ?>" class="readmorelink"><?php the_content(__('(more...)')); ?></a-->
 				</div>
 			</div>
 			<?php endwhile; ?>
