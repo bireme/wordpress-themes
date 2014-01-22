@@ -69,14 +69,16 @@
 						} 
 					?>	
 				</div>
+				<!--
 				<div id="contact"> 
 					<span><a href="<?php echo $contactPage;?>">Contato</a></span>
 				</div>
+				-->
 			</div>
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
-	            			<a href="<?php echo $linkLogo;?>" title="Portal Regional da BVS">
-						<img src="<?php echo $logo;?>" alt="BVS LOGO"/>
+	            			<a href="<?php echo $linkLogo;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
+						<img src="<?php echo get_stylesheet_directory_uri() . "/images/" . __('en/logo-bvs-en.png','refnet');?>" alt="<?php _e('VHL LOGO','refnet');?>"/>
 	       				</a>
 	            		</div>
 	            		<?php if ($title == true) {	?>

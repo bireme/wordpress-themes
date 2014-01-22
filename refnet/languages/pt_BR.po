@@ -15,6 +15,14 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:89
+msgid "Latest"
+msgstr "Mais Recentes"
+
+#: ../../../../ultimate-posts-widget/ultimate-posts-widget.php:268
+msgid "See more"
+msgstr "Veja mais"
+
 #: ../comments.php:32
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
@@ -164,17 +172,169 @@ msgstr "URL para resultado de busca"
 msgid "Home"
 msgstr "Página inicial"
 
+#: ../functions.php:164
+msgid "Search Result"
+msgstr "Resultado de Busca"
+
 #: ../functions.php:174 ../functions.php:182
 msgid "Espanol"
 msgstr "Español"
 
-#: ../functions.php:175 ../functions.php:179
+#: ../functions.php:175 ../functions.php:176 ../functions.php:179
 msgid "English"
 msgstr "English"
 
 #: ../functions.php:178 ../functions.php:183
 msgid "Portugues"
 msgstr "Português"
+
+#: ../functions.php:145
+msgid "MEDLINE"
+msgstr "MEDLINE"
+
+#: ../functions.php:148
+msgid "LILACS"
+msgstr "LILACS"
+
+#: ../functions.php:151
+msgid "CDSR - Cochrane Systematic Reviews Database"
+msgstr "CDSR - Cochrane Systematic Reviews Database"
+
+#: ../functions.php:154
+msgid "CENTRAL Controlled Clinical Trials"
+msgstr "CENTRAL Controlled Clinical Trials"
+
+#: ../functions.php:157
+msgid "DARE - Database of Abstracts of Review of Effects"
+msgstr "DARE - Database of Abstracts of Review of Effects"
+
+#: ../functions.php:160
+msgid "NHS Economic Evaluations Database"
+msgstr "NHS Economic Evaluations Database"
+
+#: ../functions.php:163
+msgid "HTA - Health Technology Assessment Database"
+msgstr "HTA - Health Technology Assessment Database"
+
+#: ../functions.php:166
+msgid "WHOLIS (WHO Library Database)"
+msgstr "WHOLIS (WHO Library Database)"
+
+#: ../functions.php:169
+msgid "PAHO (PAHO Library Database)"
+msgstr "PAHO (PAHO Library Database)"
+
+#: ../functions.php:172
+msgid "All VHL's databases"
+msgstr "All VHL's databases"
+
+#: ../functions.php:179
+msgid "Spanish"
+msgstr "Spanish"
+
+#: ../functions.php:182
+msgid "Portuguese"
+msgstr "Portuguese"
+
+#: ../functions.php:185
+msgid "Any Language"
+msgstr "Any Language"
+
+#: ../functions.php:189
+msgid "Journal Article"
+msgstr "Journal Article"
+
+#: ../functions.php:192
+msgid "Grey literature (non conventional literature)"
+msgstr "Grey literature (non conventional literature)"
+
+#: ../functions.php:195
+msgid "Thesis"
+msgstr "Thesis"
+
+#: ../functions.php:198
+msgid "Book chapter"
+msgstr "Book chapter"
+
+#: ../functions.php:202
+msgid "Infant, newborn (birth to 1 month)"
+msgstr "Infant, newborn (birth to 1 month)"
+
+#: ../functions.php:205
+msgid "Infant (1 to 23 months)"
+msgstr "Infant (1 to 23 months)"
+
+#: ../functions.php:208
+msgid "Child, pre-school (2 to 5 years)"
+msgstr "Child, pre-school (2 to 5 years)"
+
+#: ../functions.php:211
+msgid "Child (6 to 12 years)"
+msgstr "Child (6 to 12 years)"
+
+#: ../functions.php:214
+msgid "Adolescent (13 to 18 years)"
+msgstr "Adolescent (13 to 18 years)"
+
+#: ../functions.php:217
+msgid "Adult (19 to 44 years)"
+msgstr "Adult (19 to 44 years)"
+
+#: ../functions.php:220
+msgid "Middle Age (45 to 64 years)"
+msgstr "Middle Age (45 to 64 years)"
+
+#: ../functions.php:223
+msgid "Aged (65 and older)"
+msgstr "Aged (65 and older)"
+
+#: ../functions.php:226
+msgid "Female"
+msgstr "Female"
+
+#: ../functions.php:229
+msgid "Male"
+msgstr "Male"
+
+#: ../functions.php:232
+msgid "Humans"
+msgstr "Humans"
+
+#: ../functions.php:235
+msgid "Animals"
+msgstr "Animals"
+
+#: ../functions.php:239
+msgid "None"
+msgstr "None"
+
+#: ../functions.php:242
+msgid "Regional themes"
+msgstr "Regional themes"
+
+#: ../functions.php:245
+msgid "National themes"
+msgstr "National themes"
+
+#: ../functions.php:248
+msgid "Reference queries/Clusters"
+msgstr "Reference queries/Clusters"
+
+#: ../functions.php:251
+msgid "Commemorative dates, Campaigns"
+msgstr "Commemorative dates, Campaigns"
+
+#: ../header.php:80
+msgid "VHL Search Strategies"
+msgstr "Estratégias de Busca na BVS"
+
+#: ../header.php:81
+msgid "en/logo-bvs-en.png"
+msgstr "pt/logo-bvs-pt.png"
+
+#: ../header.php:81
+msgid "VHL LOGO"
+msgstr "LOGO da BVS"
 
 #: ../header.php:85
 msgid "Topic-specific queries"
@@ -186,7 +346,7 @@ msgstr "Repositório de estratégias de busca na BVS"
 
 #: ../search.php:17
 msgid "Search Results for: "
-msgstr "Resultados de busca para: %s"
+msgstr "Resultado de busca para: "
 
 #: ../search.php:42
 msgid "Nothing Found"
@@ -200,9 +360,21 @@ msgstr ""
 "Não foram encontrados resultados para seu critério de busca. Por favor tente "
 "novamente com novas palavras chave"
 
-#: ../searchform.php:11
+#: ../searchform.php:10
+msgid "Search"
+msgstr "Busca"
+
+#: ../searchform.php:12
 msgid "Search form"
 msgstr "Formulário de busca"
+
+#: ../searchform.php:13
+msgid "Search by"
+msgstr "Buscar por"
+
+#: ../searchform.php:15
+msgid "OK"
+msgstr "OK"
 
 #: ../single-search_strategy.php:24
 msgid "About the search"
@@ -271,97 +443,3 @@ msgstr "Estratégia para MEDLINE"
 msgid "Cochrane Strategy"
 msgstr "Estratégia para Cochrane"
 
-#~ msgid "Search by"
-#~ msgstr "Busca por"
-
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "About %s"
-#~ msgstr "Sobre %s"
-
-#~ msgid "Permalink to %s"
-#~ msgstr "Link permanente para %s"
-
-#~ msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr "Continuar lendo <span class=\"meta-nav\">&rarr;</span>"
-
-#~ msgid "Leave a reply"
-#~ msgstr "Deixe um comentário"
-
-#~ msgid "1 Reply"
-#~ msgstr "1 comentário"
-
-#~ msgid "% Replies"
-#~ msgstr "% Comentários"
-
-#~ msgid "Edit"
-#~ msgstr "Editar"
-
-#~ msgid "Pages:"
-#~ msgstr "Páginas:"
-
-#~ msgid "Primary Menu"
-#~ msgstr "Menu primário"
-
-#~ msgid "Page %s"
-#~ msgstr "Página %s"
-
-#~ msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-#~ msgstr "<span class=\"meta-nav\">&larr;</span> Posts mais antigos"
-
-#~ msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-#~ msgstr "Posts mais recentes <span class=\"meta-nav\">&rarr;</span>"
-
-#~ msgid "(Edit)"
-#~ msgstr "(Editar)"
-
-#~ msgid "Post author"
-#~ msgstr "Autor do post"
-
-#~ msgid "Reply"
-#~ msgstr "Comentar"
-
-#~ msgid ", "
-#~ msgstr ", "
-
-#~ msgid "View all posts by %s"
-#~ msgstr "Ver todos os posts de %s"
-
-#~ msgid ""
-#~ "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-"
-#~ "author\"> by %4$s</span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %1$s e marcado %2$s em %3$s<span class=\"by-"
-#~ "author\"> por %4$s</span>."
-
-#~ msgid ""
-#~ "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
-#~ "span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %1$s em %3$s<span class=\"by-author\"> por %4$s</"
-#~ "span>."
-
-#~ msgid ""
-#~ "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
-#~ msgstr ""
-#~ "Este post foi enviado em %3$s<span class=\"by-author\"> por %4$s</span>."
-
-#~ msgid ""
-#~ "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span "
-#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
-#~ "time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
-#~ "&times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel="
-#~ "\"gallery\">%8$s</a>."
-#~ msgstr ""
-#~ "<span class=\"meta-prep meta-prep-entry-date\">Publicado </span> <span "
-#~ "class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</"
-#~ "time></span> em <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
-#~ "&times; %5$s</a> em <a href=\"%6$s\" title=\"Return to %7$s\" rel="
-#~ "\"gallery\">%8$s</a>."
-
-#~ msgid "&larr; Previous"
-#~ msgstr "&larr; Anterior"
-
-#~ msgid "Next &rarr;"
-#~ msgstr "Próximo &rarr;"

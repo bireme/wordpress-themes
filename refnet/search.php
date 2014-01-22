@@ -8,13 +8,13 @@
  */
 ?>
 	<?php
-		get_header(); 
+		get_header();
 	?>
 
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 			<?php
-				$search_title =  __('Search Results for: ', 'twentytwelve');
+				$search_title =  __('Search Results for: ', 'refnet');
 				$search_title .= '<span>' . get_search_query() . '</span>';
 				echo create_bread_crumb($search_title);
 			?>
@@ -28,7 +28,7 @@
 					<header class="entry-header">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 					</header>
-					<p class="post-date"><?php echo get_the_date(); ?></p>
+					<p class="post-date"><?php the_time('d/m/Y'); ?></p>
 					<p class="post-description_of_the_search"><?php echo bir_show_custom_field(get_the_ID(), 'description_of_the_search'); ?></p>
 				</article>
 			<?php endwhile; ?>
