@@ -4,9 +4,13 @@
 			<section class="content-search">
 				<div class="padding15-25">
 					<div class="row-fluid marginbottom10">
-						<?php if(function_exists('bcn_display')){
-					        bcn_display();
-					    };?>
+						<?php 
+							if(function_exists('bcn_display')) {
+					        		bcn_display();
+					    		} else {
+								echo create_bread_crumb(get_the_title());
+							}
+						?>
 					</div>
 					
 					<form action="">

@@ -1,3 +1,6 @@
+<?php
+        load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -50,17 +53,14 @@
 			</a>
 			<div class="header-desenho"></div>
 
-			<!--nav class="header-idiomas">
-				<ul class="header-idiomas-ul">
-					<li class="header-idiomas-li">
-						<a class="header-idiomas-lia" href="#">English</a>
-					</li>
-					<li class="header-idiomas-li">
-						<a class="header-idiomas-lia" href="#">Español</a>
-					</li>
-					<li class="header-idiomas-li">
-						<a class="header-idiomas-lia" href="#">Português</a>
-					</li>
-				</ul>
-			</nav-->
+			<nav class="header-idiomas">
+				<?php 
+                	                global $site_lang;
+                                        if(function_exists('mlf_links_to_languages')) { 
+						mlf_links_to_languages(); 
+                                        } else {
+						create_language_list($site_lang);
+                                        } 
+				?>
+			</nav>
 		</header>

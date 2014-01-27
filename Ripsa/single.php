@@ -1,12 +1,16 @@
 <?php require_once("header.php");?>
 	<div id="content">
 		<?php if (have_posts()): while (have_posts()) : the_post();?>
+		<?php the_content(); ?>
 		<section class="content-search">
 			<div class="padding15-25">
-				<?php if(function_exists('bcn_display'))
-			    {
-			        bcn_display();
-			    }?>
+				<?php
+                                	if(function_exists('bcn_display')) {
+                 	                       bcn_display();
+                                        } else {
+              	   	                       echo create_bread_crumb(get_the_title());
+                                        }
+       				?>
 			</div>
 		</section>
 		<div class="padding15-25">
@@ -24,12 +28,13 @@
 						// do something with $custom_field
 					}
 					echo  $custom_field . " ";
-					the_category();
+					$category = get_the_category();
+					echo '<a href="' . site_url() . '/category/' . $category[0]->slug . '/' . '?l=' . $site_lang . '">' . $category[0]->cat_name . '</a>';
 					?>
 				</span>
 				<h1 class="single-h1 marginbottom15"><?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php the_title();?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
 				<?php
-					$aleria = get_post_meta($post->ID,"alertas",true);
+					$alerta = get_post_meta($post->ID,"alertas",true);
 				?>
 				<?php if (!empty($alerta)) { ?>
 					<div class="warning">

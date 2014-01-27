@@ -41,7 +41,7 @@
 					    	<div class="group_key">
 								<?php the_field('grupo', 'category_' . $category->term_id); ?>
 					    	</div>
-					    	<a href="<?php echo get_category_link( $category->term_id );?>" title="Ver todos os posts da categoria <?php echo $category->name; ?>">
+					    	<a href="<?php global $site_lang; echo get_category_link( $category->term_id ) . '?l=' . $site_lang;?>" title="<?php echo __('Ver todos os posts da categoria', 'Ripsa') . $category->name; ?>">
 					        	<span class="row-fluid content-catlist-tit"><?php echo $category->name;?></span>
 					        	<span class="row-fluid"><?php echo $category->description;?><span>
 					        </a>
