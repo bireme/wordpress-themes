@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ripsa\n"
-"POT-Creation-Date: 2014-01-10 17:23-0300\n"
-"PO-Revision-Date: 2014-01-10 17:32-0300\n"
+"POT-Creation-Date: 2014-01-28 10:23-0300\n"
+"PO-Revision-Date: 2014-01-28 10:27-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,99 +13,121 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;gettext;gettext_noop;__\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Language: es_ES\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../Ripsa/category.php:14 ../Ripsa/index.php:8 category.php:14 index.php:8
+#: ../Ripsa/category.php:18 ../Ripsa/index.php:8 category.php:18 index.php:8
 msgid "Pesquisa"
 msgstr "Búsqueda"
 
-#: ../Ripsa/category.php:14 ../Ripsa/index.php:8 category.php:14 index.php:8
+#: ../Ripsa/category.php:18 ../Ripsa/index.php:8 category.php:18 index.php:8
 msgid "Entre uma ou mais palavras"
 msgstr "Introduzca una o más palabras"
 
-#: ../Ripsa/category.php:20 ../Ripsa/index.php:14 category.php:20 index.php:14
+#: ../Ripsa/category.php:24 ../Ripsa/index.php:14 category.php:24 index.php:14
 msgid "Pesquisar"
 msgstr "Buscar"
 
-#: ../Ripsa/category.php:24 ../Ripsa/index.php:18 category.php:24 index.php:18
+#: ../Ripsa/category.php:28 ../Ripsa/index.php:18 category.php:28 index.php:18
 msgid "Conjunto de Indicadores:"
 msgstr "Conjunto de indicadores:"
 
-#: ../Ripsa/category.php:36 category.php:36
+#: ../Ripsa/category.php:40 category.php:40
 msgid "Neste grupo"
 msgstr "En este grupo"
 
-#: ../Ripsa/category.php:41 category.php:41
+#: ../Ripsa/category.php:45 category.php:45
 msgid "Em todos os indicadores"
 msgstr "En todos los indicadores"
 
-#: ../Ripsa/single.php:45 single.php:45
+#: ../Ripsa/functions.php:55 functions.php:55
+msgid "Fichas de Qualificação da Ripsa"
+msgstr "Fichas de Calificación de la Ripsa"
+
+#: ../Ripsa/functions.php:82 ../Ripsa/functions.php:90 functions.php:82
+#: functions.php:90
+msgid "Espanol"
+msgstr "Español"
+
+#: ../Ripsa/functions.php:83 ../Ripsa/functions.php:87 functions.php:83
+#: functions.php:87
+msgid "English"
+msgstr "Inglés"
+
+#: ../Ripsa/functions.php:86 ../Ripsa/functions.php:91 functions.php:86
+#: functions.php:91
+msgid "Portugues"
+msgstr "Portugués"
+
+#: ../Ripsa/index.php:44 index.php:44
+msgid "Ver todos os posts da categoria"
+msgstr "Ver todas las entradas de la categoría"
+
+#: ../Ripsa/single.php:48 single.php:48
 msgid "Conceituação"
 msgstr "Conceptualización"
 
-#: ../Ripsa/single.php:57 single.php:57
+#: ../Ripsa/single.php:58 single.php:58
 msgid "Interpretação"
 msgstr "Interpretación"
 
-#: ../Ripsa/single.php:69 single.php:69
+#: ../Ripsa/single.php:68 single.php:68
 msgid "Usos"
 msgstr "Usos"
 
-#: ../Ripsa/single.php:81 single.php:81
+#: ../Ripsa/single.php:78 single.php:78
 msgid "Limitações"
 msgstr "Limitaciones"
 
-#: ../Ripsa/single.php:93 single.php:93
+#: ../Ripsa/single.php:88 single.php:88
 msgid "Fonte"
 msgstr "Fuente"
 
-#: ../Ripsa/single.php:105 single.php:105
+#: ../Ripsa/single.php:98 single.php:98
 msgid "Métodos de Cálculo"
 msgstr "Método de Cálculo"
 
-#: ../Ripsa/single.php:117 single.php:117
+#: ../Ripsa/single.php:111 single.php:111
 msgid "Categorias Sugeridas para Análise"
 msgstr "Categorias Sugeridas para Análisis"
 
-#: ../Ripsa/single.php:129 single.php:129
+#: ../Ripsa/single.php:121 single.php:121
 msgid "Dados Estatísticos e Comentários"
 msgstr "Estadísticas y Comentarios"
 
-#: ../Ripsa/single.php:141 single.php:141
+#: ../Ripsa/single.php:131 single.php:131
 msgid "Notas"
 msgstr "Notas"
 
-#: ../Ripsa/single.php:190 single.php:190
+#: ../Ripsa/single.php:173 single.php:173
 msgid "Expandir todos os tópicos"
 msgstr "Expandir todos los temas"
 
-#: ../Ripsa/single.php:195 single.php:195
+#: ../Ripsa/single.php:177 single.php:177
 msgid "Fechar todos os tópicos"
 msgstr "Cerrar todos los ttópicos"
 
-#: ../Ripsa/single.php:200 single.php:200
+#: ../Ripsa/single.php:181 single.php:181
 msgid "Serviços"
 msgstr "Servicios"
 
-#: ../Ripsa/single.php:203 single.php:203
+#: ../Ripsa/single.php:183 single.php:183
 msgid "Base de Dados"
 msgstr "Base de Datos"
 
-#: ../Ripsa/single.php:207 single.php:207
+#: ../Ripsa/single.php:186 single.php:186
 msgid "Literatura Científica em SCIELO"
 msgstr "Literatura Científica en SCIELO"
 
-#: ../Ripsa/single.php:211 single.php:211
+#: ../Ripsa/single.php:189 single.php:189
 msgid "Literatura Científica em LILACS"
 msgstr "Literatura Científica en LILACS"
 
-#: ../Ripsa/single.php:215 single.php:215
+#: ../Ripsa/single.php:192 single.php:192
 msgid "Ficha em Formato PDF"
 msgstr "Ficha en PDF"
 
-#: ../Ripsa/single.php:233 single.php:233
+#: ../Ripsa/single.php:203 single.php:203
 msgid "Comentários sobre indicadores"
 msgstr "Comentarios sobre indicadores"
 
