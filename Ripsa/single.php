@@ -1,7 +1,9 @@
-<?php require_once("header.php");?>
+<?php 
+	require_once("header.php");
+	$ez_TeX = new ezLaTeX();
+?>
 	<div id="content">
 		<?php if (have_posts()): while (have_posts()) : the_post();?>
-		<?php the_content(); ?>
 		<section class="content-search">
 			<div class="padding15-25">
 				<?php
@@ -34,7 +36,7 @@
 				</span>
 				<h1 class="single-h1 marginbottom15"><?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php the_title();?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
 				<?php
-					$alerta = get_post_meta($post->ID,"alertas",true);
+					$alerta = $ez_TeX->parseTex(get_field('alertas'));
 				?>
 				<?php if (!empty($alerta)) { ?>
 					<div class="warning">
@@ -47,7 +49,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="conceituacao"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="conceituacao"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -57,7 +59,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="interpretacao"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="interpretacao"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -67,7 +69,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="usos"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="usos"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -77,7 +79,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="limitacoes"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="limitacoes"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -87,7 +89,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="fonte"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="fonte"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -97,7 +99,10 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="metodo_de_calculo"; echo get_post_meta($post->ID,$key,true);?>
+							<?php 
+								$key="metodo_de_calculo";
+								echo $ez_TeX->parseTex(get_field($key));
+							?>
 						</div>
 					</div>
 				</div>
@@ -107,7 +112,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="categorias_sugeridas_para_analise"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="categorias_sugeridas_para_analise"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -117,7 +122,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="dados_estatisticos_e_comentarios"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="dados_estatisticos_e_comentarios"; echo $ez_TeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -127,7 +132,7 @@
                     </div>
                     <div class="row-fluid single-topicos-open">
                         <div class="single-topicos-content">
-							<?php $key="notas"; echo get_post_meta($post->ID,$key,true);?>
+							<?php $key="notas"; echo $ez_TeX->parseTex(get_field($key));?>
                         </div>
                     </div>
                 </div>
