@@ -1,6 +1,7 @@
 <?php 
 	require_once("header.php");
 	$ez_TeX = new ezLaTeX();
+	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
 	<div id="content">
 		<?php if (have_posts()): while (have_posts()) : the_post();?>

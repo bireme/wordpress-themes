@@ -44,6 +44,8 @@ img{border:0;}
 /* SPRITE */
 .header-logo, .header-desenho
 {background:url(Imagens/header.png) no-repeat;}
+.lang-es-ES .header-logo{background-position:0px -107px;}
+.lang-pt-BR .header-logo{background-position:0px -214px;}
 
 .i-show, .i-hide, .i-basedados, .i-lilacs, .i-scielo, .i-download, .i-print, .i-send2friend, .i-oldversions, .i-comment
 {background:url(Imagens/sprite.png) no-repeat;}
@@ -63,12 +65,12 @@ img{border:0;}
 /* HEADER */
 .header{width:100%; float:left; background:rgb(15,111,159); border-bottom:3px solid rgb(128,200,246); position:relative;}
 .header-logo{width:459px; height:106px; float:left; font-size:11px; background-position:0px 0px; text-indent:-999px; overflow:hidden;}
-.header-desenho{width:459px; height:106px; float:right; background-position:0px -107px;}
+.header-desenho{width:459px; height:106px; float:right; background-position:0px -321px;}
 .header-idiomas{position:absolute; top:10px; right:10px; z-index:99;}
-.header-idiomas-ul{float:right; list-style:none;}
-.header-idiomas-li{float:left;}
-.header-idiomas-lia{float:left; margin-left:15px; color:rgb(255,255,255); text-decoration:none;}
-.header-idiomas-lia:hover{color:rgb(255,255,255); text-decoration:underline;}
+.header-idiomas ul{float:right; list-style:none;}
+.header-idiomas li{float:left;}
+.header-idiomas li a{float:left; margin-left:15px; color:rgb(255,255,255); text-decoration:none;}
+.header-idiomas li a:hover{color:rgb(255,255,255); text-decoration:underline;}
 
 /* CONTENT */
 #content{width:100%; float:left;}

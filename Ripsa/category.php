@@ -1,4 +1,7 @@
-<?php require_once("header.php");?>
+<?php 
+	require_once("header.php");
+	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
+?>
 
 		<div id="content">
 			<section class="content-search">

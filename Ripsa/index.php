@@ -1,5 +1,7 @@
-<?php get_header();?>
-
+<?php 
+	get_header();
+	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
+?>
 		<div id="content">
 			<section class="content-search">
 				<div class="padding15-25">
@@ -13,20 +15,10 @@
 								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
 								<button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
 							</div>
-
-							<!--div class="pull-right">
-								<label class="search-label" for="txtIndicadores"><?php _e( 'Conjunto de Indicadores:', 'Ripsa' ); ?></label>
-								<select name="txtIndicadores" id="txtIndicadores">
-									<option value="2012">IDB 2012</option>
-									<option value="2011">IDB 2011</option>
-									<option value="2010">IDB 2010</option>
-								</select>
-							</div-->
 						</div>
 					</form>
 				</div>
 			</section>
-
 			<div class="padding15-25">	
 				<?php
 				    $categories = get_categories(array('exclude' => 1));
@@ -50,5 +42,4 @@
 				</ul>
 			</div>
 		</div>
-
-<?php get_footer();?>		
+<?php get_footer();?>

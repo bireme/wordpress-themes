@@ -1,8 +1,8 @@
 <?php
-        load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+    load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
 <!doctype html>
-<html lang="pt-br">
+<html lang="<?php echo bloginfo('language');?>">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,20 +47,20 @@
 </head>
 <body>
 	<div id="box">
-		<header class="header">
-			<a href="<?php echo get_settings('home');?>">
+		<header class="header lang-<?php bloginfo('language');?>">
+			<a href="<?php echo get_settings('home') . '/?l=' . get_bloginfo('language');?>">
 				<h1 class="header-logo">Portal de Fichas de Qualificação</h1>
 			</a>
 			<div class="header-desenho"></div>
 
 			<nav class="header-idiomas">
 				<?php 
-                	                global $site_lang;
-                                        if(function_exists('mlf_links_to_languages')) { 
+					global $site_lang;
+					if(function_exists('mlf_links_to_languages')) { 
 						mlf_links_to_languages(); 
-                                        } else {
+					} else {
 						create_language_list($site_lang);
-                                        } 
+					} 
 				?>
 			</nav>
 		</header>
