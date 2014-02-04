@@ -42,6 +42,16 @@ function filter_add_query_vars($query_vars) {
 }
 add_filter( 'query_vars', 'filter_add_query_vars' ); 
 
+function append_l_menu_link($sorted_menu_items) {
+	global $site_lang;
+	foreach ($sorted_menu_items as $item) {
+		$item->url = add_query_arg("l", $site_lang, $item->url);
+	}
+	return $sorted_menu_items;
+}
+
+add_filter('wp_nav_menu_objects', 'append_l_menu_link');
+
 function create_bread_crumb($post_title){
 	global $site_lang;
 

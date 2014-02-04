@@ -69,6 +69,12 @@
 						} 
 					?>	
 				</div>
+				<div class="feedback">
+					<a href="http://feedback.bireme.org/feedback/?application=queries&version=1.0&lang=<?php echo substr($site_lang,0,2); ?>" title="<?php _e('Leave a comment / Report an error','refnet');?>">
+
+						<?php _e('Leave a comment / Report an error','refnet');?>
+					</a>
+				</div>
 				<!--
 				<div id="contact"> 
 					<span><a href="<?php echo $contactPage;?>">Contato</a></span>
@@ -94,5 +100,9 @@
 					<?php dynamic_sidebar( 'header' ); ?>
 				</div>
 	        	</div>
-			<div class="spacer"></div>	
+			<div class="spacer"></div>
 		</div>
+		<div class="top-menu">
+			<?php wp_nav_menu( array('menu' => 'menu-'. $site_lang)); ?>
+		</div>
+		<div class="spacer"></div>

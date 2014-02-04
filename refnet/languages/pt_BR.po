@@ -324,6 +324,10 @@ msgstr "Reference queries/Clusters"
 msgid "Commemorative dates, Campaigns"
 msgstr "Commemorative dates, Campaigns"
 
+#: ../header.php:73 ../header.ph:75
+msgid "Leave a comment / Report an error"
+msgstr "Enviar comentário / Comunicar erro"
+
 #: ../header.php:80
 msgid "VHL Search Strategies"
 msgstr "Estratégias de Busca na BVS"
@@ -443,3 +447,6 @@ msgstr "Estratégia para MEDLINE"
 msgid "Cochrane Strategy"
 msgstr "Estratégia para Cochrane"
 
+#: ../../../../../../wp-includes/comment-template.php:1542
+msgid "Leave a Reply"
+msgstr "Envie um comentário"

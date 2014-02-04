@@ -340,6 +340,10 @@ msgstr "Reference queries/Clusters"
 msgid "Commemorative dates, Campaigns"
 msgstr "Commemorative dates, Campaigns"
 
+#: ../header.php:73 ../header.ph:75
+msgid "Leave a comment / Report an error"
+msgstr "Enviar comentario/ Reportar un error"
+
 #: ../header.php:80
 msgid "VHL Search Strategies"
 msgstr "Estrategias de búsqueda en la BVS"
