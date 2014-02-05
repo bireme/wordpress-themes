@@ -83,7 +83,7 @@
 			</div>
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
-	            			<a href="<?php echo $linkLogo;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
+	            			<a href="<?php echo $linkLogo . '?l=' . $site_lang;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
 						<img src="<?php echo get_stylesheet_directory_uri() . "/images/" . __('en/logo-bvs-en.png','refnet');?>" alt="<?php _e('VHL LOGO','refnet');?>"/>
 	       				</a>
 	            		</div>
