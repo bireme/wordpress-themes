@@ -52,6 +52,30 @@ function append_l_menu_link($sorted_menu_items) {
 
 add_filter('wp_nav_menu_objects', 'append_l_menu_link');
 
+function extract_text_by_language_markup($text) {
+//If the title or the text has language markup like [pt_BR][/pt_BR], this function recognizes the tag and returns the corresponding text. 
+	global $site_lang;
+	$pattern_start = '/\[' . $site_lang  . ']/';
+	$pattern_end = '/\[\/' . $site_lang . ']/';
+
+	if (preg_match($pattern_start, $text) && preg_match($pattern_end, $text)) {
+		$extracted_text = explode("[/" . $site_lang . "]", $text);
+		$extracted_text = explode("[" . $site_lang . "]", $extracted_text[0]);
+		return $extracted_text[1];
+	} else {
+		$extracted_text = preg_split('/\[\/(pt_BR|en_US|es_ES)]/', $text);
+		if (count($extracted_text) > 1) {
+			$extracted_text = preg_split('/\[(pt_BR|en_US|es_ES)]/', $extracted_text[0]);
+			return $extracted_text[1];
+		} else {
+			return $text;
+		}
+	}
+}
+
+add_filter('widget_text','extract_text_by_language_markup');
+add_filter('widget_title','extract_text_by_language_markup');
+
 function create_bread_crumb($post_title){
 	global $site_lang;
 
