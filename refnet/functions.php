@@ -123,8 +123,9 @@ function create_language_list($current_lang){
 	echo '</ul>';
 }
 
-function bir_show_custom_field_translated($post_id, $key, $label="", $html4label="", $html4custom_field="", $single=true, $separator=",") {
+function bir_show_custom_field_translated($post_id, $key, $label="", $html4label="", $html4custom_field="", $single=true, $separator=",", $other=FALSE, $breakline=FALSE) {
 /*
+	$key - identification of the custom field
         Samples for $html4label and $html4custom_field. Keep always the strings "label" and "custom_field", because the function will replace them using regular expression.
 
         $html4label
@@ -134,42 +135,47 @@ function bir_show_custom_field_translated($post_id, $key, $label="", $html4label
                 "<li>custom_field</li>"
                 "<dd>custom_field</dd>"
                 "<p>custom_field</p>"
+
+	$separator - character to delimiter a list of words
+	$other - to know if a custom field value set as "Other" should be displayed ot replaced by other content
+	$breakline - content with break line (/n) can be splited.
 */
         $customField = get_post_meta($post_id, $key, $single);
 
-        if (!is_array($customField)) {
-                if (trim($customField)!= "") {
-                        if ($html4label != "")
-                                echo preg_replace("/label/", $label, $html4label);
-                        else
-                                echo $label;
+        if (is_array($customField) or trim($customField)!= "") {
 
+        	if ($html4label != "")
+                	$text2show = preg_replace("/label/", $label, $html4label);
+                else
+                        $text2show = $label;
+	
+		if (!is_array($customField) and preg_match("/\n/", $customField) and $breakline) {
+			$customField = preg_split("/\n/", $customField);
+		}
+
+        	if (!is_array($customField)) {
                         if ($html4custom_field != "")
-                                echo preg_replace("/custom_field/", bir_translate_custom_field_values($customField), $html4custom_field);
+                                $text2show .= preg_replace("/custom_field/", bir_translate_custom_field_values($customField, $other), $html4custom_field);
                         else
-                                echo bir_translate_custom_field_values($customField);
-                }
-        } else {
-                if ($html4label != "")
-                        echo preg_replace("/label/", $label, $html4label);
-                else
-                         echo $label;
-
-                $count = count($customField);
-                $lastValue = end($customField);
-                $text = "";
-                foreach ( $customField as $value) {
-                        $text .= bir_translate_custom_field_values($value);
-                        if ($value != $lastValue) $text .= $separator . " ";
-                }
-                if ($html4custom_field != "")
-                        echo preg_replace("/custom_field/", $text, $html4custom_field);
-                else
-                         echo $text;
-        }
+                                $text2show .= bir_translate_custom_field_values($customField, $other);
+                } else {
+                	$count = count($customField);
+	                $lastValue = end($customField);
+        	        $text = "";
+                	foreach ( $customField as $value) {
+                        	$text .= bir_translate_custom_field_values(trim($value), $other);
+	                        if ($value != $lastValue) $text .= $separator . " ";
+        	        }
+                	if ($html4custom_field != "")
+	                        $text2show .= preg_replace("/custom_field/", $text, $html4custom_field);
+        	        else
+                	        $text2show .= $text;
+	        }
+	}
+	return $text2show;
 }
 
-function bir_translate_custom_field_values($custom_field_value) {
+function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 
 	$custom_field_value_translated = "";
 
@@ -283,6 +289,17 @@ function bir_translate_custom_field_values($custom_field_value) {
 			break;
 		case "Commemorative dates, Campaigns":
 			$custom_field_value_translated = __('Commemorative dates, Campaigns','refnet');
+			break;
+		case "Other":
+		case "Others":
+			if ($other) {
+				$custom_field_value_translated = __('Other','refnet');
+			} else {
+				$custom_field_value_translated = "other_to_replace";
+			}
+			break;
+		case "French":
+			$custom_field_value_translated =  __('French','refnet');
 			break;
 		default:
 			$custom_field_value_translated = $custom_field_value;
