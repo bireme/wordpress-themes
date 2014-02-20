@@ -190,7 +190,7 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 		case "CDSR - Cochrane Systematic Reviews Database":
 			$custom_field_value_translated = __('CDSR - Cochrane Systematic Reviews Database','refnet');
 			break;
-		case "CENTRAL Controlled Clinical Trials : CENTRAL Controlled Clinical Trials":
+		case "CENTRAL Controlled Clinical Trials":
 			$custom_field_value_translated = __('CENTRAL Controlled Clinical Trials : CENTRAL Controlled Clinical Trials','refnet');
 			break;
 		case "DARE - Database of Abstracts of Review of Effects":
@@ -208,9 +208,6 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 		case "PAHO (PAHO Library Database)":
 			$custom_field_value_translated = __('PAHO (PAHO Library Database)','refnet');
 			break;
-		case "All VHL's databases":
-			$custom_field_value_translated = __("All VHL's databases",'refnet');
-			break;
 		//Case para o campo Text Language do field group General Search Fielters
 		case "English":
 			$custom_field_value_translated = __('English','refnet');
@@ -221,8 +218,8 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 		case "Portuguese":
 			$custom_field_value_translated = __('Portuguese','refnet');
 			break;
-		case "Any Language":
-			$custom_field_value_translated = __('Any Language','refnet');
+		case "Any language":
+			$custom_field_value_translated = __('Any language','refnet');
 			break;
 		//Case para o campo Publication Type do field group General Search Fielters
 		case "Journal Article":
@@ -297,9 +294,6 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 			} else {
 				$custom_field_value_translated = "other_to_replace";
 			}
-			break;
-		case "French":
-			$custom_field_value_translated =  __('French','refnet');
 			break;
 		default:
 			$custom_field_value_translated = $custom_field_value;

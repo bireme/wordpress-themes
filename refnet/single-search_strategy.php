@@ -29,11 +29,11 @@
 			<?php
 				$html4label = "<dt>label</dt>";
 				$html4custom_field = "<dd>custom_field</dd><br/>";
-				echo bir_show_custom_field_translated(get_the_ID(), 'description_of_the_search', __('Description of the search','refnet'), $html4label, $html4custom_field);
-				echo bir_show_custom_field_translated(get_the_ID(), 'main_subject_of_the_search', __('Main subject of the search','refnet'), $html4label, $html4custom_field);
-				echo bir_show_custom_field_translated(get_the_ID(), 'secondary_subject_of_the_search', __('Secondary subject of the search','refnet'), $html4label, $html4custom_field);
-				echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Type of search strategy','refnet'), $html4label, $html4custom_field);
-				echo bir_show_custom_field_translated(get_the_ID(), 'url_to_search_result', __('URL to Search Results','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field_translated(get_the_ID(), 'description_of_the_search', __('Description','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field_translated(get_the_ID(), 'main_subject_of_the_search', __('Main subjects','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field_translated(get_the_ID(), 'secondary_subject_of_the_search', __('Secondary subjects','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Scope','refnet'), $html4label, $html4custom_field);
+				echo bir_show_custom_field_translated(get_the_ID(), 'url_to_search_result', __('Search result','refnet'), $html4label, $html4custom_field);
 			?>
 				</dl>
 				<?php 
@@ -41,7 +41,7 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='filters'></i>";
-						_e('General Search Filters','refnet');
+						_e('Filters','refnet');
 						echo "</h5>";
 					}
 				?>
@@ -52,9 +52,9 @@
 					$text2show =  bir_show_custom_field_translated(get_the_ID(), 'publication_type', __('Publication type','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'other_publication_type',"","","",TRUE,",",FALSE,TRUE), $text2show);	
 					echo bir_show_custom_field_translated(get_the_ID(), 'publication_year', __('Publication year','refnet'), $html4label, $html4custom_field);
-					$text2show = bir_show_custom_field_translated(get_the_ID(), 'limits', __('Conditions: gender, age etc','refnet'), $html4label, $html4custom_field);
+					$text2show = bir_show_custom_field_translated(get_the_ID(), 'limits', __('Limits','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'other_conditions',"","","",TRUE,",",FALSE,TRUE), $text2show);	
-					echo bir_show_custom_field_translated(get_the_ID(), 'country_of_publication', __('Country or Region of publication','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'country_of_publication', __('Publication Country','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
@@ -62,15 +62,15 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='lilacs-strategy'></i>";
-						_e('Search Strategy I','refnet');
+						_e('Search strategy I','refnet');
 						echo "</h5>";
 					}
 				?>
 				<dl>
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_observations', __('Observations','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
 				?>
@@ -80,15 +80,15 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='medline-strategy'></i>";
-						_e('Search Strategy II','refnet');
+						_e('Search strategy II','refnet');
 						echo "</h5>";
 					}
 				?>
 				<dl>
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_observations', __('Observations','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
 				?>
@@ -98,15 +98,15 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='cochrane-strategy'></i>";
-						_e('Search Strategy III','refnet');
+						_e('Search strategy III','refnet');
 						echo "</h5>";
 					}
 				?>
 				<dl>
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_observations', __('Observations','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH Search Expression','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx Search Expression','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
 				?>
@@ -116,7 +116,7 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='lilacs-strategy'></i>";
-						_e('More Information','refnet');
+						_e('More information','refnet');
 						echo "</h5>";
 					}
 				?>
