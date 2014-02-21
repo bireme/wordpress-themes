@@ -17,7 +17,6 @@
 			<div class="search-strategy-data">
 				<?php
 					$terms = wp_get_post_terms(get_the_ID(), 'status');
-					print_r($terms);
 				?>
 				<h4><?php the_title(); ?></h4>
 				<?php
