@@ -232,6 +232,14 @@ msgstr "Estratégias de referência/Clusters"
 msgid "Commemorative dates, Campaigns"
 msgstr "Datas comemorativas, campanhas"
 
+#: ../functions.php:299
+msgid "In review"
+msgstr "Em revisão"
+
+#: ../functions.php:302
+msgid "Reviewed"
+msgstr "Revisado"
+
 #: ../header.php:73 ../header.ph:75
 msgid "Leave a comment / Report an error"
 msgstr "Enviar comentário / Comunicar erro"

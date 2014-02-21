@@ -236,6 +236,14 @@ msgstr "Áreas temáticas/Clusters"
 msgid "Commemorative dates, Campaigns"
 msgstr "Fechas Conmemorativas, campañas"
 
+#: ../functions.php:299
+msgid "In review"
+msgstr "En revisión"
+
+#: ../functions.php:302
+msgid "Reviewed"
+msgstr "Revisado"
+
 #: ../header.php:73 ../header.ph:75
 msgid "Leave a comment / Report an error"
 msgstr "Enviar comentario/ Reportar un error"

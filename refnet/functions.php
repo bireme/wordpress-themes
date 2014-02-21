@@ -295,6 +295,12 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 				$custom_field_value_translated = "other_to_replace";
 			}
 			break;
+		case "In review":
+			$custom_field_value_translated = __('In review','refnet');
+			break;
+		case "Reviewed":
+			$custom_field_value_translated = __('Reviewed','refnet');
+			break;
 		default:
 			$custom_field_value_translated = $custom_field_value;
 			break;

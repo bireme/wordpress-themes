@@ -15,8 +15,24 @@
 	<div id="primary" class="site-content">
 		<div id="content" class="single1column" role="main">
 			<div class="search-strategy-data">
+				<?php
+					$terms = wp_get_post_terms(get_the_ID(), 'status');
+					print_r($terms);
+				?>
 				<h4><?php the_title(); ?></h4>
-				<?php 
+				<?php
+					if ($terms) {
+						switch($terms[0]->name) {
+							case "In review":
+								echo '<span class="in_review">' . bir_translate_custom_field_values($terms[0]->name) . '</span>';
+								break;
+							case "Reviewed":
+								echo '<span class="reviewed">' . bir_translate_custom_field_values($terms[0]->name) . '</span>';
+								break;
+							default:
+								break;
+						}
+					}
 					$custom_field_keys = array ("description_of_the_search", "main_subject_of_the_search","secondary_subject_of_the_search");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
