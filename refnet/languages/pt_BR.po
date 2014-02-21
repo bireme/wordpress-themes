@@ -324,7 +324,7 @@ msgstr "Estratégia de busca para iAHx"
 
 #: ../single-search_strategy.php:83
 msgid "Search strategy II"
-msgstr "Estratégia de Busca III"
+msgstr "Estratégia de Busca II"
 
 #: ../single-search_strategy.php:101
 msgid "Search strategy III"
