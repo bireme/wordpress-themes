@@ -129,7 +129,6 @@
 				?>
 				<dl>
 				<?php
-					$iahx_regional_url = "http://pesquisa.bvsalud.org/portal/?lang=" . substr($site_lang, 0,2) . "&from=0&sort=&format=summary&count=20&page=1&q=" .  trim(bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression',"","","",TRUE,",",FALSE,FALSE)) . "&index=tw";
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_observations', __('Observations','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
