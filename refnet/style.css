@@ -193,7 +193,7 @@ section.site-content #content .search_strategy{
 }
 #content.single1column h4 {
         font-size: 150%;
-        margin-bottom:30px;
+        margin-bottom:6px;
 }
 #content.single1column h5 {
         font-size: 120%;
@@ -201,14 +201,22 @@ section.site-content #content .search_strategy{
         border-bottom: 1px solid #999;
         padding-bottom:6px;
 }
-                          
+.in_review {
+	color: red;
+	background: url(images/bullet_error.png) no-repeat 0 1px;
+	padding-left:18px;
+}                          
+.reviewed {
+	color: green;
+	background: url(images/accept.png) no-repeat 0 1px;
+        padding-left:18px;
+}
 #content.single1column dl {
         font-weight: 700;
         margin: 8px 0 12px 45px;
         color: #666;
 }
 #content.single1column dt, #content.single1column dd {
-	display: inline-block;
 	margin: 6px 12px 0 0;
 }
 #content.single1column dt:after {
@@ -219,6 +227,9 @@ section.site-content #content .search_strategy{
 }
 #content.single1column dd {
 	font-weight:normal;
+}
+.search-strategy-data h4 {
+
 }
 /***** COMMENTS  *****/
 .comments-area {
