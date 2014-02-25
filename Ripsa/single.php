@@ -206,6 +206,14 @@
 						<?php } ?>
 					</div>
 				</div>
+
+				<?php 
+					$indicador = get_the_title($post->ID);
+					$edicao = get_post_meta($post->ID,"edicao",true);
+					include("lista_ficha_versions.php"); 
+ 				?>
+
+
 			</aside>
 		</div>
 	</div>

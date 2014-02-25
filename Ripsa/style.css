@@ -106,6 +106,9 @@ img{border:0;}
 .single-servicos-text{float:right; width:140px;}
 .single-topicos-content .notes{font-size: 90%;font-style:italic;} 
 .warning{float: left;padding: 8px;color: #b94a48;background-color: #f2dede;border-color: #eed3d7;margin: 12px 0;font-size: 120%;}
+#aplicacao li{list-style:none;font-weight: bold;}
+#aplicacao li a{text-decoration: none; color:rgb(49,49,49);font-weight: normal;}
+#aplicacao li a:hover{text-decoration: underline;}
 
 /* CATEGORY */
 .category-ul{margin-left:50px; list-style:square; float:left;}
