@@ -16,7 +16,7 @@ $indicador_slug = str_replace('.','-',$indicador);
 if ( count($version_list) > 1 ){
 	echo '<div class="row-fluid bg-blue margintop10">';	
 	echo '    <div class="padding7">';
-	echo '		  <h3 class="row-fluid single-h3">' . __( 'Outras versões', 'Ripsa') . '</h3>';
+	echo '		  <h3 class="row-fluid single-h3">' . _e( 'Outras versões', 'Ripsa') . '</h3>';
 	echo '        <ul id="aplicacao">';
 	foreach( $version_list as $version){
 		$year = $version[0];		
