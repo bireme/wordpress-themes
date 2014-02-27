@@ -336,8 +336,8 @@ msgstr "Mais informação"
 
 #: ../single-search_strategy.php:71 ../single-search_strategy.php:89
 #: ../single-search_strategy.php:107
-msgid "Observations"
-msgstr "Observações"
+msgid "Observation"
+msgstr "Observação"
 
 #: ../single-search_strategy.php:125
 msgid "VHL instance"

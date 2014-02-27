@@ -83,7 +83,7 @@
 				?>
 				<dl>
 				<?php
-					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_observations', __('Observations','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_observations', __('Observation','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
