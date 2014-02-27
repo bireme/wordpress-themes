@@ -69,7 +69,7 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'publication_year', __('Publication year','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'limits', __('Limits','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'other_conditions',"","","",TRUE,",",FALSE,TRUE), $text2show);	
-					echo bir_show_custom_field_translated(get_the_ID(), 'country_of_publication', __('Publication Country','refnet'), $html4label, $html4custom_field);
+					echo bir_show_custom_field_translated(get_the_ID(), 'country_of_publication', __('Publication country','refnet'), $html4label, $html4custom_field);
 				?>
 				</dl>
 				<?php 
