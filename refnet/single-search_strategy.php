@@ -76,7 +76,7 @@
 					$custom_field_keys = array ("lilacs_iah_search_expression", "lilacs_iahx_search_expression", "lilacs_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
-						echo "<i class='lilacs-strategy'></i>";
+						echo "<i class='databases'></i>";
 						_e('Search strategy I','refnet');
 						echo "</h5>";
 					}
@@ -99,7 +99,7 @@
 					$custom_field_keys = array ("medline_iah_search_expression", "medline_iahx_search_expression", "medline_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
-						echo "<i class='medline-strategy'></i>";
+						echo "<i class='databases'></i>";
 						_e('Search strategy II','refnet');
 						echo "</h5>";
 					}
@@ -122,7 +122,7 @@
 					$custom_field_keys = array ("cochrane_iah_search_expression", "cochrane_iahx_search_expression", "cochrane_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
-						echo "<i class='cochrane-strategy'></i>";
+						echo "<i class='databases'></i>";
 						_e('Search strategy III','refnet');
 						echo "</h5>";
 					}
@@ -145,7 +145,7 @@
 					$custom_field_keys = array ("search_details","vhl_instance");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
-						echo "<i class='lilacs-strategy'></i>";
+						echo "<i class='subject'></i>";
 						_e('More information','refnet');
 						echo "</h5>";
 					}
