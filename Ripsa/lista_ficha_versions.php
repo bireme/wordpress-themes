@@ -2,7 +2,7 @@
 
 $version_list = array();
 
-$solr_url = 'http://srv.homolog.bvsalud.org/iahx-controller/?site=ripsa&col=main&output=json&lang=pt&q=indicador_ripsa:"' . $indicador . '"&op=search';
+$solr_url = 'http://srv.bvsalud.org/iahx-controller/?site=ripsa&col=main&output=json&lang=pt&q=indicador_ripsa:"' . $indicador . '"&op=search';
 
 $response = @file_get_contents($solr_url);
 
