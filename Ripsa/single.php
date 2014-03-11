@@ -192,6 +192,11 @@
 						<a href="<?php the_field('ficha_pdf');?>" target="_blank" target="_blank" class="row-fluid single-servicos">
 							<i class="i-download"></i><span class="single-servicos-text"><?php _e( 'Ficha em Formato PDF', 'Ripsa'); ?></span>
 						</a>
+						<?php 
+							$indicador = get_the_title($post->ID);
+							$edicao = get_post_meta($post->ID,"edicao",true);
+							include("lista_ficha_versions.php"); 
+		 				?>
 						<span id="impressao" class="row-fluid single-servicos">
 							<?php if(function_exists('pf_show_link')){echo pf_show_link();} ?>
 						</span>
@@ -207,11 +212,7 @@
 					</div>
 				</div>
 
-				<?php 
-					$indicador = get_the_title($post->ID);
-					$edicao = get_post_meta($post->ID,"edicao",true);
-					include("lista_ficha_versions.php"); 
- 				?>
+				
 
 
 			</aside>

@@ -14,9 +14,9 @@ if ($response){
 $indicador_slug = str_replace('.','-',$indicador);
 
 if ( count($version_list) > 1 ){
-	echo '<div class="row-fluid bg-blue margintop10">';	
-	echo '    <div class="padding7">';
-	echo '		  <h3 class="row-fluid single-h3">' . _e( 'Outras versões', 'Ripsa') . '</h3>';
+	echo '		  <span class="row-fluid single-servicos">';
+	echo '		  <i class="i-oldversions"></i><span class="single-servicos-text">' . __( 'Outras versões', 'Ripsa') . '</span>';
+	echo '	      </span>';
 	echo '        <ul id="aplicacao">';
 	foreach( $version_list as $version){
 		$year = $version[0];		
@@ -28,8 +28,7 @@ if ( count($version_list) > 1 ){
 		}
 	}
 	echo '       </ul>';
-	echo '   </div>';
-	echo '</div>';
+	
 }
 ?>
 
