@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ripsa\n"
-"POT-Creation-Date: 2014-02-25 16:14-0300\n"
-"PO-Revision-Date: 2014-02-25 16:15-0300\n"
+"POT-Creation-Date: 2014-03-12 09:42-0300\n"
+"PO-Revision-Date: 2014-03-12 09:42-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -15,2068 +15,6 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
-
-#: ../bvs-2012-responsive/404.php:17 ../bvs-ms/404.php:17 ../clipping BVS-SP
-#: Brasil/404.php:17 ../twentytwelve_bireme/404.php:17
-msgid "This is somewhat embarrassing, isn&rsquo;t it?"
-msgstr ""
-
-#: ../bvs-2012-responsive/404.php:21 ../clipping BVS-SP Brasil/404.php:21
-#: ../twentytwelve_bireme/404.php:21
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-
-#: ../bvs-2012-responsive/archive.php:29 ../clipping BVS-SP
-#: Brasil/archive.php:29 ../panamazonica/archive.php:9
-#: ../twentytwelve_bireme/archive.php:29
-#, php-format
-msgid "Daily Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/archive.php:31 ../clipping BVS-SP
-#: Brasil/archive.php:31 ../panamazonica/archive.php:11
-#: ../twentytwelve_bireme/archive.php:31
-#, php-format
-msgid "Monthly Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/archive.php:33 ../clipping BVS-SP
-#: Brasil/archive.php:33 ../panamazonica/archive.php:13
-#: ../twentytwelve_bireme/archive.php:33
-#, php-format
-msgid "Yearly Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/archive.php:35 ../clipping BVS-SP
-#: Brasil/archive.php:38 ../panamazonica/archive.php:15
-#: ../panamazonica/functions.php:1072 ../twentytwelve_bireme/archive.php:35
-msgid "Archives"
-msgstr ""
-
-#: ../bvs-2012-responsive/author.php:32 ../clipping BVS-SP
-#: Brasil/author.php:32 ../twentytwelve_bireme/author.php:32
-#, php-format
-msgid "Author Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/author.php:53 ../clipping BVS-SP
-#: Brasil/author.php:53 Brasil/content-home.php:95 Brasil/content.php:112
-#: ../twentytwelve_bireme/author.php:53
-#, php-format
-msgid "About %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/category.php:21 ../clipping BVS-SP
-#: Brasil/category.php:21 ../twentytwelve_bireme/category.php:21
-#, php-format
-msgid "Category Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/comments.php:42 ../clipping BVS-SP
-#: Brasil/comments.php:42 ../panamazonica/comments.php:27
-#: ../refnet/comments.php:46 ../twentytwelve_bireme/comments.php:42
-msgid "Comment navigation"
-msgstr ""
-
-#: ../bvs-2012-responsive/comments.php:43 ../clipping BVS-SP
-#: Brasil/comments.php:43 ../refnet/comments.php:47
-#: ../twentytwelve_bireme/comments.php:43
-msgid "&larr; Older Comments"
-msgstr ""
-
-#: ../bvs-2012-responsive/comments.php:44 ../clipping BVS-SP
-#: Brasil/comments.php:44 ../refnet/comments.php:48
-#: ../twentytwelve_bireme/comments.php:44
-msgid "Newer Comments &rarr;"
-msgstr ""
-
-#: ../bvs-2012-responsive/comments.php:53 ../clipping BVS-SP
-#: Brasil/comments.php:53 ../panamazonica/comments.php:39
-#: ../refnet/comments.php:57 ../twentytwelve_bireme/comments.php:53
-msgid "Comments are closed."
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:13
-#: ../bvs-2012-responsive/content-aside.php:20
-#: ../bvs-2012-responsive/content-image.php:17
-#: ../bvs-2012-responsive/content-link.php:18
-#: ../bvs-2012-responsive/content-quote.php:17
-#: ../bvs-2012-responsive/content-status.php:15
-#: ../bvs-2012-responsive/content.php:22 ../clipping BVS-SP
-#: Brasil/content-aside.php:13 Brasil/content-aside.php:20
-#: Brasil/content-home.php:56 Brasil/content-home.php:77
-#: Brasil/content-image.php:17 Brasil/content-link.php:18
-#: Brasil/content-quote.php:17 Brasil/content-status.php:15
-#: Brasil/content.php:23 ../twentytwelve_bireme/content-aside.php:13
-#: ../twentytwelve_bireme/content-aside.php:20
-#: ../twentytwelve_bireme/content-image.php:17
-#: ../twentytwelve_bireme/content-link.php:18
-#: ../twentytwelve_bireme/content-quote.php:17
-#: ../twentytwelve_bireme/content-status.php:15
-#: ../twentytwelve_bireme/content.php:23
-#, php-format
-msgid "Permalink to %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:15
-#: ../bvs-2012-responsive/content-image.php:13
-#: ../bvs-2012-responsive/content-link.php:14
-#: ../bvs-2012-responsive/content-quote.php:13
-#: ../bvs-2012-responsive/content-status.php:21
-#: ../bvs-2012-responsive/content.php:41 ../clipping BVS-SP
-#: Brasil/content-aside.php:15 Brasil/content-image.php:13
-#: Brasil/content-link.php:14 Brasil/content-quote.php:13
-#: Brasil/content-status.php:21 Brasil/content.php:45
-#: ../twentytwelve_bireme/content-aside.php:15
-#: ../twentytwelve_bireme/content-image.php:13
-#: ../twentytwelve_bireme/content-link.php:14
-#: ../twentytwelve_bireme/content-quote.php:13
-#: ../twentytwelve_bireme/content-status.php:21
-#: ../twentytwelve_bireme/content.php:39
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:23
-#: ../bvs-2012-responsive/content-image.php:23
-#: ../bvs-2012-responsive/content-link.php:21
-#: ../bvs-2012-responsive/content-quote.php:20
-#: ../bvs-2012-responsive/content-status.php:27 ../clipping BVS-SP
-#: Brasil/content-aside.php:23 Brasil/content-image.php:23
-#: Brasil/content-link.php:21 Brasil/content-quote.php:20
-#: Brasil/content-status.php:27 ../twentytwelve_bireme/content-aside.php:23
-#: ../twentytwelve_bireme/content-image.php:23
-#: ../twentytwelve_bireme/content-link.php:21
-#: ../twentytwelve_bireme/content-quote.php:20
-#: ../twentytwelve_bireme/content-status.php:27
-#: ../twentytwelve_bireme/content.php:28
-msgid "Leave a reply"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:23
-#: ../bvs-2012-responsive/content-image.php:23
-#: ../bvs-2012-responsive/content-link.php:21
-#: ../bvs-2012-responsive/content-quote.php:20
-#: ../bvs-2012-responsive/content-status.php:27 ../clipping BVS-SP
-#: Brasil/content-aside.php:23 Brasil/content-image.php:23
-#: Brasil/content-link.php:21 Brasil/content-quote.php:20
-#: Brasil/content-status.php:27 ../twentytwelve_bireme/content-aside.php:23
-#: ../twentytwelve_bireme/content-image.php:23
-#: ../twentytwelve_bireme/content-link.php:21
-#: ../twentytwelve_bireme/content-quote.php:20
-#: ../twentytwelve_bireme/content-status.php:27
-#: ../twentytwelve_bireme/content.php:28
-msgid "1 Reply"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:23
-#: ../bvs-2012-responsive/content-image.php:23
-#: ../bvs-2012-responsive/content-link.php:21
-#: ../bvs-2012-responsive/content-quote.php:20
-#: ../bvs-2012-responsive/content-status.php:27 ../clipping BVS-SP
-#: Brasil/content-aside.php:23 Brasil/content-image.php:23
-#: Brasil/content-link.php:21 Brasil/content-quote.php:20
-#: Brasil/content-status.php:27 ../twentytwelve_bireme/content-aside.php:23
-#: ../twentytwelve_bireme/content-image.php:23
-#: ../twentytwelve_bireme/content-link.php:21
-#: ../twentytwelve_bireme/content-quote.php:20
-#: ../twentytwelve_bireme/content-status.php:27
-#: ../twentytwelve_bireme/content.php:28
-msgid "% Replies"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-aside.php:26
-#: ../bvs-2012-responsive/content-image.php:26
-#: ../bvs-2012-responsive/content-link.php:24
-#: ../bvs-2012-responsive/content-page.php:21
-#: ../bvs-2012-responsive/content-quote.php:23
-#: ../bvs-2012-responsive/content-status.php:30
-#: ../bvs-2012-responsive/functions.php:309
-#: ../bvs-2012-responsive/image.php:37 ../clipping BVS-SP
-#: Brasil/content-aside.php:26 Brasil/content-home.php:88
-#: Brasil/content-image.php:26 Brasil/content-link.php:24
-#: Brasil/content-page.php:21 Brasil/content-quote.php:23
-#: Brasil/content-status.php:30 Brasil/content.php:105
-#: Brasil/functions.php:359 Brasil/image.php:37
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55 ../panamazonica/content.php:4
-#: ../panamazonica/page.php:6 ../panamazonica/single-agenda.php:15
-#: ../panamazonica/single-documento.php:12
-#: ../panamazonica/page-templates/all-network-sites.php:15
-#: ../panamazonica/page-templates/contact.php:10
-#: ../panamazonica/page-templates/team.php:15
-#: ../twentytwelve_bireme/content-aside.php:26
-#: ../twentytwelve_bireme/content-image.php:26
-#: ../twentytwelve_bireme/content-link.php:24
-#: ../twentytwelve_bireme/content-page.php:21
-#: ../twentytwelve_bireme/content-quote.php:23
-#: ../twentytwelve_bireme/content-status.php:30
-#: ../twentytwelve_bireme/functions.php:309
-#: ../twentytwelve_bireme/image.php:37
-msgid "Edit"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-link.php:12 ../clipping BVS-SP
-#: Brasil/content-link.php:12 ../panamazonica/inc/post-type-documentos.php:89
-#: ../twentytwelve_bireme/content-link.php:12
-msgid "Link"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-none.php:13
-#: ../bvs-2012-responsive/index.php:37 ../bvs-2012-responsive/search.php:34
-#: ../clipping BVS-SP Brasil/content-none.php:13 Brasil/index.php:50
-#: Brasil/search.php:34 ../panamazonica/inc/post-type-agenda.php:115
-#: ../twentytwelve_bireme/content-none.php:13
-#: ../twentytwelve_bireme/search.php:34
-msgid "Nothing Found"
-msgstr ""
-
-#: ../bvs-2012-responsive/content-none.php:17 ../clipping BVS-SP
-#: Brasil/content-none.php:17 Brasil/index.php:54
-#: ../twentytwelve_bireme/content-none.php:17
-msgid ""
-"Apologies, but no results were found. Perhaps searching will help find a "
-"related post."
-msgstr ""
-
-#: ../bvs-2012-responsive/content-page.php:18
-#: ../bvs-2012-responsive/content.php:42 ../bvs-2012-responsive/image.php:92
-#: ../bvs-controlecancer/sidebar.php:13 ../clipping BVS-SP
-#: Brasil/content-home.php:79 Brasil/content-page.php:18 Brasil/content.php:93
-#: Brasil/image.php:92 ../panamazonica/content.php:18
-#: ../panamazonica/page.php:9 ../panamazonica/single-agenda.php:91
-#: ../panamazonica/single-documento.php:87
-#: ../panamazonica/page-templates/all-network-sites.php:18
-#: ../panamazonica/page-templates/team.php:18
-#: ../twentytwelve_bireme/content-page.php:18
-#: ../twentytwelve_bireme/content.php:40 ../twentytwelve_bireme/image.php:92
-#: ../vhl-search-portal/sidebar.php:13
-msgid "Pages:"
-msgstr ""
-
-#: ../bvs-2012-responsive/content.php:14 ../clipping BVS-SP
-#: Brasil/content-home.php:14 Brasil/content.php:14
-#: ../twentytwelve_bireme/content.php:14
-msgid "Featured post"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:64 ../clipping BVS-SP
-#: Brasil/functions.php:64 ../panamazonica/functions.php:30
-#: ../SAA/functions.php:108 ../twentytwelve_bireme/functions.php:64
-msgid "Primary Menu"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:181 ../clipping BVS-SP
-#: Brasil/functions.php:181 ../panamazonica/functions.php:293
-#: ../twentytwelve_bireme/functions.php:181
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:250 ../clipping BVS-SP
-#: Brasil/functions.php:300 Brasil/single.php:20
-#: ../panamazonica/functions.php:227 ../twentytwelve_bireme/functions.php:250
-msgid "Post navigation"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:251 ../clipping BVS-SP
-#: Brasil/functions.php:301 ../twentytwelve_bireme/functions.php:251
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:252 ../clipping BVS-SP
-#: Brasil/functions.php:302 ../twentytwelve_bireme/functions.php:252
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:277 ../clipping BVS-SP
-#: Brasil/functions.php:327 ../twentytwelve_bireme/functions.php:277
-msgid "Pingback:"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:277 ../clipping BVS-SP
-#: Brasil/functions.php:327 ../twentytwelve_bireme/functions.php:277
-msgid "(Edit)"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:292 ../clipping BVS-SP
-#: Brasil/functions.php:342 ../twentytwelve_bireme/functions.php:292
-msgid "Post author"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:298 ../clipping BVS-SP
-#: Brasil/functions.php:348 ../panamazonica/functions.php:340
-#: ../twentytwelve_bireme/functions.php:298
-#, php-format
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:304 ../clipping BVS-SP
-#: Brasil/functions.php:354 ../panamazonica/functions.php:345
-#: ../twentytwelve_bireme/functions.php:304
-msgid "Your comment is awaiting moderation."
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:313 ../clipping BVS-SP
-#: Brasil/functions.php:363 ../twentytwelve_bireme/functions.php:313
-msgid "Reply"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:332
-#: ../bvs-2012-responsive/functions.php:335 ../clipping BVS-SP
-#: Brasil/functions.php:382 Brasil/functions.php:385
-#: ../twentytwelve_bireme/functions.php:332
-#: ../twentytwelve_bireme/functions.php:335
-msgid ", "
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:346 ../clipping BVS-SP
-#: Brasil/functions.php:396 ../twentytwelve_bireme/functions.php:346
-#, php-format
-msgid "View all posts by %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:352 ../clipping BVS-SP
-#: Brasil/functions.php:402 ../twentytwelve_bireme/functions.php:352
-#, php-format
-msgid ""
-"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
-"\"> by %4$s</span>."
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:354 ../clipping BVS-SP
-#: Brasil/functions.php:404 ../twentytwelve_bireme/functions.php:354
-#, php-format
-msgid ""
-"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
-"span>."
-msgstr ""
-
-#: ../bvs-2012-responsive/functions.php:356 ../clipping BVS-SP
-#: Brasil/functions.php:406 ../twentytwelve_bireme/functions.php:356
-#, php-format
-msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
-msgstr ""
-
-#: ../bvs-2012-responsive/image.php:26 ../clipping BVS-SP Brasil/image.php:26
-#: ../twentytwelve_bireme/image.php:26
-#, php-format
-msgid ""
-"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
-"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
-"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
-"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
-"a>."
-msgstr ""
-
-#: ../bvs-2012-responsive/image.php:41 ../clipping BVS-SP Brasil/image.php:41
-#: ../twentytwelve_bireme/image.php:41
-msgid "&larr; Previous"
-msgstr ""
-
-#: ../bvs-2012-responsive/image.php:42 ../clipping BVS-SP Brasil/image.php:42
-#: ../twentytwelve_bireme/image.php:42
-msgid "Next &rarr;"
-msgstr ""
-
-#: ../bvs-2012-responsive/index.php:41
-msgid ""
-"Apologies, but no results were found for the requested archive. Perhaps "
-"searching will help find a related post."
-msgstr ""
-
-#: ../bvs-2012-responsive/search.php:18 ../clipping BVS-SP
-#: Brasil/search.php:18 ../twentytwelve_bireme/search.php:18
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/search.php:38 ../clipping BVS-SP
-#: Brasil/search.php:38 ../twentytwelve_bireme/search.php:38
-msgid ""
-"Sorry, but nothing matched your search criteria. Please try again with some "
-"different keywords."
-msgstr ""
-
-#: ../bvs-2012-responsive/tag.php:21 ../clipping BVS-SP Brasil/tag.php:21
-#: ../twentytwelve_bireme/tag.php:21
-#, php-format
-msgid "Tag Archives: %s"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:21
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:151
-msgid "Theme Options"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:124
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:43
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:84
-msgid "Header"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:124
-msgid "Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:124
-msgid "Layout"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:154
-msgid "Theme options updated"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin_settings.php:180
-msgid "Update"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:56
-msgid "Top Auxiliary SideBar"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:74
-msgid "Column"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:88
-msgid "Footer Auxiliary SideBar"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:100
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:90
-#: ../bvs-ms/functions.php:40
-msgid "Footer"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/functions_bireme.php:111
-msgid "Level 2"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:22
-msgid "Display title on banner?"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:35
-msgid "Display available languages?"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:41
-msgid "Language bar position"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:44
-msgid "Top"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:45
-msgid "Bottom"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/header.php:58
-msgid "Custom CSS and Javascript"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:29
-msgid "Theme Background"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:33
-msgid "Background image"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:41
-msgid "Site Columns"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:45
-msgid "Columns"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:48
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:49
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:50
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:51
-msgid "column"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:58
-msgid "Column Width"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:62
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:66
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:70
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:74
-msgid "Width of column"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:63
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:67
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:71
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:75
-msgid "ou"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/layout.php:79
-msgid "Auxiliary SideBars"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:9
-msgid "General Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:10
-msgid "Header Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:11
-msgid "First Column Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:12
-msgid "Second Column Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:13
-msgid "Third Column Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:14
-msgid "Footer Colors"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:16
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:25
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:33
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:41
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:49
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:57
-msgid "Background"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:17
-msgid "Container background"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:18
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:26
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:34
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:42
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:50
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:58
-#: ../panamazonica/inc/theme-options.php:162
-#: ../panamazonica/inc/theme-options.php:229
-msgid "Text"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:19
-msgid "First level title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:20
-msgid "Second level title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:21
-msgid "Third level title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:22
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:30
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:38
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:46
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:54
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:62
-msgid "Visited link"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:23
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:31
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:39
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:47
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:55
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:63
-msgid "Active link"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:27
-msgid "Site title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:28
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:36
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:44
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:52
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:60
-msgid "Second column title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:29
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:37
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:45
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:53
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:61
-msgid "Third column title"
-msgstr ""
-
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:35
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:43
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:51
-#: ../bvs-2012-responsive/bireme_archives/admin/structure.php:59
-msgid "First column title"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:9
-#: ../vhl-search-portal/comments-popup.php:9
-#, php-format
-msgid "Comments on %s"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:29
-#: ../vhl-search-portal/comments-popup.php:29
-msgid "Comments"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:31
-#: ../bvs-controlecancer/comments.php:35
-#: ../vhl-search-portal/comments-popup.php:31
-#: ../vhl-search-portal/comments.php:35
-msgid ""
-"<abbr title=\"Really Simple Syndication\">RSS</abbr> feed for comments on "
-"this post."
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:34
-#: ../vhl-search-portal/comments-popup.php:34
-msgid ""
-"The <abbr title=\"Universal Resource Locator\">URL</abbr> to TrackBack this "
-"entry is:"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:52
-#: ../bvs-controlecancer/comments.php:24
-#: ../vhl-search-portal/comments-popup.php:52
-#: ../vhl-search-portal/comments.php:24
-msgid "Trackback"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:52
-#: ../bvs-controlecancer/comments.php:24
-#: ../vhl-search-portal/comments-popup.php:52
-#: ../vhl-search-portal/comments.php:24
-msgid "Pingback"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:52
-#: ../bvs-controlecancer/comments.php:24
-#: ../vhl-search-portal/comments-popup.php:52
-#: ../vhl-search-portal/comments.php:24
-msgid "by"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:58
-#: ../bvs-controlecancer/comments.php:32
-#: ../vhl-search-portal/comments-popup.php:58
-#: ../vhl-search-portal/comments.php:32
-msgid "No comments yet."
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:62
-#: ../bvs-controlecancer/comments.php:13 ../bvs-controlecancer/comments.php:42
-#: ../vhl-search-portal/comments-popup.php:62
-#: ../vhl-search-portal/comments.php:13 ../vhl-search-portal/comments.php:42
-msgid "Leave a comment"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:63
-#: ../vhl-search-portal/comments-popup.php:63
-msgid ""
-"Line and paragraph breaks automatic, e-mail address never displayed, "
-"<acronym title=\"Hypertext Markup Language\">HTML</acronym> allowed:"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:67
-#: ../bvs-controlecancer/comments.php:52
-#: ../vhl-search-portal/comments-popup.php:67
-#: ../vhl-search-portal/comments.php:52
-#, php-format
-msgid "Logged in as %s."
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:67
-#: ../bvs-controlecancer/comments.php:52
-#: ../vhl-search-portal/comments-popup.php:67
-#: ../vhl-search-portal/comments.php:52
-msgid "Log out of this account"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:67
-#: ../bvs-controlecancer/comments.php:52
-#: ../vhl-search-portal/comments-popup.php:67
-#: ../vhl-search-portal/comments.php:52
-msgid "Log out &raquo;"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:71
-#: ../bvs-controlecancer/comments.php:57
-#: ../vhl-search-portal/comments-popup.php:71
-#: ../vhl-search-portal/comments.php:57
-msgid "Name"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:76
-#: ../vhl-search-portal/comments-popup.php:76
-msgid "E-mail"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:81
-#: ../vhl-search-portal/comments-popup.php:81
-msgid "<abbr title=\"Universal Resource Locator\">URL</abbr>"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:86
-#: ../vhl-search-portal/comments-popup.php:86
-msgid "Your Comment"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:99
-#: ../bvs-controlecancer/comments.php:81
-#: ../vhl-search-portal/comments-popup.php:99
-#: ../vhl-search-portal/comments.php:81
-msgid "Sorry, the comment form is closed at this time."
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:104
-#: ../vhl-search-portal/comments-popup.php:104
-msgid "Close this window."
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:115
-#: ../vhl-search-portal/comments-popup.php:115
-#, php-format
-msgid ""
-"<cite>Powered by <a href=\"http://wordpress.org\" title=\"%s"
-"\"><strong>WordPress</strong></a></cite>"
-msgstr ""
-
-#: ../bvs-controlecancer/comments-popup.php:115
-#: ../bvs-controlecancer/sidebar.php:38
-#: ../vhl-search-portal/comments-popup.php:115
-#: ../vhl-search-portal/sidebar.php:38
-msgid ""
-"Powered by WordPress, state-of-the-art semantic personal publishing platform."
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:8 ../vhl-search-portal/comments.php:8
-msgid "Enter your password to view comments."
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:11 ../vhl-search-portal/comments.php:11
-msgid "No Comments"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:11 ../vhl-search-portal/comments.php:11
-msgid "1 Comment"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:11 ../vhl-search-portal/comments.php:11
-msgid "% Comments"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:24 ../bvs-controlecancer/index.php:16
-#: ../vhl-search-portal/comments.php:24 ../vhl-search-portal/index.php:16
-msgid "Edit This"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:37 ../vhl-search-portal/comments.php:37
-msgid "TrackBack <abbr title=\"Universal Resource Locator\">URL</abbr>"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:45 ../vhl-search-portal/comments.php:45
-#, php-format
-msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:57 ../bvs-controlecancer/comments.php:60
-#: ../vhl-search-portal/comments.php:57 ../vhl-search-portal/comments.php:60
-msgid "(required)"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:60 ../vhl-search-portal/comments.php:60
-msgid "Mail (will not be published)"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:63 ../vhl-search-portal/comments.php:63
-msgid "Website"
-msgstr ""
-
-#: ../bvs-controlecancer/comments.php:67 ../vhl-search-portal/comments.php:67
-#, php-format
-msgid "You can use these tags: %s"
-msgstr ""
-
-#: ../bvs-controlecancer/functions.php:14
-msgid "Rede Social da BVS"
-msgstr ""
-
-#: ../bvs-controlecancer/functions.php:23 ../telessaude/functions.php:23
-#: ../telessaude/functions.php:32
-msgid "Rede de Conteúdos da BVS"
-msgstr ""
-
-#: ../bvs-controlecancer/functions.php:32 ../telessaude/functions.php:41
-msgid "Rede de Notícias"
-msgstr ""
-
-#: ../bvs-controlecancer/functions.php:41 ../telessaude/functions.php:59
-#: ../vhl-search-portal/functions.php:58
-msgid "Rodapé"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:16 ../vhl-search-portal/index.php:16
-msgid "Filed under:"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:16 ../vhl-search-portal/index.php:16
-msgid "Tags: "
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:19 ../bvs-controlecancer/single.php:17
-#: ../telessaude/index.php:17 ../telessaude/single-relato.php:21
-#: ../telessaude/single.php:17 ../vhl-search-portal/home.php:32
-#: ../vhl-search-portal/index.php:19 ../vhl-search-portal/single.php:21
-msgid "(more...)"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:24 ../bvs-controlecancer/single.php:33
-#: ../telessaude/index.php:21 ../telessaude/single-relato.php:38
-#: ../telessaude/single.php:33 ../vhl-search-portal/index.php:24
-msgid "Comments (0)"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:24 ../bvs-controlecancer/single.php:33
-#: ../telessaude/index.php:21 ../telessaude/single-relato.php:38
-#: ../telessaude/single.php:33 ../vhl-search-portal/index.php:24
-msgid "Comments (1)"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:24 ../bvs-controlecancer/single.php:33
-#: ../telessaude/index.php:21 ../telessaude/single-relato.php:38
-#: ../telessaude/single.php:33 ../vhl-search-portal/index.php:24
-msgid "Comments (%)"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:32 ../bvs-controlecancer/single.php:38
-#: ../lilacs/hotsite_1/functions.php:115 ../lilacs/hotsite_1/functions.php:191
-#: ../lilacs/hotsite_1/functions.php:267 ../lilacs/hotsite_1/page.php:17
-#: ../lilacs/hotsite_1/single.php:18 ../lilacs/hotsite_en/functions.php:115
-#: ../lilacs/hotsite_en/functions.php:191
-#: ../lilacs/hotsite_en/functions.php:267 ../lilacs/hotsite_en/page.php:17
-#: ../lilacs/hotsite_en/single.php:18 ../lilacs/hotsite_es/functions.php:115
-#: ../lilacs/hotsite_es/functions.php:191
-#: ../lilacs/hotsite_es/functions.php:267 ../lilacs/hotsite_es/page.php:17
-#: ../lilacs/hotsite_es/single.php:18 ../telessaude/archive-relato.php:25
-#: ../telessaude/index.php:26 ../telessaude/single-relato.php:43
-#: ../telessaude/single.php:38 ../vhl-search-portal/index.php:32
-#: ../vhl-search-portal/single.php:36
-msgid "Sorry, no posts matched your criteria."
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:35 ../bvs-controlecancer/single.php:46
-#: ../telessaude/index.php:34 ../telessaude/single-relato.php:71
-#: ../telessaude/single.php:46 ../vhl-search-portal/index.php:35
-#: ../vhl-search-portal/single.php:39
-msgid "&laquo; Newer Posts"
-msgstr ""
-
-#: ../bvs-controlecancer/index.php:35 ../bvs-controlecancer/single.php:46
-#: ../telessaude/index.php:34 ../telessaude/single-relato.php:71
-#: ../telessaude/single.php:46 ../vhl-search-portal/index.php:35
-#: ../vhl-search-portal/single.php:39
-msgid "Older Posts &raquo;"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:15 ../vhl-search-portal/sidebar.php:15
-msgid "Categories:"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:17 ../vhl-search-portal/sidebar.php:17
-msgid "Search:"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:25 ../vhl-search-portal/sidebar.php:25
-msgid "Archives:"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:30 ../vhl-search-portal/sidebar.php:30
-msgid "Meta:"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:34 ../vhl-search-portal/sidebar.php:34
-msgid "Syndicate this site using RSS"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:34 ../vhl-search-portal/sidebar.php:34
-msgid "<abbr title=\"Really Simple Syndication\">RSS</abbr>"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:35 ../vhl-search-portal/sidebar.php:35
-msgid "The latest comments to all posts in RSS"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:35 ../vhl-search-portal/sidebar.php:35
-msgid "Comments <abbr title=\"Really Simple Syndication\">RSS</abbr>"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:36 ../vhl-search-portal/sidebar.php:36
-msgid "This page validates as XHTML 1.0 Transitional"
-msgstr ""
-
-#: ../bvs-controlecancer/sidebar.php:36 ../vhl-search-portal/sidebar.php:36
-msgid "Valid <abbr title=\"eXtensible HyperText Markup Language\">XHTML</abbr>"
-msgstr ""
-
-#: ../bvs-ms/404.php:21
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching, or one of the links below, can help."
-msgstr ""
-
-#: ../bvs-ms/404.php:28
-msgid "Most Used Categories"
-msgstr ""
-
-#: ../bvs-ms/404.php:36
-#, php-format
-msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
-
-#: ../bvs-ms/functions.php:10
-msgid "Coluna 01"
-msgstr ""
-
-#: ../bvs-ms/functions.php:20
-msgid "Coluna 02"
-msgstr ""
-
-#: ../bvs-ms/functions.php:30
-msgid "Coluna 03"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/content-home.php:99 Brasil/content.php:116
-#, php-format
-msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:207
-msgid "Featured Posts"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:209
-msgid "Displays featured posts at the homepage"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:217
-msgid "1st Sidebar"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:219
-msgid "use to searchbox"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:227
-msgid "Main Sidebar"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:229 Brasil/functions.php:239
-msgid ""
-"Appears on posts and pages except the optional Front Page template, which "
-"has its own widgets"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:237
-msgid "Secondary Sidebar"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:247
-msgid "First Front Page Widget Area"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:249 Brasil/functions.php:259
-msgid ""
-"Appears when using the optional Front Page template with a page set as "
-"Static Front Page"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:257
-msgid "Second Front Page Widget Area"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:267
-msgid "Site Footer"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/functions.php:269
-msgid "Always appears"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/header.php:55
-msgid "Menu"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/header.php:56
-msgid "Skip to content"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/index.php:39
-msgid "No posts to display"
-msgstr ""
-
-#: ../clipping BVS-SP Brasil/index.php:43
-#, php-format
-msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:11 ../lilacs/hotsite_1/archive.php:31
-#: ../lilacs/hotsite_en/archive.php:11 ../lilacs/hotsite_en/archive.php:31
-#: ../lilacs/hotsite_es/archive.php:11 ../lilacs/hotsite_es/archive.php:31
-#, php-format
-msgid "Archive for the &#8216;%s&#8217; Category"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:13 ../lilacs/hotsite_1/archive.php:33
-#: ../lilacs/hotsite_en/archive.php:13 ../lilacs/hotsite_en/archive.php:33
-#: ../lilacs/hotsite_es/archive.php:13 ../lilacs/hotsite_es/archive.php:33
-#, php-format
-msgid "Posts Tagged &#8216;%s&#8217;"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:15 ../lilacs/hotsite_1/archive.php:35
-#: ../lilacs/hotsite_en/archive.php:15 ../lilacs/hotsite_en/archive.php:35
-#: ../lilacs/hotsite_es/archive.php:15 ../lilacs/hotsite_es/archive.php:35
-msgid "F jS, Y"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:17 ../lilacs/hotsite_1/archive.php:37
-#: ../lilacs/hotsite_en/archive.php:17 ../lilacs/hotsite_en/archive.php:37
-#: ../lilacs/hotsite_es/archive.php:17 ../lilacs/hotsite_es/archive.php:37
-msgid "F, Y"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:19 ../lilacs/hotsite_1/archive.php:39
-#: ../lilacs/hotsite_en/archive.php:19 ../lilacs/hotsite_en/archive.php:39
-#: ../lilacs/hotsite_es/archive.php:19 ../lilacs/hotsite_es/archive.php:39
-msgid "Y"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:21 ../lilacs/hotsite_1/archive.php:41
-#: ../lilacs/hotsite_en/archive.php:21 ../lilacs/hotsite_en/archive.php:41
-#: ../lilacs/hotsite_es/archive.php:21 ../lilacs/hotsite_es/archive.php:41
-msgid "Author Archive"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:23 ../lilacs/hotsite_1/archive.php:43
-#: ../lilacs/hotsite_en/archive.php:23 ../lilacs/hotsite_en/archive.php:43
-#: ../lilacs/hotsite_es/archive.php:23 ../lilacs/hotsite_es/archive.php:43
-msgid "Blog Archives"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:47 ../lilacs/hotsite_1/archive.php:61
-#: ../lilacs/hotsite_en/archive.php:47 ../lilacs/hotsite_en/archive.php:61
-#: ../lilacs/hotsite_es/archive.php:47 ../lilacs/hotsite_es/archive.php:61
-msgid "&laquo; Older Entries"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:48 ../lilacs/hotsite_1/archive.php:62
-#: ../lilacs/hotsite_en/archive.php:48 ../lilacs/hotsite_en/archive.php:62
-#: ../lilacs/hotsite_es/archive.php:48 ../lilacs/hotsite_es/archive.php:62
-msgid "Newer Entries &raquo;"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:53 ../lilacs/hotsite_en/archive.php:53
-#: ../lilacs/hotsite_es/archive.php:53
-#, php-format
-msgid "Permanent Link to %s"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-msgid "Tags:"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-#, php-format
-msgid "Posted in %s"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-msgid "No Comments &#187;"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-msgid "1 Comment &#187;"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-msgid "% Comments &#187;"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:55 ../lilacs/hotsite_en/archive.php:55
-#: ../lilacs/hotsite_es/archive.php:55
-msgid "Comments Closed"
-msgstr ""
-
-#: ../lilacs/hotsite_1/archive.php:67 ../lilacs/hotsite_en/archive.php:67
-#: ../lilacs/hotsite_es/archive.php:67
-msgid "No posts found. Try a different search?"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:17 ../panamazonica/archive-agenda.php:19
-msgid "Past Events"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:17
-msgid "View Future Events"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:17 ../panamazonica/archive-agenda.php:19
-msgid "Future Events"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:19 ../panamazonica/archive-agenda.php:46
-msgid "View Past Events"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:34 ../panamazonica/archive-agenda.php:35
-#: ../panamazonica/search.php:26 ../panamazonica/search.php:27
-#, php-format
-msgid "More info on &ldquo;%s&rdquo;"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:35 ../panamazonica/search.php:27
-msgid "More info"
-msgstr ""
-
-#: ../panamazonica/archive-agenda.php:46
-msgid "No events scheduled."
-msgstr ""
-
-#: ../panamazonica/archive-documento.php:19
-#: ../panamazonica/inc/widgets.php:238
-msgid "Published Documents"
-msgstr ""
-
-#: ../panamazonica/archive-documento.php:19 ../panamazonica/sidebar.php:7
-#: ../panamazonica/sidebar.php:72
-#: ../panamazonica/inc/post-type-documentos.php:121
-msgid "Search Documents"
-msgstr ""
-
-#: ../panamazonica/archive-documento.php:33 ../panamazonica/content.php:4
-#: ../panamazonica/page.php:6 ../panamazonica/search.php:39
-#: ../panamazonica/page-templates/all-network-sites.php:15
-#: ../panamazonica/page-templates/team.php:15
-#, php-format
-msgid "Read, comment and share &ldquo;%s&rdquo;"
-msgstr ""
-
-#: ../panamazonica/archive-documento.php:57
-msgid "No documents found"
-msgstr ""
-
-#: ../panamazonica/author.php:11
-msgid "Subscribe to this author"
-msgstr ""
-
-#: ../panamazonica/author.php:11
-msgid "Author feed"
-msgstr ""
-
-#: ../panamazonica/author.php:22 ../panamazonica/functions.php:859
-#: ../panamazonica/page-templates/team.php:49
-msgid "Curriculum Lattes"
-msgstr ""
-
-#: ../panamazonica/author.php:31 ../panamazonica/page-templates/team.php:58
-#, php-format
-msgid "Country: %s"
-msgstr ""
-
-#: ../panamazonica/author.php:34 ../panamazonica/page-templates/team.php:61
-#, php-format
-msgid "Institution: %s"
-msgstr ""
-
-#: ../panamazonica/author.php:36 ../panamazonica/page-templates/team.php:64
-#, php-format
-msgid "Occupation: %s"
-msgstr ""
-
-#: ../panamazonica/author.php:39 ../panamazonica/page-templates/team.php:67
-#, php-format
-msgid "Activity: %s"
-msgstr ""
-
-#: ../panamazonica/author.php:42 ../panamazonica/page-templates/team.php:70
-#, php-format
-msgid "Themes of Interest: %s"
-msgstr ""
-
-#: ../panamazonica/category.php:12
-msgid "Subscribe to this category"
-msgstr ""
-
-#: ../panamazonica/category.php:12
-msgid "Category feed"
-msgstr ""
-
-#: ../panamazonica/comments.php:17
-msgid "Leave a response!"
-msgstr ""
-
-#: ../panamazonica/comments.php:28
-#, php-format
-msgid "%s Older comments"
-msgstr ""
-
-#: ../panamazonica/comments.php:29
-#, php-format
-msgid "Newer comments %s"
-msgstr ""
-
-#: ../panamazonica/content.php:17 ../panamazonica/single-agenda.php:90
-#: ../panamazonica/single-documento.php:86
-#, php-format
-msgid "%s Read more"
-msgstr ""
-
-#: ../panamazonica/functions.php:31
-msgid "Secondary Menu"
-msgstr ""
-
-#: ../panamazonica/functions.php:91
-msgid "Primary Aside"
-msgstr ""
-
-#: ../panamazonica/functions.php:92
-msgid "Sidebar content"
-msgstr ""
-
-#: ../panamazonica/functions.php:237
-#, php-format
-msgid "%s Older posts"
-msgstr ""
-
-#: ../panamazonica/functions.php:241 ../panamazonica/header.php:34
-#: ../refnet/functions.php:89
-msgid "Home"
-msgstr ""
-
-#: ../panamazonica/functions.php:242
-#, php-format
-msgid "Newer posts %s"
-msgstr ""
-
-#: ../panamazonica/functions.php:321 ../panamazonica/functions.php:341
-#, php-format
-msgid "%1$sEdit%2$s"
-msgstr ""
-
-#: ../panamazonica/functions.php:340
-msgid "Permalink"
-msgstr ""
-
-#: ../panamazonica/functions.php:568
-msgid "Thematic Groups"
-msgstr ""
-
-#: ../panamazonica/functions.php:651 ../panamazonica/inc/widgets.php:69
-msgid "Latest news"
-msgstr ""
-
-#: ../panamazonica/functions.php:685 ../panamazonica/inc/widgets.php:130
-#, php-format
-msgid "By %1$s in %2$s"
-msgstr ""
-
-#: ../panamazonica/functions.php:860
-msgid "Phone"
-msgstr ""
-
-#: ../panamazonica/functions.php:861
-msgid "Mobile"
-msgstr ""
-
-#: ../panamazonica/functions.php:874
-msgid "Extra Profile Information"
-msgstr ""
-
-#: ../panamazonica/functions.php:878
-msgid "Country"
-msgstr ""
-
-#: ../panamazonica/functions.php:886
-msgid "Institution"
-msgstr ""
-
-#: ../panamazonica/functions.php:894
-msgid "Occupation"
-msgstr ""
-
-#: ../panamazonica/functions.php:902
-msgid "Activity"
-msgstr ""
-
-#: ../panamazonica/functions.php:905
-msgid "Your role in the Network"
-msgstr ""
-
-#: ../panamazonica/functions.php:910
-msgid "Themes of interest"
-msgstr ""
-
-#: ../panamazonica/functions.php:985
-msgid "Team"
-msgstr ""
-
-#: ../panamazonica/functions.php:1010
-msgid "Add your team by writing their usernames, comma-separated:"
-msgstr ""
-
-#: ../panamazonica/functions.php:1205
-msgid "About the Document"
-msgstr ""
-
-#: ../panamazonica/functions.php:1206
-msgid ""
-"Provide the document data, such as source, year of publication, authors and "
-"collaborators. Remember: the more information you add, the easier will be to "
-"find this document through the search."
-msgstr ""
-
-#: ../panamazonica/functions.php:1229
-msgid "About the Agenda"
-msgstr ""
-
-#: ../panamazonica/functions.php:1230
-msgid ""
-"Select the event type (event or meeting) and enter the area above, along "
-"other data you consider important."
-msgstr ""
-
-#: ../panamazonica/functions.php:1249 ../panamazonica/inc/widgets.php:651
-msgid "The most recent posts on your site"
-msgstr ""
-
-#: ../panamazonica/functions.php:1250 ../panamazonica/functions.php:1275
-#: ../panamazonica/inc/widgets.php:652 ../panamazonica/inc/widgets.php:677
-msgid "Recent Posts"
-msgstr ""
-
-#: ../panamazonica/functions.php:1331 ../panamazonica/inc/widgets.php:182
-#: ../panamazonica/inc/widgets.php:320 ../panamazonica/inc/widgets.php:486
-#: ../panamazonica/inc/widgets.php:634 ../panamazonica/inc/widgets.php:734
-msgid "Title:"
-msgstr ""
-
-#: ../panamazonica/functions.php:1334 ../panamazonica/inc/widgets.php:737
-msgid "Number of posts to show:"
-msgstr ""
-
-#: ../panamazonica/functions.php:1338 ../panamazonica/inc/widgets.php:741
-msgid "Display post date?"
-msgstr ""
-
-#: ../panamazonica/functions.php:1353
-msgid "Featured News"
-msgstr ""
-
-#: ../panamazonica/functions.php:1354
-msgid "News from the management group of the network"
-msgstr ""
-
-#: ../panamazonica/search.php:13
-msgid "Subscribe to this search results"
-msgstr ""
-
-#: ../panamazonica/search.php:13
-msgid "Search results feed"
-msgstr ""
-
-#: ../panamazonica/search.php:14
-#, php-format
-msgid "%1$s Results for %2$s"
-msgstr ""
-
-#: ../panamazonica/searchform.php:2
-msgid "Search"
-msgstr ""
-
-#: ../panamazonica/sidebar.php:52
-msgid "Workgroup"
-msgstr ""
-
-#: ../panamazonica/sidebar.php:57
-msgid "All"
-msgstr ""
-
-#: ../panamazonica/sidebar.php:73
-msgid "Clear fields"
-msgstr ""
-
-#: ../panamazonica/single-agenda.php:15
-#: ../panamazonica/single-documento.php:12
-#, php-format
-msgid "More on &ldquo;%s&rdquo;"
-msgstr ""
-
-#: ../panamazonica/single-agenda.php:57
-msgid "Event Website"
-msgstr ""
-
-#: ../panamazonica/single-agenda.php:57
-msgid "More Info"
-msgstr ""
-
-#: ../panamazonica/single-agenda.php:61
-#: ../panamazonica/single-documento.php:45
-msgid "Download File"
-msgstr ""
-
-#: ../panamazonica/tag.php:12
-msgid "Subscribe to this tag"
-msgstr ""
-
-#: ../panamazonica/tag.php:12
-msgid "Tag feed"
-msgstr ""
-
-#: ../panamazonica/inc/custom-uploader.php:253
-#, php-format
-msgid "Gallery (%s)"
-msgstr ""
-
-#: ../panamazonica/inc/opcoes-de-contato.php:19
-msgid "Contact"
-msgstr ""
-
-#: ../panamazonica/inc/opcoes-de-contato.php:24
-msgid ""
-"Enter the email that will receive the messages sent through the contact form"
-msgstr ""
-
-#: ../panamazonica/inc/opcoes-de-contato.php:25
-msgid ""
-"If you leave this field blak, messages will be sent to the admin email, set "
-"in Settings > General"
-msgstr ""
-
-#: ../panamazonica/inc/opcoes-de-contato.php:34
-msgid "Save"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:13
-msgid "Theme"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:20
-msgid "Start Date"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:27
-msgid "End Date"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:34
-msgid "Time"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:41
-#: ../panamazonica/inc/post-type-documentos.php:48
-msgid "Place"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:48
-msgid "Speaker(s)"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:55
-msgid "Organizer"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:62
-msgid "Event website"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:70
-msgid "Participants"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:77
-msgid "Record link"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:110
-msgid "Add New Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:111
-msgid "Edit Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:112
-msgid "New Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:113
-msgid "View Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:114
-msgid "Search Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:116
-msgid "Nothing Found in the Trash"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:408
-msgid "Date"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-agenda.php:409
-msgid "Type"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:34
-msgid "Publication Source"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:41
-msgid "Year"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:55
-msgid "Author"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:62
-msgid "Collaborators"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:69
-msgid "Language"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:75 ../refnet/functions.php:219
-msgid "Portuguese"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:79 ../refnet/functions.php:216
-msgid "Spanish"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:83 ../refnet/functions.php:111
-#: ../refnet/functions.php:115 ../refnet/functions.php:213
-#: ../Ripsa/functions.php:83 ../Ripsa/functions.php:87 functions.php:83
-#: functions.php:87
-msgid "English"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:117
-msgid "Add New Document"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:118
-msgid "Edit Document"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:119
-msgid "New Document"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:120
-msgid "View Document"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:122
-msgid "No Document Found"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:123
-msgid "No Document Found in the trash"
-msgstr ""
-
-#: ../panamazonica/inc/post-type-documentos.php:149
-msgid "About the document"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:58
-#: ../panamazonica/inc/theme-options.php:141
-msgid "Pan-Amazonian Network Options"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:97
-msgid "Sorry, this file type is not permitted for security reasons."
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:145
-#, php-format
-msgid "%s Group"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:158
-msgid "Featured Text"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:177
-msgid "Social Networks"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:197
-msgid "Logo"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:201
-msgid "Group Thumbnail"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:208
-msgid "Upload an image from your computer"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:213
-msgid "Remove image"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:225
-msgid "Footer Text"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:241
-msgid "Save Changes"
-msgstr ""
-
-#: ../panamazonica/inc/theme-options.php:271
-msgid "Settings saved."
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:34
-msgid "Display the latest posts from all Network"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:35
-msgid "Network Now"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:185
-msgid "Number of posts:"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:205
-msgid "Display the latest Documents"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:206
-msgid "Documents"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:259 ../panamazonica/inc/widgets.php:276
-msgid "See all Published Documents"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:268 ../panamazonica/inc/widgets.php:691
-#, php-format
-msgid "By %s"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:323
-msgid "Number of documents:"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:345
-msgid "Display the group Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:346
-msgid "Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:406
-msgid "Events"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:407
-msgid "Meetings"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:440
-msgid "See the Agenda"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:489
-msgid "Number of events:"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:509
-msgid "Display the users"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:510
-msgid "Group Users"
-msgstr ""
-
-#: ../panamazonica/inc/widgets.php:637
-msgid "Number of users:"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:27
-msgid "New message received"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:31
-msgid "Email successfully sent!"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:34
-msgid "Error sending email, please try again"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:43
-msgid "Name:"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:46
-msgid "Email:"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:49
-msgid "Message:"
-msgstr ""
-
-#: ../panamazonica/page-templates/contact.php:52
-msgid "Send"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:5
-msgid "First Column"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:6
-msgid "first column for panamazonica library widgets"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:14
-msgid "Second Column"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:15
-msgid "second column for panamazonica library widgets"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:23
-msgid "Third Column"
-msgstr ""
-
-#: ../panamazonica-child/functions.php:24
-msgid "third column for panamazonica library widgets"
-msgstr ""
-
-#: ../refnet/functions.php:91
-msgid "Search Result"
-msgstr ""
-
-#: ../refnet/functions.php:110 ../refnet/functions.php:118
-#: ../Ripsa/functions.php:82 ../Ripsa/functions.php:90 functions.php:82
-#: functions.php:90
-msgid "Espanol"
-msgstr ""
-
-#: ../refnet/functions.php:114 ../refnet/functions.php:119
-#: ../Ripsa/functions.php:86 ../Ripsa/functions.php:91 functions.php:86
-#: functions.php:91
-msgid "Portugues"
-msgstr ""
-
-#: ../refnet/functions.php:185
-msgid "MEDLINE"
-msgstr ""
-
-#: ../refnet/functions.php:188
-msgid "LILACS"
-msgstr ""
-
-#: ../refnet/functions.php:191
-msgid "CDSR - Cochrane Systematic Reviews Database"
-msgstr ""
-
-#: ../refnet/functions.php:194
-msgid "CENTRAL Controlled Clinical Trials : CENTRAL Controlled Clinical Trials"
-msgstr ""
-
-#: ../refnet/functions.php:197
-msgid "DARE - Database of Abstracts of Review of Effects"
-msgstr ""
-
-#: ../refnet/functions.php:200
-msgid "NHS Economic Evaluations Database"
-msgstr ""
-
-#: ../refnet/functions.php:203
-msgid "HTA - Health Technology Assessment Database"
-msgstr ""
-
-#: ../refnet/functions.php:206
-msgid "WHOLIS (WHO Library Database)"
-msgstr ""
-
-#: ../refnet/functions.php:209
-msgid "PAHO (PAHO Library Database)"
-msgstr ""
-
-#: ../refnet/functions.php:222
-msgid "Any language"
-msgstr ""
-
-#: ../refnet/functions.php:226
-msgid "Journal Article"
-msgstr ""
-
-#: ../refnet/functions.php:229
-msgid "Grey literature (non conventional literature)"
-msgstr ""
-
-#: ../refnet/functions.php:232
-msgid "Thesis"
-msgstr ""
-
-#: ../refnet/functions.php:235
-msgid "Book chapter"
-msgstr ""
-
-#: ../refnet/functions.php:239
-msgid "Infant, newborn (birth to 1 month)"
-msgstr ""
-
-#: ../refnet/functions.php:242
-msgid "Infant (1 to 23 months)"
-msgstr ""
-
-#: ../refnet/functions.php:245
-msgid "Child, pre-school (2 to 5 years)"
-msgstr ""
-
-#: ../refnet/functions.php:248
-msgid "Child (6 to 12 years)"
-msgstr ""
-
-#: ../refnet/functions.php:251
-msgid "Adolescent (13 to 18 years)"
-msgstr ""
-
-#: ../refnet/functions.php:254
-msgid "Adult (19 to 44 years)"
-msgstr ""
-
-#: ../refnet/functions.php:257
-msgid "Middle Age (45 to 64 years)"
-msgstr ""
-
-#: ../refnet/functions.php:260
-msgid "Aged (65 and older)"
-msgstr ""
-
-#: ../refnet/functions.php:263
-msgid "Female"
-msgstr ""
-
-#: ../refnet/functions.php:266
-msgid "Male"
-msgstr ""
-
-#: ../refnet/functions.php:269
-msgid "Humans"
-msgstr ""
-
-#: ../refnet/functions.php:272
-msgid "Animals"
-msgstr ""
-
-#: ../refnet/functions.php:276
-msgid "None"
-msgstr ""
-
-#: ../refnet/functions.php:279
-msgid "Regional themes"
-msgstr ""
-
-#: ../refnet/functions.php:282
-msgid "National themes"
-msgstr ""
-
-#: ../refnet/functions.php:285
-msgid "Reference queries/Clusters"
-msgstr ""
-
-#: ../refnet/functions.php:288
-msgid "Commemorative dates, Campaigns"
-msgstr ""
-
-#: ../refnet/functions.php:293
-msgid "Other"
-msgstr ""
-
-#: ../refnet/functions.php:299
-msgid "In review"
-msgstr ""
-
-#: ../refnet/functions.php:302
-msgid "Reviewed"
-msgstr ""
-
-#: ../refnet/header.php:73 ../refnet/header.php:75
-msgid "Leave a comment / Report an error"
-msgstr ""
-
-#: ../refnet/header.php:86
-msgid "VHL Search Strategies"
-msgstr ""
-
-#: ../refnet/header.php:87
-msgid "en/logo-bvs-en.png"
-msgstr ""
-
-#: ../refnet/header.php:87
-msgid "VHL LOGO"
-msgstr ""
-
-#: ../refnet/header.php:93
-msgid "Repository of search strategies on the VHL"
-msgstr ""
-
-#: ../refnet/header.php:95
-msgid "Topic-specific queries"
-msgstr ""
-
-#: ../refnet/search.php:18
-msgid "Search Results for: "
-msgstr ""
-
-#: ../refnet/search.php:43
-msgid "Not Found"
-msgstr ""
-
-#: ../refnet/search.php:47
-msgid ""
-"Sorry, but nothing matched your search criteria. Please try again with "
-"different keywords."
-msgstr ""
-
-#: ../refnet/searchform.php:11
-msgid "Search form"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:39
-msgid "About the search"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:47
-msgid "Description"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:48
-msgid "Main subjects"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:49
-msgid "Secondary subjects"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:50
-msgid "Scope"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:51
-msgid "Search result"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:59
-msgid "Filters"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:65
-msgid "Text language"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:67
-msgid "Publication type"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:69
-msgid "Publication year"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:70
-msgid "Limits"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:72
-msgid "Publication Country"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:80
-msgid "Search strategy I"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:86
-#: ../refnet/single-search_strategy.php:104
-#: ../refnet/single-search_strategy.php:122
-msgid "Observations"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:87
-#: ../refnet/single-search_strategy.php:105
-#: ../refnet/single-search_strategy.php:123
-msgid "iAH search strategy"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:88
-#: ../refnet/single-search_strategy.php:106
-#: ../refnet/single-search_strategy.php:124
-msgid "iAHx search strategy"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:89
-#: ../refnet/single-search_strategy.php:107
-#: ../refnet/single-search_strategy.php:125
-msgid "Databases"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:98
-msgid "Search strategy II"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:116
-msgid "Search strategy III"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:134
-msgid "More information"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:140
-msgid "VHL instance"
-msgstr ""
-
-#: ../refnet/single-search_strategy.php:141
-msgid "Search details"
-msgstr ""
 
 #: ../Ripsa/category.php:21 ../Ripsa/index.php:10 category.php:21 index.php:10
 msgid "Pesquisa"
@@ -2106,11 +44,30 @@ msgstr ""
 msgid "Fichas de Qualificação da Ripsa"
 msgstr ""
 
+#: ../Ripsa/functions.php:82 ../Ripsa/functions.php:90 functions.php:82
+#: functions.php:90
+msgid "Español"
+msgstr ""
+
+#: ../Ripsa/functions.php:83 ../Ripsa/functions.php:87 functions.php:83
+#: functions.php:87
+msgid "English"
+msgstr ""
+
+#: ../Ripsa/functions.php:86 ../Ripsa/functions.php:91 functions.php:86
+#: functions.php:91
+msgid "Português"
+msgstr ""
+
+#: ../Ripsa/header.php:52 header.php:52
+msgid "Portal de Fichas de Qualificação"
+msgstr ""
+
 #: ../Ripsa/index.php:36 index.php:36
 msgid "Ver todos os posts da categoria"
 msgstr ""
 
-#: ../Ripsa/lista_ficha_versions.php:19 lista_ficha_versions.php:19
+#: ../Ripsa/lista_ficha_versions.php:18 lista_ficha_versions.php:18
 msgid "Outras versões"
 msgstr ""
 
@@ -2178,22 +135,433 @@ msgstr ""
 msgid "Ficha em Formato PDF"
 msgstr ""
 
-#: ../Ripsa/single.php:204 single.php:204
+#: ../Ripsa/single.php:209 single.php:209
 msgid "Comentários sobre indicadores"
 msgstr ""
 
-#: ../telessaude/functions.php:14
-msgid "Destaques"
+#: ../twentythirteen/404.php:16
+msgid "Not found"
 msgstr ""
 
-#: ../telessaude/functions.php:50
-msgid "Casos Destacados"
+#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
 msgstr ""
 
-#: ../vhl-search-portal/functions.php:67
-msgid "Institutions"
+#: ../twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: ../vhl-search-portal/header.php:20
-msgid "Enable JavaScript"
+#: ../twentythirteen/archive.php:29 ../twentytwelve/archive.php:29
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:31 ../twentytwelve/archive.php:31
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:33 ../twentytwelve/archive.php:33
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/archive.php:35 ../twentytwelve/archive.php:35
+msgid "Archives"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:16 ../twentytwelve/author.php:53
+#: ../twentytwelve/content.php:53
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:20 ../twentytwelve/content.php:57
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/author.php:30
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: ../twentythirteen/category.php:19 ../twentytwelve/category.php:21
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/comments.php:45 ../twentytwelve/comments.php:42
+msgid "Comment navigation"
+msgstr ""
+
+#: ../twentythirteen/comments.php:46 ../twentytwelve/comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../twentythirteen/comments.php:47 ../twentytwelve/comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../twentythirteen/comments.php:52 ../twentytwelve/comments.php:53
+msgid "Comments are closed."
+msgstr ""
+
+#: ../twentythirteen/content-aside.php:13
+#: ../twentythirteen/content-audio.php:24
+#: ../twentythirteen/content-gallery.php:24
+#: ../twentythirteen/content-image.php:23
+#: ../twentythirteen/content-link.php:24
+#: ../twentythirteen/content-quote.php:13
+#: ../twentythirteen/content-status.php:13
+#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:39
+#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
+#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
+#: ../twentytwelve/content-status.php:21 ../twentytwelve/content.php:39
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/content-aside.php:14
+#: ../twentythirteen/content-audio.php:25
+#: ../twentythirteen/content-chat.php:24
+#: ../twentythirteen/content-gallery.php:25
+#: ../twentythirteen/content-image.php:24
+#: ../twentythirteen/content-link.php:25
+#: ../twentythirteen/content-quote.php:14
+#: ../twentythirteen/content-status.php:14
+#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:40
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:40
+#: ../twentytwelve/image.php:92
+msgid "Pages:"
+msgstr ""
+
+#: ../twentythirteen/content-aside.php:20
+#: ../twentythirteen/content-aside.php:28
+#: ../twentythirteen/content-audio.php:31
+#: ../twentythirteen/content-chat.php:29
+#: ../twentythirteen/content-gallery.php:39
+#: ../twentythirteen/content-image.php:35
+#: ../twentythirteen/content-link.php:19
+#: ../twentythirteen/content-quote.php:25
+#: ../twentythirteen/content-status.php:19
+#: ../twentythirteen/content-video.php:35 ../twentythirteen/content.php:29
+#: ../twentythirteen/image.php:44 ../twentythirteen/page.php:39
+#: ../twentytwelve/content-aside.php:26 ../twentytwelve/content-image.php:26
+#: ../twentytwelve/content-link.php:24 ../twentytwelve/content-page.php:24
+#: ../twentytwelve/content-quote.php:23 ../twentytwelve/content-status.php:30
+#: ../twentytwelve/content.php:46 ../twentytwelve/functions.php:341
+#: ../twentytwelve/image.php:37
+msgid "Edit"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+msgid "Leave a comment"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+msgid "One comment so far"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+#, php-format
+msgid "View all % comments"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:12 ../twentytwelve/content-none.php:13
+#: ../twentytwelve/index.php:49 ../twentytwelve/search.php:34
+msgid "Nothing Found"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../twentythirteen/content-none.php:27 ../twentytwelve/404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../twentythirteen/footer.php:20 ../twentytwelve/footer.php:17
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentythirteen/footer.php:20 ../twentytwelve/footer.php:17
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:93
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../twentythirteen/functions.php:212 ../twentytwelve/functions.php:213
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:227
+msgid "Main Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:229
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentythirteen/functions.php:237
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:239
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: ../twentythirteen/functions.php:264
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentythirteen/functions.php:268 ../twentytwelve/functions.php:283
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../twentythirteen/functions.php:272 ../twentytwelve/functions.php:284
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/functions.php:300 ../twentytwelve/functions.php:282
+#: ../twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
+
+#: ../twentythirteen/functions.php:324
+msgid "Sticky"
+msgstr ""
+
+#: ../twentythirteen/functions.php:330 ../twentythirteen/functions.php:336
+#: ../twentytwelve/functions.php:364 ../twentytwelve/functions.php:367
+msgid ", "
+msgstr ""
+
+#: ../twentythirteen/functions.php:345 ../twentytwelve/functions.php:378
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:371 ../twentytwelve/content-aside.php:20
+#: ../twentytwelve/content-link.php:18 ../twentytwelve/content-quote.php:17
+#: ../twentytwelve/content-status.php:15
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../twentythirteen/header.php:43 ../twentytwelve/header.php:43
+msgid "Menu"
+msgstr ""
+
+#: ../twentythirteen/header.php:44 ../twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: ../twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr ""
+
+#: ../twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: ../twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/search.php:18 ../twentytwelve/search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../twentythirteen/tag.php:21 ../twentytwelve/tag.php:21
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: ../twentythirteen/inc/back-compat.php:38
+#: ../twentythirteen/inc/back-compat.php:50
+#: ../twentythirteen/inc/back-compat.php:65
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentytwelve/author.php:32
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "Leave a reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "1 Reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "% Replies"
+msgstr ""
+
+#: ../twentytwelve/content-link.php:12
+msgid "Link"
+msgstr ""
+
+#: ../twentytwelve/content-none.php:17 ../twentytwelve/index.php:53
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: ../twentytwelve/content.php:14
+msgid "Featured post"
+msgstr ""
+
+#: ../twentytwelve/functions.php:64
+msgid "Primary Menu"
+msgstr ""
+
+#: ../twentytwelve/functions.php:238
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../twentytwelve/functions.php:240
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+
+#: ../twentytwelve/functions.php:248
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:250 ../twentytwelve/functions.php:260
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+
+#: ../twentytwelve/functions.php:258
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:309
+msgid "Pingback:"
+msgstr ""
+
+#: ../twentytwelve/functions.php:309
+msgid "(Edit)"
+msgstr ""
+
+#: ../twentytwelve/functions.php:324
+msgid "Post author"
+msgstr ""
+
+#: ../twentytwelve/functions.php:330
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../twentytwelve/functions.php:336
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../twentytwelve/functions.php:345
+msgid "Reply"
+msgstr ""
+
+#: ../twentytwelve/functions.php:384
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:386
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:388
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../twentytwelve/index.php:38
+msgid "No posts to display"
+msgstr ""
+
+#: ../twentytwelve/index.php:42
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../twentytwelve/search.php:38
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
 msgstr ""

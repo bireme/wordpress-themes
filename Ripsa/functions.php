@@ -1,6 +1,6 @@
 <?php 
 
-load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 
 function my_theme_localized( $locale )
 {
@@ -79,16 +79,16 @@ function create_language_list($current_lang){
 
         switch ($current_lang) {
                 case "pt_BR":
-                        echo '<li><a href="' . preg_replace("/l=[a-zA-Z_]{5}/", "l=es_ES", $current_url)  . '">' . __('Espanol','refnet') . '</a></li>';
-                        echo '<li><a href="' . preg_replace("/l=[a-zA-Z_]{5}/", "l=en_US", $current_url)  . '">' . __('English','refnet') . '</a></li>';
+                        echo '<li><a href="' . preg_replace("/l=[a-zA-Z_]{5}/", "l=es_ES", $current_url)  . '">' . __('Español','Ripsa') . '</a></li>';
+                        echo '<li><a href="' . preg_replace("/l=[a-zA-Z_]{5}/", "l=en_US", $current_url)  . '">' . __('English','Ripsa') . '</a></li>';
                         break;
                 case "es_ES":
-                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=pt_BR", $current_url) . '">' . __('Portugues','refnet') . '</a></li>';
-                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=en_US", $current_url) . '">' . __('English','refnet') . '</a></li>';
+                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=pt_BR", $current_url) . '">' . __('Português','Ripsa') . '</a></li>';
+                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=en_US", $current_url) . '">' . __('English','Ripsa') . '</a></li>';
                         break;
                 case "en_US":
-                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=es_ES", $current_url) . '">' . __('Espanol','refnet') . '</a></li>';
-                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=pt_BR", $current_url) . '">' . __('Portugues','refnet') . '</a></li>';
+                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=es_ES", $current_url) . '">' . __('Español','Ripsa') . '</a></li>';
+                        echo '<li><a href="' .  preg_replace("/l=[a-zA-Z_]{5}/", "l=pt_BR", $current_url) . '">' . __('Português','Ripsa') . '</a></li>';
                         break;
         }
 

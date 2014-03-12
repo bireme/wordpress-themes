@@ -49,7 +49,7 @@
 	<div id="box">
 		<header class="header lang-<?php bloginfo('language');?>">
 			<a href="<?php echo get_settings('home') . '/?l=' . get_bloginfo('language');?>">
-				<h1 class="header-logo">Portal de Fichas de Qualificação</h1>
+				<h1 class="header-logo"><?php _e( 'Portal de Fichas de Qualificação', 'Ripsa' ); ?></h1>
 			</a>
 			<div class="header-desenho"></div>
 
