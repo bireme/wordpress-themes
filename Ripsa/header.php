@@ -1,5 +1,6 @@
 <?php
     load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
+    global $site_lang;
 ?>
 <!doctype html>
 <html lang="<?php echo bloginfo('language');?>">
@@ -48,14 +49,13 @@
 <body>
 	<div id="box">
 		<header class="header lang-<?php bloginfo('language');?>">
-			<a href="<?php echo get_settings('home') . '/?l=' . get_bloginfo('language');?>">
+			<a href="http://www.ripsa.org.br/php/index.php?lang=<?php echo substr($site_lang, 0,2); ?>">
 				<h1 class="header-logo"><?php _e( 'Portal de Fichas de Qualificação', 'Ripsa' ); ?></h1>
 			</a>
 			<div class="header-desenho"></div>
 
 			<nav class="header-idiomas">
 				<?php 
-					global $site_lang;
 					if(function_exists('mlf_links_to_languages')) { 
 						mlf_links_to_languages(); 
 					} else {
