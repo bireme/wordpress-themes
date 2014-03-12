@@ -77,7 +77,7 @@ img{border:0;}
 .content-search{width:100%; float:left; background:rgb(232,242,242);}
 .search-label{margin:3px 10px 0 0;}
 .search-input{width:375px;}
-.search-btn{cursor:pointer; float:left; margin-left:5px; max-height:29px; padding:6px 15px 7px 15px; background:rgb(6,39,107); color:rgb(255,255,255); border:none;}
+.search-btn{cursor:pointer; margin-left:5px; max-height:29px; padding:6px 15px 7px 15px; background:rgb(6,39,107); color:rgb(255,255,255); border:none;}
 .search-btn:hover{background:rgb(15,111,159);}
 .content-catlist{list-style:none; width:100%; float:left;}
 .content-catlist li{width:100%; float:left;  margin-bottom:10px; border-bottom:1px solid rgb(200,222,245);}
@@ -137,7 +137,7 @@ table tr:nth-child(odd) {background:rgb(255,255,255); color:rgb(49,49,49);}
 label{float:left; font-weight:600;}
 input[type=radio]{float:left; margin:3px 5px 10px 0;}
 select{height:29px; max-height:29px; min-height:29px; padding:4px !important;}
-input[type=text], input[type=password], select, textarea{float:left; padding:5px; background:rgb(255,255,255); border:1px solid rgb(132,132,132); font:12px "Open Sans", Helvetica, Arial, Sans-Serif;}
+input[type=text], input[type=password], select, textarea{padding:5px; background:rgb(255,255,255); border:1px solid rgb(132,132,132); font:12px "Open Sans", Helvetica, Arial, Sans-Serif;}
 input[type=text]:hover, input[type=password]:hover, select:hover, textarea:hover, select:focus, textarea:focus, input[type=text]:focus, input[type=password]:focus{border-color:rgb(6,39,107);}
 
 /* PRINT FRENDLY PLUGIN */
