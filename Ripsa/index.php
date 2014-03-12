@@ -1,20 +1,24 @@
 <?php 
 	
-	$site_list = wp_get_sites( array('public' => true) );
+	
 	
 	// Get information about available Qualification Records editions (years)	
+	$site_list = wp_get_sites( array('public' => true) );
 	$edition_list = array();	
-	foreach ($site_list as $site){
-		if ( preg_match('/\/([0-9]+)\//', $site['path'], $edition_year) ) {
-			$edition_list[] = $edition_year[1];
-		}
-	}
-	//$edition_list = asort($edition_list);
 	
-	// Get information about current Qualification Records edition (year)	
-	$current_site = get_blog_details();
-	preg_match('/\/([0-9]+)\//', $current_site->path, $current_edition_info);
-	$current_edition = $current_edition_info[1];
+	if ( count($site_list) > 1 ){
+		foreach ($site_list as $site){
+			if ( preg_match('/\/([0-9]+)\//', $site['path'], $edition_year) ) {
+				$edition_list[] = $edition_year[1];
+			}
+		}				
+		sort($edition_list, SORT_NUMERIC);
+				
+		// Get information about current Qualification Records edition (year)	
+		$current_site = get_blog_details();
+		preg_match('/\/([0-9]+)\//', $current_site->path, $current_edition_info);
+		$current_edition = $current_edition_info[1];
+	}
 	
 	get_header();
 	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
@@ -33,17 +37,19 @@
 								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
 								<button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
 							</div>
-							<div class="pull-right">
-								<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
-								<select name="filter_chain[]">
-									<option value=""><?php echo _e('Todas edições', 'Ripsa'); ?></option>
-									<?php 
-										foreach ($edition_list as $edition){
-											echo '<option value="year_cluster:' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';
-										}
-									?>
-								</select>
-							</div>
+							<?php if ( count($site_list) > 1 ) : ?>
+								<div class="pull-right">
+									<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
+									<select name="filter_chain[]">
+										<option value=""><?php echo _e('Todas edições', 'Ripsa'); ?></option>
+										<?php 
+											foreach ($edition_list as $edition){
+												echo '<option value="year_cluster:' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';
+											}
+										?>
+									</select>
+								</div>
+							<?php endif; ?>
 						</div>
 					</form>
 				</div>
