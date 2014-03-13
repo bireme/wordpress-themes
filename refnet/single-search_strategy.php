@@ -81,7 +81,7 @@
 						echo "</h5>";
 					}
 				?>
-				<dl>
+				<dl class="expr">
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_observations', __('Observation','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
@@ -104,7 +104,7 @@
 						echo "</h5>";
 					}
 				?>
-				<dl>
+				<dl class="expr">
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_observations', __('Observations','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
@@ -127,7 +127,7 @@
 						echo "</h5>";
 					}
 				?>
-				<dl>
+				<dl class="expr">
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_observations', __('Observations','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
