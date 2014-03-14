@@ -170,6 +170,10 @@ body.custom-font-enabled {
 .site-content #content .search_strategy p.post-description_of_the_search {
 	font-size: 100%;
 }
+.url_iahx a {
+	padding-left: 18px;
+	background: url(images/link.png) no-repeat;
+}
 
 /* Search Result 
 ----------------------------------------------- */
@@ -228,6 +232,14 @@ section.site-content #content .search_strategy{
 #content.single1column dd {
 	font-weight:normal;
 	line-height: 160%;
+}
+.expr dd {
+	font-family: monospace;
+	font-size: 130%;
+	line-height: 160%;
+	padding: 20px;
+	background: #f0f0f0;
+	border: 1px solid #ababab;
 }
 .search-strategy-data h4 {
 

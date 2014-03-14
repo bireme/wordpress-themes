@@ -88,7 +88,7 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
 						$iahx_regional_url = "http://pesquisa.bvsalud.org/portal/?lang=" . substr($site_lang, 0,2) . "&from=0&sort=&format=summary&count=20&page=1&q=" .  trim(bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression',"","","",TRUE,",",FALSE,FALSE)) . "&index=tw";
-						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'alt="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
+						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'title="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
 					
 					}
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_databases', __('Databases','refnet'), $html4label, $html4custom_field);
@@ -111,7 +111,7 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("medline_iahx_search_expression"))) {
 						$iahx_regional_url = "http://pesquisa.bvsalud.org/portal/?lang=" . substr($site_lang, 0,2) . "&from=0&sort=&format=summary&count=20&page=1&q=" .  trim(bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression',"","","",TRUE,",",FALSE,FALSE)) . "&index=tw";
-						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'alt="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
+						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'title="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
 					
 					}
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_databases', __('Databases','refnet'), $html4label, $html4custom_field);
@@ -134,7 +134,7 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("cochrane_iahx_search_expression"))) {
 						$iahx_regional_url = "http://pesquisa.bvsalud.org/portal/?lang=" . substr($site_lang, 0,2) . "&from=0&sort=&format=summary&count=20&page=1&q=" .  trim(bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression',"","","",TRUE,",",FALSE,FALSE)) . "&index=tw";
-						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'alt="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
+						echo '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . "' " . 'title="' . __('VHL Regional Portal', 'refnet') . '" target="_blank">' . __('See this search strategy applied on VHL Regional Portal','refnet') . '</a></span><br/><br/>';
 					
 					}
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_databases', __('Databases','refnet'), $html4label, $html4custom_field);
