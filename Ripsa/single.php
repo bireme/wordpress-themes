@@ -189,9 +189,6 @@
 						<a href="<?php $key="literatura_lilacs"; echo get_post_meta($post->ID,$key,true);?>" target="_blank" class="row-fluid single-servicos">
 							<i class="i-lilacs"></i><span class="single-servicos-text"><?php _e( 'Literatura Científica em LILACS', 'Ripsa'); ?></span>
 						</a>
-						<a href="<?php the_field('ficha_pdf');?>" target="_blank" target="_blank" class="row-fluid single-servicos">
-							<i class="i-download"></i><span class="single-servicos-text"><?php _e( 'Ficha em Formato PDF', 'Ripsa'); ?></span>
-						</a>
 						<?php 
 							$indicador = get_the_title($post->ID);
 							$edicao = get_post_meta($post->ID,"edicao",true);
@@ -211,10 +208,6 @@
 						<?php } ?>
 					</div>
 				</div>
-
-				
-
-
 			</aside>
 		</div>
 	</div>
