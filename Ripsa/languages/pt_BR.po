@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ripsa\n"
-"POT-Creation-Date: 2014-03-12 09:42-0300\n"
-"PO-Revision-Date: 2014-03-12 09:42-0300\n"
+"POT-Creation-Date: 2014-03-17 09:31-0300\n"
+"PO-Revision-Date: 2014-03-17 09:33-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -16,27 +16,31 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: ../Ripsa/category.php:21 ../Ripsa/index.php:10 category.php:21 index.php:10
+#: ../Ripsa/category.php:38 ../Ripsa/index.php:28 category.php:38 index.php:28
 msgid "Pesquisa"
 msgstr ""
 
-#: ../Ripsa/category.php:21 ../Ripsa/index.php:10 category.php:21 index.php:10
+#: ../Ripsa/category.php:38 ../Ripsa/index.php:28 category.php:38 index.php:28
 msgid "Entre uma ou mais palavras"
 msgstr ""
 
-#: ../Ripsa/category.php:27 ../Ripsa/index.php:16 category.php:27 index.php:16
+#: ../Ripsa/category.php:44 ../Ripsa/index.php:34 category.php:44 index.php:34
 msgid "Pesquisar"
 msgstr ""
 
-#: ../Ripsa/category.php:31 category.php:31
-msgid "Conjunto de Indicadores:"
+#: ../Ripsa/category.php:47 ../Ripsa/index.php:37 category.php:47 index.php:37
+msgid "Conjunto de indicadores"
 msgstr ""
 
-#: ../Ripsa/category.php:43 category.php:43
+#: ../Ripsa/category.php:49 ../Ripsa/index.php:39 category.php:49 index.php:39
+msgid "Todas edições"
+msgstr ""
+
+#: ../Ripsa/category.php:61 category.php:61
 msgid "Neste grupo"
 msgstr ""
 
-#: ../Ripsa/category.php:48 category.php:48
+#: ../Ripsa/category.php:66 category.php:66
 msgid "Em todos os indicadores"
 msgstr ""
 
@@ -59,11 +63,11 @@ msgstr ""
 msgid "Português"
 msgstr ""
 
-#: ../Ripsa/header.php:52 header.php:52
+#: ../Ripsa/header.php:53 header.php:53
 msgid "Portal de Fichas de Qualificação"
 msgstr ""
 
-#: ../Ripsa/index.php:36 index.php:36
+#: ../Ripsa/index.php:65 index.php:65
 msgid "Ver todos os posts da categoria"
 msgstr ""
 
@@ -131,111 +135,119 @@ msgstr ""
 msgid "Literatura Científica em LILACS"
 msgstr ""
 
-#: ../Ripsa/single.php:193 single.php:193
-msgid "Ficha em Formato PDF"
-msgstr ""
-
-#: ../Ripsa/single.php:209 single.php:209
+#: ../Ripsa/single.php:206 single.php:206
 msgid "Comentários sobre indicadores"
 msgstr ""
 
-#: ../twentythirteen/404.php:16
-msgid "Not found"
+#: ../twentyfourteen/404.php:17
+msgid "Not Found"
 msgstr ""
 
-#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
-msgid "This is somewhat embarrassing, isn&rsquo;t it?"
-msgstr ""
-
-#: ../twentythirteen/404.php:22
+#: ../twentyfourteen/404.php:21 ../twentythirteen/404.php:22
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
 
-#: ../twentythirteen/archive.php:29 ../twentytwelve/archive.php:29
+#: ../twentyfourteen/archive.php:31 ../twentythirteen/archive.php:29
+#: ../twentytwelve/archive.php:29
 #, php-format
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: ../twentythirteen/archive.php:31 ../twentytwelve/archive.php:31
+#: ../twentyfourteen/archive.php:34 ../twentythirteen/archive.php:31
+#: ../twentytwelve/archive.php:31
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: ../twentythirteen/archive.php:33 ../twentytwelve/archive.php:33
+#: ../twentyfourteen/archive.php:37 ../twentythirteen/archive.php:33
+#: ../twentytwelve/archive.php:33
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
+#: ../twentyfourteen/archive.php:40
+#: ../twentyfourteen/taxonomy-post_format.php:51
 #: ../twentythirteen/archive.php:35 ../twentytwelve/archive.php:35
 msgid "Archives"
 msgstr ""
 
-#: ../twentythirteen/author-bio.php:16 ../twentytwelve/author.php:53
-#: ../twentytwelve/content.php:53
-#, php-format
-msgid "About %s"
-msgstr ""
-
-#: ../twentythirteen/author-bio.php:20 ../twentytwelve/content.php:57
-#, php-format
-msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../twentythirteen/author.php:30
+#: ../twentyfourteen/author.php:31 ../twentythirteen/author.php:30
 #, php-format
 msgid "All posts by %s"
 msgstr ""
 
-#: ../twentythirteen/category.php:19 ../twentytwelve/category.php:21
+#: ../twentyfourteen/category.php:20 ../twentythirteen/category.php:19
+#: ../twentytwelve/category.php:21
 #, php-format
 msgid "Category Archives: %s"
 msgstr ""
 
+#: ../twentyfourteen/comments.php:34 ../twentyfourteen/comments.php:52
 #: ../twentythirteen/comments.php:45 ../twentytwelve/comments.php:42
 msgid "Comment navigation"
 msgstr ""
 
+#: ../twentyfourteen/comments.php:35 ../twentyfourteen/comments.php:53
 #: ../twentythirteen/comments.php:46 ../twentytwelve/comments.php:43
 msgid "&larr; Older Comments"
 msgstr ""
 
+#: ../twentyfourteen/comments.php:36 ../twentyfourteen/comments.php:54
 #: ../twentythirteen/comments.php:47 ../twentytwelve/comments.php:44
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: ../twentythirteen/comments.php:52 ../twentytwelve/comments.php:53
+#: ../twentyfourteen/comments.php:59 ../twentythirteen/comments.php:52
+#: ../twentytwelve/comments.php:53
 msgid "Comments are closed."
 msgstr ""
 
-#: ../twentythirteen/content-aside.php:13
-#: ../twentythirteen/content-audio.php:24
-#: ../twentythirteen/content-gallery.php:24
-#: ../twentythirteen/content-image.php:23
-#: ../twentythirteen/content-link.php:24
-#: ../twentythirteen/content-quote.php:13
-#: ../twentythirteen/content-status.php:13
-#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:39
-#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
-#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
-#: ../twentytwelve/content-status.php:21 ../twentytwelve/content.php:39
-msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+msgid "Leave a comment"
 msgstr ""
 
-#: ../twentythirteen/content-aside.php:14
-#: ../twentythirteen/content-audio.php:25
-#: ../twentythirteen/content-chat.php:24
-#: ../twentythirteen/content-gallery.php:25
-#: ../twentythirteen/content-image.php:24
-#: ../twentythirteen/content-link.php:25
-#: ../twentythirteen/content-quote.php:14
-#: ../twentythirteen/content-status.php:14
-#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:40
-#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
-#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:40
-#: ../twentytwelve/image.php:92
-msgid "Pages:"
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+msgid "1 Comment"
 msgstr ""
 
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+msgid "% Comments"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:40
+#: ../twentyfourteen/content-audio.php:40
+#: ../twentyfourteen/content-gallery.php:40
+#: ../twentyfourteen/content-image.php:40
+#: ../twentyfourteen/content-link.php:40 ../twentyfourteen/content-page.php:28
+#: ../twentyfourteen/content-quote.php:40
+#: ../twentyfourteen/content-video.php:40 ../twentyfourteen/content.php:42
+#: ../twentyfourteen/image.php:34
+#: ../twentyfourteen/page-templates/contributors.php:35
 #: ../twentythirteen/content-aside.php:20
 #: ../twentythirteen/content-aside.php:28
 #: ../twentythirteen/content-audio.php:31
@@ -255,11 +267,373 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../twentythirteen/content-gallery.php:36
-#: ../twentythirteen/content-image.php:32
-#: ../twentythirteen/content-quote.php:22
-#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
-msgid "Leave a comment"
+#: ../twentyfourteen/content-aside.php:46
+#: ../twentyfourteen/content-audio.php:46
+#: ../twentyfourteen/content-gallery.php:46
+#: ../twentyfourteen/content-image.php:46
+#: ../twentyfourteen/content-link.php:46
+#: ../twentyfourteen/content-quote.php:46
+#: ../twentyfourteen/content-video.php:46 ../twentyfourteen/content.php:54
+#: ../twentyfourteen/inc/widgets.php:113 ../twentyfourteen/inc/widgets.php:158
+#: ../twentythirteen/content-aside.php:13
+#: ../twentythirteen/content-audio.php:24
+#: ../twentythirteen/content-gallery.php:24
+#: ../twentythirteen/content-image.php:23
+#: ../twentythirteen/content-link.php:24
+#: ../twentythirteen/content-quote.php:13
+#: ../twentythirteen/content-status.php:13
+#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:39
+#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
+#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
+#: ../twentytwelve/content-status.php:21 ../twentytwelve/content.php:39
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:48
+#: ../twentyfourteen/content-audio.php:48
+#: ../twentyfourteen/content-gallery.php:48
+#: ../twentyfourteen/content-image.php:48
+#: ../twentyfourteen/content-link.php:48 ../twentyfourteen/content-page.php:22
+#: ../twentyfourteen/content-quote.php:48
+#: ../twentyfourteen/content-video.php:48 ../twentyfourteen/content.php:56
+#: ../twentyfourteen/image.php:54 ../twentythirteen/content-aside.php:14
+#: ../twentythirteen/content-audio.php:25
+#: ../twentythirteen/content-chat.php:24
+#: ../twentythirteen/content-gallery.php:25
+#: ../twentythirteen/content-image.php:24
+#: ../twentythirteen/content-link.php:25
+#: ../twentythirteen/content-quote.php:14
+#: ../twentythirteen/content-status.php:14
+#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:40
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:40
+#: ../twentytwelve/image.php:92
+msgid "Pages:"
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:12 ../twentythirteen/content-none.php:12
+#: ../twentytwelve/content-none.php:13 ../twentytwelve/index.php:49
+#: ../twentytwelve/search.php:34
+msgid "Nothing Found"
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:18 ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:27 ../twentythirteen/content-none.php:27
+#: ../twentytwelve/404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:20
+#: ../twentytwelve/footer.php:17
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:20
+#: ../twentytwelve/footer.php:17
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:83
+msgid "Top primary menu"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:84
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:175
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:177
+msgid "Main sidebar that appears on the left."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:184
+msgid "Content Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:186
+msgid "Additional sidebar that appears on the right."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:193
+msgid "Footer Widget Area"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:195 ../twentythirteen/functions.php:229
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:260
+msgid "Previous"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:261
+msgid "Next"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:500 ../twentythirteen/functions.php:212
+#: ../twentytwelve/functions.php:213
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../twentyfourteen/header.php:48
+msgid "Search"
+msgstr ""
+
+#: ../twentyfourteen/header.php:52 ../twentytwelve/functions.php:64
+msgid "Primary Menu"
+msgstr ""
+
+#: ../twentyfourteen/header.php:53 ../twentythirteen/header.php:44
+#: ../twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentyfourteen/image.php:65
+msgid "Previous Image"
+msgstr ""
+
+#: ../twentyfourteen/image.php:66
+msgid "Next Image"
+msgstr ""
+
+#: ../twentyfourteen/search.php:18 ../twentythirteen/search.php:18
+#: ../twentytwelve/search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../twentyfourteen/tag.php:22 ../twentythirteen/tag.php:21
+#: ../twentytwelve/tag.php:21
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:30
+#: ../twentyfourteen/inc/widgets.php:53
+msgid "Asides"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:33
+#: ../twentyfourteen/inc/widgets.php:54
+msgid "Images"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:36
+#: ../twentyfourteen/inc/widgets.php:55
+msgid "Videos"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:39
+#: ../twentyfourteen/inc/widgets.php:56
+msgid "Audio"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:42
+#: ../twentyfourteen/inc/widgets.php:57
+msgid "Quotes"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:45
+#: ../twentyfourteen/inc/widgets.php:58
+msgid "Links"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:48
+#: ../twentyfourteen/inc/widgets.php:59
+msgid "Galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/back-compat.php:41
+#: ../twentyfourteen/inc/back-compat.php:53
+#: ../twentyfourteen/inc/back-compat.php:68
+#, php-format
+msgid ""
+"Twenty Fourteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:19
+#: ../twentyfourteen/inc/customizer.php:20
+msgid "Background may only be visible on wide screens."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:28
+msgid "Site Title Color"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:31
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:35
+#: ../twentyfourteen/inc/featured-content.php:408
+msgid "Featured Content"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:36
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:47
+msgid "Layout"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:51
+msgid "Grid"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:52
+msgid "Slider"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:98
+msgid "Twenty Fourteen"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:101
+#, php-format
+msgid ""
+"The home page features your choice of up to 6 posts prominently displayed in "
+"a grid or slider, controlled by the <a href=\"%1$s\">featured</a> tag; you "
+"can change the tag and layout in <a href=\"%2$s\">Appearance &rarr; "
+"Customize</a>. If no posts match the tag, <a href=\"%3$s\">sticky posts</a> "
+"will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:102
+#, php-format
+msgid ""
+"Enhance your site design by using <a href=\"%s\">Featured Images</a> for "
+"posts you&rsquo;d like to stand out (also known as post thumbnails). This "
+"allows you to associate an image with your post without inserting it. Twenty "
+"Fourteen uses featured images for posts and pages&mdash;above the "
+"title&mdash;and in the Featured Content area on the home page."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:103
+#, php-format
+msgid ""
+"For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s"
+"\">Twenty Fourteen documentation</a>."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:409
+#, php-format
+msgid ""
+"Use the <a href=\"%1$s\">\"featured\" tag</a> to feature your posts. You can "
+"change this to a tag of your choice; if no posts match the tag, <a href="
+"\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:428
+msgid "Tag Name"
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:433
+msgid "Don&rsquo;t display tag on front end."
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:47 ../twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:48 ../twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:55
+#: ../twentythirteen/functions.php:264
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:84
+#: ../twentythirteen/functions.php:300 ../twentytwelve/functions.php:282
+#: ../twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:88
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:90
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:91
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:110
+#: ../twentythirteen/functions.php:324
+msgid "Sticky"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:44
+msgid "Twenty Fourteen Ephemera"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:46
+msgid ""
+"Use this widget to list your recent Aside, Quote, Video, Audio, Image, "
+"Gallery, and Link posts"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:189
+#, php-format
+msgid "More %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:236
+msgid "Title:"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:239
+msgid "Number of posts to show:"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:242
+msgid "Post format to show:"
+msgstr ""
+
+#: ../twentythirteen/404.php:16
+msgid "Not found"
+msgstr ""
+
+#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:16 ../twentytwelve/author.php:53
+#: ../twentytwelve/content.php:53
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:20 ../twentytwelve/content.php:57
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #: ../twentythirteen/content-gallery.php:36
@@ -277,53 +651,18 @@ msgstr ""
 msgid "View all % comments"
 msgstr ""
 
-#: ../twentythirteen/content-none.php:12 ../twentytwelve/content-none.php:13
-#: ../twentytwelve/index.php:49 ../twentytwelve/search.php:34
-msgid "Nothing Found"
-msgstr ""
-
-#: ../twentythirteen/content-none.php:18
-#, php-format
-msgid ""
-"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
 #: ../twentythirteen/content-none.php:22
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with "
 "different keywords."
 msgstr ""
 
-#: ../twentythirteen/content-none.php:27 ../twentytwelve/404.php:21
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-
-#: ../twentythirteen/footer.php:20 ../twentytwelve/footer.php:17
-msgid "http://wordpress.org/"
-msgstr ""
-
-#: ../twentythirteen/footer.php:20 ../twentytwelve/footer.php:17
-#, php-format
-msgid "Proudly powered by %s"
-msgstr ""
-
 #: ../twentythirteen/functions.php:93
 msgid "Navigation Menu"
 msgstr ""
 
-#: ../twentythirteen/functions.php:212 ../twentytwelve/functions.php:213
-#, php-format
-msgid "Page %s"
-msgstr ""
-
 #: ../twentythirteen/functions.php:227
 msgid "Main Widget Area"
-msgstr ""
-
-#: ../twentythirteen/functions.php:229
-msgid "Appears in the footer section of the site."
 msgstr ""
 
 #: ../twentythirteen/functions.php:237
@@ -334,25 +673,12 @@ msgstr ""
 msgid "Appears on posts and pages in the sidebar."
 msgstr ""
 
-#: ../twentythirteen/functions.php:264
-msgid "Posts navigation"
-msgstr ""
-
 #: ../twentythirteen/functions.php:268 ../twentytwelve/functions.php:283
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
 #: ../twentythirteen/functions.php:272 ../twentytwelve/functions.php:284
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../twentythirteen/functions.php:300 ../twentytwelve/functions.php:282
-#: ../twentytwelve/single.php:20
-msgid "Post navigation"
-msgstr ""
-
-#: ../twentythirteen/functions.php:324
-msgid "Sticky"
 msgstr ""
 
 #: ../twentythirteen/functions.php:330 ../twentythirteen/functions.php:336
@@ -376,10 +702,6 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: ../twentythirteen/header.php:44 ../twentytwelve/header.php:44
-msgid "Skip to content"
-msgstr ""
-
 #: ../twentythirteen/image.php:22
 #, php-format
 msgid ""
@@ -398,16 +720,6 @@ msgstr ""
 
 #: ../twentythirteen/image.php:52
 msgid "Next <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
-
-#: ../twentythirteen/search.php:18 ../twentytwelve/search.php:18
-#, php-format
-msgid "Search Results for: %s"
-msgstr ""
-
-#: ../twentythirteen/tag.php:21 ../twentytwelve/tag.php:21
-#, php-format
-msgid "Tag Archives: %s"
 msgstr ""
 
 #: ../twentythirteen/taxonomy-post_format.php:23
@@ -459,10 +771,6 @@ msgstr ""
 
 #: ../twentytwelve/content.php:14
 msgid "Featured post"
-msgstr ""
-
-#: ../twentytwelve/functions.php:64
-msgid "Primary Menu"
 msgstr ""
 
 #: ../twentytwelve/functions.php:238
@@ -541,14 +849,6 @@ msgid ""
 "span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
 "%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
 "a>."
-msgstr ""
-
-#: ../twentytwelve/image.php:41
-msgid "&larr; Previous"
-msgstr ""
-
-#: ../twentytwelve/image.php:42
-msgid "Next &rarr;"
 msgstr ""
 
 #: ../twentytwelve/index.php:38

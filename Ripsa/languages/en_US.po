@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ripsa\n"
 "POT-Creation-Date: 2014-03-12 09:44-0300\n"
-"PO-Revision-Date: 2014-03-12 09:45-0300\n"
+"PO-Revision-Date: 2014-03-17 09:36-0300\n"
 "Last-Translator: Julio Takayama <takayama@paho.org>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -30,7 +30,7 @@ msgstr "Search"
 
 #: ../Ripsa/category.php:31 category.php:31
 msgid "Conjunto de Indicadores:"
-msgstr "Set of indicators:"
+msgstr "Set of indicators"
 
 #: ../Ripsa/category.php:43 category.php:43
 msgid "Neste grupo"
