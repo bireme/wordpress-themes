@@ -127,45 +127,45 @@
 						</div>
 					</div>
 				</div>
-				<?php $notes = get_post_meta($post->ID, 'notas', true);?>
-				<?php
-            		if (!empty($notes)) {
-            			echo '<div class="single-topicos">';
-            			echo '<div class="row-fluid">';
-						echo '<h2 class="single-h2"><span class="single-topics-seta">-</span>';
-						_e( 'Notas', 'Ripsa');
-						echo '</h2>';
-						echo '</div>';
-						echo '<div class="row-fluid single-topicos-open">';
-						echo '<div class="single-topicos-content">';
-						$key="notas"; echo $ez_TeX->parseTex(get_field($key));
-						echo '</div>';
-						echo '</div>';
-						echo '</div>';
-					}	
-				?>
-				<?php $g_section_ttl = get_post_meta($post->ID, 'section-title', true);?>
-				<?php
-					if (!empty($g_section_ttl)) {
-						echo '<div class="single-topicos">';
-            			echo '<div class="row-fluid">';
-            			echo '<h2 class="single-h2"><span class="single-topics-seta">-</span>';
-						echo get_post_meta($post->ID, 'section-title', true);
-						echo '</h2>';
-						echo '</div>';
-            		}
-				?>
-				<?php $g_section_cont = get_post_meta($post->ID, 'section-content', true);?>
-				<?php
-					if (!empty($g_section_cont)) {
-						echo '<div class="row-fluid single-topicos-open">';
-						echo '<div class="single-topicos-content">';
-						echo get_post_meta($post->ID,'section-content' ,true);
-						echo '</div>';
-						echo '</div>';
-						echo '</div>';
-					}
-				?>
+				<div class="single-topicos">
+                    <div class="row-fluid">
+                    	<?php $notes = get_post_meta($post->ID, 'notas', true);?>
+                    	<?php
+                    		if (!empty($notes)) {
+								echo '<h2 class="single-h2"><span class="single-topics-seta">-</span>';
+								_e( 'Notas', 'Ripsa');
+								echo '</h2>';
+							}	
+                    	?> 
+                    </div>
+                    <div class="row-fluid single-topicos-open">
+                        <div class="single-topicos-content">
+							<?php $key="notas"; echo $ez_TeX->parseTex(get_field($key));?>
+                        </div>
+                    </div>
+                </div>
+				<div class="single-topicos">
+					<div class="row-fluid">
+						<?php $g_section_ttl = get_post_meta($post->ID, 'section-title', true);?>
+						<?php
+							if (!empty($g_section_ttl)) {
+								echo '<h2 class="single-h2"><span class="single-topics-seta">-</span>';
+								echo get_post_meta($post->ID, 'section-title', true);
+								echo '</h2>';
+							}				
+						?>
+					</div>
+					<div class="row-fluid single-topicos-open">
+						<div class="single-topicos-content">
+							<?php $g_section_cont = get_post_meta($post->ID, 'section-content', true);?>
+							<?php
+								if (!empty($g_section_cont)) {
+									echo get_post_meta($post->ID,'section-content' ,true);
+								}
+							?>
+                        </div>
+                	</div>
+        		</div>
 				<?php if (!empty($alerta)) { ?>
                     <div class="warning">
 						<?php echo $alerta; ?>
@@ -204,6 +204,9 @@
 						<span id="impressao" class="row-fluid single-servicos">
 							<?php if(function_exists('pf_show_link')){echo pf_show_link();} ?>
 						</span>
+						<!--a href="#" class="row-fluid single-servicos">
+							<i class="i-oldversions"></i><span class="single-servicos-text">Outras Versões</span>
+						</a-->
 						<?php $comment_ficha = get_post_meta($post->ID, 'comentarios_indicadores', true);?>
 						<?php if (!empty($comment_ficha)) { ?>
 							<a href="<?php the_field('comentarios_indicadores');?>" target="_blank" class="row-fluid single-servicos">
