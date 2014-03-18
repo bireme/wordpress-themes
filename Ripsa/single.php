@@ -163,8 +163,12 @@
 						echo get_post_meta($post->ID,'section-content' ,true);
 						echo '</div>';
 						echo '</div>';
-						echo '</div>';
 					}
+				?>
+				<?php
+					if (!empty($g_section_ttl)) {
+						echo '</div>';
+            		}
 				?>
 				<?php if (!empty($alerta)) { ?>
                     <div class="warning">
