@@ -31,7 +31,9 @@ body {background-repeat: repeat-x !important;}
 .icn-comments-title,
 .icn-comments-form,
 .plus,
-.minus {
+.minus, 
+.url_iahx a, 
+.rss_feed a {
 	background: url(images/sprite.png) no-repeat;
 	display: inline-block;
 	width: 37px;
@@ -49,6 +51,8 @@ body {background-repeat: repeat-x !important;}
 .cochrane-strategy {background-position: -259px 0;}
 .icn-comments-title {background-position: 0 -37px;}
 .icn-comments-form {background-position: -37px -37px;}
+.url_iahx a {background-position: 0px -111px;}
+.rss_feed a {background-position: -37px -111px;}
 body.custom-font-enabled {
     font-family: "Roboto", "Open Sans", Helvetica, Arial, sans-serif;
 }
@@ -170,19 +174,28 @@ body.custom-font-enabled {
 .site-content #content .search_strategy p.post-description_of_the_search {
 	font-size: 100%;
 }
-.url_iahx a {
-	padding-left: 18px;
-	background: url(images/link.png) no-repeat;
+.vertical-tabs {
+	position: absolute;
+	margin: 30px 0 0 592px;
 }
-.rss_feed a {
-	padding-left: 18px;
-	background: url(images/feed.png) no-repeat;
+.vertical-tabs span {
+	display: block;
+	padding: 0px;
+	width: 37px;
+	margin-bottom: 6px;
 }
-
-
+.url_iahx, .rss_feed {
+	background: #f0f0f0;
+}
+.url_iahx a, .rss_feed a {
+	display: block;
+	background-color: #f0f0f0;
+	border: 1px solid #ababab;
+	border-radius: 0px 4px 4px 0px;
+}
 /* Search Result 
 ----------------------------------------------- */
-ection#primary .single1column {
+section#primary .single1column {
         width:67% !important;
 }
 section.site-content #content .search_strategy{
