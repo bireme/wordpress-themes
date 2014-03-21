@@ -75,6 +75,7 @@ function extract_text_by_language_markup($text) {
 
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
+add_filter('the_title','extract_text_by_language_markup');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
