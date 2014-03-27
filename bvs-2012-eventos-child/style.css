@@ -1,0 +1,30 @@
+/*
+Theme Name: BVS Events
+Theme URI: https://github.com/bireme/bvs-site-wp-plugin
+Description: Child theme to publish events
+Author: BIREME/OPAS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+Version: 1.0
+*/
+
+/*
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../bvs-2012/style.css');
+
+/* Customizations starts here
+-------------------------------------------------------------- */
+.container{-webkit-box-shadow: 0 3px 4px 2px #E3E3E3;box-shadow: 0 3px 4px 2px #E3E3E3;}
+.header{height:175px;}
+article{padding: 0 90px;font-size: 120%;margin-top: 40px;}
+article header h1 {margin:0 !important;font-weight:bold !important;font-size:150% !important;}
+.comments-area{padding: 0 90px;}
+.sitemenu{border-bottom:1px solid #ddd;background:#efefef;}
+.sitemenu .menu li {display:inline-block;border-right:1px solid #ddd;}
+.sitemenu .menu a{font-size: 140%;font-weight: bold;color: #666;text-decoration: none;padding: 8px 16px;display: block;}
+.sitemenu .menu a:hover{color:#00a9ff;background: #dfeef5;}

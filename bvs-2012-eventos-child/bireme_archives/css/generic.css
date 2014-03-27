@@ -1,0 +1,241 @@
+/*
+
+*/
+body {
+	font-size: 0.9rem !important;	
+	}
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.bar {
+	font-size: 80%;
+	float: right;
+	padding: 4px;
+	width:992px !important;
+	}
+
+.bar div {
+	float: right;
+	}
+.bar div li {
+	float: left;
+	margin: 0px 5px;
+}
+.header {
+	height: 116px;	
+	}
+.headerWidget {
+	float: right;
+	margin-top: 25px;
+}
+#parent {
+	margin: 12px 0 11px 20px;		
+	float: left;
+	}
+.site_name {
+	float: left;
+	font-size: 150%;
+	margin-top: 50px;
+	margin-left: 30px;
+	width: 300px;		
+	}
+		
+.column {
+	float: left;
+	margin: 5px;
+	}
+	
+.spacer {
+	clear: both;
+	display: block;	
+	}
+	
+.archive-title, .page-title, .widget-title, .entry-content th, .comment-content th {
+	text-transform: inherit !important;
+	font-size: 1rem !important;	
+	}
+	
+.container h3 {
+	border-bottom: 2px solid;
+	margin-bottom: 5px;
+	line-height: 150%;
+	padding: 0% 0.4rem;
+}
+.column .widget {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}	
+.column .widget DIV {	
+	padding: 10px;
+	}
+.widget ul {
+	margin: 5px;	
+	}
+.widget ul li {
+	line-height: 150%;	
+	}
+
+/* Themes - 1 columns */
+.vhl-themes li {
+    margin: 0% 2% 1% 0%;
+    width: 100%;
+    height: 45px;
+}
+.vhl-themes li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+.vhl-themes li h4 {
+    clear: none;
+}
+.vhl-themes li h4 a {
+    font-weight: bold;
+}
+
+/* Themes - 2 columns */
+.double li {
+    float: left;
+    width: 45%;
+    margin: 0% 3% 1% 2%;
+    display: block;
+	padding: 4px 0;
+    line-height: 120% !important;
+}
+.double li img {
+    float: left;
+    margin: 0 6px 0 0;
+}
+.double li h4 {
+    clear: none;
+	
+}
+.double li h4 a {
+    font-weight: bold;
+}	
+.footer {
+	padding: 10px;
+	font-size: 0.75rem;
+	line-height: 150%;
+	clear: both;	
+	}
+	
+.footer h3 {
+	display:none;
+}
+
+.institutionalFooter IMG {
+    float: left;
+    margin-right: 4px;
+}
+
+.footer img {
+	box-shadow: 0 !important;
+	border: none !important;
+}
+
+body.single .site-content {
+	padding: 10px;	
+	}
+	
+.single1column {
+	width: 65% !important;
+	float: left !important;	
+	}
+	
+.single2column {
+	width: 33%;
+	float: left;	
+	}
+
+.column strong.widget-title {
+        line-height: 150%;
+        color: #333333;
+        margin-bottom: 5px;
+}
+strong {
+        display: block;
+        font-size: 1.17em;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        font-weight: bold;
+}
+.vhl-themes li strong {
+    clear: none;
+}
+.vhl-themes li strong a {
+    font-weight: bold;
+}
+.double li strong {
+    clear: none;
+}
+.double li strong a {
+    font-weight: bold;
+}
+
+/*SECOND LEVEL*/
+.vhl_collection .entry-header p {
+	line-height: 150%;
+	font-size: 110%;
+}
+.vhl_collection .childPages ul {
+	margin-left: 30px;
+	list-style-type: none;
+}
+.vhl_collection .childPages li {
+	margin: 10px 0 0 0;
+}
+.vhl_collection .childPages li a {
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 150%;
+	color: #21749b;
+}
+.vhl_collection .childPages li a:hover, .vhl_collection .childPages li a:visited {
+	color: #21749b;
+}
+.vhl_collection .childPages li p {
+	line-height: 150%;
+}
+.category .entry-header p { margin: 20px; }
+.category .entry-title, .category .archive-title { margin-left: 10px; }
+.vhl-themes div.spacer, .vhl-collection div.spacer { padding: 0; }
+.vhl-collection ul.double { padding-top: 0; }
+.vhl-collection ul.double li {
+	width: 43%;
+	margin: 5px 5% 5px 9px;
+	height: auto !important;
+}
+.vhl-collection ul.double li li {
+	width: auto;
+	margin: 6px 5px 6px 1px;
+}
+.vhl_collection img { margin-top: 10px; }
+.column .twocolumn {
+	margin: 0;
+	padding: 0;
+}
+
+.widget_recent_entries li { margin-bottom: 10px; }
+ul.double { padding-top: 10px; }
+.vhl-network { display: none; }
+
+.site-content article { margin-bottom: 3rem !important; }
+.site-content article .entry-header .entry-title, .site-content article .entry-summary {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.bar #contact A {
+    background: url(../default/bt_contact.gif) no-repeat;
+}
+#contact A {
+    padding-left: 20px;
+}
+
+.vhl_collection .entry-content strong {
+    display: inline;
+}
