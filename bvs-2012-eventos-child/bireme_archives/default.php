@@ -21,7 +21,7 @@ $default_settings = array(
 	
 	'colors' => array(
 
-                "palette" => "bireme_default",
+        "palette" => "bireme_default",
 
 		"general-background" => "FFF",
 		"general-container" => "FFF",
