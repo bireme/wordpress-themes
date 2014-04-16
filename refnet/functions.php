@@ -307,5 +307,5 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 			$custom_field_value_translated = $custom_field_value;
 			break;
 	}
-	return $custom_field_value_translated;
+	return extract_text_by_language_markup($custom_field_value_translated);
 }
