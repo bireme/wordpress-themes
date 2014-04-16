@@ -326,6 +326,14 @@ msgstr "Estratégia de busca para iAHx"
 msgid "Search strategy II"
 msgstr "Estratégia de Busca II"
 
+#: ../single-search_strategy.php:91
+msgid "See this search strategy applied on VHL Regional Portal"
+msgstr "Veja esta estratégia de busca aplicada no Portal Regional da BVS"
+
+#: ../single-search_strategy.php:92
+msgid "Keep up to date with RSS feed"
+msgstr "Mantenha-se atualizado por meio do canal RSS"
+
 #: ../single-search_strategy.php:101
 msgid "Search strategy III"
 msgstr "Estratégia de Busca III"

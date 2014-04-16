@@ -316,6 +316,14 @@ msgstr "Filtros"
 msgid "Search Strategy I"
 msgstr "Estrategia de Busca I"
 
+#: ../single-search_strategy.php:91
+msgid "See this search strategy applied on VHL Regional Portal"
+msgstr "Ve la estrategia de búsqueda aplicada en el Portal Regional de la BVS"
+
+#: ../single-search_strategy.php:92
+msgid "Keep up to date with RSS feed"
+msgstr "Manténgase actualizado por medio del canal RSS"
+
 #: ../single-search_strategy.php:118 ../single-search_strategy.php:134
 #: ../single-search_strategy.php:150
 msgid "iAH search strategy"
