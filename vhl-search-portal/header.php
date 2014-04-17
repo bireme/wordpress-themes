@@ -8,8 +8,9 @@ $mlf_options = get_option('mlf_config');
 $current_language = get_bloginfo('language');
 $site_lang = substr($current_language, 0,2);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
 
 <head profile="http://gmpg.org/xfn/11">
 		
@@ -48,7 +49,7 @@ $site_lang = substr($current_language, 0,2);
         </div>
         <div class="top top_<?php echo ($current_language);?>">
             <div id="parent">
-                <img src="<?php bloginfo('template_url') ?>/images/<?php echo ( $site_lang ); ?>/logo_bvs.jpg" alt="Biblioteca Virtual em Saúde"/>
+                <img src="<?php bloginfo('template_url') ?>/images/<?php echo ( $site_lang ); ?>/logo_bvs.jpg" alt="<?php bloginfo('name'); ?>"/>
             </div>
             <div id="identification_<?php echo ($current_language);?>">
                 <h1><span><?php bloginfo('name'); ?></span></h1>
