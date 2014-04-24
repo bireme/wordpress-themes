@@ -33,7 +33,7 @@ get_header();
 				</div>
 			</div>
 			<?php endwhile; ?>
-		</ul>
+		</div>
 
 		
 	</div>
@@ -42,14 +42,14 @@ get_header();
 			<?php if ( is_active_sidebar( 'collection_' . $current_language ) ) : ?>
 				<?php dynamic_sidebar(  'collection_' . $current_language ); ?>
 			<?php endif; ?>
-			<div class="spacer">&#160;</div>
+			
 		</div>
 		<div class="spacer">&#160;</div>
 		<div class="collections_3col">
 			<?php if ( is_active_sidebar( 'collection3_' . $current_language ) ) : ?>
 				<?php dynamic_sidebar(  'collection3_' . $current_language ); ?>
 			<?php endif; ?>
-			<div class="spacer">&#160;</div>
+			
 		</div>
 		<div class="spacer">&#160;</div>
 	</div><!--/browseVHL-->
