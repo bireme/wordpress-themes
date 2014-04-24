@@ -309,3 +309,28 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 	}
 	return extract_text_by_language_markup($custom_field_value_translated);
 }
+
+function bir_show_search_rss_buttons($id, $custom_field_name) {
+
+	global $site_lang;
+	
+	$iahx_service = "http://pesquisa.bvsalud.org/portal/";
+	$iahx_other_params = "&from=0&sort=&format=summary&count=20&page=1";
+	$iahx_lang_param = "?lang=" . substr($site_lang, 0,2);
+	$iahx_index_param = "&index=tw";
+	$iahx_query_param = "&q=" . trim(bir_show_custom_field_translated(get_the_ID(), $custom_field_name,"","","",TRUE,",",FALSE,FALSE));
+	$iahx_output_param = "&output=rss";
+	$iahx_label_param = "&filterLabel=" . get_the_title($id);
+
+	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) {
+		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
+		$html_button  = '<div class="vertical-tabs">';
+		$html_button .= '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
+		$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
+		$html_button .= '</div>';
+	}
+
+	return $html_button;
+}
+
+?>
