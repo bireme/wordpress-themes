@@ -73,10 +73,44 @@ function extract_text_by_language_markup($text) {
 	}
 }
 
+function fix_permalink($ID){
+
+	$short_codes = array ('pt_br', 'en_us', 'es_es');
+	$post = get_post($ID);
+	$original_slug = $post->post_name;
+
+	if ( ! wp_is_post_revision( $post_id ) ){
+		remove_action('save_post', 'fix_permalink');
+		foreach ($short_codes as $sc) {
+			$pos_sc = strpos($original_slug, $sc);
+			if ($pos_sc === FALSE) {
+				//avoid return 0 as a valid position
+				$found_short_codes[] = 10000;
+			} else {
+				$found_short_codes[] = $pos_sc;
+			}
+		}
+		if (array_sum($found_short_codes) < 30000) {
+			array_multisort($found_short_codes, $short_codes);
+			$extracted_text = explode($short_codes[0], $original_slug);
+			$new_slug = $extracted_text[1];
+		} else {
+			$new_slug = $original_slug;
+		}
+		$update_slug = array (
+			'ID'          => $ID,
+			'post_name'   => $new_slug
+		);
+		wp_update_post($update_slug);
+		add_action('save_post','fix_permalink');
+	}
+}
+
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','extract_text_by_language_markup');
+add_action('save_post','fix_permalink');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
