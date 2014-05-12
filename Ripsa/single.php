@@ -207,6 +207,7 @@
 		 				?>
 						<span id="impressao" class="row-fluid single-servicos">
 							<?php if(function_exists('pf_show_link')){echo pf_show_link();} ?>
+							<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $custom_query ); ?> 
 						</span>
 						<?php $comment_ficha = get_post_meta($post->ID, 'comentarios_indicadores', true);?>
 						<?php if (!empty($comment_ficha)) { ?>
