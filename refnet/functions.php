@@ -146,12 +146,27 @@ function translate_categories($categories) {
 
 }
 
+function append_language_category_link ($categories){
+	global $site_lang;
+
+	preg_match_all('/http\S+/', $categories, $matches);
+
+	foreach ($matches[0] as $mt) {
+		$new_url = str_replace('"', '', $mt) . "?l=" . $site_lang;
+		$categories = str_replace($mt, $new_url . '"', $categories);
+	}
+
+	return $categories;
+
+}
+
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','extract_text_by_language_markup');
 add_action('save_post','fix_permalink');
 add_filter('wp_list_categories','translate_categories');
+add_filter('wp_list_categories','append_language_category_link');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
@@ -166,6 +181,9 @@ function create_bread_crumb($post_title){
 	$bread_crumb .= __('Home', 'refnet');
 	if ( isset($_GET['se']) and is_single()){
 		$bread_crumb .= '</a> > <a href="' . site_url() . '?l=' . $site_lang . '&s=' . $_GET['se'] . '">' . __('Search Result','refnet');
+	}
+	if ( isset($_GET['ct']) and is_single()){
+		$bread_crumb .= '</a> > <a href="' . site_url() . '/category/' . $_GET['ct'] . '/' . '?l=' . $site_lang . '">' . __('Category Result','refnet');
 	}
 	$bread_crumb .= "</a> > " . trim($post_title) . "</div>";
 
