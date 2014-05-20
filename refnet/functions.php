@@ -26,13 +26,21 @@ if(is_plugin_active('multi-language-framework')) {
 
 function append_query_string() {
 	global $site_lang;
+	$query_args = array();
+	
+	$query_args["l"] = $site_lang;
 
-	if ( isset( $_GET['s'] ) )
-        {
-		return add_query_arg(array('l' => $site_lang, 'se' => $_GET['s']), get_permalink());
-        } else {
-		return add_query_arg("l", $site_lang, get_permalink());
+	if ( isset( $_GET['s'] ) ) {
+		$query_args["se"] = $_GET['s'];
 	}
+
+	if (is_category()) {
+		global $ct_nm;
+		$query_args["ct"] = $ct_nm;
+	} 
+
+	return add_query_arg($query_args, get_permalink());
+
 }
 add_filter('the_permalink','append_query_string');
 
@@ -106,11 +114,44 @@ function fix_permalink($ID){
 	}
 }
 
+function translate_categories($categories) {
+	global $site_lang;
+        $pattern_start = '/\[' . $site_lang  . ']/';
+        $pattern_end = '/\[\/' . $site_lang . ']/';
+	$short_codes = array ('pt_BR', 'en_US', 'es_ES');
+
+	$translated_text = extract_text_by_language_markup($categories);
+
+	foreach ($short_codes as $sc) {
+       		$pos_sc = strpos($categories, $sc);
+                if ($pos_sc === FALSE) {
+                	//avoid return 0 as a valid position
+                	$found_short_codes[] = 10000;
+                } else {
+                        $found_short_codes[] = $pos_sc;
+                }
+	}
+
+	array_multisort($found_short_codes, $short_codes);
+
+        if (preg_match($pattern_start, $categories) && preg_match($pattern_end, $categories)) {
+		$new_text = preg_replace('/\[' . $site_lang . ']\w*\[\/' . $site_lang . ']/', $translated_text, $categories);
+	} else {
+		$new_text = preg_replace('/\[' . $short_codes[0] . ']\w*\[\/' . $short_codes[0] . ']/', $translated_text, $categories);
+	}
+	
+	$new_text = preg_replace('/\[(pt_BR|en_US|es_ES)]\w*\[\/(pt_BR|en_US|es_ES)]/', '', $new_text);
+	
+	return $new_text;
+
+}
+
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','extract_text_by_language_markup');
 add_action('save_post','fix_permalink');
+add_filter('wp_list_categories','translate_categories');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
