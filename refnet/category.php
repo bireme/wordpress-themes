@@ -19,7 +19,7 @@
 			<div id="content" role="main">
 				<?php
 					$search_title =  __('Results for the category: ', 'refnet');
-					$search_title .= '<span>' . translate_categories(single_cat_title('',false)) . '</span>';
+					$search_title .= '<span>' . extract_text_by_language_markup(single_cat_title('',false)) . '</span>';
 					echo create_bread_crumb($search_title);
 				?>
 				<?php if ( have_posts() ) : ?>

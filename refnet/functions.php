@@ -114,38 +114,6 @@ function fix_permalink($ID){
 	}
 }
 
-function translate_categories($categories) {
-	global $site_lang;
-        $pattern_start = '/\[' . $site_lang  . ']/';
-        $pattern_end = '/\[\/' . $site_lang . ']/';
-	$short_codes = array ('pt_BR', 'en_US', 'es_ES');
-
-	$translated_text = extract_text_by_language_markup($categories);
-
-	foreach ($short_codes as $sc) {
-       		$pos_sc = strpos($categories, $sc);
-                if ($pos_sc === FALSE) {
-                	//avoid return 0 as a valid position
-                	$found_short_codes[] = 10000;
-                } else {
-                        $found_short_codes[] = $pos_sc;
-                }
-	}
-
-	array_multisort($found_short_codes, $short_codes);
-
-        if (preg_match($pattern_start, $categories) && preg_match($pattern_end, $categories)) {
-		$new_text = preg_replace('/\[' . $site_lang . ']\w*\[\/' . $site_lang . ']/', $translated_text, $categories);
-	} else {
-		$new_text = preg_replace('/\[' . $short_codes[0] . ']\w*\[\/' . $short_codes[0] . ']/', $translated_text, $categories);
-	}
-	
-	$new_text = preg_replace('/\[(pt_BR|en_US|es_ES)]\w*\[\/(pt_BR|en_US|es_ES)]/', '', $new_text);
-	
-	return $new_text;
-
-}
-
 function append_language_category_link ($categories){
 	global $site_lang;
 
@@ -160,13 +128,21 @@ function append_language_category_link ($categories){
 
 }
 
+function translate_categories_edit_post($categories){
+	foreach ($categories as $cat) {
+		$cat->name = extract_text_by_language_markup($cat->name);
+		$translated_categories[] = $cat;
+	}	
+	return $translated_categories;
+}
+
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','extract_text_by_language_markup');
 add_action('save_post','fix_permalink');
-add_filter('wp_list_categories','translate_categories');
 add_filter('wp_list_categories','append_language_category_link');
+add_filter('get_terms','translate_categories_edit_post');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
