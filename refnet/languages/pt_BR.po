@@ -354,3 +354,11 @@ msgstr "Instância(s) BVS onde a busca foi aplicada"
 #: ../single-search_strategy.php:126
 msgid "Search details"
 msgstr "Detalhes da busca"
+
+#: ../category.php:21
+msgid "Results for the category: "
+msgstr "Resultados da categoria: "
+
+#: ../functions.php:171
+msgid "Category Result"
+msgstr "Resultado de Categoria"

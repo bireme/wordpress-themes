@@ -359,3 +359,10 @@ msgstr "Instancia(s) de la BVS donde la búsqueda fue aplicada"
 msgid "Search details"
 msgstr "Detalles de la búsqueda"
 
+#: ../category.php:21
+msgid "Results for the category: "
+msgstr "Resultados de la categoria: "
+
+#: ../functions.php:171
+msgid "Category Result"
+msgstr "Resultado de Categoria"
