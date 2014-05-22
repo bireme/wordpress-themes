@@ -129,11 +129,16 @@ function append_language_category_link ($categories){
 }
 
 function translate_categories_edit_post($categories){
-	foreach ($categories as $cat) {
-		$cat->name = extract_text_by_language_markup($cat->name);
-		$translated_categories[] = $cat;
-	}	
-	return $translated_categories;
+
+	if (preg_match('/edit-tags.php/', $_SERVER['PHP_SELF'])) {
+		return $categories;
+	} else {
+		foreach ($categories as $cat) {
+			$cat->name = extract_text_by_language_markup($cat->name);
+			$translated_categories[] = $cat;
+		}	
+		return $translated_categories;
+	}
 }
 
 add_filter('widget_text','extract_text_by_language_markup');
