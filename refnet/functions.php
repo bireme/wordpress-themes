@@ -125,20 +125,19 @@ function append_language_category_link ($categories){
 	}
 
 	return $categories;
-
 }
 
 function translate_categories_edit_post($categories){
 
-	if (preg_match('/edit-tags.php/', $_SERVER['PHP_SELF'])) {
-		return $categories;
-	} else {
-		foreach ($categories as $cat) {
-			$cat->name = extract_text_by_language_markup($cat->name);
-			$translated_categories[] = $cat;
-		}	
-		return $translated_categories;
+	foreach ($categories as $cat) {
+		$cat->name = extract_text_by_language_markup($cat->name);
+		$translated_categories[] = $cat;
 	}
+	return $translated_categories;
+}
+
+function translate_term_name($term){
+	return extract_text_by_language_markup($term);
 }
 
 add_filter('widget_text','extract_text_by_language_markup');
@@ -147,7 +146,12 @@ add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','extract_text_by_language_markup');
 add_action('save_post','fix_permalink');
 add_filter('wp_list_categories','append_language_category_link');
-add_filter('get_terms','translate_categories_edit_post');
+
+if (preg_match('/admin-ajax.php/', $_SERVER['PHP_SELF']) == false){
+	add_filter('get_terms','translate_categories_edit_post');
+}
+
+add_filter('term_name', 'translate_term_name');
 
 function create_bread_crumb($post_title){
 	global $site_lang;
@@ -406,5 +410,4 @@ function bir_show_search_rss_buttons($id, $custom_field_name) {
 
 	return $html_button;
 }
-
 ?>
