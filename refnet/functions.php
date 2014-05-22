@@ -129,9 +129,15 @@ function append_language_category_link ($categories){
 
 function translate_categories_edit_post($categories){
 
-	foreach ($categories as $cat) {
-		$cat->name = extract_text_by_language_markup($cat->name);
-		$translated_categories[] = $cat;
+	if (is_array($categories)) {
+		foreach ($categories as $cat) {
+			if (isset($cat->name)) { //when the term is parent
+				$cat->name = extract_text_by_language_markup($cat->name);
+				$translated_categories[] = $cat;
+			}
+		}
+	} else {
+		$translated_categories = extract_text_by_language_markup($categories);
 	}
 	return $translated_categories;
 }
