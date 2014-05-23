@@ -18,7 +18,7 @@ $site_lang = substr($current_language, 0,2);
 	
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="language" content="<?php echo ( $site_lang ); ?>" />
-	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	
 	<link rel="stylesheet" media="screen" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="stylesheet" media="screen" href="<?php bloginfo( 'stylesheet_directory' ); ?>/skin.css" />
