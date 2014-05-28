@@ -146,6 +146,29 @@ function translate_term_name($term){
 	return extract_text_by_language_markup($term);
 }
 
+function fix_taxonomy_slug($slug){
+	echo '<script type="text/javascript">
+		function createSlug() {
+			var tagName = jQuery("#tag-name").val();
+			var extractedSlug = tagName.split(/\[\/(pt_BR|en_US|es_ES)]/);
+			if (extractedSlug.length > 1) {
+				var newSlug = extractedSlug[0].split(/\[(pt_BR|en_US|es_ES)]/);
+				return newSlug[2];
+			} else {
+				return tagName;
+			}
+		}
+
+	
+		jQuery("#tag-slug").focus(
+			function() { 
+				jQuery("#tag-slug").val(createSlug());	
+			}
+
+		);
+		</script>';
+}
+
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
@@ -158,6 +181,10 @@ if (preg_match('/admin-ajax.php/', $_SERVER['PHP_SELF']) == false){
 }
 
 add_filter('term_name', 'translate_term_name');
+
+if (preg_match('/edit-tags.php/', $_SERVER['PHP_SELF']) && ($_GET['action'] != 'edit')) {
+	add_action('edit_category_form', 'fix_taxonomy_slug');
+}
 
 function create_bread_crumb($post_title){
 	global $site_lang;
