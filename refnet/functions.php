@@ -83,7 +83,10 @@ function extract_text_by_language_markup($text) {
 
 function fix_wp_title($text) {
 	$title = extract_text_by_language_markup($text);
-	return $title . " | ";
+	if (is_single() && $title != $text)
+		return $title . " | ";
+	else
+		return $title;
 }
 
 function fix_permalink($ID){
