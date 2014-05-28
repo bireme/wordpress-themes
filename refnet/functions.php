@@ -81,6 +81,11 @@ function extract_text_by_language_markup($text) {
 	}
 }
 
+function fix_wp_title($text) {
+	$title = extract_text_by_language_markup($text);
+	return $title . " | ";
+}
+
 function fix_permalink($ID){
 
 	$short_codes = array ('pt_br', 'en_us', 'es_es');
@@ -172,7 +177,7 @@ function fix_taxonomy_slug($slug){
 add_filter('widget_text','extract_text_by_language_markup');
 add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
-add_filter('wp_title','extract_text_by_language_markup');
+add_filter('wp_title','fix_wp_title');
 add_action('save_post','fix_permalink');
 add_filter('wp_list_categories','append_language_category_link');
 
