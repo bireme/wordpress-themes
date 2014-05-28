@@ -508,6 +508,7 @@ a {
 }
 
 @media (max-width: 525px) {
+	.top h1 {width:220px !important;background-size:200px 30px !important;}
 	.top, .footerArea {width: 93%;}
 	.middle, .bar .barInner, .sliderInner{width:100%;}
 	.bar .barInner{font-size: 80%;}
