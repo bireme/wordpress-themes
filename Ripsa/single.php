@@ -17,7 +17,7 @@
 			</div>
 		</section>
 		<div class="padding15-25">
-			<div class="single-content">
+			<div class="single-content print-only">
 				<span class="single-tit-cat">
 					<?php
 					global $post;
