@@ -19,18 +19,37 @@ Use it to make something cool, have fun, and share what you've learned with othe
 -------------------------------------------------------------- */
 @import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
 
+
+/*
+ *
+ * Create here your custom styles
+ *
+ */
+
+
+
+
+
 .top_en-us #parent {width: 82px; height: 86px;background: url(images/en/logo-en.png);}
 .top_es-es #parent {width: 82px; height: 86px;background: url(images/es/logo-es.png);}
 .top_es-es #parent img, .top_en-us #parent img {display:none;}
+.site_name {margin: 12px;}
+.toppt-br .site_name a,
+.topen-us .site_name a,
+.topes-es .site_name a {display: block;width:290px;height:65px;}
+.site_name a span {display: none;}
 #parent{margin-top:40px;}
 .site_name{background: url(images/pt/title-pt.png);float: left;margin: 60px 0 0 5px;width: 240px;height: 45px;}
 .header {background:url(images/topbar-bg.png) repeat-x;border-bottom: 1px solid #8BB0C0;height: 136px;}
+.header .headerWidget {color: #FFF;font-size: 80%;width: 115px;float: right;margin: 10px 0 0 0;line-height: 135%;}
 .bar{margin-top:3px;}
 .archive-title,
 .page-title,
 .widget-title,
 .entry-content th,
 .comment-content th {font-size: 1.6rem !important;font-weight: normal !important;text-transform: none !important;color: #28367D !important;}
+.column_3 .widget a.rsswidget img {float: right;}
+}
 .column .widget-title {background: none !important;padding-left: 0px;border-bottom: none !important;}
 .widget_metaslider_widget div {padding:0 !important;}
 .widget_metaslider_widget .caption {padding:6px 12px !important;}
@@ -67,15 +86,23 @@ header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !import
 .footer_sidebar .widget-title {color: #fff !important;font-size:140% !important;}
 /* FOOTER */
 .footer{background:#d3d3d3;padding:10px;color:#0397d6;}
-.footer aside{margin-top:12px;}
+.footer .widget widget_text p {line-height: 100%;}
+.footer div{margin-top:12px;}
 /* MEDIA QUERIES */
 @media screen and (min-width: 730px) and (max-width: 1015px) {
 	.vhl-search-input{width:48%;}
-
 }
 @media screen and (max-width: 729px) {
+	.toppt-br .site_name a,
+	.topen-us .site_name a,
+	.topes-es .site_name a {
+		background: none;
+		width:auto;
+	}
+	.bar{width: 100% !important;}
+	#parent{margin-top:20px;}
 	.header .headerWidget {margin-top:40px !important;}
-	.site_name {background: none !important;}
+	.site_name {width: auto;background: none !important;}
 	.site_name a span {
 		display: block;
 		color: #28367D !important;
