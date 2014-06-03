@@ -1,14 +1,13 @@
 /*
 Theme Name: Portal-lis
-Description: O tema padrão para o sub-site da Biblioteca da Rede Panamazônica
-Author: flutuante, hacklab
-Author URI: http://flutuante.com.br/
+Description: Tema padrão para o portal LIS
+Author: BIREME/OPAS/OMS
+Author URI: https://github.com/bireme
 Template: bvs-2012
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl.html
-Version: 0.1
+Version: 1.0
 */
-
 
 /*
 This theme, like WordPress, is licensed under the GPL.
@@ -18,18 +17,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /* =Imports styles from the parent theme
 -------------------------------------------------------------- */
 @import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
-
-
 /*
  *
  * Create here your custom styles
  *
  */
-
-
-
-
-
 .top_en-us #parent {width: 82px; height: 86px;background: url(images/en/logo-en.png);}
 .top_es-es #parent {width: 82px; height: 86px;background: url(images/es/logo-es.png);}
 .top_es-es #parent img, .top_en-us #parent img {display:none;}
@@ -82,8 +74,12 @@ header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !import
 .widget_ultimate_posts li div{padding:0px !important;}
 /* FOOTER AUX SIDEBAR */
 .footer_sidebar{background: #2e3e4f;padding:10px;}
-.footer_sidebar aside {display:inline-block;vertical-align:top;margin:0 40px 0 0;}
+.footer_sidebar .widget_text{display: inline-block;vertical-align:top;margin:0 40px 0 0;}
 .footer_sidebar .widget-title {color: #fff !important;font-size:140% !important;}
+.footer_sidebar ul.lis-net{list-style:none;padding:0;}
+.footer_sidebar ul.lis-net li a{color:#d6d6d6;text-decoration:none;font-size:85%;}
+.footer_sidebar ul.lis-net li a:hover{color:#09f;}
+
 /* FOOTER */
 .footer{background:#d3d3d3;padding:10px;color:#0397d6;}
 .footer .widget widget_text p {line-height: 100%;}
