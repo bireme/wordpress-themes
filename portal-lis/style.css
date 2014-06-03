@@ -83,6 +83,9 @@ header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !import
 .footer{background:#d3d3d3;padding:10px;color:#0397d6;}
 .footer .widget widget_text p {line-height: 100%;}
 .footer div{margin-top:12px;}
+.footer .logo-footer{display: inline-block;}
+.footer .institutional-info{display: inline-block;vertical-align: top;margin: 18px 0 0 6px;}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 730px) and (max-width: 1015px) {
 	.vhl-search-input{width:48%;}
