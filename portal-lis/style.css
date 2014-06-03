@@ -27,7 +27,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .top_en-us .site_name a,
 .top_es-es .site_name a {display: block;width:290px;height:65px;}
 .site_name a span {display: none;}
-#parent{margin-top:40px;}
+#parent{margin-top:37px;}
 .site_name{background: url(images/pt/title-pt.png);float: left;margin: 60px 0 0 5px;width: 240px;height: 45px;}
 .top_en-us .site_name{background: url(images/en/title-en.png)}
 .top_es-es .site_name{background: url(images/es/title-es.png)}
