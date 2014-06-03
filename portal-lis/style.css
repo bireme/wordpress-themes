@@ -34,6 +34,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .header {background:url(images/topbar-bg.png) repeat-x;border-bottom: 1px solid #8BB0C0;height: 136px;}
 .header .headerWidget {color: #FFF;font-size: 80%;width: 115px;float: right;margin: 10px 0 0 0;line-height: 135%;}
 .bar{margin-top:3px;}
+.bar a:hover{color:#00aaff !important;}
 .archive-title,
 .page-title,
 .widget-title,
