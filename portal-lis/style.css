@@ -74,7 +74,7 @@ header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !import
 .widget_ultimate_posts li div{padding:0px !important;}
 /* FOOTER AUX SIDEBAR */
 .footer_sidebar{background: #2e3e4f;padding:10px;}
-.footer_sidebar .widget_text{display: inline-block;vertical-align:top;margin:0 40px 0 0;}
+.footer_sidebar .widget_text{display: inline-block;vertical-align:top;margin:0 40px 0 0;width:25%;}
 .footer_sidebar .widget-title {color: #fff !important;font-size:140% !important;}
 .footer_sidebar ul.lis-net{list-style:none;padding:0;}
 .footer_sidebar ul.lis-net li a{color:#d6d6d6;text-decoration:none;font-size:85%;}
@@ -105,4 +105,5 @@ header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !import
 	}
 	.column {width: 97% !important;}
 	.lis-service {float:none !important;width:97% !important;padding:0px !important;margin:0px !important;}
+	.footer_sidebar .widget_text{width:97%;}
 }
