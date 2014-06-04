@@ -133,6 +133,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	.2_columns .column_2 {width: 21% !important;}
 }
  @media (max-width: 867px) {
-	.column_1 {float:none; width:100% !important;margin:0;} 
+	.column_1 {width:74% !important;margin:0;}
 }
  
