@@ -64,7 +64,7 @@ body.custom-font-enabled {
 	*/
 }
 .bar{
-	width: 100%;
+	width: 100% !important;
 	float: none;
 	font-size: 90%;
 }
@@ -80,7 +80,7 @@ body.custom-font-enabled {
     	padding: 0 12px;
 }
 #parent {
-	margin-left: 0px;
+	margin: 12px 0 0 0px;
 }
 .site_name {
 	margin:26px 0 0 12px;
@@ -161,6 +161,14 @@ body.custom-font-enabled {
 .site-content #content .search_strategy:hover {
 	background: #f3f3f3;
 }
+.site-content #content article {line-height: 150%;}
+.site-content #content .entry-header {
+	font-size: 150%;
+	text-decoration: none;
+	margin-bottom: 0px;
+}
+.site-content #content .entry-header a {text-decoration: none;}
+.site-content #content .entry-header a:hover {color: #006cfe;}
 .column_1 .widget_ultimate_posts li .post-title a, 
 .site-content #content .search_strategy .entry-header a {
 	color: #000;
@@ -171,6 +179,7 @@ body.custom-font-enabled {
 	text-decoration: none;
 	color: #006cfe;
 }
+.search_strategy .categories a{font-size: 90%;}
 .site-content #content .search_strategy p.post-description_of_the_search {
 	font-size: 100%;
 }
@@ -421,3 +430,23 @@ section.site-content #content .search_strategy{
 	color: #f2f2f2;
 	border-color: #505050 !important;
 }
+/***** Category list - page template  *****/
+.page-template-list-categories-php h4 {
+	font-size: 160% !important;
+	color: #00c7d3 !important;
+	margin: 20px 0px;
+}
+.page-template-list-categories-php ul {
+	margin: 0 0 0 12px;
+}
+.page-template-list-categories-php li {
+	font-size: 130%;
+	margin-bottom: 18px;
+}
+.page-template-list-categories-php li li {
+	font-size: 80%;
+}
+.page-template-list-categories-php li a {
+	text-decoration: none;
+}
+
