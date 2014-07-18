@@ -24,7 +24,7 @@ $site_lang = substr($current_language, 0,2);
 </head>
 
 <body>
-	<?php include "barragov.php"; ?>
+	<?php //include "barragov.php"; ?>
     <div class="container">
 
         <div class="bar">
