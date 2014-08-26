@@ -255,7 +255,7 @@ Author: BIREME (DGI)
         
         .footer {
             background: #ed7e8e !important;
-            border-left: 180px solid #e8546c;
+            /*border-left: 180px solid #e8546c;*/
             display: block;
             padding: 12px;
             font-size: 90%;
