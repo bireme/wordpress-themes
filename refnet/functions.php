@@ -92,8 +92,8 @@ function fix_wp_title($text) {
 function fix_permalink($ID){
 
 	$short_codes = array ('pt_br', 'en_us', 'es_es');
-	$post = get_post($ID);
-	$original_slug = $post->post_name;
+	list($permalink, $post_name) = get_sample_permalink($ID, null, null);
+	$original_slug = $post_name;
 
 	if ( ! wp_is_post_revision( $post_id ) ){
 		remove_action('save_post', 'fix_permalink');
