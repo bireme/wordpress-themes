@@ -40,7 +40,7 @@
 							<?php if ( count($site_list) > 1 ) : ?>
 								<div class="pull-right">
 									<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
-									<select name="filter_chain[]">
+									<select id="select_edition" name="filter_chain[]">
 										<option value=""><?php echo _e('Todas edições', 'Ripsa'); ?></option>
 										<?php 
 											foreach ($edition_list as $edition){
