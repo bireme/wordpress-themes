@@ -19,16 +19,34 @@
 			$o = $_GET["myorder"];
 		}
 	}
+	if ($ob == "category") {
+		switch ($site_lang) {
+                	case 'pt_BR':
+                                $mk = 'category_pt ';
+                                break;
+                        case 'es_ES':
+                                $mk = 'category_es ';
+                                break;
+                        case 'en_US':
+                                $mk = 'category_en ';
+                                break;
+                }
+		$ob = "meta_value";
+		if (!isset($_GET["myorder"])){
+			$o = "ASC";
+		}
+
+	}
 	if ($ob == "title") {
 		switch ($site_lang) {
 			case 'pt_BR':
-				$mk = 'title_pt';
+				$mk .= 'title_pt';
 				break;
 			case 'es_ES':
-				$mk = 'title_es';
+				$mk .= 'title_es';
 				break;
 			case 'en_US':
-				$mk = 'title_en';
+				$mk .= 'title_en';
 				break;
 		}
 		$ob = 'meta_value';
