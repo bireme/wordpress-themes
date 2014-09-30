@@ -3,8 +3,7 @@
  Template Name: List of Strategies
  */
 	load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
-	get_header(); 
-	echo create_bread_crumb(get_the_title());
+	get_header('list-strategies'); 
 	if (!isset($_GET["myorderby"]) && !isset($_GET["myorder"])) {
 		$ob = "title";
 		$o = "ASC";
@@ -55,7 +54,7 @@
 
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
-			<h4><?php the_title(); ?></h4>
+			<h1><?php the_title(); ?></h1>
 			<?php
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				$args = array (
@@ -70,12 +69,20 @@
 				}
 				$loop = new WP_Query($args);
 			?>
+			<br/>
+			<br/>
 			<table>
 				<tr>
 					<th width="25%"><?php echo _e('Categories', 'refnet'); ?></th>
 					<th width="60%"><?php echo _e('Subjects of search', 'refnet'); ?></th>
 					<th width="15%"><?php echo _e('Access'); ?></th>
 				</tr>
+				<tr>
+					<td><br/></td>
+					<td><br/></td>
+					<td><br/></td>
+				</tr>
+					
 			<?php
 				while ($loop->have_posts()) {
 					$loop->the_post();
