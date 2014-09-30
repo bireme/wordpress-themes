@@ -180,6 +180,10 @@ function update_translated_categories($ID) {
 			update_post_meta($ID, 'category_pt', $category['pt']);
 			update_post_meta($ID, 'category_es', $category['es']);
 			update_post_meta($ID, 'category_en', $category['en']);
+		} else {
+			update_post_meta($ID, 'category_pt', '');
+			update_post_meta($ID, 'category_es', '');
+			update_post_meta($ID, 'category_en', '');
 		}
 
 		add_action('save_post','update_translated_title_fields');
