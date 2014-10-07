@@ -92,6 +92,7 @@ img{border:0;}
 .single-tit-cat{width:100%; float:left; border-bottom:1px solid rgb(200,222,245); margin-bottom:10px; font-weight:bold;}
 .single-sidebar{width:180px; float:right;}
 .single-h1{width:100%; float:left; font-size:24px; color:rgb(37,115,188);}
+.single-content .subtitle {font-size: 18px; color:rgb(37,115,188); margin-bottom:8px;}
 .single-topicos{width:100%; float:left; margin-bottom:5px;}
 .single-h2{padding:4px 10px; font-size:13px; background:rgb(232,242,242); color:rgb(37,115,188); font-weight:700;}
 .single-h2:hover{cursor:pointer; background:rgb(219,238,238); color:rgb(49,49,49);}

@@ -36,6 +36,14 @@
 					?>
 				</span>
 				<h1 class="single-h1 marginbottom15"><?php $key="prefixo"; echo get_post_meta($post->ID,$key,true);?> - <?php the_title();?> - <?php $key="edicao"; echo get_post_meta($post->ID,$key,true);?></h1>
+				<?php $subtitle = get_post_meta($post->ID, 'subtitulo', true);?>
+				<?php
+            				if (!empty($subtitle)) {
+            				echo '<div class="subtitle">';
+					echo get_post_meta($post->ID, 'subtitulo', true);
+					echo '</div>';
+					}	
+				?>
 				<?php
 					$alerta = $ez_TeX->parseTex(get_field('alertas'));
 				?>

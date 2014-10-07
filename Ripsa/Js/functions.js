@@ -1,6 +1,12 @@
 $(document).ready(function(){
 	OpenTopics();
 	Print();
+
+        // get your select element and listen for a change event on it
+        $('#select_edition').change(function() {
+            // set the window's location property to the value of the option the user has selected
+            window.location =  $bloginfo_url + '/' +  $(this).find(":selected").text() + '/';
+        });
 });
 
 function OpenTopics(){

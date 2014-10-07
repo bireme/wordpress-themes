@@ -45,6 +45,9 @@
 	<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
 
 	<?php wp_head(); ?>
+        <script language="javascript">
+		$bloginfo_url = '<?php echo get_site_url(1) ?>';
+	</script>
 </head>
 <body>
 	<div id="box">
