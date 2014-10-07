@@ -84,15 +84,15 @@
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
 	            			<a href="http://bvsalud.org/<?php echo substr($site_lang, 0, 2);?>" title="<?php _e('VHL Search Portal','refnet');?>">
-						<img src="<?php echo get_stylesheet_directory_uri() . "/images/" . __('en/logo-bvs-en.png','refnet');?>" alt="<?php _e('VHL LOGO','refnet');?>"/>
+						<img src="http://bvsalud.org/wp-content/themes/vhl-search-portal/images/<?php echo substr($site_lang,0,2); ?>/logo_bvs.jpg" alt="<?php _e('VHL LOGO','refnet');?>"/>
 	       				</a>
 	            		</div>
 	            		<?php if ($title == true) {	?>
 		   		<div class="site_name">
 					<h1>
-                                                <a title="<?php  _e('VHL Search Portal', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('VHL Search Portal', 'refnet'); ?></span></a>
+                                                <a title="<?php  _e('VHL Search Portal', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('VHL Search Portal', 'refnet'); ?>
                                                 <br/>
-                                                <small><?php _e('Information and Knowledge for Health','refnet') ?></small>
+                                                <small><?php _e('Information and Knowledge for Health','refnet') ?></small></span></a>
                                         </h1>
 				</div>
 				<?php } ?>

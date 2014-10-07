@@ -84,7 +84,7 @@
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
 	            			<a href="<?php echo $linkLogo . '?l=' . $site_lang;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
-						<img src="<?php echo get_stylesheet_directory_uri() . "/images/" . __('en/logo-bvs-en.png','refnet');?>" alt="<?php _e('VHL LOGO','refnet');?>"/>
+						<img src="<?php echo $logo;?>" alt="<?php echo __('VHL Logo','vhl');?>"/>
 	       				</a>
 	            		</div>
 	            		<?php if ($title == true) {	?>
