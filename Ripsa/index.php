@@ -35,7 +35,7 @@
 
 						<div class="row-fluid">
 							<div class="pull-left">
-								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
+								<input type="text" class="search-input" id="txtSearch" name="q">
 								<button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
 							</div>
 							<?php if ( count($site_list) > 1 ) : ?>
