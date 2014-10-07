@@ -28,6 +28,7 @@
 				<div class="padding15-25">
 					<form action="http://pesquisa.bvsalud.org/ripsa/">
 						<input type="hidden" name="where" value="FICHAS" />
+						<input type="hidden" name="lang" value="<?php echo substr($site_lang, 0,2); ?>" />
 						<div class="row-fluid">
 							<label for="txtSearch"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
 						</div>
