@@ -1,6 +1,6 @@
 <?php 
 	require_once("header.php");
-	$ez_TeX = new ezLaTeX();
+	// $ez_TeX = new ezLaTeX();
 	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
 	<div id="content">

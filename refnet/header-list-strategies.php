@@ -83,26 +83,23 @@
 			</div>
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
-	            			<a href="<?php echo $linkLogo . '?l=' . $site_lang;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
-						<img src="<?php echo $logo;?>" alt="<?php echo __('VHL Logo','vhl');?>"/>
+	            			<a href="http://bvsalud.org/<?php echo substr($site_lang, 0, 2);?>" title="<?php _e('VHL Search Portal','refnet');?>">
+						<img src="http://bvsalud.org/wp-content/themes/vhl-search-portal/images/<?php echo substr($site_lang,0,2); ?>/logo_bvs.jpg" alt="<?php _e('VHL LOGO','refnet');?>"/>
 	       				</a>
 	            		</div>
 	            		<?php if ($title == true) {	?>
 		   		<div class="site_name">
 					<h1>
-						<a title="<?php  _e('Repository of search strategies on the VHL', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('Repository of search strategies on the VHL', 'refnet'); ?></span></a>
-						<br/>
-						<small><?php _e('Topic-specific queries','refnet') ?></small>
-					</h1>
-		        	</div>
+                                                <a title="<?php  _e('VHL Search Portal', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('VHL Search Portal', 'refnet'); ?>
+                                                <br/>
+                                                <small><?php _e('Information and Knowledge for Health','refnet') ?></small></span></a>
+                                        </h1>
+				</div>
 				<?php } ?>
 				<div class="headerWidget">
-					<?php dynamic_sidebar( 'header' ); ?>
+					<?php dynamic_sidebar( $top ); ?>
 				</div>
 	        	</div>
 			<div class="spacer"></div>
-		</div>
-		<div class="top-menu">
-			<?php wp_nav_menu( array('menu' => 'menu-'. $site_lang)); ?>
 		</div>
 		<div class="spacer"></div>

@@ -18,7 +18,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('../bvs-2012/style.css');
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,300italic,500italic,700,700italic&subset=latin,latin-ext);
 
-body {background-repeat: repeat-x !important;}
+body {background: url(http://bvsalud.org/wp-content/themes/vhl-search-portal/images/top_bg.jpg) repeat-x !important;}
 /***** SPRITE  *****/
 .about,
 .subject,
@@ -54,7 +54,7 @@ body {background-repeat: repeat-x !important;}
 .url_iahx a {background-position: 0px -111px;}
 .rss_feed a {background-position: -37px -111px;}
 body.custom-font-enabled {
-    font-family: "Roboto", "Open Sans", Helvetica, Arial, sans-serif;
+    	font-family: "Roboto", "Open Sans", Helvetica, Arial, sans-serif;
 }
 .container {
 	/*
@@ -64,9 +64,10 @@ body.custom-font-enabled {
 	*/
 }
 .bar{
-	width: 100% !important;
+	padding: 5px 0px 4px 0px;
+	width: 974px !important;
 	float: none;
-	font-size: 90%;
+	font-size: 100%;
 }
 .bar div {
 	float: none;
@@ -83,8 +84,9 @@ body.custom-font-enabled {
 	margin: 12px 0 0 0px;
 }
 .site_name {
-	margin:26px 0 0 12px;
+	margin:18px 0 0 12px;
 	width:700px;
+	font-size: 130%;
 }
 .site_name h1 {
 	font-weight: 300;
@@ -96,12 +98,20 @@ body.custom-font-enabled {
 	color: #0849ab;
 }
 .site_name small {
-	font-size:80%
+	font-size:100%;
 }
 #otherVersions {
 	margin-left: 20px;
 	padding: 2px 0;
 	float: right;
+}
+#otherVersions li {
+	display: inline-block;
+	padding: 0px 0px 0px 5px;
+	border-left: 1px solid #fff;
+}
+#otherVersions li:first-child {
+	border: none;
 }
 #languages_list li a, .feedback a { 
 	color: #fff !important;
@@ -113,6 +123,7 @@ body.custom-font-enabled {
 .feedback {
 	float: left;
 	padding: 2px 0;
+	margin-left:14px;
 }
 #contact {
 	background: url(images/mail.png) no-repeat left;
@@ -163,7 +174,6 @@ body.custom-font-enabled {
 }
 .site-content #content article {line-height: 150%;}
 .site-content #content .entry-header {
-	font-size: 150%;
 	text-decoration: none;
 	margin-bottom: 0px;
 }
@@ -431,6 +441,9 @@ section.site-content #content .search_strategy{
 	border-color: #505050 !important;
 }
 /***** Category list - page template  *****/
+.page-template-list-strategies-php .site_name a small {font-size:60%; font-weight: 300;color:#444;}
+.page-template-list-strategies-php .site_name span{display: none;}
+.page-template-list-strategies-php .site_name a {display:inline-block;background: url(http://bvsalud.org/wp-content/themes/vhl-search-portal/images/pt/title.png) no-repeat;width: 228px;height: 35px;}
 .page-template-list-categories-php h4 {
 	font-size: 160% !important;
 	color: #00c7d3 !important;
@@ -449,4 +462,9 @@ section.site-content #content .search_strategy{
 .page-template-list-categories-php li a {
 	text-decoration: none;
 }
-
+.page-template-list-strategies-php h1 {font-size: 160%; }
+.page-template-list-strategies-php table {font-size: 110%;}
+.page-template-list-strategies-php table tr:nth-child(even) {background: rgb(248,248,248);}
+.page-template-list-strategies-php table tr:hover {background:rgb(230,230,230);}
+.page-template-list-strategies-php #content table th {font-weight: bold;padding: 6px;border-bottom: 2px solid #ebebeb;font-size: 120%;}
+.page-template-list-strategies-php #content table td {padding: 6px;border-bottom: 1px solid #ebebeb;}

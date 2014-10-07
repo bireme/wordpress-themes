@@ -60,15 +60,22 @@ function append_l_menu_link($sorted_menu_items) {
 
 add_filter('wp_nav_menu_objects', 'append_l_menu_link');
 
-function extract_text_by_language_markup($text) {
+function extract_text_by_language_markup($text, $shortcode="") {
 //If the title or the text has language markup like [pt_BR][/pt_BR], this function recognizes the tag and returns the corresponding text. 
 	global $site_lang;
-	$pattern_start = '/\[' . $site_lang  . ']/';
-	$pattern_end = '/\[\/' . $site_lang . ']/';
+
+	if ( $shortcode == '' ){
+		$language = $site_lang;
+	} else {
+		$language = $shortcode;
+	}
+
+	$pattern_start = '/\[' . $language  . ']/';
+	$pattern_end = '/\[\/' . $language . ']/';
 
 	if (preg_match($pattern_start, $text) && preg_match($pattern_end, $text)) {
-		$extracted_text = explode("[/" . $site_lang . "]", $text);
-		$extracted_text = explode("[" . $site_lang . "]", $extracted_text[0]);
+		$extracted_text = explode("[/" . $language . "]", $text);
+		$extracted_text = explode("[" . $language . "]", $extracted_text[0]);
 		return $extracted_text[1];
 	} else {
 		$extracted_text = preg_split('/\[\/(pt_BR|en_US|es_ES)]/', $text);
@@ -120,6 +127,69 @@ function fix_permalink($ID){
 		wp_update_post($update_slug);
 		add_action('save_post','fix_permalink');
 	}
+}
+
+function update_translated_title_fields($ID){
+
+	if ( !wp_is_post_revision( $post_id ) ){
+	 	remove_action('save_post', 'update_translated_title_fields');
+		remove_filter('the_title','extract_text_by_language_markup');
+	
+		$title_with_shortcodes = get_the_title($ID);
+		$titles['pt'] = extract_text_by_language_markup($title_with_shortcodes, "pt_BR");
+		$titles['es'] = extract_text_by_language_markup($title_with_shortcodes, "es_ES");
+		$titles['en'] = extract_text_by_language_markup($title_with_shortcodes, "en_US");
+/*
+		$no_empty_titles = array_filter($titles);
+		$empty_titles = array_diff($titles, $no_empty_titles);
+
+		if ($empty_titles) {
+			foreach ($empty_titles as $et) {
+				$titles[key($et)] = $no_empty_titles[0];
+			}
+		}		
+*/		
+		update_post_meta($ID, 'title_pt', $titles['pt']);
+		update_post_meta($ID, 'title_es', $titles['es']);
+		update_post_meta($ID, 'title_en', $titles['en']);
+		
+                add_action('save_post','update_translated_title_fields');
+		add_filter('the_title','extract_text_by_language_markup');
+	}
+	
+}
+
+function update_translated_categories($ID) {
+	
+	if (!wp_is_post_revision($post_id)){
+		remove_action('save_post', 'update_translated_title_fields');
+		remove_filter('the_category','extract_text_by_language_markup');
+		
+		$categories = get_the_category($ID);
+		if ($categories){
+			foreach ($categories as $cat) {
+				$category['pt'] .= extract_text_by_language_markup($cat->name, "pt_BR");
+				$category['es'] .= extract_text_by_language_markup($cat->name, "es_ES");
+				$category['en'] .= extract_text_by_language_markup($cat->name, "en_US");
+				if (end($categories) != $cat) {
+					$category['pt'] .= ", ";	                                	
+					$category['es'] .= ", ";	                                	
+					$category['en'] .= ", ";	                                	
+                                }
+			}
+			update_post_meta($ID, 'category_pt', $category['pt']);
+			update_post_meta($ID, 'category_es', $category['es']);
+			update_post_meta($ID, 'category_en', $category['en']);
+		} else {
+			update_post_meta($ID, 'category_pt', '');
+			update_post_meta($ID, 'category_es', '');
+			update_post_meta($ID, 'category_en', '');
+		}
+
+		add_action('save_post','update_translated_title_fields');
+		add_filter('the_category','extract_text_by_language_markup');
+	}
+
 }
 
 function append_language_category_link ($categories){
@@ -182,7 +252,10 @@ add_filter('widget_title','extract_text_by_language_markup');
 add_filter('the_title','extract_text_by_language_markup');
 add_filter('wp_title','fix_wp_title');
 add_action('save_post','fix_permalink');
+add_action('save_post','update_translated_title_fields');
+add_action('save_post','update_translated_categories');
 add_filter('wp_list_categories','append_language_category_link');
+add_filter('the_category','extract_text_by_language_markup');
 
 if (preg_match('/admin-ajax.php/', $_SERVER['PHP_SELF']) == false){
 	add_filter('get_terms','translate_categories_edit_post');
@@ -429,7 +502,7 @@ function bir_translate_custom_field_values($custom_field_value, $other=FALSE) {
 	return extract_text_by_language_markup($custom_field_value_translated);
 }
 
-function bir_show_search_rss_buttons($id, $custom_field_name) {
+function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 
 	global $site_lang;
 	
@@ -442,13 +515,102 @@ function bir_show_search_rss_buttons($id, $custom_field_name) {
 	$iahx_label_param = "&filterLabel=" . get_the_title($id);
 
 	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) {
-		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
-		$html_button  = '<div class="vertical-tabs">';
-		$html_button .= '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
-		$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
-		$html_button .= '</div>';
+		if (!$button_type) {	
+			$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
+			$html_button  = '<div class="vertical-tabs">';
+			$html_button .= '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
+			$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
+			$html_button .= '</div>';
+		} elseif ($button_type == "link"){
+			$html_button .= "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank">' . __('VHL', 'refnet')  . '</a>, ';
+                        $html_button .= "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank">' . __('RSS', 'refnet') . '</a>';
+		} 
 	}
 
 	return $html_button;
 }
+
+function custom_slug_box() {
+    global $post;
+    global $pagenow;
+    if (is_admin() && $pagenow=='post-new.php' OR $pagenow=='post.php') {
+        echo "<script type='text/javascript'>
+	            $ = jQuery;
+	            $(document).ready(function() {
+	            	var selection;
+	                $('#edit-slug-box').append('<a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a>');
+	                $('.wrap-lang').hover(function(){
+					    selection = getSelectedText();				    
+					});
+	                $('.wrap-lang').click(function(){
+				    	if(selection && $('#title').val().indexOf(selection) != -1){
+				    		value = $('#title').val();
+					    	if($(this).hasClass('pt_BR')){
+					            $('#title').val(value.replace(selection, '[pt_BR]'+selection+'[/pt_BR]'));
+					        }
+					        if($(this).hasClass('es_ES')){
+					            $('#title').val(value.replace(selection, '[es_ES]'+selection+'[/es_ES]'));
+					        }
+					        if($(this).hasClass('en_EN')){
+					            $('#title').val(value.replace(selection, '[en_EN]'+selection+'[/en_EN]'));
+					        }
+				        }
+				    });
+					function getSelectedText(){
+					    if(window.getSelection){
+					        return window.getSelection().toString();
+					    }
+					    else if(document.getSelection){
+					        return document.getSelection();
+					    }
+					    else if(document.selection){
+					        return document.selection.createRange().text;
+					    }
+					}
+	            });
+            </script>
+        ";
+    }
+}
+//add_action( 'admin_head', 'custom_slug_box'  );
+
+if (is_admin())
+{
+	//add_action( 'sidebar_admin_setup', 'custom_widget_expand_control');
+}
+
+function custom_widget_expand_control()
+{
+	global $wp_registered_widgets, $wp_registered_widget_controls;
+
+	foreach ( $wp_registered_widgets as $id => $widget )
+	{
+		$wp_registered_widget_controls[$id]['callback_redirect']=$wp_registered_widget_controls[$id]['callback'];
+		$wp_registered_widget_controls[$id]['callback']='custom_widget_extra_control';
+		array_push($wp_registered_widget_controls[$id]['params'],$id);	
+	}
+
+}
+
+function custom_widget_extra_control()
+{
+	global $wp_registered_widget_controls, $wl_options;
+
+	$params=func_get_args();
+	$id=array_pop($params);
+
+	$callback=$wp_registered_widget_controls[$id]['callback_redirect'];
+	if (is_callable($callback))
+		call_user_func_array($callback, $params);		
+	
+	$id_disp=$id;
+	if (!empty($params) && isset($params[0]['number']))
+	{	$number=$params[0]['number'];
+		if ($number==-1) {$number="__i__";}
+		$id_disp=$wp_registered_widget_controls[$id]['id_base'].'-'.$number;
+	}
+
+	echo "<p><label for='".$id_disp."-widget_logic'>". __('Widget logic:','widget-logic'). " <textarea class='widefat' type='text' name='".$id_disp."-widget_logic' id='".$id_disp."-widget_logic' ></textarea></label></p>";
+}
+
 ?>
