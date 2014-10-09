@@ -4,6 +4,7 @@
  */
 	load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
 	get_header('list-strategies'); 
+
 	if (!isset($_GET["myorderby"]) && !isset($_GET["myorder"])) {
 		$ob = "title";
 		$o = "ASC";
@@ -30,7 +31,7 @@
                                 $mk = 'category_en ';
                                 break;
                 }
-		$ob = "meta_value";
+		$obm = "meta_value";
 		if (!isset($_GET["myorder"])){
 			$o = "ASC";
 		}
@@ -48,7 +49,7 @@
 				$mk .= 'title_en';
 				break;
 		}
-		$ob = 'meta_value';
+		$obm = 'meta_value';
 	}
 ?>
 
@@ -66,6 +67,7 @@
 					);
 				if ($mk) {
 					$args['meta_key'] = $mk;
+					$args['orderby'] = $obm;
 				}
 				$loop = new WP_Query($args);
 			?>
@@ -73,24 +75,61 @@
 			<br/>
 			<table>
 				<tr>
-					<th width="25%"><?php echo _e('Categories', 'refnet'); ?></th>
-					<th width="60%"><?php echo _e('Subjects of search', 'refnet'); ?></th>
-					<th width="15%"><?php echo _e('Access'); ?></th>
+					<th width="25%">
+						<?php
+							if ($ob == 'category' && $o == 'ASC') {
+								$url = "?l=" . $site_lang . "&myorderby=category&myorder=DESC"; 
+								$class = "orderBy ASC";
+							} elseif ($ob == 'category' && $o == 'DESC') {
+								$url = "?l=" . $site_lang . "&myorderby=category&myorder=ASC";
+                                                                $class = "orderBy DESC";
+							} elseif ($ob != 'category'){
+								$url = "?l=" . $site_lang . "&myorderby=category&myorder=ASC";
+								$class = "orderBy ASC";
+							}
+						?>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'category') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Categories', 'refnet'); ?></a>
+					</th>
+					<th width="55%">
+						<?php
+                                                        if ($ob == 'title' && $o == 'ASC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=title&myorder=DESC";
+                                                                $class = "orderBy ASC";
+                                                        } elseif ($ob == 'title' && $o == 'DESC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=title&myorder=ASC";
+                                                                $class = "orderBy DESC";
+                                                        } elseif ($ob != 'title'){
+                                                                $url = "?l=" . $site_lang . "&myorderby=title&myorder=ASC";
+                                                                $class = "orderBy ASC";
+                                                        }
+                                                ?>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'title') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Subjects of search', 'refnet'); ?></a>
+					</th>
+					<th width="10%">
+						<?php
+                                                        if ($ob == 'date' && $o == 'ASC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=DESC";
+                                                                $class = "orderBy ASC";
+                                                        } elseif ($ob == 'date' && $o == 'DESC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=ASC";
+                                                                $class = "orderBy DESC";
+                                                        } elseif ($ob != 'date'){
+                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=ASC";
+                                                                $class = "orderBy ASC";
+                                                        }
+                                                ?>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'date') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Date', 'refnet'); ?></a>
+					</th>
+					<th width="10%"><?php echo _e('Access'); ?></th>
 				</tr>
-				<tr>
-					<td><br/></td>
-					<td><br/></td>
-					<td><br/></td>
-				</tr>
-					
 			<?php
 				while ($loop->have_posts()) {
 					$loop->the_post();
 					$categories = get_the_category();
 			?>
 				<tr>
+					<td>
 			<?php
-					echo "<td>";
 					if ($categories) {
 						foreach ($categories as $category) {
 							echo extract_text_by_language_markup($category->name);
@@ -99,11 +138,12 @@
 							}
 						}
 					}
-					echo "</td>";
 			?>
+					</td>
 					<td><a href="<?php the_permalink(); ?>"> <?php the_title();?></a></td>
+					<td><?php the_time('d-m-Y');?></td>
+					<td>
 			<?php
-					echo "<td>";
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
                                                 echo bir_show_search_rss_buttons(get_the_ID(), "lilacs_iahx_search_expression", "link");
                                         }
@@ -113,9 +153,9 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("cochrane_iahx_search_expression"))) {
                                                 echo " | " . bir_show_search_rss_buttons(get_the_ID(), "cochrane_iahx_search_expression", "link");
                                         }
-					echo "</td>";
 				}
 			?>
+					</td>
 				</tr>
 			</table>
 		</div><!-- #content -->
