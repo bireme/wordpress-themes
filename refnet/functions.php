@@ -515,8 +515,8 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 	$iahx_label_param = "&filterLabel=" . get_the_title($id);
 
 	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) {
+		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
 		if (!$button_type) {	
-			$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
 			$html_button  = '<div class="vertical-tabs">';
 			$html_button .= '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
 			$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
