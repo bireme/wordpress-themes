@@ -37,7 +37,7 @@ $site_lang = substr($current_language, 0,2);
                 <span><a href="/contato">Contato</a></span>
             </div>
         </div>
-        <div class="top">
+        <div class="top top_<?php echo ($current_language); ?>">
             <div id="parent">
                 <img src="<?php bloginfo('template_url') ?>/images/<?php echo $site_lang ?>/logobvs.gif" alt="Biblioteca Virtual em Saúde"/>
             </div>
