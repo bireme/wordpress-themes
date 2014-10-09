@@ -166,7 +166,8 @@ body.custom-font-enabled {
 }
 .column_1 .widget_ultimate_posts li {
 	border-bottom: 1px solid #aaa;
-	padding:  6px 8px;
+	padding: 16px 18px;
+	width: 95%;
 }
 .column_1 .widget_ultimate_posts li:hover, 
 .site-content #content .search_strategy:hover {
@@ -212,6 +213,10 @@ body.custom-font-enabled {
 	border: 1px solid #ababab;
 	border-radius: 0px 4px 4px 0px;
 }
+/* Archive
+----------------------------------------------- */
+.archive .entry-header a {font-size: 150%;}
+
 /* Search Result 
 ----------------------------------------------- */
 section#primary .single1column {
@@ -467,4 +472,7 @@ section.site-content #content .search_strategy{
 .page-template-list-strategies-php table tr:nth-child(even) {background: rgb(248,248,248);}
 .page-template-list-strategies-php table tr:hover {background:rgb(230,230,230);}
 .page-template-list-strategies-php #content table th {font-weight: bold;padding: 6px;border-bottom: 2px solid #ebebeb;font-size: 120%;}
+.page-template-list-strategies-php #content table th i.orderBy {display:inline-block;width:14px;height:16px;background:url(images/orderBy.png);}
+.page-template-list-strategies-php #content table th i.orderBy.ASC {background-position:0px 0px;}
+.page-template-list-strategies-php #content table th i.orderBy.DESC {background-position:-14px 0px;}
 .page-template-list-strategies-php #content table td {padding: 6px;border-bottom: 1px solid #ebebeb;}
