@@ -1,0 +1,96 @@
+/*
+Theme Name: Boletim ITEC- Saude
+Description: Tema para o Boletim ITEC Saude 
+Author: BIREME/OPS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 0.1
+Tags: three-columns, right-sidebar
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../bvs-2012/style.css');
+
+
+/* ITEC-Saude custom styles
+-------------------------------------------------------------- */
+.spacer {margin:0 !important;padding:0 !important;}
+.container{width:1200px;background-image: none !important;}
+.container .header {border-bottom:1px solid #ccc;height:108px;}
+.top_sidebar{background:#fff !important;}
+.widget_search {position:absolute;margin-left:800px;z-index:1000;width:400px;text-align:right;}
+.widget_search label {display:inline-block;}
+.shailan-dropdown-menu-widget {margin:6px 0 2px 0;padding:0 0 4px 0;border-bottom:1px solid #ccc;}
+.shailan-dropdown-menu .dropdown-horizontal-container {background:transparent !important;}
+#menu-main-menu li a {text-transform:uppercase;}
+#menu-main-menu li li a {text-transform:capitalize;}
+.widget_sow-features{border-bottom: 1px solid #252525;}
+.so-widget-sow-features {width:75%; margin:30px auto 0 auto;padding-bottom:30px;}
+.so-widget-sow-features h5 {font-size: 200%;margin: 10px 0px !important;color: #000;}
+.column_1 .widget, .column_2 .widget {background: none !important;}
+.column_1{background:#f7f7f7;margin:0;padding-right: 20px;min-height: 375px;}
+.column_1 .sow-carousel-title strong.widget-title {font-family: "Open Sans Condensed"; border-bottom:0px;font-size:220% !important;color:#333 !important;}
+.column_1 .sow-carousel-item h3 {text-align:left !important;border-bottom:0px;margin: 0 0 0 6px !important;}
+.column_2{background:#ebebeb;margin:0;-webkit-box-:shadow: -8px 0 20px -4px #BDBDBD;box-shadow: -8px 0 20px -4px #BDBDBD;min-height: 375px;}
+.column_2 .widget_ultimate_posts {margin-bottom:0 !important;padding-bottom:0 !important;border-bottom: 1px solid #ccc;}
+.column_2 .widget_ultimate_posts .widget-title {font-family: "Open Sans Condensed";border-bottom: 0px;font-size: 220% !important;color: #333 !important; margin: 24px 0 0 12px;}
+.column_2 .upw-before {margin-bottom: 0px;font-size: 120%;font-weight:bold;}
+.column_2 .upw-posts h4 {font-size: 140%;}
+.column_2 .upw-posts .entry-image {float: left;padding: 0px;}
+.column_2 .upw-posts .r-block {float:left;width: 70%;padding: 0 0 0 10px;}
+.column_2 .upw-posts .r-block div {padding:0;margin:0;}
+.column_2 .upw-posts .r-block .entry-summary p {line-height:140%;margin-top:5px;}
+.column_2 .upw-posts article {margin-bottom:0 !important;padding-bottom:0 !important;}
+.column_2 .frm_form_widget strong.widget-title {font-family: "Open Sans Condensed"; border-bottom:0px;font-size:220% !important;color:#333 !important;}
+.column_2 .frm_forms div {padding:0;}
+.column_2 .frm_form_fields {float: left;}
+.column_2 .frm_forms input.auto_width{padding:4px;}
+.footer {background:#4c4c4c;border-top:1px solid #252525;padding: 20px;line-height:1;font-size:100%;}
+.footer #text-2 {color:#fff;font-size: 140%;}
+.footer #text-3 {margin-top: 30px;line-height: 165%;width:20%;float:left;margin-right:24px;border-right:1px solid #b2b2b2;}
+.footer .widget_nav_menu {margin-top:30px;}
+.footer .widget_nav_menu .widget-title {color:#fff !important; font-size:130% !important; font-weight:bold; font-family: "Open Sans", Helvetica, Arial, sans-serif;border-bottom:0px !important;}
+.footer .widget_nav_menu a, .footer_sidebar .widget_nav_menu li.current_page_item a{color:#dfdfdf;text-decoration: none;}
+.footer .menu-item {font-weight:bold;margin:0 20px 6px 0;display:inline-table;width:150px;}
+.footer .sub-menu .menu-item {font-weight:normal;margin-bottom:2px;display:block;font-size: 90%;}
+.footer .sub-menu .menu-item a {display: inline-block;width: 90%;vertical-align: top;}
+.footer .sub-menu .menu-item:before {content:'- ';color:#fff;}
+
+/* SINGLE
+-------------------------------------------------------------- */
+.site-content article .entry-header .entry-title, .site-content article .entry-summary {margin:0;font-size: 250%;}
+.single .entry-header div {margin-top: 12px;}
+.single .entry-header a {text-decoration: none; color:#21759b !important;}
+.single .entry-header a:hover {text-decoration: underline;}
+.single2column {width:30%; margin-left:30px;}
+.entry-content {font-size: 110%;}
+.single2column aside {padding-bottom: 24px;margin-bottom: 24px;border-bottom: 1px solid #ccc;}
+.single2column .widget-title {color:#000 !important; font-size:180% !important; font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;border-bottom:0px !important;line-height: 120%;}
+.single2column .widget ul {font-size:120%;list-style-type:disc;padding-left:20px;}
+.single2column .widget li a {text-decoration: none;color:#000 !important;}
+.single2column .widget .upw-posts {margin-top: 25px;}
+.single2column .widget .upw-posts .entry-title {font-size:120%;}
+.single2column .widget .upw-posts article {margin-bottom: 10px !important;padding-bottom: 10px !important;border-bottom:0px;}
+.single2column .widget .upw-posts .entry-categories a {text-decoration: none;color:#21759b !important;}
+.single2column .widget .upw-posts .entry-categories a:visited {color:#21759b !important;}
+.single2column .widget .upw-posts .entry-categories a:hover {text-decoration: underline;}
+.single2column .widget .upw-posts .entry-cats-label {display: inline-block;}
+.single2column .widget .upw-posts .entry-title {font-family: "Open Sans", Helvetica, Arial, sans-serif;margin-bottom:3px;color:#000;}
+.single2column .widget .upw-posts .entry-meta {margin-bottom:0;}
+
+/* ARCHIVE | CATEGORY | SEARCH
+-------------------------------------------------------------- */
+.archive #content, .search #content{width:65% !important;float:left;}
+.archive #content hr, .search #content hr {background-color:transparent;}
+.archive .archive-title, .search .page-title{font-size: 18px !important;}
+.archive-header, .page-header{margin-bottom: 20px;padding-left: 10px;padding-bottom: 10px;}
+.archive .entry-header, .search .entry-header {display: table;}
+.archive .entry-title, .search .entry-title {margin-left:10px;}
+.archive .entry-header p, .search .entry-header p {margin:10px;}
+.archive img.wp-post-image, .search img.wp-post-image {margin: 0 0 0 20px;float: left;}
+.archive #content .entry-header p, .search #content .entry-header p {line-height:1.4;}
+.archive .single2column, .search .single2column {margin-top:20px;}
+.archive .single2column h4, .search .single2column h4 {margin-left:0;}

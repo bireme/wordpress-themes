@@ -254,14 +254,13 @@ Author: BIREME (DGI)
         }
         
         .footer {
-            background: #ed7e8e !important;
-            /*border-left: 180px solid #e8546c;*/
+            background: #ed7e8e;
+            border-left: 180px solid #e8546c;
             display: block;
             padding: 12px;
             font-size: 90%;
             line-height: 130%;
             color: #FFF;
-            clear: both;
         }
         
         
@@ -468,3 +467,7 @@ ul.children li:first-child {
             display:block;
             border: 0 !important;
         }
+
+.top_pt-BR { background: url("images/pt/banner.jpg") no-repeat scroll right top #e8526b; }
+.top_en-US { background: url("images/en/banner.jpg") no-repeat scroll right top #e8526b; }
+.top_es-ES { background: url("images/es/banner.jpg") no-repeat scroll right top #e8526b; }
