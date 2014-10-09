@@ -88,7 +88,7 @@
 								$class = "orderBy ASC";
 							}
 						?>
-						<a href="<?php echo $url; ?>"><i class="<?php echo $class ?>"></i><?php echo _e('Categories', 'refnet'); ?></a>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'category') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Categories', 'refnet'); ?></a>
 					</th>
 					<th width="55%">
 						<?php
@@ -103,7 +103,7 @@
                                                                 $class = "orderBy ASC";
                                                         }
                                                 ?>
-						<a href="<?php echo $url; ?>"><i class="<?php echo $class ?>"></i><?php echo _e('Subjects of search', 'refnet'); ?></a>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'title') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Subjects of search', 'refnet'); ?></a>
 					</th>
 					<th width="10%">
 						<?php
@@ -118,7 +118,7 @@
                                                                 $class = "orderBy ASC";
                                                         }
                                                 ?>
-						<a href="<?php echo $url; ?>"><i class="<?php echo $class ?>"></i><?php echo _e('Date', 'refnet'); ?></a>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'date') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Date', 'refnet'); ?></a>
 					</th>
 					<th width="10%"><?php echo _e('Access'); ?></th>
 				</tr>
