@@ -21,7 +21,7 @@ Tags: three-columns, right-sidebar
 .container{width:1200px;background-image: none !important;}
 .container .header {border-bottom:1px solid #ccc;height:108px;}
 .top_sidebar{background:#fff !important;}
-.widget_search {position:absolute;margin-left:850px;z-index:1000;width:350px;text-align:right;}
+.widget_search {position:absolute;margin-left:800px;z-index:1000;width:400px;text-align:right;}
 .widget_search label {display:inline-block;}
 .shailan-dropdown-menu-widget {margin:6px 0 2px 0;padding:0 0 4px 0;border-bottom:1px solid #ccc;}
 .shailan-dropdown-menu .dropdown-horizontal-container {background:transparent !important;}
