@@ -84,7 +84,7 @@
 	        	<div class="top top_<?php echo ($current_language);?>">
 	            		<div id="parent">
 	            			<a href="<?php echo $linkLogo . '?l=' . $site_lang;?>" title="<?php _e('VHL Search Strategies','refnet');?>">
-						<img src="<?php echo $logo;?>" alt="<?php echo __('VHL Logo','vhl');?>"/>
+						<img src="http://bvsalud.org/wp-content/themes/vhl-search-portal/images/<?php echo substr($site_lang,0,2); ?>/logo_bvs.jpg" alt="<?php echo __('VHL Logo','vhl');?>"/>
 	       				</a>
 	            		</div>
 	            		<?php if ($title == true) {	?>
