@@ -103,7 +103,7 @@
                                                                 $class = "orderBy ASC";
                                                         }
                                                 ?>
-						<a href="<?php echo $url; ?>"><?php if ($ob == 'title') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Subjects of search', 'refnet'); ?></a>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'title') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Subjects', 'refnet'); ?></a>
 					</th>
 					<th width="10%">
 						<?php
@@ -118,9 +118,8 @@
                                                                 $class = "orderBy ASC";
                                                         }
                                                 ?>
-						<a href="<?php echo $url; ?>"><?php if ($ob == 'date') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Date', 'refnet'); ?></a>
 					</th>
-					<th width="10%"><?php echo _e('Access'); ?></th>
+					<th width="10%"></th>
 				</tr>
 			<?php
 				while ($loop->have_posts()) {
@@ -141,7 +140,7 @@
 			?>
 					</td>
 					<td><a href="<?php the_permalink(); ?>"> <?php the_title();?></a></td>
-					<td><?php the_time('d-m-Y');?></td>
+					<td></td>
 					<td>
 			<?php
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {

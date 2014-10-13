@@ -240,6 +240,14 @@ msgstr "Em revisão"
 msgid "Reviewed"
 msgstr "Revisado"
 
+#: ../functions.php:525
+msgid "VHL"
+msgstr "BVS"
+
+#: ../functions.php:526
+msgid "RSS"
+msgstr "RSS"
+
 #: ../header.php:73 ../header.ph:75
 msgid "Leave a comment / Report an error"
 msgstr "Enviar comentário / Comunicar erro"
@@ -362,3 +370,11 @@ msgstr "Resultados da categoria: "
 #: ../functions.php:171
 msgid "Category Result"
 msgstr "Resultado de Categoria"
+
+#: ../list-strategies.php:106
+msgid "Subjects"
+msgstr "Temas"
+
+#: ../list-strategies.php:91
+msgid "Categories"
+msgstr "Categorias"
