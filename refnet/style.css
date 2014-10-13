@@ -476,3 +476,9 @@ section.site-content #content .search_strategy{
 .page-template-list-strategies-php #content table th i.orderBy.ASC {background-position:0px 0px;}
 .page-template-list-strategies-php #content table th i.orderBy.DESC {background-position:-14px 0px;}
 .page-template-list-strategies-php #content table td {padding: 6px;border-bottom: 1px solid #ebebeb;}
+.page-template-list-strategies-php #content table td .link2vhl,
+.page-template-list-strategies-php #content table td .link2rss {display: inline-block;background: url(images/sprite.png) no-repeat;width:16px;height:16px;background-size: 780%;}
+.page-template-list-strategies-php #content table td .link2vhl {background-position:0px -47px;}
+.page-template-list-strategies-php #content table td .link2rss {background-position:-15px -47px;}
+.page-template-list-strategies-php #content table td .link2vhl span,
+.page-template-list-strategies-php #content table td .link2rss span{display:none;}

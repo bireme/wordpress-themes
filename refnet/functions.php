@@ -522,8 +522,8 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 			$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
 			$html_button .= '</div>';
 		} elseif ($button_type == "link"){
-			$html_button .= "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank">' . __('VHL', 'refnet')  . '</a>, ';
-                        $html_button .= "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank">' . __('RSS', 'refnet') . '</a>';
+			$html_button .= "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
+                        $html_button .= "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
 		} 
 	}
 
