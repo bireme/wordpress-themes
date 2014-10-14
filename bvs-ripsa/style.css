@@ -1,0 +1,49 @@
+/*
+Theme Name: Portal RIPSA
+Description: Tema Portal Nacional da RIPSA 
+Author: BIREME/OPS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 0.1
+Tags: three-columns, right-sidebar
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../bvs-2012/style.css');
+
+
+/* Portal Nacional da RIPSA custom styles
+-------------------------------------------------------------- */
+
+/* FONT  */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
+
+/* SPRITE  */
+.header h1 a {background:url(sprite.png) no-repeat;}
+
+.container{-webkit-box-shadow: 0 0 6px 4px rgba(125,125,125,0.4);box-shadow: 0 0 6px 4px rgba(125,125,125,0.4);}
+.bar {background: #069;width:992px !important;}
+.bar .menu-pt-container {display: none;}
+.header{height:132px;}
+.headerWidget{margin-top:70px;}
+.site_name{margin:11px 0 0 30px;}
+.site_name h1 a {width: 125px;height: 90px;background-position:-120px -5px;display:block;}
+.site_name h1 a span{display:none;}
+#parent{margin-bottom:0px;}
+.vhl-search{background:#e5eff5;text-align:center;height:65px;padding:15px 0 15px 0;border-top:3px solid #66cc99;border-bottom: 1px dashed #9ec5d8;}
+.vhl-search-input{margin:0;width:40%;}
+.footer_sidebar .widget-title{margin-left:20px;}
+.footer_sidebar .widget_nav_menu{clear:both;padding:20px 0px;background:#f2f2f2;border-top:1px dashed #9ec5d8;border-bottom:1px dashed #9ec5d8;}
+.footer_sidebar .blogroll {width:80%; margin: 0 auto;}
+.blogroll li {float: left;margin: 12px 6px;}
+.menu-mapa-do-site-container .menu{display: flex;font-size:90%;margin:5px 5px 5px 20px !important;}
+#menu-mapa-do-site li{margin: 0 6px;}
+#menu-mapa-do-site li a {text-decoration:none;font-weight:bold;color:#575757;}
+#menu-mapa-do-site li a:hover{text-decoration: underline;}
+#menu-mapa-do-site li li a {font-weight: normal;}
+
+body.full-width .site-content{width: 98%;}
+.single1column {width: 100% !important;}
