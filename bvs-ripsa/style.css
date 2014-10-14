@@ -12,7 +12,7 @@ Tags: three-columns, right-sidebar
 
 /* =Imports styles from the parent theme
 -------------------------------------------------------------- */
-@import url('../bvs-2012/style.css');
+@import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
 
 
 /* Portal Nacional da RIPSA custom styles
