@@ -47,3 +47,6 @@ Tags: three-columns, right-sidebar
 
 body.full-width .site-content{width: 98%;}
 .single1column {width: 100% !important;}
+
+.category-temas-ripsa .list-items header {display: inline-flex;width: 48%;border-bottom: 1px solid #ccc;height: 60px;padding-bottom: 12px;}
+.category-temas-ripsa .list-items hr {display:none;}

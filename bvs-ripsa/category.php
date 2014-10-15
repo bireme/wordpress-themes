@@ -24,7 +24,7 @@ get_header(); ?>
 				<div class="archive-meta"><?php echo category_description(); ?></div>
 			<?php endif; ?>
 			</header><!-- .archive-header -->
-
+			<div class="list-items">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -43,12 +43,13 @@ get_header(); ?>
 				        </div>
 				</header>
 				<hr />
+			
 			<?php
 			endwhile;
 
 			twentytwelve_content_nav( 'nav-below' );
 			?>
-
+			</div>
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
