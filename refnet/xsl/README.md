@@ -20,7 +20,7 @@ This XSL file produces the following CSV file (using custom field names):
 
 ## How to get the WP XML file?
 First of all, the user should have administration role.
-To export the XML file with all Search Strategies, go to Tools > Export on the main menu. Choose the option 'Search Strategies' and click on Download Export File. The XML file will be download immediately with the name structure refnet.wordpress.YYYY-MM-DD.xml.
+To export the XML file with all Search Strategies records, go to Tools > Export on the main menu. Choose the option 'Search Strategies' and click on 'Download Export File' button. The XML file will be downloaded immediately with the name structure refnet.wordpress.YYYY-MM-DD.xml.
 
 ## How to get the CSV file?
 Open the XML file recently downloaded in a text/xml editor (like Notepad++). In the second line, after the instruction
@@ -33,6 +33,6 @@ Include the following line
 
 And save it.
 
-To work properly, both XML and XSL file should be in the same directory. Otherwise, change the href attribute to include the directory where the XSL file is located.
+To work properly, both XML and XSL files should be in the same directory. Otherwise, change the href attribute to include the directory where the XSL file is located.
 
-Open the XML file in a web browser in order to generate the CSV file. The result displayed is the transformation of XML file using the XSL. Select the content from the web browser page and copy it in a text/xml editor, saving it with .csv extension.
+Open the XML file in a web browser in order to generate the CSV file. The result displayed is the transformation of XML file using the XSL. Select the content from the web browser page and copy it in a text/xml editor. Save it with .csv extension to be opened on MS Excel.
