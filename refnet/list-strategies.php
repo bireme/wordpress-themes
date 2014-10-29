@@ -167,16 +167,12 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
                                                 echo bir_show_search_rss_buttons(get_the_ID(), "lilacs_iahx_search_expression", "link");
                                         }
-					if (bir_has_no_empty_custom_field (get_the_ID(), array("medline_iahx_search_expression"))) {
-                                                echo " | " . bir_show_search_rss_buttons(get_the_ID(), "medline_iahx_search_expression", "link");
-                                        }
-					if (bir_has_no_empty_custom_field (get_the_ID(), array("cochrane_iahx_search_expression"))) {
-                                                echo " | " . bir_show_search_rss_buttons(get_the_ID(), "cochrane_iahx_search_expression", "link");
-                                        }
-				}
 			?>
 					</td>
 				</tr>
+			<?php
+				} 
+			?>
 			</table>
 		</div><!-- #content -->
 		<?php wp_pagenavi( array('query' => $loop )); ?>
