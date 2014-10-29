@@ -576,12 +576,12 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 			      </script>';
 			if (!$button_type) {
                                 $html_button  = '<div class="vertical-tabs">';
-                                $html_button .= '<span class="url_iahx">' . '<a href="javascript:submitForm();" ' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '"></a></span>';
-                                $html_button .= '<span class="rss_feed">' . '<a href="javascript:submitForm(' . "'rss'" . ');"' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
+                                $html_button .= '<span class="url_iahx">' . '<a onclick="javascript:submitForm();" href="#" ' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '"></a></span>';
+                                $html_button .= '<span class="rss_feed">' . '<a onclick="javascript:submitForm(' . "'rss'" . ');" href="#" ' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '"></a></span>';
                                 $html_button .= '</div>';
                         } elseif ($button_type == "link"){
-                                $html_button .= '<a href="javascript:submitForm();"' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
-                                $html_button .= '<a href="javascript:submitForm(' . "'rss'" . ');"' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
+                                $html_button .= '<a onclick="javascript:submitForm();" href="#" ' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
+                                $html_button .= '<a onclick="javascript:submitForm(' . "'rss'" . ');" href="#" ' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
                         }	
 		}
 	}
