@@ -51,6 +51,20 @@
 		}
 		$obm = 'meta_value';
 	}
+	if ($ob == "vhl") {
+		switch ($site_lang) {
+			case 'pt_BR':
+				$mk .= 'vhl_instance_pt';
+				break;
+			case 'es_ES':
+				$mk .= 'vhl_instance_es';
+				break;
+			case 'en_US':
+				$mk .= 'vhl_instance_en';
+				break;
+		}
+		$obm = 'meta_value';
+	}
 ?>
 
 	<div id="primary" class="site-content">
@@ -107,18 +121,18 @@
 					</th>
 					<th width="15%">
 						<?php
-                                                        if ($ob == 'date' && $o == 'ASC') {
-                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=DESC";
+                                                        if ($ob == 'vhl' && $o == 'ASC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=vhl&myorder=DESC";
                                                                 $class = "orderBy ASC";
-                                                        } elseif ($ob == 'date' && $o == 'DESC') {
-                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=ASC";
+                                                        } elseif ($ob == 'vhl' && $o == 'DESC') {
+                                                                $url = "?l=" . $site_lang . "&myorderby=vhl&myorder=ASC";
                                                                 $class = "orderBy DESC";
-                                                        } elseif ($ob != 'date'){
-                                                                $url = "?l=" . $site_lang . "&myorderby=date&myorder=ASC";
+                                                        } elseif ($ob != 'vhl'){
+                                                                $url = "?l=" . $site_lang . "&myorderby=vhl&myorder=ASC";
                                                                 $class = "orderBy ASC";
                                                         }
-							echo _e('VHL Instance', 'refnet');
                                                 ?>
+						<a href="<?php echo $url; ?>"><?php if ($ob == 'vhl') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('VHL Instance', 'refnet'); ?></a>
 					</th>
 					<th width="10%"></th>
 				</tr>
