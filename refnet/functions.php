@@ -136,9 +136,9 @@ function update_translated_title_fields($ID){
 		remove_filter('the_title','extract_text_by_language_markup');
 	
 		$title_with_shortcodes = get_the_title($ID);
-		$titles['pt'] = extract_text_by_language_markup($title_with_shortcodes, "pt_BR");
-		$titles['es'] = extract_text_by_language_markup($title_with_shortcodes, "es_ES");
-		$titles['en'] = extract_text_by_language_markup($title_with_shortcodes, "en_US");
+		$titles['pt'] = trim(extract_text_by_language_markup($title_with_shortcodes, "pt_BR"));
+		$titles['es'] = trim(extract_text_by_language_markup($title_with_shortcodes, "es_ES"));
+		$titles['en'] = trim(extract_text_by_language_markup($title_with_shortcodes, "en_US"));
 /*
 		$no_empty_titles = array_filter($titles);
 		$empty_titles = array_diff($titles, $no_empty_titles);
@@ -168,9 +168,9 @@ function update_translated_categories($ID) {
 		$categories = get_the_category($ID);
 		if ($categories){
 			foreach ($categories as $cat) {
-				$category['pt'] .= extract_text_by_language_markup($cat->name, "pt_BR");
-				$category['es'] .= extract_text_by_language_markup($cat->name, "es_ES");
-				$category['en'] .= extract_text_by_language_markup($cat->name, "en_US");
+				$category['pt'] .= trim(extract_text_by_language_markup($cat->name, "pt_BR"));
+				$category['es'] .= trim(extract_text_by_language_markup($cat->name, "es_ES"));
+				$category['en'] .= trim(extract_text_by_language_markup($cat->name, "en_US"));
 				if (end($categories) != $cat) {
 					$category['pt'] .= ", ";	                                	
 					$category['es'] .= ", ";	                                	
