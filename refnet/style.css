@@ -448,7 +448,8 @@ section.site-content #content .search_strategy{
 /***** Category list - page template  *****/
 .page-template-list-strategies-php .site_name a small {font-size:60%; font-weight: 300;color:#444;}
 .page-template-list-strategies-php .site_name span{display: none;}
-.page-template-list-strategies-php .site_name a {display:inline-block;background: url(http://bvsalud.org/wp-content/themes/vhl-search-portal/images/pt/title.png) no-repeat;width: 228px;height: 35px;}
+/* .page-template-list-strategies-php .site_name a {display:inline-block;background: url(http://bvsalud.org/wp-content/themes/vhl-search-portal/images/pt/title.png) no-repeat;width: 228px;height: 35px;} */
+.page-template-list-strategies-php .site_name a {display:inline-block;width: 228px;height: 35px;}
 .page-template-list-categories-php h4 {
 	font-size: 160% !important;
 	color: #00c7d3 !important;

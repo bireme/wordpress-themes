@@ -342,6 +342,10 @@ msgstr "Estrategia de búsqueda para iAH"
 msgid "iAHx search strategy"
 msgstr "Estrategia de búsqueda para iAHx"
 
+#: ../single-search_strategy.php:65
+msgid "Search strategy"
+msgstr "Estrategia de búsqueda"
+
 #: ../single-search_strategy.php:128
 msgid "Search Strategy II"
 msgstr "Estrategia de Busca II"
@@ -383,3 +387,10 @@ msgstr "Temas"
 msgid "Categories"
 msgstr "Categorías"
 
+#: ../list-strategies.php:135
+msgid "VHL Instance"
+msgstr "Instancia BVS"
+
+#: ../header-list-strategies.php:93
+msgid "VHL Search Portal"
+msgstr "Portal de Búsqueda de la BVS"

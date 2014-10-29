@@ -90,9 +90,7 @@
 	            		<?php if ($title == true) {	?>
 		   		<div class="site_name">
 					<h1>
-                                                <a title="<?php  _e('VHL Search Portal', 'refnet'); ?>" href="<?php global $site_lang; echo $bannerLink . '?l=' . $site_lang;?>"><span><?php  _e('VHL Search Portal', 'refnet'); ?>
-                                                <br/>
-                                                <small><?php _e('Information and Knowledge for Health','refnet') ?></small></span></a>
+                                                <a style="background: url(http://bvsalud.org/wp-content/themes/vhl-search-portal/images/<?php echo substr($site_lang,0,2); ?>/title.png) no-repeat" title="<?php  _e('VHL Search Portal', 'refnet'); ?>" href="http://bvsalud.org/<?php echo substr($site_lang, 0, 2);?>"></a>
                                         </h1>
 				</div>
 				<?php } ?>

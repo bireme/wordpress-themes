@@ -317,8 +317,8 @@ msgid "Filters"
 msgstr "Filtros"
 
 #: ../single-search_strategy.php:65
-msgid "Search strategy I"
-msgstr "Estratégia de Busca I"
+msgid "Search strategy"
+msgstr "Estratégia de busca" 
 
 #: ../single-search_strategy.php:72 ../single-search_strategy.php:90
 #: ../single-search_strategy.php:108
@@ -378,3 +378,11 @@ msgstr "Temas"
 #: ../list-strategies.php:91
 msgid "Categories"
 msgstr "Categorias"
+
+#: ../list-strategies.php:135
+msgid "VHL Instance"
+msgstr "Instância BVS"
+
+#: ../header-list-strategies.php:93
+msgid "VHL Search Portal"
+msgstr "Portal de Pesquisa da BVS"

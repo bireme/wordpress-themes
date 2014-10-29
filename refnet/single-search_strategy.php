@@ -77,7 +77,7 @@
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
 						echo "<i class='databases'></i>";
-						_e('Search strategy I','refnet');
+						_e('Search strategy','refnet');
 						echo "</h5>";
 					}
 				?>
