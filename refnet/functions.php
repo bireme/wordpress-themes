@@ -192,6 +192,27 @@ function update_translated_categories($ID) {
 
 }
 
+function update_translated_vhl_instance($ID) {
+	
+	if (!wp_is_post_revision($post_id)){
+		remove_action('save_post', 'update_translated_title_fields');
+		remove_filter('the_category','extract_text_by_language_markup');
+		
+		$vhl_instance_with_shortcodes = get_post_meta($ID, "vhl_instance", TRUE);
+		$vhl_instance_with_shortcodes = strip_tags($vhl_instance_with_shortcodes);
+		$vhl_instance['pt'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "pt_BR"));
+		$vhl_instance['es'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "es_ES"));
+		$vhl_instance['en'] = trim(extract_text_by_language_markup($vhl_instance_with_shortcodes, "en_US"));
+		
+		update_post_meta($ID, 'vhl_instance_pt', $vhl_instance['pt']);
+		update_post_meta($ID, 'vhl_instance_es', $vhl_instance['es']);
+		update_post_meta($ID, 'vhl_instance_en', $vhl_instance['en']);
+
+		add_action('save_post','update_translated_title_fields');
+		add_filter('the_category','extract_text_by_language_markup');
+	}
+}
+
 function append_language_category_link ($categories){
 	global $site_lang;
 
@@ -254,6 +275,7 @@ add_filter('wp_title','fix_wp_title');
 add_action('save_post','fix_permalink');
 add_action('save_post','update_translated_title_fields');
 add_action('save_post','update_translated_categories');
+add_action('save_post','update_translated_vhl_instance');
 add_filter('wp_list_categories','append_language_category_link');
 add_filter('the_category','extract_text_by_language_markup');
 
