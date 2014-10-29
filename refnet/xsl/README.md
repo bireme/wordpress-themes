@@ -18,6 +18,11 @@ This XSL file produces the following CSV file (using custom field names):
 
 > post_id|title_en|title_es|title_pt|vhl_instance|main_subject_of_the_search|lilacs_iahx_search_expression|lilacs_iah_search_expression
 
+### export-strategies-aot.xsl
+This XSL file produces the following CSV file (using custom field names):
+
+> title_en|title_es|title_pt|medline_iahx_search_expression|cochrane_iahx_search_expression
+
 ## How to get the WP XML file?
 First of all, the user should have administration role.
 To export the XML file with all Search Strategies records, go to Tools > Export on the main menu. Choose the option 'Search Strategies' and click on 'Download Export File' button. The XML file will be downloaded immediately with the name structure refnet.wordpress.YYYY-MM-DD.xml.
