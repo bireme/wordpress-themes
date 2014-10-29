@@ -90,7 +90,7 @@
 						?>
 						<a href="<?php echo $url; ?>"><?php if ($ob == 'category') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Categories', 'refnet'); ?></a>
 					</th>
-					<th width="55%">
+					<th width="50%">
 						<?php
                                                         if ($ob == 'title' && $o == 'ASC') {
                                                                 $url = "?l=" . $site_lang . "&myorderby=title&myorder=DESC";
@@ -105,7 +105,7 @@
                                                 ?>
 						<a href="<?php echo $url; ?>"><?php if ($ob == 'title') {?><i class="<?php echo $class ?>"></i><?php }?><?php echo _e('Subjects', 'refnet'); ?></a>
 					</th>
-					<th width="10%">
+					<th width="15%">
 						<?php
                                                         if ($ob == 'date' && $o == 'ASC') {
                                                                 $url = "?l=" . $site_lang . "&myorderby=date&myorder=DESC";
@@ -117,6 +117,7 @@
                                                                 $url = "?l=" . $site_lang . "&myorderby=date&myorder=ASC";
                                                                 $class = "orderBy ASC";
                                                         }
+							echo _e('VHL Instance', 'refnet');
                                                 ?>
 					</th>
 					<th width="10%"></th>
@@ -140,7 +141,13 @@
 			?>
 					</td>
 					<td><a href="<?php the_permalink(); ?>"> <?php the_title();?></a></td>
-					<td></td>
+					<td>
+			<?php
+					if (bir_has_no_empty_custom_field (get_the_ID(), array("vhl_instance"))) {
+						echo trim(bir_show_custom_field_translated(get_the_ID(), "vhl_instance","","","",TRUE,",",FALSE,FALSE));
+                                        }
+			?>
+					</td>
 					<td>
 			<?php
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
