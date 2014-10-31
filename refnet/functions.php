@@ -29,7 +29,7 @@ function append_query_string() {
 	$query_args = array();
 	
 	$query_args["l"] = $site_lang;
-
+	
 	if ( isset( $_GET['s'] ) ) {
 		$query_args["se"] = $_GET['s'];
 	}
@@ -37,7 +37,11 @@ function append_query_string() {
 	if (is_category()) {
 		global $ct_nm;
 		$query_args["ct"] = $ct_nm;
-	} 
+	}
+
+	if (is_page('lista-de-temas')) {
+		$query_args["source"] = "bir-qsl";
+	}
 
 	return add_query_arg($query_args, get_permalink());
 
@@ -530,6 +534,19 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 	
 	$iahx_service = "http://pesquisa.bvsalud.org/portal/";
 	$iahx_other_params = "&from=0&sort=&format=summary&count=20&page=1";
+	
+	if (is_page('lista-de-temas')) {
+		$iahx_other_params .= "&source=bir-qsl";	
+	}
+
+	if (is_single()) {
+		if ($_GET["source"] == 'bir-qsl') {
+			$iahx_other_params .= "&source=bir-ss-qsl";
+		} else {
+			$iahx_other_params .= "&source=bir-ss";
+		}
+	}
+
 	$iahx_lang_param = "?lang=" . substr($site_lang, 0,2);
 	$iahx_index_param = "&index=tw";
 	$iahx_query_param = "&q=" . trim(bir_show_custom_field_translated(get_the_ID(), $custom_field_name,"","","",TRUE,",",FALSE,FALSE));
@@ -561,6 +578,19 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 					<input type="hidden" name="index" value="tw"/>
 					<input type="hidden" name="filterLabel" value="'. get_the_title($id) . '"/>' .
 					"<input type='hidden' name='q' value='". trim(bir_show_custom_field_translated(get_the_ID(), $custom_field_name,"","","",TRUE,",",FALSE,FALSE)) . "'/>";
+
+			if (is_page('lista-de-temas')) {
+				echo '<input type="hidden" name="source" value="bir-sql"/>';
+        		}
+
+        		if (is_single()) {
+                		if ($_GET["source"] == 'bir-qsl') {
+					echo '<input type="hidden" name="source" value="bir-ss-sql"/>';
+                		} else {
+					echo '<input type="hidden" name="source" value="bir-ss"/>';
+               	 		}
+        		}
+
 			echo '</form>
 			      <script type="text/javascript">
 				function submitForm(output) {
