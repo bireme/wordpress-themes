@@ -166,7 +166,9 @@
 			<?php
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
                                                 echo bir_show_search_rss_buttons(get_the_ID(), "lilacs_iahx_search_expression", "link");
-                                        }
+                                        } elseif (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression")) && bir_has_no_empty_custom_field (get_the_ID(), array("url_to_search_result"))) {
+                                                echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result", "link");
+					}
 			?>
 					</td>
 				</tr>
