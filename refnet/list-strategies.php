@@ -20,6 +20,7 @@
                       					$iahx_other_params = "&source=bir-ss";
               					}
         				}
+					$iahx_other_params .= "&filterLabel=" . get_the_title($_GET["redirect"]);
 					if ($_GET["what"] == 'rss') {
 						$iahx_other_params .= "&output=rss";
 					}

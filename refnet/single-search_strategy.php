@@ -6,6 +6,36 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
+
+//Start when it is necessary to redirect a RSS url from iah searcah strategy
+
+        if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org")) {
+                if (bir_has_no_empty_custom_field ($_GET["redirect"], array("url_to_search_result"))) {
+                        $href = bir_extract_url_iah_search_expression($_GET["redirect"], "url_to_search_result");
+                        if ($href) {
+                                $href = bir_resolve_link_from_url_shortner($href);
+                                if (strlen(urlencode($href)) < 7500){
+                                        if (is_page('lista-de-temas')) {
+                                                $iahx_other_params = "&source=bir-qsl";
+                                        }
+                                        if (is_single()) {
+                                                if ($_GET["source"] == 'bir-qsl') {
+                                                        $iahx_other_params = "&source=bir-ss-qsl";
+                                                } else {
+                                                        $iahx_other_params = "&source=bir-ss";
+                                                }
+                                        }
+                                        if ($_GET["what"] == 'rss') {
+                                                $iahx_other_params .= "&output=rss";
+                                        }
+                                        header('Location: ' . $href . $iahx_other_params);
+                                }
+                        }
+                }
+        }
+
+//End
+
 ?>
 	<?php 
 		load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
@@ -84,11 +114,14 @@
 				<dl class="expr">
 				<?php
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_observations', __('Observation','refnet'), $html4label, $html4custom_field);
-					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iahx_search_expression"))) {
 						echo bir_show_search_rss_buttons(get_the_ID(), "lilacs_iahx_search_expression");
                                         }
 					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
+					if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression"))) {
+						echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result");
+					}
+					echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_I_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
 				?>

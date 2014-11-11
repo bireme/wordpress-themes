@@ -565,18 +565,40 @@ function bir_extract_url_iah_search_expression($id, $custom_field_name) {
 	return str_replace("&amp;", "&", $href);
 }
 
-function bir_search_rss_html ($url_html, $url_rss, $button_type) {
+function bir_search_rss_html ($url_html, $url_rss, $button_type, $js_html="", $js_rss="") {
 
 	$html_button = "";
 
 	if (!$button_type) {
         	$html_button  = '<div class="vertical-tabs">';
-       		$html_button .= '<span class="url_iahx">' . "<a href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
-                $html_button .= '<span class="rss_feed">' . "<a href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
+       		$html_button .= '<span class="url_iahx">';
+		if ($js_html) {
+			$html_button .= '<a onclick="' . $js_html . '" ';
+		} else {
+			$html_button .= '<a target="_blank"';
+		}
+		$html_button .= "href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '"></a></span>';
+                $html_button .= '<span class="rss_feed">';
+		if ($js_rss) {
+			$html_button .= '<a onclick="' . $js_rss . '" ';
+		} else {
+			$html_button .= '<a target="_blank"';
+		}
+		$html_button .= "href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '"></a></span>';
                 $html_button .= '</div>';
         } elseif ($button_type == "link"){
-                $html_button .= "<a href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a> ';
-                $html_button .= "<a href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
+		if ($js_html) {
+                        $html_button .= '<a onclick="' . $js_html . '" ';
+                } else {
+                        $html_button .= '<a target="_blank"';
+                }
+                $html_button .= "href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</a>, ';
+		if ($js_rss) {
+                        $html_button .= '<a onclick="' . $js_rss . '" ';
+                } else {
+                        $html_button .= '<a target="_blank"';
+                }
+                $html_button .= "href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" class="link2rss"><span>' . __('RSS', 'refnet') . '</a>';
         }
 
 	return $html_button;
@@ -627,18 +649,10 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 	$iahx_label_param = "&filterLabel=" . get_the_title($id);
 
 	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) { 
-		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
+		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param . $iahx_label_param;
 		if (strlen(urlencode($iahx_query_param)) < 7500){
 		//strlen check because of 8k limit for GET method
-			if (!$button_type) {	
-				$html_button  = '<div class="vertical-tabs">';
-				$html_button .= '<span class="url_iahx">' . "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
-				$html_button .= '<span class="rss_feed">' . "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
-				$html_button .= '</div>';
-			} elseif ($button_type == "link"){
-				$html_button .= "<a href='" . $iahx_regional_url . $iahx_label_param . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
-                        	$html_button .= "<a href='" . $iahx_regional_url . $iahx_output_param ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
-			} 
+			echo bir_search_rss_html($iahx_regional_url, $iahx_regional_url . $iahx_output_param, $button_type);
 		} else {
 			echo  '<form id="vhl_search" action="' . $iahx_service . '" method="POST" target="_blank">
 					<input type="hidden" name="from" value="0"/>
@@ -676,15 +690,7 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 					document.forms["vhl_search"].submit();
 				}
 			      </script>';
-			if (!$button_type) {
-                                $html_button  = '<div class="vertical-tabs">';
-                                $html_button .= '<span class="url_iahx">' . '<a onclick="javascript:submitForm();" href="#" ' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '"></a></span>';
-                                $html_button .= '<span class="rss_feed">' . '<a onclick="javascript:submitForm(' . "'rss'" . ');" href="#" ' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '"></a></span>';
-                                $html_button .= '</div>';
-                        } elseif ($button_type == "link"){
-                                $html_button .= '<a onclick="javascript:submitForm();" href="#" ' . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
-                                $html_button .= '<a onclick="javascript:submitForm(' . "'rss'" . ');" href="#" ' . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
-                        }	
+			echo bir_search_rss_html ("#", "#", $button_type, "javascript:submitForm();", "javascript:submitForm('rss');");
 		}
 	}
 
