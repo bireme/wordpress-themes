@@ -2,6 +2,34 @@
 /**
  Template Name: List of Strategies
  */
+//Start when it is necessary to redirect a RSS url from iah searcah strategy
+
+	if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org")) {
+		if (bir_has_no_empty_custom_field ($_GET["redirect"], array("url_to_search_result"))) {
+			$href = bir_extract_url_iah_search_expression($_GET["redirect"], "url_to_search_result");
+			if ($href) {
+				$href = bir_resolve_link_from_url_shortner($href);
+                       	        if (strlen(urlencode($href)) < 7500){
+					if (is_page('lista-de-temas')) {
+               					$iahx_other_params = "&source=bir-qsl";
+        				}
+				        if (is_single()) {
+	       					if ($_GET["source"] == 'bir-qsl') {
+                       					$iahx_other_params = "&source=bir-ss-qsl";
+              					} else {
+                      					$iahx_other_params = "&source=bir-ss";
+              					}
+        				}
+					if ($_GET["what"] == 'rss') {
+						$iahx_other_params .= "&output=rss";
+					}
+					header('Location: ' . $href . $iahx_other_params);
+				}
+			}
+		}
+	}
+
+//End
 	load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
 	get_header('list-strategies'); 
 

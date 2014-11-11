@@ -538,9 +538,48 @@ function bir_resolve_link_from_url_shortner($short_url) {
             		break;
         	}	
     	}
-	
-	return $original_url;		
+	if ($original_url) {
+		return $original_url;
+	} else {
+		return $short_url;
+	}
 
+}
+
+function bir_extract_url_iah_search_expression($id, $custom_field_name) {
+	$url_to_search_result = trim(bir_show_custom_field_translated($id, $custom_field_name,"","","",TRUE,",",FALSE,FALSE));
+        $url_to_search_result = str_replace("&", "&amp;", $url_to_search_result);
+
+        $html = @simplexml_load_string("<html>" . $url_to_search_result . "</html>");
+        
+        if ($html) {
+	        $link = @$html->xpath('//a');
+                if ($link) {
+        	        $href = $link[0]->attributes()->href;
+                } else {
+			$href = "";
+                }
+  	} else {
+		$href = "";
+       	}
+	return str_replace("&amp;", "&", $href);
+}
+
+function bir_search_rss_html ($url_html, $url_rss, $button_type) {
+
+	$html_button = "";
+
+	if (!$button_type) {
+        	$html_button  = '<div class="vertical-tabs">';
+       		$html_button .= '<span class="url_iahx">' . "<a href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
+                $html_button .= '<span class="rss_feed">' . "<a href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
+                $html_button .= '</div>';
+        } elseif ($button_type == "link"){
+                $html_button .= "<a href='" . $url_html . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a> ';
+                $html_button .= "<a href='" . $url_rss . "' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
+        }
+
+	return $html_button;
 }
 
 function bir_show_search_rss_buttons_iah($id, $custom_field_name, $button_type="") {
@@ -548,43 +587,18 @@ function bir_show_search_rss_buttons_iah($id, $custom_field_name, $button_type="
 	// refatorar para incluir rss
 
 	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) {
-
-		$url_to_search_result = trim(bir_show_custom_field_translated(get_the_ID(), $custom_field_name,"","","",TRUE,",",FALSE,FALSE));
-
-		$url_to_search_result = str_replace("&", "&amp;", $url_to_search_result);
-
-		$html = @simplexml_load_string("<html>" . $url_to_search_result . "</html>");
-		if ($html) {
-			$link = @$html->xpath('//a');
-			if ($link) {
-				$href = $link[0]->attributes()->href;
-
-				if (strlen(urlencode($href)) < 7500){
-		                //strlen check because of 8k limit for GET method
-		
-                        		if (!$button_type) {
-                                		$html_button  = '<div class="vertical-tabs">';
-                                		$html_button .= '<span class="url_iahx">' . "<a href='" . $href . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank"></a></span>';
-                                		//$html_button .= '<span class="rss_feed">' . "<a href='" . $href ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank"></a></span>';
-                                		//$html_button .= '</div>';
-                        		} elseif ($button_type == "link"){
-                                		$html_button .= "<a href='" . $href . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a> ';
-                                		//$html_button .= "<a href='" . $href . "' " . 'title="' . __('See this search strategy applied on VHL Regional Portal', 'refnet') . '" target="_blank" class="link2vhl"><span>' . __('VHL', 'refnet')  . '</span></a>, ';
-                                		//$html_button .= "<a href='" . $href ."' " . 'title="' . __('Keep up to date with RSS feed', 'refnet') . '" target="_blank" class="link2rss"><span>' . __('RSS', 'refnet') . '</span></a>';
-                       		 	}
-                		} else {
-					echo "n/d";
-				}	
-			} else {
-				echo "n/d";	
-			}
-		} else {
+		$href = bir_extract_url_iah_search_expression($id, $custom_field_name);
+		if (strlen(urlencode($href)) < 7500 and $href){
+	        //strlen check because of 8k limit for GET method
+			$url = "?redirect=" . $id . "&what=";
+			echo bir_search_rss_html($url . "html", $url . "rss", $button_type);
+                } else {
 			echo "n/d";
-		}
+		}	
+	} else {
+			echo "n/d";	
 	}
-
 	return $html_button;
-	
 }
 
 function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
@@ -611,7 +625,6 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 	$iahx_query_param = "&q=" . str_replace("&", "%26", trim(bir_show_custom_field_translated(get_the_ID(), $custom_field_name,"","","",TRUE,",",FALSE,FALSE)));
 	$iahx_output_param = "&output=rss";
 	$iahx_label_param = "&filterLabel=" . get_the_title($id);
-
 
 	if (bir_has_no_empty_custom_field ($id, array($custom_field_name))) { 
 		$iahx_regional_url = $iahx_service . $iahx_lang_param . $iahx_other_params . $iahx_query_param . $iahx_index_param;
@@ -688,21 +701,32 @@ function custom_slug_box() {
 	            	var selection;
 	                $('#edit-slug-box').append('<a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a>');
 	                $('.wrap-lang').hover(function(){
-					    selection = getSelectedText();				    
+					    selection = getSelectedText();
+                        id = $(':focus').attr('id');
 					});
 	                $('.wrap-lang').click(function(){
-				    	if(selection && $('#title').val().indexOf(selection) != -1){
-				    		value = $('#title').val();
-					    	if($(this).hasClass('pt_BR')){
-					            $('#title').val(value.replace(selection, '[pt_BR]'+selection+'[/pt_BR]'));
-					        }
-					        if($(this).hasClass('es_ES')){
-					            $('#title').val(value.replace(selection, '[es_ES]'+selection+'[/es_ES]'));
-					        }
-					        if($(this).hasClass('en_EN')){
-					            $('#title').val(value.replace(selection, '[en_EN]'+selection+'[/en_EN]'));
-					        }
-				        }
+                        /*
+                        if(id == 'tinymce'){
+                            var element = $('#'+id).closest('iframe').attr('id');
+                        }
+                        alert(element);
+                        */
+                        var element = $('#'+id);
+                        var start = element[0].selectionStart;
+                        var end = element[0].selectionEnd;
+
+                        if($(this).hasClass('pt_BR')){
+                            //var replacement = '[pt_BR]' + element.val().substring(start, end) + '[/pt_BR]';
+                            var replacement = '[pt_BR]' + selection + '[/pt_BR]';
+                        }
+                        if($(this).hasClass('es_ES')){
+                            var replacement = '[es_ES]' + selection + '[/es_ES]';
+                        }
+                        if($(this).hasClass('en_EN')){
+                            var replacement = '[en_EN]' + selection + '[/en_EN]';
+                        }
+
+                        element.val(element.val().substring(0, start) + replacement + element.val().substring(end, element.val().length));
 				    });
 					function getSelectedText(){
 					    if(window.getSelection){
@@ -720,7 +744,7 @@ function custom_slug_box() {
         ";
     }
 }
-//add_action( 'admin_head', 'custom_slug_box'  );
+add_action( 'admin_head', 'custom_slug_box'  );
 
 if (is_admin())
 {
