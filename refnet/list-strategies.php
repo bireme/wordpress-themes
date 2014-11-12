@@ -4,7 +4,7 @@
  */
 //Start when it is necessary to redirect a RSS url from iah searcah strategy
 
-	if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org")) {
+	if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org") >= 0) {
 		if (bir_has_no_empty_custom_field ($_GET["redirect"], array("url_to_search_result"))) {
 			$href = bir_extract_url_iah_search_expression($_GET["redirect"], "url_to_search_result");
 			if ($href) {

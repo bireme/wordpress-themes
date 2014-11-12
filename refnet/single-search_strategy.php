@@ -9,7 +9,7 @@
 
 //Start when it is necessary to redirect a RSS url from iah searcah strategy
 
-        if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org")) {
+        if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rss')  && strpos($_SERVER["SERVER_NAME"], "bvsalud.org") >= 0) {
                 if (bir_has_no_empty_custom_field ($_GET["redirect"], array("url_to_search_result"))) {
                         $href = bir_extract_url_iah_search_expression($_GET["redirect"], "url_to_search_result");
                         if ($href) {
@@ -127,6 +127,7 @@
 				?>
 				</dl>
 				<?php 
+					/*
 					$custom_field_keys = array ("medline_iah_search_expression", "medline_iahx_search_expression", "medline_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
@@ -134,9 +135,11 @@
 						_e('Search strategy II','refnet');
 						echo "</h5>";
 					}
+					*/
 				?>
 				<dl class="expr">
 				<?php
+					/*
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_observations', __('Observations','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("medline_iahx_search_expression"))) {
@@ -145,9 +148,11 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_II_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
+					*/
 				?>
 				</dl>
 				<?php 
+					/*
 					$custom_field_keys = array ("cochrane_iah_search_expression", "cochrane_iahx_search_expression", "cochrane_url_to_search_results");
 					if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
 						echo "<h5>";
@@ -155,9 +160,11 @@
 						_e('Search strategy III','refnet');
 						echo "</h5>";
 					}
+					*/
 				?>
 				<dl class="expr">
 				<?php
+					/*
 					echo bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_observations', __('Observations','refnet'), $html4label, $html4custom_field);
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 					if (bir_has_no_empty_custom_field (get_the_ID(), array("cochrane_iahx_search_expression"))) {
@@ -166,6 +173,7 @@
 					echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 					$text2show = bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_databases', __('Databases','refnet'), $html4label, $html4custom_field);
 					echo preg_replace("/other_to_replace/", bir_show_custom_field_translated(get_the_ID(), 'search_strategy_III_other_databases',"","","",TRUE,",",FALSE,TRUE), $text2show);	
+					*/
 				?>
 				</dl>
 				<?php 
