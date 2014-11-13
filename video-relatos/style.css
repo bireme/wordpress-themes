@@ -68,6 +68,7 @@ body {background: url(http://brasil.bvs.br/wp-content/uploads/2013/03/background
 .widget_rss .widget-title a {color: #b60000 !important; text-decoration: none;}
 .widget_rss img {float:right;margin-top:6px;}
 /******* FOOTER *******/
+.footer {background: none !important;}
 .footer .wrap {width: 1080px;margin:0 auto;}
 .footer .wrap .institutionalInfo, .footer .wrap #socialMedia {color: #fff;padding: 22px; width: 44%; float: left;}
 .footer .wrap .institutionalInfo {font-weight: 300;}
@@ -89,7 +90,28 @@ body {background: url(http://brasil.bvs.br/wp-content/uploads/2013/03/background
 .r-block a {text-decoration: none;}
 .r-block a:hover {text-decoration: underline;}
 footer div {margin: 10px 0;}
-/******* ARCHIVES *******/
+/******* SEARCH *******/
+.search .site-content{margin-top:0px !important;background:#fff;}
+.search .single1column{margin:0.37em 2.5em 0.37em 0.37em;}
+.search .single2column{width:27% !important;}
+.search section .page-header{padding: 0 !important; margin:0 !important;border-bottom:0px;}
+.search section .page-header strong{display:block;height: 36px;background: url(../../plugins/bvs-site/bvs-themes/bvs-2012/bireme_archives/custom/arrow.jpg) 0 18px no-repeat;font-weight:bold;padding:0 0 0 18px;margin-bottom:12px !important;border-bottom: 1px solid #006633 !important;color: #b60000 !important;text-transform: uppercase !important;font-size: 170% !important;}
+.search section .archive-header strong a {text-decoration: none;color: #b60000 !important;}
+.search article {clear:both;border-bottom: none !important;font-size: 110%;margin-bottom:0 !important;padding:0 5px .5em 5px !important;}
+.search article header {float: left;margin: 0 12px 0 0;}
+.search article header .entry-image{margin-bottom: 1em !important;}
+.search .news-content {float: left;width: 73%;}
+.search .news-content .entry-title {font-size: 120%; font-weight: bold;margin-bottom: .5em;color:#000;}
+.search .news-content .entry-title a {text-decoration: none;}
+.search .news-content .entry-title a:hover {text-decoration:underline;}
+.search .news-content .custom-field-autor {margin-bottom: 6px; color:#000;}
+.search .news-content .entry-summary {margin:0;font-weight: 300;font-size: 90%;color: #888;}
+.search .news-content .entry-summary p {margin:0;}
+.search .single2column aside {margin-bottom: 30px;}
+.search .single2column .widget strong {border-bottom:1px solid #006633 !important;display:block;height:36px;margin-bottom:6px;}
+.search .single2column .widget li a {color:#333; text-decoration:none;}
+.search .single2column .widget li a:hover {text-decoration: underline;}
+/******* ARCHIVE *******/
 .archive .site-content{margin-top:0px !important;background:#fff;}
 .archive .single1column{margin:0.37em 2.5em 0.37em 0.37em;}
 .archive .single2column{width:27% !important;}
@@ -114,3 +136,4 @@ footer div {margin: 10px 0;}
 @media (max-width: 600px){
 	.has-post-thumbnail .entry-image {width: 30%;}
 }
+

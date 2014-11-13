@@ -52,7 +52,7 @@ get_header(); ?>
 							<?php echo get_the_term_list( $post->ID, 'thematic_area', 'Temas: ', ', ' ); ?>
 						</div>
 						<div class="tags">
-							<?php echo get_the_tag_list('Tags: ',', ',''); ?>
+							<?php echo get_the_term_list($post->ID, 'post_tag', 'Tags: ', ', ',''); ?>
 						</div>
 					</footer>
                                 </article>
