@@ -754,6 +754,7 @@ function custom_slug_box() {
                         }
 	            });
             </script>
+            <style type='text/css'>.langbox { display: inline; }</style>
         ";
     }
 }
