@@ -700,53 +700,61 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 function custom_slug_box() {
     global $post;
     global $pagenow;
-    if (is_admin() && $pagenow=='post-new.php' OR $pagenow=='post.php') {
+    $post_type = $_GET['post_type'];
+
+    if (is_admin() &&  $post_type == 'search_strategy' && $pagenow == 'post-new.php' OR $pagenow == 'post.php') {
         echo "<script type='text/javascript'>
 	            $ = jQuery;
 	            $(document).ready(function() {
-	            	var selection;
-	                $('#edit-slug-box').append('<a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a>');
-	                $('.wrap-lang').hover(function(){
-					    selection = getSelectedText();
+                    var selection;
+                    $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
+                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
+                    $('.wrap-lang').hover(function(){
+                        selection = getSelectedText();
                         id = $(':focus').attr('id');
-					});
+                        editorSelection = tinyMCE.activeEditor.selection.getContent();
+                    });
 	                $('.wrap-lang').click(function(){
-                        /*
-                        if(id == 'tinymce'){
-                            var element = $('#'+id).closest('iframe').attr('id');
-                        }
-                        alert(element);
-                        */
-                        var element = $('#'+id);
-                        var start = element[0].selectionStart;
-                        var end = element[0].selectionEnd;
 
-                        if($(this).hasClass('pt_BR')){
-                            //var replacement = '[pt_BR]' + element.val().substring(start, end) + '[/pt_BR]';
-                            var replacement = '[pt_BR]' + selection + '[/pt_BR]';
-                        }
-                        if($(this).hasClass('es_ES')){
-                            var replacement = '[es_ES]' + selection + '[/es_ES]';
-                        }
-                        if($(this).hasClass('en_EN')){
-                            var replacement = '[en_EN]' + selection + '[/en_EN]';
+                        if (editorSelection) {
+                        	alert('AVISO: Em campos WYSIWYG, os shortcodes para idiomas devem ser inseridos manualmente.');
                         }
 
-                        element.val(element.val().substring(0, start) + replacement + element.val().substring(end, element.val().length));
-				    });
-					function getSelectedText(){
-					    if(window.getSelection){
-					        return window.getSelection().toString();
-					    }
-					    else if(document.getSelection){
-					        return document.getSelection();
-					    }
-					    else if(document.selection){
-					        return document.selection.createRange().text;
-					    }
-					}
+                        if (selection) {
+	                        var element = $('#'+id);
+	                        var start = element[0].selectionStart;
+	                        var end = element[0].selectionEnd;
+
+	                        if($(this).hasClass('pt_BR')){
+	                            var replacement = '[pt_BR]' + selection + '[/pt_BR]';
+	                        }
+	                        if($(this).hasClass('es_ES')){
+	                            var replacement = '[es_ES]' + selection + '[/es_ES]';
+	                        }
+	                        if($(this).hasClass('en_EN')){
+	                            var replacement = '[en_EN]' + selection + '[/en_EN]';
+	                        }
+
+	                        element.val(element.val().substring(0, start) + replacement + element.val().substring(end, element.val().length));
+                        }
+
+                        return false;
+
+                        });
+                        function getSelectedText(){
+                            if(window.getSelection){
+                                return window.getSelection().toString();
+                            }
+                            else if(document.getSelection){
+                                return document.getSelection();
+                            }
+                            else if(document.selection){
+                                return document.selection.createRange().text;
+                            }
+                        }
 	            });
             </script>
+            <style type='text/css'>.langbox { display: inline; }</style>
         ";
     }
 }
