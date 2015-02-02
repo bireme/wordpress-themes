@@ -50,9 +50,9 @@ strong {display:inline;}
 .column .widget-title {font-size: 150% !important;color:#000;font-family:arial;}
 .column_3 .widget, .c3 .widget{border-bottom:3px double #e2e2e2;}
 .frm_form_fields label {font-weight: normal !important; font-size:90%;}
-.column_3 .widget .menu-item, .cat-item{color:#1862a9;font-weight: bold;margin-bottom:12px;}
-.column_3 .widget .menu-item a, .cat-item a {color:#1862a9 !important;font-weight: normal;text-decoration: none;}
-.column_3 .widget .menu-item a:hover, .cat-item a:hover{text-decoration: none !important; color:rgb(216, 100, 34) !important;}
+.column_3 .widget .menu-item, .c3 .widget .menu-item, .cat-item{color:#1862a9;font-weight: bold;margin-bottom:12px;}
+.column_3 .widget .menu-item a, .c3 .widget .menu-item a, .cat-item a {color:#1862a9 !important;font-weight: normal;text-decoration: none;}
+.column_3 .widget .menu-item a:hover, .c3 .widget .menu-item a:hover, .cat-item a:hover{text-decoration: none !important; color:rgb(216, 100, 34) !important;}
 
 body[class*="tax"] .entry-header .entry-title a {
     font-weight: bold;
