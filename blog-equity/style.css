@@ -1,0 +1,224 @@
+/*
+Theme Name: Blog Equidad, Salud & Desarrollo Humano
+Description: Tema para blogs de OPS
+Author: BIREME/OPS/OMS 
+Author URI: https://github.com/juliotak
+Template: bvs-2012
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 0.1
+Tags: three-columns, right-sidebar
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../bvs-2012/style.css');
+strong {display:inline;}
+.header {height: 100px;}
+.headerWidget {margin-top: -80px;}
+.container{width: 1024px;-webkit-box-shadow: 0 0 1px 1px #EBEBEB;box-shadow: 0 0 1px 1px #EBEBEB;}
+.column .widget DIV {padding: 0px;}
+.column_1{margin:10px 10px 10px 20px;}
+.column_2{margin:10px;}
+.column_3{margin:10px 20px 10px 10px;}
+.bar #otherVersions a {text-decoration: none;}
+.bar #otherVersions a img {display: none;}
+.bar .menu-blogmenu-container{display:none;}
+#parent{margin: 0 30% !important;}
+.top_sidebar{background:#008dc9;}
+
+.top_sidebar div[class^='menu-mainmenu'] {float:left;}
+.top_sidebar .menu {padding:0 0 0 20px;margin:0px;}
+.top_sidebar .menu li {display:inline-block;}
+.top_sidebar .menu li a {color: #fff;font-size: 12px; font-weight: bold;text-decoration: none;display:block;padding:12px 6px;}
+.top_sidebar .menu li a:hover{background:#C60;}
+.top_sidebar .widget_text {clear:both;background:#f5f5f5;padding: 2px 0px 2px 256px;}
+.top_sidebar .widget_text .widget-title {color:#da640f;letter-spacing: -0.05rem;font-size: 1.35rem !important;}
+.top_sidebar .widget_search {float:right;padding:4px 20px 0 0;}
+.top_sidebar .widget_search .screen-reader-text {display: none;}
+.top_sidebar #searchsubmit, .frm_submit input {background: #DBEEF9;color: #196AAA;border: 1px solid #196AAA;border-radius:0;}
+.frm_submit {text-align: right;}
+.top_sidebar #s, .frm_form_fields input {border-radius:0;}
+
+.column_1 .menu li {padding:8px 0 8px 16px;border-bottom: 2px solid #e2e2e2;}
+.column_1 .menu li:first-child {border-top:2px solid #e2e2e2;}
+.column_1 .menu a:hover {text-decoration: none; color:rgb(216, 100, 34);}
+.column_1 .menu .current_page_item a {color:rgb(216, 100, 34);}
+
+.c1 .widget-title,
+.c3 .widget-title,
+.column .widget-title {font-size: 150% !important;color:#000;font-family:arial;}
+.column_3 .widget, .c3 .widget{border-bottom:3px double #e2e2e2;}
+.frm_form_fields label {font-weight: normal !important; font-size:90%;}
+.column_3 .widget .menu-item, .cat-item{color:#1862a9;font-weight: bold;margin-bottom:12px;}
+.column_3 .widget .menu-item a, .cat-item a {color:#1862a9 !important;font-weight: normal;text-decoration: none;}
+.column_3 .widget .menu-item a:hover, .cat-item a:hover{text-decoration: none !important; color:rgb(216, 100, 34) !important;}
+
+.tax-regional_focus .entry-header .entry-title a {
+    font-weight: bold;
+    font-size: 70%;
+    line-height:140%;
+    color:#21759b;
+}
+.column_2 .flexslider {margin-bottom:6px !important;}
+.column_2 .upw-posts .entry-image {display:inline-block;vertical-align:top;}
+.column_2 .upw-posts .r-block {display:inline-block;}
+.column_2 .upw-posts header * {margin-bottom:1px;}
+.column_2 .upw-posts .entry-title a{font-size: 120%;line-height:140%;color:#21759b;}
+.column_2 .upw-posts .entry-title a:hover {color:#0f3647;text-decoration: none;}
+.has-post-thumbnail .r-block {width: 70%;margin-left:8px;}
+.entry-cats-list {font-weight: bold;}
+.entry-cats-label, .entry-tags-label{display:inline;font-weight: normal;}
+.column_2 .upw-posts .entry-summary p {margin-bottom:0;}
+.column_2 .upw-posts .fn{font-weight:bold; text-decoration: none;color:#21759b;}
+.column_2 .upw-posts .more-link,
+.column_2 .upw-posts .entry-cats-list a {text-decoration: none;color:#21759b;}
+.column_2 .upw-posts .fn:hover, 
+.column_2 .upw-posts .more-link:hover,
+.column_2 .upw-posts .entry-cats-list a:hover {color:#0f3647;}
+.footer_sidebar .widget_sp_image {margin:0 20px;}
+.footer_sidebar .widget_text {background:#0081b8;clear:both;height:250px}
+.footer_sidebar .soc {display:inline-block;}
+#social-media {float:left;margin: 12px;}
+#footer_logo {margin-bottom: 12px;}
+.footer_sidebar .widget_nav_menu {margin-top:-240px}
+div[class^='menu-footermenu'] {margin:-236px 0 52px 264px; width:70%;}
+div[class^='menu-footermenu'] .menu li {margin-bottom:8px;font-weight: bold;display: inline-block;width: 30%;vertical-align:top;}
+div[class^='menu-footermenu'] .menu li ul {margin-top: 12px;}
+div[class^='menu-footermenu'] .menu li li {font-weight: normal;display:block;width:100%;font-size:90%;}
+div[class^='menu-footermenu'] .menu li a {text-decoration: none;color:#fff;}
+
+/*
+* SECOND LEVEL - SINGLE -  PAGE
+*/
+body.single .site-content{padding:0;margin:0;}
+.site-content .single2column {width: 216px;margin: 10px 10px 10px 20px;}
+.site-content .single2column .menu li {padding:8px 0 8px 16px;border-bottom: 2px solid #e2e2e2;}
+.site-content .single2column .menu li:first-child {border-top:2px solid #e2e2e2;}
+.site-content .single2column .menu a, .site-content .single2column .menu a:visited {text-decoration:none;color:#21759b;}
+.site-content .single2column .menu a:hover {text-decoration: none; color:rgb(216, 100, 34);}
+.site-content .single1column {margin:10px;}
+.site-content article {margin-top:12px;}
+.site-content article .entry-header .entry-title {margin: 0;color:#21759b !important;font-weight: bold;font-size: 130%;line-height: 140%;}
+.site-content .single2column .menu .current_page_item a {color:#21759b;}
+.site-content article .entry-header {margin-bottom: .5em;}
+.site-content article .meta-block {margin-bottom: .5em;color:#888;font-size:85%;}
+.site-content article .meta-block a {color:#21759b;font-weight: bold;text-decoration: none;}
+.site-content article .meta-block a:hover{text-decoration:none;color:#0f3647;}
+.site-content article .entry-content {margin-top:1em;}
+
+/*
+* SECOND LEVEL - ARCHIVE - CATEGORY - TAG - SEARCH
+*/
+.c1, .c3 {float:left;}
+.c3 {margin:10px 20px 10px 10px;}
+.c3 .widget {padding-bottom:10px;}
+.site-content .c1 {width: 216px;margin: 10px 10px 10px 20px;}
+.site-content .c1 .menu li {padding:8px 0 8px 16px;border-bottom: 2px solid #e2e2e2;}
+.site-content .c1 .menu li:first-child {border-top:2px solid #e2e2e2;}
+.site-content .c1 .menu a, .site-content .single2column .menu a:visited {text-decoration:none;color:#21759b}
+.site-content .c1 .menu a:hover {text-decoration: none; color:rgb(216, 100, 34);}
+
+.search .site-content, .archive .site-content, .category .site-content {margin-top:0;}
+.search #content, .archive #content, .category #content {float: left;width:480px;margin:10px;}
+.author .entry-title, .search .entry-title, .tag .entry-title, .category .entry-title, .category .archive-title {margin:0;font-size: 120%;font-weight:bold;line-height: 140%;color: #0d56a1;}
+.entry-header .meta-block {margin:3px 0 5px 0;font-size: 90%;color: #888;line-height:140%;}
+.entry-header .meta-block a {font-weight: bold; text-decoration:none;}
+.author header.archive-header {margin-bottom: 0px;}
+.author .entry-header, .search .page-header, .archive-header {margin:8px 0;padding-bottom:0;border-bottom:none;}
+.search .page-header h1, .archive-header h1 {line-height: 150%;color: #333333 !important;margin-bottom: 5px;font-size: 150% !important;font-family: arial;}
+.search .entry-header p, .archive .entry-header p {margin: 0 0 1.714285714rem;line-height: 1.714285714;}
+.search #content hr, .archive #content hr {margin:0 0 24px 0;}
+.vcard a {text-decoration: none;}
+
+
+/*
+* RESPONSIVITY
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and  
+(min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+	.container{width: 100%;}
+	.header{height: auto;}
+	#parent{float: none;width:90%;margin:0 auto !important;}
+	#parent img{width:100%;}
+	.top_sidebar .widget_text{padding-left:2px;}
+	.top_sidebar .widget_text .widget-title {font-size: 1.2rem !important;}
+	.top_sidebar .menu li{display: block;}
+	.top_sidebar .widget_search{padding:4px;float:none;margin:0 auto;width:80%;}
+	.top_sidebar .widget_search #s {width:65%;}
+	#menu-mainmenu{display: none;}
+	article .entry-image {width: 25%;}
+	.menu-footermenu-container {margin: 0px;}
+	.footer_sidebar .widget_text {height:auto;}
+	.footer_sidebar .widget_nav_menu {background: #0081b8;margin-top:-12px;padding-top:12px;}
+	.single1column {float: none !important;width: 90% !important;}
+	.search #content, .archive #content, .category #content {width: auto !important;}
+	.single2column, .c1 {display: none;}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and 
+(min-device-width: 320px) and 
+(max-device-height: 640px) and 
+(orientation : landscape){
+
+	.container{width: 100%;}
+        .header{height: auto;}
+        #parent{float: none;width:90%;margin:0 auto !important;}
+        #parent img{width:100%;}
+        .top_sidebar .widget_text{padding-left:2px;}
+        .top_sidebar .widget_text .widget-title {font-size: 1.2rem !important;}
+        .top_sidebar .menu li{display: block;}
+        .top_sidebar .widget_search{padding:4px;float:none;margin:0 auto;width:80%;}
+        .top_sidebar .widget_search #s {width:65%;}
+	.column_1 {width: 96% !important;}
+        #menu-mainmenu{display: none;}
+	.menu-footermenu-container {margin: 0px;width: 100%;}
+        .footer_sidebar .widget_text {height:auto;}
+        .footer_sidebar .widget_nav_menu {background: #0081b8;margin-top:-12px;padding-top:12px;}
+        .single1column {float: none !important;width: 90% !important;}
+        .search #content, .archive #content, .category #content {width: auto !important;}
+        .single2column, .c1 {display: none;}
+}
+
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	.column_2 {width: 475px;}
+}
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+*/
+
+
+
