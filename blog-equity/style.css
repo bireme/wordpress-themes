@@ -54,7 +54,7 @@ strong {display:inline;}
 .column_3 .widget .menu-item a, .cat-item a {color:#1862a9 !important;font-weight: normal;text-decoration: none;}
 .column_3 .widget .menu-item a:hover, .cat-item a:hover{text-decoration: none !important; color:rgb(216, 100, 34) !important;}
 
-.tax-regional_focus .entry-header .entry-title a {
+body[class*="tax"] .entry-header .entry-title a {
     font-weight: bold;
     font-size: 70%;
     line-height:140%;
