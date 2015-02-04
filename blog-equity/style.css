@@ -76,7 +76,8 @@ body[class*="tax"] .entry-header .entry-title a {
 .column_2 .upw-posts .fn:hover, 
 .column_2 .upw-posts .more-link:hover,
 .column_2 .upw-posts .entry-cats-list a:hover {color:#0f3647;}
-.post-section {color: #21759b; font-weight:bold; font-size: 130%;}
+.post-section-en {color: #21759b; font-weight:bold; font-size: 130%;}
+.post-section-es {color: #C00000; font-weight:bold; font-size: 130%;}
 .footer_sidebar .widget_sp_image {margin:0 20px;}
 .footer_sidebar .widget_text {background:#0081b8;clear:both;height:250px}
 .footer_sidebar .soc {display:inline-block;}

@@ -24,11 +24,16 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	$style_formats = array(  
 		// Each array child is a format with it's own settings
 		array(  
-			'title' => 'post-section',
-            'block' => 'div',
-            'classes' => 'post-section',
-            'wrapper' => false,
-			
+			'title' => 'post-section-es',
+			'block' => 'span',
+			'classes' => 'post-section-es',
+			'wrapper' => false,
+		),
+		array(  
+			'title' => 'post-section-en',
+			'block' => 'span',
+			'classes' => 'post-section-en',
+			'wrapper' => false,
 		),
 	);  
 	// Insert the array, JSON ENCODED, into 'style_formats'
