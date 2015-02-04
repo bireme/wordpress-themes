@@ -76,7 +76,7 @@ body[class*="tax"] .entry-header .entry-title a {
 .column_2 .upw-posts .fn:hover, 
 .column_2 .upw-posts .more-link:hover,
 .column_2 .upw-posts .entry-cats-list a:hover {color:#0f3647;}
-.post-section {color: #21759b; font-weight:bold; font-size: 115%;}
+.post-section {color: #21759b; font-weight:bold; font-size: 130%;}
 .footer_sidebar .widget_sp_image {margin:0 20px;}
 .footer_sidebar .widget_text {background:#0081b8;clear:both;height:250px}
 .footer_sidebar .soc {display:inline-block;}
@@ -100,7 +100,7 @@ body.single .site-content{padding:0;margin:0;}
 .site-content .single2column .menu a:hover {text-decoration: none; color:rgb(216, 100, 34);}
 .site-content .single1column {margin:10px;}
 .site-content article {margin-top:12px;}
-.site-content article .entry-header .entry-title {margin: 0;color:#21759b !important;font-weight: bold;font-size: 130%;line-height: 140%;}
+.site-content article .entry-header .entry-title {margin: 0;color:#21759b !important;font-weight: bold;font-size: 150%;line-height: 140%;}
 .site-content .single2column .menu .current_page_item a {color:#21759b;}
 .site-content article .entry-header {margin-bottom: .5em;}
 .site-content article .meta-block {margin-bottom: .5em;color:#888;font-size:85%;}

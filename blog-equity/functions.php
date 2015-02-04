@@ -24,10 +24,10 @@ function my_mce_before_init_insert_formats( $init_array ) {
 	$style_formats = array(  
 		// Each array child is a format with it's own settings
 		array(  
-			'title' => 'post-section',  
-			'block' => 'p',  
-			'classes' => 'post-section',
-			'wrapper' => true,
+			'title' => 'post-section',
+            'block' => 'div',
+            'classes' => 'post-section',
+            'wrapper' => false,
 			
 		),
 	);  
