@@ -25,13 +25,13 @@ function my_mce_before_init_insert_formats( $init_array ) {
 		// Each array child is a format with it's own settings
 		array(  
 			'title' => 'post-section-es',
-			'block' => 'span',
+			'inline' => 'span',
 			'classes' => 'post-section-es',
 			'wrapper' => false,
 		),
 		array(  
 			'title' => 'post-section-en',
-			'block' => 'span',
+			'inline' => 'span',
 			'classes' => 'post-section-en',
 			'wrapper' => false,
 		),
