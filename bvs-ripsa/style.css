@@ -84,8 +84,8 @@ img.wp-post-image {width: expression(80 + "%");}
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-	.headerWidget .widget_sp_image img {float: left;width: 70%;}
-	.column_1, .column_2 {width:97% !important;float: none !important;}
+	.headerWidget .widget_sp_image img {float:right; width:70%;}
+	.column_1, .column_2 {width:97% !important; float:none !important;}
     .column_1 .widget_sp_image{float:none !important;margin: 30px auto !important;width: 80% !important;}
 	.vhl-search {height: auto !important;}
 }
@@ -98,7 +98,7 @@ img.wp-post-image {width: expression(80 + "%");}
 /* iPads (landscape) ----------- */
 @media only screen and (max-device-width : 1024px) and (orientation : landscape) {
 	.column_1 .widget_sp_image img {width:100% !important;}
-        .column_1 .widget_sp_image {width: 42% !important;}
+    .column_1 .widget_sp_image {width: 42% !important;}
 	.sow-features-list {margin:0 12px !important;}
 	.bar {padding: 4px 0;width: 100% !important;}
 }
