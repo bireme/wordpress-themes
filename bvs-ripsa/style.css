@@ -22,14 +22,14 @@ Tags: three-columns, right-sidebar
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300);
 
 /* SPRITE  */
-.header h1 a {background:url(sprite.png) no-repeat;}
-
+.header {background: url(/wp-content/uploads/2014/10/banner-2014.jpg) no-repeat 0 12px;}
+.header h1 a {background: url(/wp-content/uploads/2014/10/logo-ripsa-2014.png) no-repeat !important;}
 .container{-webkit-box-shadow: 0 0 6px 4px rgba(125,125,125,0.4);box-shadow: 0 0 6px 4px rgba(125,125,125,0.4);}
 .bar {background: #069;width:992px !important;}
 .bar .menu-pt-container {display: none;}
 .header{height:132px;}
 .headerWidget{margin-top:70px;}
-.site_name{margin:11px 0 0 30px;}
+.site_name{margin:11px 0 0 30px;width:auto;}
 .site_name h1 a {width: 125px;height: 90px;background-position:-120px -5px;display:block;}
 .site_name h1 a span{display:none;}
 #parent{margin-bottom:0px;}
@@ -39,15 +39,89 @@ Tags: three-columns, right-sidebar
 .footer_sidebar .widget_nav_menu{clear:both;padding:20px 0px;background:#f2f2f2;border-top:1px dashed #9ec5d8;border-bottom:1px dashed #9ec5d8;}
 .footer_sidebar .blogroll {width:80%; margin: 0 auto;}
 .blogroll li {float: left;margin: 12px 6px;}
-.menu-mapa-do-site-container .menu{display: flex;font-size:90%;margin:5px 5px 5px 20px !important;}
-#menu-mapa-do-site li{margin: 0 6px;}
-#menu-mapa-do-site li a {text-decoration:none;font-weight:bold;color:#575757;}
-#menu-mapa-do-site li a:hover{text-decoration: underline;}
-#menu-mapa-do-site li li a {font-weight: normal;}
+.responsiveSelectContainer .menu{display: flex;font-size:90%;margin:5px 5px 5px 20px !important;}
+#menu-mapa-do-site-1 li{margin: 0 6px;}
+#menu-mapa-do-site-1 li a {text-decoration:none;font-weight:bold;color:#575757;}
+#menu-mapa-do-site-1 li a:hover{text-decoration: underline;}
+#menu-mapa-do-site-1 li li a {font-weight: normal;}
+
+.column {margin:.5%;}
+.widget_sow-features div {padding: 0 !important;}
+.sow-features-list {margin:0 45px !important;}
 
 body.full-width .site-content{width: 98%;}
 .single1column {width: 100% !important;}
 
-.category-temas-ripsa .list-items header {display: inline-flex;width: 48%;border-bottom: 1px solid #ccc;min-height: 60px;padding-bottom: 12px;}
+.category-temas-ripsa .list-items header {display: inline-flex;width: 48%;border-bottom: 1px solid #ccc;height: 60px;padding-bottom: 12px;}
 .category-temas-ripsa .list-items hr {display:none;}
-.category-temas-ripsa .list-items {margin-left: 24px;}
+
+#widget_sp_image-2 {float:left; width: 342px; margin: 30px 22px 12px 11px;}
+#widget_sp_image-3 {float:left; width: 342px; margin: 30px 11px 12px 22px;}
+
+img.wp-post-image {width: expression(80 + "%");}
+
+/* MEDIA QUERIES */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.column_1, .column_2 {width: 100% !important; float:none !important;}
+	#parent {margin: 25px 0 11px 5px !important;width:65px;}
+	#parent img {width: 100%;}
+	.header {height: 108px;}
+	.header h1 a {background-size: 70% !important;height:70px;}
+	.site_name {margin: 11px 0 0 9px !important;}
+	.headerWidget {margin-top:27px;}
+	.headerWidget .widget_sp_image img {width:100%;}
+	.column_1 .widget_sp_image {width: 95% !important;}
+	.bar {padding: 4px 0;width: 100% !important;}
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+	.column_1, .column_2 {width:97% !important;float: none !important;}
+        .column_1 .widget_sp_image{float:none !important;margin: 30px auto !important;width: 80% !important;}
+	.vhl-search {height: auto !important;}
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (max-device-width : 1024px) {
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (max-device-width : 1024px) and (orientation : landscape) {
+	.column_1 .widget_sp_image img {width:100% !important;}
+        .column_1 .widget_sp_image {width: 42% !important;}
+	.sow-features-list {margin:0 12px !important;}
+	.bar {padding: 4px 0;width: 100% !important;}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (max-device-width : 1024px) and (orientation : portrait) {
+	.column_1, .column_2 {width:97% !important;float: none !important;}
+	.column_1 .widget_sp_image{float:none !important;margin: 30px auto !important;}
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+/* Styles */
+}
