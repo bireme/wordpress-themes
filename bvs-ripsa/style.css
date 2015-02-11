@@ -74,6 +74,7 @@ img.wp-post-image {width: expression(80 + "%");}
 	.headerWidget .widget_sp_image img {width:100%;}
 	.column_1 .widget_sp_image {width: 95% !important;}
 	.bar {padding: 4px 0;width: 100% !important;}
+	.menu-mapa-do-site-container .menu {display: block;}
 }
 
 /* Smartphones (landscape) ----------- */
@@ -111,6 +112,8 @@ iPad 3
 **********/
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
 /* Styles */
+	.headerWidget .widget_sp_image img {width: auto !important;}
+	#widget_sp_image-4 {margin-left: 0;}
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
