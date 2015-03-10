@@ -24,7 +24,7 @@ get_header(); ?>
         $level2 .= $current_language;
 
 ?>
-	<div class="breadcrumb"><a href="<?php echo esc_url( home_url( '/'.( $site_lang ) ) ); ?>" class="home">Home</a> > <?php the_title(); ?></div>
+        <?php if ( function_exists( 'vhl_breadcrumb' ) ) { vhl_breadcrumb(); } ?>
 	<div id="primary" class="site-content">
 		<div id="content" class="single1column" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
