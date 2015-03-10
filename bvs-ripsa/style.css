@@ -32,7 +32,7 @@ Tags: three-columns, right-sidebar
 .site_name{margin:0px 0 0 30px;width:auto;}
 .site_name h1 a {width: 412px;height: 105px;background-position:-120px -5px;display:block;}
 .site_name h1 a span{display:none;}
-#parent{margin-bottom:0px;}
+#parent {margin: 15px 0 0px 20px;}
 .vhl-search{background:#e5eff5;text-align:center;height:65px;padding:15px 0 15px 0;border-top:3px solid #66cc99;border-bottom: 1px dashed #9ec5d8;}
 .vhl-search-input{margin:0;width:40%;}
 .footer_sidebar .widget-title{margin-left:20px;}
