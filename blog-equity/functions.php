@@ -8,6 +8,17 @@ register_nav_menus( array(
 	'bottom' => 'Sitemap menu',
 ) );
 
+
+register_sidebar( array(
+	'name'          => 'DirEve top sidebar',
+	'id'            => 'direve_top_sidebar',
+	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h1 class="widget-title">',
+	'after_title'   => '</h1>',
+) );
+
+
 // Callback function to insert 'styleselect' into the $buttons array
 function my_mce_buttons_2( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
