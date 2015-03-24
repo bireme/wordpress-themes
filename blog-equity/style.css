@@ -133,6 +133,11 @@ body.single .site-content{padding:0;margin:0;}
 .search #content hr, .archive #content hr {margin:0 0 24px 0;}
 .vcard a {text-decoration: none;}
 
+/*
+* DIREVE
+*/
+.direve .top_sidebar {margin-top: 12px;}
+.direve #content {margin-top: 75px;}
 
 /*
 * RESPONSIVITY
