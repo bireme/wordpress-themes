@@ -89,64 +89,6 @@ function cptui_register_my_cpt_aps() {
     ); 
 }
 
-if(function_exists("register_field_group"))
-{
-    register_field_group(array (
-        'id' => 'acf_aps',
-        'title' => 'APS',
-        'fields' => array (
-            array (
-                'key' => 'field_53cfeca0072fe',
-                'label' => 'Bibliografia Selecionada',
-                'name' => 'bibliografia_selecionada',
-                'type' => 'wysiwyg',
-                'default_value' => '',
-                'toolbar' => 'full',
-                'media_upload' => 'yes',
-            ),
-            array (
-                'key' => 'field_53cfecc8072ff',
-                'label' => 'Revisão',
-                'name' => 'revisao',
-                'type' => 'text',
-                'default_value' => '',
-                'placeholder' => '',
-                'prepend' => '',
-                'append' => '',
-                'formatting' => 'html',
-                'maxlength' => '',
-            ),
-            array (
-                'key' => 'field_53da42bb7a1f3',
-                'label' => 'Observações',
-                'name' => 'observacoes',
-                'type' => 'wysiwyg',
-                'default_value' => '',
-                'toolbar' => 'full',
-                'media_upload' => 'yes',
-            ),
-        ),
-        'location' => array (
-            array (
-                array (
-                    'param' => 'post_type',
-                    'operator' => '==',
-                    'value' => 'aps',
-                    'order_no' => 0,
-                    'group_no' => 0,
-                ),
-            ),
-        ),
-        'options' => array (
-            'position' => 'normal',
-            'layout' => 'no_box',
-            'hide_on_screen' => array (
-            ),
-        ),
-        'menu_order' => 0,
-    ));
-}
-
 ?>
 
 
