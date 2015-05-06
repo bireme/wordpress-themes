@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Exemplo Plugin Jquery Colorpicker selecionar paleta de cores</title>
+        <link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" language="javascript"></script>
+        <script src="js/colorpicker.js" language="javascript"></script>
+        <script language="javascript">
+            $(document).ready(function() {
+                $('#colorpickerField1, #colorpickerField2').ColorPicker({
+                    onSubmit: function(hsb, hex, rgb, el) {
+                        $(el).val(hex);
+                        $(el).ColorPickerHide();
+                    },
+                    onBeforeShow: function () {
+                        $(this).ColorPickerSetColor(this.value);
+                    }
+                })
+                .bind('keyup', function(){
+                    $(this).ColorPickerSetColor(this.value);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <strong>Cor 01:</strong>
+        <input type="text" class="caixa" value="" name="cor" maxlength="6" size="6" id="colorpickerField1" />
+        <br/><br/><br/>
+        <strong>Cor 02:</strong>
+        <input type="text" class="caixa" value="" name="cor" maxlength="6" size="6" id="colorpickerField2" />
+    </body>
+</html>
