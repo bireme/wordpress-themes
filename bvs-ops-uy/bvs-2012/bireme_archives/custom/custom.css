@@ -1,0 +1,16 @@
+/**** Estilos para la BVS UY  ****/
+.container {width: 1200px;}
+.header {background-position: 107px 11px !important;}
+.site_name {margin-top: 28px;margin-left: 104px;width: 470px;}
+.site_name a {color: #0066A1 !important;text-decoration: none;}
+.column strong.widget-title {margin-bottom: 12px;font-size: 135% !important;}
+.entry-content p {margin: 0 2rem 1.714285714rem;}
+.vhl-themes li {height: auto !important;}
+.headerWidget {margin: 11px 25px 0 0;}
+.column_3 .widget_ultimate_posts article {border-bottom: none !important;margin: 0; padding:0;}
+.column_3 .widget_ultimate_posts article h4 a {font-weight: normal;}
+.column .widget {background: #EEF1F1 !important;  padding: 10px !important;border-top: 5px solid #B1C1C1;}
+.column .widget-title {border-left:5px solid #587a7a; padding-left: 8px; line-height: 100% !important; display: block;}
+.children li {font-size: 100% !important;}
+#vhl_themes-2 ul, #vhl_collection-4 ul {padding-left: 12px;}
+#vhl_themes-2 li, #vhl_collection-4 li {  list-style: disc;}
