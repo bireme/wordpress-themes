@@ -30,6 +30,7 @@
     $general_color = $colors['general-text'];//$settings['colors']['general-text'];
     $general_link_active = $colors['general-link-active'];//$settings['colors']['general-link-active'];
     $general_link_visited = $colors['general-link-visited'];//$settings['colors']['general-link-visited'];
+    $general_title_border = $colors['general-title-border'];//$settings['colors']['general-title-border'];
     $header_background_color = $colors['header-background'];//$settings['colors']['header-background']; 
     $header_title_color = $colors['header-title-frist'];//$settings['colors']['header-title-first'];
     $header_link_color = $colors['header-link-active'];//$settings['colors']['header-link-active'];
@@ -55,6 +56,9 @@
     a:visited {
         color: #<?php echo $general_link_visited;?>;        
         }
+    .column strong.widget-title {
+        border-bottom: 1px solid #<?php echo $general_title_border;?>;
+    }
     .container {
         background: #<?php echo $general_container;?> !important;   
     }

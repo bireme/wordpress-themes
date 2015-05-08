@@ -35,6 +35,7 @@ $default_settings = array(
 		"general-title-third" => "ccc",
 		"general-link-visited" => "c0c0c0",
 		"general-link-active" => "ccc",
+		"general-title-border" => "7F96C4",
 		
 		"first-background" => "FFF",
 		"first-text" => "000",

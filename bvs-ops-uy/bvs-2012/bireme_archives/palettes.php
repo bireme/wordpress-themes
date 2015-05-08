@@ -12,6 +12,7 @@ $palettes_configs = array(
 		"general-title-third" => "333",
 		"general-link-visited" => "333",
 		"general-link-active" => "333",
+		"general-title-border" => "7F96C4",
 		
 		"first-background" => "FFF",
 		"first-text" => "000",
@@ -65,6 +66,7 @@ $palettes_configs = array(
 		"general-title-third" => "333",
 		"general-link-visited" => "333",
 		"general-link-active" => "333",
+		"general-title-border" => "7F96C4",
 		
 		"first-background" => "FFF",
 		"first-text" => "000",
@@ -118,6 +120,7 @@ $palettes_configs = array(
 		"general-title-third" => "333",
 		"general-link-visited" => "333",
 		"general-link-active" => "333",
+		"general-title-border" => "7F96C4",
 		
 		"first-background" => "FFF",
 		"first-text" => "000",

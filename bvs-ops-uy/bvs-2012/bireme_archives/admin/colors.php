@@ -9,6 +9,11 @@ $load_gif = get_template_directory_uri() . "/bireme_archives/default/load.gif";
 $settings = get_option( "wp_bvs_theme_settings");
 if ( empty( $settings ) || ! isset( $settings['colors'] ) )
     $settings = $default_settings;
+else {
+    $diff = array_diff_key($default_settings['colors'], $settings['colors']);
+    if ($diff)
+        $settings['colors'] = array_merge($default_settings['colors'], $settings['colors']);
+}
 
 $palettes = get_option( "wp_bvs_palettes_settings");
 if ( empty( $palettes ) )
@@ -112,7 +117,7 @@ if ( empty( $palettes ) )
 
 			<?php
 			    if($item == "bireme_default") $disabled = "disabled";
-                if($key == "palette") continue;
+                            if($key == "palette") continue;
 
 				$field = $key;
 				$key_strip = explode("-", $key);

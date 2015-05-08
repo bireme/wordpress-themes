@@ -21,6 +21,7 @@ $color_dict = array(
 	"general-title-third" => __("Third level title",'vhl'),
 	"general-link-visited" => __("Visited link",'vhl'),
 	"general-link-active" => __("Active link",'vhl'),
+	"general-title-border" => __("Title border",'vhl'),
 
 	"header-background" => __("Background",'vhl'),
 	"header-text" => __("Text",'vhl'),
