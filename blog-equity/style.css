@@ -113,7 +113,7 @@ body.single .site-content{padding:0;margin:0;}
 * SECOND LEVEL - ARCHIVE - CATEGORY - TAG - SEARCH
 */
 .c1, .c3 {float:left;}
-.c3 {margin:10px 20px 10px 10px;}
+.c3 {margin: 10px 20px 10px 10px; width: 248px;}
 .c3 .widget {padding-bottom:10px;}
 .site-content .c1 {width: 216px;margin: 10px 10px 10px 20px;}
 .site-content .c1 .menu li {padding:8px 0 8px 16px;border-bottom: 2px solid #e2e2e2;}
