@@ -1,6 +1,6 @@
 <?php 
 	require_once("header.php");
-	// $ez_TeX = new ezLaTeX();
+	// $ezLaTeX = new EzLaTeX();
 	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
 	<div id="content">
@@ -45,7 +45,7 @@
 					}	
 				?>
 				<?php
-					$alerta = $ez_TeX->parseTex(get_field('alertas'));
+					$alerta = $ezLaTeX->parseTex(get_field('alertas'));
 				?>
 				<?php if (!empty($alerta)) { ?>
 					<div class="warning">
@@ -58,7 +58,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="conceituacao"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="conceituacao"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -68,7 +68,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="interpretacao"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="interpretacao"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -78,7 +78,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="usos"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="usos"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -88,7 +88,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="limitacoes"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="limitacoes"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -98,7 +98,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="fonte"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="fonte"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -110,7 +110,7 @@
 						<div class="single-topicos-content">
 							<?php 
 								$key="metodo_de_calculo";
-								echo $ez_TeX->parseTex(get_field($key));
+								echo $ezLaTeX->parseTex(get_field($key));
 							?>
 						</div>
 					</div>
@@ -121,7 +121,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="categorias_sugeridas_para_analise"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="categorias_sugeridas_para_analise"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -131,7 +131,7 @@
 					</div>
 					<div class="row-fluid single-topicos-open">
 						<div class="single-topicos-content">
-							<?php $key="dados_estatisticos_e_comentarios"; echo $ez_TeX->parseTex(get_field($key));?>
+							<?php $key="dados_estatisticos_e_comentarios"; echo $ezLaTeX->parseTex(get_field($key));?>
 						</div>
 					</div>
 				</div>
@@ -146,7 +146,7 @@
 						echo '</div>';
 						echo '<div class="row-fluid single-topicos-open">';
 						echo '<div class="single-topicos-content">';
-						$key="notas"; echo $ez_TeX->parseTex(get_field($key));
+						$key="notas"; echo $ezLaTeX->parseTex(get_field($key));
 						echo '</div>';
 						echo '</div>';
 						echo '</div>';
