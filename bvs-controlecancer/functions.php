@@ -179,7 +179,7 @@ function aps_cp_filter() {
                 echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
                 echo "<option value=''>Show All $tax_name</option>";
                 foreach ($terms as $term) {
-                    echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '','>' . $term->name .' (' . $term->count .')</option>';
+                    echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '','>' . $term->name . '</option>';
                 }
                 echo "</select>";
             }
