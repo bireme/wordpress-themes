@@ -476,6 +476,7 @@ ul.children li:first-child {
 }
 .single.aps h2 {
     font-size: 14pt;
+    width: 70%;
 }
 .single.aps .item {
     line-height: 20pt;

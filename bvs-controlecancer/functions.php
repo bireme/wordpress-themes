@@ -69,13 +69,16 @@ if (function_exists('add_theme_support')) {
 add_filter( 'manage_edit-aps_columns', 'edit_aps_columns' ) ;
 function edit_aps_columns( $columns ) {
 
-    $columns = array(
-        'cb' => '<input type="checkbox" />',
-        'title' => __( 'SOF' ),
-        'ciap2' => __( 'CIAP2' ),
-        'tipo-de-profissional' => __( 'Tipo de Profissional' ),
-        'date' => __( 'Date' )
-    );
+    $taxonomies = get_object_taxonomies( 'aps', 'objects' );
+    $columns = array();
+    $columns['cb'] = '<input type="checkbox" />';
+    $columns['title'] = __( 'SOF' );
+
+    foreach ( $taxonomies as $tax => $data ) :
+        $columns[$tax] = __( $data->labels->name );
+    endforeach;
+
+    $columns['date'] = __( 'Date' );
 
     return $columns;
 }
@@ -83,14 +86,12 @@ function edit_aps_columns( $columns ) {
 add_action( 'manage_aps_posts_custom_column', 'manage_aps_columns', 10, 2 );
 function manage_aps_columns( $column, $post_id ) {
     global $post;
+    $taxonomies = get_object_taxonomies( 'aps' );
+    //echo "<pre>"; print_r($taxonomies); echo "</pre>";
+    if ( in_array( $column, $taxonomies ) ) :
 
-    switch( $column ) {
-
-        /* If displaying the 'ciap2' column. */
-        case 'ciap2' :
-
-            /* Get the genres for the post. */
-            $terms = get_the_terms( $post_id, 'ciap2' );
+            /* Get the terms for the post. */
+            $terms = get_the_terms( $post_id, $column );
 
             /* If terms were found. */
             if ( !empty( $terms ) ) {
@@ -100,8 +101,8 @@ function manage_aps_columns( $column, $post_id ) {
                 /* Loop through each term, linking to the 'edit posts' page for the specific term. */
                 foreach ( $terms as $term ) {
                     $out[] = sprintf( '<a href="%s">%s</a>',
-                        esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'ciap2' => $term->slug ), 'edit.php' ) ),
-                        esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'ciap2', 'display' ) )
+                        esc_url( add_query_arg( array( 'post_type' => $post->post_type, $column => $term->slug ), 'edit.php' ) ),
+                        esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, $column, 'display' ) )
                     );
                 }
 
@@ -114,18 +115,17 @@ function manage_aps_columns( $column, $post_id ) {
                 _e( 'Nenhum' );
             }
 
-            break;
-
-        /* Just break out of the switch statement for everything else. */
-        default :
-            break;
-    }
+    endif;
 }
 
 //add_filter( 'manage_edit-aps_sortable_columns', 'aps_sortable_columns' );
 function aps_sortable_columns( $columns ) {
 
-    $columns['ciap2'] = 'ciap2';
+    $taxonomies = get_object_taxonomies( 'aps' );
+
+    foreach ( $taxonomies as $tax ) :
+        $columns[$tax] = $tax;
+    endforeach;
 
     return $columns;
 }
@@ -140,21 +140,23 @@ function edit_aps_load() {
 /* Sorts the SOFs. */
 function sort_bvsaps( $vars ) {
 
+    $taxonomies = get_object_taxonomies( 'aps' );
+
     /* Check if we're viewing the 'aps' post type. */
     if ( isset( $vars['post_type'] ) && 'aps' == $vars['post_type'] ) {
 
-        /* Check if 'orderby' is set to 'ciap2'. */
-        if ( isset( $vars['orderby'] ) && 'ciap2' == $vars['orderby'] ) {
+            /* Check if 'orderby' is set to custom taxonomy. */
+            if ( isset( $vars['orderby'] ) && in_array( $vars['orderby'], $taxonomies ) ) {
 
-            /* Merge the query vars with our custom variables. */
-            $vars = array_merge(
-                $vars,
-                array(
-                    'meta_key' => 'ciap2',
-                    'orderby' => 'meta_value_num'
-                )
-            );
-        }
+                /* Merge the query vars with our custom variables. */
+                $vars = array_merge(
+                    $vars,
+                    array(
+                        'meta_key' => $vars['orderby'],
+                        'orderby' => 'meta_value_num'
+                    )
+                );
+            }
     }
 
     return $vars;
@@ -164,7 +166,7 @@ function aps_cp_filter() {
     global $typenow;
 
     // select the custom taxonomy
-    $taxonomies = array('ciap2');
+    $taxonomies = get_object_taxonomies( 'aps' );
 
     // select the type of custom post
     if( $typenow == 'aps' ){
@@ -185,5 +187,14 @@ function aps_cp_filter() {
     }
 }
 add_action( 'restrict_manage_posts', 'aps_cp_filter' );
+
+add_action('admin_head', 'admin_custom_css');
+function admin_custom_css() {
+    echo '<style>
+        .wp-admin select {
+            max-width: 200px;
+        } 
+    </style>';
+}
 
 ?>

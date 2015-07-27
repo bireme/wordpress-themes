@@ -109,7 +109,7 @@ get_header(); ?>
 					<p><?php the_field('observacoes'); ?></p>
 				</div>
 
-				<b><?php _e('Bibliografia Selecionada', 'bvsaps'); ?></b><br>
+				<strong><?php _e('Bibliografia Selecionada', 'bvsaps'); ?></strong><br>
 				<p><?php the_field('bibliografia_selecionada'); ?></p>
 
 				<div class="clear"></div>
