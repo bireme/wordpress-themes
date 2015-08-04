@@ -477,21 +477,22 @@ ul.children li:first-child {
 .single.aps h2 {
     font-size: 14pt;
     width: 70%;
+    margin: 20px 0 10px;
 }
 .single.aps .item {
     line-height: 20pt;
 }
 .single.aps .item h2 a {
-    color: #78B421; 
+    color: #78B421;
 }
 .single.aps .item h2 a:hover {
     text-decoration: underline;
 }
 .single.aps .item .category {
     text-align: center;
+    background-color: #FFF;
 /*
     margin-right:60px;
-    background-color: #FFF;
 */
 }
 .single.aps .item .category a {

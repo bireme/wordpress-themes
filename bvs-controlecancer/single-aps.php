@@ -16,7 +16,7 @@ get_header(); ?>
 			
 			<div class="item">
 
-				<h3 class="post-type"><?php _e("SOF", 'bvsaps'); ?></h3>
+				<!--h3 class="post-type"><?php _e("SOF", 'bvsaps'); ?></h3-->
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				
 				
@@ -34,16 +34,22 @@ get_header(); ?>
 					
 					<div class="thumb">
 						<?php if(taxonomy_exists('area-tematica')): ?>
-							<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): ?>
-								<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
-							<?php break; endforeach; ?>
-						<?php endif; ?>
+                        	<?php foreach (get_the_terms(get_the_ID(), 'area-tematica') as $cat): 
+                                $src = z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); 
+                                if ( $src ): ?>
+                                    <img src="<?php echo $src; ?>" />
+                                <?php endif; 
+                           	break; endforeach; 
+                        endif; ?>
 
 						<?php if(taxonomy_exists('categoria-da-evidencia')): ?>
-							<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat): ?>
-								<img src="<?php echo z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); ?>" />
-							<?php break; endforeach; ?>
-						<?php endif; ?>
+							<?php foreach (get_the_terms(get_the_ID(), 'categoria-da-evidencia') as $cat):
+								$src = z_taxonomy_image_url($cat->term_id, 'single-thumb-square'); 
+                                if ( $src ): ?>
+                                    <img src="<?php echo $src; ?>" />
+                                <?php endif; 
+                           	break; endforeach; 
+                        endif; ?>
 					</div>
 					<p>
 						<?php $term_content = get_the_terms(get_the_ID(), 'tipo-de-profissional'); if(!empty($term_content)): ?>
