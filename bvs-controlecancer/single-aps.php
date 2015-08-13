@@ -25,11 +25,11 @@ get_header(); ?>
 					<?php // Estes campos são os mesmos. Coloquei os dois pois há ambientes em que a taxonomy foi criada como area-tematica e outros
 					// em que a taxonomy foi criada com categoria-da-evidencia; ?>	
 					<?php if(taxonomy_exists('area-tematica')): ?>
-						<div class="category"><?php the_terms(get_the_ID(), 'area-tematica'); ?></div>
+						<div class="category"><?php the_terms(get_the_ID(), 'area-tematica', '', ''); ?></div>
 					<?php endif; ?>
 
 					<?php if(taxonomy_exists('categoria-da-evidencia')): ?>
-						<div class="category"><?php the_terms(get_the_ID(), 'categoria-da-evidencia'); ?></div>
+						<div class="category"><?php the_terms(get_the_ID(), 'categoria-da-evidencia', '', ''); ?></div>
 					<?php endif; ?>
 					
 					<div class="thumb">

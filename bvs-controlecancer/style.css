@@ -498,6 +498,7 @@ ul.children li:first-child {
 .single.aps .item .category a {
     color: #90C3DD;
     font-size: 11pt;
+    display: block;
 }
 .single.aps .item .thumb img {
     float: right;
