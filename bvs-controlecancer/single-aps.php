@@ -59,46 +59,49 @@ get_header(); ?>
 						<?php $term_content = get_the_terms(get_the_ID(), 'ciap2'); if(!empty($term_content)): ?>
 							<b><?php _e('CIAP2', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'ciap2'); ?><br>
 						<?php endif; ?>
-						
-						<?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
-							<b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
-							<?php $count = 0; foreach($wpdecs_terms as $term): ?>
 
-								<?php
-									$link = false;
-									$term_obj = get_term_by('name', $term['lang'][$wpdecs_array_locale[$site_lang]], 'decs');
-									if($term_obj != false) {
-										$link = get_term_link($term_obj, 'decs');
-									}
-								?>
-								
-								<?php if($count > 0) print ","; ?>
+                        <?php if(function_exists('get_the_wpdecs_terms')): $wpdecs_terms = get_the_wpdecs_terms(); ?>
+                            <?php if ( $wpdecs_terms ): ?>
+                                <b><?php _e('DeCS/MeSH', 'bvsaps'); ?>: </b>
+                                <?php
+                                    $count = 0;
+                                    foreach($wpdecs_terms as $term):
+                                        $link = false;
+                                        $name = $term['lang'][$wpdecs_array_locale[$site_lang]];
+                                        if ( ! isset($name) ) $name = $term['term'];
+                                        $term_obj = get_term_by('name', $name, 'decs');
 
-								<!-- caso achar o link, printa o começo do <a> -->
-								<?php if($link != false): ?>
-									<a href="<?= $link; ?>" title="<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>">
-								<?php endif; ?>
+                                        if($term_obj != false)
+                                            $link = get_term_link($term_obj, 'decs');
 
-								<?= $term['lang'][$wpdecs_array_locale[$site_lang]]; ?>
-								<!--
-								<?php $quals = array(); foreach($term['qualifier'] as $qual) 
-									$quals[] = $qual['name'];
-								?>
-								-->
-								<?php if(isset($term['qualifier']) and !empty($term['qualifier'])): ?>
-									<!-- (<?php _e("Qualificadores", 'bvsaps'); ?>: <?php print join($quals, ", "); ?>) -->
-									<!-- (<?php print join($quals, ", "); ?>) -->
-									(<?php print join($term["qualifier"], ", "); ?>)
-								<?php endif; ?>
+                                        if($count > 0) print ", ";
 
-								<!-- caso achar o link, printa o fim do <a> -->
-								<?php if($link != false): ?>
-									</a>
-								<?php endif; ?>
+                                        /* caso achar o link, printa o começo do <a> */
+                                        if($link != false):
+                                            echo '<a href="' . $link . '" title="' . $name . '">';
+                                        endif;
 
-							<?php $count++; endforeach; ?>
-							<br>
-						<?php endif; ?>
+                                        echo $name;
+
+                                        $quals = array();
+                                        foreach($term['qualifier'] as $qual) 
+                                            $quals[] = $qual['name'];
+
+                                        if(isset($term['qualifier']) and !empty($term['qualifier'])):
+                                            echo " ("; print join($term["qualifier"], ", "); echo ")";
+                                        endif;
+
+                                        /* caso achar o link, printa o fim do <a> */
+                                        if($link != false):
+                                            echo "</a>";
+                                        endif;
+
+                                        $count++;
+                                    endforeach;
+                                ?>
+                                <br>
+                            <?php endif; ?>
+                        <?php endif; ?>
 						
 						<?php $term_content = get_the_terms(get_the_ID(), 'grau-da-evidencia'); if(!empty($term_content)): ?>
 							<b><?php _e('Grau da Evidência', 'bvsaps'); ?>: </b><?php the_terms(get_the_ID(), 'grau-da-evidencia'); ?><br>
