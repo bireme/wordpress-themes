@@ -83,9 +83,9 @@ get_header(); ?>
 
                                         echo $name;
 
-                                        $quals = array();
-                                        foreach($term['qualifier'] as $qual) 
-                                            $quals[] = $qual['name'];
+                                        // $quals = array();
+                                        // foreach($term['qualifier'] as $qual) 
+                                        //     $quals[] = $qual['name'];
 
                                         if(isset($term['qualifier']) and !empty($term['qualifier'])):
                                             echo " ("; print join($term["qualifier"], ", "); echo ")";
