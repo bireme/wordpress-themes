@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$site_list = wp_get_sites( array('public' => true) );
 
 	if ( count($site_list) > 1 ){
@@ -8,15 +8,15 @@
 			}
 		}
 		sort($edition_list, SORT_NUMERIC);
-		
+
 		$category_filter['A'] = 'indicadores_demograficos';
 		$category_filter['B'] = 'indicadores_socioeconomicos';
 		$category_filter['C'] = 'indicadores_mortalidade';
 		$category_filter['D'] = 'indicadores_morbidade_fatores_risco';
 		$category_filter['E'] = 'indicadores_recursos';
 		$category_filter['F'] = 'indicadores_cobertura';
-		
-		// Get information about current Qualification Records edition (year)	
+
+		// Get information about current Qualification Records edition (year)
 		$current_site = get_blog_details();
 		preg_match('/\/([0-9]+)\//', $current_site->path, $current_edition_info);
 		$current_edition = $current_edition_info[1];
@@ -31,7 +31,7 @@
 		$current_category_group = get_field('grupo', 'category_' . $term->term_id );
 		// do something with $custom_field
 	}
-	
+
 	require_once("header.php");
 	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
@@ -40,7 +40,7 @@
 			<section class="content-search">
 				<div class="padding15-25">
 					<div class="row-fluid marginbottom10">
-						<?php 
+						<?php
 							if(function_exists('bcn_display')) {
 					        		bcn_display();
 					    		} else {
@@ -48,26 +48,27 @@
 							}
 						?>
 					</div>
-					
-					<form action="http://pesquisa.bvsalud.org/ripsa/">
-						<input type="hidden" name="where" value="FICHAS" />
+
+					<form id="target" action="http://pesquisa.bvsalud.org/ripsa/">
+						<!--input type="hidden" name="where" value="FICHAS" /-->
+						<input type="hidden" id="year" name="filter[year_cluster][]" value="<?php echo $current_edition; ?>" />
 						<div class="row-fluid">
-							<label for="txtSearch"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
+							<label for="q"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
 						</div>
 
 						<div class="row-fluid">
 							<div class="pull-left">
-								<input type="text" class="search-input" id="txtSearch" name="txtSearch">
+								<input type="text" class="search-input" id="q" name="q">
 								<button class="search-btn"><?php _e( 'Pesquisar', 'Ripsa' ); ?></button>
 							</div>
 							<?php if ( count($site_list) > 1 ) : ?>
 								<div class="pull-right">
 									<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
-									<select name="filter_chain[]">
-										<option value=""><?php echo _e('Todas edições', 'Ripsa'); ?></option>
-										<?php 
+									<select id="select_edition">
+										<option value=""><?php _e('Todas edições', 'Ripsa'); ?></option>
+										<?php
 											foreach ($edition_list as $edition){
-												echo '<option value="year_cluster:' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';
+												echo '<option value="' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';
 											}
 										?>
 									</select>
@@ -76,12 +77,12 @@
 						</div>
 						<div class="row-fluid margintop05">
 							<div class="pull-left marginright10">
-								<input type="radio" name="filter_chain[]" id="txtIndicadoresDemograficos" checked="true" value="ripsa_indicadores:<?php echo $category_filter[$current_category_group] ?>">
-								<label for="txtIndicadoresDemograficos" class="search-radio-txt"><?php _e( 'Neste grupo', 'Ripsa' ); ?></label>
+								<input type="radio" name="filter[ripsa_indicadores][]" id="txtIndicadorSelecionado" checked="true" value="<?php echo $category_filter[$current_category_group] ?>">
+								<label for="txtIndicadorSelecionado" class="search-radio-txt"><?php _e( 'Neste grupo', 'Ripsa' ); ?></label>
 							</div>
-							
+
 							<div class="pull-left">
-								<input type="radio" name="filter_chain[]" id="txtIndicadoresTodos" value="">
+								<input type="radio" name="filter[ripsa_indicadores][]" id="txtIndicadoresTodos" value="">
 								<label for="txtIndicadoresTodos" class="search-radio-txt"><?php _e( 'Em todos os indicadores', 'Ripsa' ); ?></label>
 							</div>
 						</div>
@@ -99,7 +100,7 @@
 					</span>
 					<span class="row-fluid"><?php echo category_description();?></span>
 				</div>
-				
+
 				<div class="row-fluid">
 					<ul class="category-ul">
 						<?php if (have_posts()): while (have_posts()) : the_post();?>
@@ -113,4 +114,4 @@
 			</div>
 		</div>
 
-<?php require_once("footer.php");?>		
+<?php require_once("footer.php");?>
