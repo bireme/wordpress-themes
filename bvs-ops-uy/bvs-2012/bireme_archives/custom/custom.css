@@ -13,4 +13,9 @@
 .column .widget-title {border-left:5px solid #587a7a; padding-left: 8px; line-height: 100% !important; display: block;}
 .children li {font-size: 100% !important;}
 #vhl_themes-2 ul, #vhl_collection-4 ul {padding-left: 12px;}
-#vhl_themes-2 li, #vhl_collection-4 li {  list-style: disc;}
+#vhl_themes-2 li, #vhl_collection-4 li {list-style: disc;}
+.ie .header {background-color: #c1dee9 !important;}
+.ie .header {background: url("/wp-content/uploads/2015/03/banner1.jpg") no-repeat scroll left top;}
+html.ie {font-size: 86.5%;} 
+.ie .widget-title {text-transform: none !important;}
+.ie .site_name {width: 500px;}
