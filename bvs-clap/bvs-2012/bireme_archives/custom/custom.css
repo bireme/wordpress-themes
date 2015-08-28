@@ -1,7 +1,7 @@
 /***** Estilos de la BVS Perinatal *****/
 .container {width: 1200px;}
 .site_name {margin-top: 50px;margin-left: 30px;width: 300px;}
-.headerWidget { margin: 39px -135px 0 0 ; }
+.headerWidget { float: right; clear:right;margin:16px 12px 0 0;}
 .bar { width: auto !important; }
 .bar #contact {margin-top: 3px;}
 .bar a:hover {color: #fff;}
@@ -19,4 +19,7 @@
 .single .site-content {width:1180px !important;background: #f2f2f2;}
 .entry-header .entry-title {border-bottom:5px solid #014a97}
 .entry-content p {margin-left: 28px !important;}
-
+.ie .header {background-color:  #014a97 !important;}
+html:lang(es-ES) .ie .header {background: #014a97 url("/wp-content/uploads/2015/03/banner_es.jpg") no-repeat scroll left top;}
+html:lang(en-US) .ie .header {background: #014a97 url("/wp-content/uploads/2015/03/banner_en.jpg") no-repeat scroll left top;}
+html:lang(pt-BR) .ie .header {background: #014a97 url("/wp-content/uploads/2015/03/banner_pt.jpg") no-repeat scroll left top;}
