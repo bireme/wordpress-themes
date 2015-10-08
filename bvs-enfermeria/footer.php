@@ -32,10 +32,11 @@ if(is_plugin_active('multi-language-framework/multi-language-framework.php')) {
             </div>
         </footer>
 
+        <?php wp_footer(); ?>
+        
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>  
         <script src="http://owlgraphic.com/owlcarousel/owl-carousel/owl.carousel.js"></script>  
         <script src="<?= get_template_directory_uri(); ?>/static/js/script.js"></script>  
 
-        <?php wp_footer(); ?>
     </body>
 </html>

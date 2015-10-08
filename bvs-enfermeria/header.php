@@ -41,9 +41,11 @@ $settings = get_option( "wp_bvs_enfermeria_settings" );
 
         <style>
             header .topbanner {
-                background-image: url(<?= $settings['header']['banner-' . $site_lang]; ?>);
+                background-image: url(<?php vhl_banner_image(); ?>);
             }
         </style>
+
+        <?php vhl_extrahead(); ?>
     </head>
 
     <body>
@@ -56,8 +58,11 @@ $settings = get_option( "wp_bvs_enfermeria_settings" );
                             <?php if(is_user_logged_in()): ?>
                                 <a href="/wp-admin/" class=''>admin</a>
                             <?php endif; ?>
-                            <a href="<?php echo get_permalink( get_page_by_path( 'contato' ) ); ?>" class='contato'>Contato</a>
+                            <a href="<?php echo get_permalink( vhl_get_contact_page() ); ?>" class='contato'>Contato</a>
+                            
                             <?php if(function_exists('mlf_links_to_languages')) { mlf_links_to_languages(); } ?>
+
+                            <?php if (vhl_get_show_header_menu() != true) wp_nav_menu( array( 'fallback_cb' => 'false' ) ); ?>
                         </div>
                     </div>
                 </div>
@@ -69,45 +74,26 @@ $settings = get_option( "wp_bvs_enfermeria_settings" );
                         
                         <div class='col-md-2'>
                             <div class='logobvs'>
-                                <a href="#"><img src='<?= $settings['header']['logo-' . $site_lang]; ?>'></a>
+                            <?php if(vhl_get_logo_link()): ?>
+                                <a href='<?php vhl_logo_link(); ?>' title="<?php bloginfo('name'); ?>"><img src='<?php vhl_logo_image(); ?>'></a>
+                            <?php else: ?>
+                                <img src='<?php vhl_logo_image(); ?>'>
+                            <?php endif; ?>
                             </div>
                         </div>
                         
                         <div class=''>
-                            <div class='logo'><?php bloginfo('wp_title'); ?></div>
+                            <?php if(vhl_show_title()): ?>
+                                <?php if(vhl_get_banner_link()): ?>
+                                    <a href='<?php vhl_banner_link(); ?>'><div class='logo'><?php bloginfo('wp_title'); ?></div></a>
+                                <?php else: ?>
+                                    <div class='logo'><?php bloginfo('wp_title'); ?></div>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
-<!-- 
-            <div class="searchbox">
-                <div class='container'>
-                    <div class='row'>
-                        <?php dynamic_sidebar( $top ); ?>
-
-                        <form action="<?= $settings['iahx_url']; ?>" method="get" id="searchForm">
-                            <div id="vhl_search-4" class="   col-md-6 col-md-offset-3">
-                                
-                                <input type="hidden" name="lang" value="pt">
-                                <input type="hidden" name="home_url" value="<?php bloginfo('home'); ?>">   
-                                <input type="hidden" name="home_text" value="<?php bloginfo('name'); ?>">   
-                                
-                                <input type="text" id="vhl-search-input" class="vhl-search-input" name="q" placeholder='Entre com uma ou mais palavras...'>
-
-                                <div class="submit">
-                                    <a href="#"><img src="<?= get_template_directory_uri(); ?>/static/img/ico-search.png"></a>
-                                </div>
-                            </div>
-
-                            <div class='radio col-md-6 col-md-offset-3'>
-                                <input type='radio' name='filter[db][]' value='' checked='checked'> BVS Enfermeria
-                                <input type='radio' name='filter[db][]' value='BDENF'> BDENF
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-
         </header>
 
         <div class='content'>

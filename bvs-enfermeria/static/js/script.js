@@ -7,7 +7,7 @@ $(document).ready(function() {
     });
 
     // temas
-    $("#vhl_themes-3 ul").owlCarousel({
+    $(".content .temas ul").owlCarousel({
         items : 4
     });
 
@@ -18,17 +18,27 @@ $(document).ready(function() {
         $(this).html(img+'<figcaption>'+text+'</figcaption>');
     });
 
-    // subtemas
-    $(".home .vhl-collection").each(function(){
-        var title = $(this).find('.widget-title');
-        var img = $(this).find('.vhl_collection_thumb');
+    // // subtemas
+    // $(".home .vhl-collection").each(function(){
+    //     var title = $(this).find('.widget-title');
+    //     var img = $(this).find('.vhl_collection_thumb');
 
-        img.after(title.prop('outerHTML'));
-        title.hide();
-    });
+    //     img.after(title.prop('outerHTML'));
+    //     title.hide();
+    // });
 
     $(".destaques .upw-posts").owlCarousel({
         autoPlay: 4000,
         items : 1
+    });
+
+    // ajuste para tirar a tag da parte de baixo e mandar para a parte de cima, em noticia
+    $(".noticias .upw-posts article").each(function(){
+
+        tags = $(this).find('footer')
+        // tags.hide();
+
+        tags.insertBefore($(this).find('header'));
+        console.log($(this).find('header'));
     });
 });

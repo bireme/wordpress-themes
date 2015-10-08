@@ -124,20 +124,20 @@ header .radio {
     padding: 0;
 }
 
-.content #vhl_themes-3 ul li {
+.content .temas ul li {
     list-style: none;
 }
-.content #vhl_themes-3 ul a img {
+.content .temas ul a img {
     display: block;
     /*width: 100%;*/
     height: auto;
     padding-right: 10px;
 }
-.content #vhl_themes-3 ul a {
+.content .temas ul a {
     position: relative;
     display: block;
 }
-.content #vhl_themes-3 ul figcaption {
+.content .temas ul figcaption {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -155,23 +155,23 @@ header .radio {
     text-align: left;
     font-size: 14pt;
 }
-.content #vhl_themes-4 ul {
+.content .rede ul {
     padding: 20px 0 0 0;
     margin: 0;
 }
-.content #vhl_themes-4 ul {
+.content .rede ul {
     overflow: hidden;
 }
-.content #vhl_themes-4 li {
+.content .rede li {
     list-style: none;
     float: left;
     text-align: center;
 }
-.content #vhl_themes-4 li {
+.content .rede li {
     width: 20%;
 }
 
-.content #vhl_themes-4 figcaption {
+.content .rede figcaption {
     display: none;
 }
 .content .destaques article {
@@ -230,15 +230,11 @@ header .radio {
 }
 
 .content .noticias article {
-    margin: 0 0 -10px 0 !important;
     clear: both;
     border: 0;
     color: #333;
     padding: 0;
     overflow: hidden;
-}
-.content .noticias article footer {
-    display: none;
 }
 .content .noticias article:hover a {
     text-decoration: none;
@@ -434,7 +430,7 @@ footer .widget-title {
     font-weight: normal;
     color: #fff;
 }
-footer .vhl-themes .widget-title {
+footer .iniciativa .widget-title {
     display: none;
 }
 .owl-carousel {
@@ -461,4 +457,41 @@ footer a {
 
 .sub-menu {
     display: none;
+}
+.shailan-dropdown-menu li a {
+    font-family: Arial,serif !important;
+    font-size: 11pt !important;
+}
+.shailan-dropdown-wrapper-2, .dropdown-horizontal-container, .shailan-dropdown-menu {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+.shailan-dropdown-menu li:hover a{
+    text-shadow: none !important;
+    color: #fff !important;
+}
+.widget_ultimate_posts footer {
+    background-color: inherit;
+}
+
+.noticias .entry-tags-label {
+    display: none;
+}
+.noticias footer, .widget_ultimate_posts footer {
+    margin: 0;
+    padding: 0;
+}
+.noticias header h4, .widget_ultimate_posts header h4 {
+    margin: 0 !important;
+}
+.noticias article, .widget_ultimate_posts article {
+    margin: 5px 0 0 0 !important;
+}
+.noticias footer .entry-tags-list, .widget_ultimate_posts footer .entry-tags-list {
+    margin: 0;
+}
+.upw-posts article {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
