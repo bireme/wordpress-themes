@@ -28,14 +28,14 @@ $default_settings = array(
 		"palette" => "bireme_default",
 
 		"general-background" => "FFF",
-		"general-container" => "FFF",
+		// "general-container" => "FFF",
 		"general-text" => "000",
 		"general-title-first" => "ccc",
 		"general-title-second" => "ccc",
 		"general-title-third" => "ccc",
 		"general-link-visited" => "c0c0c0",
 		"general-link-active" => "ccc",
-		"general-title-border" => "7F96C4",
+		// "general-title-border" => "7F96C4",
 		
 		"first-background" => "FFF",
 		"first-text" => "000",

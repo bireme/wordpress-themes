@@ -4,7 +4,7 @@
  */
 
 require_once(dirname(__FILE__) . "/default.php");
-include(TEMPLATEPATH . "/palettes.php");
+// include(TEMPLATEPATH . "/palettes.php");
 
 add_action( 'init', 'wp_bvs_admin_init' );
 add_action( 'admin_menu', 'wp_bvs_settings_page_init' );

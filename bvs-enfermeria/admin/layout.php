@@ -46,15 +46,15 @@
 			<td>
 				<select class="columns" id="default_columns" name="layout[total]">
 					<option <?php if($layout['total'] == "1") echo "selected='selected'"; ?> value="1">1 <?php echo __('column', 'vhl'); ?></option>
-					<option <?php if($layout['total'] == "2") echo "selected='selected'"; ?> value="2">2 <?php echo __('column', 'vhl'); ?></option>
-					<option <?php if($layout['total'] == "3") echo "selected='selected'"; ?> value="3">3 <?php echo __('column', 'vhl'); ?></option>
-					<option <?php if($layout['total'] == "4") echo "selected='selected'"; ?> value="4">4 <?php echo __('column', 'vhl'); ?></option>
+					<option <?php if($layout['total'] == "2") echo "selected='selected'"; ?> value="2">2 <?php echo __('columns', 'vhl'); ?></option>
+					<option <?php if($layout['total'] == "3") echo "selected='selected'"; ?> value="3">3 <?php echo __('columns', 'vhl'); ?></option>
+					<option <?php if($layout['total'] == "4") echo "selected='selected'"; ?> value="4">4 <?php echo __('columns', 'vhl'); ?></option>
 				</select>
 			</td>
 		</tr>
 	</tbody>
 </table>
-
+<!-- 
 <h3 class="title"><?php echo __('Column Width','vhl'); ?></h3>
 <table class="form-table">
 	<tbody>
@@ -76,8 +76,8 @@
 		</tr>
 	</tbody>
  </table>
+ -->
 <h3 class="title"><?php echo __('Auxiliary SideBars', 'vhl'); ?></h3>
-
 <table class="form-table">
 	<tbody>
 		<tr>

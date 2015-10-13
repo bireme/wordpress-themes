@@ -14,7 +14,6 @@ $color_dict = array(
 	'footer' => __("Footer Colors",'vhl'),
 
 	"general-background" => __("Background",'vhl'),
-	"general-container" => __("Container background",'vhl'),
 	"general-text" => __("Text",'vhl'),
 	"general-title-first" => __("First level title",'vhl'),
 	"general-title-second" => __("Second level title",'vhl'),

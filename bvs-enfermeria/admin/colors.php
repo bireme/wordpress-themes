@@ -113,6 +113,8 @@ else {
 <table class="form-table">
 	<tbody>
 		<?php
+
+		// unset($settings['colors']['general-container'], $settings['colors']['general-title-border']);
 		foreach($settings['colors'] as $key => $item): ?>
 
 

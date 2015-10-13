@@ -19,7 +19,7 @@ if(is_plugin_active('multi-language-framework/multi-language-framework.php')) {
 
         </div>
 
-        <footer>
+        <footer class='footer'>
             <div class='container'>
                 <div class='row'><?php dynamic_sidebar( $bottom ); ?></div>
             </div>

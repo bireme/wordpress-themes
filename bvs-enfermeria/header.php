@@ -39,18 +39,14 @@ $settings = get_option( "wp_bvs_enfermeria_settings" );
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <style>
-            header .topbanner {
-                background-image: url(<?php vhl_banner_image(); ?>);
-            }
-        </style>
+        <?php vhl_load_dynamic_colors(); ?>
 
         <?php vhl_extrahead(); ?>
     </head>
 
     <body>
 
-        <header>
+        <header class='header'>
             <div class='topbar'>
                 <div class='container'>
                     <div class='row'>

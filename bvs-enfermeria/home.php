@@ -12,7 +12,7 @@ global $mlf_activate, $current_language;
             $footer_bar .= $current_language;
     }
 
-    if ($top_sidebar == true){
+    if (vhl_get_top_auxiliary_sidebar_status()){
 ?>
     <div class='container'>
         <div class='row'>
@@ -29,40 +29,59 @@ global $mlf_activate, $current_language;
 
 <div class='container home'>
     <div class='row'>
-        <div class='col-md-9 column-1'>
+
+        <?php 
+
+        // pega o total de colunas
+        $total_columns = vhl_get_total_columns(); 
+
+        // cria um array que dirá qual a ordem dos col-md, de acordo com a quantidade selecionada
+        $columns = array();
+
+        if((int) $total_columns == 1) {
+            $columns[] = 'col-md-12';
+
+        } elseif ((int) $total_columns == 2) {
+            $columns[] = 'col-md-9';
+            $columns[] = 'col-md-3';
+
+        } elseif ((int) $total_columns == 3) {
+            $columns[] = 'col-md-4';
+            $columns[] = 'col-md-4';
+            $columns[] = 'col-md-4';
+        
+        } elseif ((int) $total_columns == 4) {
+            $columns[] = 'col-md-3';
+            $columns[] = 'col-md-3';
+            $columns[] = 'col-md-3';
+            $columns[] = 'col-md-3';
+        }
+
+        ?>
+
+        <?php $count = 0; foreach($columns as $column): $count += 1; ?>
 
             <?php 
-
-            $column = 'column-1';
-            if($mlf_activate) {
-                $column .= $current_language;
-            }
-            
-            dynamic_sidebar( $column ); 
+                // dá o nome da coluna e appenda o mlf, caso tenha
+                $column_name = 'column-' . $count;
+                if($mlf_activate) {
+                    $column .= $current_language;
+                }
             ?>
-
-        </div>
-
-        <div class='col-md-3'>
-
-            <?php 
-
-            $column = 'column-2';
-            if($mlf_activate) {
-                $column .= $current_language;
-            }
             
-            dynamic_sidebar( $column ); 
-            ?>
+            <!-- coluna <?= $count; ?> -->
+            <div class='<?= $column; ?> <?= $column_name; ?>'>
+                <?php dynamic_sidebar( $column_name ); ?>
+            </div>
 
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 
 <div class="clear"></div>
 
 <?php 
-    if ($footer_sidebar == true){
+    if (vhl_get_footer_auxiliary_sidebar_status()){
     ?>
     <div class='container'>
         <div class='row'>
