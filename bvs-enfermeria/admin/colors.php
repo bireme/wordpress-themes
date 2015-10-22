@@ -14,6 +14,10 @@ else {
         $settings['colors'] = array_merge($default_settings['colors'], $settings['colors']);
 }
 
+if(!array_key_exists('check', $settings['colors'])) {
+	$settings['colors']['check'] = array();
+}
+
 ?>
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory') ?>/admin/colorpicker/css/colorpicker.css" type="text/css" />
