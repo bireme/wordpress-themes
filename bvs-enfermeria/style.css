@@ -13,7 +13,7 @@ This theme, like WordPress, is licensed under the GPL.
 }
 body {
     font-size: 10pt;
-    line-height: 20pt;
+    
 }
 a, a:active, a:visited { 
     color: #666; 
@@ -37,7 +37,8 @@ a:hover {
  .widget-title, .widget-title a {
     font-size: 15pt;
  }
-
+ 
+.header{ background: #fff;}
 .topbar {
     background-color: #4D946D;
     /*padding: 2px 0;*/
@@ -62,11 +63,15 @@ header .topbanner .logo, header .topbanner .logobvs {
     margin-bottom: 15px;
 }
 header .topbanner .logo {
-    margin-top: 55px;
-    font-size: 30pt;
-    font-weight: 700;
+    margin-top: 47px;
+    font-size: 20pt;
+    font-weight: bold;
+	color: #003366;
 }
-
+.topbanner {
+	height: 123px !important;
+	
+}
 .widget_nav_menu, {
     width: 100%;
     text-align: center;
@@ -116,14 +121,20 @@ header .radio {
 
 .content {
     /*margin: 20px 0;*/
+	background: #ededed;
 }
 .content .widget {
-    margin: 0 0 30px 0;
-}
-.content .owl-carousel {
-    padding: 0;
+    margin: 0 0 40px 0;
 }
 
+
+.content .owl-carousel {
+    padding: 0;
+	background: #e8f0ec;
+}
+.temas{
+	margin-top:30px;
+	}
 .content .temas ul li {
     list-style: none;
 }
@@ -131,7 +142,7 @@ header .radio {
     display: block;
     /*width: 100%;*/
     height: auto;
-    padding-right: 10px;
+    xpadding-right: 10px;
 }
 .content .temas ul a {
     position: relative;
@@ -141,10 +152,10 @@ header .radio {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 85.7%;
+    width: 95.7%;
     color: #fff;
     font-size: 10pt;
-    padding: 5px;
+    padding: 2px;
     display: block;
     background-image: linear-gradient(to bottom, transparent, #333);
 }
@@ -245,7 +256,8 @@ header .radio {
     margin-right: 5px;
 }
 .content .noticias .entry-image img {
-    width: 80px;
+    xwidth: 80px;
+	margin-right: 10px;
 }
 .content .noticias .entry-title {
     line-height: 12pt;
@@ -270,7 +282,12 @@ header .radio {
 .content .noticias .item:hover h3, .content .noticias .item:hover h4, .content .noticias .item:hover .date {
     color: #4D946D;
 }
-
+.content .container{
+	background:#fff;
+	}
+.container.home{
+	xpadding: 0px 60px;
+	}
 footer {
     background-color: #315943;
     color: #fff;
@@ -444,12 +461,18 @@ footer .textwidget {
 .rede {
     padding: 0;
     margin: 0;
+	height: 133px;
+}
+.rede .widget-title{
+
+    margin-top: 20px;
+
 }
 .rede li {
     list-style: none;
 }
 .rede li img {
-    padding: 0 10px 0 0 ;
+    xpadding: 0 10px 0 0 ;
 }
 footer a {
     color: #fff;
@@ -496,3 +519,102 @@ footer a {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.shailan-dropdown-menu .dropdown-horizontal-container, ul.dropdown li {
+	background: #e8f0ec !important;
+	}
+	
+.col-md-4.column-1{
+	width: 73%;
+	}
+.onecolumn.widget.vhl-collection{
+	width: 22%;
+	display: inline-block;
+	xborder: 1px solid #c9ded3;
+	xmargin-left: 27px;
+	
+	}
+.col-md-4.column-2{
+	width:27%;
+	}
+.temas .owl-wrapper{
+	margin-top: 32px;
+	margin-left:77px;
+	}
+
+.column-2 .owl-carousel {
+    padding: 0px;
+    background: #E8F0EC;
+	width: 91%;
+}
+
+.thumb_120{
+	width:200px !important;
+	}
+.rede .thumb_120{
+	width:70px !important;
+	text-align:center;
+	}
+.temas .owl-item{
+	width:250px !important;
+	}
+.container {
+    width: 1076px;
+}
+
+.rede ul{
+	xbackground: #e8f0ec;
+	margin-left:350px !important;
+	padding-top: 0px !important;
+	}
+.vhl-collection ul li{
+	margin: 0px 0px 12px;
+	padding-bottom: 6px;
+	font-weight: normal;
+	font-size: 99%;
+	list-style: outside url("images/pointer.gif") disc;
+	border-bottom: 1px solid #D9D9D9;
+	text-align: left;
+	}
+	
+.column-1 .widget_ultimate_posts{
+	width: 85%;
+	margin-left: 71px;
+	color: #666;
+	font-size: 100%;
+	line-height: 15pt;
+	}
+.column-1 .widget_ultimate_posts .widget-title{
+	margin-bottom:10px;
+	}
+
+.column-1 .upw-posts.hfeed{
+	margin-top:30px;
+	}
+	
+.column-1 .widget_ultimate_posts .entry-title a{
+	color: #63a57f !important;
+
+	}
+#rss-4 ul{
+	padding: 0px 10px !important;
+	}
+	
+#rss-4 ul li{
+	list-style:none;
+	margin-bottom: 15px;
+
+	}
+	
+.column-2 .owl-wrapper{
+	margin-left:47px;
+	}
+.column-2 .attachment-thumbnail{
+	margin-top: 15px;
+	}
+	
+.footer_sidebar{
+	
+	background: url("images/rodape.jpg") no-repeat;
+	
+	}
