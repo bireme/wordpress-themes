@@ -168,7 +168,7 @@
 					if (!empty($g_section_cont)) {
 						echo '<div class="row-fluid single-topicos-open">';
 						echo '<div class="single-topicos-content">';
-						echo get_post_meta($post->ID,'section-content' ,true);
+						echo wpautop(get_post_meta($post->ID,'section-content', true));
 						echo '</div>';
 						echo '</div>';
 					}
