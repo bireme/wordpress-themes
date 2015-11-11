@@ -41,6 +41,10 @@
            $(this).parent().hide();
            $(this).closest('div').prev().children().fadeToggle('slow');
        });
+       $('.more_like_that').on('click', function(e) {
+           $(this).prev().show();
+           $(this).hide();
+       });
     });
 
     $(document).on("ready", listenWidth);

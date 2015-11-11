@@ -30,8 +30,10 @@ get_header(); ?>
 						printf( __( 'Monthly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentytwelve' ) ) . '</span>' );
 					elseif ( is_year() ) :
 						printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
-					elseif (is_tax() ) :
-						echo get_the_term_list( get_the_ID(), 'thematic_area', 'Tema: ' );
+                                        elseif (is_tax() ) :
+                                                echo 'Tema: ' . get_queried_object()->name;
+                                        elseif (is_tag() ) :
+                                                echo 'Tag: ' . get_queried_object()->name;
 					else :
 						_e( 'Archives', 'twentytwelve' );
 					endif;
