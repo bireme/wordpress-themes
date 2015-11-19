@@ -79,32 +79,12 @@ get_header(); ?>
 			<div class="related_links r-block">
 				<div class="r-block-title">Links Relacionados</div>
 				<?php //$key="links_relacionados"; echo get_post_meta($post->ID, $key, true); ?>
-				<?php
-					$postmeta = get_post_meta($post->ID, 'links_relacionados', true);
-					$doc = new DOMDocument();
-					$doc->loadHTML($postmeta);
-					$size = $doc->getElementsByTagName('a')->length;
-					foreach($doc->getElementsByTagName('a') as $index => $href) { $index++;
-						echo utf8_decode($doc->saveHTML($href));
-						if ( $size > 5 && $index == 5 ) echo '<div style="display: none;">';
-						if ( $size > 5 && $index == $size ) echo '</div><a class="more_like_that" style="display: block; text-align: right; text-decoration: underline; cursor: pointer;">>> Mostrar mais</a>';
-					}
-				?>
+				<?php read_more_link( $post->ID, 'links_relacionados' ); ?>
 			</div>
 			<div class="saiba_mais r-block">
                                 <div class="r-block-title">Saiba Mais</div>
 				<?php //$key="saiba_mais"; echo get_post_meta($post->ID, $key, true); ?>
-				<?php
-					$postmeta = get_post_meta($post->ID, 'saiba_mais', true);
-					$doc = new DOMDocument();
-					$doc->loadHTML($postmeta);
-					$size = $doc->getElementsByTagName('a')->length;
-					foreach($doc->getElementsByTagName('a') as $index => $href) { $index++;
-						echo utf8_decode($doc->saveHTML($href));
-						if ( $size > 5 && $index == 5 ) echo '<div style="display: none;">';
-						if ( $size > 5 && $index == $size ) echo '</div><a class="more_like_that" style="display: block; text-align: right; text-decoration: underline; cursor: pointer;">>> Mostrar mais</a>';
-					}
-				?>
+				<?php read_more_link( $post->ID, 'saiba_mais' ); ?>
                         </div>
 		</div>
 	</div><!-- #primary -->
