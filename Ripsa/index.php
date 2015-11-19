@@ -1,7 +1,4 @@
 <?php 
-	
-	
-	
 	// Get information about available Qualification Records editions (years)	
 	$site_list = wp_get_sites( array('public' => true) );
 	$edition_list = array();	
@@ -21,13 +18,16 @@
 	}
 	
 	get_header();
+
 	load_theme_textdomain('Ripsa', get_stylesheet_directory() . '/languages');
 ?>
 		<div id="content">
 			<section class="content-search">
 				<div class="padding15-25">
 					<form action="http://pesquisa.bvsalud.org/ripsa/">
-						<input type="hidden" name="where" value="FICHAS" />
+						<!--input type="hidden" name="where" value="FICHAS" /-->
+						<input type="hidden" name="filter[type][]" value="ficha" />
+						<input type="hidden" id="year" name="filter[year_cluster][]" value="<?php echo $current_edition; ?>" />
 						<input type="hidden" name="lang" value="<?php echo substr($site_lang, 0,2); ?>" />
 						<div class="row-fluid">
 							<label for="txtSearch"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
@@ -42,7 +42,6 @@
 								<div class="pull-right">
 									<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
 									<select id="select_edition" name="filter_chain[]">
-										<option value=""><?php echo _e('Todas edições', 'Ripsa'); ?></option>
 										<?php 
 											foreach ($edition_list as $edition){
 												echo '<option value="year_cluster:' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';

@@ -15,12 +15,6 @@ jQuery(document).ready(function($){
             	window.location = $bloginfo_url + '/' +  $(this).find(":selected").text() + '/' + $(location).attr('search');
 			}
         });
-
-		$('#target').submit(function() {
-			if($('#txtIndicadoresTodos').is(':checked')) {
-				$('#year').val('');
-			}
-		});
 });
 
 function OpenTopics(){

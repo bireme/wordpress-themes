@@ -51,7 +51,9 @@
 
 					<form id="target" action="http://pesquisa.bvsalud.org/ripsa/">
 						<!--input type="hidden" name="where" value="FICHAS" /-->
+						<input type="hidden" name="filter[type][]" value="ficha" />
 						<input type="hidden" id="year" name="filter[year_cluster][]" value="<?php echo $current_edition; ?>" />
+						<input type="hidden" name="lang" value="<?php echo substr($site_lang, 0,2); ?>" />
 						<div class="row-fluid">
 							<label for="q"><?php _e( 'Pesquisa', 'Ripsa' ); ?><br/> <?php _e( 'Entre uma ou mais palavras', 'Ripsa' ); ?></label>
 						</div>
@@ -65,7 +67,6 @@
 								<div class="pull-right">
 									<?php _e( 'Conjunto de indicadores', 'Ripsa' ); ?>
 									<select id="select_edition">
-										<option value=""><?php _e('Todas edições', 'Ripsa'); ?></option>
 										<?php
 											foreach ($edition_list as $edition){
 												echo '<option value="' . $edition . '"' . ($edition == $current_edition ? 'selected="1"' : '') .  '>' . $edition . '</option>';
