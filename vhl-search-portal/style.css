@@ -187,7 +187,7 @@ width: 463px;
 	clear: both;
 	width: 980px;
 	margin: 0px auto;
-	xmargin-left: 72px;
+
 }
 
 .storytitle, .storycontent{
@@ -329,20 +329,12 @@ margin-bottom: 20px;
 	clear: both;
 	padding-top: 30px;
 }
-.middle .collections_3col {
-    xpadding: 0px 4px;
-}
-.middle .vhl-collection {
-	xwidth: 50%;
-	xmargin: 0px 0px 0px 42px;
-	xfloat: left;
-}
+
+
 .middle .vhl-collection ul li {
 	margin-left:10px;
 }
-.widget {
-	Xmargin-bottom: 10px;
-}
+
 .vhl-network {
 }
 .vhl-network ul {
@@ -358,7 +350,7 @@ margin-bottom: 20px;
 .vhl-collection ul {
 	padding: 8px;
 	margin: 5px;
-	xborder-top: 1px solid #013365;
+
 }
 .vhl-collection ul li.page_item {
 	margin: 5px 0px 4px 31px;
@@ -457,10 +449,7 @@ x.footerArea .widget_nav_menu div LI A {
 	color: #007DC4;
 	font-weight:bold;
 }
-.footer .widget_nav_menu {
-	xpadding-bottom: 40px;
-	xmargin-left: 75px;
-}
+
 .institutionalFooter {
 	width: 61%;
 	float: left;
@@ -473,11 +462,7 @@ x.footerArea .widget_nav_menu div LI A {
 	float: left;
 	margin-right: 4px;
 }
-.InstitutionalInfo {
-	xpadding: 18px 0px;
-	xborder-top: 1px solid #8bb0c0;
-	xheight: 92px;
-}
+
 .Institution-info {
 	padding-top: 5px;
 }
@@ -554,11 +539,8 @@ line-height: 141%;
 	display: none;
 	}
 .widget_rss{
-	xfloat:right;
-	width: 80;
-	xmargin-top: 4px;
+
 	margin-right: 38px;
-	xborder-top: 1px solid #013365;
 	}
 .widget_rss a{
 	font-size: 12px;
@@ -684,12 +666,31 @@ height: 105px;
 	
 .mlf_alert, .postmeta_translations {display:none;}
 /**************** MEDIA QUERIES ****************/
+@media (width: 360px) {
+
+	.top h1 {width:220px !important;background-size:200px 30px !important;}
+	.top, .footerArea {width: 30%;}
+     .middle, .bar .barInner, .sliderInner{width:35% !important; float:left;}
+	.menu-mapa-do-site-pt-container {width:37%;}
+	.middle .searchVHL{background-position: 30% 0 !important;}
+	.middle .vhl-collection{width:100% !important;}
+	.vhl-collection ul li.page_item{width:80% !important;}
+	.bar {width: 96%; padding: 6px 0px 20px 0px;}
+	.top #parent {margin: 18px 6px 14px 0px;}
+	.topSlot {float: left; margin-right: 580px !important; margin-top: 10px;}
+	.left_column{margin-left: 0px;}
+	.collections_3col { width:auto;}
+	.temas, .eportuguese {float: left;margin-left: 60px; margin-top:0px;}
+}
+
+
+
 @media (min-width: 525px) and (max-width: 767px) {
 	.top, .footerArea {width: 93%;}
         .middle, .bar .barInner, .sliderInner{width:100%;}
 	.menu-mapa-do-site-pt-container {width:97%;}
 	.middle .searchVHL{background-position: 50% 0 !important;}
-	.middle .vhl-collection{width:auto;}
+
 }
 
 @media (max-width: 525px) {
