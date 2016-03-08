@@ -407,6 +407,11 @@ margin-bottom: 20px;
     clear: both;
 
 }
+.vhl-themes li.thumb_120 a{
+color: #315943;
+}
+
+
 .vhl-collection ul li.page_item ul {
 	display: none;
 	margin: 4px 00px 0px 0px;
@@ -442,15 +447,16 @@ margin-bottom: 20px;
 	border-top: 1px solid #8bb0c0;
 }
 .iniciativa ul{
-	
-	margin-left: 250px;
+	text-align: center;
 }
 
-.iniciativa ul li{
-	display: inline-block;
-	width: 136px !important;
 
+.iniciativa ul li {
+    display: inline-block;
+    width: 250px !important;
 }
+
+
 .footerArea {
 	width: 950px;
 	margin: 0px auto;
