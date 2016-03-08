@@ -481,6 +481,10 @@ color: #315943;
 #primary #content .entry-content{
 	margin-left: 33px;
 	}
+#respond {
+    width: 600px;
+    margin-left: 30px;
+}
 /**************** SINGLE ****************/
 .breadcrumb {
 
