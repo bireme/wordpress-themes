@@ -613,6 +613,11 @@ line-height: 141%;
 	}
 .footer .textwidget{ text-align:center;}
 .mlf_alert, .postmeta_translations {display:none;}
+
+#weblizar_twitter-2 .widget-title{
+	color: #5EA27C;
+	padding-left: 30px;
+	}
 /**************** MEDIA QUERIES ****************/
 @media (width: 360px) {
 
