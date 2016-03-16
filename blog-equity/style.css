@@ -25,6 +25,7 @@ strong {display:inline;}
 .bar #otherVersions a img {display: none;}
 .bar .menu-blogmenu-container{display:none;}
 #parent{margin: 0 30% !important;}
+.top .lang-item {display: inline-block;}
 .top_sidebar{background:#008dc9;}
 
 .top_sidebar div[class^='menu-mainmenu'] {float:left;}
@@ -39,7 +40,7 @@ strong {display:inline;}
 .top_sidebar #searchsubmit, .frm_submit input {background: #DBEEF9;color: #196AAA;border: 1px solid #196AAA;border-radius:0;}
 .frm_submit {text-align: right;}
 .top_sidebar #s, .frm_form_fields input {border-radius:0;}
-
+.slider {float:right;}
 .column_1 .menu li {padding:8px 0 8px 16px;border-bottom: 2px solid #e2e2e2;}
 .column_1 .menu li:first-child {border-top:2px solid #e2e2e2;}
 .column_1 .menu a:hover {text-decoration: none; color:rgb(216, 100, 34);}

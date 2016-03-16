@@ -19,6 +19,16 @@ register_sidebar( array(
 ) );
 
 
+register_sidebar( array(
+	'name' => __('slider'),
+	'id' => ('slider'),
+	'description' => '',
+	'before_widget' => '<div id="%1$s" class="widget %2$s">',
+	'after_widget' => '</div>',
+	'before_title' => '<strong class="widget-title">',
+	'after_title' => '</strong>',
+) );
+
 // Callback function to insert 'styleselect' into the $buttons array
 function my_mce_buttons_2( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
