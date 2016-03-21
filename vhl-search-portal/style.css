@@ -113,8 +113,7 @@ margin: 0px auto;
 .bar .topMenu LI {
 	display: inline-block;
 	padding: 0px 5px;
-	zoom: 1;
-	*display:inline;
+	 
 }
 #otherVersions img {
 	display: none;
@@ -123,8 +122,8 @@ margin: 0px auto;
 	display: inline-block;
 	padding: 0px 5px;
 	border-left: 1px solid #fff;
-	zoom: 1;
-	*display:inline;
+	
+
 }
 #otherVersions li:first-child {
 	border: none;
@@ -277,8 +276,7 @@ width: 463px;
 .middle .searchVHL .searchOptions LI {
 	display: inline-block;
 	margin-right: 38px;
-	zoom: 1;
-	*display:inline;
+	
 }
 .middle .searchVHL .searchOptions LI A {	
 	display: inline-block;
@@ -666,32 +664,7 @@ height: 105px;
 	
 .mlf_alert, .postmeta_translations {display:none;}
 /**************** MEDIA QUERIES ****************/
-@media (width: 360px) {
 
-	.top h1 {width:220px !important;background-size:200px 30px !important;}
-	.top, .footerArea {width: 30%;}
-     .middle, .bar .barInner, .sliderInner{width:35% !important; float:left;}
-	.menu-mapa-do-site-pt-container {width:37%;}
-	.middle .searchVHL{background-position: 30% 0 !important;}
-	.middle .vhl-collection{width:100% !important;}
-	.vhl-collection ul li.page_item{width:80% !important;}
-	.bar {width: 96%; padding: 6px 0px 20px 0px;}
-	.top #parent {margin: 18px 6px 14px 0px;}
-	.topSlot {float: left; margin-right: 580px !important; margin-top: 10px;}
-	.left_column{margin-left: 0px;}
-	.collections_3col { width:auto;}
-	.temas, .eportuguese {float: left;margin-left: 60px; margin-top:0px;}
-}
-
-
-
-@media (min-width: 525px) and (max-width: 767px) {
-	.top, .footerArea {width: 93%;}
-        .middle, .bar .barInner, .sliderInner{width:100%;}
-	.menu-mapa-do-site-pt-container {width:97%;}
-	.middle .searchVHL{background-position: 50% 0 !important;}
-
-}
 
 @media (max-width: 525px) {
 	.top h1 {width:220px !important;background-size:200px 30px !important;}
@@ -705,4 +678,62 @@ height: 105px;
 	.sliderItem{margin: 0 16% !important;}
 	.middle .searchVHL{background-position: 50% 0 !important;}
 	.middle .searchVHL .vhl-search-input {width: 58% !important; margin-left:6%;}
+}
+@media (width: 360px) {
+	.container {width: 360px;}
+	.top, .footerArea {width: 110% !important;}
+	.top #parent {margin: 18px 6px 14px 19px;}
+	.topSlot {margin-top: 0px; }
+	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
+	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
+	.middle .searchVHL {background-position: 50% -34px!important; height: 85px;padding: 28px 0px 20px 0px;}
+	.middle .collections {margin-left: 0px;}
+	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	 .widget_rss {margin-left: 30px;}
+	 #bvsnet {width: 194px;}
+	 .temas{margin-left:60px;}
+	 .panel-last-child h3{ margin-left:30px;}
+	 .eportuguese {margin-top: 0px; margin-left: 55px;}
+	 .eportuguese h3 {margin-left: 0px;}
+	 .tipsy-social-icon-container {width: 61% !important; }
+}
+
+
+@media (width: 320px) {
+	.container {width: 320px;}
+	.top, .footerArea {width: 110% !important;}
+	.top #parent {margin: 18px 6px 14px 19px;}
+	.topSlot {margin-top: 0px; }
+	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
+	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
+	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;}
+	.middle .collections {margin-left: 0px;}
+	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	 .widget_rss {margin-left: 30px;}
+	 #bvsnet {width: 194px;}
+	 .temas{margin-left:60px;}
+	 .panel-last-child h3{ margin-left:30px;}
+	 .eportuguese {margin-top: 0px; margin-left: 55px;}
+	 .eportuguese h3 {margin-left: 0px;}
+	 .tipsy-social-icon-container {width: 72%;}
+	
+}
+@media (width: 375px) {
+	.container {width: 375px;}
+	.top, .footerArea {width: 110% !important;}
+	.top #parent {margin: 18px 6px 14px 19px;}
+	.topSlot {margin-top: 0px; }
+	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
+	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
+	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;}
+	.middle .collections {margin-left: 0px;}
+	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	 .widget_rss {margin-left: 30px;}
+	 #bvsnet {width: 194px;}
+	 .temas{margin-left:60px;}
+	 .panel-last-child h3{ margin-left:30px;}
+	 .eportuguese {margin-top: 0px; margin-left: 55px;}
+	 .eportuguese h3 {margin-left: 0px;}
+	 .tipsy-social-icon-container {width: 61% !important; }
+	
 }
