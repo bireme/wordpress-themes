@@ -1,5 +1,5 @@
 <?php
-	$site_list = wp_get_sites( array('public' => true) );
+	$site_list = wp_get_sites( array('public' => true, 'deleted' => false) );
 
 	if ( count($site_list) > 1 ){
 		foreach ($site_list as $site){

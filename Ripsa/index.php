@@ -1,6 +1,6 @@
 <?php 
 	// Get information about available Qualification Records editions (years)	
-	$site_list = wp_get_sites( array('public' => true) );
+	$site_list = wp_get_sites( array('public' => true, 'deleted' => false) );
 	$edition_list = array();	
 	
 	if ( count($site_list) > 1 ){
