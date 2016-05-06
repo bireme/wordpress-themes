@@ -14,7 +14,7 @@ Version: 0.1
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
+ 
 /* =Imports styles from the parent theme
 -------------------------------------------------------------- */
 @import url('../../plugins/bvs-site-wp-plugin/bvs-themes/bvs-2012/style.css');
@@ -409,8 +409,12 @@ margin-bottom: 20px;
 }
 .vhl-themes li.thumb_120 a{
 color: #315943;
-}
 
+}
+.rede a {
+    color: #315943;
+    margin-left: -9px;
+}
 
 .vhl-collection ul li.page_item ul {
 	display: none;
@@ -423,6 +427,7 @@ color: #315943;
 	font-size: 90%;
 	display: inline-block;
 }
+
 .middle .post .storycontent a img {
 	float: left;
 	margin: 0px 10px 10px 0px;
@@ -446,17 +451,80 @@ color: #315943;
 	background: #315943;
 	border-top: 1px solid #8bb0c0;
 }
-.iniciativa ul{
+.siteInfo ul{
 	text-align: center;
 }
 
-
-.iniciativa ul li {
+.siteInfo ul li.thumb_120 {
+    clear: both;
     display: inline-block;
-    width: 250px !important;
+    width: 13%;
 }
 
+.siteInfo li.thumb_120 a {
+    color: #fff;
+	
+	}
+.siteInfo li {
+    border-right: none;
+}
+.siteInfo ul{
+	Xwidth:1000px;
+	}
+.vhl-themes .siteInfo li img {
+	float:none;
+}
 
+#sticky-posts-7 img.wp-post-image {
+    max-width: 236px;
+    margin-left: 27px;
+	}
+	
+.widget_weblizar_twitter{
+	margin-top: 31px;
+	
+	}	
+	
+@-moz-document url-prefix() {
+	#sticky-posts-8{
+			margin-top: 31px;
+		}
+	}
+@-moz-document url-prefix() {
+	input[type="submit"]
+	{padding:6.5px ;}
+}
+input[type="submit"] {
+	padding: 8px;
+	}
+
+#vhl-search-input {
+	width: 365px;
+	margin-right:-1px;
+	}
+#rss-12{
+	margin-top: 34px;
+	}
+
+#vhl_themes-2 .widget-title{
+	margin-bottom: 10px;
+	}
+	
+#vhl_themes-2{
+	height: 549px;
+	}
+	
+
+
+
+.column .widget DIV {
+	padding: 0px;
+}
+
+#vhl_collection-8, #vhl_collection-9, #vhl_collection-10 {
+	padding-top: 10px;
+	margin-left:-17px;
+}
 .footerArea {
 	width: 950px;
 	margin: 0px auto;
@@ -485,6 +553,8 @@ color: #315943;
     width: 600px;
     margin-left: 30px;
 }
+
+
 /**************** SINGLE ****************/
 .breadcrumb {
 
@@ -551,7 +621,7 @@ line-height: 141%;
 
 }
 .rssSummary{
-	margin-top:5px;
+	margin-top:-4px;
 	font-size: 11px;
 
 
