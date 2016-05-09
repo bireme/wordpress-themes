@@ -174,6 +174,18 @@ a {
 	margin-top: 64px;
 
 }
+.search-submit img{
+	margin-bottom: -12px;
+    max-height: 34px;
+    margin-left: -4px;
+}
+@-moz-document url-prefix() { 
+  .search-submit img{
+	margin-bottom: -13px;
+    max-height: 33px;
+    margin-left: -4px;
+}
+}	
 .top {
 	clear: both;
 	width: 974px;
@@ -502,8 +514,8 @@ input[type="submit"] {
 	width: 365px;
 	margin-right:-1px;
 	}
-#rss-12{
-	margin-top: 34px;
+#rss-11{
+	height: 550px !important;
 	}
 
 #vhl_themes-2 .widget-title{
