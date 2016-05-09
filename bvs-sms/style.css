@@ -149,6 +149,16 @@ s.column_2 {margin:0 20px 0 10px;padding-top: 24px;}
     font-weight: normal;
     text-align: center;}
 .related-resources div { margin: 30px 0; }
+.headerWidget{ display:block !important;
+	margin-top:192px;
+	margin-right: 10px; 
+}
+.search-submit img{     margin-bottom: -9px;
+    max-height: 28px;
+    margin-left: -4px;}
+.vhl-search-form{
+	padding-top:14px;
+	}
 
 @media (max-width: 867px) {
 	.column_1 {width:74% !important;margin:0;}
