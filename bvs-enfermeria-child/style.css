@@ -452,7 +452,9 @@ max-height: 33px;
 margin-left: -4px;
 }
 }
-
+.upw-posts .entry-image {
+    margin-bottom: 2px !important;
+}
 .vhl_themes-2{
 	height:300px;
 	}
@@ -531,7 +533,7 @@ input[type="submit"] {
 	margin-right:-1px;
 	}
 #rss-11{
-	height: 550px !important;
+	height: 572px !important;
 	}
 
 #vhl_themes-2 .widget-title{
