@@ -100,7 +100,7 @@ a {
 .container {
 	width: 1000px;
 	margin: 0px auto;
-	background: #FFF;
+	background: #FFF;  
 	box-shadow: 0px 0px 6px 6px #E6E6E6;
 }
 .bar {
@@ -439,7 +439,23 @@ color: #315943;
 	font-size: 90%;
 	display: inline-block;
 }
+.search-submit img {
+       margin-bottom: -12px;
+    max-height: 35px;
+    margin-left: -4px;
+}
 
+@-moz-document url-prefix() { 
+ .search-submit img {
+    margin-bottom: -13px;
+max-height: 33px;
+margin-left: -4px;
+}
+}
+
+.vhl_themes-2{
+	height:300px;
+	}
 .middle .post .storycontent a img {
 	float: left;
 	margin: 0px 10px 10px 0px;
@@ -690,8 +706,14 @@ line-height: 141%;
 	height: 80px;
 	}
 .upw-posts .category-iniciativas-de-interes{
-	height: 30px;
+	margin-bottom: 0px;
+    padding-bottom: 0px; 
 	border-bottom: 0px;
+		height: -20px; 
+	}
+.upw-posts .entry-image {
+	margin-bottom: 0px;
+
 	}
 .footer .textwidget{ text-align:center;}
 .mlf_alert, .postmeta_translations {display:none;}
@@ -700,6 +722,8 @@ line-height: 141%;
 	color: #5EA27C;
 	padding-left: 30px;
 	}
+	
+
 /**************** MEDIA QUERIES ****************/
 @media (width: 360px) {
 
