@@ -34,10 +34,8 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
-	<div class="single-complement">
-		<div class="related-content">
-			<?php if ( function_exists( "get_yuzo_related_posts" ) ) { get_yuzo_related_posts(); } ?>
-		</div>
+	<div class="spacer"></div>
+	<div class="footer_sidebar">
 		<?php dynamic_sidebar( 'single-sidebar' ); ?>
 		<div class="spacer"></div>
 	</div>
