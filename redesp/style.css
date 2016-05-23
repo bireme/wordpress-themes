@@ -24,16 +24,19 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * Create here your custom styles
  *
  */
+ 
+.header {height:185px;}
 #content {font-family: Arial;	}
-#parent{margin:6px 0 11px 30px;}
+#parent{margin:6px 0 11px 80px;}
 .container {-webkit-box-shadow: 0 0 6px 6px #E6E6E6;box-shadow: 0 0 6px 6px #E6E6E6; background:#fff;}
-.bar {padding: 4px;background: url(/wp-content/uploads/2015/06/top_bg.jpg);height: 20px;width:99.1% !important;float:none;}
+x.bar {padding: 4px;background: url(/wp-content/uploads/2015/06/top_bg.jpg);height: 20px;width:99.1% !important;float:none;}
+.bar{ padding: 0px;}
 .bar .menu-item{margin-top: 3px;}
 .tipsy-social-icons {margin-top:30px}
 .site_name {display: none;}
 .headerWidget {  float: right;
-    margin-top: -120px;
-	margin-right: 91px;
+    margin-top: -158px;
+	xmargin-right: 91px;
 
 	}
 .top_pt-br .site_name span {display: none !important;}
@@ -42,11 +45,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .top_en-us .site_name h1 a {display: block;height:51px;background: url(/wp-content/uploads/2014/05/title-en.png);}
 .metaslider .caption {padding:0 8px !important;}
 .column_1 .widget DIV {padding: 0;}
-.column_1 {margin:0 10px 0 20px;}
-.column_2 {margin:0 20px 0 10px;padding-top: 24px;}
+.column_1 {margin:0 10px 0 30px;}
+.column_2 {margin:0 20px 0 10px;padding-top: 0px; xpadding-left: 97px;
+}
 .metaslider .caption {padding:0 8px;}
 .wp-cpl-widget li {margin: 8px 0 !important;}
-.widget-title{font-size: 150% !important;color:#007cc4 !important;}
+.widget-title{font-size: 110% !important;color:#3a2f88 !important;}
 .widget-title a {color:#007cc4 !important;text-decoration: none;}
 .widget-title a {text-decoration: underline;}
 .column_1 .vhl-collection {float: left;width:33%;margin-top:24px;}
@@ -62,7 +66,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .footer_sidebar .widget ul {margin: 0 5px;}
 
 /* SEARCH */
-.top_sidebar {margin:60px 0 25px 0px;padding:1px 0 20px 0;background: #fff;}
+.top_sidebar {margin:0px 0 25px 0px;padding:1px 0 20px 0;background: #fff;}
 .top_sidebar .vhl-search {
 	width: 40%;
 	padding: 8px;
@@ -208,12 +212,86 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	color: #fff;
 	}
 	
-#sticky-posts-4 .widget_ultimate_posts{
-	
-	background-color:#fff;
+.top_sidebar .upw-posts{
+	 margin: 20px;
+	 width: 94%;
+	 margin-left:35px;
 	
 	} 
-#sow-post-carousel-2{
+
+.home #sow-post-carousel-2 {
 	background-color: #3a2f88;
-	border: 1px solid red;
 	}
+	
+.home .post-55 , .home .post-52, .home .post-49, .home .post-46 {
+    border: 1px solid #efefef;
+    display: block;
+    float: left;
+    list-style: outside none none;
+    margin-left: 0;
+    margin-right: 15px;
+    overflow: hidden;
+    padding: 0;
+    width: 217px;
+	height: 370px;
+	}
+	
+.entry-image img {
+	 margin-left: 33px;
+	}
+	
+a.more-link{
+	background: #fff;
+	color: #3a2f88 !important;
+	}
+
+.sow-carousel-wrapper {
+	margin-left: 50px;
+	margin-top:20px; 
+	}
+.sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item {
+	width: 313px;
+	color: #fff;
+	}	
+	
+.container h3 {
+	color: #FFF;
+    margin-bottom: 5px;
+    padding: 0 0.4rem;
+	border-bottom: 0px;
+	
+}
+.sow-carousel-wrapper ul.sow-carousel-items li.sow-carousel-item h3 {
+	  color: #fff;
+    font-size: 10px;
+    margin: 10px 0 0;
+    text-align: left;
+	width: 271px;
+	}
+	
+	
+
+.searchform{
+	 margin-left: 530px;
+	}
+
+.widget_search label{ display: none;}
+
+#s{margin: 20px 0;
+    width: 300px;
+}
+	
+#search-2{
+    margin-right: 71px;
+    margin-top: 50px;}
+	
+.entry-summary{
+	width: 180px;
+	margin-left: 26px;
+	}
+	
+.column .widget DIV {
+    padding: 0px;
+}
+
+#bigcalendar1{margin-left: 100px;}

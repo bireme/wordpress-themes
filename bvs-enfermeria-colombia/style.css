@@ -1,23 +1,23 @@
 /*
-Theme Name: BVS Enfermeria
-Description: Tema padrão para o portalBVS Enfermeria
+Theme Name: BVS Enfermeria Colombia
+Description: Tema padrao para o portal BVS Enfermeria Colombia
 Author: BIREME/OPAS/OMS
 Author URI: https://github.com/bireme
 Template: bvs-2012
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl.html
 Version: 0.1
-*/ 
-
+*/
 
 /*
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
- 
+
 /* =Imports styles from the parent theme
 -------------------------------------------------------------- */
 @import url('../../plugins/bvs-site-wp-plugin/bvs-themes/bvs-2012/style.css');
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -65,7 +65,16 @@ table {
 /* END CSS RESET */
 
 
-
+.site_name{
+	background: url(images/title.jpg) no-repeat;
+	float: left;
+    /* font-size: 150%; */
+    margin-top: 31px;
+    margin-left: 30px;
+    width: 356px;
+    height: 71px;
+	}
+.site_name span{ display:none;}
 
 .spacer {
 	width: 100%;
@@ -79,7 +88,7 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 12px;
 }
-strong {
+strong { 
 	font-weight: bold;
 }
 h1, h2, h3 {
@@ -92,7 +101,7 @@ h4{
 	font-size: 14px;
 	}
 a {
-	color: #5ea27c;
+	color: #013893;
 	text-decoration: none;
 	margin-bottom: 14px;
 }
@@ -106,7 +115,8 @@ a {
 .bar {
 	width: 100% !important;
 	padding: 8px 0px 4px 0px;
-	background: #4d946d;
+	background: url(images/bg.gif) repeat-x;
+	height:17px;
 }
 .bar .barInner {
 	width: 974px;
@@ -139,6 +149,9 @@ a {
 .column .widget DIV {
     padding-top: 0px !important;
 }
+.column strong.widget-title {
+    border-bottom: 1px solid #013893;
+}
 .column_1 .widget-title, .column_2 .widget-title, .column_3 .widget-title{
 	background: url(images/icon.jpg) left no-repeat; 
 
@@ -146,13 +159,13 @@ a {
 .column_2 .widget-title a, .column_3 .widget-title a{
 	margin-left: 30px;
 		font-size: 15px !important;
-	color: #5ea27c;
+	color: #013893;
 	}
 
 .column_1 .widget-title a{
-	margin-left: 15px;
+	
 		font-size: 15px !important;
-	color: #5ea27c;
+	color: #013893;
 	}
 #otherVersions li:first-child {
 	border: none;
@@ -396,7 +409,7 @@ margin-bottom: 20px;
 
 }
 .vhl-collection ul li.page_item {
-	margin: 5px 0px 4px 31px;
+	margin: 5px 0px 4px 9px;
 	padding-bottom: 3px;
 	font-weight: normal;
 	font-size: 94%;
@@ -420,11 +433,11 @@ margin-bottom: 20px;
 
 }
 .vhl-themes li.thumb_120 a{
-color: #315943;
+color: #013893;
 
 }
 .rede a {
-    color: #315943;
+    color: #013893;
     margin-left: -9px;
 }
 
@@ -478,8 +491,11 @@ margin-left: -4px;
 	margin-left: 35px;
 	}
 .footer {
-	background: #315943;
+	background: #013893;
 	border-top: 1px solid #8bb0c0;
+}
+.siteInfo {
+		background: #dadada;
 }
 .siteInfo ul{
 	text-align: center;
@@ -488,22 +504,22 @@ margin-left: -4px;
 .siteInfo ul li.thumb_120 {
     clear: both;
     display: inline-block;
-    width: 13%;
+    width: 21%;
 }
 
 .siteInfo li.thumb_120 a {
-    color: #fff;
+    color: #dadada;
 	
 	}
 .siteInfo li {
     border-right: none;
 }
-
+.footer #text-6{color:#fff;}
 .vhl-themes .siteInfo li img {
 	float:none;
 }
 
-#sticky-posts-7 img.wp-post-image {
+#sticky-posts-2 img.wp-post-image {
     max-width: 236px;
     margin-left: 27px;
 	}
@@ -536,18 +552,25 @@ input[type="submit"] {
 	margin-bottom: 10px;
 	}
 	
-#vhl_themes-2{
-	height: 549px;
-	}
+
 
 .column .widget DIV {
 	padding: 0px;
 }
 
-#vhl_collection-8, #vhl_collection-9, #vhl_collection-10 {
-	padding-top: 10px;
-	margin-left:-17px;
+#vhl_collection-2, #vhl_collection-3, #vhl_collection-4 {
+	padding-top: 15px;
+	
 }
+.headerWidget {
+    float: right;
+    margin-top: 73px;
+}
+#vhl_collection-3, #vhl_collection-4 {padding-bottom: 30px;}
+#vhl_collection-2 {padding-bottom: 31px;}
+
+#rss-2 .widget-title .rsswidget{     padding-left: 18px;}
+
 .footerArea {
 	width: 950px;
 	margin: 0px auto;
@@ -562,7 +585,7 @@ input[type="submit"] {
 .rsswidget img{
 	display:none;
 	}
-#vhl_collection-8 .widget-title, #vhl_collection-9 .widget-title, #vhl_collection-10 .widget-title{
+#vhl_collection-2 .widget-title, #vhl_collection-3 .widget-title, #vhl_collection-4 .widget-title{
 	display:none;
 	}
 .single1column {
@@ -577,7 +600,9 @@ input[type="submit"] {
     margin-left: 30px;
 }
 
-
+#rss-3 a{
+	margin-left: 15px;
+	}
 /**************** SINGLE ****************/
 .breadcrumb {
 
@@ -713,7 +738,7 @@ line-height: 141%;
 .mlf_alert, .postmeta_translations {display:none;}
 
 #weblizar_twitter-2 .widget-title{
-	color: #5EA27C;
+	color: #013893;
 	padding-left: 30px;
 	}
 	

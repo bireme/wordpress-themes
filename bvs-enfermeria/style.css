@@ -39,11 +39,11 @@ a:hover {
  }
  
 .header{ background: #fff;}
+
 .topbar {
     background-color: #4D946D;
-    /*padding: 2px 0;*/
-    color: #fff;
-    font-size: 8pt;
+	color: #fff;
+	height: 25px;
 }
 .topbar a {
     color: #fff;
@@ -67,29 +67,23 @@ header .topbanner .logo {
     font-size: 20pt;
     font-weight: bold;
 	color: #003366;
+	display:none;
 }
 .topbanner {
 	height: 123px !important;
 	
 }
 .widget_nav_menu, {
-    width: 100%;
-    text-align: center;
-    margin: 5px 0 0 0;
+  
 }
 .widget_nav_menu li {
-    list-style: none;
-    display: inline-block;
+    
 }
 .widget_nav_menu li a {
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-size: 10pt;
+   
 }
 .widget_nav_menu li a:hover {
-    color: #fff;
-    text-decoration: none;
-    background-color: #4D946D;
+   
 }
 
 .vhl-search {
@@ -481,19 +475,7 @@ footer a {
 .sub-menu {
     display: none;
 }
-/* MENU */
-.shailan-dropdown-menu li a {
-    font-family: Arial,serif !important;
-    font-size: 11pt !important;
-}
-.shailan-dropdown-wrapper-2, .dropdown-horizontal-container, .shailan-dropdown-menu {
-    border: 0 !important;
-    box-shadow: none !important;
-}
-.shailan-dropdown-menu li:hover a{
-    text-shadow: none !important;
-    color: #fff !important;
-}
+
 .widget_ultimate_posts footer {
     background-color: inherit;
 }
@@ -520,22 +502,18 @@ footer a {
     padding: 0 !important;
 }
 
-.shailan-dropdown-menu .dropdown-horizontal-container, ul.dropdown li {
-	background: #e8f0ec !important;
-	}
 	
 .col-md-4.column-1{
-	width: 73%;
+	width: 93%;
+margin-left: 30px;
 	}
 .onecolumn.widget.vhl-collection{
-	width: 22%;
 	display: inline-block;
-	xborder: 1px solid #c9ded3;
-	xmargin-left: 27px;
+	
 	
 	}
 .col-md-4.column-2{
-	width:27%;
+	width:100%;
 	}
 .temas .owl-wrapper{
 	margin-top: 32px;
@@ -599,7 +577,8 @@ footer a {
 #rss-4 ul{
 	padding: 0px 10px !important;
 	}
-	
+	 ul li{
+	list-style:none;}
 #rss-4 ul li{
 	list-style:none;
 	margin-bottom: 15px;
@@ -617,4 +596,15 @@ footer a {
 	
 	background: url("images/rodape.jpg") no-repeat;
 	
+	}
+.col-md-4.column-1 .widget_rss{
+	x float: left;
+	x width:50%;
+	}
+.col-md-4.column-1 .widget_ultimate_posts{
+	float:right;
+	width:50%;
+	}
+.col-md-4.column-2 .panel-grid-cell{
+	width: 33% !important;
 	}
