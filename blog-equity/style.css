@@ -141,6 +141,11 @@ body.single .site-content{padding:0;margin:0;}
 .direve #content {margin-top: 75px;}
 
 /*
+* IMELINE
+*/
+.timeline .single1column {width: 98% !important;}
+
+/*
 * RESPONSIVITY
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and  
