@@ -144,7 +144,7 @@ body.single .site-content{padding:0;margin:0;}
 * IMELINE
 */
 .timeline .single1column {width: 98% !important;}
-
+.page-template-page-timeline-php .top_sidebar .widget_text {padding-left:8px !important;}
 /*
 * RESPONSIVITY
 /* Smartphones (portrait and landscape) ----------- */

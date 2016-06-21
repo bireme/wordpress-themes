@@ -1,4 +1,5 @@
 <?php
+/* Template Name: Timeline */
 /**
  * The template for displaying all pages.
  *
@@ -67,5 +68,5 @@ get_header(); ?>
         <?php
         }
 ?>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
