@@ -160,19 +160,28 @@ margin: 0px auto;
 .top #identification_pt-BR, .top #identification_en-US, .top #identification_es-ES {
 	float: left;
 }
-.top #identification_pt-BR h1 {
+
+.top #identification_pt-BR h1,
+.top #identification_pt-BR h2,
+.top #identification_en-US h1, 
+.top #identification_en-US h2, 
+.top #identification_es-ES h1, 
+.top #identification_es-ES h2{
+	display:none;
+}
+.top #identification_pt-BR {
 	background: url(images/pt/title.png) no-repeat;
 	width: 280px;
 	height: 54px;
 	margin-top: 29px;
 }
-.top #identification_en-US h1 {
+.top #identification_en-US {
 	background: url(images/en/title.png) no-repeat;
 width: 463px;
 	height: 48px;;
 	margin-top: 36px;
 }
-.top #identification_es-ES h1 {
+.top #identification_es-ES {
 	background: url(images/es/title.png) no-repeat;
 	width: 463px;
 	height: 48px;

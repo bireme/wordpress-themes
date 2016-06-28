@@ -51,6 +51,7 @@ $site_lang = substr($current_language, 0,2);
             </div>
             <div id="identification_<?php echo ($current_language);?>">
                 <h1><?php bloginfo('name'); ?></h1>
+                <h2><?php bloginfo('description'); ?></h2>
             </div>
 			<div class="topSlot">
 				<?php if ( is_active_sidebar( 'top_slot_' . $current_language ) ) : ?>
