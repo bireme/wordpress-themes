@@ -9,7 +9,7 @@ $current_language = get_bloginfo('language');
 $site_lang = substr($current_language, 0,2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo ( $current_language ); ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo ( $site_lang ); ?>" lang="<?php echo ( $site_lang ); ?>">
 
 <head>
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
@@ -50,7 +50,7 @@ $site_lang = substr($current_language, 0,2);
                 <img src="<?php bloginfo('template_url') ?>/images/<?php echo ( $site_lang ); ?>/logo_bvs.jpg" alt="<?php bloginfo('name'); ?>"/>
             </div>
             <div id="identification_<?php echo ($current_language);?>">
-                <h1><span><?php bloginfo('name'); ?></span></h1>
+                <h1><?php bloginfo('name'); ?></h1>
             </div>
 			<div class="topSlot">
 				<?php if ( is_active_sidebar( 'top_slot_' . $current_language ) ) : ?>
