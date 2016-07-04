@@ -6,6 +6,8 @@
  */
 ?>
 
+<?php $lang = isset( $_GET['l'] ) ? $_GET['l'] : get_locale(); ?>
+
 <?php if ($instance['before_posts']) : ?>
   <div class="upw-before">
     <?php echo wpautop($instance['before_posts']); ?>
@@ -110,7 +112,7 @@
                 foreach ($custom_field_values as $value) {
                   if (function_exists('extract_text_by_language_markup'))
                     echo extract_text_by_language_markup($value);
-		  else
+		              else
                     echo $value;
                   if ($value != $last_value) echo ', ';
                 }
@@ -127,6 +129,12 @@
   <?php endwhile; ?>
   
   </ul>
+
+  <?php if ( $upw_query->found_posts > $upw_query->post_count ) : ?>
+    <div class="upw-more">
+      <a href="<?php echo home_url( '/?s=%&l=' . $lang ); ?>" class="button"><?php _e('See more','upw'); ?></a>
+    </div>
+  <?php endif; ?>
 
 <?php else : ?>
 
