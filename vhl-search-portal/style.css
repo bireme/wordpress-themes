@@ -771,7 +771,17 @@ height: 105px;
 }
 
 @media (width: 768px) {
-	.container {width:768px;}
+	.container {width: 768px;}
 	.temas{margin-left:70px;} 
-	.eportuguese {margin-left: 60px;} 
+     .next_events {margin-left: 30px;}
+	.top, .footerArea {width: 727px !important;}
+	.bar .barInner {width: 727px !important;}
+	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;width: 759px;}
+	.middle {width: 759px;}
+	.sliderItem{    width: 255px; margin: 0px !important; }
+	.collections_3col {    width: 768px;}
+	 .eportuguese{margin-top: 0px; margin-left:60px;}
+	.widget_rss {margin-left: 40px;}
+
+	
 }
