@@ -771,6 +771,7 @@ height: 105px;
 }
 
 @media (width: 768px) {
+	.container {width:768px;}
 	.temas{margin-left:70px;} 
-	.eportuguese {margin-left: 60px;}
+	.eportuguese {margin-left: 60px;} 
 }
