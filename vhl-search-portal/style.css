@@ -177,13 +177,13 @@ margin: 0px auto;
 }
 .top #identification_en-US {
 	background: url(images/en/title.png) no-repeat;
-width: 463px;
+width: 280px;
 	height: 48px;;
 	margin-top: 36px;
 }
 .top #identification_es-ES {
 	background: url(images/es/title.png) no-repeat;
-	width: 463px;
+	width: 280px;
 	height: 48px;
 	margin-top: 30px;
 }
@@ -767,5 +767,10 @@ height: 105px;
 
 @media (width: 568px) {
 	.temas{margin-left:60px;}
+	.eportuguese {margin-left: 60px;}
+}
+
+@media (width: 768px) {
+	.temas{margin-left:70px;} 
 	.eportuguese {margin-left: 60px;}
 }
