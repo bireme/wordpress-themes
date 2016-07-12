@@ -491,8 +491,12 @@ margin-left: -4px;
 	margin-left: 35px;
 	}
 .footer {
-	background: #013893;
-	border-top: 1px solid #8bb0c0;
+	background: #013893 !important;
+	border-top: 1px solid #8bb0c0 !important;
+	float: none !important;
+}
+.footer a:visited {
+    color: #09F;
 }
 .siteInfo {
 		background: #dadada;
