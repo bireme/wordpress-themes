@@ -152,32 +152,55 @@ Version: 0.1
 .page-right-bar li i {font-size: 150%;display:inline-block;margin-right: 4px;}
 .wpcf7-textarea, .wpcf7-text {width:95%;}
 
+.end-menu-block { border-bottom: 2px solid #efefef !important;}
+
 /***** MEDIA QUERIES *****/
 /* Telefones em landscape e abaixo */
-@media (max-width: 480px) { ... }
+@media (max-width: 480px) { 
+	.container {width: 100%;}
+	.site_name {padding:0;}
+	.footer_sidebar .menu {display:block;}
+	.img-map{height:140px;}
+	.img-map img {max-width:150%; max-height: 100%;float:right;}
+}
+@media (max-width: 568px) {
+	.site_name {padding:0;}
+}
 
 @media screen and (min-width: 600px) {
 	body.template-front-page .site-content, body.single-attachment .site-content, body.full-width .site-content {width: 98%;}
 }
 /* Telefone em landscape a tablet em portrait */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	.top .headerWidget [id^="text-"] {top: 53px;margin-left: -550px;}
+	.img-map-overlay {width:90%;margin:5%; font-size: 90%;}
+    .img-map-overlay strong {margin-bottom:5px;font-size:130%;}
+    .sow-features-list {width: 100%;}
+    .header {height: 116px !important;}
 }
 /* tablet em portrait a landscape e desktop */
 @media (min-width: 768px) and (max-width: 979px) {
 	.top .headerWidget [id^="text-"] {top: 53px;margin-left: -550px;}
 	.top_sidebar #text-4 input[type='text'], 
-        .top_sidebar #text-11 input[type='text'], 
-        .top_sidebar #text-12 input[type='text'], 
-        .top-level2#text-7 input[type='text'] {width:160px;}
+    .top_sidebar #text-11 input[type='text'], 
+    .top_sidebar #text-12 input[type='text'], 
+    .top-level2#text-7 input[type='text'] {width:160px;}
+    .img-map-overlay {width:95%;margin:5%; font-size: 120%;}
+    .img-map-overlay strong {margin-bottom:5px;font-size:130%;}
+    .header {height: 116px !important;}
 }
-@media (min-width: 980px) and (max-width: 1024px) { 
+
+@media (min-width: 980px) and (max-width: 1023px) { 
 	.container {width: 98% !important;}
 	.top_sidebar #text-4 input[type='text'], 
 	.top_sidebar #text-11 input[type='text'], 
 	.top_sidebar #text-12 input[type='text'], 
 	.top-level2#text-7 input[type='text'] {width:160px;}
 	.panel-grid article .thumb-img {width: 33%;}
+}
+@media (min-width: 1024px) and (max-width: 1199px) { 
+	.container {width: 98% !important;}
+	.widget_search input[type='text'] {width: 150px !important;}
 }
 /* Desktop grande */
 @media (min-width: 1200px) {
