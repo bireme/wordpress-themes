@@ -40,7 +40,7 @@ Version: 0.1
 .top_en-us .site_name {background: url(/wp-content/uploads/2015/11/logo-bvs-en.png) no-repeat top left;}
 .top_es-es .site_name {background: url(/wp-content/uploads/2015/11/logo-bvs-es1.png) no-repeat top left;}
 .top .headerWidget {margin:50px 12px 0 0 ;}
-.top .headerWidget [id^="text-"] {position: absolute;top: 39px;width: 500px;margin-left: -985px;}
+.top .headerWidget [id^="text-"] {position: absolute;top: 8px;width: 500px;margin-left: -1005px;}
 @-moz-document url-prefix() { 
   .top .headerWidget [id^="text-"] {margin-top:-31px;}
 }
@@ -100,6 +100,7 @@ Version: 0.1
 .panel-grid-cell article .entry-summary p {margin:0;line-height: 130%;font-size: 90%;}
 .panel-grid-cell article .byline {font-style: italic;font-size: 90%;margin: 2px 0 3px 0;}
 .panel-grid-cell article .byline a {color:#0054ff;}
+strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 1.7em !important;color: #28367d;}
 .footer_sidebar {background:#2e3e4f;}
 .footer_sidebar .menu-footer-pt-container,
 .footer_sidebar .menu-footer-en-container,
@@ -162,9 +163,13 @@ Version: 0.1
 	.footer_sidebar .menu {display:block;}
 	.img-map{height:140px;}
 	.img-map img {max-width:150%; max-height: 100%;float:right;}
+	.search aside, .archive aside {float: none;width: 100%;margin-bottom: 20px;}
+	.search section#primary, .archive section#primary {width: 94% !important;}
+	.search article .entry-content, .archive article .entry-content {display:block;}
+	.search img.wp-post-image, .archive img.wp-post-image {margin: 0 0 0 12px}
 }
 @media (max-width: 568px) {
-	.site_name {padding:0;}
+	.site_name {padding:0 0 0 90px; height:85px;}
 }
 
 @media screen and (min-width: 600px) {
@@ -174,9 +179,9 @@ Version: 0.1
 @media (max-width: 768px) {
 	.top .headerWidget [id^="text-"] {top: 53px;margin-left: -550px;}
 	.img-map-overlay {width:90%;margin:5%; font-size: 90%;}
-    .img-map-overlay strong {margin-bottom:5px;font-size:130%;}
-    .sow-features-list {width: 100%;}
-    .header {height: 116px !important;}
+	.img-map-overlay strong {margin-bottom:5px;font-size:130%;}
+	.sow-features-list {width: 100%;}
+	.header {height: 116px !important;}
 }
 /* tablet em portrait a landscape e desktop */
 @media (min-width: 768px) and (max-width: 979px) {
@@ -189,7 +194,10 @@ Version: 0.1
     .img-map-overlay strong {margin-bottom:5px;font-size:130%;}
     .header {height: 116px !important;}
 }
-
+@media (max-width: 980px) {
+	.top-level2 {height:3px !important;}
+	.top_sidebar {border-top:3px solid #c5d7df;}
+}
 @media (min-width: 980px) and (max-width: 1023px) { 
 	.container {width: 98% !important;}
 	.top_sidebar #text-4 input[type='text'], 
