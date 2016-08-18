@@ -49,7 +49,13 @@ get_header(); ?>
                     // start the wordpress loop
                     if (have_posts()) : while (have_posts()) : the_post(); ?>
  
-                        <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+                        <div class="resources">
+                            <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+                            <?php if ( get_the_excerpt() ) : ?>
+                                <?php echo ' - '; ?>
+                                <span><?php echo get_the_excerpt(); ?></span>
+                            <?php endif; ?>
+                        </div>
  
                     <?php endwhile; endif; // done our wordpress loop ?>
                     <?php echo "</div>"; ?>
