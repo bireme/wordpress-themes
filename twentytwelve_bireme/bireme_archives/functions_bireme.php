@@ -98,4 +98,17 @@ $custom_include_file = TEMPLATEPATH . '/bireme_archives/custom/include.php';
 if(file_exists($custom_include_file)) {
     require_once($custom_include_file);
 }
+
+/**
+* Find and close unclosed xml tags
+**/
+function html_tidy($src){
+    libxml_use_internal_errors(true);
+    $x = new DOMDocument;
+    $x->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'.$src);
+    $x->formatOutput = true;
+    $ret = preg_replace('~<(?:!DOCTYPE|/?(?:html|body|head))[^>]*>s*~i', '', $x->saveHTML());
+    $done = trim(str_replace('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">','',$ret));
+    return $done;
+}
 ?>

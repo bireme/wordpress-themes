@@ -121,7 +121,7 @@ $site_lang = substr($current_language, 0,2);
 		<div class="header">
 			<div class="bar">
 				<div id="otherVersions">
-					<?php mlf_links_to_languages(); ?>	
+					<?php if ( function_exists(  'mlf_links_to_languages' ) ) mlf_links_to_languages(); ?>	
 				</div>
 				<div id="contact"> 
 					<span><a href="/<?php echo ( $site_lang ); ?>/contact/">Contato</a></span>
