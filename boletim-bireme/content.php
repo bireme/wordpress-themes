@@ -19,6 +19,8 @@ $pt = get_post_type( $id );
 	<header class="entry-header">
 		<?php
 			if ( is_single() ) :
+				$meta  = get_field( 'edition' );
+				if ( $meta[0] ) echo '<span class="edition-title">' . get_the_title( $meta[0] ) . '</span>';
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
@@ -32,7 +34,7 @@ $pt = get_post_type( $id );
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php if ( ! is_singular() && has_post_thumbnail() ) : ?>
 		<div class="entry-thumb">
 			<?php the_post_thumbnail(); ?>
 		</div>

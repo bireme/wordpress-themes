@@ -169,7 +169,7 @@ a {
 	
 .site-main{margin-left: 60px; width: 120%;}
 
-#footer{background: #fff; height:70px;}
+#footer{background: #fff; height:70px; padding: 0}
 
 #footer .container{background: #005bae;}
  
@@ -212,14 +212,18 @@ article{clear:both; padding-top: 5px;}
     border-style: solid;
     border-width: 0.35em 0px 0.35em 0.45em;
 }
+
 .month {
     display: none;
     margin-left: 2em;
 }
+
 .edition {
     display: none;
     margin-left: 4em;
 }
+
+.breadcrumbs {margin: 10px 0;}
 
 /**************** MEDIA QUERIES ****************/
 
