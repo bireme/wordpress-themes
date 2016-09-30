@@ -8,6 +8,8 @@ html{min-height:auto !important;}
 	padding: 0px;
 }
 
+#wrapper.container {padding-bottom: 15px;}
+
 h1, h2, h3 {font-family: Arial Narrow, sans-serif;}
 
 h1{font-size:24px!important; color: #922e2c!important; border-bottom: 1px solid #922e2c;}
