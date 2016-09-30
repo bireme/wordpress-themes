@@ -1,0 +1,710 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Boletim BIREME\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-30 09:47-0300\n"
+"PO-Revision-Date: 2016-09-29 16:25-0300\n"
+"Last-Translator: Wilson Moura <mourawil@paho.org>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:14
+#, fuzzy
+msgid "Not Found"
+msgstr "Nada Encontrado"
+
+#: ../404.php:18
+#, fuzzy
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+"Parece que nada foi encontrado neste local. Talvez tentar uma pesquisa?"
+
+#: ../archive-edition.php:33
+#, fuzzy
+msgid "All editions"
+msgstr "Todas as edições\t"
+
+#: ../archive-edition.php:45
+#, fuzzy
+msgid "Year"
+msgstr "Ano"
+
+#: ../audio.php:23 ../video.php:24
+#, fuzzy
+msgid "URL:"
+msgstr "URL:"
+
+#: ../audio.php:29 ../image.php:39 ../video.php:30
+#, fuzzy, php-format
+msgid "Back to %s"
+msgstr "Voltar para %s"
+
+#: ../audio.php:29 ../image.php:39 ../video.php:30
+#, fuzzy, php-format
+msgid "<span class=\"meta-nav\">&larr;</span> %s"
+msgstr "<span class=\"meta-nav\">&larr;</span> %s"
+
+#: ../comments.php:13
+#, fuzzy
+msgid ""
+"This post is password protected. Enter the password to view all comments."
+msgstr ""
+"Esse post é protegido por senha. Informe a senha para ver todos os "
+"comentários."
+
+#: ../comments.php:22
+#, fuzzy
+msgid "0 Comments"
+msgstr "0 Comentários"
+
+#: ../comments.php:22 ../content.php:69
+#, fuzzy
+msgid "1 Comment"
+msgstr "1 Comentário"
+
+#: ../comments.php:22 ../content.php:69
+#, fuzzy
+msgid "% Comments"
+msgstr "% Comentários"
+
+#: ../comments.php:23
+msgid "to"
+msgstr ""
+
+#: ../comments.php:29 ../comments.php:40
+#, fuzzy
+msgid "&larr; Old Comments"
+msgstr "&larr; Comentários Antigos"
+
+#: ../comments.php:30 ../comments.php:41
+#, fuzzy
+msgid "New Comments &rarr;"
+msgstr "Novos Comentários &rarr;"
+
+#: ../comments.php:47
+#, fuzzy
+msgid "Comments closed."
+msgstr "Comentários não são permitidos."
+
+#: ../comments.php:56
+#, fuzzy
+msgid "Comment"
+msgstr "Comentário"
+
+#: ../comments.php:59
+#, fuzzy
+msgid "Name"
+msgstr "Nome"
+
+#: ../comments.php:61
+#, fuzzy
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../comments.php:63
+#, fuzzy
+msgid "Website"
+msgstr "Website"
+
+#: ../content-none.php:11
+#, fuzzy
+msgid "Nothing Found"
+msgstr "Nada Encontrado"
+
+#: ../content-none.php:17
+#, fuzzy, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Pronto para publicar o seu primeiro post? <a href=\"%1$s\">Comece agora "
+"aqui</a>."
+
+#: ../content-none.php:21
+#, fuzzy
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Desculpe, mas nada foi encontrado com os termos da sua pesquisa. Por favor, "
+"tente novamente com algumas palavras-chave diferentes."
+
+#: ../content-none.php:26
+#, fuzzy
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Parece que não conseguimos encontrar o que você está procurando. Talvez a "
+"pesquisa pode ajudar."
+
+#: ../content-page.php:17 ../content.php:54
+#, fuzzy
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: ../content.php:49
+#, fuzzy
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continue lendo <span class=\"meta-nav\">&rarr;</span>"
+
+#: ../content.php:65
+#, fuzzy
+msgid "Posted in:"
+msgstr "Publicado em:"
+
+#: ../content.php:65
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ""
+
+#: ../content.php:67
+#, fuzzy
+msgid "Tagged as:"
+msgstr "Marcado como:"
+
+#: ../content.php:69
+#, fuzzy
+msgid "Leave a comment"
+msgstr "Deixe um comentário"
+
+#: ../core/classes/abstracts/abstract-front-end-form.php:293
+#, fuzzy
+msgid "Submit"
+msgstr "Enviar"
+
+#: ../core/classes/abstracts/abstract-front-end-form.php:336
+#, fuzzy
+msgid "Form submitted successfully!"
+msgstr "Formulário enviado com sucesso!"
+
+#: ../core/classes/abstracts/abstract-front-end-form.php:609
+#: ../core/classes/abstracts/abstract-front-end-form.php:621
+#, fuzzy, php-format
+msgid "%s is required."
+msgstr "%s é um campo obrigatório."
+
+#: ../core/classes/abstracts/abstract-front-end-form.php:615
+#, fuzzy, php-format
+msgid "%s must be an email address valid."
+msgstr "%s precisa ser um endereço de email válido"
+
+#: ../core/classes/class-bootstrap-nav.php:203
+#, fuzzy
+msgid "Add a menu"
+msgstr "Adicionar um menu"
+
+#: ../core/classes/class-contact-form.php:182
+#, fuzzy, php-format
+msgid "Message sent by the form %s in %s at %s"
+msgstr "Mensagem enviada pelo formulário %s em %s às %s"
+
+#: ../core/classes/class-metabox.php:98 ../core/classes/class-metabox.php:555
+#: ../core/classes/class-term-meta.php:83
+#: ../core/classes/class-term-meta.php:490
+#: ../core/classes/class-theme-options.php:85
+#: ../core/classes/class-theme-options.php:614
+#: ../core/classes/class-user-meta.php:68
+#: ../core/classes/class-user-meta.php:405
+#, fuzzy
+msgid "Add images in gallery"
+msgstr "Adicionar imagens na galeria"
+
+#: ../core/classes/class-metabox.php:99 ../core/classes/class-term-meta.php:84
+#: ../core/classes/class-theme-options.php:86
+#: ../core/classes/class-user-meta.php:69
+#, fuzzy
+msgid "Add in gallery"
+msgstr "Adicionar na galeria"
+
+#: ../core/classes/class-metabox.php:100 ../core/classes/class-metabox.php:516
+#: ../core/classes/class-metabox.php:544 ../core/classes/class-term-meta.php:85
+#: ../core/classes/class-term-meta.php:451
+#: ../core/classes/class-term-meta.php:479
+#: ../core/classes/class-theme-options.php:87
+#: ../core/classes/class-theme-options.php:565
+#: ../core/classes/class-theme-options.php:603
+#: ../core/classes/class-user-meta.php:70
+#: ../core/classes/class-user-meta.php:366
+#: ../core/classes/class-user-meta.php:394
+#, fuzzy
+msgid "Remove image"
+msgstr "Remover imagem"
+
+#: ../core/classes/class-metabox.php:101 ../core/classes/class-term-meta.php:86
+#: ../core/classes/class-theme-options.php:88
+#: ../core/classes/class-user-meta.php:71
+#, fuzzy
+msgid "Choose a file"
+msgstr "Selecione um arquivo"
+
+#: ../core/classes/class-metabox.php:102 ../core/classes/class-term-meta.php:87
+#: ../core/classes/class-theme-options.php:89
+#: ../core/classes/class-user-meta.php:72
+#, fuzzy
+msgid "Add file"
+msgstr "Adicionar arquivo"
+
+#: ../core/classes/class-metabox.php:493
+#: ../core/classes/class-term-meta.php:428
+#: ../core/classes/class-theme-options.php:531
+#: ../core/classes/class-user-meta.php:343
+#, fuzzy
+msgid "Select file"
+msgstr "Selecionar arquivo"
+
+#: ../core/classes/class-metabox.php:516
+#: ../core/classes/class-term-meta.php:451
+#: ../core/classes/class-theme-options.php:565
+#: ../core/classes/class-user-meta.php:366
+#, fuzzy
+msgid "Select image"
+msgstr "Selecionar imagem"
+
+#: ../core/classes/class-post-status.php:69
+#, php-format
+msgid "&nbsp;<span class=\"count\">(%s)</span>"
+msgid_plural "&nbsp;<span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../core/classes/class-post-type.php:67
+#: ../core/classes/class-post-type.php:74 ../core/classes/class-taxonomy.php:69
+#: ../core/classes/class-taxonomy.php:78
+#, fuzzy, php-format
+msgid "%ss"
+msgstr "%ss"
+
+#: ../core/classes/class-post-type.php:68 ../core/classes/class-taxonomy.php:70
+#, fuzzy, php-format
+msgid "%s"
+msgstr "%s"
+
+#: ../core/classes/class-post-type.php:69 ../core/classes/class-taxonomy.php:72
+#, fuzzy, php-format
+msgid "View %s"
+msgstr "Ver %s"
+
+#: ../core/classes/class-post-type.php:70 ../core/classes/class-taxonomy.php:73
+#, fuzzy, php-format
+msgid "Edit %s"
+msgstr "Editar %s"
+
+#: ../core/classes/class-post-type.php:71 ../core/classes/class-taxonomy.php:74
+#, fuzzy, php-format
+msgid "Search %s"
+msgstr "Pesquisar %s"
+
+#: ../core/classes/class-post-type.php:72 ../core/classes/class-taxonomy.php:75
+#, fuzzy, php-format
+msgid "Update %s"
+msgstr "Atualizar  %s"
+
+#: ../core/classes/class-post-type.php:73 ../core/classes/class-taxonomy.php:76
+#: ../core/classes/class-taxonomy.php:77
+#, fuzzy, php-format
+msgid "Parent %s:"
+msgstr "Parente %s"
+
+#: ../core/classes/class-post-type.php:75
+#, fuzzy
+msgid "Add New"
+msgstr "Adicionar Novo"
+
+#: ../core/classes/class-post-type.php:76 ../core/classes/class-taxonomy.php:79
+#, fuzzy, php-format
+msgid "Add New %s"
+msgstr "Adicionar Novo %s"
+
+#: ../core/classes/class-post-type.php:77 ../core/classes/class-taxonomy.php:80
+#, fuzzy, php-format
+msgid "New %s"
+msgstr "Novo %s"
+
+#: ../core/classes/class-post-type.php:78 ../core/classes/class-taxonomy.php:81
+#, fuzzy, php-format
+msgid "All %ss"
+msgstr "Todos os %ss"
+
+#: ../core/classes/class-post-type.php:79
+#, fuzzy, php-format
+msgid "No %s found"
+msgstr "Nenhum %s encontrado"
+
+#: ../core/classes/class-post-type.php:80
+#, fuzzy, php-format
+msgid "No %s found in Trash"
+msgstr "Nenhum %s encontrado na Lixeira"
+
+#: ../core/classes/class-taxonomy.php:71
+#, fuzzy, php-format
+msgid "Add or Remove %ss"
+msgstr "Adicionar ou Remover %ss"
+
+#: ../core/classes/class-taxonomy.php:82
+#, fuzzy, php-format
+msgid "Separate %ss with comma"
+msgstr "Separe %ss com vírgula"
+
+#: ../core/classes/class-taxonomy.php:83
+#, fuzzy, php-format
+msgid "Choose from %ss most used"
+msgstr "Escolher entre os %ss mais usados"
+
+#: ../core/classes/widgets/class-widget-like-box.php:20
+#, fuzzy
+msgid "Facebook Like Box"
+msgstr "Caixa de Curtir do Facebook"
+
+#: ../core/classes/widgets/class-widget-like-box.php:21
+#, fuzzy
+msgid "This widget includes a facebook like box on your blog"
+msgstr "Esse widget inclui a caixa de curtir do Facebook em seu site"
+
+#: ../core/classes/widgets/class-widget-like-box.php:48
+#, fuzzy
+msgid "Title:"
+msgstr "Título:"
+
+#: ../core/classes/widgets/class-widget-like-box.php:54
+#, fuzzy
+msgid "Facebook Page URL:"
+msgstr "URL da página do Facebook:"
+
+#: ../core/classes/widgets/class-widget-like-box.php:60
+#, fuzzy
+msgid "Width:"
+msgstr "Largura:"
+
+#: ../core/classes/widgets/class-widget-like-box.php:66
+#, fuzzy
+msgid "Height:"
+msgstr "Altura:"
+
+#: ../core/classes/widgets/class-widget-like-box.php:72
+#, fuzzy
+msgid "Color Scheme:"
+msgstr "Esquema de cores:"
+
+#: ../core/classes/widgets/class-widget-like-box.php:74
+#, fuzzy
+msgid "Dark"
+msgstr "Escuro"
+
+#: ../core/classes/widgets/class-widget-like-box.php:75
+#, fuzzy
+msgid "Light"
+msgstr "Claro"
+
+#: ../core/classes/widgets/class-widget-like-box.php:81
+#, fuzzy
+msgid "Show Friends Faces"
+msgstr "Exibir rostos dos amigos"
+
+#: ../core/classes/widgets/class-widget-like-box.php:86
+#, fuzzy
+msgid "Show Posts"
+msgstr "Exibir atualizações"
+
+#: ../core/classes/widgets/class-widget-like-box.php:91
+#, fuzzy
+msgid "Show Header"
+msgstr "Exibir cabeçalho"
+
+#: ../core/classes/widgets/class-widget-like-box.php:96
+#, fuzzy
+msgid "Show Border"
+msgstr "Exibir borda"
+
+#: ../core/helpers.php:53
+#, fuzzy
+msgid "&laquo; Previous"
+msgstr "&laquo; Anterior"
+
+#: ../core/helpers.php:54
+#, fuzzy
+msgid "Next &raquo;"
+msgstr "Próximo &raquo;"
+
+#: ../core/helpers.php:96
+#, fuzzy
+msgid "Related Posts"
+msgstr "Artigos Relacionados"
+
+#: ../core/helpers.php:232
+#, fuzzy
+msgid "Home"
+msgstr "Início"
+
+#: ../core/helpers.php:359
+#, fuzzy, php-format
+msgid "%sCategory: %s%s"
+msgstr "%sCategoria: %s%s"
+
+#: ../core/helpers.php:363
+#, fuzzy, php-format
+msgid "%sTag: %s%s"
+msgstr "%sTag: %s%s"
+
+#: ../core/helpers.php:378
+#, fuzzy, php-format
+msgid "%sSearch result for: &quot;%s&quot;%s"
+msgstr "%sResultado da busca para: &quot;%s&quot;%s"
+
+#: ../core/helpers.php:384
+#, fuzzy
+msgid "Posted by"
+msgstr "Publicado por"
+
+#: ../core/helpers.php:434
+#, fuzzy
+msgid "404 Error"
+msgstr "Erro 404"
+
+#: ../core/helpers.php:439
+#, fuzzy, php-format
+msgid "Page %s"
+msgstr "Página %s"
+
+#: ../functions.php:66
+#, fuzzy
+msgid "Main Menu"
+msgstr "Menu Principal"
+
+#: ../functions.php:179
+#, fuzzy
+msgid "Main Sidebar"
+msgstr "Sidebar Principal"
+
+#: ../functions.php:181
+#, fuzzy
+msgid "Site Main Sidebar"
+msgstr "Sidebar principal do site"
+
+#: ../functions.php:190
+#, fuzzy
+msgid "Footer Sidebar"
+msgstr "Sidebar do rodapé"
+
+#: ../functions.php:192
+#, fuzzy
+msgid "Site Footer Sidebar"
+msgstr "Sidebar do rodapé do site"
+
+#: ../functions.php:357 ../inc/template-tags.php:60
+#, fuzzy
+msgid "Sticky"
+msgstr "Destacado"
+
+#: ../functions.php:362 ../inc/template-tags.php:65
+#, fuzzy
+msgid "Posted in"
+msgstr "Publicado em"
+
+#: ../functions.php:394 ../functions.php:404
+#, fuzzy
+msgid "Search Results for:"
+msgstr "Resultado de Busca por:"
+
+#: ../header.php:29
+#, fuzzy
+msgid "Skip to content"
+msgstr "Pular para o conteúdo"
+
+#: ../header.php:90
+#, fuzzy
+msgid "Toggle navigation"
+msgstr "Alternar navegação"
+
+#: ../header.php:114
+#, fuzzy
+msgid "Search:"
+msgstr "Pesquisar:"
+
+#: ../header.php:119 ../searchform.php:12
+#, fuzzy
+msgid "Search"
+msgstr "Pesquisa"
+
+#: ../image.php:22
+#, fuzzy, php-format
+msgid "Image total size: %s pixels"
+msgstr "Tamanho total da imagem: %s pixels"
+
+#: ../image.php:22
+#, fuzzy
+msgid "Full image link"
+msgstr "Link da imagem completa"
+
+#: ../image.php:33
+#, fuzzy
+msgid "&larr; Previous image"
+msgstr "&larr; Imagem anterior"
+
+#: ../image.php:34
+#, fuzzy
+msgid "Next image &rarr;"
+msgstr "Próxima imagem &rarr;"
+
+#: ../inc/comments-loop.php:21
+#, fuzzy
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: ../inc/comments-loop.php:21 ../inc/comments-loop.php:44
+#, fuzzy
+msgid "Edit"
+msgstr "Editar"
+
+#: ../inc/comments-loop.php:37
+msgid "in"
+msgstr ""
+
+#: ../inc/comments-loop.php:40
+msgid "at"
+msgstr ""
+
+#: ../inc/comments-loop.php:41
+#, fuzzy
+msgid "said:"
+msgstr "disse:"
+
+#: ../inc/comments-loop.php:47
+#, fuzzy
+msgid "Your comment is awaiting moderation."
+msgstr "Seu comentário está aguardando moderação."
+
+#: ../inc/comments-loop.php:56
+#, fuzzy
+msgid "Respond"
+msgstr "Responder"
+
+#: ../inc/template-tags.php:68
+msgid "by"
+msgstr ""
+
+#: ../inc/woocommerce/template-tags.php:28
+msgid "View your shopping cart"
+msgstr ""
+
+#: ../inc/woocommerce/template-tags.php:29
+#, php-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../newsletter.php:85
+#, fuzzy
+msgid "See also"
+msgstr "Veja também"
+
+#: ../newsletter.php:95 ../newsletter.php:108
+#, fuzzy
+msgid "read more"
+msgstr "leia mais"
+
+#: ../search.php:18
+#, fuzzy, php-format
+msgid "Search Results for: %s"
+msgstr "Resultado de Busca por: %s"
+
+#, fuzzy
+#~ msgid "Title"
+#~ msgstr "Título:"
+
+#, fuzzy
+#~ msgid "Link"
+#~ msgstr "Link"
+
+#, fuzzy
+#~ msgid "Class"
+#~ msgstr "Continue lendo <span class=\"meta-nav\">&rarr;</span>"
+
+# @ odin
+#, fuzzy
+#~ msgid "top"
+#~ msgstr "para"
+
+#, fuzzy
+#~ msgid "right"
+#~ msgstr "Claro"
+
+#, fuzzy
+#~ msgid "Content"
+#~ msgstr "para abrir o conteúdo associado."
+
+#, fuzzy
+#~ msgid "Border"
+#~ msgstr "Exibir borda"
+
+#, fuzzy
+#~ msgid "Width"
+#~ msgstr "Largura:"
+
+#, fuzzy
+#~ msgid "Height"
+#~ msgstr "Altura:"
+
+# @ odin
+#~ msgid "Daily Archives: %s"
+#~ msgstr "Arquivos Diários: %s"
+
+# @ odin
+#~ msgid "Monthly Archives: %s"
+#~ msgstr "Arquivos Mensais: %s"
+
+# @ odin
+#~ msgctxt "monthly archives date format"
+#~ msgid "F Y"
+#~ msgstr "F Y"
+
+# @ odin
+#~ msgid "Yearly Archives: %s"
+#~ msgstr "Arquivos Anuais: %s"
+
+# @ odin
+#~ msgctxt "yearly archives date format"
+#~ msgid "Y"
+#~ msgstr "Y"
+
+# @ odin
+#~ msgid "Archives"
+#~ msgstr "Arquivos"
+
+# @ odin
+#~ msgid "All posts by %s"
+#~ msgstr "Todas as publicações por %s"
+
+# @ odin
+#~ msgid "Category Archives: %s"
+#~ msgstr "Arquivo da Categoria: %s"
+
+# @ odin
+#~ msgid "All rights reserved"
+#~ msgstr "Todos os direitos reservados"
+
+# @ odin
+#~ msgid ""
+#~ "Powered by the <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">Odin</a> "
+#~ "forces and <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</"
+#~ "a>."
+#~ msgstr ""
+#~ "Powered by the <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">Odin</a> "
+#~ "forces and <a href=\"%s\" rel=\"nofollow\" target=\"_blank\">WordPress</"
+#~ "a>."
+
+# @ odin
+#~ msgid "Tag Archives: %s"
+#~ msgstr "Arquivo da Tag: %s"
