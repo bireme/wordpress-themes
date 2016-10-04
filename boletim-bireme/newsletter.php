@@ -58,7 +58,6 @@ get_header(); ?>
         )
     );
     $t_query = new WP_Query( $args );
-    //echo "<pre>"; print_r($t_query); echo "</pre>";
 ?>
     <div class="middle">
         <?php if ( $p_query->have_posts() ) : ?>
@@ -68,13 +67,17 @@ get_header(); ?>
                 <?php $meta = get_field( 'slider_image' ); ?>
                 <?php if ( $meta ) : ?>
                 <li>
-                    <a href="<?php the_permalink(); ?>"><img src="<?php echo $meta; ?>" alt="<?php echo sanitize_title( get_the_title() ); ?>" /></a>
-                    <p class="flex-caption">
-                        <?php the_title(); ?>
-                        <span class="excerpt">
-                            <?php echo get_the_excerpt(); ?>
-                        </span>
-                    </p>
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php echo $meta; ?>" alt="<?php echo sanitize_title( get_the_title() ); ?>" />
+                        <p class="flex-caption">
+                            <?php the_title(); ?>
+                            <?php if ( has_excerpt() ) : ?>
+                            <span class="excerpt">
+                                <?php echo get_the_excerpt(); ?>
+                            </span>
+                            <?php endif; ?>
+                        </p>
+                    </a>
                 </li>
                 <?php endif; ?>
             <?php endwhile; ?>

@@ -27,7 +27,7 @@ get_header(); ?>
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
                 <?php if ( function_exists( 'bcn_display' ) ) bcn_display(); ?>
             </div>
-			<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : $first = true; $class = ''; ?>
 
 				<header class="page-header">
 					<h1><?php _e( 'All editions', 'odin' ) ?></h1>
@@ -40,9 +40,11 @@ get_header(); ?>
 					<?php
 						if ( ! isset($year) || date( "Y", $date ) != $year ) :
                         	$year = date( "Y", $date );
+                        	$class = $first ? 'first' : '';
+                        	$first = false;
                     ?>
 						<div class="year" data-year="<?php echo $year; ?>">
-				        	<h2><?php echo __( 'Year', 'odin' ) . ' ' . date( "Y", $date ); ?></h2>
+				        	<h2><a href="#"><?php echo __( 'Year', 'odin' ) . ' ' . date( "Y", $date ); ?></a></h2>
 				        </div>
 				    <?php endif; ?>
 
@@ -50,12 +52,12 @@ get_header(); ?>
 						if ( ! isset($month) || date( "m", $date ) != $month ) :
                         	$month = date( "m", $date );
                     ?>
-		                <div class="month year-<?php echo $year; ?>" data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
-		                	<h3><?php echo date_i18n( 'F', $date ); ?></h3>
+		                <div class="month year-<?php echo $year; ?> <?php echo $class; ?>" data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
+		                	<h3><a href="#"><?php echo date_i18n( 'F', $date ); ?></a></h3>
 		                </div>
 			        <?php endif; ?>
 
-			            <div class="edition month-<?php echo $month; ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 
 			    <?php endwhile;
 

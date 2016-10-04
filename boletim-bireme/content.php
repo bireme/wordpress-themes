@@ -7,12 +7,6 @@
  * @package Odin
  * @since 2.2.0
  */
-
-global $wp;
-$url = home_url(add_query_arg(array(),$wp->request));
-$id = url_to_postid( $url );
-$pt = get_post_type( $id );
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -42,12 +36,12 @@ $pt = get_post_type( $id );
 
 	<?php if ( is_search() ) : ?>
 		<div class="entry-summary">
-			<?php the_excerpt(); ?>
+			<?php if ( has_excerpt() ) the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 	<?php else : ?>
 		<div class="entry-content">
 			<?php
-				if ( 'edition' != $pt )
+				if ( is_singular() )
 					the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'odin' ) );
 				else
 					the_excerpt();
