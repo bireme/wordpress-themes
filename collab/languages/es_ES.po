@@ -1,0 +1,382 @@
+# Copyright (C) 2012 the WordPress team
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Twenty Twelve 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/twentytwelve\n"
+"POT-Creation-Date: 2012-09-27 17:51:13+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-10-19 09:42+0100\n"
+"Last-Translator: Sergio Redondo <sergiornoval@gmail.com>\n"
+"Language-Team: sergioredondo.com <info@sergioredondo.com>\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Language: es_ES\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: 404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "Esto es algo embarazoso, ¿verdad?"
+
+#: 404.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Parece que no podemos encontrar lo que estás buscando. De todos modos puedes "
+"usar el buscador."
+
+#: archive.php:29
+msgid "Daily Archives: %s"
+msgstr "Archivos diarios: %s"
+
+#: archive.php:31
+msgid "Monthly Archives: %s"
+msgstr "Archivos mensuales: %s"
+
+#: archive.php:31
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:33
+msgid "Yearly Archives: %s"
+msgstr "Artículos anuales: %s"
+
+#: archive.php:33
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: archive.php:35
+msgid "Archives"
+msgstr "Archivos"
+
+#: author.php:32
+msgid "Author Archives: %s"
+msgstr "Artículos del autor: %s"
+
+#: author.php:53 content.php:53
+msgid "About %s"
+msgstr "Sobre %s"
+
+#: category.php:21
+msgid "Category Archives: %s"
+msgstr "Artículos en esta categoría: %s"
+
+#: comments.php:31
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "Un pensamiento sobre &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s pensamientos en &ldquo;%2$s&rdquo;"
+
+#: comments.php:42
+msgid "Comment navigation"
+msgstr "Navegación de comentarios"
+
+#: comments.php:43
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentarios anteriores"
+
+#: comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr "Nuevos comentarios &rarr;"
+
+#: comments.php:51
+msgid "Comments are closed."
+msgstr "Los comentarios están cerrados."
+
+#: content-aside.php:13 content-aside.php:20 content-image.php:17
+#: content-link.php:18 content-quote.php:17 content-status.php:15
+#: content.php:23
+msgid "Permalink to %s"
+msgstr "Enlace permanente a %s"
+
+#: content-aside.php:15 content-image.php:13 content-link.php:14
+#: content-quote.php:13 content-status.php:21 content.php:39
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continuar leyendo <span class=\"meta-nav\">&rarr;</span>"
+
+#: content-aside.php:21 content-image.php:20 content-link.php:19
+#: content-page.php:21 content-quote.php:18 content-status.php:25
+#: content.php:46 functions.php:298 image.php:37
+msgid "Edit"
+msgstr "Editar"
+
+#: content-link.php:12
+msgid "Link"
+msgstr "Enlace"
+
+#: content-none.php:13 index.php:49 search.php:34
+msgid "Nothing Found"
+msgstr "Nada encontrado"
+
+#: content-none.php:17 index.php:53
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+"Discúlpanos, pero no se encontró nada. De todas formas puedes buscar algún "
+"artículo relacionado."
+
+#: content-page.php:18 content.php:40 image.php:92
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: content.php:14
+msgid "Featured post"
+msgstr "Artículo destacado"
+
+#: content.php:28
+msgid "Leave a reply"
+msgstr "Déjanos un comentario"
+
+#: content.php:28
+msgid "1 Reply"
+msgstr "1 Comentario"
+
+#: content.php:28
+msgid "% Replies"
+msgstr "% Comentarios"
+
+#: content.php:57
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Todos los artículos por %s <span class=\"meta-nav\">&rarr;</span>"
+
+#. #-#-#-#-#  twentytwelve.pot (Twenty Twelve 1.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#: footer.php:17
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+#: footer.php:17
+msgid "Semantic Personal Publishing Platform"
+msgstr "Semantic Personal Publishing Platform"
+
+#: footer.php:17
+msgid "Proudly powered by %s"
+msgstr ""
+"Desarrollado por <a href=\"http://es.wordpress.org/\">WordPress</a>. "
+"Traducido por <a href=\"http://sergioredondo.com/\">Sergio Redondo</a>"
+
+#: functions.php:64
+msgid "Primary Menu"
+msgstr "Menú Principal"
+
+#. translators: If there are characters in your language that are not supported
+#. by Open Sans, translate this to 'off'. Do not translate into your own
+#. language.
+#: functions.php:118
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr "en"
+
+#. translators: To add an additional Open Sans character subset specific to
+#. your language, translate
+#. this to 'greek', 'cyrillic' or 'vietnamese'. Do not translate into your
+#. own language.
+#: functions.php:123
+msgctxt "Open Sans font: add new subset (greek, cyrillic, vietnamese)"
+msgid "no-subset"
+msgstr "no-subconjunto"
+
+#: functions.php:173
+msgid "Page %s"
+msgstr "Páginas %s"
+
+#: functions.php:197
+msgid "Main Sidebar"
+msgstr "Columna principal"
+
+#: functions.php:199
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+"Aparece en artículos y páginas, excepto en la plantilla opcional Front Page, "
+"que tiene sus propios widgets"
+
+#: functions.php:207
+msgid "First Front Page Widget Area"
+msgstr "Primera área de widgets de plantilla Front Page"
+
+#: functions.php:209 functions.php:219
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+"Aparece cuando se usa la plantilla opcional Front Page con una página "
+"establecida como Front Page Estática"
+
+#: functions.php:217
+msgid "Second Front Page Widget Area"
+msgstr "Seguna area de widgets de plantilla Front Page"
+
+#: functions.php:239 single.php:20
+msgid "Post navigation"
+msgstr "Navegación de artículos"
+
+#: functions.php:240
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Artículos anteriores"
+
+#: functions.php:241
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Artículos recientes <span class=\"meta-nav\">&rarr;</span>"
+
+#: functions.php:266
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: functions.php:266
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#: functions.php:281
+msgid "Post author"
+msgstr "Autor del artículo"
+
+#. translators: 1: date, 2: time
+#: functions.php:287
+msgid "%1$s at %2$s"
+msgstr "%1$s en %2$s"
+
+#: functions.php:293
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está siendo moderado."
+
+#: functions.php:302
+msgid "Reply <span>&darr;</span>"
+msgstr "Comentario <span>&darr;</span>"
+
+#: functions.php:321 functions.php:324
+msgid ", "
+msgstr ","
+
+#: functions.php:335
+msgid "View all posts by %s"
+msgstr "Ver todos los artículos de %s"
+
+#: functions.php:341
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+"Este artículo fue guardado en %1$s y etiqueado bajo %2$s el %3$s<span class="
+"\"by-author\"> por %4$s</span>."
+
+#: functions.php:343
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+"Este artículo fue guardado en %1$s el %3$s<span class=\"by-author\"> por "
+"%4$s</span>."
+
+#: functions.php:345
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+"Este artículo fue escrito el %3$s<span class=\"by-author\"> por %4$s</span>."
+
+#: header.php:40
+msgid "Menu"
+msgstr "Menú"
+
+#: header.php:41
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: image.php:26
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\" pubdate>%2$s</"
+"time></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
+"&times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery"
+"\">%8$s</a>."
+msgstr ""
+"<span class=\"meta-prep meta-prep-entry-date\">Publicado </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\" pubdate>%2$s</"
+"time></span> a las <a href=\"%3$s\" title=\"Link to full-size image\">%4$s "
+"&times; %5$s</a> en  <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery"
+"\">%8$s</a>."
+
+#: image.php:41
+msgid "&larr; Previous"
+msgstr "&larr; Anterior"
+
+#: image.php:42
+msgid "Next &rarr;"
+msgstr "Siguiente &rarr;"
+
+#: index.php:38
+msgid "No posts to display"
+msgstr "Ningún artículo para mostrar"
+
+#: index.php:42
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+"Pronto para publicar tu primer articulo ? <a href=\"%s\">Empieza aquí</a>."
+
+#: search.php:18
+msgid "Search Results for: %s"
+msgstr "Resultados de: %s"
+
+#: search.php:38
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo sentimos, pero no se encontró nada que coincida con sus criterios de "
+"búsqueda. Por favor inténtelo de nuevo con otros términos."
+
+#: single.php:21
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:22
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"
+
+#: tag.php:21
+msgid "Tag Archives: %s"
+msgstr "Archivados bajo la etiqueta: %s"
+
+#. Theme Name of the plugin/theme
+msgid "Twenty Twelve"
+msgstr "Twenty Twelve"
+
+#. Theme URI of the plugin/theme
+msgid "http://wordpress.org/extend/themes/twentytwelve"
+msgstr "http://wordpress.org/extend/themes/twentytwelve"
+
+#. Description of the plugin/theme
+msgid ""
+"The 2012 theme for WordPress is a fully responsive theme that looks great on "
+"any device. Features include a front page template with a its own widgets, "
+"an optional display font, styling for post formats on both index and single "
+"views, and an optional no-sidebar page template. Make it yours with a custom "
+"menu, header image, and background."
+msgstr ""
+"El tema 2012 para WordPress es un tema totalmente responsive que se ve muy "
+"bien en cualquier dispositivo. Las características incluyen una plantilla de "
+"portada con sus propios widgets, una fuente de display opcional, estilos "
+"para los formatos de artículos en las vistas índice e individual, y una "
+"plantilla opcional de página sin barra lateral. Hazlo tuyo con un menú "
+"personalizado, una imagen de cabecera y un fondo propio."
+
+#. Author of the plugin/theme
+msgid "the WordPress team"
+msgstr "el equipo de WordPress"
+
+#. Template Name of the plugin/theme
+msgid "Front Page Template"
+msgstr "Plantilla Front Page"
+
+#. Template Name of the plugin/theme
+msgid "Full-width Page Template, No Sidebar"
+msgstr "Página de ancho completo sin barra lateral"
