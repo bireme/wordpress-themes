@@ -24,13 +24,15 @@ h3.widgettitle {color:#f7a52f !important; border-bottom: 1px solid #f7a52f;}
 
 h4{font-size: 14px;}
 
+.edition-title{ font-size:18px!important; color: #922e2c!important;}
+
 .site-title, .site-title a{
 	font-family: Arial Narrow, sans-serif;
 	color: #fff;
 	font-weight: normal !important;
-	padding: 40px 0px 0px 34px;
+	padding: 40px 0px 0px 60px;
     font-size: 30px;
-	}
+	} 
 
 a {
 	color: #0a5dac;
@@ -124,12 +126,10 @@ a {
 
 .flexslider{border-top: 0px !important;}
 
-
+.flexslider a{text-decoration:none;}
 .flexslider .excerpt{display:block; font-size:15px !important; margin-top:10px;}
 
-.flexslider .slides img {
-    max-height: 220px;
-}
+
 
 .flex-caption {
     padding: 2%;
@@ -157,6 +157,8 @@ a {
 	background: #a1c6ed !important;
 	    padding-bottom: 8px !important; 
 	}
+	
+
 #sidebar{width: 87%;
     margin: 0px 59px;
 	padding-bottom: 30px;
@@ -225,7 +227,12 @@ article{clear:both; padding-top: 5px;}
     margin-left: 4em;
 }
 
-.breadcrumbs {margin: 10px 0;}
+.breadcrumbs {margin: 10px 0; font-size:12px;}
+
+.year a, .month a {text-decoration:none;}
+
+
+.month.first, .edition.first{display:block;}
 
 /**************** MEDIA QUERIES ****************/
 
