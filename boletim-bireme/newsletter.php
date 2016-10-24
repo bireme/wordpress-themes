@@ -87,7 +87,7 @@ get_header(); ?>
         <?php if ( $s_query->have_posts() ) : ?>
         <div class="news_secundary"><h2 class="title"><?php _e( 'See also', 'odin' ); ?></h2>
             <?php while( $s_query->have_posts()) : $s_query->the_post(); ?>
-            <div id="secundary">
+            <div class="secundary">
                 <a href="<?php the_permalink(); ?>"><h3 class="title"><?php the_title(); ?></h3></a>
                 <div id="summary">
                     <?php if ( has_post_thumbnail() ) : ?>
@@ -104,7 +104,7 @@ get_header(); ?>
         <?php if ( $t_query->have_posts() ) : ?>
         <div class="news_tertiary">
             <?php while( $t_query->have_posts()) : $t_query->the_post(); ?>
-            <div id="tertiary">
+            <div class="tertiary">
                 <a href="<?php the_permalink(); ?>"><h3 class="title"><?php the_title(); ?></h3></a>
                 <div id="summary">
                     <?php echo mb_strimwidth( wp_strip_all_tags( get_the_excerpt() ), 0, 300, "..." ); ?>
