@@ -85,7 +85,7 @@ get_header(); ?>
         </div>
         <?php endif; ?>
         <?php if ( $s_query->have_posts() ) : ?>
-        <div class="news_secundary"><h2 class="title"><?php _e( 'See also', 'odin' ); ?></h2>
+        <div class="news_secundary"><!--h2 class="title"><?php _e( 'See also', 'odin' ); ?></h2-->
             <?php while( $s_query->have_posts()) : $s_query->the_post(); ?>
             <div class="secundary">
                 <a href="<?php the_permalink(); ?>"><h3 class="title"><?php the_title(); ?></h3></a>
@@ -94,7 +94,8 @@ get_header(); ?>
                     <img src="<?php the_post_thumbnail_url(); ?>" class="post-image" alt="<?php echo sanitize_title( get_the_title() ); ?>" />
                     <?php endif; ?>
                     <?php //the_post_thumbnail('thumbnail'); ?>
-                    <?php echo mb_strimwidth( wp_strip_all_tags( get_the_excerpt() ), 0, 500, "..." ); ?>
+                    <?php //echo mb_strimwidth( wp_strip_all_tags( get_the_excerpt() ), 0, 500, "..." ); ?>
+                    <?php the_excerpt(); ?>
                     <a class="read_more" href="<?php the_permalink(); ?>"><?php echo __( 'read more', 'odin' ); ?></a>
                 </div>
             </div>
@@ -107,7 +108,8 @@ get_header(); ?>
             <div class="tertiary">
                 <a href="<?php the_permalink(); ?>"><h3 class="title"><?php the_title(); ?></h3></a>
                 <div id="summary">
-                    <?php echo mb_strimwidth( wp_strip_all_tags( get_the_excerpt() ), 0, 300, "..." ); ?>
+                    <?php //echo mb_strimwidth( wp_strip_all_tags( get_the_excerpt() ), 0, 300, "..." ); ?>
+                    <?php the_excerpt(); ?>
                     <a class="read_more" href="<?php the_permalink(); ?>"><?php echo __( 'read more', 'odin' ); ?></a>
                 </div>
             </div>
