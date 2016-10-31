@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Boletim BIREME\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-30 09:44-0300\n"
-"PO-Revision-Date: 2016-09-30 09:44-0300\n"
+"PO-Revision-Date: 2016-10-31 10:04-0200\n"
 "Last-Translator: Wilson Moura <mourawil@paho.org>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -22,21 +22,21 @@ msgstr ""
 # @ odin
 #: ../404.php:14
 msgid "Not Found"
-msgstr "Nada Encontrado"
+msgstr "No se encontró nada"
 
 # @ odin
 #: ../404.php:18
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr ""
-"Parece que nada foi encontrado neste local. Talvez tentar uma pesquisa?"
+"Parece que no se encontró nada en este sitio. Tal vez intentar una búsqueda?"
 
 #: ../archive-edition.php:33
 msgid "All editions"
-msgstr "Todas as edições\t"
+msgstr "Todas las ediciones"
 
 #: ../archive-edition.php:45
 msgid "Year"
-msgstr "Ano"
+msgstr "Año"
 
 # @ odin
 #: ../audio.php:23 ../video.php:24
@@ -47,7 +47,7 @@ msgstr "URL:"
 #: ../audio.php:29 ../image.php:39 ../video.php:30
 #, php-format
 msgid "Back to %s"
-msgstr "Voltar para %s"
+msgstr "Volver para %s"
 
 # @ odin
 #: ../audio.php:29 ../image.php:39 ../video.php:30
@@ -60,23 +60,23 @@ msgstr "<span class=\"meta-nav\">&larr;</span> %s"
 msgid ""
 "This post is password protected. Enter the password to view all comments."
 msgstr ""
-"Esse post é protegido por senha. Informe a senha para ver todos os "
-"comentários."
+"Esta entrada está protegida por contraseña. Introduzca la contraseña para "
+"ver todos los comentarios."
 
 # @ odin
 #: ../comments.php:22
 msgid "0 Comments"
-msgstr "0 Comentários"
+msgstr "0 Comentarios"
 
 # @ odin
 #: ../comments.php:22 ../content.php:69
 msgid "1 Comment"
-msgstr "1 Comentário"
+msgstr "1 Comentario"
 
 # @ odin
 #: ../comments.php:22 ../content.php:69
 msgid "% Comments"
-msgstr "% Comentários"
+msgstr "% Comentarios"
 
 # @ odin
 #: ../comments.php:23
@@ -86,27 +86,27 @@ msgstr "para"
 # @ odin
 #: ../comments.php:29 ../comments.php:40
 msgid "&larr; Old Comments"
-msgstr "&larr; Comentários Antigos"
+msgstr "&larr; Comentarios Antiguos"
 
 # @ odin
 #: ../comments.php:30 ../comments.php:41
 msgid "New Comments &rarr;"
-msgstr "Novos Comentários &rarr;"
+msgstr "Nuevos Comentarios &rarr;"
 
 # @ odin
 #: ../comments.php:47
 msgid "Comments closed."
-msgstr "Comentários não são permitidos."
+msgstr "No se permiten comentarios."
 
 # @ odin
 #: ../comments.php:56
 msgid "Comment"
-msgstr "Comentário"
+msgstr "Comentario"
 
 # @ odin
 #: ../comments.php:59
 msgid "Name"
-msgstr "Nome"
+msgstr "Nombre"
 
 # @ odin
 #: ../comments.php:61
@@ -116,12 +116,12 @@ msgstr "E-mail"
 # @ odin
 #: ../comments.php:63
 msgid "Website"
-msgstr "Website"
+msgstr "Sitio web"
 
 # @ odin
 #: ../content-none.php:11
 msgid "Nothing Found"
-msgstr "Nada Encontrado"
+msgstr "No se encontró nada"
 
 # @ odin
 #: ../content-none.php:17
@@ -129,8 +129,8 @@ msgstr "Nada Encontrado"
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"Pronto para publicar o seu primeiro post? <a href=\"%1$s\">Comece agora "
-"aqui</a>."
+"Listo para publicar su primera entrada? <a href=\"%1$s\">Empieza ahora aquí</"
+"a>."
 
 # @ odin
 #: ../content-none.php:21
@@ -138,8 +138,8 @@ msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Desculpe, mas nada foi encontrado com os termos da sua pesquisa. Por favor, "
-"tente novamente com algumas palavras-chave diferentes."
+"Lo sentimos, pero no se encontró nada con sus términos de búsqueda. Por "
+"favor, intente nuevamente con algunas palabras-clave diferentes."
 
 # @ odin
 #: ../content-none.php:26
@@ -147,8 +147,8 @@ msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Parece que não conseguimos encontrar o que você está procurando. Talvez a "
-"pesquisa pode ajudar."
+"Parece que no podemos encontrar lo que busca. Puede ser que la búsqueda "
+"ayude."
 
 # @ odin
 #: ../content-page.php:17 ../content.php:54
@@ -158,12 +158,12 @@ msgstr "Páginas:"
 # @ odin
 #: ../content.php:49
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Continue lendo <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Seguir leyendo <span class=\"meta-nav\">&rarr;</span>"
 
 # @ odin
 #: ../content.php:65
 msgid "Posted in:"
-msgstr "Publicado em:"
+msgstr "Publicado en:"
 
 # @ odin
 #: ../content.php:65
@@ -179,7 +179,7 @@ msgstr "Marcado como:"
 # @ odin
 #: ../content.php:69
 msgid "Leave a comment"
-msgstr "Deixe um comentário"
+msgstr "Deja un comentário"
 
 # @ odin
 #: ../core/classes/abstracts/abstract-front-end-form.php:293
@@ -189,31 +189,31 @@ msgstr "Enviar"
 # @ odin
 #: ../core/classes/abstracts/abstract-front-end-form.php:336
 msgid "Form submitted successfully!"
-msgstr "Formulário enviado com sucesso!"
+msgstr "Formulario enviado con suceso!"
 
 # @ odin
 #: ../core/classes/abstracts/abstract-front-end-form.php:609
 #: ../core/classes/abstracts/abstract-front-end-form.php:621
 #, php-format
 msgid "%s is required."
-msgstr "%s é um campo obrigatório."
+msgstr "%s es un campo obligatorio"
 
 # @ odin
 #: ../core/classes/abstracts/abstract-front-end-form.php:615
 #, php-format
 msgid "%s must be an email address valid."
-msgstr "%s precisa ser um endereço de email válido"
+msgstr "%s debe ser una dirección válida de correo electrónico"
 
 # @ odin
 #: ../core/classes/class-bootstrap-nav.php:203
 msgid "Add a menu"
-msgstr "Adicionar um menu"
+msgstr "Añadir un menu"
 
 # @ odin
 #: ../core/classes/class-contact-form.php:182
 #, php-format
 msgid "Message sent by the form %s in %s at %s"
-msgstr "Mensagem enviada pelo formulário %s em %s às %s"
+msgstr "Mensaje enviado por formulario %s en %s as %s"
 
 # @ odin
 #: ../core/classes/class-metabox.php:98 ../core/classes/class-metabox.php:555
@@ -224,14 +224,14 @@ msgstr "Mensagem enviada pelo formulário %s em %s às %s"
 #: ../core/classes/class-user-meta.php:68
 #: ../core/classes/class-user-meta.php:405
 msgid "Add images in gallery"
-msgstr "Adicionar imagens na galeria"
+msgstr "Añadir imágenes en la galería"
 
 # @ odin
 #: ../core/classes/class-metabox.php:99 ../core/classes/class-term-meta.php:84
 #: ../core/classes/class-theme-options.php:86
 #: ../core/classes/class-user-meta.php:69
 msgid "Add in gallery"
-msgstr "Adicionar na galeria"
+msgstr "Añadir a la galería"
 
 # @ odin
 #: ../core/classes/class-metabox.php:100 ../core/classes/class-metabox.php:516
@@ -245,21 +245,21 @@ msgstr "Adicionar na galeria"
 #: ../core/classes/class-user-meta.php:366
 #: ../core/classes/class-user-meta.php:394
 msgid "Remove image"
-msgstr "Remover imagem"
+msgstr "Remover el image"
 
 # @ odin
 #: ../core/classes/class-metabox.php:101 ../core/classes/class-term-meta.php:86
 #: ../core/classes/class-theme-options.php:88
 #: ../core/classes/class-user-meta.php:71
 msgid "Choose a file"
-msgstr "Selecione um arquivo"
+msgstr "Seleccione un archivo"
 
 # @ odin
 #: ../core/classes/class-metabox.php:102 ../core/classes/class-term-meta.php:87
 #: ../core/classes/class-theme-options.php:89
 #: ../core/classes/class-user-meta.php:72
 msgid "Add file"
-msgstr "Adicionar arquivo"
+msgstr "Añadir archivo"
 
 # @ odin
 #: ../core/classes/class-metabox.php:493
@@ -267,7 +267,7 @@ msgstr "Adicionar arquivo"
 #: ../core/classes/class-theme-options.php:531
 #: ../core/classes/class-user-meta.php:343
 msgid "Select file"
-msgstr "Selecionar arquivo"
+msgstr "Seleccione un archivo"
 
 # @ odin
 #: ../core/classes/class-metabox.php:516
@@ -275,7 +275,7 @@ msgstr "Selecionar arquivo"
 #: ../core/classes/class-theme-options.php:565
 #: ../core/classes/class-user-meta.php:366
 msgid "Select image"
-msgstr "Selecionar imagem"
+msgstr "Seleccionar imagen"
 
 # @ odin
 #: ../core/classes/class-post-status.php:69
@@ -315,81 +315,81 @@ msgstr "Editar %s"
 #: ../core/classes/class-post-type.php:71 ../core/classes/class-taxonomy.php:74
 #, php-format
 msgid "Search %s"
-msgstr "Pesquisar %s"
+msgstr "Buscar %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:72 ../core/classes/class-taxonomy.php:75
 #, php-format
 msgid "Update %s"
-msgstr "Atualizar  %s"
+msgstr "Actualizar  %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:73 ../core/classes/class-taxonomy.php:76
 #: ../core/classes/class-taxonomy.php:77
 #, php-format
 msgid "Parent %s:"
-msgstr "Parente %s"
+msgstr "Pariente %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:75
 msgid "Add New"
-msgstr "Adicionar Novo"
+msgstr "Añadir nuevo\t"
 
 # @ odin
 #: ../core/classes/class-post-type.php:76 ../core/classes/class-taxonomy.php:79
 #, php-format
 msgid "Add New %s"
-msgstr "Adicionar Novo %s"
+msgstr "Añadir nuevo %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:77 ../core/classes/class-taxonomy.php:80
 #, php-format
 msgid "New %s"
-msgstr "Novo %s"
+msgstr "Nuevo %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:78 ../core/classes/class-taxonomy.php:81
 #, php-format
 msgid "All %ss"
-msgstr "Todos os %ss"
+msgstr "Todos los %ss"
 
 # @ odin
 #: ../core/classes/class-post-type.php:79
 #, php-format
 msgid "No %s found"
-msgstr "Nenhum %s encontrado"
+msgstr "No se encontraron %s"
 
 # @ odin
 #: ../core/classes/class-post-type.php:80
 #, php-format
 msgid "No %s found in Trash"
-msgstr "Nenhum %s encontrado na Lixeira"
+msgstr "Ningún %s fue encontrado en la papelera"
 
 # @ odin
 #: ../core/classes/class-taxonomy.php:71
 #, php-format
 msgid "Add or Remove %ss"
-msgstr "Adicionar ou Remover %ss"
+msgstr "Añadir o Quitar %ss"
 
 # @ odin
 #: ../core/classes/class-taxonomy.php:82
 #, php-format
 msgid "Separate %ss with comma"
-msgstr "Separe %ss com vírgula"
+msgstr "Separe %ss por comas"
 
 # @ odin
 #: ../core/classes/class-taxonomy.php:83
 #, php-format
 msgid "Choose from %ss most used"
-msgstr "Escolher entre os %ss mais usados"
+msgstr "Elija entre los %ss más utilizados"
 
 #: ../core/classes/widgets/class-widget-like-box.php:20
 msgid "Facebook Like Box"
-msgstr "Caixa de Curtir do Facebook"
+msgstr "Caja de Curtir del Facebook"
 
 #: ../core/classes/widgets/class-widget-like-box.php:21
 msgid "This widget includes a facebook like box on your blog"
-msgstr "Esse widget inclui a caixa de curtir do Facebook em seu site"
+msgstr "Ese widget inclui caja de curtir del Facebook en seu sitio"
 
 #: ../core/classes/widgets/class-widget-like-box.php:48
 msgid "Title:"
@@ -397,11 +397,11 @@ msgstr "Título:"
 
 #: ../core/classes/widgets/class-widget-like-box.php:54
 msgid "Facebook Page URL:"
-msgstr "URL da página do Facebook:"
+msgstr "URL de la página del Facebook:"
 
 #: ../core/classes/widgets/class-widget-like-box.php:60
 msgid "Width:"
-msgstr "Largura:"
+msgstr "Ancho:"
 
 #: ../core/classes/widgets/class-widget-like-box.php:66
 msgid "Height:"
@@ -409,31 +409,31 @@ msgstr "Altura:"
 
 #: ../core/classes/widgets/class-widget-like-box.php:72
 msgid "Color Scheme:"
-msgstr "Esquema de cores:"
+msgstr "Combinación de colores:"
 
 #: ../core/classes/widgets/class-widget-like-box.php:74
 msgid "Dark"
-msgstr "Escuro"
+msgstr "Oscuro"
 
 #: ../core/classes/widgets/class-widget-like-box.php:75
 msgid "Light"
-msgstr "Claro"
+msgstr "Clara"
 
 #: ../core/classes/widgets/class-widget-like-box.php:81
 msgid "Show Friends Faces"
-msgstr "Exibir rostos dos amigos"
+msgstr "Exhibir rostros de los amigos"
 
 #: ../core/classes/widgets/class-widget-like-box.php:86
 msgid "Show Posts"
-msgstr "Exibir atualizações"
+msgstr "Exhibir actualizaciones"
 
 #: ../core/classes/widgets/class-widget-like-box.php:91
 msgid "Show Header"
-msgstr "Exibir cabeçalho"
+msgstr "Exhibir encabezamiento"
 
 #: ../core/classes/widgets/class-widget-like-box.php:96
 msgid "Show Border"
-msgstr "Exibir borda"
+msgstr "Exhibir borde"
 
 # @ odin
 #: ../core/helpers.php:53
@@ -443,17 +443,17 @@ msgstr "&laquo; Anterior"
 # @ odin
 #: ../core/helpers.php:54
 msgid "Next &raquo;"
-msgstr "Próximo &raquo;"
+msgstr "Siguiente &raquo;"
 
 # @ odin
 #: ../core/helpers.php:96
 msgid "Related Posts"
-msgstr "Artigos Relacionados"
+msgstr "Artículos Relacionados"
 
 # @ odin
 #: ../core/helpers.php:232
 msgid "Home"
-msgstr "Início"
+msgstr "Inicio"
 
 # @ odin
 #: ../core/helpers.php:359
@@ -492,7 +492,7 @@ msgstr "Página %s"
 # @ odin
 #: ../functions.php:66
 msgid "Main Menu"
-msgstr "Menu Principal"
+msgstr "Menú Principal"
 
 # @ odin
 #: ../functions.php:179
@@ -502,17 +502,17 @@ msgstr "Sidebar Principal"
 # @ odin
 #: ../functions.php:181
 msgid "Site Main Sidebar"
-msgstr "Sidebar principal do site"
+msgstr "Sidebar principal del sitio"
 
 # @ odin
 #: ../functions.php:190
 msgid "Footer Sidebar"
-msgstr "Sidebar do rodapé"
+msgstr "Sidebar del rodapé"
 
 # @ odin
 #: ../functions.php:192
 msgid "Site Footer Sidebar"
-msgstr "Sidebar do rodapé do site"
+msgstr "Sidebar del rodapé del sitio"
 
 # @ odin
 #: ../functions.php:357 ../inc/template-tags.php:60
@@ -522,53 +522,53 @@ msgstr "Destacado"
 # @ odin
 #: ../functions.php:362 ../inc/template-tags.php:65
 msgid "Posted in"
-msgstr "Publicado em"
+msgstr "Publicado en"
 
 # @ odin
 #: ../functions.php:394 ../functions.php:404
 msgid "Search Results for:"
-msgstr "Resultado de Busca por:"
+msgstr "Resultados de la búsqueda por:"
 
 # @ odin
 #: ../header.php:29
 msgid "Skip to content"
-msgstr "Pular para o conteúdo"
+msgstr "Ir al contenido"
 
 # @ odin
 #: ../header.php:90
 msgid "Toggle navigation"
-msgstr "Alternar navegação"
+msgstr "Alternar navegación"
 
 # @ odin
 #: ../header.php:114
 msgid "Search:"
-msgstr "Pesquisar:"
+msgstr "Buscar:"
 
 # @ odin
 #: ../header.php:119 ../searchform.php:12
 msgid "Search"
-msgstr "Pesquisa"
+msgstr "Búsqueda"
 
 # @ odin
 #: ../image.php:22
 #, php-format
 msgid "Image total size: %s pixels"
-msgstr "Tamanho total da imagem: %s pixels"
+msgstr "Tamaño total de la imagen: %s pixels"
 
 # @ odin
 #: ../image.php:22
 msgid "Full image link"
-msgstr "Link da imagem completa"
+msgstr "Enlace de imagen completa"
 
 # @ odin
 #: ../image.php:33
 msgid "&larr; Previous image"
-msgstr "&larr; Imagem anterior"
+msgstr "&larr; Imagen anterior"
 
 # @ odin
 #: ../image.php:34
 msgid "Next image &rarr;"
-msgstr "Próxima imagem &rarr;"
+msgstr "Imagen siguiente &rarr;"
 
 # @ odin
 #: ../inc/comments-loop.php:21
@@ -583,27 +583,27 @@ msgstr "Editar"
 # @ odin
 #: ../inc/comments-loop.php:37
 msgid "in"
-msgstr "em"
+msgstr "en"
 
 # @ odin
 #: ../inc/comments-loop.php:40
 msgid "at"
-msgstr "as"
+msgstr "a"
 
 # @ odin
 #: ../inc/comments-loop.php:41
 msgid "said:"
-msgstr "disse:"
+msgstr "dijo:"
 
 # @ odin
 #: ../inc/comments-loop.php:47
 msgid "Your comment is awaiting moderation."
-msgstr "Seu comentário está aguardando moderação."
+msgstr "Su comentario está pendiente de moderación."
 
 # @ odin
 #: ../inc/comments-loop.php:56
 msgid "Respond"
-msgstr "Responder"
+msgstr "Respuesta"
 
 # @ odin
 #: ../inc/template-tags.php:68
@@ -623,17 +623,17 @@ msgstr[1] ""
 
 #: ../newsletter.php:85
 msgid "See also"
-msgstr "Veja também"
+msgstr "Véase también"
 
 #: ../newsletter.php:95 ../newsletter.php:108
 msgid "read more"
-msgstr "leia mais"
+msgstr "lea mas"
 
 # @ odin
 #: ../search.php:18
 #, php-format
 msgid "Search Results for: %s"
-msgstr "Resultado de Busca por: %s"
+msgstr "Resultados de la búsqueda: %s"
 
 #, fuzzy
 #~ msgid "Title"
