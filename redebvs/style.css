@@ -72,9 +72,9 @@ Version: 0.1
 .column_1 {margin:0;}
 .widget_sow-features {border-bottom: 4px solid #2e3e4f;}
 .sow-features-list {width:85%;margin:15px auto;}
-.sow-features-list .sow-features-feature strong {margin:0 !important;font-weight: normal;font-size: 150%;}
-.sow-features-list .sow-features-feature strong a {font-weight: normal;text-decoration: none; color:#28367d;}
-.sow-features-list .sow-features-feature strong a:hover {text-decoration: underline;}
+.sow-features-list .sow-features-feature h5 {margin:0 !important;font-weight: normal;font-size: 150%;}
+.sow-features-list .sow-features-feature h5 a {font-weight: normal;text-decoration: none; color:#28367d;}
+.sow-features-list .sow-features-feature h5 a:hover {text-decoration: underline;}
 .column_1 .panel-grid .so-panel {padding:0 !important;}
 /*.metaslider, .flexslider {padding:0 !important;}*/
 .metaslider div {padding:0 !important;}

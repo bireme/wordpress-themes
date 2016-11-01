@@ -20,6 +20,7 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
+		<div class="spacer"></div>
 	</div><!-- #primary -->
 	<div class="spacer"></div>
         <div class="footer_sidebar">
