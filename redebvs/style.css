@@ -52,14 +52,14 @@ Version: 0.1
 .shailan-dropdown-menu li li a, .top-level2 .shailan-dropdown-menu li li a {display: inline-block;}
 .top_sidebar .shailan-dropdown-menu li a:hover, .top-level2 .shailan-dropdown-menu li a:hover {/*background: #28367d;*/ color:#00d2ff;}
 .shailan-dropdown-menu li li {display: block !important;}
-.top_sidebar .widget_search,
-.top-level2 .widget_search {float:right;margin: -32px 12px 0 0;z-index: 1000;position: relative;}
+.top_sidebar .widget_text,
+.top-level2 .widget_text {float:right;margin: -32px 12px 0 0;z-index: 1000;position: relative;}
 @-moz-document url-prefix() { 
 	.top_sidebar .widget_search,
 	.top-level2 .widget_search {margin-top:-35px;}
 }
-.top_sidebar .widget_search input[type='text'],
-.top-level2 .widget_search input[type='text'] {width:220px;border-radius: 4px;}
+.top_sidebar .widget_text input[type='text'],
+.top-level2 .widget_text input[type='text'] {width:220px;border-radius: 4px;}
 #wprmenu_menu ul li a{font-size:16pt;}
 /**** placeholder ****/
 ::-webkit-input-placeholder {font-style: italic;color: #ababab;}
