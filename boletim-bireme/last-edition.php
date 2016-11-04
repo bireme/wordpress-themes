@@ -86,6 +86,7 @@ get_header(); ?>
     $t_query = new WP_Query( $args );
 ?>
     <div class="middle">
+        <h1 class="title"><?php echo $edition->post->post_title ? $edition->post->post_title : ''; ?></h1>
         <?php if ( $p_query->have_posts() ) : ?>
         <div class="flexslider">
             <ul class="slides">
@@ -111,7 +112,7 @@ get_header(); ?>
         </div>
         <?php endif; ?>
         <?php if ( $s_query->have_posts() ) : ?>
-        <div class="news_secundary"><!--h2 class="title"><?php _e( 'Last Edition', 'odin' ); ?></h2-->
+        <div class="news_secundary">
             <?php while( $s_query->have_posts()) : $s_query->the_post(); ?>
             <div class="secundary">
                 <a href="<?php the_permalink(); ?>"><h3 class="title"><?php the_title(); ?></h3></a>
