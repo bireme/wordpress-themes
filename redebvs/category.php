@@ -46,4 +46,9 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php dynamic_sidebar( 'level2' ); ?>
+<div class="spacer"></div>
+	<div class="footer_sidebar">
+		<?php dynamic_sidebar( 'single-sidebar' ); ?>
+		<div class="spacer"></div>
+	</div>
 <?php get_footer(); ?>
