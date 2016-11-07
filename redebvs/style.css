@@ -169,8 +169,13 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 	.search article .entry-content, .archive article .entry-content {display:block;}
 	.search img.wp-post-image, .archive img.wp-post-image {margin: 0 0 0 12px}
 	.top_sidebar .searchform input[type='text'], .top-level2 .searchform input[type='text'] {width:18%;}
-        .search-opt fieldset, .top_sidebar .searchform #searchsubmit, .top-level2 .searchform #searchsubmit {letter-spacing: -1px;}
+        .searchItens fieldset, .top_sidebar .searchItens #searchsubmit, .top-level2 .searchform #searchsubmit {letter-spacing: -1px;}
         .searchform legend {display:none !important;}
+	.searchItens {width: 60%;padding-right:0px;font-size:8pt;}
+	.searchItens label {padding:0;font-size:8pt;}
+	.searchItens span {display:none;}
+	.vhl-search-input {width:45% !important;}
+	.top_sidebar .searchform, .top-level2 .searchform {margin:-32px 0 0 0;}
 }
 @media (max-width: 568px) {
 	.site_name {padding:0; height:85px;}
