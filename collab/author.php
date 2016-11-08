@@ -46,7 +46,6 @@ if (is_plugin_active('polylang/polylang.php')) {
 	if ($top_sidebar == true){
 ?>
 	<div class="top_sidebar">
-		<?php wp_nav_menu(array('theme_location' => 'primary')); ?>
 		<?php dynamic_sidebar( $top_bar ); ?>
 	</div>	
 <?php	
