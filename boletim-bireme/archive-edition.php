@@ -57,7 +57,7 @@ get_header(); ?>
 		                </div>
 			        <?php endif; ?>
 
-			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() . ' - ' . date_i18n( "d/F/Y", $date ); ?></a></div>
 
 			    <?php endwhile;
 
