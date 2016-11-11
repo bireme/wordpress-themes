@@ -21,7 +21,7 @@
 			endif;
 		?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+		<?php if ( 'post' == get_post_type() && is_singular() ) : ?>
 			<div class="entry-meta">
 				<?php bb_posted_on(); ?>
 			</div><!-- .entry-meta -->
