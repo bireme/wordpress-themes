@@ -19,9 +19,8 @@ get_header(); ?>
                     'post_type' => 'post',
                     'post_status' => 'publish',
                     'posts_per_page' => -1,
-                    //'order' => 'ASC',
-                    //'orderby' => 'meta_value',
-                    //'meta_key'  => 'edition',
+                    'orderby' => array( 'meta_value' => 'ASC', 'date' => 'DESC' ),
+                    'meta_key'  => 'level',
                     'meta_query' => array(
                         array(
                             'key' => 'edition',
