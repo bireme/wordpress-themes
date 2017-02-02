@@ -90,6 +90,10 @@ a {
 
 .flexslider {margin-bottom: 0px !important;}
 
+.gallery{float:right !important; max-width: 300px;}
+
+.gallery-item{padding-top: 0px; margin: 0px 5px 5px 5px!important;}
+
 .btn{
 	padding: 2px 3px; 
 	font-size: 13px;}
@@ -116,6 +120,7 @@ a {
 	float: left;
 	margin-right: 10px;
 	max-width:250px;
+	max-height:135px;
 }
 .entry-thumb img{margin-right: 10px;
 	max-width:250px;}
