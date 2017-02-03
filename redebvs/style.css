@@ -90,7 +90,7 @@ Version: 0.1
 .top_sidebar .panel-grid-cell article div {padding: 0 !important;}
 .thumb-img {margin: 0 8px 0 0 !important;}
 .entry-image {padding:0 !important;}
-.img-map-overlay {position: absolute;width: 40%;margin: 50px;color: #00d2ff;font-size: 150%;line-height: 170%;}
+.img-map-overlay {position: absolute;width: 40%;margin: 50px;color: #28367d;font-size: 150%;line-height: 170%;}
 .img-map-overlay strong {margin-bottom: 25px; font-size: 200%;}
 .panel-grid-cell article {display:flex; clear: both; margin:8px 0; border-bottom: 1px solid #e5e5e5; margin:8px 0;padding-bottom: 8px;}
 .panel-grid-cell article .metadata {width:62%;}
