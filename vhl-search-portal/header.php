@@ -4,9 +4,9 @@
  * @subpackage Classic_Theme
  */
 $mlf_options = get_option('mlf_config');
-//print_r($mlf_options);
-$current_language = get_bloginfo('language');
+$current_language = strtolower(get_bloginfo('language'));
 $site_lang = substr($current_language, 0,2);
+$suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo ( $site_lang ); ?>" lang="<?php echo ( $site_lang ); ?>">
@@ -32,15 +32,52 @@ $site_lang = substr($current_language, 0,2);
         <div class="bar">
 			<div class="barInner">
 				<div class="topMenu">
-					<?php if ( is_active_sidebar( 'vhl_menu_1_' . $current_language ) ) : ?>
-						<?php dynamic_sidebar(  'vhl_menu_1_' . $current_language ); ?>
+					<?php if ( is_active_sidebar( 'vhl_menu_1' . $suffix ) ) : ?>
+						<?php dynamic_sidebar(  'vhl_menu_1' . $suffix ); ?>
 					<?php endif; ?>
 				</div>
 				<div id="otherVersions">
-					<?php mlf_links_to_languages(); ?>
+                    <?php
+                        if ( function_exists( 'mlf_links_to_languages' ) ) {
+                            mlf_links_to_languages();
+                        }
+                        elseif ( function_exists( 'pll_the_languages' ) ) {
+                            if ( $_SERVER['SCRIPT_NAME'] == '/php/bvsnet.php' ) {
+                                $slugs = pll_languages_list();
+                                $names = pll_languages_list(array('fields' => 'name'));
+                                $languages = array_combine($slugs, $names);
+
+                                echo "<ul>";
+                                foreach ($languages as $slug => $name) :
+                                    if ($site_lang == $slug) continue;
+                                    $url = str_replace('lang='.$site_lang, 'lang='.$slug, $_SERVER['REQUEST_URI']);
+                                    ?>
+                                    <li><a href="<?php echo $url; ?>"><?php echo $name; ?></a></li>
+                                    <?php
+                                endforeach;
+                                echo "</ul>";
+                            } else {
+                                $args = array(
+                                    'dropdown' => 0,
+                                    'show_names' => 1,
+                                    'display_names_as' => 'name',
+                                    'show_flags' => 0,
+                                    'hide_if_empty' => 1,
+                                    'force_home' => 0,
+                                    'echo' => 0,
+                                    'hide_if_no_translation' => 0,
+                                    'hide_current' => 1,
+                                    'post_id' => null,
+                                    'raw' => 0
+                                );
+
+                                echo '<ul>' . pll_the_languages( $args ) . '</ul>';
+                            }
+                        }
+                    ?>
 				</div>
 				<div id="contact"> 
-					<span><a href="/<?php echo ( $site_lang ); ?>/contact/">Contato</a></span>
+					<span><a href="/<?php echo ( $site_lang ); ?>/contact-<?php echo ( $site_lang ); ?>/"><?php _e('Contact', 'contact-form-7'); ?></a></span>
 				</div>
 				<div class="spacer"></div>
 			</div>
@@ -49,13 +86,13 @@ $site_lang = substr($current_language, 0,2);
             <div id="parent">
                 <img src="<?php bloginfo('template_url') ?>/images/<?php echo ( $site_lang ); ?>/logo_bvs.jpg" alt="<?php bloginfo('name'); ?>"/>
             </div>
-            <div id="identification_<?php echo ($current_language);?>">
+            <div id="identification_<?php echo get_bloginfo('language');?>">
                 <h1><?php bloginfo('name'); ?></h1>
                 <h2><?php bloginfo('description'); ?></h2>
             </div>
 			<div class="topSlot">
-				<?php if ( is_active_sidebar( 'top_slot_' . $current_language ) ) : ?>
-					<?php dynamic_sidebar(  'top_slot_' . $current_language ); ?>
+				<?php if ( is_active_sidebar( 'top_slot' . $suffix ) ) : ?>
+					<?php dynamic_sidebar(  'top_slot' . $suffix ); ?>
 				<?php endif; ?>
 			</div>
 			<div class="spacer"></div>

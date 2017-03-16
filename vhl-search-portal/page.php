@@ -15,7 +15,7 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <div class="middle">
-    <div class="breadcrumb"><a href="<?php bloginfo('url'); ?>/<?php echo ($site_lang);?>" title="<?php bloginfo('name'); ?>">Home</a> / </div>
+    <div class="breadcrumb"><a href="<?php bloginfo('url'); ?>/<?php echo ($site_lang);?>/" title="<?php bloginfo('name'); ?>">Home</a> / </div>
 
     <h2 class="storytitle"><?php the_title(); ?></a></h2>
 
