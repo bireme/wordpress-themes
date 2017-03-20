@@ -86,8 +86,7 @@ table {
 }
 .headerWidget {
     float: right;
-	margin-top: 37px;
-	margin-right: 96px;
+	margin-right: 19px;
 }
 body {
 	background: #FFF;
@@ -496,6 +495,8 @@ x.footerArea .widget_nav_menu div LI A {
 	margin-top:10px;
 }
 
+
+
 /**************** SINGLE ****************/
 .breadcrumb {
 	margin-bottom: 20px;
@@ -553,7 +554,7 @@ x.footerArea .widget_nav_menu div LI A {
 	content: ' >>';
 }
 
-.widget_rss{
+#rss-2{
 	float:right;
 	width: 43%;
 	margin-right: 38px;
@@ -671,13 +672,21 @@ margin: -29px 5px;
 	.middle .searchVHL .vhl-search-input {width: 58% !important; margin-left:6%;}
 }
 
-
-.shailan-dropdown-menu .dropdown-horizontal-container {
-   
-    width: 558px !important;
-}
-
-
+.bx-caption{
+	background:#eaeaea !important;
+	color: #173e9d !important;
+	font-weight: bold !important;
+	}
+#vhl_search-2{
+	 padding: 32px 0px 20px 50px;
+	 width: 815px;
+	 margin-left: 68px;
+	background: #edf4f7;
+	   text-align: center;
+	}
+#vhl-search-input{
+	 width: 300px;
+	}
 .site-content .entry-content {
 
     width: 85%;
@@ -702,3 +711,18 @@ margin: -29px 5px;
 }
 .realizacao{
    margin-left: 123px;	}
+.rss_tema{
+	float:left;
+	}
+.rss_tema h3.widget-title{
+	display: block !important;
+	color: #0a5dac !important; 	
+	
+	}
+	
+.rss_tema .rsswidget{	color: #173e9d;}
+.rss_tema li{
+	list-style: none;
+	padding-bottom: 20px; 
+
+	}
