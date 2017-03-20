@@ -10,7 +10,7 @@ $sidebar_name = ( !defined( 'POLYLANG_VERSION' ) ) ? $current_language : '';
 
 automatic_feed_links();
 
-if ( function_exists('register_sidebar') )
+if ( function_exists('register_sidebar') ) {
    register_sidebar(
         array('name'=>'Menu 1 ' . $sidebar_name, 
             'id' => 'vhl_menu_1' . $suffix,
@@ -82,4 +82,41 @@ if ( function_exists('register_sidebar') )
         add_image_size('small_highlight', 60, 40, true);
         add_image_size('icon', 16, 16, true);
 	}
+}
+
+function language_switcher() {
+    if ( function_exists( 'pll_the_languages' ) ) {
+        if ( $_SERVER['SCRIPT_NAME'] == '/php/bvsnet.php' ) {
+            $slugs = pll_languages_list();
+            $names = pll_languages_list(array('fields' => 'name'));
+            $languages = array_combine($slugs, $names);
+
+            echo "<ul>";
+            foreach ($languages as $slug => $name) :
+                if ($site_lang == $slug) continue;
+                $url = str_replace('lang='.$site_lang, 'lang='.$slug, $_SERVER['REQUEST_URI']);
+                ?>
+                <li><a href="<?php echo $url; ?>"><?php echo $name; ?></a></li>
+                <?php
+            endforeach;
+            echo "</ul>";
+        } else {
+            $args = array(
+                'dropdown' => 0,
+                'show_names' => 1,
+                'display_names_as' => 'name',
+                'show_flags' => 0,
+                'hide_if_empty' => 1,
+                'force_home' => 0,
+                'echo' => 0,
+                'hide_if_no_translation' => 0,
+                'hide_current' => 1,
+                'post_id' => null,
+                'raw' => 0
+            );
+
+            echo '<ul>' . pll_the_languages( $args ) . '</ul>';
+        }
+    }
+}
 ?>

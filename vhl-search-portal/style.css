@@ -315,6 +315,13 @@ margin: 0px auto;
 .middle .post {
 	margin: 10px;
 }
+
+.middle h1 {
+	font-size: 200%;
+    margin-left: 36px;
+    margin-bottom: 36px;
+}
+
 .middle h2, .footer h2 {
 	font-size: 140%;
 	font-weight: bold;
