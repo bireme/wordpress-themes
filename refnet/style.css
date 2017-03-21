@@ -411,9 +411,9 @@ section.site-content #content .search_strategy{
 
 /***** NAVIGATION  *****/
 .wp-pagenavi {
-    	margin: 30px;
-    	text-align: center;
-    	width: 67%;
+	padding: 30px;
+	text-align: center;
+	display: block;
 }
 .wp-pagenavi a, 
 .wp-pagenavi span {
@@ -483,3 +483,13 @@ section.site-content #content .search_strategy{
 .page-template-list-strategies-php #content table td .link2rss {background-position:-15px -47px;margin-left: 9px;}
 .page-template-list-strategies-php #content table td .link2vhl span,
 .page-template-list-strategies-php #content table td .link2rss span{display:none;}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+    position: absolute !important;
+    white-space: nowrap;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}

@@ -1,6 +1,6 @@
 <?php
 
-load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
+//load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
 
 function my_theme_localized( $locale )
 {
@@ -23,6 +23,8 @@ if(is_plugin_active('multi-language-framework')) {
 } else {
         $site_lang = my_theme_localized($locale);
 }
+
+load_textdomain('refnet', get_stylesheet_directory() . '/languages/' . $site_lang . '.mo');
 
 function append_query_string() {
 	global $site_lang;
@@ -569,6 +571,9 @@ function bir_search_rss_html ($url_html, $url_rss, $button_type, $js_html="", $j
 
 	$html_button = "";
 
+	$url_rss = htmlspecialchars($url_rss, ENT_QUOTES, "UTF-8");
+	$url_html = htmlspecialchars($url_html, ENT_QUOTES, "UTF-8");
+
 	if (!$button_type) {
         	$html_button  = '<div class="vertical-tabs">';
        		$html_button .= '<span class="url_iahx">';
@@ -798,5 +803,28 @@ function custom_widget_extra_control()
 
 	echo "<p><label for='".$id_disp."-widget_logic'>". __('Widget logic:','widget-logic'). " <textarea class='widefat' type='text' name='".$id_disp."-widget_logic' id='".$id_disp."-widget_logic' ></textarea></label></p>";
 }
+
+function custom_parse_query($query) {
+	if ( $query->is_category() ) {
+		$query->set( 'post_type', 'search_strategy' );
+	}
+}
+add_action( 'parse_query', 'custom_parse_query', 6 );
+//add_action( 'pre_get_posts', 'custom_parse_query' );
+
+function custom_scripts() {
+	?>
+	<script type='text/javascript'>
+		$ = jQuery;
+		$('.hide-optval select option:first').text('');
+    </script>
+	<?php
+}
+add_action( 'wp_footer', 'custom_scripts' );
+
+function init_flush_rewrite_rules() {
+    flush_rewrite_rules();
+}
+add_action( 'init', 'init_flush_rewrite_rules', 10 );
 
 ?>

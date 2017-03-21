@@ -155,7 +155,7 @@
 
       <?php if ( $upw_query->found_posts > $upw_query->post_count ) : ?>
         <div class="upw-more">
-          <a href="<?php echo home_url( '/?s=%&l=' . $lang ); ?>" class="button"><?php _e('See more','upw'); ?></a>
+          <a href="<?php echo home_url( '/?s=%&l=' . $lang ); ?>" class="button"><?php _e('See more','refnet'); ?></a>
         </div>
       <?php endif; ?>
 

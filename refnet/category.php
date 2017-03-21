@@ -10,7 +10,6 @@
 	<?php
 		global $ct_nm;
 		$ct_nm = $category_name;
-		query_posts($query_string . '&post_type=search_strategy');
 		get_header();
 	?>
 

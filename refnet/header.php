@@ -10,9 +10,7 @@
  */
 ?>
 
-<?php
-	load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
-?>
+<?php load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages'); ?>
 
 <!DOCTYPE html>
 	<!--[if IE 7]>
