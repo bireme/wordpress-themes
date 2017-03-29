@@ -54,6 +54,10 @@
 					}
 				?>
 
+				<div class="logo">
+					<?php dynamic_sidebar( 'logo-sidebar' ); ?>
+				</div><!-- .container -->
+
 				<?php if ( is_home() ) : ?>
 					<h1 class="site-title">
 						<!--a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
@@ -73,15 +77,6 @@
 						<?php bloginfo( 'description' ); ?>
 					</div>
 				<?php endif ?>
-
-				<?php
-					$header_image = get_header_image();
-					if ( ! empty( $header_image ) ) :
-				?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo esc_url( $header_image ); ?>" height="<?php esc_attr_e( $header_image->height ); ?>" width="<?php esc_attr_e( $header_image->width ); ?>" alt="" style="width: 100%;" />
-					</a>
-				<?php endif; ?>
 			</div><!-- .site-header-->
 
 			<div id="main-navigation" class="navbar navbar-default">
