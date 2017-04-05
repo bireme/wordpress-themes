@@ -120,9 +120,7 @@ a {
 	color: #FFF;
 	text-decoration: none;
 }
-.topMenu {
-	float: left;
-}
+
 .top_sidebar{
 	padding-bottom: 50px;
 	text-align: center;
@@ -179,14 +177,14 @@ a {
 
 }
 .search-submit img{
-	margin-bottom: -12px;
-    max-height: 34px;
+	margin-bottom: -11px;
+    max-height: 33px;
     margin-left: -4px;
 }
 @-moz-document url-prefix() { 
   .search-submit img{
 	margin-bottom: -13px;
-    max-height: 33px;
+    max-height: 32px;
     margin-left: -4px;}
 }	
 .top {
@@ -245,7 +243,7 @@ width: 463px;
 .vhl-search-form {
 	/* standard searchbox */
 	background: url(images/search-bg.png) no-repeat;
-	padding: 62px 0px 20px 0px;
+	padding: 62px 0px 8px 0px;
 
 
 		
@@ -268,13 +266,8 @@ width: 463px;
 	display: none;
 }
 .top_sidebar #searchForm #vhl-search-input {
-	border: 1px solid #848484; 
-	-webkit-border-radius:8px 0px 0px 8px; 
-	-moz-border-radius:8px 0px 0px 8px; 
-	border-radius:8px 0px 0px 8px; 
-	-webkit-box-shadow:0 1px 2px #666 inset; 
-	-moz-box-shadow:0 1px 2px #666 inset; 
-	box-shadow:0 1px 2px #666 inset; 
+ 
+	
 	width:300px;
 	padding: 7px 0px 8px 0px;
 	-webkit-padding-before: 9px;
@@ -443,9 +436,9 @@ color: #315943;
 	display: inline-block;
 }
 .search-submit img {
-       margin-bottom: -12px;
-    max-height: 35px;
-    margin-left: -4px;
+       mmargin-bottom: -12px;
+    mmax-height: 35px;
+    mmargin-left: -4px;
 }
 
 @-moz-document url-prefix() { 
@@ -765,9 +758,9 @@ a{color: #2d6ca2 !important;}
 
 .column_2 #sticky-posts-6 ul li{padding-bottom:15px;}
 
-.column_2 .vhl-themes ul li{height: 35px !important;}
+.column_2 .vhl-themes ul li{height: 35px !important;} 
 
-.column_2 .widget-title{text-align: center !important;}
+.column_1 .widget-title, .column_2 .widget-title{text-align: center !important;}
 
 .upw-image img {
     padding: 10px 14px 15px 0;
@@ -796,7 +789,10 @@ a{color: #2d6ca2 !important;}
 	padding-top: 10px;
 	}
 	
+.institutions{width: 95%; margin-top: 25px;}
 .institutions ul{ display: flex; flex-wrap: wrap; justify-content: center;}
+
+
 
 @media (max-width: 525px) {
 	.top h1 {width:200px !important;background-size:200px 30px !important;}
