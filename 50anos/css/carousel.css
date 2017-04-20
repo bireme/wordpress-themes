@@ -1,0 +1,67 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+/*resCarousel Css*/
+.outt {
+    display: none;
+}
+
+.leftLs, .leftLst {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    z-index:100;
+    left: 0;
+    width: 40px;
+    height: 100px;
+    box-shadow: 1px 2px 10px -1px rgba(0,0,0,.3);
+}
+.rightLs, .rightLst {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index:100;
+    width: 40px;
+    height: 100px;
+    box-shadow: 1px 2px 10px -1px rgba(0,0,0,.3);
+}
+.resCarousel {
+    float: left;
+    overflow: hidden;
+    padding: 0 15px;
+    width: 100%;
+}
+.resCarousel-inner {
+    transition: 1s ease all;
+    float: left;
+}
+.resCarousel-inner .item {
+    float: left;
+}
+
+/*resCarousel Css End*/
+
+
+.p0 {
+    padding: 0;
+}
+.p8 {
+    padding: 8px;
+}
+.shad a {
+    color: black;
+    text-decoration: none;
+}
+.itm {
+    display: none;
+}
+.act, .nxt {
+    display: block;
+}
+.sliderMain {
+    height: 280px;
+    overflow: hidden;
+}
+
+
