@@ -12,7 +12,7 @@
     z-index:100;
     left: 0;
     width: 40px;
-    height: 100px;
+    height: 40px;
     box-shadow: 1px 2px 10px -1px rgba(0,0,0,.3);
 }
 .rightLs, .rightLst {
@@ -23,7 +23,7 @@
     bottom: 0;
     z-index:100;
     width: 40px;
-    height: 100px;
+    height: 40px;
     box-shadow: 1px 2px 10px -1px rgba(0,0,0,.3);
 }
 .resCarousel {
@@ -64,4 +64,10 @@
     overflow: hidden;
 }
 
+.btn {
+	border-radius: 20px;
+}
 
+.previous_btn, .next_btn {
+	height: 40px;
+}

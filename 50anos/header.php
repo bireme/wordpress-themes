@@ -35,10 +35,10 @@
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<body id="page-top" class="index <? echo ( basename(get_permalink()) );?>">
+	<body class="index <? echo ( basename(get_permalink()) );?>">
 		<div class="wp-site">
 			<!-- Navigation -->
-			<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+			<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header page-scroll">
@@ -56,7 +56,7 @@
 					</div>
 					<div class="navbar-opas page-scrooll">
 						<a class="navbar-opas" href="http://www.paho.org/bireme">
-							<img class="img-responsive" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/<?php echo $bir50_instituion_img ?>" alt="<?php echo $bir50_instituion ?>">
+							<img class="img-responsive" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/<?php echo $bir50_instituion_img ?>" alt="<?php echo $bir50_institution ?>">
 						</a>
 					</div>
 					<?php 

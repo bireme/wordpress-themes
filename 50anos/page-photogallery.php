@@ -85,10 +85,11 @@ get_header(); ?>
 					        	<?php query_posts("category_name=$bir50_gallerycategory"); ?>
 								<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					                <div class="item">
-					                    <div class="col-lg-12">
+					                    <div class="gallery-carousel">
 					                    	<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
 						                        <img src="<?php the_post_thumbnail_url(); ?>" class="img-responsive">
 					                    	</a>
+						                        <div class="gallery_title"><?php the_title_attribute(); ?></div>
 					                    </div>
 					                </div>
                					 <?php endwhile; else: ?>

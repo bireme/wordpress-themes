@@ -6,15 +6,12 @@
 					<div class="footer-above">
 						<div class="container">
 							<div class="row">
-								<div class="footer-col col-md-3">
-								  
-								</div>
-								<div class="footer-col col-md-3">
-									
+								<div class="footer-col col-md-6">
+									<?php dynamic_sidebar( 'footer' ); ?>				  
 								</div>
 								<div class="footer-col col-md-6">
 									<a href="http://www.paho.org/bireme">
-										<img class="img-responsive" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/<?php echo $bir50_instituion_img; ?>" alt="<?php echo $bir50_instituion; ?>">									</a>
+										<img class="img-responsive" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/<?php echo $bir50_instituion_img; ?>" alt="<?php echo $bir50_institution; ?>">									</a>
 								</div>
 							</div>
 						</div>

@@ -16,8 +16,8 @@
 	$bir50_verTodos_link	=	"testimonios_page";
 	$bir50_verTodosVideos		=	"Ver Todos Video Testimonios";
 	$bir50_verTodosVideos_link	=	"videotestimonios_page";
-	$bir50_GalleryTitle = "Todas las Galería de fotos";
-	$bir50_gallerycategory = "galeria-de-fotos-es";
+	$bir50_GalleryTitle = "Galería Históricas";
+	$bir50_gallerycategory = "galerias_historica_es";
 	
 	//footer.php
 	//usa mesma variavel do header bir50_institution e bir50_institution_img
