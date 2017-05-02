@@ -17,7 +17,7 @@
 	$bir50_verTodosVideos		=	"Ver Todos Vídeo Depoimentos";
 	$bir50_verTodosVideos_link	=	"videodepoimentos-page";
 	$bir50_GalleryTitle = "Galerias Históricas";
-	$bir50_gallerycategory = "galerias-historicas";
+	$bir50_gallerycategory = "galerias_historicas";
 	
 	//footer.php
 	//usa mesma variavel do header bir50_institution e bir50_institution_img

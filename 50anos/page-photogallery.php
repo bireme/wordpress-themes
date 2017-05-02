@@ -74,33 +74,7 @@ get_header(); ?>
 					 * Rotina que busca galerias relacionadas e lista
 					 */
 					?>
-					<?php 
-						$hotsite_lang = pll_current_language(slug); //pega o idioma do template
-						include "vars_$hotsite_lang.php";
-					?>
-					<h2><?php echo $bir50_GalleryTitle; ?></h2>
-					<div class="col-lg-12">
-					    <div class="resCarousel" data-items="1,2,3,3" data-slide="3">
-					        <div class="resCarousel-inner" >
-					        	<?php query_posts("category_name=$bir50_gallerycategory"); ?>
-								<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-					                <div class="item">
-					                    <div class="gallery-carousel">
-					                    	<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
-						                        <img src="<?php the_post_thumbnail_url(); ?>" class="img-responsive">
-					                    	</a>
-						                        <div class="gallery_title"><?php the_title_attribute(); ?></div>
-					                    </div>
-					                </div>
-               					 <?php endwhile; else: ?>
-               					 <?php endif; ?>
-					        </div>
-					        <button class='btn btn-default leftLst'><i class="fa fa-fw fa-angle-left"></i></button>
-							<button class='btn btn-default rightLst'><i class="fa fa-fw fa-angle-right"></i></button>
-					    </div>
-					</div>
-				    	<link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/carousel.css" rel="stylesheet" type="text/css">
-				    	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/resCarousel.js"></script>
+					
 				</div>
 
 				</main><!-- #main -->

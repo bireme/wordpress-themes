@@ -96,7 +96,7 @@ header img {
 }
 header .intro-text .tagline {
 	font-size: 1.25em;
-	color: #DD7700;
+	color: #DD5300;
 	padding: 10px;
 	display: block;
 	background: url(../images/index.jpg) center bottom;
@@ -251,11 +251,11 @@ section {
 section h2 {
 	margin: 0;
 	font-size: 20px;
-	color: #DD7700;
+	color: #DD5300;
 	margin-bottom: 10px;
 }
 section h2 a {
-	color: #DD7700;
+	color: #DD5300;
 }
 section.success {
   background: #18BC9C;
@@ -280,9 +280,6 @@ section.success {
 section .participate div {
 	padding: 0px 30px;
 	margin-bottom: 0px;
-}
-#depoimentos h2, #depoimentos .col-lg-12 {
-	margin: 0px;
 }
 #portfolio .portfolio-item {
   margin: 0 0 15px;
@@ -891,7 +888,8 @@ body.linha-do-tempo .container {
 .gallery-carousel {
 	text-align: center;
 	margin: 15px;
-	background: #18bc9c;
+	background: url(../images/index.jpg) center bottom no-repeat;
+	background-size: 100%;
 }
 
 .video_item {
@@ -1004,3 +1002,11 @@ h4.archive_video_title {
 .video_archive {
 	margin-top: 10px;
 }
+.LinkVerTodos {
+	clear: both;
+	width: 100%;
+}
+.testimonial_slider .LinkVerTodos {
+	padding: 0px 20px;
+}
+	

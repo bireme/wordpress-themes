@@ -27,22 +27,6 @@ get_header(); ?>
 					<div class="col-lg-12">
 						<h2><?php echo $bir50_depoimento; ?></h2>
 					</div>
-					<div class="row participate">
-						<div class="col-lg-6 text-right">
-							<span>
-								<a href="<?php echo $bir50_verTodos_link; ?>">
-									<?php echo $bir50_verTodos; ?> 
-								</a>
-							</span>
-						</div>
-						<div class="col-lg-6 text-right">
-							<span>
-								<a href="<?php echo $bir50_verTodosVideos_link; ?>">
-									<?php echo $bir50_verTodosVideos; ?> 
-								</a>
-							</span>
-						</div>
-					</div>
 					<div class="row">
 						<?php dynamic_sidebar( 'section-1' ); ?>
 					</div> <!-- /row -->
