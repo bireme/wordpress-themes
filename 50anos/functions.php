@@ -83,6 +83,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 /**
  * RElated Videos Widget
  */
+ 
 class relatedVideos_widget extends WP_Widget {
  
  
@@ -341,6 +342,14 @@ class testimonialVideos_widget extends WP_Widget {
 								</script>	
 							</div>
 						</div>
+						<div class="LinkVerTodos text-right">
+							<?php 	$hotsite_lang = pll_current_language(slug); //pega o idioma do template
+									include "vars_$hotsite_lang.php" //carrega as variaveis com o idioma selecionado;
+							?>
+							<a href="<?php echo $bir50_verTodosVideos_link; ?>">
+								<?php echo $bir50_verTodosVideos; ?> 
+							</a>
+						</div>
               <?php echo $after_widget; ?>
         <?php
     }
@@ -408,6 +417,14 @@ class testimonialSlider_widget extends WP_Widget {
 						                    	<span class="author_name text-right"><?php echo get_post_meta(get_the_ID(), 'testimonial_client_name', true);?></span>
 						                    	<span class="author_channel text-right"><?php echo get_post_meta(get_the_ID(), 'testimonial_client_company_name', true);?></span>
 						                	</div>
+											 <div class="LinkVerTodos text-right">
+												<?php 	$hotsite_lang = pll_current_language(slug); //pega o idioma do template
+														include "vars_$hotsite_lang.php" //carrega as variaveis com o idioma selecionado;
+												?>
+												<a href="<?php echo $bir50_verTodos_link; ?>">
+													<?php echo $bir50_verTodos; ?> 
+												</a>
+											</div>
 						                </div>
 									 <?php endwhile; else: ?>
 									 <?php endif; ?>
@@ -450,4 +467,13 @@ class testimonialSlider_widget extends WP_Widget {
  
 } // end class testimonialSlider_widget
 add_action('widgets_init', create_function('', 'return register_widget("testimonialSlider_widget");'));
+
+function http_request_local( $args, $url ) {
+	if ( preg_match('/xml|rss|feed/', $url) ){
+		$args['reject_unsafe_urls'] = false;      
+	}
+	return $args;
+	}
+add_filter( 'http_request_args', 'http_request_local', 5, 2 );
+
 ?>
