@@ -103,35 +103,36 @@ function fix_wp_title($text) {
 }
 
 function fix_permalink($ID){
+	if ( 'acf' != get_post_type() ) {
+		$short_codes = array ('pt_br', 'en_us', 'es_es');
+		list($permalink, $post_name) = get_sample_permalink($ID, null, null);
+		$original_slug = $post_name;
 
-	$short_codes = array ('pt_br', 'en_us', 'es_es');
-	list($permalink, $post_name) = get_sample_permalink($ID, null, null);
-	$original_slug = $post_name;
-
-	if ( ! wp_is_post_revision( $post_id ) ){
-		remove_action('save_post', 'fix_permalink');
-		foreach ($short_codes as $sc) {
-			$pos_sc = strpos($original_slug, $sc);
-			if ($pos_sc === FALSE) {
-				//avoid return 0 as a valid position
-				$found_short_codes[] = 10000;
-			} else {
-				$found_short_codes[] = $pos_sc;
+		if ( ! wp_is_post_revision( $post_id ) ){
+			remove_action('save_post', 'fix_permalink');
+			foreach ($short_codes as $sc) {
+				$pos_sc = strpos($original_slug, $sc);
+				if ($pos_sc === FALSE) {
+					//avoid return 0 as a valid position
+					$found_short_codes[] = 10000;
+				} else {
+					$found_short_codes[] = $pos_sc;
+				}
 			}
+			if (array_sum($found_short_codes) < 30000) {
+				array_multisort($found_short_codes, $short_codes);
+				$extracted_text = explode($short_codes[0], $original_slug);
+				$new_slug = $extracted_text[1];
+			} else {
+				$new_slug = $original_slug;
+			}
+			$update_slug = array (
+				'ID'          => $ID,
+				'post_name'   => $new_slug
+			);
+			wp_update_post($update_slug);
+			add_action('save_post','fix_permalink');
 		}
-		if (array_sum($found_short_codes) < 30000) {
-			array_multisort($found_short_codes, $short_codes);
-			$extracted_text = explode($short_codes[0], $original_slug);
-			$new_slug = $extracted_text[1];
-		} else {
-			$new_slug = $original_slug;
-		}
-		$update_slug = array (
-			'ID'          => $ID,
-			'post_name'   => $new_slug
-		);
-		wp_update_post($update_slug);
-		add_action('save_post','fix_permalink');
 	}
 }
 
