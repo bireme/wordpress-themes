@@ -713,8 +713,8 @@ function custom_slug_box() {
 	            $ = jQuery;
 	            $(document).ready(function() {
                     var selection;
-                    $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
-                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
+                    $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
+                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
                     $('.wrap-lang').hover(function(){
                         selection = getSelectedText();
                         id = $(':focus').attr('id');
@@ -737,8 +737,8 @@ function custom_slug_box() {
 	                        if($(this).hasClass('es_ES')){
 	                            var replacement = '[es_ES]' + selection + '[/es_ES]';
 	                        }
-	                        if($(this).hasClass('en_EN')){
-	                            var replacement = '[en_EN]' + selection + '[/en_EN]';
+	                        if($(this).hasClass('en_US')){
+	                            var replacement = '[en_US]' + selection + '[/en_US]';
 	                        }
 
 	                        element.val(element.val().substring(0, start) + replacement + element.val().substring(end, element.val().length));
