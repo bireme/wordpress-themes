@@ -142,7 +142,7 @@ margin: 0px auto;
 }
 .topSlot {
 	float: right;
-	margin-top: 64px;
+	margin-top: 96px;
 
 }
 .top {
@@ -150,13 +150,30 @@ margin: 0px auto;
 	width: 974px;
 	margin: 0px auto;
 	padding: 0px 12px;
-	height: 132px;
-	background: url(images/border-bottom.jpg) bottom no-repeat; 
+	height: 104px;
+	
 }
 .top #parent {
 	float: left;
 	margin: 18px 6px 14px 50px;
 }
+
+
+.top.top_pt-br{
+	background: url(images/pt/bireme_azul_pt_horizontal.png) right no-repeat; 
+	
+}
+
+.top.top_en-us{
+	background: url(images/en/bireme_azul_en_horizontal.png) right no-repeat; 
+	
+}
+
+.top.top_es-es{
+	background: url(images/es/bireme_azul_es_horizontal.png) right no-repeat;  
+	
+}
+
 .top #identification_pt-BR, .top #identification_en-US, .top #identification_es-ES {
 	float: left;
 }
@@ -195,6 +212,8 @@ margin: 0px auto;
 	clear: both;
 	width: 980px;
 	margin: 0px auto;
+	background: url(images/border-bottom.jpg) top no-repeat;
+	
 
 }
 
@@ -496,6 +515,7 @@ x.footerArea .widget_nav_menu div LI A {
 .breadcrumb {
 	margin-bottom: 20px;
 	margin-left: 72px;
+	padding-top:38px;
 }
 .storycontent p {
 line-height: 141%;
