@@ -704,6 +704,10 @@ height: 105px;
 
 @media (max-width: 525px) {
 	.top h1 {width:200px !important;background-size:200px 30px !important;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	
 	.top, .footerArea {width: 93%;}
 	.middle, .bar .barInner, .sliderInner{width:100%;}
 	.bar .barInner{font-size: 80%;}
@@ -717,8 +721,12 @@ height: 105px;
 }
 @media (width: 360px) {
 	.container {width: 360px;}
+		
 	.top, .footerArea {width: 93% !important;}
-	.top #parent {margin: 18px 6px 14px -11px;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top #parent {margin: 85px 6px 14px -11px;}
 	.topSlot {margin-top: 0px; width: 360px;}
 	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
@@ -737,15 +745,21 @@ height: 105px;
 	 .collections_3col{width: 371px;} 
 	 .acesso_direto img{width: 308px !important;}
 	 .next_events img{width: 82% !important; margin-left: 30px;} 
-	 .top #identification_pt-BR, .top #identification_en-US, .top #identification_es-ES {margin-top: -56px; margin-left: 69px;}
+	 .top #identification_pt-BR, .top #identification_en-US, .top #identification_es-ES {margin-top: -91px; margin-left: 69px;}
 }
 
 
 @media (width: 320px) {
 	.container {width: 319px;}
 	.top {width: 91% !important;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
 	.footerArea {width: 95% !important;}
-	.top #parent {margin: 18px 6px 14px 19px;}
+	.top #parent {margin: 85px 0px 14px 0px;}
+	.top #identification_pt-BR {margin-top:-22px !important;}
+	.top #identification_en-US {margin-top:0px !important;}
+	.top #identification_es-ES{margin-top:0px !important;}
 	.topSlot {margin-top: 0px; width: 326px;}
 	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
@@ -770,7 +784,13 @@ height: 105px;
 @media (width: 375px) {
 	.container {width: 375px;}
 	.top, .footerArea {width: 92% !important;}
-	.top #parent {margin: 18px 6px 14px 19px;}
+		.top #identification_pt-BR{margin-top: 80px !important;}
+		.top #identification_en-US{margin-top: 90px !important;}
+		.top #identification_es-ES{margin-top: 90px !important;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top #parent {    margin: 85px 0px 14px 0px;}
 	.topSlot {margin-top: 0px; }
 	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important;}
@@ -792,13 +812,19 @@ height: 105px;
 	 
 }
 
-@media (width: 568px) {
+@media (width: 568px) { 
 	.temas{margin-left:60px;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) right no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
 	.eportuguese {margin-left: 60px;}
 }
 
 @media (width: 768px) {
 	.container {width: 768px;}
+	.top.top_pt-br{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) right no-repeat !important; }
+	.top.top_es-es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
+	.top.top_en-us{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
 	.temas{margin-left:70px;} 
      .next_events {margin-left: 30px;}
 	.top, .footerArea {width: 727px !important;}
