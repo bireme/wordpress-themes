@@ -90,7 +90,7 @@ Version: 0.1
 .top_sidebar .panel-grid-cell article div {padding: 0 !important;}
 .thumb-img {margin: 0 8px 0 0 !important;}
 .entry-image {padding:0 !important;}
-.img-map-overlay {position: absolute;width: 40%;margin: 50px;color: #28367d;font-size: 150%;line-height: 170%;}
+.img-map-overlay {position: absolute;width: 40%;margin: 125px 50px 50px 50px;color: #28367d;font-size: 150%;line-height: 170%;}
 .img-map-overlay strong {margin-bottom: 25px; font-size: 200%;}
 .panel-grid-cell article {display:flex; clear: both; margin:8px 0; border-bottom: 1px solid #e5e5e5; margin:8px 0;padding-bottom: 8px;}
 .panel-grid-cell article .metadata {width:62%;}
@@ -113,7 +113,7 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 .footer_sidebar .sub-menu {font-size:80%;font-weight:normal;margin-left: 0;}
 .footer {padding:0 !important;}
 .footer .panel-grid {margin:0 !important;background: #2e3e4f;}
-.footer .institutionalFooter a {color: #000 !important;}
+/*.footer .institutionalFooter a {color: #000 !important;}*/
 .footer .panel-grid .channels {text-align: right;}
 .footer .panel-grid .channels span {display: inline-block;margin: 2px 12px;}
 .footer .panel-grid .channels a {color: #fff; text-decoration: none !important;}
@@ -224,4 +224,172 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 }
 /* Desktop grande */
 @media (min-width: 1200px) {
+}
+/* teste de sincronia com o servidor */
+.text-white { color: #FFF; }
+/* CSS de desenvolvimento apagar apos aplicacao */
+
+body {
+	hyphens: none;
+}
+
+.vhl-search-form, .default-search-form {
+	width:  50%;
+	background: #FFF;
+	margin: 10px 30px 10px 10%;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	float: left;
+}
+
+.vhl-search-input {
+	background: none;
+	width: 90%;
+	border: none;
+}
+
+.button_clear, .vhl-search-submit {
+	border: none;
+	background: none;
+	float: right;
+	font-size: 18px;
+	color: #214924;
+}
+.button_clear:hover, .vhl-search-submit:hover {
+	border: none;
+	background: none;
+}
+.searchItens {
+	float: left;
+	margin: 12px;
+}
+
+.breadcrumb-rede {
+	color: #FFF;
+}
+
+.breadcrumb-rede a, .breadcrumb-rede a:visited {
+	color: #FFF;
+}
+
+.breadcrumb-rede .active {
+	font-weight: bold;
+}
+.Institution-info, .Institution-info a {
+	color: #fff;
+}
+
+.widget-title {
+	background: #fff;
+}
+
+.widget-title .my_icon {
+	float: right;
+	margin: 8px;
+	font-size: 70%;
+}
+h3.widget-title a {
+	text-decoration: none;
+}
+
+.institution_header img {
+	xwidth: 400px;
+}
+.headerWidget {
+	margin: 10px !important;
+}
+.headerWidget .widget {
+	clear: both;
+}
+
+.type-page .entry-content {
+	font-size: 110%;
+	hyphens: none;
+}
+.container 1_columns {
+	
+}	
+.type-page .entry-header h1 {
+	border-bottom: 3px solid;
+}
+.img-map-overlay, h1, h2, h3, h4, h5 {
+	hyphens: none;
+}
+
+.footer .panel-grid {	
+	padding: 15px !important;  
+}
+
+.showHide_widget .ewd-ufaq-post-margin-symbol span {
+	display: none;
+}
+.showHide_widget .faq_level1 .ufaq-faq-category-title {
+	display: none;
+}
+
+.showHide_widget .faq_level2  {
+	margin-left: 30px;
+}
+
+.showHide_widget .faq_level2 .ufaq-faq-category-title h4 {
+	margin: 20px 0px 0px 0px;
+}
+
+.showHide_widget {
+	border: 1px solid transparent;
+	padding: 10px;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a:hover {
+	text-decoration: underline !important;
+}
+
+.style_list {
+	font-size: 100%;
+	font-weight: bold;
+}
+
+.style_list ul {
+  list-style: none;
+  padding: 0;
+  }
+.style_list li {
+  padding-left: 1.3em;
+}
+.style_list li:before {
+  content: "\f0da"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 0.8em; /* same as padding-left set on li */
+}  
+.panel-grid-cell {
+}
+
+.side {
+	font-size: 90%;
+}
+
+.ufaq-faq-div:nth-child(even) {
+	background: #FFFFFF;
+	border: 1px solid #f2f2f2;
+}
+.ufaq-faq-div:nth-child(odd) {
+	background: #F2f2f2; 
+	border: 1px solid #f2f2f2;
+}
+.ufaq-faq-div {
+	margin: 0px;
+}
+
+h2.entry-title {
+	border-bottom: 2px solid;
+}
+
+.entry-content p {
+	font-size: 110%;
 }
