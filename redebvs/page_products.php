@@ -10,7 +10,7 @@
 
 get_header(); ?>
 <?php dynamic_sidebar( 'aux-top-level2' ); ?>
-<?php if ( function_exists( 'vhl_breadcrumb' ) ) { vhl_breadcrumb(); } ?>
+<?php if ( function_exists( 'portal_breadcrumb' ) ) { portal_breadcrumb(); } ?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 

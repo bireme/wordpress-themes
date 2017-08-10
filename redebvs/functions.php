@@ -1,23 +1,95 @@
 <?php
-	register_nav_menus( array(
-		'top-menu' => 'Top menu',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Auxiliar top - level 2' ),
-		'id' => 'aux-top-level2',
-		'description' => __( 'Area de widget topo do segundo nível' ),
-		'before_widget' => '<div id="%1$s" class="widget top-level2">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-	register_sidebar( array(
-		'name' => __( 'Auxiliar footer - level 2' ),
-		'id' => 'single-sidebar',
-		'description' => __( 'Area de widget topo do segundo nível' ),
-		'before_widget' => '<div id="%1$s" class="widget single-sidebar">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
+/*
+Tema Portal de Rede da BVS
+*/
+/**
+ * Widget BreadCrumb do Portal da Rede BVS
+ * Exibe uma breadcrumb personalizada do portal da rede BVS
+ */
+class breadcrumb_widget extends WP_Widget {
+ 
+ 
+    /** constructor -- name this the same as the class above */
+    function breadcrumb_widget() {
+        parent::WP_Widget(false, $name = 'BreadCrumb do Portal da Rede BVS');	
+    }
+ 
+    /** @see WP_Widget::widget -- do not rename this */
+    function widget($args, $instance) {	
+        extract( $args );
+			if ( function_exists( 'portal_breadcrumb' ) ) { portal_breadcrumb(); } 
+        ?>
+		<?php
+    }
+ 
+    /** @see WP_Widget::update -- do not rename this */
+    function update($new_instance, $old_instance) {		
+		$instance = $old_instance;
+        return $instance;
+    }
+ 
+    /** @see WP_Widget::form -- do not rename this */
+    function form($instance) {	
+ 
+        ?>
+         <p>
+			Exibe a breadcrumb da Rede <br>
+			Displays the breadcrumb of the network<br>
+			Muestra la breadcrumb de la red
+        </p>
+        <?php 
+    }
+ 
+ 
+} // end class breadcrumb_widget
+add_action('widgets_init', create_function('', 'return register_widget("breadcrumb_widget");'));
+
+
+// breadcrumb portal da rede bvs 
+function portal_breadcrumb() { ?>
+		<div class="breadcrumb breadcrumb-rede">
+				 <?php if ( is_multisite() ) { 
+					switch_to_blog(1);
+					$site_title = get_bloginfo( 'name' );
+					$site_url = network_site_url( '/' );
+					restore_current_blog();
+					echo "<span class='multisiteName'>";
+					echo "<a href='$site_url' class='section'>$site_title </a>"; 
+					echo "<i class='fa fa-angle-double-right' aria-hidden='true'></i>"; 
+					echo "</span>";
+					} 
+				 ?> 
+				<?php
+				if ( is_home() ) { ?>
+					<span class="active section"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span>
+				<? } else { ?>
+					<a href="<?php echo esc_attr( get_bloginfo( 'wpurl', 'display' ) ); ?>" class="section"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
+					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+					<?php 
+						if( is_page() ) { 
+							global $post;
+								/* Get an array of Ancestors and Parents if they exist */
+							$parents = get_post_ancestors( $post->ID );
+								/* Get the top Level page->ID count base 1, array base 0 so -1 */ 
+							$postid = get_the_ID();
+							$id = ($parents) ? $parents[count($parents)-1]: $post->ID;
+							/* Get the parent and set the $class with the page slug (post_name) */
+								$parent = get_post( $id );
+								$parent_page = $parent->post_title;
+								//$parent_slug = $parent->post_name;
+								$parent_url = esc_attr( get_bloginfo( 'wpurl', 'display' ) ) . "/" . $parent->post_name;
+								if ($postid != $id){
+									echo "<a href='$parent_url'>";
+									echo $parent_page;
+									echo " <i class='fa fa-angle-double-right' aria-hidden='true'></i>";
+									echo "</a>";
+								}
+						}
+					?>
+					<span class="active section"><?php the_title(); ?></span>
+				<? }
+				?>
+		</div>
+<? }
+
 ?>
