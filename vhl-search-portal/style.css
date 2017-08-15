@@ -699,6 +699,15 @@ height: 105px;
 	
 	
 .mlf_alert, .postmeta_translations {display:none;}
+
+
+
+.my_bvs {background: url(/wp-content/uploads/2017/08/logo_mybvs.png) left no-repeat !important;
+	padding: 10px 0px 10px 32px !important; color: #0772a2 !important;
+
+ }
+
+
 /**************** MEDIA QUERIES ****************/
 
 
