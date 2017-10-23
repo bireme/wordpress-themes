@@ -23,13 +23,13 @@ body {
 
 .header {
     background: #095fb7;
-	height:83px;}
+	}
 	
 a {color: #044384; text-decoration: none;}
 
 a:visited {color: #044384 !important;}
 
-.bar a:visited {color: #FFF !important;}
+.github.txtbar a:visited {color: #FFF !important;}
 
 .bar{width: 61% !important;}
 	
@@ -160,7 +160,7 @@ a.more-link{color: #044384 !important;}
 
 .footer {color: #fff;}
 
-.footer_sidebar{background: #93c1f1; height: 200px;}
+.footer_sidebar{background: #93c1f1; padding-bottom:20px;}
 
 .footer_sidebar .panel-grid{ width: 94%;
     text-align: center;
@@ -173,3 +173,13 @@ a.more-link{color: #044384 !important;}
 .footer .widget-title{color: #fff;}
 
 .column_2 .addthis_toolbox{display:none;}  
+
+
+
+@media (max-width: 480px){
+	.container{ width: auto !important;}
+	.bar{ width: auto !important; margin-top: 35px !important;}
+	#parent{margin-top:2px !important; margin-left: 14px !important;}
+	.column_1 .vhl-clusters {width:90% !important;}
+	.headerWidget {margin-top: 0px !important;}
+	.panel-grid-cell {padding-right: 37px !important;}}
