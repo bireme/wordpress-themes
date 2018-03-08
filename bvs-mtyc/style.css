@@ -20,6 +20,8 @@
 * Definicoes gerais    
 */
 body {font-family: Verdana!important; color:#444444 !important;  }
+.top.top_pt-br {background: url(images/pt/logobir-pt.png) right no-repeat;height: 141px;}
+.top.top_en-us {background: url(images/en/logobir-en.png) right no-repeat;height: 141px;}
 .top.top_es-es {background: url(images/es/logoops2-es.png) right no-repeat;height: 141px;}
 .header {height: 177px;}
 #contact a, #otherVersions a{color: #82b300 !important;}
@@ -136,13 +138,13 @@ input {
 /**
 * Definicoes footer
 */
-.footer_sidebar{background:#908658; min-height:150px; color: #FFF;font-size: 11px;}
+.footer_sidebar{background:#908658; min-height:162px; color: #FFF;font-size: 11px;}
 .footer_sidebar img{margin: 0px 0px 0px 200px;}
 .info {
     font-weight: bold;
-    margin: 15px 170px;
+    margin: 0px 170px 15px;
     text-align: center;
-	line-height: 19px;
+	line-height: 16px;
 }
 
 .footer {background:  #b9af82;  text-align: center; margin-top: -37px;}
