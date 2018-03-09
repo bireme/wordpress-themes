@@ -199,7 +199,7 @@ input {
 .header{background:url(images/es/title_responsive.jpg) left no-repeat !important;}
 .column_1  {width: 100% !important;}	
 #parent{display:none !important;}
-.top.top_es-es {background:none !important;}
+.top.top_es-es,.top.top_en-us, .top.top_pt-br {background:none !important;}
 .column_2{height: auto !important;}
 .column_2 #linkcat-23 {min-height: auto !important;}
 .carousel-slider__post{height: 500px !important;} 
