@@ -31,11 +31,13 @@ a img {
 }
 
 .banner {
+
 	margin: 0 auto;
-	width: 1000px;
+	width: 100% !important;
 	height: 120px;
-	background: url(banner.png) top right no-repeat;
+	background: url(banner.png) top no-repeat;
 }
+
 
 .banner h1 {
 	margin: 0px;
@@ -398,8 +400,8 @@ ul.network {
 	position: absolute;
 	margin: 0 auto;
 	text-align: right;
-	margin-top: 100px;
-	right:50px;
+
+	right:215px;
 }
 
 

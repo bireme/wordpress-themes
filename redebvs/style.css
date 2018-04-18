@@ -14,6 +14,12 @@ Version: 0.1
 -------------------------------------------------------------- */
 @import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
 
+/* Cleaning of css parameters defined in the above import. */
+
+strong {
+	display: inline; /* Delete "display: block" in generic css */
+}
+
 /* Styles - REDE BVS
 -------------------------------------------------------------- */
 .spacer{height:0;}
@@ -80,9 +86,9 @@ Version: 0.1
 .metaslider div {padding:0 !important;}
 .metaslider .caption-wrap .caption {padding:10px !important;}
 .container h3 {border-bottom: 1px solid; letter-spacing: -.05em;font-size: 1.7em !important;color:#28367d;}
-.top_sidebar .so-panel .panel-widget-style {padding: 0 !important;}
-.top_sidebar .so-panel .panel-widget-style li {line-height: 350%;}
-.top_sidebar .so-panel .panel-widget-style li a {color:#000;font-weight: bold;font-size: 120%;text-decoration: none;}
+.top_sidebar .so-panel {padding: 0 !important;}
+.top_sidebar .so-panel li {line-height: 160%; margin-bottom: 10px;}
+.top_sidebar .so-panel li a {color:#000;font-weight: bold;font-size: 120%;text-decoration: none;}
 .top_sidebar .downloads li a:before {content:"\f1c1";font-family: FontAwesome;font-weight: normal;font-style: normal;display: inline-block;text-decoration: inherit;font-size: 150%;margin-right: 6px;}
 .top_sidebar .widget_siteorigin-panels-builder {padding-bottom:0 !important;margin-bottom:0 !important;}
 [id^="pl"] {padding-bottom:0px !important;}
@@ -90,8 +96,8 @@ Version: 0.1
 .top_sidebar .panel-grid-cell article div {padding: 0 !important;}
 .thumb-img {margin: 0 8px 0 0 !important;}
 .entry-image {padding:0 !important;}
-.img-map-overlay {position: absolute;width: 40%;margin: 50px;color: #28367d;font-size: 150%;line-height: 170%;}
-.img-map-overlay strong {margin-bottom: 25px; font-size: 200%;}
+.img-map-overlay {position: absolute;width: 40%;margin: 125px 50px 50px 50px;color: #28367d;font-size: 150%;line-height: 170%;}
+.img-map-overlay strong {margin-bottom: 10px; font-size: 200%; line-height: 100%;}
 .panel-grid-cell article {display:flex; clear: both; margin:8px 0; border-bottom: 1px solid #e5e5e5; margin:8px 0;padding-bottom: 8px;}
 .panel-grid-cell article .metadata {width:62%;}
 .entry-cats-list a, .entry-cats-list a:visited {color:#00d2ff;text-decoration:none;font-weight: bold;}
@@ -113,7 +119,7 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 .footer_sidebar .sub-menu {font-size:80%;font-weight:normal;margin-left: 0;}
 .footer {padding:0 !important;}
 .footer .panel-grid {margin:0 !important;background: #2e3e4f;}
-.footer .institutionalFooter a {color: #000 !important;}
+/*.footer .institutionalFooter a {color: #000 !important;}*/
 .footer .panel-grid .channels {text-align: right;}
 .footer .panel-grid .channels span {display: inline-block;margin: 2px 12px;}
 .footer .panel-grid .channels a {color: #fff; text-decoration: none !important;}
@@ -192,6 +198,11 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 	.sow-features-list {width: 100%;}
 	.header {height: 116px !important;}
 	.top-level2 .widget_search{margin-top:-14px;}
+	.headerWidget {display: block; top: 120px;}
+	.breadcrumb {clear: both; margin-top: 70px;}
+	.home .header {height: 200px !important;}
+	.img-map-overlay {margin: 50px 1px 0px 10px;}
+	.home .widget {margin: 0px;}
 }
 /* tablet em portrait a landscape e desktop */
 @media (min-width: 768px) and (max-width: 979px) {
@@ -203,11 +214,14 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
     .img-map-overlay {width:95%;margin:5%; font-size: 120%;}
     .img-map-overlay strong {margin-bottom:5px;font-size:130%;}
     .header {height: 116px !important;}
+	
 }
 @media (max-width: 980px) {
 	.top_sidebar {border-top:3px solid #c5d7df;}
 	.shailan-dropdown-menu-widget {height: 34px;}
 	.top-level2 {height: 18px;}
+	.headerWidget { clear: both;}
+	.breadcrumb {clear: both;}
 }
 @media (min-width: 980px) and (max-width: 1023px) { 
 	.container {width: 98% !important;}
@@ -224,4 +238,241 @@ strong.widget-title {border-bottom: 1px solid;letter-spacing: -.05em;font-size: 
 }
 /* Desktop grande */
 @media (min-width: 1200px) {
+}
+/* teste de sincronia com o servidor */
+.text-white { color: #FFF; }
+/* CSS de desenvolvimento apagar apos aplicacao */
+
+body {
+	hyphens: none;
+}
+
+.vhl-search-form, .default-search-form {
+	width:  40%;
+	background: #FFF;
+	margin: 10px 30px 10px 18%;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	float: left;
+}
+
+.vhl-search-input {
+	background: none;
+	width: 90%;
+	border: none;
+}
+
+.button_clear, .vhl-search-submit {
+	border: none;
+	background: none;
+	float: right;
+	font-size: 18px;
+	color: #214924;
+}
+.button_clear:hover, .vhl-search-submit:hover {
+	border: none;
+	background: none;
+}
+.searchItens {
+	float: left;
+	margin: 12px;
+}
+
+.breadcrumb-rede {
+	color: #FFF;
+	background: #28367d;
+}
+
+.breadcrumb-rede a, .breadcrumb-rede a:visited {
+	color: #FFF;
+}
+
+.breadcrumb-rede .active {
+	font-weight: bold;
+}
+.Institution-info, .Institution-info a {
+	color: #fff;
+}
+
+.widget-title .my_icon {
+	float: right;
+	margin: 3px;
+	font-size: 70%;
+}
+h3.widget-title a {
+	text-decoration: none;
+}
+
+.institution_header img {
+	xwidth: 400px;
+}
+.headerWidget {
+	margin: 10px !important;
+}
+.headerWidget .widget {
+	clear: both;
+}
+
+.type-page .entry-content {
+	font-size: 110%;
+	hyphens: none;
+}
+.container 1_columns {
+	
+}	
+.type-page .entry-header h1 {
+	border-bottom: 3px solid;
+}
+.img-map-overlay, h1, h2, h3, h4, h5 {
+	hyphens: none;
+}
+
+.footer .panel-grid {	
+	padding: 15px !important;  
+}
+
+.showHide_widget .ewd-ufaq-post-margin-symbol span {
+	display: none;
+}
+.showHide_widget .faq_level1 .ufaq-faq-category-title {
+	display: none;
+}
+
+.showHide_widget .faq_level2  {
+	margin-left: 30px;
+}
+
+.showHide_widget .faq_level2 .ufaq-faq-category-title h4 {
+	margin: 20px 0px 0px 0px;
+}
+
+.showHide_widget {
+	border: 1px solid transparent;
+	padding: 10px;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a:hover {
+	text-decoration: underline !important;
+}
+
+.style_list {
+	font-size: 100%;
+	font-weight: bold;
+}
+
+.style_list ul {
+  list-style: none;
+  padding: 0;
+  }
+.style_list li {
+  padding-left: 1.3em;
+}
+.style_list li:before {
+  content: "\f0da"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.3em; /* same as padding-left set on li */
+  width: 0.8em; /* same as padding-left set on li */
+}  
+.panel-grid-cell {
+}
+
+.side {
+	font-size: 90%;
+}
+
+.ufaq-faq-div:nth-child(even) {
+	background: #FFFFFF;
+	border: 1px solid #f2f2f2;
+}
+.ufaq-faq-div:nth-child(odd) {
+	background: #F2f2f2; 
+	border: 1px solid #f2f2f2;
+}
+.ufaq-faq-div {
+	margin: 0px;
+}
+
+h2.entry-title {
+	border-bottom: 2px solid;
+}
+
+.entry-content p {
+	font-size: 110%;
+}
+
+.textwidget {
+}
+
+.entry-content h1, .textwidget h1,
+.entry-content h2, .textwidget h2,
+.entry-content h3, .textwidget h3,
+.entry-content h4, .textwidget h4,
+.entry-content h5, .textwidget h5,
+.entry-content h6, .textwidget h6 {
+	border: none;
+	font-size: 20px !important;
+	margin: 10px 0px 10px 0px !important;
+	padding: 0px;
+	letter-spacing: 0;
+	line-height: 100% !important;
+	margin-bottom: 1em;
+} 
+
+.entry-content h1, .textwidget h1 {
+	font-size: 200%;
+}
+.entry-content h2, .textwidget h2 {
+	font-size: 175%;
+}
+.entry-content h3, .textwidget h3 {
+	font-size: 150%;
+}
+.entry-content h4, .textwidget h4 {
+	font-size: 130%;
+}
+.entry-content h5, .textwidget h5 {
+	font-size: 115%;
+}
+.entry-content h6, .textwidget h6 {
+	font-size: 100%;
+}
+
+/*.top_sidebar .so-panel {
+	background: #FFFFFF;
+}*/ 
+
+.widget-title {
+	background: #edf4f7; /* Para mudar a cor no tema aplicar esse parâmetro de CSS nas opções do tema */
+	padding: 5px !important;
+}
+.site-content article.page {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.img-map-overlay strong {
+	display: block;
+}
+.panel-grid {
+	margin-top: 20px;
+}
+
+.entry-content p, .entry-summary p, .comment-content p, .mu_register p {
+	margin: 0px;  
+}
+
+.childPages {
+	display: none !important;
+}
+
+.bar a:hover {
+	color: #00d2ff;
+}
+
+.bar #contact {
+	margin: 1px 15px;
 }

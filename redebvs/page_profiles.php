@@ -10,7 +10,6 @@
 
 get_header(); ?>
 <?php dynamic_sidebar( 'aux-top-level2' ); ?>
-	<?php if ( function_exists( 'vhl_breadcrumb' ) ) { vhl_breadcrumb(); } ?>
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -71,10 +70,10 @@ get_header(); ?>
 		<div class="spacer"></div>
 	</div><!-- #primary -->
 	<div class="spacer"></div>
-	</div>
 	<div class="spacer"></div>
 	<div class="footer_sidebar">       
                 <?php dynamic_sidebar( 'single-sidebar' ); ?>
                 <div class="spacer"></div>
         </div>
 <?php get_footer(); ?>
+</div> <!-- fecha colunas -->

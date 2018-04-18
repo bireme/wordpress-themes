@@ -103,35 +103,36 @@ function fix_wp_title($text) {
 }
 
 function fix_permalink($ID){
+	if ( 'acf' != get_post_type() ) {
+		$short_codes = array ('pt_br', 'en_us', 'es_es');
+		list($permalink, $post_name) = get_sample_permalink($ID, null, null);
+		$original_slug = $post_name;
 
-	$short_codes = array ('pt_br', 'en_us', 'es_es');
-	list($permalink, $post_name) = get_sample_permalink($ID, null, null);
-	$original_slug = $post_name;
-
-	if ( ! wp_is_post_revision( $post_id ) ){
-		remove_action('save_post', 'fix_permalink');
-		foreach ($short_codes as $sc) {
-			$pos_sc = strpos($original_slug, $sc);
-			if ($pos_sc === FALSE) {
-				//avoid return 0 as a valid position
-				$found_short_codes[] = 10000;
-			} else {
-				$found_short_codes[] = $pos_sc;
+		if ( ! wp_is_post_revision( $post_id ) ){
+			remove_action('save_post', 'fix_permalink');
+			foreach ($short_codes as $sc) {
+				$pos_sc = strpos($original_slug, $sc);
+				if ($pos_sc === FALSE) {
+					//avoid return 0 as a valid position
+					$found_short_codes[] = 10000;
+				} else {
+					$found_short_codes[] = $pos_sc;
+				}
 			}
+			if (array_sum($found_short_codes) < 30000) {
+				array_multisort($found_short_codes, $short_codes);
+				$extracted_text = explode($short_codes[0], $original_slug);
+				$new_slug = $extracted_text[1];
+			} else {
+				$new_slug = $original_slug;
+			}
+			$update_slug = array (
+				'ID'          => $ID,
+				'post_name'   => $new_slug
+			);
+			wp_update_post($update_slug);
+			add_action('save_post','fix_permalink');
 		}
-		if (array_sum($found_short_codes) < 30000) {
-			array_multisort($found_short_codes, $short_codes);
-			$extracted_text = explode($short_codes[0], $original_slug);
-			$new_slug = $extracted_text[1];
-		} else {
-			$new_slug = $original_slug;
-		}
-		$update_slug = array (
-			'ID'          => $ID,
-			'post_name'   => $new_slug
-		);
-		wp_update_post($update_slug);
-		add_action('save_post','fix_permalink');
 	}
 }
 
@@ -712,8 +713,8 @@ function custom_slug_box() {
 	            $ = jQuery;
 	            $(document).ready(function() {
                     var selection;
-                    $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
-                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_EN\">en_EN</a></div>');
+                    $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
+                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
                     $('.wrap-lang').hover(function(){
                         selection = getSelectedText();
                         id = $(':focus').attr('id');
@@ -736,8 +737,8 @@ function custom_slug_box() {
 	                        if($(this).hasClass('es_ES')){
 	                            var replacement = '[es_ES]' + selection + '[/es_ES]';
 	                        }
-	                        if($(this).hasClass('en_EN')){
-	                            var replacement = '[en_EN]' + selection + '[/en_EN]';
+	                        if($(this).hasClass('en_US')){
+	                            var replacement = '[en_US]' + selection + '[/en_US]';
 	                        }
 
 	                        element.val(element.val().substring(0, start) + replacement + element.val().substring(end, element.val().length));

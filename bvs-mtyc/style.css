@@ -1,0 +1,214 @@
+/**
+* Theme Name: Portal MTYC
+* Description: Tema do Portal MTYC com plugin da Bireme
+* Author: Bireme/OPAS/OMS
+* Author URI: https://github.com/bireme
+* Template: bvs-2012
+* License: GNU General Public License
+* License URI: http://www.gnu.org/licenses/gpl.html
+* Version: 1.0
+*/
+
+/**
+* This theme, like WordPress, is licensed under the GPL.
+* Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
+
+/**
+* Definicoes gerais    
+*/
+body {font-family: Verdana!important; color:#444444 !important;  }
+.top.top_pt-br {background: url(images/pt/logobir-pt.png) right no-repeat;height: 141px;}
+.top.top_en-us {background: url(images/en/logobir-en.png) right no-repeat;height: 141px;}
+.top.top_es-es {background: url(images/es/logoops2-es.png) right no-repeat;height: 141px;}
+.header {height: 177px;}
+#contact a, #otherVersions a{color: #82b300 !important;}
+a {text-decoration:none;}
+.breadcrumb {background: #e4dfcb;}
+.breadcrumb a{margin-top: 10px;}
+.headerWidget {float: left !important; margin-top: 0px; width: 100%;}
+.spacer{height:0px !important;}
+strong{display: initial !important;}
+#contact, #otherVersions {margin:15px;}
+#contact a, #otherVersions a{margin-top:10px; color:white; font-weight:bold;}
+.entry-content h6 {font-weight: normal; font-size: 14px !important;  margin-bottom: 10px;}
+#content h1{line-height: 20px;}
+
+/**
+* Definicoes content
+*/
+#content{margin: 15px 20px 0px 24px; font-size: 15px; width: 92%;}
+.site-content article .entry-header .entry-title{margin-left:0px; color:#21759b; border-bottom: 1px solid;}
+.comments-link{display:none;}
+.single1column{width: 80% !important;}
+img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{ max-width: 300px !important; float: left; margin:0px 20px 20px 0px; border-radius: 7px;}
+
+/**
+* Definicoes campo de busca
+*/
+.vhl-search {padding: 40px 0px; background: #e4dfcb;}
+#searchForm {text-align: center;}
+input {
+    border: 1px solid #848484;
+    -webkit-border-radius: 8px 0px 0px 8px;
+    -moz-border-radius: 8px 0px 0px 8px;
+    border-radius: 8px 0px 0px 8px;
+    -webkit-box-shadow: 0 1px 2px #666 inset;
+    -moz-box-shadow: 0 1px 2px #666 inset;
+    box-shadow: 0 1px 2px #666 inset;
+    width: 285px;
+    padding: 10px 0px 9px 0px;
+    -webkit-padding-before: 9px;
+    -webkit-padding-after: 8px;
+    text-indent: 5px;
+}
+
+.vhl-search-submit{    border: 1px solid #475f78;
+    -webkit-border-radius: 0px 8px 8px 0px;
+    -moz-border-radius: 0px 8px 8px 0px;
+    border-radius: 0px 8px 8px 0px;
+    color: #FFF;
+    cursor: pointer;
+    padding: 9px 10px 8px 10px;
+    margin-left: -3px;
+    width: 102px;
+	    height: 33px;
+    margin-left: -5px;
+	}
+.busqueda_avanzada{    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 18px;
+    margin-right: 124px;}
+	
+.busqueda_avanzada a {color:#666 !important;    font-size: 11px;}	
+
+.busqueda_avanzada a:hover{text-decoration:underline !important;}
+/**
+* Definicoes carousel slider
+*/
+
+.carousel-slider__post, #id-35 .carousel-slider__post{min-height: 300px !important;}
+#id-35 .carousel-slider__post {background: #f2f2f2;}
+#id-35 .carousel-slider__post-image {width: 95% !important; height:250px !important; border: 2px solid #e6e6e6 !important; margin: 20px !important; }
+#id-35 .carousel-slider__post-image a {border:4px solid #fff !important;}
+#id-35 .carousel-slider__post-title {margin: 20px;}
+#id-35 .carousel-slider__post-excerpt{display:none !important;}
+.carousel-slider__post-meta{display:none !important;}
+.carousel-slider__post-excerpt {position: inherit !important;}
+.resumo{border: 1px solid red;}
+.entry-content .resumo{display:none !important;}
+#pg-993-0, #pg-993-1, #pg-993-2, #pg-993-3, #pg-993-4, #pg-993-5, #pl-993 .so-panel {
+    margin-bottom: 0px !important;
+}
+
+/**
+* Definicoes carousel Highlight
+*/
+.widget.widget_carousel_slider #id-54 {margin:20px; width:96%; }
+#id-54 .carousel-slider__post {border:0px !important; height:auto!important}
+#id-54 .carousel-slider__post-content {width:96%;}
+#id-54 .carousel-slider__post-image {height: 144px !important; width: 100px; border-bottom:0px !important;}
+#id-54 a.carousel-slider__post-title h1 {color:#81b300; text-decoration:none; font-size: 16px; text-align: center;}
+#id-54 .carousel-slider__post-excerpt{width: 91%; top:auto !important; font-size:13px !important;}
+.carousel-slider__post-meta{display:none !important;}
+.category-post-carousel img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image{display:none !important;}
+
+/**
+* Definicoes news
+*/
+.column{margin: 0px !important;}
+.column_1{background: #d5e8ca !important;}
+.column .widget{margin-bottom: 0px !important; padding-bottom: 0px !important;}
+.column_1 .widget recent-posts-widget-with-thumbnails{height: 374px;}
+.widget recent-posts-widget-with-thumbnails{background: #d5e8ca !important;}
+.recent-posts-widget-with-thumbnails .widget-title{margin-left: 12px; }
+.rpwwt-widget {min-height: 390px;}
+.rpwwt-widget ul li {width: 240px;padding-left: 9px; float:left;}
+.rpwwt-widget img{border:4px solid #fff;}
+.rpwwt-post-title {font-family:Arial, Helvetica, sans-serif; margin-right: 10px; font-weight: bold;}
+.rpwwt-post-excerpt{padding-left:0px !important;}
+.rpwwt-post-excerpt a{display:block;}
+.site-content article {border-bottom: none !important;}
+.entry-content img{border-radius: 3px;}
+.icon_news{ float: right; margin: 10px;}
+.attachment-post-thumbnail{display:none;}
+
+/**
+* Definicoes footer
+*/
+.footer_sidebar{background:#908658; min-height:162px; color: #FFF;font-size: 11px;}
+.footer_sidebar img{margin: 0px 0px 0px 200px;}
+.info {
+    font-weight: bold;
+    margin: 0px 170px 15px;
+    text-align: center;
+	line-height: 16px;
+}
+
+.footer {background:  #b9af82;  text-align: center; margin-top: -37px;}
+.apoyada{color: #fff;}
+
+/**
+* Definicoes red
+*/
+.column_1 .widget_metaslider_widget{background: #e4dfcb !important; clear:both;}
+.column_1 .widget_metaslider_widget .widget-title {padding: 18px 0px 0px 30px;}
+.column_1 .metaslider-62{padding-top: 0px;} 
+
+/**
+* Definicoes Direct Access
+*/
+.column_2 #linkcat-23, .column_2 #linkcat-99, .column_2 #linkcat-100{background: #b7d8a5 !important;}
+.column_2 #linkcat-23 .widget-title, .column_2 #linkcat-99 .widget-title, .column_2 #linkcat-100 .widget-title{font-size: 12px !important; line-height: 36px !important; margin-left: 10px;}
+.column strong.widget-title {border-bottom: 0px !important;}
+.column_2 #linkcat-23 ul li, .column_2 #linkcat-99 ul li, .column_2 #linkcat-100 ul li  {padding: 7px 7px; margin-left: 5px; font-size:12px; border-bottom: 1px solid #cbecb9;}
+.column_2 #linkcat-23 ul li:hover, .column_2 #linkcat-99 ul li:hover, .column_2 #linkcat-100 ul li:hover  {background: #c6e4b5 !important;}
+.column_2 #linkcat-23 ul li a, .column_2 #linkcat-99 ul li a, .column_2 #linkcat-100 ul li a{color: #797a78; display:block !important;}
+
+
+
+/**    
+* Definicoes Related Initiatives
+*/
+.column_2 {background: #e4dab1 !important; min-height: 676px;}
+.column_2 #linkcat-116 .widget-title, .column_2 #linkcat-117 .widget-title, .column_2 #linkcat-118 .widget-title{font-size:12px !important; line-height: 36px !important; margin-left: 10px;}
+.column_2 #linkcat-116 ul, .column_2 #linkcat-117 ul, .column_2 #linkcat-118 ul{overflow:auto;}
+.column_2 #linkcat-116 ul li, .column_2 #linkcat-117 ul li, .column_2 #linkcat-118 ul li { padding: 7px 7px; margin-left: 5x; font-size:12px; border-bottom: 1px solid #f5efd6;}
+.column_2 #linkcat-116 ul li:hover, .column_2 #linkcat-117 ul li:hover, .column_2 #linkcat-118 ul li:hover   {background: #efe6c4 !important;}
+.column_2 #linkcat-116 ul li a, .column_2 #linkcat-117 ul li a, .column_2 #linkcat-118 ul li a{color: #797a78; display:block !important;}
+
+/**
+* Definicoes Last News
+*/
+.pt-cv-ifield img {max-height: 240px; }
+.su-box border {  border-width: 1px !important; }
+
+
+
+.su-box-style-soft.practica .su-box-title {font-size:12px !important; } 
+.su-box-style-soft.practica img{float: left; max-width: 100px; margin: 0px 20px 10px 0px;}
+.su-box-style-soft.practica .su-box-content {font-size: 12px; }
+
+
+/**
+* Styles for screens that are less than 768px
+*/
+@media only screen and (max-width: 768px) {
+.header{background:url(images/es/title_responsive.jpg) left no-repeat !important;}
+.column_1  {width: 100% !important;}	
+#parent{display:none !important;}
+.top.top_es-es,.top.top_en-us, .top.top_pt-br {background:none !important;}
+.column_2{height: auto !important;}
+.column_2 #linkcat-23 {min-height: auto !important;}
+.carousel-slider__post{height: 500px !important;} 
+.carousel-slider__post-excerpt {padding-top: 74px !important;}
+.rpwwt-widget ul{display: initial !important;}
+.column_2 {width: 100% !important;}
+.footer_sidebar img{margin:0px !important; width: 90%;}
+.info{margin: 5px !important;}
+}
+
+
+

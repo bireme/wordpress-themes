@@ -1,0 +1,95 @@
+/*
+ Theme Name:   VHL MTC Theme
+ Theme URI:    https://github.com/bireme/wordpress-themes/tree/master/bvs-mtc
+ Description:  Tema criado para o site BVS MTC
+ Author:       BIREME
+ Author URI:   http://bvsalud.org
+ Template:     vhl-search-portal
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  vhl-search-portal
+*/
+.top {background: url(images/banner.jpg) no-repeat !important; height: 109px !important; width: 100% !important;}
+
+.top #parent {
+
+    margin: 0px 6px 2px 36px !important;
+}
+
+.breadcrumb{ margin-top:10px !important;}
+
+.middle .searchVHL {height: 50px !important;}
+
+.top #identification_es-ES { display: none !important;
+}
+
+.middle {width: 1000px !important;}
+
+.middle .collectiontitle { display: inherit !important; }
+
+.middle h2 {
+    font-size: 130% !important;
+    color: #284794 !important;
+    border-bottom: 1px solid #284794 !important;
+ 
+}
+
+.middle .slider{background: #d1e4f5; height: 220px; margin: 0px !important;}
+
+.sliderInner {margin: 0px auto !important;}
+
+.sliderCaption strong a {color: #284794 !important;}
+
+.menu-acceso-directo{border: 1px solid red;}
+
+.slider .textwidget {height: 30px !important; background: #b5cee4 !important; margin-bottom: 10px !important;}
+
+.slider .textwidget h1{font-size: 16px !important; color:#003893 !important;  padding-top: 7px; margin-left: 62px; font-weight: bold;}
+
+.sliderItem{margin-top: 23px !important;}
+
+.sliderCaption strong a {text-align:center !important;}
+
+.widget_metaslider_widget {
+    float: left;
+    width: 40%;
+    margin: 0px 0px 40px 0px !important;
+}
+
+.middle h2{
+	width: 100% !important;
+	}
+.middle .collections {
+    margin-left: 72px !important;
+    clear: both;
+    padding-top: 5px !important;
+    width: 88% !important;}
+	
+.middle .collections .widget_nav_menu{
+    width: 52% !important;
+	float: left !important;
+	}
+.middle .collections .widget_metaslider_widget{
+    width: 40% !important;
+	float: right !important;
+	}
+	
+.menu-acceso-directo-container ul#menu-acceso-directo li{
+    margin: 5px 0px 4px 25px;
+    padding-bottom: 3px;
+    font-weight: normal;
+    font-size: 110%;
+    list-style: outside url(images/pointer.gif) disc;
+    float: left;
+    width: 42%;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.middle h2.storytitle, .storycontent{
+	width: 88% !important;
+	}
+	
+.storycontent ul li{
+	list-style:inside !important;  line-height: 141%;}

@@ -24,7 +24,7 @@ get_header(); ?>
         $level2 .= $current_language;
 
 ?>
-	<?php if ( function_exists( 'vhl_breadcrumb' ) ) { vhl_breadcrumb(); } ?>
+	<?php if ( function_exists( 'portal_breadcrumb' ) ) { portal_breadcrumb(); } ?>
 	<div id="primary" class="site-content">
 		<div id="content" class="single1column" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
