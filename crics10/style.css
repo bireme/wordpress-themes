@@ -1,0 +1,88 @@
+/*
+ Theme Name:   CRICS10 Theme
+ Theme URI:    https://github.com/bireme/wordpress-themes/tree/master/crics10
+ Description:  Tema criado para o site do CRICS10
+ Author:       BIREME
+ Author URI:   http://bvsalud.org
+ Template:     bvs-2012
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  vhl
+*/
+
+
+body {background: #e7e7e7 !important;}
+.bar{font-weight: bold !important;}
+.bar a {
+    color: #0066b3 !important;
+}
+.container{box-shadow: 0px 0px 6px 6px #cacacc;}
+.header{height:260px;}
+.headerWidget {width: 100%;}
+#parent{margin-top: -22px;}
+#parent a img {width: 90% !important;}
+.top_sidebar{background: url(images/bg_destaque.png) repeat-y;}
+.top.top_es-es {background: url(images/es/logo_bvs.jpg) right no-repeat;
+ 	height: 72%;
+}  
+.top.top_pt-br{background: url(images/pt/bvs_pt1.jpg) right no-repeat;
+ 	height: 72%;
+}
+
+.top.top_en-us {background: url(images/en/bvs_en1.jpg) right no-repeat;
+ 	height: 72%;
+}
+ 
+.widget_metaslider_widget{clear: both;}
+#metaslider_47 ul, #metaslider_362, #metaslider_78 {
+	margin-left: 23px;
+	padding-bottom:23px;
+
+}
+
+.column_1 h3, .column_2 h3{
+	font-size: 20px; 
+	border-color:#0066b3; 
+	color: #0066b3;}
+
+.column_1 p, .column_2 p{
+	line-height:19px;
+	}
+.site-content article .entry-header .entry-title{ margin-left: 0px !important; margin-top: 10px;}	
+
+.instituicoes{background: #e2e2e2;}
+
+#content{width: 87%; margin-left:75px;}
+
+.footer_sidebar{background: #ddd9e0;
+    height: 150px;}
+	
+.footer_sidebar ul.slides {margin-top: 30px !important;
+    margin-left: 21px !important;}
+
+.footer_sidebar H3{
+	color: #478ac9;
+	border: none;
+    margin-left: 24px;
+	    padding-top: 5px;
+	}
+
+.footer {
+    background: #0066b3;
+}
+
+#tab_container_132 .wpsm_nav-tabs > li.active > a{ font-weight:bold;}
+
+
+/**
+* Styles for screens that are less than 768px
+*/
+@media only screen and (max-width: 768px) {
+	.container{margin-top:22px !important;}
+	.top.top_es-es, .top.top_pt-br, .top.top_en-us{height: 153% !important;}
+	#parent {margin-top: 5px !important;}
+	#content {margin-left: 5% !important;}
+	.entry-content img{max-width:40%;}
+	.eixos_tematicos .flexslider{ border: 3px solid red;}
+}
