@@ -29,6 +29,8 @@ function custom_widgets_area() {
             'after_widget' => '</div>',
             'description' => 'Add widgets here',
         ));
+<<<<<<< HEAD
+=======
 
         register_sidebar(array(
             'name' => 'Footer Widget Area',
@@ -39,6 +41,7 @@ function custom_widgets_area() {
             'after_widget' => '</div>',
             'description' => 'Add widgets here',
         ));
+>>>>>>> 0880b740243d3ef54f8fd3e7ba69aeba5830ff74
     }
 }
 
