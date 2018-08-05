@@ -101,7 +101,7 @@
                     }
                     ?>
                 </p>
-                <a href="#content" class="page-scroller"><i class="fa fa-fw fa-angle-down"></i></a>
+                <a href="#content" class="page-scroller"><span class="fa fa-fw fa-angle-down"></span></a>
             </div>
         </div>
     <?php endif; ?>	

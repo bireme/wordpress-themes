@@ -31,10 +31,10 @@ if ( is_single() ) {
 	else { ?>
 		<ul class="default-wp-page clearfix">
 			<li class="previous">
-				<?php previous_post_link( '%link', '<i class="fas fa-chevron-circle-left"></i> <span>'. __('Anterior', 'bvs_lang') .'</span>', false ); ?>
+				<?php previous_post_link( '%link', '<span class="fas fa-chevron-circle-left"></span> <span>'. __('Anterior', 'bvs_lang') .'</span>', false ); ?>
 			</li>
 			<li class="next">
-				<?php next_post_link( '%link', '<span>'. __('Próximo', 'bvs_lang') .'</span> <i class="fas fa-chevron-circle-right"></i>', false ); ?>
+				<?php next_post_link( '%link', '<span>'. __('Próximo', 'bvs_lang') .'</span> <span class="fas fa-chevron-circle-right"></span>', false ); ?>
 			</li>
 		</ul>
 	<?php
