@@ -132,6 +132,7 @@ h3 {
 
 /* === Dynamic Style === */
 body {
+	border-top: 30px solid #4989c8;
 	background-color: #fdfdfd;
 	background-image: none;
 	background-repeat: no-repeat;
@@ -145,8 +146,13 @@ body {
 }
 
 #wpsp-title {
-	color: #649089;
+    color: rgba(0, 0, 0, 0);
+    background: url(images/crics.png) center no-repeat;
+    height: 400px;
 }
+#wpsp-text{color: #948f8f; font-size: 200%;
+    line-height: 66px; 
+     padding-bottom: 65px;}
 
 #wpsp-birthday-fieldset, #wpsp-birthday-fieldset input {
 	border-color: #649089;
@@ -154,8 +160,11 @@ body {
 }
 
 #wpsp-continue {
-	background-color: #eeeeee;
-	color: #649089;
+	background-color: #4989c8;
+    color: #fff;
+    font-size: 200%;
+    border-radius: 13px;
+    padding: 27px;
 }
 
 #wpsp-continue:hover {

@@ -24,7 +24,7 @@
 
     function app_page_redirect() {
 
-        setCookie( 'crics10', time() );
+        setCookie( 'crics10', time(), 0, '/' );
         require_once( get_stylesheet_directory() . '/app.php' );
         exit();
 
