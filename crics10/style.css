@@ -102,7 +102,44 @@ body {background: #e7e7e7 !important;}
 
 #metaslider_container_696 {background: #f7f6f6 !important; height:180px; padding: 20px 50PX;}
 
-/**
+
+
+/*APP*/
+
+.page-id-960 .container{ width:100%;     margin-top: -24px !important;}
+
+.page-id-960 #content h3, .content h3 a{color: #4887c5 !important;}
+.app_logocrics img{     
+	max-width: 125% !important;
+    margin-left: 38%; }
+	
+.app_second h3, .app_third h3 {
+	font-weight: normal !important; 
+	border-bottom:none;
+	line-height: 19px;
+    text-align: center;
+    font-size: 88% !important;}
+
+
+	
+.title{text-align: center; background:#4989c8; margin: 0% 31% !important; color:#fff;}
+
+#pg-960-1{    margin: -7% 2% 0% 10%;}
+
+#pg-960-3{margin: -11px 30px; border: 1px solid #4989c8; background: #f7faff;}
+
+.app_third .sow-image-container {     padding: 20px 30px 0px;}
+
+.app_third .widget-title{margin-bottom: -16px;}
+
+.rodape{ background:#4989c8;   
+	margin-top: 12%;
+    height: 100px;}
+	
+.rodape img{padding:30px 20px;}
+
+
+/*
 * Styles for screens that are less than 768px
 */
 @media only screen and (max-width: 768px) {
