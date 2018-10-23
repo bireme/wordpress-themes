@@ -17,9 +17,9 @@
 		<!-- === Continue Button === -->
 
 		<div class="languages">
-			<a id="wpsp-continue" href="http://www.teste.crics10.org/pt/app-2">Português</a>
-        	<a id="wpsp-continue" href="http://www.teste.crics10.org/app-2">Español</a>
-        	<a id="wpsp-continue" href="http://www.teste.crics10.org/en/app-2">English</a>
+			<a class="wpsp-continue" href="http://www.teste.crics10.org/pt/app-pt/">Português</a>
+        	<a class="wpsp-continue" href="http://www.teste.crics10.org/app-es/">Español</a>
+        	<a class="wpsp-continue" href="http://www.teste.crics10.org/en/app-en/">English</a>
         </div>
 
 	</div> <!-- === END #wpsp-container === -->

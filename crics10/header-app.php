@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/style-app.css'; ?>" type="text/css" media="all"/>
 
     <!-- === Embedding script for YouTube Video === -->
-    <!-- <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/video.js'; ?>"></script> -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri() . '/scripts-app.js'; ?>"></script>
 
 </head>
 <body>

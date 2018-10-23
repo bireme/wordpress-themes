@@ -58,7 +58,7 @@ body, html {
 	width: 100%;
 }
 
-body, #wpsp-continue, #wpsp-month, #wpsp-day, #wpsp-year {
+body, .wpsp-continue, #wpsp-month, #wpsp-day, #wpsp-year {
 	font: 22px Arial, Helvetica, sans-serif;
 	line-height: 1.4em;
 	text-align: center;
@@ -117,7 +117,7 @@ h3 {
 
 }
 
-#wpsp-continue {
+.wpsp-continue {
 	display: inline-block;
 	cursor: pointer;
 	padding: 10px 20px;
@@ -159,7 +159,7 @@ body {
 	color: #555555;
 }
 
-#wpsp-continue {
+.wpsp-continue {
 	background-color: #4989c8;
     color: #fff;
     font-size: 200%;
@@ -167,7 +167,7 @@ body {
     padding: 27px;
 }
 
-#wpsp-continue:hover {
+.wpsp-continue:hover {
 	background-color: #649089;
 	color: #eeeeee;
 }
