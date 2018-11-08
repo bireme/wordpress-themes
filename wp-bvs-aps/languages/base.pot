@@ -1,0 +1,259 @@
+# BVS THEME
+# Copyright (C) 2018
+# This file is distributed under the GNU General Public License v3 or later.
+# Guilherme Alves <guilherme_alves@outlook.com.br>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS THEME\n"
+"Report-Msgid-Bugs-To: guilherme_alves@outlook.com.br\n"
+"POT-Creation-Date: 2018-05-31 15:55-0300\n"
+"PO-Revision-Date: 2018-05-10 HO:MI+ZONE\n"
+"Last-Translator: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"Language-Team: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: custom-settings.php
+msgid "URL Video Home"
+msgstr ""
+
+#: custom-settings.php
+msgid "Digite a URL para o vídeo no YouTube, Vimeo ou DailyMotion"
+msgstr ""
+
+#: 404.php
+msgid "Erro 404"
+msgstr ""
+
+#: 404.php
+msgid "Ops! Essa página não pode ser encontrada."
+msgstr ""
+
+#: 404.php
+msgid "Parece que nada foi encontrado neste local. Talvez tente uma pesquisa?"
+msgstr ""
+
+#: front-page.php
+msgid "Segunda Opinião Formativa - SOF"
+msgstr "Second Formative Opinion - SOF"
+
+#: front-page.php
+msgid "Segunda Opinião Formativa"
+msgstr "Second Formative Opinion"
+
+#: front-page.php
+msgid "Veja outras calculadoras"
+msgstr ""
+
+#: front-page.php
+msgid "Protocolos e Guias de Prática"
+msgstr ""
+
+#: front-page.php
+msgid "Revisões Comentadas (PEARLS)"
+msgstr ""
+
+#: front-page.php
+msgid "Recursos Educacionais - ARES"
+msgstr ""
+
+#: front-page.php
+msgid "Protocolos e <br> Guias de Prática"
+msgstr ""
+
+#: front-page.php
+msgid "Revisões Comentadas <br> (PEARLS)"
+msgstr ""
+
+#: front-page.php
+msgid "Recursos <br> Educacionais - ARES"
+msgstr ""
+
+#: front-page.php
+msgid "Segunda Opinião <br> Formativa - SOF"
+msgstr ""
+
+#: front-page.php
+msgid "mais"
+msgstr "more"
+
+#: front-page.php
+msgid "Quero receber as <b>últimas SOF</b> por"
+msgstr "I want to receive the <b>latest SOF</b> by"
+
+#: front-page.php
+msgid "Veja mais"
+msgstr "See more"
+
+#: front-page.php
+msgid "Fique por dentro"
+msgstr "Stay in"
+
+#: front-page.php
+msgid "Acesse as últimas SOF publicadas na BVS APS"
+msgstr "Access the latest SOFs published in the VHL APS"
+
+#: front-page.php
+msgid "Calculadoras Médicas"
+msgstr "Medical Calculators"
+
+#: front-page.php
+msgid "Navegue pelas SOF"
+msgstr "Browse SOFs"
+
+#: front-page.php
+msgid "Uma coleção de Perguntas e Respostas da Atenção Primária à Saúde originadas das Teleconsultorias <br> e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes"
+msgstr "A collection of Primary Health Care Questions and Answers originated from Teleconsultories <br> and answered by the Telehealth Brazil Network Networks"
+
+#: front-page.php
+msgid "Quais as Áreas Temáticas"
+msgstr "Which Thematic Areas"
+
+#: front-page.php
+msgid "Quem Perguntou"
+msgstr "Who Asked"
+
+#: front-page.php
+msgid "Quem Respondeu"
+msgstr "Who Answered"
+
+#: front-page.php
+msgid "Super Recomendadas"
+msgstr "Super Recommended"
+
+#: front-page.php
+msgid "Uma lista dos recursos mais relevantes para APS"
+msgstr "A list of the most relevant resources for APS"
+
+#: search-bvs-widget.php
+msgid "Dica BVS-APS"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Para buscar pelo nome do autor utilize"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "au:(nome)"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Ver mais dicas de pesquisa"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Pesquisar"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Acesse os tutoriais de como pesquisar na BVS APS"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Coleção da SOF"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Toda a coleção"
+msgstr ""
+
+#: search-bvs-widget.php
+msgid "Guias de prática"
+msgstr ""
+
+#: archive-rede-colaboradores.php
+msgid "Rede de Colaboradores"
+msgstr ""
+
+#: archive-rede-colaboradores.php
+msgid "Se não encontrou resposta para sua dúvida clínica ou proceso de trabalho no contexto da Atenção Primária à Saúde / Atenção Básica (APS/AB), solicite uma Teleconsultoria para o Núcleo do Programa Telessaúde Brasil Redes que atenda sua Unidade Básica de Saúde."
+msgstr ""
+
+#: archive-rede-colaboradores.php
+msgid "Núcleos do Programa Telessaúde Brasil Redes que oferecem o Serviço de Teleconsultoria:"
+msgstr ""
+
+#: cotent-sof.php
+msgid "Solicitante"
+msgstr ""
+
+#: cotent-sof.php
+msgid "Bibliografia Selecionada"
+msgstr ""
+
+#: related-sofs.php
+msgid "SOF Relacionadas"
+msgstr ""
+
+#: related-sofs.php
+msgid "Perguntas e respostas da SOF relacionadas a"
+msgstr ""
+
+#: related-sofs.php
+msgid "Mais SOFs Relacionadas"
+msgstr ""
+
+#. search.php
+msgid "Buscando por"
+msgstr ""
+
+#. comments.php
+msgid "(Editar)"
+msgstr ""
+
+#. comments.php
+msgid "Seu comentário aguarda moderação."
+msgstr ""
+
+#. comments.php
+msgid "Responder"
+msgstr ""
+
+#. comments.php
+msgid "Conteúdo Relacionado"
+msgstr ""
+
+#. comments.php
+msgid "Comentários estão fechados."
+msgstr ""
+
+#. comments.php
+msgid "Enviar Comentário"
+msgstr ""
+
+#. comments.php
+msgid "Comentários"
+msgstr ""
+
+#. comments.php
+msgid "Deixe uma resposta para %s"
+msgstr ""
+
+#. comments.php
+msgid "Cancelar resposta"
+msgstr ""
+
+#. comments.php
+msgid "Mensagem"
+msgstr ""
+
+#. comments.php
+msgid "Comentários Recentes"
+msgstr ""
+
+#. comments.php
+msgid "Navegação de comentários"
+msgstr ""
+
+#. comments.php
+msgid "Comentários mais antigos"
+msgstr ""
+
+#. comments.php
+msgid "Comentários mais recentes"
+msgstr ""
