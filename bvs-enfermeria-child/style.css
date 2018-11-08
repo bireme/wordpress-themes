@@ -1,6 +1,6 @@
 /*
 Theme Name: BVS Enfermeria
-Description: Tema padrão para o portalBVS Enfermeria
+Description: Tema padrão para o portal BVS Enfermeria
 Author: BIREME/OPAS/OMS
 Author URI: https://github.com/bireme
 Template: bvs-2012
@@ -76,14 +76,14 @@ table {
 body {
 	background: #FFF;
 	color: #333;
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif !important;
 	font-size: 12px;
 }
 strong {
 	font-weight: bold;
 }
 h1, h2, h3 {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: Helvetica, Arial, sans-serif !important;
 }
 .header {
     height: 153px;
@@ -102,6 +102,7 @@ a {
 	margin: 0px auto;
 	background: #FFF;  
 	box-shadow: 0px 0px 6px 6px #E6E6E6;
+	
 }
 .bar {
 	width: 100% !important;
@@ -784,3 +785,172 @@ line-height: 141%;
 	 
 }
 
+
+/* CSS Específico para Layout de Página da Rede */
+.content_page {
+	border: 2px solid #4d946d;
+	margin: 0px 25px 25px 25px;
+	padding: 15px;
+}
+.content_page .title {
+	margin: 0px auto;
+	position: relative;
+	height: 20px
+
+}
+.content_page h2 {
+	color: #4d946d;
+	font-size: 40px;
+	margin: 0;
+	padding: 10px 20px;
+	background: #FFF;
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	top: -20px
+}
+.colecao_pais {
+	margin-bottom: 50px !important;
+}
+.colecao_pais h3 {
+	display: none;
+}
+
+.colecao_pais ul li {
+	float: left;
+	width: 31%;
+	clear: none;
+	margin: 1%;
+	width: 30%;
+	text-align: center;
+}
+
+.colecao_pais ul li a {
+	display: grid;
+	text-align: center;
+	width: 100%;
+	color: #525252;
+}
+.colecao_pais ul li a img {
+	margin: 0 auto;
+	display: inline-flex;
+	margin: auto;
+	float: none;
+}
+.page_network {
+	box-shadow: 0px 0px 0px 0px !important;
+}
+.page_network h3.widget-title,
+.page_network h3.widget-title a.rsswidget {
+	font-size: 18px !important;
+	color: #525252 !important;
+}
+
+.page_network li a.rsswidget {
+	font-weight: bold;
+	line-height: 125%;
+	font-size: 100%;
+}
+
+.page_network ul.bullets li {
+    background: url(images/bullet.png) 0px 5px no-repeat;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 90%;
+}
+.page_network ul.bullets li a {
+	color: #525252;
+	font-weight: bold;
+}
+
+.temas-brasil {}
+
+.temas-brasil ul li {
+	float: left;
+	width: 15%;
+	clear: none;
+	margin: 5%;
+	text-align: center;
+}
+
+.temas-brasil ul li a {
+	display: grid;
+	width: 100%;
+	font-size: 85%;
+	color: #525252;
+	line-height: 100%;
+}
+.temas-brasil ul li a img {
+	margin: 0 auto;
+	margin-bottom: 10px;
+	display: inline-flex;
+	float: none;
+	margin: auto;
+
+}
+
+.slider_enfermeria .caption-wrap {
+	opacity: 1 !important;
+}
+.slider_enfermeria .caption {
+	background: #4d946d;
+	padding:10px 5px 0px 5px !important;
+	height: 60px;
+	font-weight: bold;
+}
+
+.page_network .content .textwidget {
+	line-height: 22px;
+}
+
+.footer-enfermeria {
+	text-align: left;
+	padding: 10px;
+}
+.footer-enfermeria a:hover {
+	color: #FFF;
+	border-bottom: 1px dotted #FFF;
+}
+.footer-enfermeria img {
+	margin: 15px
+}
+.footer-enfermeria span {
+  font-weight: bold;
+	font-size: 110%;
+}
+.footer-enfermeria .footer_network {
+	width: 45%;
+	float: left;
+}
+.footer-enfermeria .footer_network ul {
+	margin-left: 20px;
+	font-weight: bold;
+}
+.footer-enfermeria .footer_instituitions {
+	width: 45%;
+	float: right;
+	text-align: right;
+}
+
+@media (max-width: 700px) {
+	.page_network  .widget_vhl_themes li {
+			width: 49%;
+			height: 90px;
+			margin: 10px 0px;	
+		}
+		.footer-enfermeria .footer_network, 
+		.footer-enfermeria .footer_instituitions {
+			width: 100%;
+			text-align: left;
+		}
+		.headerWidget {
+			clear: both;
+			float: left;
+		}
+		.page_network {
+			clear: both;
+		}
+		
+}

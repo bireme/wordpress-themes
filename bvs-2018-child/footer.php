@@ -20,17 +20,9 @@
             <div class="row">
 
                 <div class="site-info col-12 col-sm-12 col-md-6">
-<<<<<<< HEAD
-                    <h3>Secretaria de Estado da Saúde de São Paulo</h3>
-                    <p>Av. Dr. Enéas de Carvalho Aguiar, 188</p>
-                    <p>05403-000 • São Paulo/SP • Brasil</p>
-                    <p>Tel: (55 11) 3066-8000</p>
-                    <p><a href="http://politicas.bireme.org/terminos/pt/index.html" target="_blank">Termos e Condições de uso</a> | <a href="http://politicas.bireme.org/privacidad/pt/index.html" target="_blank">Politicas de Privacidade</a></p>
-=======
                     <?php if ( is_active_sidebar( 'footer_widget_area' ) ) : ?>
                         <?php dynamic_sidebar( 'footer_widget_area' ); ?>
                     <?php endif; ?>
->>>>>>> 0880b740243d3ef54f8fd3e7ba69aeba5830ff74
                 </div><!-- close .site-info -->
 
                 <div class="site-certificate col-12 col-sm-12 col-md-6">

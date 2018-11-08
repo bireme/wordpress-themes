@@ -8,19 +8,23 @@ msgstr ""
 "Project-Id-Version: BVS THEME\n"
 "Report-Msgid-Bugs-To: guilherme_alves@outlook.com.br\n"
 "POT-Creation-Date: 2018-05-31 16:09-0300\n"
-"PO-Revision-Date: 2018-06-12 16:54-0300\n"
+"PO-Revision-Date: 2018-08-05 01:19-0300\n"
 "Language-Team: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Last-Translator: \n"
 "Language: en_GB\n"
 
 #: front-page.php
 msgid "Fontes de Informação da SES"
 msgstr "SES Information Sources"
+
+#: front-page.php
+msgid "Fontes de Informação"
+msgstr "Information Sources"
 
 #: front-page.php
 msgid "Eixos Temáticos"

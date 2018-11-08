@@ -29,8 +29,6 @@ function custom_widgets_area() {
             'after_widget' => '</div>',
             'description' => 'Add widgets here',
         ));
-<<<<<<< HEAD
-=======
 
         register_sidebar(array(
             'name' => 'Footer Widget Area',
@@ -41,7 +39,6 @@ function custom_widgets_area() {
             'after_widget' => '</div>',
             'description' => 'Add widgets here',
         ));
->>>>>>> 0880b740243d3ef54f8fd3e7ba69aeba5830ff74
     }
 }
 
@@ -112,8 +109,8 @@ function wordpress_pagination(){
             'format' => 'page/%#%/',
             'current' => max( 1, get_query_var('paged') ),
             'total' => $max_num_pages,
-            'prev_text' => '<i class="fas fa-angle-double-left"></i>',
-            'next_text' => '<i class="fas fa-angle-double-right"></i>',
+            'prev_text' => '<span class="fas fa-angle-double-left"></span>',
+            'next_text' => '<span class="fas fa-angle-double-right"></span>',
         ));
     }
 
