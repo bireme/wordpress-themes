@@ -65,9 +65,108 @@
     },
     "navigationLevels": {
       "levels": [
-        {}
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-pt/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-es/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-en/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/pt/local-pt/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/local-es/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/en/local-en/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/participant/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/?[\\w]{2}/)?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/?[\\w]{2}/)?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/event/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 7
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 7
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 8
+        }
       ],
-      "active": false
+      "active": true
     },
     "navigationTitles": {
       "titles": [
