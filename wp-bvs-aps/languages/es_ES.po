@@ -1,0 +1,259 @@
+# BVS THEME
+# Copyright (C) 2018
+# This file is distributed under the GNU General Public License v3 or later.
+# Guilherme Alves <guilherme_alves@outlook.com.br>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS THEME\n"
+"Report-Msgid-Bugs-To: guilherme_alves@outlook.com.br\n"
+"POT-Creation-Date: 2018-05-31 15:55-0300\n"
+"PO-Revision-Date: 2018-11-03 15:57-0300\n"
+"Language-Team: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: \n"
+"Language: es_ES\n"
+
+#: custom-settings.php
+msgid "URL Video Home"
+msgstr "URL Video Home"
+
+#: custom-settings.php
+msgid "Digite a URL para o vídeo no YouTube, Vimeo ou DailyMotion"
+msgstr "Introduzca la URL para el vídeo en YouTube, Vimeo o DailyMotion"
+
+#: 404.php
+msgid "Erro 404"
+msgstr "Error 404"
+
+#: 404.php
+msgid "Ops! Essa página não pode ser encontrada."
+msgstr "¡Huy! Esta página no se puede encontrar."
+
+#: 404.php
+msgid "Parece que nada foi encontrado neste local. Talvez tente uma pesquisa?"
+msgstr "Parece que nada se ha encontrado en este lugar. Tal vez intente una búsqueda?"
+
+#: front-page.php
+msgid "Segunda Opinião Formativa - SOF"
+msgstr "Segunda Opinión Formativa - SOF"
+
+#: front-page.php
+msgid "Segunda Opinião Formativa"
+msgstr "Segunda Opinión Formativa"
+
+#: front-page.php
+msgid "Veja outras calculadoras"
+msgstr "Ver otras calculadoras"
+
+#: front-page.php
+msgid "Protocolos e Guias de Prática"
+msgstr "Protocolos y guías de práctica"
+
+#: front-page.php
+msgid "Revisões Comentadas (PEARLS)"
+msgstr "Revisión comentada (PEARLS)"
+
+#: front-page.php
+msgid "Recursos Educacionais - ARES"
+msgstr "Recursos Educativos - ARES"
+
+#: front-page.php
+msgid "Protocolos e <br> Guias de Prática"
+msgstr "Protocolos y <br> Guías de práctica"
+
+#: front-page.php
+msgid "Revisões Comentadas <br> (PEARLS)"
+msgstr "Revisión Comentada (PEARLS)"
+
+#: front-page.php
+msgid "Recursos <br> Educacionais - ARES"
+msgstr "Recursos Educativos - ARES"
+
+#: front-page.php
+msgid "Segunda Opinião <br> Formativa - SOF"
+msgstr "Segunda Opinión - Formativa - SOF"
+
+#: front-page.php
+msgid "mais"
+msgstr "más"
+
+#: front-page.php
+msgid "Quero receber as <b>últimas SOF</b> por"
+msgstr "Quiero recibir las últimas SOF por medio de"
+
+#: front-page.php
+msgid "Veja mais"
+msgstr "Vea mas"
+
+#: front-page.php
+msgid "Fique por dentro"
+msgstr "Quédate por dentro"
+
+#: front-page.php
+msgid "Acesse as últimas SOF publicadas na BVS APS"
+msgstr "Acceda a las últimas SOF publicadas en la BVS APS"
+
+#: front-page.php
+msgid "Calculadoras Médicas"
+msgstr "Calculadoras Médicas"
+
+#: front-page.php
+msgid "Navegue pelas SOF"
+msgstr "Navegue por las SOF"
+
+#: front-page.php
+msgid "Uma coleção de Perguntas e Respostas da Atenção Primária à Saúde originadas das Teleconsultorias <br> e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes"
+msgstr "Una colección de Preguntas y Respuestas de la Atención Primaria a la Salud originadas en las Teleconsultorias y respondidas por los Núcleos del Programa Telessaúde Brasil Redes"
+
+#: front-page.php
+msgid "Quais as Áreas Temáticas"
+msgstr "Cuáles son las Áreas Temáticas"
+
+#: front-page.php
+msgid "Quem Perguntou"
+msgstr "Quién preguntó"
+
+#: front-page.php
+msgid "Quem Respondeu"
+msgstr "Quién respondió"
+
+#: front-page.php
+msgid "Super Recomendadas"
+msgstr "Super Recomendadas"
+
+#: front-page.php
+msgid "Uma lista dos recursos mais relevantes para APS"
+msgstr "Una lista de los recursos más relevantes para APS"
+
+#: search-bvs-widget.php
+msgid "Dica BVS-APS"
+msgstr "Sugerencia BVS-APS"
+
+#: search-bvs-widget.php
+msgid "Para buscar pelo nome do autor utilize"
+msgstr "Para buscar por el nombre del autor utilice"
+
+#: search-bvs-widget.php
+msgid "au:(nome)"
+msgstr "au:(nombre)"
+
+#: search-bvs-widget.php
+msgid "Ver mais dicas de pesquisa"
+msgstr "Ver más consejos de búsqueda"
+
+#: search-bvs-widget.php
+msgid "Pesquisar"
+msgstr "Investigación"
+
+#: search-bvs-widget.php
+msgid "Acesse os tutoriais de como pesquisar na BVS APS"
+msgstr "Accede a los tutoriales de cómo buscar en la BVS APS"
+
+#: search-bvs-widget.php
+msgid "Coleção da SOF"
+msgstr "Colección de la SOF"
+
+#: search-bvs-widget.php
+msgid "Toda a coleção"
+msgstr "Toda la colección"
+
+#: search-bvs-widget.php
+msgid "Guias de prática"
+msgstr "Guías de práctica"
+
+#: archive-rede-colaboradores.php
+msgid "Rede de Colaboradores"
+msgstr "Red de Colaboradores"
+
+#: archive-rede-colaboradores.php
+msgid "Se não encontrou resposta para sua dúvida clínica ou proceso de trabalho no contexto da Atenção Primária à Saúde / Atenção Básica (APS/AB), solicite uma Teleconsultoria para o Núcleo do Programa Telessaúde Brasil Redes que atenda sua Unidade Básica de Saúde."
+msgstr "Si no encontró respuesta a su duda clínica o proceso de trabajo en el contexto de la Atención Primaria a la Salud / Atención Básica (APS / AB), solicite una Teleconsultoria para el Núcleo del Programa Telessaúde Brasil Redes que atienda su Unidad Básica de Salud."
+
+#: archive-rede-colaboradores.php
+msgid "Núcleos do Programa Telessaúde Brasil Redes que oferecem o Serviço de Teleconsultoria:"
+msgstr "Núcleos del Programa Telessaúde Brasil Redes que ofrecen el Servicio de Teleconsultoria:"
+
+#: cotent-sof.php
+msgid "Solicitante"
+msgstr "Solicitante"
+
+#: cotent-sof.php
+msgid "Bibliografia Selecionada"
+msgstr "Bibliografía Seleccionada"
+
+#: related-sofs.php
+msgid "SOF Relacionadas"
+msgstr "SOF Relacionadas"
+
+#: related-sofs.php
+msgid "Perguntas e respostas da SOF relacionadas a"
+msgstr "Preguntas y respuestas de SOF relacionadas con"
+
+#: related-sofs.php
+msgid "Mais SOFs Relacionadas"
+msgstr "Más SOFs Relacionadas"
+
+#. search.php
+msgid "Buscando por"
+msgstr "Buscar por"
+
+#. comments.php
+msgid "(Editar)"
+msgstr "(Edit)"
+
+#. comments.php
+msgid "Seu comentário aguarda moderação."
+msgstr "Su comentario espera la moderación."
+
+#. comments.php
+msgid "Responder"
+msgstr "Respuesta"
+
+#. comments.php
+msgid "Conteúdo Relacionado"
+msgstr "Contenido relacionado"
+
+#. comments.php
+msgid "Comentários estão fechados."
+msgstr "Los comentarios están cerrados."
+
+#. comments.php
+msgid "Enviar Comentário"
+msgstr "Enviar comentarios"
+
+#. comments.php
+msgid "Comentários"
+msgstr "Comentarios"
+
+#. comments.php
+msgid "Deixe uma resposta para %s"
+msgstr "Deja un comentario a %s"
+
+#. comments.php
+msgid "Cancelar resposta"
+msgstr "Cancelar respuesta"
+
+#. comments.php
+msgid "Mensagem"
+msgstr "Mensaje"
+
+#. comments.php
+msgid "Comentários Recentes"
+msgstr "Comentarios recientes"
+
+#. comments.php
+msgid "Navegação de comentários"
+msgstr "Navegación de comentarios"
+
+#. comments.php
+msgid "Comentários mais antigos"
+msgstr "Comentarios más antiguos"
+
+#. comments.php
+msgid "Comentários mais recentes"
+msgstr "Comentarios más recientes"
