@@ -187,6 +187,7 @@
 				  'meta_value' => 'yes',
 			  	);
 			  	$featured_posts = new WP_Query( $featured_query_args );
+			  	$featured_posts_id = array();
 				?>
 				<div id="posts-carousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover">
 				  	<div class="carousel-inner">
@@ -224,6 +225,7 @@
 						    </div>
 					<?php 
 							$first = false;
+							$featured_posts_id[] = get_the_ID();
 						endwhile; 
 						wp_reset_postdata();
 					endif; ?>
@@ -244,6 +246,7 @@
 			    $last_posts_args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
+                    'post__not_in' => $featured_posts_id,
                     'posts_per_page'=> 6,
                     'order'=>'DESC',
                     'orderby'=>'date',
