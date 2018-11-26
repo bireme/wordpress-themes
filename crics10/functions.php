@@ -43,14 +43,28 @@
 
     function maybe_redirect($template) {
 
-        if ( ! wp_get_referer() && isset($_COOKIE['crics10-home']) && strpos($_SERVER['HTTP_USER_AGENT'], 'gonative') !== false ) {
-            if ( ! isset($_COOKIE['crics10-redirect']) ) {
-                setCookie( 'crics10-redirect', time(), 0, '/' );
-            }
+        if ( strpos($_SERVER['HTTP_USER_AGENT'], 'gonative') !== false ) {
+            if ( isset($_COOKIE['crics10-home']) ) {
+                if ( ! wp_get_referer() ) {
+                    if ( ! isset($_COOKIE['crics10-redirect']) ) {
+                        setCookie( 'crics10-redirect', time(), 0, '/' );
+                    }
 
-            wp_redirect( $_COOKIE['crics10-home'] );
-            exit();
+                    wp_redirect( $_COOKIE['crics10-home'] );
+                    exit();
+                }
+            } else {
+                $template = get_stylesheet_directory() . '/app.php';
+            }
         }
+
+        // force reload the page on hitting back button
+        header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
+        header('Pragma: no-cache'); // HTTP 1.0.
+        header('Expires: 0'); // Proxies.
+
+        // force status to 200 - OK
+        status_header(200);
 
         return $template;
 
