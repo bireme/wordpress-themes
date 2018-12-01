@@ -226,7 +226,7 @@ margin: 0px auto;
 	/* standard searchbox */
 	background: url(images/search-bg.png) no-repeat;
 	height: 148px;
-	padding: 62px 0px 20px 0px;
+	padding: 62px 0px 0px 0px;
 
 		
 	/* styles for doodle like highlight
@@ -235,6 +235,18 @@ margin: 0px auto;
 	height: 228px;
 	*/
 }
+
+
+.vitrines {border-bottom: 1px solid #023062;
+    margin-bottom: 22px;}
+	
+.vitrines span {
+    float: right !important;
+    margin-top: 37px;
+    font-size: 13px;
+	color: #023062;
+}
+
 .searchVHL FORM {
 	/* 
 	* standard searchbox
