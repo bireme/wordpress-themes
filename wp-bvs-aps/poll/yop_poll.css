@@ -1,0 +1,28 @@
+.tablenav-yop-poll span.current { background: rgba(0,0,0,.05); }
+.yop-poll-container-error { text-transform: none !important; }
+
+/* Os proximos ajustes foram feitos tendo como base o template Blue v2 */
+.yop-poll-forms div div div[id^="yop-poll-question"] {
+        color: #90c3dd !important;
+        margin: 0px !important;
+        background: #fff !important;
+}
+.yop-poll-container {
+        padding-top: 0px !important;
+}
+.yop-poll-forms ul {
+        margin-left: 10px !important;
+        font-size: 10px !important;
+}
+.yop-poll-forms ul li {
+        font-family: Trebuchet MS, arial, serif !important;
+        font-size: 5pt !important;
+        color: #525252 !important;
+}
+.yop-poll-captcha-image-div {
+	display: flex;
+	justify-content: center;
+}
+.yop-poll-forms div[id^="yop-poll-captcha"] {
+	text-align: center;
+}

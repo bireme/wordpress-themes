@@ -118,8 +118,62 @@ add_action( 'after_setup_theme', 'wp_bootstrap_starter_content_width', 0 );
  */
 function wp_bootstrap_starter_widgets_init() {
     register_sidebar( array(
+        'name'          => esc_html__( 'Fique por dentro', 'wp-bootstrap-starter' ),
+        'id'            => 'last-sof',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Pergunte ao Telessaude', 'wp-bootstrap-starter' ),
+        'id'            => 'send-question',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Calculadoras', 'wp-bootstrap-starter' ),
+        'id'            => 'calculators',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Navegue pelas sof', 'wp-bootstrap-starter' ),
+        'id'            => 'browse-sof',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Super recomendadas', 'wp-bootstrap-starter' ),
+        'id'            => 'recommendation',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
         'name'          => esc_html__( 'Sidebar', 'wp-bootstrap-starter' ),
         'id'            => 'sidebar-1',
+        'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Logos Footer', 'wp-bootstrap-starter' ),
+        'id'            => 'footer-logos',
         'description'   => esc_html__( 'Add widgets here.', 'wp-bootstrap-starter' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
@@ -344,4 +398,7 @@ function search_main_query( $query ) {
         $types = array('aps');
         $query->set( 'post_type', $types );
     }
+}
+if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
+    require_once( 'poll/poll.php' );
 }
