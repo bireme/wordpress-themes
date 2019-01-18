@@ -274,7 +274,7 @@ if (function_exists('add_theme_support')) {
 // hook into the init action and call create_edital_taxonomies when it fires
 add_action( 'init', 'create_edital_taxonomies', 0 );
 
-// create two taxonomies, genres and writers for the post type "edital"
+// create two taxonomies for the post type "edital"
 function create_edital_taxonomies() {
 	// Add new taxonomy, make it hierarchical (like categories)
 	$labels = array(
@@ -334,8 +334,6 @@ function create_edital_taxonomies() {
 		'singular_name'     => _x( 'Instituição Responsável', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Buscar instituições', 'textdomain' ),
 		'all_items'         => __( 'Todas instituições', 'textdomain' ),
-		//'parent_item'       => __( 'Parent Genre', 'textdomain' ),
-		//'parent_item_colon' => __( 'Parent Genre:', 'textdomain' ),
 		'edit_item'         => __( 'Editar instituições', 'textdomain' ),
 		'update_item'       => __( 'Atualizar instituições', 'textdomain' ),
 		'add_new_item'      => __( 'Adicionar Nova instituições', 'textdomain' ),
@@ -360,8 +358,6 @@ function create_edital_taxonomies() {
 		'singular_name'     => _x( 'Tema de Interesse', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Buscar Temas', 'textdomain' ),
 		'all_items'         => __( 'Todos Temas', 'textdomain' ),
-		//'parent_item'       => __( 'Parent Genre', 'textdomain' ),
-		//'parent_item_colon' => __( 'Parent Genre:', 'textdomain' ),
 		'edit_item'         => __( 'Editar Tema', 'textdomain' ),
 		'update_item'       => __( 'Atualizar Tema', 'textdomain' ),
 		'add_new_item'      => __( 'Adicionar Novo Tema', 'textdomain' ),
@@ -386,8 +382,6 @@ function create_edital_taxonomies() {
 		'singular_name'     => _x( 'Linha de Pesquisa', 'taxonomy singular name', 'textdomain' ),
 		'search_items'      => __( 'Buscar Linhas de Pesquisa', 'textdomain' ),
 		'all_items'         => __( 'Todas Linhas de Pesquisa', 'textdomain' ),
-		//'parent_item'       => __( 'Parent Genre', 'textdomain' ),
-		//'parent_item_colon' => __( 'Parent Genre:', 'textdomain' ),
 		'edit_item'         => __( 'Editar Linha de Pesquisa', 'textdomain' ),
 		'update_item'       => __( 'Atualizar Linha de Pesquisa', 'textdomain' ),
 		'add_new_item'      => __( 'Adicionar Nova Linha de Pesquisa', 'textdomain' ),

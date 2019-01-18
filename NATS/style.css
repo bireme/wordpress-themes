@@ -426,6 +426,12 @@ blockquote.right {
 .nucleos .nucleo_info p {
 	margin: 0px;
 }
+.backButton {
+	float: right;
+	font-weight: bold;
+	font-size: 120%;
+	padding: 5px;
+}
 
 /***CONTACT FORM 7 CSS *****/
 .screen-reader-response {
@@ -521,6 +527,35 @@ aside#sidebar {
 }
 
 
+	.archiveEdital {
+		font-size: 80% !important;
+	}
+	.archiveEdital .row {
+		margin-bottom: 5px;
+		background: #e3e3e3;
+
+	}
+	.cell {
+		padding: 5px;
+	}
+	.open {
+		border-left: 10px solid #b9e2b4;
+	}
+	.waiting {
+		border-left: 10px solid #e5e491;
+	}
+	.closed {
+		border-left: 10px solid #e3bcbc;
+	}
+	.legenda span {
+		border-width: 15px;
+		padding-left: 5px;
+		background: none;
+	}
+	.editalTitle {
+		font-weight: bold;
+		font-size: 110%;
+	}
 
 /*  */
 @media screen and (max-width: 992px) {
@@ -531,7 +566,9 @@ aside#sidebar {
 		display: none;
 	}
 	.logo a {
-		max-width: 100%;
+		width: 320px;
+		height: 54px;
+		background-image: url("images/logo-mobile.png");
 	}
 	.menu-home-mobile {
 		font-size: 175%;
@@ -541,6 +578,10 @@ aside#sidebar {
 	}
 	.carousel-item {
 		height: 400px;
+	}
+	.carousel_highlight span {
+		font-size: 20px;
+		line-height: 20px;
 	}
 	.dropdown-menu {
 		font-size: 100%;
@@ -596,7 +637,9 @@ aside#sidebar {
 	#calendar_wrap .ui-datepicker-header, 
 	#calendar_wrap .calendar-pagi,
 	.widget_calendar #wp-calendar,
-	.header-search #searchsubmit {
+	.header-search #searchsubmit, 
+	.backButton {
+
 		background: #76323f !important;
 	}
 	.logo a {
@@ -626,7 +669,8 @@ aside#sidebar {
 	.carousel_highlight a,
 	.site_info, 
 	.menu-home-mobile a,
-	.conteudo-loop .more a {
+	.conteudo-loop .more a, 
+	.backButton {
 		color: #FFFFFF !important;
 	}
 	.conteudo-loop {

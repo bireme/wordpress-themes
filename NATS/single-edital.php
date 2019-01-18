@@ -37,7 +37,12 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
 				<li>Link: <a href="<?php echo get_post_meta($post->ID, 'linkUrl_01_editais', true)?>"><?php echo get_post_meta($post->ID, 'linkText_01_editais', true)?> </a></li>
 			</ul>
 			<?php the_content(); ?>
-			
+			<div class="spacer"></div>
+			<form>
+			  <input type="button" value="voltar" class="backButton" onclick="history.go(-1)">
+			</form>
+			<div class="spacer"></div>
+
 		</div>
 		<!-- Display a comma separated list of the Post's Categories. -->
 						<p class="postmetadata"><?php _e( 'Categorias:' ); ?> <?php the_category( ', ' ); ?></p>
