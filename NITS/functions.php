@@ -225,7 +225,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 				clear: both;
 				display: inline-block;
 			}
-			.box_editor input, .box_editor textarea {
+			.box_editor input.portfolios_link, .box_editor tex.tarea {
 				width: 100%;
 				margin-top: 10px;
 			}
