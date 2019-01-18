@@ -984,3 +984,8 @@ body:not(.theme-preset-active) footer#colophon {
     font-size: 75%;
   }
 }
+.zoom-social-icons-list {
+	display: flex;
+	list-style: none;
+	margin-bottom: 0;
+}

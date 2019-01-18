@@ -1575,6 +1575,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #super-recomendadas .list-menu .menu-item a{	
 	text-decoration: none;
+	display: flex;
 }
 
 #super-recomendadas .list-menu .menu-item img{
@@ -1887,3 +1888,17 @@ footer .site-info a{
 }
 
 /*---//GERAIS ---*/
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+	font-size: 15px !important;
+	text-transform: unset !important;
+}
+.logos-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.zoom-social-icons-list {
+	display: flex;
+	list-style: none;
+	margin-bottom: 0;
+}

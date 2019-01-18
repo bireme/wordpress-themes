@@ -2,8 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="title-section"><?php _e('Fique por dentro', 'bvs_lang'); ?></h2>
-				<h3 class="subtitle-section"><?php _e('Acesse as últimas SOF publicadas na BVS APS', 'bvs_lang'); ?></h3>
+				<?php if ( is_active_sidebar( 'last-sof' ) ) : ?>
+                			<?php dynamic_sidebar( 'last-sof' ); ?>
+            			<?php endif; ?>
 			</div>
 		</div>
 

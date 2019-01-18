@@ -145,13 +145,9 @@ endif; ?>
 			</div>
 			<div class="col-md-4">
 				<div id="rede-colaboradores">
-					<h2 class="title"><?php _e('Não fique com dúvida!', 'bvs_lang'); ?></h2>
-					<h5 class="subtitle"><?php _e('Pergunte ao Telessaúde', 'bvs_lang'); ?></h5>
-					<h5 class="subtitle"><?php _e('Acesse o seu Núcleo de Telessaúde e envie sua pergunta', 'bvs_lang'); ?></h5>
-
-					<a href="<?php echo get_post_type_archive_link('rede-colaboradores'); ?>" class="btn btn-primary">
-						<?php _e('Acesse Agora', 'bvs_lang'); ?> <span class="fas fa-angle-right"></span>
-					</a>
+					<?php if ( is_active_sidebar( 'send-question' ) ) : ?>
+                				<?php dynamic_sidebar( 'send-question' ); ?>
+            				<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -162,8 +158,9 @@ endif; ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="title-section"><?php _e('Calculadoras Médicas', 'bvs_lang'); ?></h2>
-				<h3 class="subtitle-section"><?php _e('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt', 'bvs_lang'); ?></h3>
+				<?php if ( is_active_sidebar( 'calculators' ) ) : ?>
+                        		<?php dynamic_sidebar( 'calculators' ); ?>
+            			<?php endif; ?>
 			</div>
 		</div>
 
@@ -202,17 +199,20 @@ endif; ?>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="title-section"><?php _e('Navegue pelas SOF', 'bvs_lang'); ?></h2>
-				<h3 class="subtitle-section"><?php _e('Uma coleção de Perguntas e Respostas da Atenção Primária à Saúde originadas das Teleconsultorias <br>
-e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes', 'bvs_lang'); ?></h3>
+				<?php if ( is_active_sidebar( 'browse-sof' ) ) : ?>
+                                        <?php dynamic_sidebar( 'browse-sof' ); ?>
+                                <?php endif; ?>
 			</div>
 		</div>
 
 		<div class="row justify-content-around">
-			<div class="col-md-3">
+
+			<?php $order_categoria_evidencia = get_option( 'order_browse_sof_categoria', '1' ); ?>
+
+			<div class="col-md-3 order-<?php echo $order_categoria_evidencia; ?>">
 				<div class="block">
 				<img class="icon-block" src="<?php echo get_stylesheet_directory_uri().'/assets/img/icons/areas-tematicas.png'; ?>" alt="<?php _e('Quais as Áreas Temáticas', 'bvs_lang'); ?>?">
-				<h2 class="title-block"><?php _e('Quais as Áreas Temáticas', 'bvs_lang'); ?>?</h2>
+				<h2 class="title-block"><?php echo get_option( 'label_browse_sof_categoria', 'Quais as Áreas Temáticas?' ); ?></h2>
 
 				<?php 
 				$limit_list = 5; //this value controls the number of items that appears in the main list
@@ -252,10 +252,13 @@ e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes', 'bvs_lang');
 				?>
 				</div>
 			</div>
-			<div class="col-md-3">
+
+			<?php $order_tipo_profissional = get_option( 'order_browse_sof_profissional', '2' ); ?>
+
+			<div class="col-md-3 order-<?php echo $order_tipo_profissional; ?>">
 				<div class="block">
 				<img class="icon-block" src="<?php echo get_stylesheet_directory_uri().'/assets/img/icons/quem-perguntou.png'; ?>" alt="<?php _e('Quem Perguntou', 'bvs_lang'); ?>?">
-				<h2 class="title-block"><?php _e('Quem Perguntou', 'bvs_lang'); ?>?</h2>				
+				<h2 class="title-block"><?php echo get_option( 'label_browse_sof_profissional', 'Quem Perguntou?' ); ?></h2>				
 
 				<?php 
 				$terms = get_terms('tipo-de-profissional', array(
@@ -293,10 +296,13 @@ e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes', 'bvs_lang');
 				?>
 				</div>
 			</div>
-			<div class="col-md-3">
+
+			<?php $order_teleconsultor = get_option( 'order_browse_sof_teleconsultor', '3' ); ?>
+
+			<div class="col-md-3 order-<?php echo $order_teleconsultor; ?>">
 				<div class="block">
 				<img class="icon-block" src="<?php echo get_stylesheet_directory_uri().'/assets/img/icons/quem-respondeu.png'; ?>" alt="<?php _e('Quem Respondeu', 'bvs_lang'); ?>?">
-				<h2 class="title-block"><?php _e('Quem Respondeu', 'bvs_lang'); ?>?</h2>				
+				<h2 class="title-block"><?php echo get_option( 'label_browse_sof_teleconsultor', 'Quem Respondeu?' ); ?></h2>				
 
 				<?php 
 				$terms = get_terms('teleconsultor', array(
@@ -342,8 +348,9 @@ e respondidas pelos Núcleos do Programa Telessaúde Brasil Redes', 'bvs_lang');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="title-section"><?php _e('Super Recomendadas', 'bvs_lang'); ?></h2>
-				<h3 class="subtitle-section"><?php _e('Uma lista dos recursos mais relevantes para APS', 'bvs_lang'); ?></h3>
+				<?php if ( is_active_sidebar( 'recommendation' ) ) : ?>
+                                        <?php dynamic_sidebar( 'recommendation' ); ?>
+                                <?php endif; ?>
 			</div>
 		</div>
 
