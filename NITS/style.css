@@ -344,6 +344,9 @@ blockquote {
 .single_post .post {
 	min-height: 400px;
 }
+.spacetop {
+	margin-top: 20px !important;
+}
 
 /* == WordPress WYSIWYG Editor Styles == */
 
@@ -427,6 +430,12 @@ blockquote.right {
 	margin: 0px;
 }
 
+.backButton {
+	float: right;
+	font-weight: bold;
+	font-size: 120%;
+	padding: 5px;
+}
 /***CONTACT FORM 7 CSS *****/
 .screen-reader-response {
 	padding: 10px;
@@ -531,7 +540,9 @@ aside#sidebar {
 		display: none;
 	}
 	.logo a {
-		max-width: 100%;
+		width: 320px;
+		height: 54px;
+		background-image: url("images/logo-mobile.png");
 	}
 	.menu-home-mobile {
 		font-size: 175%;
@@ -541,6 +552,10 @@ aside#sidebar {
 	}
 	.carousel-item {
 		height: 400px;
+	}
+	.carousel_highlight span {
+		font-size: 20px;
+		line-height: 20px;
 	}
 	.dropdown-menu {
 		font-size: 100%;
@@ -685,5 +700,32 @@ aside#sidebar {
 	.pagination a, 
 	.pagination .active a {
 		border: 1px solid #dddddd !important;
+	}
+	
+	
+	.archive_portfolio h2 {
+		margin-bottom: 10px;
+	}
+	.archivePortfolio {
+		font-size: 80% !important;
+	}
+	.archivePortfolio .row {
+		border-bottom: 2px solid #FFF;
+	}
+	.archive_portfolio .cell {
+		padding: 5px;
+	}
+	.archive_portfolio .row_patents {
+		background: #cecece;
+	}	
+	.archive_portfolio .editalTitle {
+		font-weight: bold;
+		font-size: 110%;
+	}
+	.archive_portfolio .cell {
+	}
+	.backButton {
+		color: #FFF;
+		background: #263c61;
 	}
 	
