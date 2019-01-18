@@ -44,6 +44,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
                             mlf_links_to_languages();
                         }
                         elseif ( function_exists( 'pll_the_languages' ) ) {
+                            $default_language = pll_default_language();
                             $translations = pll_the_languages(array('raw'=>1));
                             echo "<ul>";
                             foreach ($translations as $key => $value) :
