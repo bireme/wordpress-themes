@@ -3,7 +3,7 @@
  * @package BVS
  * @subpackage Classic_Theme
  */
-global $direve_plugin_slug;
+global $lis_plugin_slug;
 $mlf_options = get_option('mlf_config');
 $current_language = strtolower(get_bloginfo('language'));
 $site_lang = substr($current_language, 0,2);
@@ -48,8 +48,8 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
                             echo "<ul>";
                             foreach ($translations as $key => $value) :
                                 if ($site_lang == $key) continue;
-                                $search = ($site_lang != $default_language) ? $site_lang.'/'.$direve_plugin_slug : $direve_plugin_slug;
-                                $replace = ($key != $default_language) ? $key.'/'.$direve_plugin_slug : $direve_plugin_slug;
+                                $search = ($site_lang != $default_language) ? $site_lang.'/'.$lis_plugin_slug : $lis_plugin_slug;
+                                $replace = ($key != $default_language) ? $key.'/'.$lis_plugin_slug : $lis_plugin_slug;
                                 $url = str_replace($search, $replace, $_SERVER['REQUEST_URI']);
                                 ?>
                                 <li><a href="<?php echo $url; ?>"><?php echo $value['name']; ?></a></li>
