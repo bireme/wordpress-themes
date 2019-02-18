@@ -1,0 +1,147 @@
+# BVS THEME
+# Copyright (C) 2018
+# This file is distributed under the GNU General Public License v3 or later.
+# Guilherme Alves <guilherme_alves@outlook.com.br>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS THEME\n"
+"Report-Msgid-Bugs-To: guilherme_alves@outlook.com.br\n"
+"POT-Creation-Date: 2018-05-31 15:55-0300\n"
+"PO-Revision-Date: 2018-05-10 HO:MI+ZONE\n"
+"Last-Translator: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"Language-Team: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: front-page.php
+msgid "Fontes de Informação da SES"
+msgstr "SES Information Sources"
+
+#: front-page.php
+msgid "Eixos Temáticos"
+msgstr "Thematic Axes"
+
+#: front-page.php
+msgid "Destaques e Notícias"
+msgstr "Highlights and News"
+
+#: front-page.php
+msgid "Mais notícias"
+msgstr "More news"
+
+#: front-page.php
+msgid "Redes"
+msgstr "Networking"
+
+#: search-bvs-widget.php
+msgid "Pesquisa na BVS-RIC"
+msgstr "Research in the VHL-RIC"
+
+#: search-bvs-widget.php
+msgid "Pesquisar"
+msgstr "Search"
+
+#: search-bvs-widget.php
+msgid "Buscar"
+msgstr "Search"
+
+#: search-bvs-widget.php
+msgid "Buscar em"
+msgstr "Search in"
+
+#: search-bvs-widget.php
+msgid "Tutoriais de Pesquisa"
+msgstr "Search Tutorials"
+
+#: search-bvs-widget.php
+msgid "Buscar por:"
+msgstr "Search for:"
+
+#: search-bvs-widget.php
+msgid "Todas as bases de dados"
+msgstr "All databases"
+
+#: search-bvs-widget.php
+msgid "Páginas do site"
+msgstr "Site pages"
+
+#: navigation.php
+msgid "&larr; Anterior"
+msgstr "&larr; Previous"
+
+#: navigation.php
+msgid "Próximo &rarr;"
+msgstr "Next &rarr;"
+
+#: navigation.php
+msgid "Anterior"
+msgstr "Previous"
+
+#: navigation.php
+msgid "Próximo"
+msgstr "Next"
+
+#: comments.php
+msgid "Mensagem"
+msgstr "Message"
+
+#: comments.php
+msgid "Enviar Comentário"
+msgstr "Send Comment"
+
+#: comments.php
+msgid "(Editar)"
+msgstr "(Edit)"
+
+#: comments.php
+msgid "Seu comentário aguarda moderação."
+msgstr "Your comment is awaiting moderation."
+
+#: comments.php
+msgid "Responder"
+msgstr "Reply"
+
+#: content.php
+msgid "Compartilhar"
+msgstr "Share"
+
+#: item-post.php
+msgid "Veja mais"
+msgstr "See more"
+
+#: search.php
+msgid "Resultados da Busca"
+msgstr "Search Results"
+
+#: search.php
+msgid "Resultados para: %s"
+msgstr "Results for: %s"
+
+#: content-none.php
+msgid "Nada encontrado"
+msgstr "Nothing found"
+
+#: content-none.php
+msgid "Pronto para publicar seu primeiro post? <a href=\"%1$s\">Comece aqui</a>."
+msgstr "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+
+#: content-none.php
+msgid "Desculpe, mas nada correspondeu aos seus termos de pesquisa. Por favor, tente novamente com algumas palavras-chave diferentes."
+msgstr "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+
+#: content-none.php
+msgid "Parece que não conseguimos encontrar o que você está procurando. Talvez a pesquisa possa ajudar."
+msgstr "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+
+#: content-none.php
+msgid "Opa! Essa página não pode ser encontrada."
+msgstr "Oops! That page can&rsquo;t be found."
+
+#: content-none.php
+msgid "Parece que nada foi encontrado neste local. Talvez tente um dos links abaixo ou uma pesquisa?"
+msgstr "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
