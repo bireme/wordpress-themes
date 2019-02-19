@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="title-section"><?php _e('Fontes de Informação', 'bvs_lang'); ?></div>
+				<h1 class="title-section"><?php _e('Fontes de Informação', 'bvs_lang'); ?></h1>
 			</div>
 		</div>
 
@@ -122,7 +122,7 @@
 		
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="title-section"><?php _e('Eixos Temáticos', 'bvs_lang'); ?></div>
+				<h1 class="title-section"><?php _e('Eixos Temáticos', 'bvs_lang'); ?></h1>
 			</div>
 		</div>
 
@@ -173,7 +173,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="title-section"><?php _e('Destaques e Notícias', 'bvs_lang'); ?><div>
+				<h1 class="title-section"><?php _e('Destaques e Notícias', 'bvs_lang'); ?></h1>
 			</div>
 		</div>
 
@@ -187,6 +187,7 @@
 				  'meta_value' => 'yes',
 			  	);
 			  	$featured_posts = new WP_Query( $featured_query_args );
+			  	$featured_posts_id = array();
 				?>
 				<div id="posts-carousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover">
 				  	<div class="carousel-inner">
@@ -224,6 +225,7 @@
 						    </div>
 					<?php 
 							$first = false;
+							$featured_posts_id[] = get_the_ID();
 						endwhile; 
 						wp_reset_postdata();
 					endif; ?>
@@ -244,6 +246,7 @@
 			    $last_posts_args = array(
                     'post_type' => 'post',
                     'post_status' => 'publish',
+                    'post__not_in' => $featured_posts_id,
                     'posts_per_page'=> 6,
                     'order'=>'DESC',
                     'orderby'=>'date',
@@ -296,7 +299,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="title-section"><?php _e('Redes', 'bvs_lang'); ?></div>
+				<h1 class="title-section"><?php _e('Redes', 'bvs_lang'); ?></h1>
 			</div>
 		</div>
 

@@ -172,7 +172,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 /*--- PESQUISA BVS ---*/
 #pesquisa-bvs{
 	width: 100%;
-	height: 67%;
+	height: 80%;
     background-size: cover;
     background-position: center;
 	background-image: url(../img/bg.png);
@@ -444,7 +444,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	padding: 25px;
 	max-height: 200px;
 	margin-top: 60px;
-    margin-bottom: 130px;
+    margin-bottom: 200px;
 }
 
 #eixos-tematicos .title-section{
@@ -493,9 +493,9 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #eixos-tematicos .item-eixo .number{
 	color: #0052BD;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
-	line-height: 20px;
+	line-height: 16px;
 	text-align: center;
 	margin-bottom: 0;
 }
@@ -601,7 +601,6 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	line-height: 30px;
 	text-align: center;
 	text-transform: uppercase;
-        margin: 3em 0 1em 0;
 }
 
 #destaques-noticias .carousel-control-next,
@@ -631,10 +630,10 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 28px;
-	margin-top: 20px;
-	margin-bottom: 0;
 	padding-bottom: 0;
 	text-decoration: none;
+	width: 500px;
+    margin: 1em auto 0 auto;
 }
 
 #destaques-noticias .featured-posts .content-preview,
@@ -747,10 +746,10 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #redes .menu > li.menu-item-has-children:first-child .sub-menu > li{
-    list-style-type: disc;
+	list-style-type: disc;
     width: 47%;
     padding: 0 10px 0 0px;
-    float: left;
+    float: left;    
     line-height: .7em;
     list-style-position: outside;
     margin: 1em 0 0 1em;
@@ -773,9 +772,9 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #redes ul.sub-menu {
-    padding-left: 15px;
+    padding-left: 0;
     list-style: none;
-    list-style-position: outside;
+    list-style-position: inside;
 }
 
 #redes ul.sub-menu li{
@@ -963,8 +962,8 @@ header#masthead .navbar-nav > li.current_page_item > a{
 /*--- CONTENT SINGLE ---*/
 .content-single .entry-content{
 	color: #4A4A4A;
-	font-size: 1em; 
-	line-height: 1.5;
+	font-size: 1em;
+	line-height: 1.5em;
 	margin-top: 0;
 }
 
@@ -1057,7 +1056,9 @@ h1.entry-title{
 .content-page .entry-content,
 .content-page .entry-content p{
 	color: #4A4A4A;
-	line-height: 1.5;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 27px;
 }
 
 .content-page .page-thumbnail{
@@ -1475,13 +1476,35 @@ nav ol.breadcrumb li.active a{
 }
 /*---//CLASSES ---*/
 
+body.vhl_collection-template-default .item-vhl article.vhl_collection .entry-content {
+	display: none;
+}
+
+/*   GENERAL TEXT WIDGETS   */
 .textwidget {
 	font-size: 1.15em;
 	line-height:1.6;
 }
-	#mega-menu-primary .mega-menu-item .mega-sub-menu .mega-menu-row .mega-sub-menu .mega-menu-column .mega-sub-menu .mega-2nd-level > a {
+/*   //GENERAL TEXT WIDGETS   */
+
+/*   MEGAMENU   */
+#mega-menu-primary .mega-menu-item .mega-sub-menu .mega-menu-row .mega-sub-menu .mega-menu-column .mega-sub-menu .mega-2nd-level > a {
 	padding-bottom: 1.5em !important;
 	font-size: 1.1em !important;
 }
+/*   //MEGAMENU   */
 
+/*   NEWS   */
+body.blog article.post .entry-header {
+    height: 116px;
+    overflow: hidden;
 }
+body.blog article.post .entry-content {
+	display: none;
+}
+@media screen and (max-width: 767px){
+	body.blog article.post .entry-header {
+		height: auto;
+	}
+}
+/*   //NEWS   */

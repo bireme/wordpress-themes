@@ -1,0 +1,151 @@
+# BVS THEME
+# Copyright (C) 2018
+# This file is distributed under the GNU General Public License v3 or later.
+# Guilherme Alves <guilherme_alves@outlook.com.br>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS THEME\n"
+"Report-Msgid-Bugs-To: guilherme_alves@outlook.com.br\n"
+"POT-Creation-Date: 2018-05-31 15:55-0300\n"
+"PO-Revision-Date: 2018-08-05 01:26-0300\n"
+"Language-Team: Guilherme Alves <guilherme_alves@outlook.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language: fr_FR\n"
+
+#: front-page.php
+msgid "Fontes de Informação da SES"
+msgstr "Sources d'informations SES"
+
+#: front-page.php
+msgid "Fontes de Informação"
+msgstr "Sources d'information"
+
+#: front-page.php
+msgid "Eixos Temáticos"
+msgstr "Axes thématiques"
+
+#: front-page.php
+msgid "Destaques e Notícias"
+msgstr "Faits saillants et nouvelles"
+
+#: front-page.php
+msgid "Mais notícias"
+msgstr "Plus de nouvelles"
+
+#: front-page.php
+msgid "Redes"
+msgstr "Réseautage"
+
+#: search-bvs-widget.php
+msgid "Pesquisa na BVS-RIC"
+msgstr "Recherche dans le VHL-RIC"
+
+#: search-bvs-widget.php
+msgid "Pesquisar"
+msgstr "Chercher"
+
+#: search-bvs-widget.php
+msgid "Buscar"
+msgstr "Chercher"
+
+#: search-bvs-widget.php
+msgid "Buscar em"
+msgstr "Rechercher dans"
+
+#: search-bvs-widget.php
+msgid "Tutoriais de Pesquisa"
+msgstr "Rechercher dans les forums"
+
+#: search-bvs-widget.php
+msgid "Buscar por:"
+msgstr "Rechercher:"
+
+#: search-bvs-widget.php
+msgid "Todas as bases de dados"
+msgstr "Toutes les bases"
+
+#: search-bvs-widget.php
+msgid "Páginas do site"
+msgstr "Pages du site"
+
+#: navigation.php
+msgid "&larr; Anterior"
+msgstr "& larr; Précédent"
+
+#: navigation.php
+msgid "Próximo &rarr;"
+msgstr "Suivant & rarr;"
+
+#: navigation.php
+msgid "Anterior"
+msgstr "Précédent"
+
+#: navigation.php
+msgid "Próximo"
+msgstr "Suivant"
+
+#: comments.php
+msgid "Mensagem"
+msgstr "Merci"
+
+#: comments.php
+msgid "Enviar Comentário"
+msgstr "Envoyer un avis"
+
+#: comments.php
+msgid "(Editar)"
+msgstr "(Modifier)"
+
+#: comments.php
+msgid "Seu comentário aguarda moderação."
+msgstr "Votre commentaire est en attente de modération."
+
+#: comments.php
+msgid "Responder"
+msgstr "Répondre"
+
+#: content.php
+msgid "Compartilhar"
+msgstr "Partagez ça"
+
+#: item-post.php
+msgid "Veja mais"
+msgstr "Voir plus"
+
+#: search.php
+msgid "Resultados da Busca"
+msgstr "Résultats de recherche"
+
+#: search.php
+msgid "Resultados para: %s"
+msgstr "Résultats pour: %s"
+
+#: content-none.php
+msgid "Nada encontrado"
+msgstr "Rien trouvé"
+
+#: content-none.php
+msgid "Pronto para publicar seu primeiro post? <a href=\"%1$s\">Comece aqui</a>."
+msgstr "Prêt à poster votre premier message? <a href=\"% %1$s \"> Commencer ici </a>."
+
+#: content-none.php
+msgid "Desculpe, mas nada correspondeu aos seus termos de pesquisa. Por favor, tente novamente com algumas palavras-chave diferentes."
+msgstr "Désolé, rien ne correspond à vos termes de recherche. Veuillez réessayer avec quelques mots clés différents."
+
+#: content-none.php
+msgid "Parece que não conseguimos encontrar o que você está procurando. Talvez a pesquisa possa ajudar."
+msgstr "On dirait que nous n'avons pas trouvé ce que vous cherchez. Peut-être que la recherche pourrait aider."
+
+#: content-none.php
+msgid "Opa! Essa página não pode ser encontrada."
+msgstr "Oups! Cette page ne peut pas être trouvée."
+
+#: content-none.php
+msgid "Parece que nada foi encontrado neste local. Talvez tente um dos links abaixo ou uma pesquisa?"
+msgstr "On dirait que rien n'a été trouvé à cet endroit. Peut-être essayer l'un des liens ci-dessous ou une recherche?"

@@ -29,6 +29,16 @@ function custom_widgets_area() {
             'after_widget' => '</div>',
             'description' => 'Add widgets here',
         ));
+
+        register_sidebar(array(
+            'name' => 'Footer Widget Area',
+            'id' => 'footer_widget_area',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+            'description' => 'Add widgets here',
+        ));
     }
 }
 
@@ -99,8 +109,8 @@ function wordpress_pagination(){
             'format' => 'page/%#%/',
             'current' => max( 1, get_query_var('paged') ),
             'total' => $max_num_pages,
-            'prev_text' => '<i class="fas fa-angle-double-left"></i>',
-            'next_text' => '<i class="fas fa-angle-double-right"></i>',
+            'prev_text' => '<span class="fas fa-angle-double-left"></span>',
+            'next_text' => '<span class="fas fa-angle-double-right"></span>',
         ));
     }
 

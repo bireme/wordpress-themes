@@ -44,7 +44,7 @@
 			</div><!-- .entry-content -->
 			<footer class="entry-footer">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm">
-					<?php _e('Veja mais', 'bvs_lang'); ?> <i class="fas fa-arrow-right"></i>
+					<?php _e('Veja mais', 'bvs_lang'); ?> <span class="fas fa-arrow-right"></span>
 				</a>
 			</footer><!-- .entry-footer -->
 		</div>

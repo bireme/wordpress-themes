@@ -1,0 +1,358 @@
+{
+  "general": {
+    "userAgentAdd": "gonative",
+    "useWKWebView": true,
+    "enableWindowOpen": true,
+    "useCrosswalkWebView": false,
+    "forceScreenOrientation": null,
+    "initialUrl": "http://www.crics10.org",
+    "appName": "CRICS10",
+    "iosBundleId": "org.crics",
+    "androidPackageName": "org.crics",
+    "androidVersionName": "1.0.0"
+  },
+  "navigation": {
+    "androidPullToRefresh": false,
+    "iosPullToRefresh": true,
+    "androidShowRefreshButton": false,
+    "iosShowRefreshButton": false,
+    "deepLinkDomains": [],
+    "tabNavigation": {
+      "tabSelectionConfig": [
+        {
+          "id": "1",
+          "regex": ""
+        }
+      ],
+      "tabMenus": [
+        {
+          "id": "1",
+          "items": [
+            {}
+          ]
+        }
+      ],
+      "active": false
+    },
+    "sidebarNavigation": {
+      "menus": [
+        {
+          "name": "default",
+          "items": null,
+          "active": false
+        },
+        {
+          "name": "loggedIn",
+          "items": null,
+          "active": false
+        }
+      ],
+      "menuSelectionConfig": {
+        "testURL": null,
+        "redirectLocations": [
+          {
+            "regex": null,
+            "menuName": "default",
+            "loggedIn": false
+          },
+          {
+            "regex": ".*",
+            "menuName": "default",
+            "loggedIn": true
+          }
+        ]
+      }
+    },
+    "navigationLevels": {
+      "levels": [
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-pt/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-es/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/app-en/?",
+          "level": 1
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/pt/local-pt/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/local-es/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/en/local-en/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/participant/?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/?[\\w]{2}/)?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/?[\\w]{2}/)?",
+          "level": 2
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/event/([-\\w]+/){1}/?",
+          "level": 3
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/schedule/([-\\w]+/){1}/?",
+          "level": 4
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/session/([-\\w]+/){1}/?",
+          "level": 5
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/programa(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/subsession/([-\\w]+/){1}/?",
+          "level": 6
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/bvs7(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 7
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/presentation/([-\\w]+/){1}/?",
+          "level": 7
+        },
+        {
+          "regex": "http://([-\\w]+\\.)*crics10.org/eventos(/[\\w]{2})?/participant/([-\\w]+/){1}/?",
+          "level": 8
+        }
+      ],
+      "active": true
+    },
+    "navigationTitles": {
+      "titles": [
+        {
+          "regex": ".*",
+          "title": "CRICS10"
+        }
+      ],
+      "active": true
+    },
+    "regexInternalExternal": {
+      "rules": [
+        {
+          "regex": "^(?!https?://).*",
+          "internal": false
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/login.php.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/dialog.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/v1\\.0/.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/oauth.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/v2\\.0/.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com/checkpoint.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*facebook\\.com.*",
+          "internal": true
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*plus\\.google\\.com/share.*",
+          "internal": false
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*twitter\\.com/.*",
+          "internal": false
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*instagram\\.com/.*",
+          "internal": false
+        },
+        {
+          "regex": "https?://maps\\.google\\.com.*",
+          "internal": false
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*linkedin\\.com/.*",
+          "internal": false
+        },
+        {
+          "regex": "https?://([-\\w]+\\.)*google\\.com/maps/search/.*",
+          "internal": false
+        },
+        {
+          "regex": ".*",
+          "internal": true
+        }
+      ],
+      "active": true
+    },
+    "toolbarNavigation": null
+  },
+  "styling": {
+    "icon": "https://gonativeio.s3.amazonaws.com/uploads/zq8jz8gy39c6a_1540940057013.png",
+    "iosHeaderImage": "https://gonativeio.s3.amazonaws.com/uploads/8rt2mwbp48f8r_1540940226594.png",
+    "showActionBar": false,
+    "showNavigationBar": false,
+    "iosSidebarFont": "Default",
+    "androidHideTitleInActionBar": false,
+    "navigationTitleImage": false,
+    "iosTheme": "light",
+    "androidTheme": "light",
+    "menuAnimationDuration": 0.15,
+    "transitionInteractiveDelayMax": 0.2,
+    "hideWebviewAlpha": 0.5,
+    "disableAnimations": false,
+    "androidShowSplash": true,
+    "androidSidebarBackgroundColor": "#FFFFFF",
+    "androidSidebarForegroundColor": "#777777",
+    "androidActionBarBackgroundColor": "#bdbdbd",
+    "androidActionBarForegroundColor": "#000000",
+    "androidPullToRefreshColor": "#777777",
+    "androidAccentColor": "#009688",
+    "androidSidebarSeparatorColor": "#585858",
+    "androidTabBarBackgroundColor": "#bdbdbd",
+    "androidTabBarTextColor": "#000000",
+    "androidTabBarIndicatorColor": "#000000",
+    "iosTitleColor": "#333333",
+    "iosTintColor": "#0091fe",
+    "iosSidebarTextColor": "#333333",
+    "androidLaunchImages": {
+      "mdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1540939277656_pm2r3jhxku346_180x180.9.png",
+      "hdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1540939277656_m9qtbuezxg9ju_270x270.9.png",
+      "xhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1540939277656_na39tm3rtv9zr_360x360.9.png",
+      "xxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1540939277657_tergz74jknenu_540x540.9.png",
+      "xxxhdpi": "https://s3.amazonaws.com/gonativeio/images_generated/1540939277657_jnbp0ckej81zj_720x720.9.png"
+    },
+    "iosLaunchImages": {
+      "ios_launch_640x960": "https://s3.amazonaws.com/gonativeio/images_generated/1540939286877_418te0yxt7916.png",
+      "ios_launch_640x1136": "https://s3.amazonaws.com/gonativeio/images_generated/1540939291499_0kac94fbzq06j.png",
+      "ios_launch_768x1024": "https://s3.amazonaws.com/gonativeio/images_generated/1540939296701_6xb7gn052yb0g.png",
+      "ios_launch_1024x768": "https://s3.amazonaws.com/gonativeio/images_generated/1540939301235_m8dum21q391ge.png",
+      "ios_launch_1536x2048": "https://s3.amazonaws.com/gonativeio/images_generated/1540939306601_h6b078ykya1b8.png",
+      "ios_launch_2048x1536": "https://s3.amazonaws.com/gonativeio/images_generated/1540939313031_b7vq664j384ae.png",
+      "ios_launch_750x1334": "https://s3.amazonaws.com/gonativeio/images_generated/1540939319886_hpk12zmvrxr62.png",
+      "ios_launch_1242x2208": "https://s3.amazonaws.com/gonativeio/images_generated/1540939326171_adgzc8ta98wdj.png",
+      "ios_launch_2208x1242": "https://s3.amazonaws.com/gonativeio/images_generated/1540939332854_7tm65xu37pkvy.png",
+      "ios_launch_1125x2436": "https://s3.amazonaws.com/gonativeio/images_generated/1540939339143_kcckzpqeqwhjy.png",
+      "ios_launch_2436x1125": "https://s3.amazonaws.com/gonativeio/images_generated/1540939345605_v9a3ykdxzvvp6.png"
+    },
+    "androidStatusBarBackgroundColor": "#909090"
+  },
+  "forms": {
+    "search": {},
+    "loginConfig": {
+      "formSelector": null,
+      "loginIsFirstPage": false
+    },
+    "signupConfig": {
+      "active": false,
+      "formSelector": null
+    }
+  },
+  "permissions": {
+    "usesGeolocation": false,
+    "androidDownloadToPublicStorage": false,
+    "enableWebRTC": false
+  },
+  "performance": {
+    "webviewPools": [
+      {
+        "urls": [
+          {
+            "disown": "reload"
+          }
+        ]
+      }
+    ]
+  },
+  "publishing": {},
+  "services": {
+    "push": {
+      "active": false
+    },
+    "analytics": {
+      "active": false
+    },
+    "parse": {
+      "active": false,
+      "pushEnabled": false
+    },
+    "facebook": {
+      "active": false
+    },
+    "oneSignal": {
+      "active": false,
+      "notificationExtension": false
+    },
+    "registration": {
+      "active": false,
+      "endpoints": [
+        {
+          "url": null,
+          "urlRegex": null,
+          "dataType": [
+            "parse",
+            "oneSignal",
+            "xtremepush"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -23,6 +23,10 @@ msgid "Fontes de Informação da SES"
 msgstr "SES Information Sources"
 
 #: front-page.php
+msgid "Fontes de Informação"
+msgstr "Information Sources"
+
+#: front-page.php
 msgid "Eixos Temáticos"
 msgstr "Thematic Axes"
 

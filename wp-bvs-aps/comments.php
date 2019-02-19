@@ -1,0 +1,103 @@
+<?php
+/**
+ * The template for displaying comments
+ *
+ * This is the template that displays the area of the page that contains both the current comments
+ * and the comment form.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WP_Bootstrap_Starter
+ */
+
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+ */
+if ( post_password_required() ) {
+	return;
+}
+?>
+
+<div id="comments" class="comments-area">
+
+    <?php
+    // If comments are closed and there are comments, let's leave a little note, shall we?
+    if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+
+        <p class="no-comments"><?php esc_html_e( 'Comentários estão fechados.', 'bvs_lang' ); ?></p>
+        <?php
+    endif; ?>
+
+    <?php 
+    comment_form( $args = array(
+        'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
+        'id_submit'         => 'commentsubmit',
+        'label_submit'      => __( 'Enviar Comentário', 'bvs_lang' ),  // that's the wordpress default value! delete it or edit it ;)
+        
+        
+        'title_reply'       => __( 'Comentários', 'bvs_lang' ),  // that's the wordpress default value! delete it or edit it ;)
+        'title_reply_to'    => __( 'Deixe uma resposta para %s', 'bvs_lang' ),  // that's the wordpress default value! delete it or edit it ;)
+        'cancel_reply_link' => __( 'Cancelar resposta', 'bvs_lang' ),  // that's the wordpress default value! delete it or edit it ;)
+        
+        'comment_field' =>  '<textarea placeholder="'.__('Mensagem', 'bvs_lang').'" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea>',
+
+        'comment_notes_before' => ''
+        /*
+        'comment_notes_after' => '<p class="form-allowed-tags">' .
+            __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bvs_lang' ) .
+            '</p><div class="alert alert-info">' . allowed_tags() . '</div>'
+        */
+        // So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
+
+        // Basically you can edit everything here!
+        // Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
+        // Another note: some classes are added in the bootstrap-wp.js - ckeck from line 1
+
+    ));
+    
+    // You can start editing here -- including this comment!
+    if ( have_comments() ) : ?>
+
+        <h2 class="comments-title">
+            <?php _e('Comentários Recentes', 'bvs_lang'); ?>
+        </h2><!-- .comments-title -->
+
+
+        <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+            <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+                <h2 class="screen-reader-text"><?php esc_html_e( 'Navegação de comentários', 'bvs_lang' ); ?></h2>
+                <div class="nav-links">
+
+                    <div class="nav-previous"><?php previous_comments_link( esc_html__( 'Comentários mais antigos', 'bvs_lang' ) ); ?></div>
+                    <div class="nav-next"><?php next_comments_link( esc_html__( 'Comentários mais recentes', 'bvs_lang' ) ); ?></div>
+
+                </div><!-- .nav-links -->
+            </nav><!-- #comment-nav-above -->
+        <?php endif; // Check for comment navigation. ?>
+
+        <ul class="comment-list">
+            <?php
+            wp_list_comments( array( 'callback' => 'wp_bvs_comments', 'avatar_size' => 50 ));
+            ?>
+        </ul><!-- .comment-list -->
+
+        <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
+            <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+                <h2 class="screen-reader-text"><?php esc_html_e( 'Navegação de comentários', 'bvs_lang' ); ?></h2>
+                <div class="nav-links">
+
+                    <div class="nav-previous"><?php previous_comments_link( esc_html__( 'Comentários mais antigos', 'bvs_lang' ) ); ?></div>
+                    <div class="nav-next"><?php next_comments_link( esc_html__( 'Comentários mais recentes', 'bvs_lang' ) ); ?></div>
+
+                </div><!-- .nav-links -->
+            </nav><!-- #comment-nav-below -->
+            <?php
+        endif; // Check for comment navigation.
+
+    endif; // Check for have_comments().    
+
+	?>
+
+</div><!-- #comments -->
