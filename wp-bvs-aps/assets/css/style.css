@@ -59,7 +59,12 @@ p{
 }
 
 .btn-primary{
-	background-color: #0176C8;
+	background-color: rgb(0, 128, 128);
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #20B2AA;
+    border-color: #20B2AA;
 }
 
 .btn-link{
@@ -271,7 +276,7 @@ header #logo-wrap{
 }
 
 header #menu-wrap{
-	background-color: #0176C8;
+	background-color: rgb(0, 128, 128);
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -641,7 +646,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #areas .title-area{
-	color: #005693;
+	color: rgb(0, 128, 128);
 	font-family: 'PT Serif', serif;
 	font-size: 16px;
 	font-weight: bold;
@@ -780,7 +785,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #ultimas-sofs .title-section,
 #related-sofs .title-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 22px;
 	font-weight: 600;
@@ -793,7 +798,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #ultimas-sofs .subtitle-section,
 #related-sofs .subtitle-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -863,7 +868,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 .item-sof-home .title-sof,
 .item-sof-home .title-sof a{
-	color: #005693;
+	color: rgb(0, 128 ,128);
 	font-family: 'PT Serif', serif;
 	font-size: 16px;
 	font-weight: bold;
@@ -1308,7 +1313,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #calculadoras-medicas .title-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 22px;
 	font-weight: 600;
@@ -1320,7 +1325,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #calculadoras-medicas .subtitle-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -1343,7 +1348,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 .item-calculadora .title-calculadora{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'PT Serif', serif;
 	font-size: 20px;
 	font-weight: normal;
@@ -1383,7 +1388,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #navegar-sofs .title-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 22px;
 	font-weight: 600;
@@ -1395,7 +1400,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #navegar-sofs .subtitle-section{
-	color: #0176C8;
+	color: #008B8B;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -1428,7 +1433,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 #navegar-sofs .title-block{
-	color: #005693;
+	color: #008B8B;
 	font-family: 'PT Serif', serif;
 	font-size: 20px;
 	font-weight: bold;
@@ -1541,63 +1546,46 @@ header#masthead .navbar-nav > li.current_page_item > a{
 /*--- SIDEBAR TAXONOMY ---*/
 
 /*--- SUPER RECOMENDADAS ---*/
-#super-recomendadas{
-	padding-top: 45px;
-	padding-bottom: 80px;
+#super-recomendadas {
+	padding-top: 40px;
 }
-
-#super-recomendadas .title-section{
-	color: #0176C8;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 22px;
-	font-weight: 600;
-	line-height: 24px;
+#super-recomendadas .title-section {
+    color: #008B8B;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 5px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+}
+#super-recomendadas .subtitle-section {
+    color: #008B8B;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.item-recommended {
+	width: 28%;
+	display: inline-flex;
+	margin: 2%;
 	text-align: center;
-	margin-bottom: 5px;
-	padding-bottom: 0;
-	text-transform: uppercase;
 }
-
-#super-recomendadas .subtitle-section{
-	color: #0176C8;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
-	font-weight: 300;
-	line-height: 19px;
-	text-align: center;
-	margin-bottom: 35px;
+.item-recommended .img-recommended {
+	height: 45px;
 }
-
-#super-recomendadas .list-menu{
-	list-style: none;
-}
-
-#super-recomendadas .list-menu .menu-item{
-	margin-bottom: 35px;
-}
-
-#super-recomendadas .list-menu .menu-item a{	
-	text-decoration: none;
-	display: flex;
-}
-
-#super-recomendadas .list-menu .menu-item img{
-	width: 62px;
-	height: 62px;
-	border-radius: 50%;
-	border: 1px solid #979797;
-	padding: 0;
-	margin-right: 10px;
-}
-
-#super-recomendadas .list-menu .menu-item .menu-image-title{
-	color: #005693;
+.item-recommended a {
+	color: #008B8B;
 	font-family: 'PT Serif', serif;
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 27px;
 }
-
+.item-recommended h3 {
+	font-size: 1.5em;
+	margin: .4em 0 0 0;
+}
 @media screen and (max-width: 767px){
 	#super-recomendadas{
 		padding-top: 30px;
@@ -1805,7 +1793,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 /*---FOOTER---*/
 body:not(.theme-preset-active) footer#colophon{
 	color: #fff;
-	background-color: #0176c8;
+	background-color: #008B8B;
 	padding-top: 25px;
 	padding-bottom: 15px;
 }
@@ -1889,7 +1877,6 @@ footer .site-info a{
 .basic-inner{
 	z-index: 900 !important;
 }
-
 /*---//GERAIS ---*/
 #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
 	font-size: 15px !important;
