@@ -897,11 +897,11 @@ header#masthead .navbar-nav > li.current_page_item > a{
 /*---//ULTIMAS SOFs ---*/
 
 /*--- ITEM SOF ---*/
-.item-sof{
+.item-sof, .item-pearl{
 	margin-bottom: 25px;
 }
 
-.item-sof .content-sof{
+.item-sof .content-sof, .item-pearl .content-pearl {
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.13);
 	height: 100%;
 	padding: 10px;
@@ -932,7 +932,9 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 .item-sof .title-sof,
-.item-sof .title-sof a{
+.item-sof .title-sof,
+.item-pearl .title-pearl,
+.item-pearl .title-pearl a {
 	color: #005693;
 	font-family: 'PT Serif', serif;
 	font-size: 18px;
@@ -943,7 +945,8 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	text-decoration: none;
 }
 
-.item-sof hr{
+.item-sof hr,
+.item-pearl hr{
 	margin-top: 5px;
 	margin-bottom: 5px;
 	border-color: #979797;
@@ -1901,4 +1904,7 @@ footer .site-info a{
 	display: flex;
 	list-style: none;
 	margin-bottom: 0;
+}
+#panel-13299-1-0-0> .panel-widget-style {
+	flex-wrap: wrap !important;
 }

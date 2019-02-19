@@ -92,11 +92,17 @@ class search_bvs_widget extends WP_Widget {
             
             <a target='_blank' href="<?php echo $instance[ 'tutorial_url' ]; ?>" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="bottom" title="<?php _e('Acesse os tutoriais de como pesquisar na BVS APS', 'bvs_lang'); ?>">?</a>
         </form>
-        <form style="display: none;" class="default-search-form" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" id="defaultSearchForm" onsubmit="if(defaultSearchForm.s.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') defaultSearchForm.s.value = '';">
-            <label for="s" class="sr-only"><?php _e('Pesquisar', 'bvs_lang'); ?></label>
+        <form style="display: none;" class="default-search-form" role="search" action="http://pesquisa.bvs.br/aps/" method="get" id="defaultSearchForm" onsubmit="if(defaultSearchForm.s.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') defaultSearchForm.s.value = '';">
+            <?php if( function_exists('pll_current_language') ){ ?>
+            <input type="hidden" name="lang" value="<?php echo pll_current_language(); ?>" />
+	    <input type="hidden" name="filter[db][]" value="SOF" />
+            <?php } ?>
+
+            <input type="hidden" name="filter[db][]" value="SOF">
             
+            <label for="s" class="sr-only"><?php _e('Pesquisar', 'bvs_lang'); ?></label>
             <div class="input-group">
-                <input type="text" id="s" class="vhl-search-input form-control" name="s" placeholder="<?php _e('Pesquisar', 'bvs_lang'); ?>" value="<?php _e('Pesquisar', 'bvs_lang'); ?>" onfocus="if(this.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') this.value = '';" onblur="if(this.value=='') this.value = '<?php _e('Pesquisar', 'bvs_lang'); ?>';"/>
+                <input type="text" id="s" class="vhl-search-input form-control" name="q" placeholder="<?php _e('Pesquisar', 'bvs_lang'); ?>" value="<?php _e('Pesquisar', 'bvs_lang'); ?>" onfocus="if(this.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') this.value = '';" onblur="if(this.value=='') this.value = '<?php _e('Pesquisar', 'bvs_lang'); ?>';"/>
                 <div class="input-group-append">
                     <button type="submit" class="vhl-search-submit submit btn btn-primary">
                         <span class="fas fa-search"></span>
