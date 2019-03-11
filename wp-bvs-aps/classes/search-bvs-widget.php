@@ -66,8 +66,8 @@ class search_bvs_widget extends WP_Widget {
         echo $before_widget;
 
         $tooltip = "<h4><span class='fas fa-lightbulb'></span>". __('Dica BVS-APS', 'bvs_lang') ."</h4>
-                    <p>". __('Para buscar pelo nome do autor utilize', 'bvs_lang') ."</p>
-                    <div class='alert alert-secondary' role='alert'>". __('au:(nome)', 'bvs_lang') ."</div>
+                    <p>". __('Para buscar por palávras do ítulo utilize', 'bvs_lang') ."</p>
+                    <div class='alert alert-secondary' role='alert'>". __('TI:(sua busca)', 'bvs_lang') ."</div>
                     <a target='_blank' href='". $instance[ 'tips_url' ] ."'>". __('Ver mais dicas de pesquisa', 'bvs_lang') ."</a>";
         ?>
 
@@ -109,8 +109,9 @@ class search_bvs_widget extends WP_Widget {
                     </button>
                 </div>
             </div>
-
+	<!--
             <a target='_blank' href="<?php echo $instance[ 'tutorial_url' ]; ?>" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="bottom" title="<?php _e('Acesse os tutoriais de como pesquisar na BVS APS', 'bvs_lang'); ?>">?</a>
+	-->
         </form>
         <div class="searchItens">
             <input type="radio" name="engine" checked="checked" value="op2" id="search-op2" /> 
