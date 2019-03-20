@@ -34,14 +34,21 @@
 				?>
 			</label>
 			<header class="entry-header">
+				<div class="news-source">
+                                	<?php $terms = get_the_terms( $post->ID, 'news-source' );
+                                        	foreach($terms as $term) {
+                                        	echo $term->name;
+                                        	}
+                                	?>
+                        	</div>
 				<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 			</header><!-- .entry-header -->
 			<label class="entry-date">
 				<?php echo get_the_date('d M Y', get_the_ID()); ?>
 			</label>
-			<div class="entry-content">
+			<!--div class="entry-content">
 				<?php crop_text( get_the_excerpt(), 130 ); ?>
-			</div><!-- .entry-content -->
+			</div--><!-- .entry-content -->
 			<footer class="entry-footer">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-sm">
 					<?php _e('Veja mais', 'bvs_lang'); ?> <span class="fas fa-arrow-right"></span>

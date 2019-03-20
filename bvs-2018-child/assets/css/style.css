@@ -633,7 +633,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	padding-bottom: 0;
 	text-decoration: none;
 	width: 500px;
-    margin: 1em auto 0 auto;
+	margin: 1em auto 0 auto;
 }
 
 #destaques-noticias .featured-posts .content-preview,
@@ -899,10 +899,11 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 .item-post .post-thumbnail{
 	width: 100%;
-	height: 90px;
-	margin-bottom: 0;
-	background-position: center;
-	background-size: cover;
+	height: 96px;
+	margin-bottom: .5em;
+	background-position: top;
+	background-size: auto;
+	background-repeat: no-repeat;
 }
 
 .item-post .entry-footer{
@@ -938,6 +939,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 	margin-top: 0;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
+	height: 5.5em;
 }
 
 .item-vhl .entry-content{
@@ -1030,7 +1032,12 @@ h1.entry-title{
 	letter-spacing: -0.72px;
 	line-height: 25px;
 }
-
+#related_posts .news-source {
+	font-size: .8em;
+}
+#related_posts .entry-header{
+	height: 136px;
+}
 @media screen and (max-width: 767px){
 	.content-post .post-thumbnail{
 	    width: 100%;
@@ -1479,7 +1486,6 @@ nav ol.breadcrumb li.active a{
 body.vhl_collection-template-default .item-vhl article.vhl_collection .entry-content {
 	display: none;
 }
-
 /*   GENERAL TEXT WIDGETS   */
 .textwidget {
 	font-size: 1.15em;
@@ -1489,22 +1495,38 @@ body.vhl_collection-template-default .item-vhl article.vhl_collection .entry-con
 
 /*   MEGAMENU   */
 #mega-menu-primary .mega-menu-item .mega-sub-menu .mega-menu-row .mega-sub-menu .mega-menu-column .mega-sub-menu .mega-2nd-level > a {
-	padding-bottom: 1.5em !important;
-	font-size: 1.1em !important;
+	padding-bottom: .8em !important;
+	font-size: 1.2em !important;
+	line-height: 1.2 !important;
+}
+.mega-sub-menu .mega-sub-menu .mega-sub-menu .mega-sub-menu a {
+    margin: 0 !important;
+    padding: 0px 0px 12px 0px !important;
+    line-height: 1.2 !important;
+    color: #ffffff8c !important;
 }
 /*   //MEGAMENU   */
 
 /*   NEWS   */
 body.blog article.post .entry-header {
-    height: 116px;
+    height: 136px;
     overflow: hidden;
 }
-body.blog article.post .entry-content {
-	display: none;
+body.blog article.post .entry-header .news-source {
+	font-size: .8em;
 }
 @media screen and (max-width: 767px){
 	body.blog article.post .entry-header {
 		height: auto;
 	}
 }
-/*   //NEWS   */
+/*   //NEWS   * 
+
+
+/*  FAQs  */
+div.ufaq-faq-title h4 {
+	font-size: 1.4em;
+}
+div.ufaq-faq-body .ufaq-permalink {
+	display: none;
+}
