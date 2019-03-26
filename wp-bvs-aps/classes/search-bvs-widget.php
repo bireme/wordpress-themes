@@ -65,7 +65,7 @@ class search_bvs_widget extends WP_Widget {
         extract( $args );
         echo $before_widget;
 
-        $tooltip = "<h4><span class='fas fa-lightbulb'></span>". __('Dica BVS-APS', 'bvs_lang') ."</h4>
+        $tooltip = "<h4><span class='fas fa-lightbulb'></span>". __('Dica de pesquisa', 'bvs_lang') ."</h4>
                     <p>". __('Para buscar por palávras do ítulo utilize', 'bvs_lang') ."</p>
                     <div class='alert alert-secondary' role='alert'>". __('TI:(sua busca)', 'bvs_lang') ."</div>
                     <a target='_blank' href='". $instance[ 'tips_url' ] ."'>". __('Ver mais dicas de pesquisa', 'bvs_lang') ."</a>";
