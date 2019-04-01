@@ -1,5 +1,9 @@
 <?php get_header('full'); ?>
-
+<div id="atalho_noticias">
+        <?php if ( is_active_sidebar( 'atalho_noticias' ) ) : ?>
+                <?php dynamic_sidebar( 'atalho_noticias' ); ?>
+        <?php endif; ?>
+</div>
 <div id="pesquisa-bvs">
 	<div class="container">
 		<div class="row align-items-center">
@@ -116,7 +120,11 @@
 		</div>
 	</div>
 </div>
-
+<div id="acesso-nucleos">
+	<?php if ( is_active_sidebar( 'acesso_nucleos' ) ) : ?>
+        	<?php dynamic_sidebar( 'acesso_nucleos' ); ?>
+        <?php endif; ?>
+</div>
 <div id="eixos-tematicos">
 	<div class="container">
 		

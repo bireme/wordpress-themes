@@ -88,9 +88,13 @@ header #logo-wrap .institution-logo{
 	margin-top: 1%;
 	margin-right: 5%;
 }
+header #logo-wrap .institution-logo img {
+	max-width: 75%; 
+}
 
 header .lang-social-networks{
 	float: right;
+	margin-top: 1em;
 }
 
 header .lang-social-networks ul li.lang-item{
@@ -1529,4 +1533,10 @@ div.ufaq-faq-title h4 {
 }
 div.ufaq-faq-body .ufaq-permalink {
 	display: none;
+}
+
+/* ATALHO NOTICIAS  */
+#atalho_noticias {
+	position: absolute;
+	right: 0;
 }
