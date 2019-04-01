@@ -178,7 +178,6 @@ h2.entry-title,
 .breadcrumb .breadcrumb-item.active,
 .breadcrumb .breadcrumb-item.active a{
 	font-size: 20px;
-	font-weight: bold;
 	text-transform: none;
 	text-decoration: none;
 }
@@ -482,7 +481,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 #carousel-home .title-post,
 #carousel-home .title-post a{
 	color: #005693;
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;	
 	font-size: 22px;
 	font-weight: bold;
 	line-height: 33px;
@@ -647,7 +646,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #areas .title-area{
 	color: rgb(0, 128, 128);
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 22px;
@@ -869,7 +868,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 .item-sof-home .title-sof,
 .item-sof-home .title-sof a{
 	color: rgb(0, 128 ,128);
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 22px;
@@ -1017,7 +1016,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 .content-sof .entry-title{
 	color: #005693;
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 32px;
@@ -1356,7 +1355,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 .item-calculadora .title-calculadora{
 	color: #008B8B;
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	font-weight: normal;
 	line-height: 27px;
@@ -1441,7 +1440,7 @@ header#masthead .navbar-nav > li.current_page_item > a{
 
 #navegar-sofs .title-block{
 	color: #008B8B;
-	font-family: 'PT Serif', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	font-weight: bold;
 	line-height: 27px;
@@ -1525,8 +1524,9 @@ header#masthead .navbar-nav > li.current_page_item > a{
 }
 
 .sidebar-taxonomy .list-terms li span{
-	float: right;
 	line-height: 23px;
+	position: absolute;
+	right: 24px;
 }
 
 @media screen and (max-width: 767px){	

@@ -16,14 +16,14 @@
         <div class="container">
             <div class="row align-items-center">
 
-                <div class="site-certificate col-12 col-sm-12 col-md-3">
+                <!--div class="site-certificate col-12 col-sm-12 col-md-3">
                     <?php if ( is_active_sidebar( 'certificate_widget_area' ) ) : ?>
                         <?php dynamic_sidebar( 'certificate_widget_area' ); ?>
                     <?php else: ?>
                         <img src="<?php echo get_stylesheet_directory_uri().'/assets/img/certificado.png'; ?>" alt="Site Certificate">
                     <?php endif; ?>
-                </div>
-                <div class="col-12 col-sm-12 col-md-9 site-support">
+                </div-->
+                <div class="col-12 col-sm-12 col-md-12 site-support">
 			<?php if ( is_active_sidebar( 'footer-logos' ) ) : ?>
 				<?php dynamic_sidebar( 'footer-logos' ); ?>
 			<?php endif; ?>
