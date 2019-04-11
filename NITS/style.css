@@ -1,4 +1,4 @@
-/*
+	/*
 Theme Name: Portal NITS SESSP
 Theme URI: http://urladefinir.com.br
 Author: Ricardo de Castro - BIREME
@@ -149,6 +149,7 @@ body {
 	float: left;
 	background-image: url("images/logo.png");
 	background-repeat: no-repeat;
+	margin-top: 20px;
 }
 
 .logo a span {
@@ -159,6 +160,9 @@ body {
 
 }
 
+nav.navbar-default {
+	float: right;
+}
 
 
 .carousel_highlight {
@@ -236,7 +240,7 @@ a.btn-primary {
 
 .menu-home1200 {
 	text-transform: uppercase;
-	margin-top: 42px;
+	margin-top: 75px;
 }
 .menu-item {
     float: none;
@@ -498,6 +502,28 @@ aside#sidebar {
 	font-weight: bold;
 }
 
+.search-portfolio {
+	background: #efe6e4;
+	text-align: center;
+	padding: 0px 10px 10px 0px;
+	margin-bottom: 40px;
+	width: 100%;
+}
+
+.search-portfolio h3 {
+	text-align: center;
+	font-size: 80%;
+}
+
+.searchButton {
+	font-weight: bold;
+	font-size: 100%;
+	background: #263c61 ;
+	color: #FFF;
+}
+.searchInput {
+	width: 300px;
+}
 .header-search {
 	border: none;
 }
@@ -529,7 +555,18 @@ aside#sidebar {
 	margin: 0 auto;
 }
 
+.headerTop {
+	margin-bottom: 50px;
+}
 
+.home .headerTop {
+	margin-bottom: 0px;
+}
+
+.headerTop {
+	background: url("images/secretaria-saude.png") top right no-repeat;
+	height: 110px;
+}
 
 /*  */
 @media screen and (max-width: 992px) {
@@ -716,7 +753,7 @@ aside#sidebar {
 		padding: 5px;
 	}
 	.archive_portfolio .row_patents {
-		background: #cecece;
+		background: #efe6e4;
 	}	
 	.archive_portfolio .editalTitle {
 		font-weight: bold;

@@ -14,7 +14,7 @@ get_header();?>
 			</form>
 		 </div>
 	</div>
-	<h2><?php wp_title('', true, 'right'); ?></h2>
+	<h2>Resultados da pesquisa: <i>"<?php the_search_query(); ?>"</i></h2>
 	<div class="row">
 		<div class="col-md-9">
 			<? include 'portfolio_archive_newpart.php'; ?> 
@@ -27,7 +27,7 @@ get_header();?>
 					 echo '<h4>Temas</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?temas=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
@@ -39,7 +39,7 @@ get_header();?>
 					 echo '<h4>Tipos</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?tipos=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
@@ -51,7 +51,7 @@ get_header();?>
 					 echo '<h4>Núcleos</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?nucleos=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
