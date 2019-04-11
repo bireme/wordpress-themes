@@ -1,0 +1,343 @@
+/*
+Theme Name: NATS SESSP
+Theme URI: http://urladefinir.com.br
+Author: Ricardo de Castro - BIREME
+Author URI: http://rcastro.net.br
+Description: DESCRICAO.
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: wordpress, bvs, bireme
+Text Domain: natssessp
+
+About> blablabla
+*/
+
+
+/**
+ * Table of Contents
+ *
+ * 1.0 - Reset
+ * 2.0 - Genericons
+ * 3.0 - Typography
+ * 4.0 - Elements
+ * 5.0 - Forms
+ * 6.0 - Navigations
+ *   6.1 - Links
+ *   6.2 - Menus
+ * 7.0 - Accessibility
+ * 8.0 - Alignments
+ * 9.0 - Clearings
+ * 10.0 - Header
+ * 11.0 - Widgets
+ * 12.0 - Content
+ *    12.1 - Posts and pages
+ *    12.2 - Post Formats
+ *    12.3 - Comments
+ * 13.0 - Footer
+ * 14.0 - Media
+ *    14.1 - Captions
+ *    14.2 - Galleries
+ * 15.0 - Multisite
+ * 16.0 - Media Queries
+ *    16.1 - Mobile Large
+ *    16.2 - Tablet Small
+ *    16.3 - Tablet Large
+ *    16.4 - Desktop Small
+ *    16.5 - Desktop Medium
+ *    16.6 - Desktop Large
+ *    16.7 - Desktop X-Large
+ * 17.0 - Print
+ */
+
+
+/**
+ * 1.0 - Reset
+ *
+ * Resetting and rebuilding styles have been helped along thanks to the fine
+ * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
+ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	background: #f1f1f1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+
+fieldset {
+	min-width: inherit;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	quotes: none;
+}
+
+a:focus {
+	outline: 2px solid #c1c1c1;
+	outline: 2px solid rgba(51, 51, 51, 0.3);
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+a img {
+	border: 0;
+}
+
+
+/**/
+body {
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+
+
+/*!
+ * Start Bootstrap - Half Slider (https://startbootstrap.com/template-overviews/half-slider)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-half-slider/blob/master/LICENSE)
+ */
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.spacer {
+	width: 100%;
+	height: 1px;
+	clear: both;
+} 
+
+.logo a {
+	width: 470px;
+	height: 80px;
+	float: left;
+	background-image: url("images/logo.png");
+	background-repeat: no-repeat;
+}
+
+.logo a span {
+	display: none;
+}
+
+.menu-header {
+	margin: 0px 0px 0px 10px;
+	font-weight: bold;
+}
+.navbar-nav li {
+	font-stretch: ultra-condensed;
+	font-size: 85%;
+	display: inline;
+}
+
+.navbar-nav li a {
+	padding: 0px 12px 0px 0px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.navbar-expand-lg {
+	background: red;
+}
+.menu-header ul.dropdown-menu {
+	padding: 0px;
+	
+}
+.menu-header .dropdown-menu li {
+	display: block;
+	width: 100%;
+	font-size: 100%;
+}
+.menu-header .dropdown-menu li a {
+	display: block;
+	padding: 5px;
+}
+
+.carousel_highlight {
+	max-width: 620px;
+	height: 220px;
+	background-image: url("images/565656-90.png"); /* Color #565656 - 90% opacity */
+	background-repeat: repeat;
+	color: #FFF;
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	border-right: 15px solid #b7997b;
+	padding: 20px 30px 20px 20px;
+}
+
+.carousel_highlight span {
+	font-size: 35px;
+	font-weight: bold;
+	line-height: 35px;
+	clear: both;
+}
+
+a.btn-primary {
+	border: none;
+	float: right;
+}
+
+.news_highlight {
+	background: #d7cec7;
+	max-width: 1140px;
+	margin: 10px 0px;
+	padding-top: 10px;
+}
+.news_level3 {
+	max-width: 1140px;
+	margin: 10px 0px;
+	padding-top: 10px;
+}
+
+.news_highlight a .caption {
+	font-size: 120%;
+	font-weight: bold;
+	color: #76323f;
+	margin-bottom: 10px;
+}
+
+.Highlight-level3 h2 {
+	text-transform: uppercase;
+	color: #76323f;
+	font-weight: bold;
+	font-size: 140%;
+	margin: 15px 0px 0px 15px;
+}
+
+.news_level3 a h3 {
+	font-size: 130%;
+	color: #76323f;
+	font-weight: bold;
+	margin: 10px 0px;
+}
+.news_level3 a p {
+	color: #565656;
+}
+.news_level3 {
+	background: #efe6e4;
+	border-top: 5px solid #76323f;
+	padding: 0px;
+}
+.news_level3:hover {
+	background: #ece7e3;
+}
+
+.col-md-4.thumbnail {
+	padding: 0px;
+}
+.footer {
+	font-size: 85%;
+}
+.footer a {
+	color: #FFF;
+}
+.footer nav {
+	padding: 0px;
+	margin-bottom: 10px;
+}
+.footer nav ul li {
+	margin-right: 15px;
+	font-weight: bold;
+}
+/* COLORS */
+.logo a, .navbar-nav li a:hover, 
+.menu-header .dropdown-menu, 
+a.btn-primary, 
+.footer {
+	background-color: #76323f;
+	color: #FFFFFF;
+}
+.navbar-nav li a {
+	color: #76323f;
+}
+.header .menu li a:hover, .menu-header .dropdown-menu li a, .site_info {
+	color: #FFF;
+}
+.menu-header .dropdown-menu li a:hover {
+	background: #565656;
+}

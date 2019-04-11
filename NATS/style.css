@@ -149,6 +149,7 @@ body {
 	float: left;
 	background-image: url("images/logo.png");
 	background-repeat: no-repeat;
+	margin-top: 20px;
 }
 
 .logo a span {
@@ -159,7 +160,9 @@ body {
 
 }
 
-
+nav.navbar-default {
+	float: right;
+}
 
 .carousel_highlight {
 	width: 620px;
@@ -236,7 +239,7 @@ a.btn-primary {
 
 .menu-home1200 {
 	text-transform: uppercase;
-	margin-top: 42px;
+	margin-top: 75px;
 }
 .menu-item {
     float: none;
@@ -499,6 +502,26 @@ aside#sidebar {
 	border: none;
 }
 
+.search-edital {
+	background: #e3e3e3;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 40px;
+}
+.search-edital h3 {
+	text-align: center;
+	font-size: 80%;
+}
+
+.searchButton {
+	font-weight: bold;
+	font-size: 100%;
+	background: #76323f ;
+	color: #FFF;
+}
+.searchInput {
+	width: 300px;
+}
 .input-search {
 }
 .input-search,
@@ -525,8 +548,14 @@ aside#sidebar {
 	display: block;
 	margin: 0 auto;
 }
-
-
+.seeAllLink {
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.seeAllLink a {
+	color: #76323f;
+}
 	.archiveEdital {
 		font-size: 80% !important;
 	}
@@ -538,24 +567,45 @@ aside#sidebar {
 	.cell {
 		padding: 5px;
 	}
-	.open {
-		border-left: 10px solid #b9e2b4;
-	}
 	.waiting {
 		border-left: 10px solid #e5e491;
 	}
+	.open {
+		border-left: 10px solid #b9e2b4;
+	}
 	.closed {
 		border-left: 10px solid #e3bcbc;
+	}
+	.legenda {
+		font-weight: bold;
+		font-size: 15px;
+		margin-bottom: 5px;
+		padding-left: 15px;
 	}
 	.legenda span {
 		border-width: 15px;
 		padding-left: 5px;
 		background: none;
+		display: inherit;
 	}
 	.editalTitle {
 		font-weight: bold;
-		font-size: 110%;
+		font-size: 125%;
+		color: #76323f;
 	}
+
+.headerTop {
+	margin-bottom: 50px;
+}
+
+.home .headerTop {
+	margin-bottom: 0px;
+}
+
+.headerTop {
+	background: url("images/secretaria-saude.png") top right no-repeat;
+	height: 110px;
+}
 
 /*  */
 @media screen and (max-width: 992px) {
@@ -624,7 +674,7 @@ aside#sidebar {
 	.conteudo-loop .authors a,
 	#conteudo-loop-tags a,
 	.conteudo-loop a { 
-		color: #76323f !important;
+		color: #76323f;
 	}
 	
 	.menu-home1200 li:hover, 
@@ -730,4 +780,56 @@ aside#sidebar {
 	.pagination .active a {
 		border: 1px solid #dddddd !important;
 	}
-	
+
+.shareButtons {
+	margin-bottom: 5px;
+}
+.shareButtons a {
+	padding: 5px;
+	margin: 5px;
+	border-radius: 2px;
+	color: #FFF !important;
+	text-decoration: none !important;
+	font-weight: bold;
+}
+
+.twitterButton {
+	background: #0c7abf;
+}
+.faceButton {
+	background: #365899;
+}
+.whatsAppButton {
+	background: #4fce5d;
+}
+.partners {
+	margin: 10px;
+}
+.partners a {
+	display: inline-block;
+	margin-right: 20px;
+}
+.partners a.SecretariaSaude {
+	width: 141px;
+	height: 50px;
+	background-image: url("images/logo-secretaria.png");
+}
+.partners a.bvsRIC {
+	width: 202px;
+	height: 50px;
+	background-image: url("images/BVS-RIC.png");
+}
+.partners a.NITS {
+	width: 202px;
+	height: 50px;
+	background-image: url("images/nits.png");
+}
+
+.partners a span {
+	display: none;
+}
+
+.institution a {
+	font-weight: bold;
+	color: #365899;
+}

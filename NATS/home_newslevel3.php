@@ -81,6 +81,9 @@ class SESSP3_widget_news3_categories extends WP_Widget {
 					?>
 					</div> <!-- Fim do Notícia de Nivel 3 -->
 				<?php endwhile; endif; ?>
+				<div class="col-lg-12 text-right seeAllLink">
+					<a href="blog/category/noticias/">VER TODOS</a>
+				</div>
 			</div> <!-- /Highlight-level3 -->
 		</div>
 		<!-- /HTML -->
