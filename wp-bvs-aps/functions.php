@@ -99,6 +99,9 @@ function wp_bootstrap_starter_reminder(){
 }
 add_action( 'admin_notices', 'wp_bootstrap_starter_reminder' );
 
+// enable searchbox option on secure server
+wp_enqueue_script (get_template_directory_uri() . '/assets/js/secure-searchbox.js');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
