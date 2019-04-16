@@ -66,7 +66,7 @@ function display_edital_meta_box( $edital ) {
 		${"editais_startDate"} = esc_html (get_post_meta( $edital->ID, "startDate_editais", true ) );
 		${"editais_endDate"} = esc_html (get_post_meta( $edital->ID, "endDate_editais", true ) );
 		
-		${"editais_linkText_01"} = esc_html (get_post_meta( $edital->ID, "linkText_01_editais", true ) );
+		//${"editais_linkText_01"} = esc_html (get_post_meta( $edital->ID, "linkText_01_editais", true ) );
 		${"editais_linkUrl_01"} = esc_html (get_post_meta( $edital->ID, "linkUrl_01_editais", true ) );
 		${"editais_linkTarget_01"} = esc_html (get_post_meta( $edital->ID, "linkTarget_01_editais", true ) );
 		${"editais_notes_01"} = esc_html (get_post_meta( $edital->ID, "notes_01_editais", true ) );
@@ -97,10 +97,6 @@ function display_edital_meta_box( $edital ) {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-30">
-					<label>Texto do Link:</label><br>
-					<input type="text" class="editais_linkText input100" name="linkText_01_editais" value="<?php echo $editais_linkText_01; ?>" />
-				</div>
 				<div class="col-30">
 					<label>url do Link: </label><br>
 					<input type="text" class="editais_linkUrl input100" name="linkUrl_01_editais" value="<?php echo $editais_linkUrl_01; ?>" />
@@ -457,6 +453,15 @@ register_sidebar( array(
 	'before_title'  => '<h2 class="widgettitle no-display">',
 	'after_title'   => '</h2>'
 ) );
+register_sidebar( array(
+    'id'          => 'edital',
+    'name'        => __( 'Edital', $text_domain ),
+    'description' => __( 'Nessa área você personaliza a página de Editais.', $text_domain ),
+	'before_widget' => '<div id="%1$s" class="widget %2$s col-lg-12">',
+	'after_widget'  => '</div>',
+	'before_title'  => '<h2 class="widgettitle no-display">',
+	'after_title'   => '</h2>'
+) );
 
 //slider_home.php - Arquivo com a rotina do slider
 require_once('slider_home.php');
@@ -468,5 +473,15 @@ require_once('home_news.php');
 require_once('home_newslevel3.php');
 
 /////////// Edital 
-
+function template_chooser($template)   
+{    
+  global $wp_query;   
+  $post_type = get_query_var('post_type');   
+  if( $wp_query->is_search && $post_type == 'edital' )   
+  {
+    return locate_template('archive-search.php');  //  redirect to archive-search.php
+  }   
+  return $template;   
+}
+add_filter('template_include', 'template_chooser');    
 ?>

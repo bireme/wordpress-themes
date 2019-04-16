@@ -13,31 +13,37 @@ get_header();?>
 						<small class="date_post"><?php the_date(); ?> </small>
 
 						<!-- Display the Post's content in a div box. -->
-						<div class="entry">
-							<?php the_content(); ?>
-								<div class="spacer spacetop"></div>
-								<b>Inventores:</b><br> <?php echo get_post_meta($post->ID, 'inventors_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<?php echo get_the_term_list( $post->ID, 'nucleos', '<b>Núcleos:</b> <br>', ', ', '<br>'); ?>
-								<div class="spacer spacetop"></div>
-								<?php echo get_the_term_list( $post->ID, 'temas', '<b>Temas:</b> <br>', ', ', '<br>'); ?>
-								<div class="spacer spacetop"></div>
-								<b>Problema a ser resolvido:</b><br> <?php echo get_post_meta($post->ID, 'problem_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<b>Inovação da Proposta:</b><br> <?php echo get_post_meta($post->ID, 'innovation_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<b>Diferencial:</b><br><?php echo get_post_meta($post->ID, 'advantage_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<b>Status da Propriedade Intelectual:</b> <br><?php echo get_post_meta($post->ID, 'status_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<b>O que buscamos: </b><br><?php echo get_post_meta($post->ID, 'seek_portfolios', true)?>
-								<div class="spacer spacetop"></div>
-								<b>Mais Informações: </b><br>
-									<a href="<?php echo get_post_meta($post->ID, 'link_portfolios', true)?>" alt="Mais Informações">
-										Link
-									</a>
-									<br>
+						<div class="row portfolio-detail">
+							<div class="entry col-md-7">
+								<?php the_content(); ?>
+									<div class="spacer spacetop"></div>
+									<b>Inventores:</b><br> <?php echo get_post_meta($post->ID, 'inventors_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<?php echo get_the_term_list( $post->ID, 'tipos', '<b>Tipo:</b> ', ', ', '<br>'); ?>
+									<div class="spacer spacetop"></div>
+									<?php echo get_the_term_list( $post->ID, 'nucleos', '<b>Núcleos:</b> <br>', ', ', '<br>'); ?>
+									<div class="spacer spacetop"></div>
+									<?php echo get_the_term_list( $post->ID, 'temas', '<b>Temas:</b> <br>', ', ', '<br>'); ?>
+									<div class="spacer spacetop"></div>
+									<b>Problema a ser resolvido:</b><br> <?php echo get_post_meta($post->ID, 'problem_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<b>Inovação da Proposta:</b><br> <?php echo get_post_meta($post->ID, 'innovation_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<b>Diferencial:</b><br><?php echo get_post_meta($post->ID, 'advantage_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<b>Status da Propriedade Intelectual:</b> <br><?php echo get_post_meta($post->ID, 'status_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<b>O que buscamos: </b><br><?php echo get_post_meta($post->ID, 'seek_portfolios', true)?>
+									<div class="spacer spacetop"></div>
+									<b>Mais Informações: </b><br>
+										<a href="<?php echo get_post_meta($post->ID, 'link_portfolios', true)?>" alt="Mais Informações">
+											Link
+										</a>
+							</div>
+							<div class="thumb col-md-5">
+									<img src="<?php the_post_thumbnail_url( 'portfolio'); ?>" alt="<?php the_title(); ?>" style="width: 100%;">
 
+							</div>
 						</div>
 						<!-- Stop The Loop (but note the "else:" - see next line). -->
 						 <form>

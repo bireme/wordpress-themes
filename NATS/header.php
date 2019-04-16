@@ -34,10 +34,10 @@
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
 	</head>
-	<body class="bg-white">
+	<body <?php body_class( 'bg-white' ); ?>>
 		<div class="container">
 		<!-- Navigation -->
-		<div class="row">
+		<div class="row headerTop">
 			<div class="">
 				<h1 class="logo"><a href="<?php echo site_url(); ?>"><span><?php bloginfo('name'); ?></span></a></h1>	
 			</div>

@@ -11,6 +11,7 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_image_size( 'slider', 1250, 9999 ); //1250 pixels wide (and unlimited height)
     add_image_size( 'news', 380, 160, true ); 
     add_image_size( 'news_level_3', 380, 255, true ); 
+    add_image_size( 'portfolio', 500, 99999 ); 
 }
 
 // Create Post Type Portfolio
@@ -154,7 +155,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 				</div>
 				<div class="row">
 					<div class="col-100 box_editor">
-						<label>Detalhes da Patente:</label><br>
+						<label>Detalhes da Patente: (Se tiver patente) </label><br>
 						<?php 
 							$content   = html_entity_decode($portfolios_details); 
 							$editor_id = 'details_portfolios';
@@ -225,7 +226,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 				clear: both;
 				display: inline-block;
 			}
-			.box_editor input.portfolios_link, .box_editor tex.tarea {
+			.box_editor input, .box_editor textarea {
 				width: 100%;
 				margin-top: 10px;
 			}
@@ -294,6 +295,31 @@ if ( function_exists( 'add_theme_support' ) ) {
 
 		register_taxonomy( 'nucleos', array( 'portfolio' ), $args );
 
+		
+		// Create a Taxonomy Tipos 
+			$labels = array(
+			'name'              => _x( 'Tipos', 'taxonomy general name', 'textdomain' ),
+			'singular_name'     => _x( 'Tipo', 'taxonomy singular name', 'textdomain' ),
+			'search_items'      => __( 'Buscar Tipos', 'textdomain' ),
+			'all_items'         => __( 'Todos Tipos', 'textdomain' ),
+			'edit_item'         => __( 'Editar Tipo', 'textdomain' ),
+			'update_item'       => __( 'Atualizar Tipo', 'textdomain' ),
+			'add_new_item'      => __( 'Adicionar Novo Tipo', 'textdomain' ),
+			'new_item_name'     => __( 'Nome do Novo Tipo', 'textdomain' ),
+			'menu_name'         => __( 'Tipo', 'textdomain' ),
+		);
+
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'types' ),
+		);
+
+		register_taxonomy( 'tipos', array( 'portfolio' ), $args );
+		
 		// Create a Taxonomy Temas 
 			$labels = array(
 			'name'              => _x( 'Temas', 'taxonomy general name', 'textdomain' ),
@@ -317,7 +343,8 @@ if ( function_exists( 'add_theme_support' ) ) {
 		);
 
 		register_taxonomy( 'temas', array( 'portfolio' ), $args );
-	}
+
+		}
 	// End of Custom Taxonomies
 
 // END of Post Type Portfolio
@@ -351,4 +378,16 @@ require_once('home_news.php');
 //home-news level 3
 require_once('home_newslevel3.php');
 
+/////////// Portfolio Search
+function template_chooser($template)   
+{    
+  global $wp_query;   
+  $post_type = get_query_var('post_type');   
+  if( $wp_query->is_search && $post_type == 'portfolio' )   
+  {
+    return locate_template('archive-search.php');  //  redirect to archive-search.php
+  }   
+  return $template;   
+}
+add_filter('template_include', 'template_chooser');    
 ?>
