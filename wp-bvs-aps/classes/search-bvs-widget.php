@@ -71,7 +71,6 @@ class search_bvs_widget extends WP_Widget {
                     <a target='_blank' href='". $instance[ 'tips_url' ] ."'>". __('Ver mais dicas de pesquisa', 'bvs_lang') ."</a>";
         ?>
 
-        <script src="http://reddes.bvsalud.org/support/js/multisearch-widget.js"></script>
         <form class="vhl-search-form" action="<?php echo $instance[ 'search_url' ]; ?>" method="get" id="searchForm" onsubmit="if(searchForm.q.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') searchForm.q.value = '';">
             <?php if( function_exists('pll_current_language') ){ ?>
             <input type="hidden" name="lang" value="<?php echo pll_current_language(); ?>" />

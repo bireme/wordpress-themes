@@ -75,32 +75,27 @@ function wp_bootstrap_starter_setup() {
 endif;
 add_action( 'after_setup_theme', 'wp_bootstrap_starter_setup' );
 
-
 /**
  * Add Welcome message to dashboard
  */
 function wp_bootstrap_starter_reminder(){
-        $theme_page_url = 'https://afterimagedesigns.com/wp-bootstrap-starter/?dashboard=1';
+    $theme_page_url = 'https://afterimagedesigns.com/wp-bootstrap-starter/?dashboard=1';
 
-            if(!get_option( 'triggered_welcomet')){
-                $message = sprintf(__( 'Welcome to WP Bootstrap Starter Theme! Before diving in to your new theme, please visit the <a style="color: #fff; font-weight: bold;" href="%1$s" target="_blank">theme\'s</a> page for access to dozens of tips and in-depth tutorials.', 'wp-bootstrap-starter' ),
-                    esc_url( $theme_page_url )
-                );
+    if(!get_option( 'triggered_welcomet')){
+        $message = sprintf(__( 'Welcome to WP Bootstrap Starter Theme! Before diving in to your new theme, please visit the <a style="color: #fff; font-weight: bold;" href="%1$s" target="_blank">theme\'s</a> page for access to dozens of tips and in-depth tutorials.', 'wp-bootstrap-starter' ),
+            esc_url( $theme_page_url )
+        );
 
-                printf(
-                    '<div class="notice is-dismissible" style="background-color: #6C2EB9; color: #fff; border-left: none;">
-                        <p>%1$s</p>
-                    </div>',
-                    $message
-                );
-                add_option( 'triggered_welcomet', '1', '', 'yes' );
-            }
-
+        printf(
+            '<div class="notice is-dismissible" style="background-color: #6C2EB9; color: #fff; border-left: none;">
+                <p>%1$s</p>
+            </div>',
+            $message
+        );
+        add_option( 'triggered_welcomet', '1', '', 'yes' );
+    }
 }
 add_action( 'admin_notices', 'wp_bootstrap_starter_reminder' );
-
-// enable searchbox option on secure server
-wp_enqueue_script (get_template_directory_uri() . '/assets/js/secure-searchbox.js');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -213,8 +208,6 @@ function wp_bootstrap_starter_widgets_init() {
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
-
-
 /**
  * Enqueue scripts and styles.
  */
@@ -286,6 +279,9 @@ function wp_bootstrap_starter_scripts() {
 
     //custom script
     wp_enqueue_script( 'custom-script', get_template_directory_uri() .'/assets/js/script.js', array('jquery') );
+
+    // enable searchbox option on secure server
+    wp_enqueue_script( 'secure-searchbox', get_template_directory_uri() . '/assets/js/secure-searchbox.js');
 }
 add_action( 'wp_enqueue_scripts', 'wp_bootstrap_starter_scripts' );
 
@@ -300,8 +296,6 @@ function wp_bootstrap_starter_password_form() {
     return $o;
 }
 add_filter( 'the_password_form', 'wp_bootstrap_starter_password_form' );
-
-
 
 /**
  * Implement the Custom Header feature.
@@ -334,8 +328,6 @@ require get_template_directory() . '/inc/plugin-compatibility/plugin-compatibili
 if ( ! class_exists( 'wp_bootstrap_navwalker' )) {
     require_once(get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
 }
-
-
 
 /*--- CUSTOM ---*/
 
@@ -402,6 +394,7 @@ function search_main_query( $query ) {
         $query->set( 'post_type', $types );
     }
 }
+
 if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
     require_once( 'poll/poll.php' );
 }
