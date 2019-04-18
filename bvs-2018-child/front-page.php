@@ -227,9 +227,6 @@
 						      		<a title="<?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>">	<?php crop_text( get_the_title(), 80 ); ?>
 						      		</a>
 						      	</h2>
-						      	<div class="content-preview">
-									<?php crop_text( get_the_excerpt(), 130 ); ?>
-								</div>
 						    </div>
 					<?php 
 							$first = false;
