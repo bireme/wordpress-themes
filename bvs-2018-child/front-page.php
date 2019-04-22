@@ -280,9 +280,6 @@
 								<?php crop_text( get_the_title(), 55 ); ?>
 							</a>
 						</h3>
-						<div class="content-preview">
-							<?php crop_text( get_the_excerpt(), 80 ); ?>
-						</div>
 					</div>
 					<?php 
 						endwhile; 
