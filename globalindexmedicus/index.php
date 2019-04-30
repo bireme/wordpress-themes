@@ -8,7 +8,7 @@
 		<h2 class="titulo1">Bibliotecas da OMS</h2>
 		<div class="row">
 			<?php 
-			$biblioteca = new WP_Query(arrat(
+			$biblioteca = new WP_Query(array(
 				// 'posts_per_page' => 6,
 				'post_type' => 'biblioteca',
 				'orderby' => 'title',
