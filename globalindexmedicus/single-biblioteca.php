@@ -41,11 +41,11 @@
 		<div class="row text-center">
 			<?php 
 			$x = get_the_title();
-			$biblioteca = new WP_Query([
+			$biblioteca = new WP_Query(array(
 				'post_type' => 'biblioteca',
 				'orderby' => 'title',
     			'order'   => 'ASC'
-			]);
+			));
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				if(get_the_title()==$x){$biblioteca->the_post();}
 				?>
