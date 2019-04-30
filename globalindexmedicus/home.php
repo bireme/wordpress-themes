@@ -8,12 +8,12 @@
 		<h2 class="titulo1"><?php pll_e('Índices Regionais'); ?></h2>
 		<div class="row">
 			<?php 
-			$biblioteca = new WP_Query([
+			$biblioteca = new WP_Query(array(
 				// 'posts_per_page' => 6,
 				'post_type' => 'biblioteca',
 				'orderby' => 'title',
     			'order'   => 'ASC'
-							]);
+							));
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				?>
 				<artigle class="col-12 col-sm-6 col-md-4 biblitecaHome">
