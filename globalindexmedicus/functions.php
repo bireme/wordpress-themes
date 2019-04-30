@@ -17,7 +17,7 @@
 	add_action('wp_footer', 'add_script_rodape');
 	function add_script_rodape(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
-		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery');
+		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
 	}
 
 	// Menus Top e Rodape
@@ -39,7 +39,7 @@
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
-	);
+	));
 	//widgets 2
 	register_sidebar(array(
 		'name'			=> 'Coluna 2',
