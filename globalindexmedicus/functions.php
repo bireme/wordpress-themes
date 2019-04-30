@@ -17,7 +17,7 @@
 	add_action('wp_footer', 'add_script_rodape');
 	function add_script_rodape(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
-		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', ['jquery']);
+		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery');
 	}
 
 	// Menus Top e Rodape
@@ -32,33 +32,33 @@
 		registrar_custom_post_type();
 	}
 	//widgets 1
-	register_sidebar([
+	register_sidebar(array(
 		'name'			=> 'Coluna 1',
 		'id'			=> 'gim_widgets1',
 		'description'	=> 'Aréa azul coluna 1',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
-	]);
+	);
 	//widgets 2
-	register_sidebar([
+	register_sidebar(array(
 		'name'			=> 'Coluna 2',
 		'id'			=> 'gim_widgets2',
 		'description'	=> 'Aréa azul coluna 2',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
-	]);
+	));
 
 	//widgets 3
-	register_sidebar([
+	register_sidebar(array(
 		'name'			=> 'Coluna 3',
 		'id'			=> 'gim_widgets3',
 		'description'	=> 'Aréa azul coluna 3',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
-	]);
+	));
 	//Custom Post Type
 	function registrar_custom_post_type() {
 		// Banners
