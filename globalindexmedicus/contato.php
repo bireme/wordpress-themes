@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<img src="<?php bloginfo( 'template_directory'); ?>/img/contato.jpg" alt="" class="img-fluid rounded"> <br> <br>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ex. Nostrum alias explicabo molestiae in eligendi. Vitae modi harum cumque earum repudiandae ipsa autem sapiente ab, consectetur doloribus possimus? Accusantium.</p>
+				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, ex. Nostrum alias explicabo molestiae in eligendi. Vitae modi harum cumque earum repudiandae ipsa autem sapiente ab, consectetur doloribus possimus? Accusantium.</p> -->
 			</div>
 			<div class="col-md-6">
 				<?php while(have_posts()) : the_post();
