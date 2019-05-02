@@ -109,7 +109,7 @@ header{padding-top: 10px;}
 .area{
 	padding:20px; border: 1px solid #ddd;
 	border-radius: 10px; text-align: center;
-	transition: background 1s ease; 
+	transition: background 1s ease; height: auto!important;
 }
 .area:hover{ background: #eee; }
 .area a{
@@ -159,6 +159,9 @@ header{padding-top: 10px;}
 	.formSelect{
 	   	background-position: 100% center;
 	   	width: 100%;
+	}
+	.area{
+		margin-bottom: 20px;
 	}
 }
 @media (max-width: 768px){
