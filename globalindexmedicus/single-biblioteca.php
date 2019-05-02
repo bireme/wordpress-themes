@@ -4,10 +4,7 @@
 		<?php while(have_posts()) : the_post(); ?>
 			<h2 class="titulo1"><?php the_title(); ?></h2>
 			<div class="row">
-				<div class="col-12 col-md-4">
-					<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
-				</div>
-				<div class="col-12 col-md-8">
+				<div class="col-12">
 					<?php //the_excerpt(); ?>
 					<?php the_content(); ?>
 				</div>
