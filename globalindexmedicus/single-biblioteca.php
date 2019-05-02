@@ -10,27 +10,6 @@
 				</div>
 			</div>
 			<br>
-			<!-- Opções -->
-			<div class="row">
-				<?php 
-				$descricoes = get_field('descricoes');
-				if($descricoes != 0) {
-					foreach ($descricoes as $item) { 
-						$imagem = $item['imagem'];
-						?>
-						<div class="col-md-4 paddingM1">
-							<div class="area text-center">
-								<a href="<?= $item['link'] ?>">
-									<img src="<?php echo $imagem['url']; ?>" alt="<?php echo $imagem['alt'] ?>" />
-									<h4><?= $item['titulo'] ?></h4>
-									<p class="text-justify"><?= $item['texto'] ?></p>
-								</a>
-							</div>
-						</div>
-					<?php }
-				} ?>
-			</div>
-			<br>
 		<?php endwhile; ?>
 
 		<!-- Outros -->
