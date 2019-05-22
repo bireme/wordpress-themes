@@ -11,7 +11,8 @@
 <header class="container">
 	<div class="row">
 		<div class="col-md-4" id="logo">
-			<a href="<?php bloginfo('home'); ?>"><img src="<?php bloginfo( 'template_directory' ); ?>/img/logo.svg" alt="" class="img-fluid"></a>
+			<?php $idioma = pll_current_language(); ?>
+			<a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid"></a>
 		</div>
 		<div class="col-md-8">
 			<div id="idiomas">  

@@ -12,12 +12,14 @@
 		//Adicionar estilos
 		wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
 		wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
+		wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 	}
 	// Adicionar script e stule no footer
 	add_action('wp_footer', 'add_script_rodape');
 	function add_script_rodape(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
+		wp_enqueue_script('main', get_stylesheet_directory_uri().'/js/main.js', array('jquery'));
 	}
 
 	// Menus Top e Rodape
@@ -107,7 +109,7 @@
 			'menu_position' => 12,  //Posição do menu que será exibido
 			'supports' => array('title','editor','thumbnail', 'custom-fields', 'revisions', 'excerpt') //Quais recursos serão usados (metabox)
 	    );
-		register_post_type( 'biblioteca' , $args );
+            register_post_type( 'biblioteca' , $args );
 	}
 
 	//Adiciona suporte a miniaturas (imagem destacada)
@@ -116,7 +118,6 @@
 	//Adicionar tamanhos de imagem no Wordpress
 	add_image_size('Bibliotecas', 500, 350, true);
 	add_image_size('banners', 1600, 400, true);
-
 
 	// Tradução Polylang
 	add_action('init', function() {
@@ -131,10 +132,6 @@
         pll_register_string('Formulário', 'Todas as Fontes', 'Formulário');
         pll_register_string('Formulário', 'Digite o que você procura', 'Formulário');
         pll_register_string('Formulário', 'Pesquisar', 'Formulário');
-        pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário');
-
-
-        
+        pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário');      
     });
-
 ?>
