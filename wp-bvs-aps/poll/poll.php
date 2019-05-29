@@ -176,7 +176,7 @@
             }
             
             global $wpdb;
-            $sql = $wpdb->prepare( "SELECT * FROM $wpdb->yop_poll_questions" );
+            $sql = $wpdb->prepare( "SELECT * FROM $wpdb->yop_poll_questions", NULL );
             $polls = $wpdb->get_results( $sql );
             $post_types = get_post_types(array('public' => true));
             $ops = get_option('yop_polls_extra_options');
@@ -373,7 +373,7 @@
 
         static function render_results_ptype_page() {
             global $wpdb;
-            $sql = $wpdb->prepare( "SELECT * FROM $wpdb->yop_poll_questions" );
+            $sql = $wpdb->prepare( "SELECT * FROM $wpdb->yop_poll_questions", NULL );
             $polls = $wpdb->get_results( $sql );
             $post_types = get_post_types(array('public' => true));
             $id = '';
@@ -438,7 +438,7 @@
             $offset = ( $pagenum - 1 ) * $limit;
             $rows = $wpdb->get_var( $count );
             $num_of_pages = ceil( $rows / $limit );
-            $sql = $wpdb->prepare( $query );
+            $sql = $wpdb->prepare( $query, NULL );
             $entries = $wpdb->get_results( "$query LIMIT $offset, $limit" );
 
             $page_links = paginate_links( array(
