@@ -9,11 +9,8 @@
 .cursor{ cursor: pointer; }
 .sectionCinza{background: #eee; margin-top: 50px;}
 .sectionCinza2{background: #eceded; margin-top: 50px;}
-.tituloPrincial{
-	color: #FFF; padding: 10px;
-	background: #2e789e; margin-bottom: 0;
-	font-weight: bold; font-size: 30px;
-}
+.tituloPrincial{background: #2e789e;  padding: 10px; margin-bottom: 10px;}
+.tituloPrincial h3{padding: 10px; color: #FFF; font-weight: bold; font-size: 30px; text-align: center;}
 .nav-pills{ background: #eee; }
 .nav-pills>a{ color: #333!important; }
 .nav-pills>a.active{ color: #fff!important; }
@@ -33,11 +30,12 @@
 .nav-tabs .active{ background: #eee; }
 .nav-tabs .disabled{ color: #999!important;background: #efefef!important;}
 .navLang{
-	text-align: right;
+	text-align: right; position: absolute; top:0px;
 }
-#idioma a{color: #fff;}
+#idioma{ text-align: right; position: absolute; top: -10px; right: 0; }
+#idioma a{color: #fff; background: #1b5c7e; padding: 7px; font-size: 12px;}
 #idioma ul{list-style: none;}
-#idioma ul li{display: inline-block; margin-left: 20px; padding-top: 10px; margin-top: 10px;}
+#idioma ul li{display: inline-block; margin-left: 0px; }
 .containerTab{
 	padding:20px; border:1px solid #ddd; border-top: 0;
 	background: #fff;
@@ -229,6 +227,8 @@
 	transition: box-shadow 0.5s ease, background 0.5s ease;
 	min-height: 320px;
 }
+#listasHome .col-lg-3:first-child .homeBox {margin-left: 30px;}
+#listasHome .col-lg-3:last-child .homeBox{margin-right: 30px;}
 .homeBox:hover{
 	box-shadow: 0 0 3px rgba(0,0,0,.5);
 	background: #eee;
@@ -294,7 +294,20 @@
 	border-bottom: 2px solid #ddd;
 	border-radius: 0!important;
 }
+.navSmall{color: #999; font-style: italic; display: block; line-height: 16px;}
+.active>.navSmall{color: #fff;}
+#tabMedicamentos {padding: 0!important;}
 /********************* Breakpoint *************/
+@media (max-width: 1200px){
+	.homeBox{padding: 45px 10px 20px;}
+}
+@media (max-width: 992px){
+	#homeCount{margin-bottom: 20px;}
+	.homeBox,
+	#listasHome .col-lg-3:first-child .homeBox,
+	#listasHome .col-lg-3:last-child .homeBox{margin: 0 auto 20px 0;}
+	.homeBox{padding: 45px 30px 20px;}
+}
 @media (max-width: 768px){
 	.homeCountTitle{
 		text-align: center;
@@ -302,17 +315,17 @@
 	.tituloPrincial{font-size: 24px;}
 	.navLang{text-align: center; display:inline-block!important;}
 	.navLang .nav-link{display: inline-block!important; padding-right:10px;}
-	.homeBox{
-		padding: 35px 30px 10px;
-		margin-top: 20px;
-		min-height: auto;
-	}
 	.carousel-caption{
 		right: 5%; left: 5%;
 		padding: 10px; bottom: 10px;
 	}
 	.carousel-caption h4{
 		font-size: 18px;
+	}
+	.homeBox{
+		padding: 35px 30px 10px;
+		margin-top: 20px;
+		min-height: auto;
 	}
 	.textBtn{display: none;}
 	#search{
@@ -323,9 +336,8 @@
 		left:5%; right: 5%;
 		width: 90%;
 	}
-	#idioma{text-align: left;}
-	#idioma ul{margin: 0; padding:0; }
-	#idioma ul li{margin-left:0; margin-right: 10px;}
+	#idioma{ position: static; display: block; text-align: center; }
+	#idioma ul li{display: inline-block; margin: 0px; }	
 }
 .setaTab{
 	animation: setaTab;
@@ -338,5 +350,4 @@
 	0% {opacity:.5;}
 	50% {opacity:.1;}
 	100% {opacity:.5;}
-}
 }

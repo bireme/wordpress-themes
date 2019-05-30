@@ -9,29 +9,10 @@
 	<?php wp_head(); ?>
 </head>
 <header>
-	<h3 class="tituloPrincial text-center"><?php echo pll_e('Listas Anotadas de Medicamentos e Dispositivos'); ?></h3>
-	<nav class="navbar navbar-expand-lg navbar-dark">
-		<div class="container">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu',
-					'menu_id'        => 'primary-menu',
-					'container'      => false,
-					'depth'          => 2,
-					'menu_class'     => 'navbar-nav mr-auto',
-					'walker'         => new Bootstrap_NavWalker(),
-					'fallback_cb'    => 'Bootstrap_NavWalker::fallback',
-				) );
-				?>
-			</div>
-			<div class="dropdown-divider"></div>
+	<div class="tituloPrincial">
+		<div class="container" style="position: relative;">
 			<div id="idioma">
-				<?php
+				<?php 
 				wp_nav_menu( array(
 					'theme_location'    => 'linguagem',
 					'depth'             => 1,
@@ -42,8 +23,43 @@
 				) );
 				?>
 			</div>
+			<h3><?php echo pll_e('Listas Anotadas de Medicamentos e Dispositivos'); ?></h3>
 		</div>
-	</nav>
+	</div>
+	<!-- <nav class="navbar navbar-expand-lg navbar-dark">
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<?php /*
+				wp_nav_menu( array(
+					'theme_location' => 'menu',
+					'menu_id'        => 'primary-menu',
+					'container'      => false,
+					'depth'          => 2,
+					'menu_class'     => 'navbar-nav mr-auto',
+					'walker'         => new Bootstrap_NavWalker(),
+					'fallback_cb'    => 'Bootstrap_NavWalker::fallback',
+				) );
+				*/?>
+			</div>
+			<div class="dropdown-divider"></div>
+			<div id="idioma">
+				<?php /*
+				wp_nav_menu( array(
+					'theme_location'    => 'linguagem',
+					'depth'             => 1,
+					'container'         => 'ul',
+					'container_class'   => 'navbar-nav mr-auto',
+					'container_id'      => '',
+					'menu_class'        => 'nav-item',
+				) );
+				*/ ?>
+			</div>
+		</div>
+	</nav> -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center">

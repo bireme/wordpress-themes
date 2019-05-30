@@ -29,9 +29,9 @@
 		pll_register_string('Botões','Ver Sumários','Botões');
 		pll_register_string('Botões','Comparar Listas','Botões');
 		pll_register_string('Formutário','Entre com sua pesquisa','Formutário');
-		pll_register_string('Contator','Medicamentos','Contator');
-		pll_register_string('Contator','Sumários de Evidências','Contator');
-		pll_register_string('Contator','Dispositivos Médicos','Contator');
+		pll_register_string('Contador','Medicamentos','Contador');
+		pll_register_string('Contador','Sumários de Evidências','Contador');
+		pll_register_string('Contador','Dispositivos Médicos','Contador');
 	});
 	// Menu
 	add_action('init','action_init');
