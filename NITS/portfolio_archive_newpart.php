@@ -16,7 +16,4 @@
 		<?php endwhile; else: ?>
 			<p><?php _e('OPS!.'); ?></p>
 		<?php endif; ?>
-		<form>
-		  <input type="button" value="voltar" class="backButton" onclick="history.go(-1)">
-		</form>
 	</div> 

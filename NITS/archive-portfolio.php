@@ -14,7 +14,7 @@ get_header();?>
 			</form>
 		 </div>
 	</div>
-	<h2><?php wp_title('', true, 'right'); ?></h2>
+	<h2><?php wp_title('', true, 'right'); ?><?php single_term_title(' - '); ?> </h2>
 	<div class="row">
 		<div class="col-md-9">
 			<? include 'portfolio_archive_newpart.php'; ?> 
@@ -58,6 +58,9 @@ get_header();?>
 			</div>
 		</div>
 	</div>
+	<form>
+	  <input type="button" value="voltar" class="backButton" onclick="history.go(-1)">
+	</form>
 </div>
 <?php
 get_footer(); 

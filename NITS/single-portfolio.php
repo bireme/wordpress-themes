@@ -41,8 +41,9 @@ get_header();?>
 										</a>
 							</div>
 							<div class="thumb col-md-5">
-									<img src="<?php the_post_thumbnail_url( 'portfolio'); ?>" alt="<?php the_title(); ?>" style="width: 100%;">
-
+								<?php if(has_post_thumbnail( )): ?>
+									<?php the_post_thumbnail('portfolio'); ?>
+								<?php endif; ?>
 							</div>
 						</div>
 						<!-- Stop The Loop (but note the "else:" - see next line). -->
