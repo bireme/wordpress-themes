@@ -6,7 +6,7 @@ get_header();?>
 	<div>   
 		<h3>Search Edital</h3>
 		<form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform">
-		<input type="text" name="s" placeholder="Search Edital"/>
+		<input type="text" name="s" placeholder="Buscar Edital"/>
 		<input type="hidden" name="post_type" value="edital" /> <!-- // hidden 'edital' value -->
 		<input type="submit" alt="Search" value="Search" />
 	</form>

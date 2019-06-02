@@ -16,7 +16,7 @@ if ( defined( 'POLYLANG_VERSION' ) ) {
 	<div class="search-edital">   
 		<h3>Buscar Edital</h3>
 		<form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform">
-			<input class="searchInput" type="text" name="s" placeholder="Search Edital"/>
+			<input class="searchInput" type="text" name="s" placeholder="Buscar Edital"/>
 			<input type="hidden" name="post_type" value="edital" /> 
 			<input class="searchButton" type="submit" alt="Search" value="Pesquisar" />
 		</form>

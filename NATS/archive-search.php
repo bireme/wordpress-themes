@@ -37,6 +37,7 @@ get_header();?>
 
 	</script>  
 	<div class="legenda">
+		<a href="." alt="."></a>
 		<a class="showOpen"><span class="open"></span>Inscrições abertas</a> | 
 		<a class="showWaiting"><span class="waiting"></span>Aguardando abertura de inscrições</a> |
 		<a class="showClosed"><span class="closed"></span>Inscrições encerradas</a> | 
