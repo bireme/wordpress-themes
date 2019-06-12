@@ -395,6 +395,11 @@ function search_main_query( $query ) {
     }
 }
 
+function remove_schedule_delete() {
+    remove_action( 'wp_scheduled_delete', 'wp_scheduled_delete' );
+}
+add_action( 'init', 'remove_schedule_delete' );
+
 if ( is_plugin_active( 'yop-poll/yop_poll.php' ) ) {
     require_once( 'poll/poll.php' );
 }
