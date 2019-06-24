@@ -25,6 +25,8 @@
 header{padding-top: 10px;}
 #idiomas{ font-size: 12px; text-align: right }
 	#idiomas a{ color: #333; }
+	#idiomas ul{list-style: none;}
+		#idiomas ul li{display: inline-block;}
 #tituloSite{ text-align: right; font-size: 40px; margin-top: 10px; color: #0093d5;}
 .navbarblue{background: #0093d5; margin-top: 20px;}
 .navbarblue a{color: #fff!important;}
