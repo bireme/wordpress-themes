@@ -2,11 +2,11 @@
 <div id="banners" class="carousel slide" data-ride="carousel">
 	<div class="carousel-inner">
 		<?php 
-		$banners = new WP_Query([
+		$banners = new WP_Query(array(
 			'post_type' => 'banners',
 				// 'orderby' => 'title',
 				// 'order'   => 'ASC'
-		]);
+		));
 			$i = 0;
 		while($banners->have_posts()) : $banners->the_post();
 			$itens  = get_field('banners');
