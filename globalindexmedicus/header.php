@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-md-4" id="logo">
 			<?php $idioma = pll_current_language(); ?>
-			<a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid"></a>
+			<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid">
 		</div>
 		<div class="col-md-8">
 			<div id="idiomas">  
