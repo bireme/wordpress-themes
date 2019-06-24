@@ -109,7 +109,7 @@
 			'menu_position' => 12,  //Posição do menu que será exibido
 			'supports' => array('title','editor','thumbnail', 'custom-fields', 'revisions', 'excerpt') //Quais recursos serão usados (metabox)
 	    );
-            register_post_type( 'biblioteca' , $args );
+		register_post_type( 'biblioteca' , $args );
 	}
 
 	//Adiciona suporte a miniaturas (imagem destacada)
@@ -118,6 +118,7 @@
 	//Adicionar tamanhos de imagem no Wordpress
 	add_image_size('Bibliotecas', 500, 350, true);
 	add_image_size('banners', 1600, 400, true);
+
 
 	// Tradução Polylang
 	add_action('init', function() {
@@ -132,6 +133,7 @@
         pll_register_string('Formulário', 'Todas as Fontes', 'Formulário');
         pll_register_string('Formulário', 'Digite o que você procura', 'Formulário');
         pll_register_string('Formulário', 'Pesquisar', 'Formulário');
-        pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário');      
+        pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário'); 
+        pll_register_string('Formulário', 'Saiba Mais', 'Formulário'); 
     });
 ?>

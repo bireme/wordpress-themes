@@ -167,7 +167,7 @@ header{padding-top: 10px;}
 @media (max-width: 768px){
 	.paddingM1{padding-bottom: 10px;}
 	#logo{text-align: center;}
-		#logo img{ max-width: 350px;}
+		/* #logo img{ max-width: 350px;} */
 	#idiomas{text-align: center; margin-top: 10px;}
 	#tituloSite{text-align: center}
 	.navbarblue{margin-top: 10px;}
