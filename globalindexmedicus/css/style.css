@@ -173,7 +173,6 @@ header{padding-top: 10px;}
 	#footer ul{padding: 0; list-style: none; }
 	#footerMenu{list-style:none; padding: 0;  }
 	#footerAddress{text-align: center; margin-top: 10px;}
-
 }
 @media (max-width: 560px){
 	#tituloSite{font-size: 25px;}
