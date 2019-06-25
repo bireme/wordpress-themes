@@ -144,6 +144,11 @@ header{padding-top: 10px;}
 	background: #000000;
 }
 /************** Breakpoint *******************/
+@media (min-width: 1600px){
+	.carousel-item img{
+		width: 100%;
+	}
+}
 @media (max-width: 1200px){
 	.formSelect{
 	   	background-position: 100% center;
