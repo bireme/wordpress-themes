@@ -145,9 +145,7 @@ header{padding-top: 10px;}
 }
 /************** Breakpoint *******************/
 @media (min-width: 1600px){
-	.carousel-item img{
-		width: 100%;
-	}
+	.carousel-item img{width: 100%;}
 }
 @media (max-width: 1200px){
 	.formSelect{
@@ -170,10 +168,12 @@ header{padding-top: 10px;}
 	.navbarblue{margin-top: 10px;}
 	.menuTopo li{ padding: 10px; }
 	.titulo2{ margin-top: 20px; }
+	.carousel-item img{width: 100%;}
 	#footer{text-align: center;}
 	#footer ul{padding: 0; list-style: none; }
 	#footerMenu{list-style:none; padding: 0;  }
 	#footerAddress{text-align: center; margin-top: 10px;}
+
 }
 @media (max-width: 560px){
 	#tituloSite{font-size: 25px;}
