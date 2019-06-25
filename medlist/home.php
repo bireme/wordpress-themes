@@ -26,9 +26,10 @@
 								$grupo = get_field('grupo');
 								$titulo = get_field('titulo');
 								$link = get_field('link');
+								$janela = get_field('janela');
 								if ($grupo == 'WHO') {
 									?>
-									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block"><?php echo $titulo; ?></a>
+									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block" target="<?php echo $janela; ?>"><?php echo $titulo; ?></a>
 								<?php } 
 							endwhile;
 							?>
@@ -45,9 +46,10 @@
 								$grupo = get_field('grupo');
 								$titulo = get_field('titulo');
 								$link = get_field('link');
+								$janela = get_field('janela');
 								if ($grupo == 'PAHO') {
 									?>
-									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block"><?php echo $titulo; ?></a>
+									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block" target="<?php echo $janela; ?>"><?php echo $titulo; ?></a>
 								<?php } 
 							endwhile;
 							?>
@@ -64,9 +66,10 @@
 								$grupo = get_field('grupo');
 								$titulo = get_field('titulo');
 								$link = get_field('link');
+								$janela = get_field('janela');
 								if ($grupo == 'Dispositivo') {
 									?>
-									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block"><?php echo $titulo; ?></a>
+									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block" target="<?php echo $janela; ?>"><?php echo $titulo; ?></a>
 								<?php } 
 							endwhile;
 							?>
@@ -83,9 +86,10 @@
 								$grupo = get_field('grupo');
 								$titulo = get_field('titulo');
 								$link = get_field('link');
+								$janela = get_field('janela');
 								if ($grupo == 'Paises') {
 									?>
-									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block"><?php echo $titulo; ?></a>
+									<a href="<?php echo $link; ?>" class="btn btn-sm btn-primary btn-block" target="<?php echo $janela; ?>"><?php echo $titulo; ?></a>
 								<?php } 
 							endwhile;
 							?>
