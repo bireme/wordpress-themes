@@ -12,8 +12,8 @@
 				// 'posts_per_page' => 6,
 				'post_type' => 'biblioteca',
 				'orderby' => 'title',
-    			'order'   => 'ASC'
-				));
+				'order'   => 'ASC'
+			));
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				?>
 				<artigle class="col-12 col-sm-6 col-md-4 biblitecaHome">

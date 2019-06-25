@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<?php get_template_part( 'banners','include/banner' ) ?>
+<?php get_template_part( 'includes/banner' ) ?>
 <?php get_template_part( 'includes/search', 'box' ) ?>
 
 <!-- Bibliotecas -->
