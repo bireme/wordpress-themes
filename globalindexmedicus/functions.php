@@ -118,6 +118,7 @@
 	//Adicionar tamanhos de imagem no Wordpress
 	add_image_size('Bibliotecas', 500, 350, true);
 	add_image_size('banners', 1600, 400, true);
+	add_image_size('bannerMobile',576,300,true);
 
 
 	// Tradução Polylang
