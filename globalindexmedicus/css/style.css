@@ -166,7 +166,8 @@ header{padding-top: 10px;}
 	#idiomas{text-align: center; margin-top: 10px;}
 	#tituloSite{text-align: center}
 	.navbarblue{margin-top: 10px;}
-	.menuTopo li{ padding: 10px; }
+	.menuTopo li{ padding: 10px; border-top: 1px solid #50a4f9; }
+	.menuTopo li:first-child{border: 0;}
 	.titulo2{ margin-top: 20px; }
 	.carousel-item img{width: 100%;}
 	#footer{text-align: center;}
