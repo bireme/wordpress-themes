@@ -23,9 +23,10 @@
 .navbar a{transition: color 0.5s ease; font-size: 12px; }
 .navbar a:hover{color: #d23838!important;}
 .nav-link{ color: #fff!important; }
-.dropdown-menu{ background: #444444;}
+/* .dropdown-menu{ background: #444444;}
 .dropdown-menu a{ color: #fff;}
-.dropdown-menu a:hover{ background: #666;}
+.dropdown-menu a:hover{ background: #666;} */
+.dropdown-toggle{white-space: normal!important;}
 .nav-tabs .nav-link{ color: #333!important; font-size: 12px; font-weight: bold; margin-right: 2px; }
 .nav-tabs .active{ background: #eee; }
 .nav-tabs .disabled{ color: #999!important;background: #efefef!important;}
@@ -41,7 +42,7 @@
 	background: #fff;
 }
 #footer{
-	background: #dddddd; padding: 20px 0; 
+	background: #2e789e; padding: 20px 0; 
 	text-align: center;
 }
 #footer img{
@@ -49,7 +50,7 @@
 	width: 500px;
 }
 .to-top {
-	background-color: rgba(210, 56, 56, 0.3);
+	background-color: rgba(0, 0, 0, 0.5);
 	bottom: -100px;
 	color: rgba(255, 255, 255, 0.9);
 	cursor: pointer;
@@ -269,7 +270,7 @@
 	text-transform: uppercase;
 }
 #boxSearch{
-	position: absolute; top: 10px;
+	position: absolute; top: 10px;	z-index: 10;
 }
 .publico{
 	font-size: 14px;

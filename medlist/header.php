@@ -64,7 +64,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<?php $idioma = pll_current_language(); ?>
-				<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/topo.png" alt="" class="img-fluid">
+				<a href="http://prais.paho.org/"><img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/topo.png" alt="" class="img-fluid"></a>
 			</div>	
 		</div>
 		<hr>

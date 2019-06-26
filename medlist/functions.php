@@ -10,6 +10,7 @@
 	add_action('wp_footer', 'add_script_rodape');
 	function add_script_rodape(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.4.1.min.js');
+		wp_enqueue_script('popper', get_stylesheet_directory_uri().'/js/popper.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', ['jquery']);
 		wp_enqueue_script('main', get_stylesheet_directory_uri().'/js/main.js', ['jquery']);
 	}
