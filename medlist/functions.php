@@ -25,6 +25,7 @@
 		pll_register_string('Títulos','Estatisticas','Home');
 		pll_register_string('Títulos','Sumários de evidência','Home');
 		pll_register_string('Títulos','Comparar Listas por Países','Home');
+		pll_register_string('Títulos','Medicamentos por Países','Home');
 		pll_register_string('Botões','Buscar','Botões');
 		pll_register_string('Botões','Saiba Mais','Botões');
 		pll_register_string('Botões','Ver Sumários','Botões');
