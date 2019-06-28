@@ -655,6 +655,13 @@ aside#sidebar {
 }
 
 
+@media screen and (max-width: px) {
+	.headerTop {
+		background: url("images/secretaria-saude.png") center bottom no-repeat;
+		height: 170px;
+	}
+
+}
 /*
 	*****************
 	* CORES DO TEMA *
