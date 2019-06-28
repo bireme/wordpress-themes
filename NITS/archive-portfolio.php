@@ -8,7 +8,7 @@ get_header();?>
 	<div class="search-portfolio">   
 			<h3>Buscar em Portfolio</h3>
 			<form role="search" action="<?php echo site_url('/'); ?>" method="get" id="searchform">
-				<input class="searchInput" type="text" name="s" placeholder="Search Portfolio"/>
+				<input class="searchInput" type="text" name="s" placeholder=""/>
 				<input type="hidden" name="post_type" value="portfolio" /> 
 				<input class="searchButton" type="submit" alt="Search" value="Pesquisar" />
 			</form>
@@ -27,7 +27,7 @@ get_header();?>
 					 echo '<h4>Temas</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?temas=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="'. site_url() .'/blog/temas/' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
@@ -39,7 +39,7 @@ get_header();?>
 					 echo '<h4>Tipos</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?tipos=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="'. site_url() .'/blog/types/' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
@@ -51,7 +51,7 @@ get_header();?>
 					 echo '<h4>Núcleos</h4>';
 					 echo '<ul>';
 					 foreach ( $terms as $term ) {
-					 echo '<li><a href="'. site_url() .'/portfolio/?nucleos=' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
+					 echo '<li><a href="'. site_url() .'/blog/nucleos/' . $term->slug . '">' . $term->name . '&nbsp;(' . $term->count . ')' . '</a></li>'; 					 }
 					 echo '</ul>';
 				 } 
 				?> 
