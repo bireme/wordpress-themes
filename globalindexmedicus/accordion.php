@@ -7,6 +7,10 @@
 <section class="padding1">
 	<div class="container">
 		<h2 class="titulo1"><?php the_title(); ?></h2>
+		<?php while(have_posts()) : the_post();
+			the_content();
+		endwhile;
+		?>
 		<div class="accordion" id="accordionExample">
 			<?php $itens  = get_field('accordion');
 			foreach ($itens as $key => $item) { ?>
