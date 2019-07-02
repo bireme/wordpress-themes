@@ -13,6 +13,7 @@
 			$fotoDesktop = get_sub_field('foto_desktop'); 
 			$texto = get_sub_field('texto'); 
 			$link = get_sub_field('link');
+			$janela = get_sub_field('janela');
 			?>
 			<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?> ">
 				<img src="<?php echo $fotoDesktop['url']; ?>"  class="d-none d-md-block"  alt="<?php echo $fotoDesktop['alt'] ?>" />
@@ -20,7 +21,7 @@
 				<div class="carousel-caption text-left">
 					<h5><?php echo $texto; ?></h5>
 					<div class="clearfix"></div>
-					<a href="<?php echo $link; ?>" class="btn btn-info"><?php echo pll_e('Saiba Mais'); ?> [+]</a>
+					<a href="<?php echo $link; ?>" class="btn btn-info" target="<?php echo $janela; ?>"><?php echo pll_e('Saiba Mais'); ?> [+]</a>
 				</div>
 			</div>
 			<?php $i++; endwhile;
