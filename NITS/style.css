@@ -143,13 +143,24 @@ body {
 	clear: both;
 } 
 
+#flags ul {
+    margin: 0 !important;
+    float: right !important;
+    padding: 2px 19px;
+}
+
+#flags {
+	position: inherit !important;
+	width: 100% !important;
+}
+
 .logo a {
 	width: 470px;
 	height: 80px;
 	float: left;
 	background-image: url("images/logo.png");
 	background-repeat: no-repeat;
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 .logo a span {
@@ -240,7 +251,7 @@ a.btn-primary {
 
 .menu-home1200 {
 	text-transform: uppercase;
-	margin-top: 75px;
+	margin-top: 50px;
 }
 .menu-item {
     float: none;
@@ -564,7 +575,7 @@ aside#sidebar {
 }
 
 .headerTop {
-	background: url("images/secretaria-saude.png") top right no-repeat;
+	background: url("images/secretaria-saude.png") center right no-repeat;
 	height: 110px;
 }
 
@@ -606,6 +617,14 @@ aside#sidebar {
 
 }
 
+
+@media screen and (max-width: 515px) {
+	.headerTop {
+		background: url("images/secretaria-saude.png") center bottom no-repeat;
+		height: 170px;
+	}
+
+}
 
 /*
 	*****************

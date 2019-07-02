@@ -38,6 +38,7 @@
 		<div class="container">
 		<!-- Navigation -->
 		<div class="row headerTop">
+			<?php echo do_shortcode('[google-translator]'); ?>
 			<div class="">
 				<h1 class="logo"><a href="<?php echo site_url(); ?>"><span><?php bloginfo('name'); ?></span></a></h1>	
 			</div>
