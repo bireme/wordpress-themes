@@ -75,6 +75,9 @@ header{padding-top: 10px;}
 #footerAddress{
 	text-align: right
 }
+#assFooter img{
+	max-width: 500px!important;
+}
 .acordionIcone{
 	font-size: 18px; margin-top: 15px;
 }
@@ -178,6 +181,7 @@ header{padding-top: 10px;}
 	#footerAddress{text-align: center; margin-top: 10px;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }
 	.bibliotecaHome h4 span{position: static; width: auto; padding: 0;}
+	#assFooter img{max-width: 90%!important;}
 }
 @media (max-width: 560px){
 	#tituloSite{font-size: 25px;}
