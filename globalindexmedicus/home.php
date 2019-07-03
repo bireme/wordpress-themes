@@ -16,10 +16,10 @@
 			));
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				?>
-				<artigle class="col-12 col-sm-6 col-md-4 biblitecaHome">
+				<artigle class="col-12 col-sm-6 col-md-4 bibliotecaHome">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
-						<h4><?php the_title(); ?></h4>
+						<h4><span>?php the_title(); ?></span></h4>
 						<?php the_excerpt(); ?>
 					</a> <br><br>
 				</artigle>
