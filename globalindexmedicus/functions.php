@@ -67,14 +67,14 @@
 		$descritivosBanner = array(
 			'name' => 'Banner',
 			'singular_name' => 'Banner',
-			'add_new' => 'Adicionar Novo Banner',
-			'add_new_item' => 'Adicionar Banner',
-			'edit_item' => 'Editar Banner',
-			'new_item' => 'Novo Banner',
-			'view_item' => 'Ver Banner',
-			'search_items' => 'Procurar Banner',
-			'not_found' =>  'Nenhum Banner encontrado',
-			'not_found_in_trash' => 'Nenhum Banner na Lixeira',
+			'add_new' => 'Add New Banner',
+			'add_new_item' => 'Add Banner',
+			'edit_item' => 'Edit Banner',
+			'new_item' => 'New Banner',
+			'view_item' => 'View Banner',
+			'search_items' => 'Search Banner',
+			'not_found' =>  'No Banner Found',
+			'not_found_in_trash' => 'No Banner in Trash',
 			'parent_item_colon' => '',
 			'menu_name' => 'Banner'
 		);
@@ -89,18 +89,18 @@
 		
 		// Bibliotecas
 		$descritivos = array(
-			'name' => 'Bibliotecas',
-			'singular_name' => 'Biblioteca',
-			'add_new' => 'Adicionar Nova Biblioteca',
-			'add_new_item' => 'Adicionar Biblioteca',
-			'edit_item' => 'Editar Biblioteca',
-			'new_item' => 'Nova Biblioteca',
-			'view_item' => 'Ver Bibliotecas',
-			'search_items' => 'Procurar Biblioteca',
-			'not_found' =>  'Nenhum Curso encontrado',
-			'not_found_in_trash' => 'Nenhum Biblioteca na Lixeira',
+			'name' => 'Library',
+			'singular_name' => 'Library',
+			'add_new' => 'Add New Library',
+			'add_new_item' => 'Add Library',
+			'edit_item' => 'Edit Library',
+			'new_item' => 'New Library',
+			'view_item' => 'View Library',
+			'search_items' => 'Search Library',
+			'not_found' =>  'No Library Found',
+			'not_found_in_trash' => 'No Library in Trash',
 			'parent_item_colon' => '',
-			'menu_name' => 'Biblioteca'
+			'menu_name' => 'Library'
 		);
 		$args = array(
 			'labels' => $descritivos,  //Insere o Array de labels dentro do argumento de labels

@@ -20,7 +20,7 @@
 					<a href="<?php the_permalink(); ?>">
 						<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
 						<h4><?php the_title(); ?></h4>
-						<?php echo substr(get_the_excerpt(), 0, 150).'...'; ?>
+						<?php the_excerpt(); ?>
 					</a> <br><br>
 				</artigle>
 			<?php endwhile; ?>

@@ -123,6 +123,7 @@ header{padding-top: 10px;}
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
 .wpcf7 input[type="tel"],
+.wpcf7 select,
 .wpcf7 textarea {
 	font-size: 16px; background-color: #f5f5f5;
 	border: none; width: 100%;	padding: 2%;
