@@ -35,18 +35,18 @@
 	}
 	//widgets 1
 	register_sidebar(array(
-		'name'			=> 'Coluna 1',
+		'name'			=> 'Column 1',
 		'id'			=> 'gim_widgets1',
-		'description'	=> 'Aréa azul coluna 1',
+		'description'	=> 'Blue Area 1',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
 	//widgets 2
 	register_sidebar(array(
-		'name'			=> 'Coluna 2',
+		'name'			=> 'Column 2',
 		'id'			=> 'gim_widgets2',
-		'description'	=> 'Aréa azul coluna 2',
+		'description'	=> 'Blue Area 2',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
@@ -54,9 +54,9 @@
 
 	//widgets 3
 	register_sidebar(array(
-		'name'			=> 'Coluna 3',
+		'name'			=> 'Column 3',
 		'id'			=> 'gim_widgets3',
-		'description'	=> 'Aréa azul coluna 3',
+		'description'	=> 'Blue Area 3',
 		'class'			=> 'margin1B',
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
@@ -64,7 +64,7 @@
 
 	//widgets 4
 	register_sidebar(array(
-		'name'			=> 'Coluna 4',
+		'name'			=> 'Column 4',
 		'id'			=> 'gim_widgets4',
 		'description'	=> 'Blue Area 4',
 		'class'			=> 'margin1B',
@@ -73,7 +73,7 @@
 	));
 	//widgets 5
 	register_sidebar(array(
-		'name'			=> 'Coluna 5',
+		'name'			=> 'Column 5',
 		'id'			=> 'gim_widgets5',
 		'description'	=> 'Blue Area 5',
 		'class'			=> 'margin1B',
@@ -83,7 +83,7 @@
 
 	//widgets 6
 	register_sidebar(array(
-		'name'			=> 'Coluna 6',
+		'name'			=> 'Column 6',
 		'id'			=> 'gim_widgets6',
 		'description'	=> 'Blue Area 6',
 		'class'			=> 'margin1B',
