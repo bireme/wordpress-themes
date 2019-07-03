@@ -61,6 +61,35 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+
+	//widgets 4
+	register_sidebar(array(
+		'name'			=> 'Coluna 4',
+		'id'			=> 'gim_widgets4',
+		'description'	=> 'Blue Area 4',
+		'class'			=> 'margin1B',
+		'before_title'	=> '<h5>',
+		'after_title'	=> '</h5>'
+	));
+	//widgets 5
+	register_sidebar(array(
+		'name'			=> 'Coluna 5',
+		'id'			=> 'gim_widgets5',
+		'description'	=> 'Blue Area 5',
+		'class'			=> 'margin1B',
+		'before_title'	=> '<h5>',
+		'after_title'	=> '</h5>'
+	));
+
+	//widgets 6
+	register_sidebar(array(
+		'name'			=> 'Coluna 6',
+		'id'			=> 'gim_widgets6',
+		'description'	=> 'Blue Area 6',
+		'class'			=> 'margin1B',
+		'before_title'	=> '<h5>',
+		'after_title'	=> '</h5>'
+	));
 	//Custom Post Type
 	function registrar_custom_post_type() {
 		// Banners
