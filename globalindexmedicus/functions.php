@@ -164,6 +164,7 @@
         pll_register_string('Título Home', 'Índices Regionais', 'Plugin');
         pll_register_string('Título Bibliotecas', 'Outros Índices', 'Plugin');
         pll_register_string('Endereço Footer', 'World Health Organization', 'Plugin');
+        pll_register_string('Endereço Footer Bireme', 'Bireme', 'Plugin');
        	// Form
         pll_register_string('Formulário', 'Título', 'Formulário');
         pll_register_string('Formulário', 'Autor', 'Formulário');
