@@ -19,7 +19,7 @@
 				<?php dynamic_sidebar('gim_widgets3'); ?>
 				</ul>
 			</div>
-			<div class="widgetDivisao"></div>
+			<div class="widgetDivisao"> </div>
 			<div class="col-md-4 widgetColumn">
 				<ul class="list-unstyled">
 				<?php dynamic_sidebar('gim_widgets4'); ?>
