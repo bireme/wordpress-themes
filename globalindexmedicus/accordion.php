@@ -17,8 +17,8 @@
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0">
-							<span class="acordionIcone float-right fas fa-minus"></span>
-							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#item-<?= $key ?>" aria-expanded="true" aria-controls="item-<?= $key ?>">
+							<span class="acordionIcone float-right fas <?php echo ($key == 0 ? "fa-minus": "fa-plus" ); ?>"></span>
+							<button class="btn btn-link" data-toggle="collapse" data-target="#item-<?= $key ?>" aria-expanded="true" aria-controls="item-<?= $key ?>">
 								<b><?= $item['titulo'] ?></b>
 							</button>
 						</h2>
