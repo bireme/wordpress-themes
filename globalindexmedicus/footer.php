@@ -11,7 +11,7 @@
 				<a href="http://www.who.int/library/en" target="_blank">http://www.who.int/library/en</a>
 			</address>
 			<address id="footerAddress" class="col-md-6">
-				<h5>Bireme</h5>
+				<h5><?php pll_e('Bireme'); ?></h5>
 				Rua Vergueiro, 1759 - 12º -	Vila Mariana <br>
 				São Paulo/SP - CEP: 04101-100 <br>
 				+55 11 5576-9800 <br>
