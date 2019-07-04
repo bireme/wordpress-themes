@@ -105,12 +105,12 @@ header{padding-top: 10px;}
 .bibliotecaHome:hover img{filter: brightness(0.95); transform: scale(0.95);}
 .bibliotecaHome:hover h4{background: #0093d5;}
 .bibliotecaHome:hover p{background: #eee;}
+/*Area*/
 .area{
 	padding:20px; border: 1px solid #ddd;
 	border-radius: 10px; text-align: center;
 	transition: background 1s ease; 
 }
-/*Area*/
 .area:hover{ background: #eee; }
 .area a{
 	text-decoration: none; color: #333;
@@ -148,6 +148,7 @@ header{padding-top: 10px;}
 .wpcf7 input:active[type="submit"] {
 	background: #000000;
 }
+.carousel-item img{width: 100%; }
 /************** Breakpoint *******************/
 @media (min-width: 1600px){
 	.carousel-item img{width: 100%;}
@@ -175,8 +176,8 @@ header{padding-top: 10px;}
 	.menuTopo li:first-child{border: 0;}
 	.titulo2{ margin-top: 20px; }
 	.carousel-item img{width: 100%;}
-	#footer{text-align: center;}
 	#footer ul{padding: 0; list-style: none; }
+	#footer{text-align: center;}
 	#footerMenu{list-style:none; padding: 0;  }
 	#footerAddress{text-align: center; margin-top: 10px;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }

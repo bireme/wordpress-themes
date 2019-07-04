@@ -90,6 +90,9 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+	// Excerpt Pages
+	add_post_type_support( 'page', 'excerpt');
+
 	//Custom Post Type
 	function registrar_custom_post_type() {
 		// Banners
@@ -139,6 +142,12 @@
 			'supports' => array('title','editor','thumbnail', 'custom-fields', 'revisions', 'excerpt') //Quais recursos serão usados (metabox)
 	    );
 		register_post_type( 'biblioteca' , $args );
+	}
+
+	// Feed
+	add_action('wp_feed_options', 'force_feed', 10, 1); 
+	function force_feed($feed) {
+	    $feed->force_feed(true);
 	}
 
 	//Adiciona suporte a miniaturas (imagem destacada)

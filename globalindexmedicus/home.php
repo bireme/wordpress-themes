@@ -24,6 +24,27 @@
 					</a> <br><br>
 				</artigle>
 			<?php endwhile; ?>
+
+			<!-- Fixo -->
+			<?php
+				$args = array(
+					'post_type' => 'page',
+					'name' => 'how-to', 'how-to-2','how-to-3'
+				); 
+				$query = new WP_Query( $args ); 
+				if ( $query->have_posts() ) { 
+					while ( $query->have_posts() ) {
+						$query->the_post(); 
+					}
+				} 
+			?>
+			<artigle class="col-12 col-sm-6 col-md-4 bibliotecaHome">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
+					<h4><span><?php the_title(); ?></span></h4>
+					<?php the_excerpt(); ?>
+				</a> <br><br>
+			</artigle>
 		</div>
 	</div>
 </section>
