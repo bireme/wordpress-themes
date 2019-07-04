@@ -149,6 +149,7 @@ header{padding-top: 10px;}
 	background: #000000;
 }
 .carousel-item img{width: 100%; }
+.widgetDivisao{width: 100%; height: 2px; background: white; margin-top: 20px; margin-bottom: 30px;}
 /************** Breakpoint *******************/
 @media (min-width: 1600px){
 	.carousel-item img{width: 100%;}
@@ -183,6 +184,8 @@ header{padding-top: 10px;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }
 	.bibliotecaHome h4 span{position: static; width: auto; padding: 0;}
 	#assFooter img{max-width: 90%!important;}
+	.widgetColumn{ margin-bottom: 20px; border-bottom: 2px solid #fff; }
+	.widgetDivisao{display: none;}
 }
 @media (max-width: 560px){
 	#tituloSite{font-size: 25px;}
