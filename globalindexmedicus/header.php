@@ -18,6 +18,7 @@
 			<div id="idiomas">  
 				<?php echo do_shortcode('[google-translator]'); ?>
 			</div>
+			<div class="clearfix"></div>
 			<div id="tituloSite"><?php bloginfo('name');?></div>
 		</div>
 	</div>
