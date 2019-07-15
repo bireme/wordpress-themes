@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-md-8">
 			<div id="idiomas">  
-				<?php echo do_shortcode('[google-translator]'); ?>
+				<?php echo do_shortcode('[gtranslate]'); ?>
 			</div>
 			<div class="clearfix"></div>
 			<div id="tituloSite"><?php bloginfo('name');?></div>
