@@ -79,7 +79,7 @@
                             break;
 
                         case 'pearl':
-                            $error = __('Desculpe, você já avaliou essa Pearl.');
+                            $error = __('Desculpe, você já avaliou essa POEMS.');
                             break;
                         
                         default:
@@ -125,7 +125,7 @@
                                 break;
 
                             case 'pearl':
-                                $success = __('Obrigado! Pearl avaliada.');
+                                $success = __('Obrigado! POEMS avaliada.');
                                 break;
                             
                             default:

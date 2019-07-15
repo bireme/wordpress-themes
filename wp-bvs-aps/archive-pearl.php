@@ -15,7 +15,7 @@ get_header(); ?>
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 		    	<li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-			    <li class="breadcrumb-item active" aria-current="page"><?php _e('Revisões Comentadas - PEARL', 'bvs_lang'); ?></li>
+			    <li class="breadcrumb-item active" aria-current="page"><?php _e('Revisões Comentadas - POEMS', 'bvs_lang'); ?></li>
 		  	</ol>
 		</nav>
 
