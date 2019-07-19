@@ -16,17 +16,9 @@
 		</div>
 		<div class="col-md-8">
 			<div id="idiomas">  
-				<?php
-				wp_nav_menu( array(
-					'theme_location'    => 'linguagem',
-					'depth'             => 1,
-					'container'         => 'ul',
-					'container_class'   => 'list-unstyled',
-					'container_id'      => '',
-					'menu_class'        => '',
-				) );
-				?>
+				<?php echo do_shortcode('[gtranslate]'); ?>
 			</div>
+			<div class="clearfix"></div>
 			<div id="tituloSite"><?php bloginfo('name');?></div>
 		</div>
 	</div>
