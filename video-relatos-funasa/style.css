@@ -1,0 +1,145 @@
+/*
+Theme Name: Relatos de Experiências 
+Description: Tema para a publicação de vídeos e relatos de experiências
+Author: BIREME/OPS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 1.1
+Tags: three-columns, right-sidebar, left-sidebar
+*/
+
+
+/*
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
+
+strong {display:inline;}
+body {background:#eaf6fe !important;}
+#parent {margin-top:10px;}
+.container {background: #fff !important;}
+.bar a {color: #fff !important; text-decoration: none;}
+.bar a:hover {text-decoration: underline;}
+.top_sidebar {margin: 8px 0 20px 0;}
+.top_pt-br .site_name a{background: url(images/title-relatos.png) no-repeat;width:240px; height:76px;display: block;}
+.top_pt-br .site_name a span{display: none;}
+#menu-main {text-transform: uppercase;font-weight: 700;font-size: 125%;}
+#menu-main a {color: #000 !important; text-decoration: none;}
+#menu-main a:hover {text-decoration: underline;}
+.metaslider .flexslider {margin-bottom: 10px !important; border-bottom: 4px double #ACACAC !important;border-radius: 0px !important}
+.widget-title {color: #b60000 !important; text-transform: uppercase !important; font-size: 170% !important;}
+.widget_metaslider_widget div {padding:0 !important;opacity: 1.0 !important;}
+.widget_metaslider_widget .caption-wrap {color: #000 !important; background: #fff !important;}
+.widget_metaslider_widget .caption {padding:12px !important; line-height: 170% !important;}
+.widget_metaslider_widget .caption h1 {color: #b60000 !important;}
+.widget_metaslider_widget .caption span {font-weight: 300 !important; color: #888 !important;}
+.hfeed, .hfeed div {padding: 0px !important;}
+.hfeed article {padding: 0 5px .5em 5px !important; margin-bottom: 0 !important;}
+
+.column .widget-title {background-position: 0 10px;}
+.column strong.widget-title {display:block;}
+/******* COLUNA 1 *******/
+.column_1 {margin-right: 2.5em;}
+.column_1 .hfeed {margin-top:16px;}
+.column_1 .upw-posts article {border-bottom: none !important;font-size: 110%;}
+.column_1 .upw-posts header {float: left;margin:0 12px 0 0;}
+.column_1 .upw-posts .news-content {float: left;width:73%;}
+.column_1 .upw-posts .entry-title {font-size: 120%;}
+.column_1 .upw-posts .entry-summary {font-weight: 300; font-size: 90%; color: #888;}
+.column_1 .upw-posts a.more-link {color: #b60000 !important; background-color: transparent; padding: 0px; -webkit-border-radius: none; -moz-border-radius: none; border-radius: none; margin-top: 0; display: inline; text-decoration: none;}
+.column_1 .news-content h4 a {color: #21759b !important;}
+.column_1 .upw-posts a.more-link:hover {text-decoration: underline;}
+.upw-posts .entry-image img {border: 1px solid;}
+/******* COLUNA 2 *******/
+.column_2 .widget_search div {padding: 0px !important;}
+.widget_search label.screen-reader-text {display: none;}
+.column_2 .widget_search label {color: #b60000 !important; text-transform: uppercase !important; font-size: 170% !important; font-weight: bold;}
+.column_2 .widget_search #s {border-radius: 3px 0px 0px 3px; width: 64%;}
+.column_2 .widget_search #searchsubmit {border-radius: 0px 3px 3px 0px;}
+.column_2 .upw-posts article {float: none; border-bottom: none;}
+.column_2 .upw-posts header, .column_2 .upw-posts .news-content {float: left;}
+.column_2 .upw-posts .news-content {margin-left: 6px; width: 72%;}
+.column_2 .upw-posts .entry-title {line-height: 150%;}
+.column_2 .upw-posts .entry-cats-list a {color:#b60000; font-weight: 300; text-decoration: none}
+.column_2 .upw-posts time {font-weight: 300;}
+.widget_rss .widget-title a {color: #b60000 !important; text-decoration: none;}
+.widget_rss img {float:right;margin-top:6px;}
+/******* FOOTER *******/
+.footer {background: none !important;}
+.footer .wrap {width: 1080px;margin:0 auto;}
+.footer .wrap .institutionalInfo, .footer .wrap #socialMedia {color: #fff;padding: 22px; width: 44%; float: left;}
+.footer .wrap .institutionalInfo {font-weight: 300;}
+.footer .wrap .institutionalInfo strong {font-weight: 700; font-size: 160%;}
+.footer {background: #252525;padding: 0px !important;}
+.footer .signature {padding: 22px;}
+.siteInfo {background: #fff;width: 976px;margin:0 auto !important;}
+#text-4 {background: #363636;}
+/******* SINGLE *******/
+.single .site-content{width:98% !important;margin-top:0px !important;background:#fff;}
+.single .entry-title {margin-left: 0px !important;font-weight: bold;}
+.single .single1column {margin-right:1.5em !important;}
+.r-block-title {font-weight:bold;color: #b60000 !important;text-transform: uppercase !important;font-size: 170% !important;}
+.r-block {margin-bottom: 30px;}
+.r-block div {margin-bottom: 10px;}
+.r-block .whois-name {font-weight: bold;margin-bottom:5px;font-size: 120%;}
+.r-block ul {list-style-type:disc;padding-left:8px;}
+.r-block li {margin:10px 0 10px 12px;line-height:130%;}
+.r-block a {text-decoration: none;}
+.r-block a:hover {text-decoration: underline;}
+footer div {margin: 10px 0;}
+.related_links a, .saiba_mais a {display: table; margin-bottom: 10px;}
+.related_links a:visited, .saiba_mais a:visited {color: #21759b;}
+.more_like_that {float: right; text-decoration: underline; cursor: pointer;}
+/******* SEARCH *******/
+.search .site-content{margin-top:0px !important;background:#fff;}
+.search .single1column{margin:0.37em 2.5em 0.37em 0.37em;}
+.search .single2column{width:27% !important;}
+.search section .page-header{padding: 0 !important; margin:0 !important;border-bottom:0px;}
+.search section .page-header strong{display:block;height: 36px;background: url(../../plugins/bvs-site/bvs-themes/bvs-2012/bireme_archives/custom/arrow.jpg) 0 18px no-repeat;font-weight:bold;padding:0 0 0 18px;margin-bottom:12px !important;border-bottom: 1px solid #006633 !important;color: #b60000 !important;text-transform: uppercase !important;font-size: 170% !important;}
+.search section .archive-header strong a {text-decoration: none;color: #b60000 !important;}
+.search article {clear:both;border-bottom: none !important;font-size: 110%;margin-bottom:0 !important;padding:0 5px .5em 5px !important;}
+.search article header {float: left;margin: 0 12px 0 0;}
+.search article header .entry-image{margin-bottom: 1em !important;}
+.search .news-content {float: left;width: 73%;}
+.search .news-content .entry-title {font-size: 120%; font-weight: bold;margin-bottom: .5em;color:#000;}
+.search .news-content .entry-title a {text-decoration: none;}
+.search .news-content .entry-title a:hover {text-decoration:underline;}
+.search .news-content .custom-field-autor {margin-bottom: 6px; color:#000;}
+.search .news-content .entry-summary {margin:0;font-weight: 300;font-size: 90%;color: #888;}
+.search .news-content .entry-summary p {margin:0;}
+.search .single2column aside {margin-bottom: 30px;}
+.search .single2column .widget strong {border-bottom:1px solid #006633 !important;display:block;height:36px;margin-bottom:6px;}
+.search .single2column .widget li a {color:#333; text-decoration:none;}
+.search .single2column .widget li a:hover {text-decoration: underline;}
+/******* ARCHIVE *******/
+.archive .site-content{margin-top:0px !important;background:#fff;}
+.archive .single1column{margin:0.37em 2.5em 0.37em 0.37em;}
+.archive .single2column{width:27% !important;}
+.archive section .archive-header{padding: 0 !important; margin:0 !important;border-bottom:0px;}
+.archive section .archive-header strong{display:block;background: url(../../plugins/bvs-site/bvs-themes/bvs-2012/bireme_archives/custom/arrow.jpg) 0 18px no-repeat;font-weight:bold;padding:0 0 0 18px;margin-bottom:12px !important;border-bottom: 1px solid #006633 !important;color: #b60000 !important;text-transform: uppercase !important;font-size: 170% !important;}
+.archive section .archive-header strong a {text-decoration: none;color: #b60000 !important;}
+.archive article {clear:both;border-bottom: none !important;font-size: 110%;margin-bottom:0 !important;padding:0 5px .5em 5px !important;}
+.archive article header {float: left;margin: 0 12px 0 0;}
+.archive article header .entry-image{margin-bottom: 1em !important;}
+.archive .news-content {float: left;width: 73%;}
+.archive .news-content .entry-title {font-size: 120%; font-weight: bold;margin-bottom: .5em;color:#000;}
+.archive .news-content .entry-title a {text-decoration: none;}
+.archive .news-content .entry-title a:hover {text-decoration:underline;}
+.archive .news-content .custom-field-autor {margin-bottom: 6px; color:#000;}
+.archive .news-content .entry-summary {margin:0;font-weight: 300;font-size: 90%;color: #888;}
+.archive .news-content .entry-summary p {margin:0;}
+.archive .single2column aside {margin-bottom: 30px;}
+.archive .single2column .widget strong {border-bottom:1px solid #006633 !important;display:block;height:36px;margin-bottom:6px;}
+.archive .single2column .widget li a {color:#333; text-decoration:none;}
+.archive .single2column .widget li a:hover {text-decoration: underline;}
+/******* MEDIA QUERIES  *******/
+@media (max-width: 600px){
+	.has-post-thumbnail .entry-image {width: 30%;}
+}
+

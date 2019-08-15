@@ -7,7 +7,9 @@ get_header();?>
 					 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<div class="post">
 							<!-- Display the Title as a link to the Post's permalink. -->
-							<h3><?php the_title(); ?></h3>
+							<h3>
+								<a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>"><?php the_title(); ?></a>
+							</h3>
 
 							<!-- Display the Post's content in a div box. -->
 							<div class="entry">
