@@ -298,6 +298,7 @@
 .navSmall{color: #999; font-style: italic; display: block; line-height: 16px;}
 .active>.navSmall{color: #fff;}
 #tabMedicamentos {padding: 0!important;}
+.boxOver{max-height: 500px; overflow-y: auto;}
 /********************* Breakpoint *************/
 @media (max-width: 1200px){
 	.homeBox{padding: 45px 10px 20px;}
@@ -339,6 +340,7 @@
 	}
 	#idioma{ position: static; display: block; text-align: center; }
 	#idioma ul li{display: inline-block; margin: 0px; }	
+	.boxOver{border-bottom: 10px solid #ddd; padding: 20px 10px ; margin-top: 15px; margin-bottom: 15px}
 }
 .setaTab{
 	animation: setaTab;
