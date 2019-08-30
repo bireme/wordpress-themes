@@ -5,7 +5,7 @@
 <!-- Bibliotecas -->
 <section class="padding1">
 	<div class="container">
-		<h2 class="titulo1">Bibliotecas da OMS</h2>
+		<h2 class="titulo1"><?php pll_e('Índices Regionais'); ?></h2>
 		<div class="row">
 			<?php 
 			$biblioteca = new WP_Query(array(
