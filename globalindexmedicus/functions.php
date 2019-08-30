@@ -90,6 +90,24 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+	//Footer Left
+	register_sidebar(array(
+		'name'			=> 'Footer Left',
+		'id'			=> 'footer_left',
+		'description'	=> 'Footer Left',
+		'class'			=> 'margin1B',
+		'before_title'	=> '<h5>',
+		'after_title'	=> '</h5>'
+	));
+	//Footer Right
+	register_sidebar(array(
+		'name'			=> 'Footer Right',
+		'id'			=> 'footer_right',
+		'description'	=> 'Footer Right',
+		'class'			=> 'margin1B',
+		'before_title'	=> '<h5>',
+		'after_title'	=> '</h5>'
+	));
 	// Excerpt Pages
 	add_post_type_support( 'page', 'excerpt');
 
