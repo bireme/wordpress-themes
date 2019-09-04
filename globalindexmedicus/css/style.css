@@ -116,6 +116,9 @@ header{padding-top: 10px;}
 	text-decoration: none; color: #333;
 	font-size: 14px; 
 }
+.area a:hover{
+	text-decoration: underline; color: #0093d5;
+}
 .area img{
 	max-width: 100px; text-align: center;
 	padding-bottom: 10px; transition: filter 1s ease;
