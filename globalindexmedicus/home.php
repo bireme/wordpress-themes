@@ -29,7 +29,7 @@
 			<?php
 				$args = array(
 					'post_type' => 'page',
-					'name' => 'how-to', 'how-to-2','how-to-3'
+					'name' => 'home-en', 'home-pt','home-es','home-ru','home-zh','home-fr','home-ar'
 				); 
 				$query = new WP_Query( $args ); 
 				if ( $query->have_posts() ) { 
