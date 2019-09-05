@@ -2,7 +2,7 @@
 <footer id="footer" class="padding1">
 	<div class="container">
 		<div class="row">
-			<address id="" class="col-md-6">
+			<address id="footerWHO" class="col-md-6">
 				<h5><?php pll_e('Outros Índices'); ?></h5>
 				<ul class="list-unstyled">
 					<?php dynamic_sidebar('footer_left'); ?>
