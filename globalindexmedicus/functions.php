@@ -13,6 +13,11 @@
 		wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
 		wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
 		wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
+
+		$idioma = pll_current_language();
+		if ($idioma == 'ar') {
+			wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/styleRtl.css');
+		}
 	}
 	// Adicionar script e stule no footer
 	add_action('wp_footer', 'add_script_rodape');

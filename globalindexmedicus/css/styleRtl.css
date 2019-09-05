@@ -1,0 +1,6 @@
+.navbar, .titulo1, .carousel-caption, .sectionBlue, #busca
+{direction:rtl; text-align:right;}
+.carousel-caption h5, .carousel-caption a{float: right;}
+.menuTopo ul, .menuTopo ul li{margin-right:0; padding-right:0;}
+.menuTopo ul li{margin-left:20px;}
+#footerAddress{text-align: left;}
