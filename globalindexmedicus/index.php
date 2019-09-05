@@ -6,7 +6,7 @@
 <section class="padding1">
 	<div class="container">
 		<h2 class="titulo1"><?php pll_e('Índices Regionais'); ?></h2>
-		<div class="row">
+		<div class="row" id="libray">
 			<?php 
 			$biblioteca = new WP_Query(array(
 				// 'posts_per_page' => 6,

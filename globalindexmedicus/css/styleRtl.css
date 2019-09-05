@@ -1,6 +1,7 @@
 .navbar, .titulo1, .carousel-caption, .sectionBlue, #busca, .accordion
-{direction:rtl!important; text-align:right!important;}
-.carousel-caption h5, .carousel-caption a{float: right!important;}
-.menuTopo ul, .menuTopo ul li{margin-right:0!important; padding-right:0!important;}
-.menuTopo ul li{margin-left:20px!important;}
-#footerAddress{text-align: left!important;}
+{direction:rtl; text-align:right;}
+.carousel-caption h5, .carousel-caption a{float: right;}
+.menuTopo ul, .menuTopo ul li{margin-right:0; padding-right:0;}
+.menuTopo ul li{margin-left:20px;}
+#footerAddress{text-align: left;}
+#libray{direction: rtl;}
