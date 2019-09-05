@@ -16,7 +16,7 @@
 
 		$idioma = pll_current_language();
 		if ($idioma == 'ar') {
-			wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/styleRtl.css');
+			wp_enqueue_style('styleRtl', get_stylesheet_directory_uri() . '/css/styleRtl.css');
 		}
 	}
 	// Adicionar script e stule no footer
