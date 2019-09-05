@@ -5,4 +5,4 @@
 .menuTopo ul li{margin-left:20px;}
 #footerAddress{text-align: right;}
 #footerWHO{text-align: left;}
-#libray{direction: rtl;}
+#libray, #outros{direction: rtl;}

@@ -14,7 +14,7 @@
 
 		<!-- Outros -->
 		<h2 class="titulo1"><p><?php pll_e('World Health Organization'); ?></p></h2>
-		<div class="row text-center">
+		<div class="row text-center" id="outros">
 			<?php 
 			$x = get_the_title();
 			$biblioteca = new WP_Query(array(
