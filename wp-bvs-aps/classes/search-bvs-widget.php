@@ -91,7 +91,7 @@ class search_bvs_widget extends WP_Widget {
             
             <a target='_blank' href="<?php echo $instance[ 'tutorial_url' ]; ?>" class="btn btn-primary btn-circle" data-toggle="tooltip" data-placement="bottom" title="<?php _e('Acesse os tutoriais de como pesquisar na BVS APS', 'bvs_lang'); ?>">?</a>
         </form>
-        <form style="display: none;" class="default-search-form" role="search" action="http://pesquisa.bvs.br/aps/" method="get" id="defaultSearchForm" onsubmit="if(defaultSearchForm.s.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') defaultSearchForm.s.value = '';">
+        <form style="display: none;" class="default-search-form" role="search" action="http://pesquisa.bvsalud.org/aps/" method="get" id="defaultSearchForm" onsubmit="if(defaultSearchForm.s.value=='<?php _e('Pesquisar', 'bvs_lang'); ?>') defaultSearchForm.s.value = '';">
             <?php if( function_exists('pll_current_language') ){ ?>
             <input type="hidden" name="lang" value="<?php echo pll_current_language(); ?>" />
 	    <input type="hidden" name="filter[db][]" value="SOF" />
