@@ -3,6 +3,6 @@
 .carousel-caption h5, .carousel-caption a{float: right;}
 .menuTopo ul, .menuTopo ul li{margin-right:0; padding-right:0;}
 .menuTopo ul li{margin-left:20px;}
-#footerAddress{text-align: left;}
-#footerWHO{text-align: right;}
+#footerAddress{text-align: right;}
+#footerWHO{text-align: left;}
 #libray{direction: rtl;}
