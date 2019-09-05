@@ -1,4 +1,4 @@
-.navbar, .titulo1, .carousel-caption, .sectionBlue, #busca
+.navbar, .titulo1, .carousel-caption, .sectionBlue, #busca, .accordion
 {direction:rtl; text-align:right;}
 .carousel-caption h5, .carousel-caption a{float: right;}
 .menuTopo ul, .menuTopo ul li{margin-right:0; padding-right:0;}
