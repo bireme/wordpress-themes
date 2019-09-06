@@ -16,6 +16,7 @@
 }
 @media (max-width: 768px){
 	#buscaInput{padding:10px 110px 15px 10px; background-position:85%;}
+	#logo2, #idiomas, #tituloSite{text-align: center!important;}
 }
 @media (max-width: 560px){
 	#buscaInput{padding:10px 40px 15px 10px; background-position:100%;}
