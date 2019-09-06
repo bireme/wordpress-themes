@@ -14,7 +14,7 @@
 		<div class="col-md-4 <?php echo $idioma=='ar'?'':'order-last' ?>order-last" id="logo">
 			<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid">
 		</div>
-		<div class="col-md-8 <?php=$idioma=='ar'?'':'order-first' ?>" id="logo2">
+		<div class="col-md-8 <?php echo $idioma=='ar'?'':'order-first' ?>" id="logo2">
 			<div id="idiomas">  
 				<?php 
 				wp_nav_menu( array(
