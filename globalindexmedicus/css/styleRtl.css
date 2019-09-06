@@ -4,10 +4,11 @@
 .menuTopo ul, .menuTopo ul li{margin-right:0; padding-right:0;}
 .menuTopo ul li{margin-left:20px;}
 #footerAddress, .textoArabe{text-align: right;}
-#footerWHO{text-align: left;}
+#footerWHO, #tituloSite{text-align: left;}
 #libray, #outros{direction: rtl;}
 #buscaInput{padding:10px 120px 15px 10px; background-position:93%;}
 .formSelect{background-position: -3%;}
+#logo2, #idiomas{direction:rtl; text-align: left!important;}
 /**************** Breakpoint****************/
 @media (max-width: 992px){
 	#buscaInput{padding:10px 110px 15px 10px; background-position:90%;}

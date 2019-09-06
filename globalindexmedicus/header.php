@@ -10,11 +10,11 @@
 <!-- Topo -->
 <header class="container">
 	<div class="row">
-		<div class="col-md-4" id="logo">
-			<?php $idioma = pll_current_language(); ?>
+		<?php $idioma = pll_current_language(); ?>
+		<div class="col-md-4 <?php echo $idioma=='ar'?'':'order-last' ?>order-last" id="logo">
 			<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid">
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-8 <?php=$idioma=='ar'?'':'order-first' ?>" id="logo2">
 			<div id="idiomas">  
 				<?php 
 				wp_nav_menu( array(
