@@ -24,7 +24,7 @@
 					</select>
 				</div>
 				<div class="col-md-6 text-right d-none d-md-block">
-					<a href="http://pesquisa.bvsalud.org/ghl/decs-locator/?lang=pt"><?php pll_e('Pesquisa via descritores'); ?> DeCS/MeSH</a>
+					<a href="http://pesquisa.bvsalud.org/ghl/decs-locator/?lang=pt"><?php pll_e('Pesquisa via descritores'); ?></a>
 				</div>
 				<div class="col-md-12">
 					<input type="text" name="q" class="" id="buscaInput" placeholder="<?php pll_e('Digite o que você procura'); ?>">
