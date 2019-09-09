@@ -9,8 +9,8 @@
 .cursor{ cursor: pointer; }
 .sectionCinza{background: #eee; margin-top: 50px;}
 .sectionCinza2{background: #eceded; margin-top: 50px;}
-.tituloPrincial{background: #2e789e;  padding: 10px; margin-bottom: 10px;}
-.tituloPrincial h3{padding: 10px; color: #FFF; font-weight: bold; font-size: 30px; text-align: center;}
+.tituloPrincipal{background: #2e789e;  padding: 2px; margin-bottom: 5px;}
+.tituloPrincipal h3{padding: 10px; color: #FFF; font-weight: bold; font-size: 30px; text-align: center;}
 .nav-pills{ background: #eee; }
 .nav-pills>a{ color: #333!important; }
 .nav-pills>a.active{ color: #fff!important; }
@@ -33,7 +33,7 @@
 .navLang{
 	text-align: right; position: absolute; top:0px;
 }
-#idioma{ text-align: right; position: absolute; top: -10px; right: 0; }
+#idioma{ text-align: right; position: absolute; top: 0px; right: 0; }
 #idioma a{color: #fff; background: #1b5c7e; padding: 7px; font-size: 12px;}
 #idioma ul{list-style: none;}
 #idioma ul li{display: inline-block; margin-left: 0px; }
@@ -235,7 +235,7 @@
 	background: #eee;
 }
 .homeBox img{
-	margin-bottom: 10px;
+	margin-bottom: 10px;  width: 100px;
 }
 #search{
 	position: relative;
@@ -264,6 +264,9 @@
 	background: #63a3e8; color: #fff;
 }
 .textBtn{color: #fff;}
+.carousel-caption{
+	bottom: 0;
+}
 .carousel-caption h4{
 	font-weight: 700;
 	color: #fff; text-shadow: 2px 2px 0 #000;
@@ -299,6 +302,7 @@
 .active>.navSmall{color: #fff;}
 #tabMedicamentos {padding: 0!important;}
 .boxOver{max-height: 500px; overflow-y: auto;}
+.widgetColumn ul li{font-size: 14px!important; margin-bottom: 10px;}
 /********************* Breakpoint *************/
 @media (max-width: 1200px){
 	.homeBox{padding: 45px 10px 20px;}
@@ -309,12 +313,15 @@
 	#listasHome .col-lg-3:first-child .homeBox,
 	#listasHome .col-lg-3:last-child .homeBox{margin: 0 auto 20px 0;}
 	.homeBox{padding: 45px 30px 20px;}
+	.tituloPrincipal{padding-top: 10px;}
+	#idioma{margin-top: -10px;}
 }
 @media (max-width: 768px){
 	.homeCountTitle{
 		text-align: center;
 	}
-	.tituloPrincial{font-size: 24px;}
+	.tituloPrincipal{font-size: 24px;}
+	.tituloPrincipal h3{padding-top: 0px;}
 	.navLang{text-align: center; display:inline-block!important;}
 	.navLang .nav-link{display: inline-block!important; padding-right:10px;}
 	.carousel-caption{

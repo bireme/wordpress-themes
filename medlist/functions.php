@@ -110,7 +110,32 @@
 				'menu_icon'		=> 'dashicons-media-spreadsheet'
 			);
 			register_post_type( 'listas' , $argsListas );
-		}
-
-	
+		//widgets 1
+		register_sidebar(array(
+			'name'			=> 'Column Left',
+			'id'			=> 'widgets1',
+			'description'	=> 'Column Left',
+			'class'			=> 'margin1B',
+			'before_title'	=> '<h5>',
+			'after_title'	=> '</h5>'
+		));
+		//widgets 2
+		register_sidebar(array(
+			'name'			=> 'Column Center',
+			'id'			=> 'widgets2',
+			'description'	=> 'Column Center',
+			'class'			=> 'margin1B',
+			'before_title'	=> '<h5>',
+			'after_title'	=> '</h5>'
+		));
+		//widgets 3
+		register_sidebar(array(
+			'name'			=> 'Column Right',
+			'id'			=> 'widgets3',
+			'description'	=> 'Column Right',
+			'class'			=> 'margin1B',
+			'before_title'	=> '<h5>',
+			'after_title'	=> '</h5>'
+		));
+	}
 ?>

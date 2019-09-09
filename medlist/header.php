@@ -9,7 +9,7 @@
 	<?php wp_head(); ?>
 </head>
 <header>
-	<div class="tituloPrincial">
+	<div class="tituloPrincipal">
 		<div class="container" style="position: relative;">
 			<div id="idioma">
 				<?php 

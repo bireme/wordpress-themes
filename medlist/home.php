@@ -114,9 +114,11 @@
 				<?php 
 				$home = new WP_Query([
 					'post_type' => 'Home',
+					'orderby' => 'title',
+    				'order' => 'ASC'
 				]);
 				while($home->have_posts()):$home->the_post();
-					while( have_rows('paises_countries') ): the_row(); 
+					while(have_rows('paises_countries')):the_row(); 
 						$texto = get_sub_field('texto'); 
 						$foto = get_sub_field('foto'); 
 						$link = get_sub_field('link'); 
@@ -159,6 +161,27 @@
 						</div>
 					<?php endwhile;
 				endwhile; ?>
+			</div>
+		</div>
+	</section>
+	<section class="sectionCinza2 padding1">
+		<div class="container">
+			<div class="row">
+				<article class="col-md-4 widgetColumn">
+					<ul class="list-unstyled">
+						<?php dynamic_sidebar('widgets1'); ?>
+					</ul>
+				</article>
+				<article class="col-md-4 widgetColumn">
+					<ul class="list-unstyled">
+						<?php dynamic_sidebar('widgets2'); ?>
+					</ul>
+				</article>
+				<article class="col-md-4 widgetColumn">
+					<ul class="list-unstyled">
+						<?php dynamic_sidebar('widgets3'); ?>
+					</ul>
+				</article>
 			</div>
 		</div>
 	</section>
