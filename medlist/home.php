@@ -20,7 +20,10 @@
 							<img src="<?php bloginfo('template_directory') ?>/img/lista1.png" alt="">
 							<?php 
 							$grupoListas = new WP_Query([
-								'post_type' => 'listas',
+								'post_type'      => 'listas',
+								'orderby'		 => 'title',
+								'order'			 => 'ASC',
+								'posts_per_page' => -1
 							]);
 							while($grupoListas->have_posts()) : $grupoListas->the_post();
 								$grupo = get_field('grupo');
