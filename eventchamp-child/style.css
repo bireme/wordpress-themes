@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+/*
+	Theme Name: Consórcio Acadêmico Brasileiro de Saúde Integrativa
+	Description: Tema do Consórcio Acadêmico Brasileiro de Saúde Integrativa
+	Author: Bireme
+	Author URI: https://www.paho.org/bra/
+	Template: eventchamp
+	License: GNU General Public License v2 or later
+	License URI: https://www.gnu.org/licenses/gpl-2.0.html
+	Text Domain: eventchamp-child
+	Version: 1.0
+*/
+
+/**
+* Definicoes menu
+*/
+.gt-header.gt-style-1 .gt-navbar .gt-menu > li > a { padding: 10px 10px; }
+.gt-header.gt-style-1 .gt-navbar .gt-menu li .gt-dropdown-men { border-top-color: #00aaae !important; }
+
+
+/**
+* Definicoes elementos
+*/
+.gt-header.gt-style-1 .gt-elements .gt-user-box { background: #00aaae; }
+.gt-eventchamp-service-box i, .gt-eventchamp-service-box .gt-title { color: #00aaae; }
+.gt-eventchamp-service-box i { border-color: #00aaae; }
+.gt-eventchamp-service-box:hover i {background-color: #00aaae; }
+
+.gt-button.gt-style-2 a, .gt-post-style-2 .gt-bottom .gt-more, .vc_btn3.vc_btn3-color-chino.vc_btn3-style-modern { border-color: #00aaae !important; background-color: #00aaae !important; color: #fff; }
+
+/**
+* Definicoes página interna
+*/
+.gt-page-title-bar { background: #01c5ce; padding: 50px 0px; }
+.gt-page-title-bar .gt-background { opacity: 0.6 !important; }
+.gt-page-title-bar .gt-breadcrumb nav > ol > li.current-item > span { border-bottom-color: #00757a; color: #00757a }
+
+.gt-post-style-2 .gt-title { font-size: 16px; font-weight: 500; color: #363636; }
+
+/**
+* Definicoes RSS
+*/
+.rsswidget { display: none; }
+.widget_rss ul li .rsswidget { font-weight: 500; font-size: 16px; color: #363636; }
+
+
+/**
+* Definicoes layout geral
+*/
+body{font-size: 14px !important;}
+.gt-title a { color: #363636 !important; }
+
+.gt-post-style-2 .gt-image .gt-category ul { display: none; }
+
+/**
+* Definicoes campo de busca
+*/
+
+.vhl-search-form, .searchItens, #defaultSearchForm { background: #00aaae; }
+.default-search-form, .vhl-search-form {margin-bottom: 15px; }
+
+.searchItens{ display: table-row; text-align: center; padding-bottom: 15px; font-size: 14px; /*padding-left: 27%; padding-top: 10px;*/ }
+	
+#searchForm, #defaultSearchForm { text-align: center; }
+
+#defaultSearchForm { padding-top:35px; }
+.top_sidebar, /*#searchForm, #vhl-search-input, #defaultSearchForm, #s,*/ .vhl-search-input {
+    border: 1px solid #848484;
+    -webkit-border-radius: 8px 0px 0px 8px;
+    -moz-border-radius: 8px 0px 0px 8px;
+    border-radius: 8px 0px 0px 8px;
+    -webkit-box-shadow: 0 1px 2px #666 inset;
+    -moz-box-shadow: 0 1px 2px #666 inset;
+    box-shadow: 0 1px 2px #666 inset;
+    width: 340px;
+    padding: 7px 0px 8px 0px;
+    -webkit-padding-before: 9px;
+    -webkit-padding-after: 8px;
+    text-indent: 5px;
+}
+
+.vhl-search-input {
+    width: 70% !important;
+    text-align: left;
+    float: right;
+    /*margin-left: 25%;
+    margin-right: 25%;*/
+
+}
+
+.vhl-search-submit {
+    border: 1px solid #475f78;
+    -webkit-border-radius: 0px 8px 8px 0px;
+    -moz-border-radius: 0px 8px 8px 0px;
+    border-radius: 0px 8px 8px 0px;
+    color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 9px 10px 8px 10px !important;
+    height: 50px;
+    width: 102px;
+    float: left;
+}
+
+.busqueda_avanzada {
+/*	text-align: right;
+    margin-top: -30px;
+    margin-bottom: 18px;
+    margin-right: 16%;*/
+width: 193px;
+}
+#srch1-col1, .searchItens {
+    width: 100%;
+    float: right;
+    margin-right: 4%;
+}
+#srch1-col2, .busqueda_avanzada {
+    float: left;
+    margin-right: 20%;
+}	
+.busqueda_avanzada a {font-size: 14px; color: #FFF; }	
+
+.busqueda_avanzada a:hover{text-decoration:underline !important;}
+
+.vc-hoverbox-back-inner{     height: 90%;
+	display: block !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;}
+	
+.gt-eventchamp-service-box p {
+    font-size: 14px !important;
+}
