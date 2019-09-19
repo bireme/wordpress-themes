@@ -1,8 +1,8 @@
 <!-- Buscador -->
+<?php $idioma = pll_current_language();	?>
 <section id="busca">
 	<div class="container">
-		<form action="https://pesquisa.teste.bvsalud.org/gim/?output=site&lang=en&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
-			<?php $idioma = pll_current_language();	?>
+		<form action="https://pesquisa.teste.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
 			<input type="hidden" name="lang" value="<?php echo $idioma ?>"/>
 			<input type="hidden" name="_charset_" value="utf-8"/>
 			<div class="row">
