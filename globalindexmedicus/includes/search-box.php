@@ -31,7 +31,7 @@
 					<input type="submit"  id="buscaSubmit" class="btn btn-primary" value="<?php pll_e('Pesquisar'); ?>">
 				</div>
 				<div class="col-md-6 text-right d-sm-block d-md-none">
-					<a href="https://pesquisa.teste.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>">Pesquisa via descritores DeCS/MeSH</a>
+					<a href="https://pesquisa.teste.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma;?>">Pesquisa via descritores DeCS/MeSH</a>
 				</div>
 			</div>
 		</form>
