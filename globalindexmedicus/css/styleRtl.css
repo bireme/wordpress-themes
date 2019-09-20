@@ -6,9 +6,10 @@
 #footerAddress, .textoArabe{text-align: right;}
 #footerWHO, #tituloSite{text-align: left;}
 #libray, #outros{direction: rtl;}
-#buscaInput{padding:10px 120px 15px 10px; background-position:93%;}
+#buscaInput{padding:10px 60px 15px 10px; background-position:99%;}
 .formSelect{background-position: -3%;}
 #logo2, #idiomas{direction:rtl; text-align: left!important;}
+#buscaSubmit{right: auto; left: 20px;}
 /**************** Breakpoint****************/
 @media (max-width: 992px){
 	#buscaInput{padding:10px 110px 15px 10px; background-position:90%;}
