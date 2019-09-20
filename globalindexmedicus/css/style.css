@@ -75,11 +75,17 @@ header{padding-top: 10px;}
 #footerAddress{
 	text-align: right
 }
+#assFooter hr{
+	background: #cac3fd;
+}
 #assFooter img{
 	max-width: 500px!important;
 }
 .acordionIcone{
 	font-size: 18px; margin-top: 15px;
+}
+#footerTermos, #footerTermos a{
+	color: #cac3fd;
 }
 /*Home*/
 #banners h5{
@@ -185,6 +191,7 @@ header{padding-top: 10px;}
 	#footer{text-align: center;}
 	#footerMenu{list-style:none; padding: 0;  }
 	#footerAddress{text-align: center; margin-top: 10px;}
+	#footerTermos div{text-align: center!important;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }
 	.bibliotecaHome h4 span{position: static; width: auto; padding: 0;}
 	#assFooter img{max-width: 90%!important;}
