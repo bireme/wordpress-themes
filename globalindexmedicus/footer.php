@@ -31,7 +31,7 @@
 			</div>
 			<div class="col-md-4 text-right">
 				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
-				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Políticas de privacidade'); ?></a>
+				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
 			</div>
 		</div>
 	</div>
