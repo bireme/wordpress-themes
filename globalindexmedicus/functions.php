@@ -203,4 +203,12 @@
         pll_register_string('Temo de Uso', 'Termos e condições de uso', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso'); 
     });
+
+    function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+	   return $args;
+	}
+	add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 ?>
