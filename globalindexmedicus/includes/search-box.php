@@ -2,7 +2,7 @@
 <?php $idioma = pll_current_language();	?>
 <section id="busca">
 	<div class="container">
-		<form action="https://pesquisa.teste.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
+		<form action="https://pesquisa.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
 			<input type="hidden" name="lang" value="<?php echo $idioma ?>"/>
 			<input type="hidden" name="_charset_" value="utf-8"/>
 			<div class="row">
@@ -24,14 +24,14 @@
 					</select>
 				</div>
 				<div class="col-md-6 text-right d-none d-md-block">
-					<a href="https://pesquisa.teste.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>"><?php pll_e('Pesquisa via descritores'); ?></a>
+					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>"><?php pll_e('Pesquisa via descritores'); ?></a>
 				</div>
 				<div class="col-md-12">
 					<input type="text" name="q" class="" id="buscaInput" placeholder="<?php pll_e('Digite o que você procura'); ?>">
 					<input type="submit"  id="buscaSubmit" class="btn btn-primary" value="<?php pll_e('Pesquisar'); ?>">
 				</div>
 				<div class="col-md-6 text-right d-sm-block d-md-none">
-					<a href="https://pesquisa.teste.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>">Pesquisa via descritores DeCS/MeSH</a>
+					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>">Pesquisa via descritores DeCS/MeSH</a>
 				</div>
 			</div>
 		</form>
