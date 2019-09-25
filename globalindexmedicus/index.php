@@ -26,7 +26,7 @@
 			<?php endwhile; ?>
 
 			<!-- Fixo -->
-			<?php
+			<?php /*
 				$args = array(
 					'post_type' => 'page',
 					'name' => 'home-en', 'home-pt','home-es','home-ru','home-zh','home-fr','home-ar'
@@ -36,7 +36,7 @@
 					while ( $query->have_posts() ) {
 						$query->the_post(); 
 					}
-				} 
+				} */
 			?>
 			<artigle class="col-12 col-sm-6 col-md-4 bibliotecaHome">
 				<a href="<?php the_permalink(); ?>">
