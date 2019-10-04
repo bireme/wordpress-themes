@@ -9,35 +9,35 @@
 							<?php query_posts('showposts=3&category_name=Banners');?>
 							<?php if (have_posts()): while (have_posts()) : the_post();?>
                             <li class="ui-tabs-nav-item ban-news-home" id="nav-fragment-1">
-                                <a href="#fragment-1">
-                                    <img src="<?php echo get_settings('home');?>/<?php $key="banner-img"; echo get_post_meta($post->ID,$key,true);?>" width="155" height="110" alt="<?php the_title();?>">
-                                </a>
-                            </li>
-                        	<?php endwhile; else:?>
+								<a href="#fragment-1">
+									<img src="<?php echo get_settings('home');?>/<?php $key="banner-img"; echo get_post_meta($post->ID,$key,true);?>" width="155" height="110" alt="<?php the_title();?>">
+								</a>
+							</li>
+							<?php endwhile; else:?>
 							<?php endif;?>
-                    	</ul>
+						</ul>
 						<?php query_posts('showposts=3&category_name=Banners');?>
 						<?php if (have_posts()): while (have_posts()) : the_post();?>
-                        <article id="fragment-1" class="ban-img ui-tabs-panel">
-                        <a class="effect" href='<?php the_Permalink()?>'>
-                            <img src="<?php echo get_settings('home');?>/<?php $key="banner-img"; echo get_post_meta($post->ID,$key,true);?>" width="510" height="330" alt="<?php the_title();?>" />
-                            <span class="ban-img-txt">
-                            	<span class="ban-img-txt-categoria">
-                            		<?php 
-                            			foreach((get_the_category()) as $cat) {
+						<article id="fragment-1" class="ban-img ui-tabs-panel">
+						<a class="effect" href='<?php the_Permalink()?>'>
+							<img src="<?php echo get_settings('home');?>/<?php $key="banner-img"; echo get_post_meta($post->ID,$key,true);?>" width="510" height="330" alt="<?php the_title();?>" />
+							<span class="ban-img-txt">
+								<span class="ban-img-txt-categoria">
+									<?php 
+										foreach((get_the_category()) as $cat) {
 											if (!($cat->cat_name=='Banners' || $cat->cat_name=='destaques' || $cat->cat_name=='featured')){
 												echo $cat->cat_name;
 												break;	
 											}
 										} 
 									?>
-                            	</span>
-                            	<span class="ban-img-txt-titulo"><?php the_title();?></span>                               
+                                </span>
+                                <span class="ban-img-txt-titulo"><?php the_title();?></span>                               
                                 <?php wp_limit_post(140,' [...]',true);?>
                             </span>
                         </a>
                         </article>
-                        <?php endwhile; else:?>
+						<?php endwhile; else:?>
 						<?php endif;?>
 					</article>
 
@@ -81,7 +81,7 @@
 								</a>
 							<?php endwhile; else:?>
 							<?php endif;?>
-							
+
 							<?php query_posts(array('showposts' => '2', 'category_name' => 'featured', 'meta_key' => 'position', 'meta_value' => array('4','5')));?>
 							<?php if (have_posts()): while (have_posts()) : the_post();?>
 								<a href="<?php the_Permalink()?>" class="row-fluid margin-top10 margin-bottom10">

@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" /> 
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta name="robots" content="all" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="all" />
 
 	<title>
 	<?php if (is_home()){
@@ -47,28 +47,31 @@
 		<header class="h">
 			<a href="<?php echo get_settings('home'); ?>">
 				<h1 class="h-logo">
-					SAA Informa - Boletim Informativo da Subsecretaria de Assuntos Administrativos
+					<img src="<?php bloginfo('template_directory'); ?>/Imagens/saa-informa-logo.png" alt="">
 				</h1>
 			</a>
-
+			
 			<section class="h-search">
 				<form role="search" method="get" id="searchform" action="<?php echo get_option('home'); ?>">
 					<input value="" name="s" class="input-search" id="s" type="text" placeholder="Pesquisa no SAA Informa...">
-          			<input id="searchsubmit" value="" type="submit" class="b-search">
+					<input id="searchsubmit" value="" type="submit" class="b-search">
 				</form>
 			</section>
-
-			<nav id="site-navigation"  class="h-nav" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'h-nav-ul' ) ); ?>
+			<div id="navMobile">
+				<div class="navMobileBar1"></div>
+				<div class="navMobileBar2"></div>
+				<div class="navMobileBar3"></div>
+			</div>
+			<nav id="site-navigation" class="h-nav site-navigation" role="navigation">
+				<?php wp_nav_menu( array('theme_location' => 'primary', 'menu_class' => 'h-nav-ul' ) );?>
 				<div class="pull-right">
 					<span class="h-nav-border-right"></span>
 					<a href="contato" class="pull-left">
-						<i class="i-mail"></i>
+						<i class="i-mail"><img src="<?php bloginfo('template_directory'); ?>/Imagens/mail.png" alt=""></i>
 						<span class="i-mail-txt">Contato</span>
 					</a>
-					<a href="#" class="i-amaior">Aumentar Fonte</a>
-					<a href="#" class="i-amenor">Reduzir Fonte</a>
+					<a href="#" class="i-amaior"><img src="<?php bloginfo('template_directory'); ?>/Imagens/plus.png" alt=""></a>
+					<a href="#" class="i-amenor"><img src="<?php bloginfo('template_directory'); ?>/Imagens/less.png" alt=""></a>
 				</div>
 			</nav><!-- #site-navigation -->
-
 		</header>
