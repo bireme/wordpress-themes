@@ -39,7 +39,7 @@
 	<div id="tv">
 		<section id="tv-main">
 			<header class="tv-main-header">
-				<h1 class="tv-main-header-logo">SAA Informa - Boletim Informativo da Subsecretaria de Assuntos Administrativos</h1>
+				<h1 class="tv-main-header-logo">SAA Informa - Canal Informativo da Subsecretaria de Assuntos Administrativos</h1>
 				<div class="forecast">
 					<?php if ( function_exists('dynamic_sidebar') && dynamic_sidebar('Tv-forecast') ) : else : ?>
 					<?php endif; ?>
@@ -120,14 +120,14 @@
 
 				<div class="tv-main-footer-right">
 					<div class="tv-row-fluid">
-						<strong>Equipe de Comunicação</strong><br>
-						Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
+						<strong>Equipe de Divulgação Interna</strong><br>
+						Subsecretaria de Assuntos Administrativos (SAA/SE/MS) <br>
+						Secretaria-Executiva <br>
 						Ministério da Saúde
 					</div>
-					
-					<div class="tv-row-fluid margin-top10">
+					<!-- <div class="tv-row-fluid margin-top10">
 						<img src="wp-content/themes/SAA/Imagens/tv-organizadores.png" alt="Organizadores">
-					</div>
+					</div> -->
 				</div>
 			</footer>
 		</section>

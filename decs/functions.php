@@ -126,4 +126,8 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+	//Tradução
+	add_action('init', function() {
+	 pll_register_string('Search', 'Search', 'Form'); 
+	});
 ?>
