@@ -78,11 +78,6 @@
 		</div>
 	</div>
 </section>
-<?php if( is_active_sidebar('home_widget') ) { ?>
-     <section class="container" id="widgetHome">
-         <?php dynamic_sidebar('home_widget'); ?>
-     </section>
-<?php } ?>
 <?php get_template_part('includes/partners') ?>
 </section>
 <?php get_footer(); ?>

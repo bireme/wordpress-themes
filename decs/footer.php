@@ -9,8 +9,8 @@
 				<!-- <a href="http://feedback.bireme.org/feedback/?application=iahx&version=2.0&lang=<?php echo $idioma; ?>&site=portal" target="_blank"><?php pll_e('enviar um comentário /comunicar um erro'); ?></a> -->
 			</div>
 			<div class="col-md-4 text-right">
-				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
-				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
+				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> |
+				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Privacy policy'); ?></a>
 			</div>
 			<div class="col-md-1 text-right">
 				<i class="fas fa-chevron-up" id="to-top"></i>

@@ -126,4 +126,20 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+
+	add_action('init', function() {
+		pll_register_string('Search', 'Search', 'Form'); 
+		pll_register_string('Search for:', 'Search for:', 'Text default');
+		pll_register_string('Page:', 'Page:', 'Text default');
+		pll_register_string('Term', 'Terms and conditions of use', 'Text default'); 
+		pll_register_string('Privacy policy', 'Privacy policy', 'Text default'); 
+		pll_register_string('All Descriptor Terms', 'All Descriptor Terms', 'Text default');
+		pll_register_string('Main Heading (Descriptor) Terms', 'Main Heading (Descriptor) Terms', 'Text default');
+		pll_register_string('Unique ID', 'Unique ID', 'Text default');
+		pll_register_string('Concept ID', 'Concept ID', 'Text default');
+		pll_register_string('Tree number ID', 'Tree number ID', 'Text default');
+		pll_register_string('All Qualifier Terms', 'All Qualifier Terms', 'Text default');
+
+	});
+
 ?>
