@@ -63,3 +63,9 @@ function banner() {
         $(this).tabs("rotate", speed, true);
     });
 }
+
+// menu mobile
+$('#navMobile').click(function(){
+	$('#site-navigation').toggle();
+	$('#navMobile').toggleClass('change');
+})

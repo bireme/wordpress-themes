@@ -21,25 +21,25 @@
 
         <?php else : ?>
             <div class="row-fluid margin-bottom10">
-				<input type="text" class="input" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" placeholder="Nome" tabindex="1" />		
-			</div>
+                <input type="text" class="input" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" placeholder="Nome" tabindex="1" />        
+            </div>
 
-			<div class="row-fluid margin-bottom10">
-				<input type="text" class="input" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" placeholder="E-mail" tabindex="2" />
-			</div>
+            <div class="row-fluid margin-bottom10">
+                <input type="text" class="input" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" placeholder="E-mail" tabindex="2" />
+            </div>
         <?php endif; ?>
 
         <div class="row-fluid margin-bottom5">
-			<textarea name="comment" id="comment" cols="58" rows="6" placeholder="Comentário" tabindex="4"></textarea>
-		</div>
-		
-		<div class="row-fluid">
-			<input name="submit" class="pull-right i-btEnviar margin-right125" type="submit" id="submit" tabindex="3" value="<?php esc_attr_e('Submit Comment'); ?>" />
-		</div>
+            <textarea name="comment" id="comment" cols="58" rows="6" placeholder="Comentário" tabindex="4"></textarea>
+        </div>
+        
+        <div class="row-fluid">
+            <input name="submit" class="pull-right i-btEnviar margin-right125" type="submit" id="submit" tabindex="3" value="<?php esc_attr_e('Submit Comment'); ?>" />
+        </div>
 
         <?php comment_id_fields(); ?>
         <?php do_action('comment_form', $post->ID); ?>
-	</form>
+    </form>
 
     <p class="cancel"><?php cancel_comment_reply_link('Cancelar Resposta'); ?></p>
 </div>
@@ -49,8 +49,8 @@
  
     <?php if ( have_comments() ) : ?>
         <ol class="commentlist">
-        	<?php wp_list_comments('avatar_size=50&type=comment'); ?>
-    	</ol>
+            <?php wp_list_comments('avatar_size=50&type=comment'); ?>
+        </ol>
  
         <?php if ($wp_query->max_num_pages > 1) : ?>
 
@@ -69,5 +69,5 @@
  
      <?php else : ?>
         <h3>Os comentários estão fechados.</h3>
-	<?php endif; ?>
+    <?php endif; ?>
 </div>
