@@ -139,6 +139,10 @@
 		pll_register_string('Concept ID', 'Concept ID', 'Text default');
 		pll_register_string('Tree number ID', 'Tree number ID', 'Text default');
 		pll_register_string('All Qualifier Terms', 'All Qualifier Terms', 'Text default');
+		pll_register_string('Meet DeCS', 'Meet DeCS', 'Text default');
+		pll_register_string('Contact us', 'Contact us', 'Text default');
+		pll_register_string('For Developers', 'For Developers', 'Text default');
+		pll_register_string('Partners', 'Partners', 'Text default');
 
 	});
 
