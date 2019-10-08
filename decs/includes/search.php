@@ -1,7 +1,8 @@
+<?php $ths_plugin_slug=''; ?>
 <section id="busca">
 	<div class="container" id="">
 		<div class="headerSearch" >
-			<form action="<?php echo real_site_url($biblio_plugin_slug) . "ths"; ?>">
+			<form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
 				<div class="row">
 					<div class="col-md-4 col-lg-3 selectBoxSearch">
 						<select name="filter" id="filter" class="formSelect">
