@@ -1,6 +1,6 @@
 <section id="parceiros">
 	<div class="container">
-		<h4>Partners</h4>
+		<h4><?php pll_e('Partners'); ?></h4>
 		<div id="linha"></div>
 
 		<div class="sliderParceiros">

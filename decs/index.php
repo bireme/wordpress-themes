@@ -11,7 +11,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-th iconeCS"></i>
 					</div>
-					<h4 class="titulo2">Meet DeCS</h4>
+					<h4 class="titulo2"><?php pll_e('Meet DeCS'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home1',
@@ -28,7 +28,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-envelope-open-text iconeCS"></i>
 					</div>
-					<h4 class="titulo2">Contact us</h4>
+					<h4 class="titulo2"><?php pll_e('Contact us'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home2',
@@ -45,7 +45,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-laptop-code iconeCS"></i>
 					</div>
-					<h4 class="titulo2">For Developers</h4>
+					<h4 class="titulo2"><?php pll_e('For Developers'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home3',
@@ -64,7 +64,7 @@
 </main>
 <section class="padding1 bgColor1">
 	<div class="container">
-		<h2>How to use DeCS</h2>
+		<h2><?php pll_e('How to use DeCS'); ?></h2>
 		<div id="linha"></div>
 		<div class="row">
 			<div class="col-md-5" data-aos="fade-up">
