@@ -80,7 +80,7 @@
 .inputBoxSearch input, 
 .selectBoxSearch select{
 	width: 100%;
-	height: 100%;
+	/* height: 100%; */
 	border: 0px;
 	margin-left: 10px;
 	padding: 10px;

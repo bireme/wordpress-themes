@@ -1,3 +1,4 @@
+
 <?php get_template_part('includes/topAcessibility') ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/search') ?>
@@ -11,7 +12,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-th iconeCS"></i>
 					</div>
-					<h4 class="titulo2">Meet DeCS</h4>
+					<h4 class="titulo2"><?php pll_e('Meet DeCS'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home1',
@@ -28,7 +29,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-envelope-open-text iconeCS"></i>
 					</div>
-					<h4 class="titulo2">Contact us</h4>
+					<h4 class="titulo2"><?php pll_e('Contact us'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home2',
@@ -45,7 +46,7 @@
 					<div class="homeIconeConsulta">
 						<i class="fas fa-laptop-code iconeCS"></i>
 					</div>
-					<h4 class="titulo2">For Developers</h4>
+					<h4 class="titulo2"><?php pll_e('For Developers'); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'home3',
@@ -64,25 +65,34 @@
 </main>
 <section class="padding1 bgColor1">
 	<div class="container">
-		<h2>How to use DeCS</h2>
+		<h2><?php pll_e('How to use DeCS'); ?></h2>
 		<div id="linha"></div>
 		<div class="row">
-			<div class="col-md-5" data-aos="fade-up">
-				<div class="embed-responsive embed-responsive-16by9">
-					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-Kt1pxrntys" allowfullscreen></iframe>
-				</div>
-			</div>
-			<div class="col-md-7 marginM1" data-aos="fade-down">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aliquid unde similique, reiciendis vel, molestias optio, deleniti fugit tenetur obcaecati excepturi quis fuga sint quia recusandae voluptates dignissimos repudiandae sunt.</p>
-			</div>
+			<?php 
+				$home = new WP_Query([
+					'post_type' => 'Home',
+					'orderby' => 'title',
+    				'order' => 'ASC'
+				]);
+				while($home->have_posts()):$home->the_post();
+					while(have_rows('group')):the_row(); 
+						$texto = get_sub_field('texto'); 
+						$video = get_sub_field('video'); 
+
+						?>
+					<div class="col-md-5" data-aos="fade-up">
+						<div class="embed-responsive embed-responsive-16by9">
+							<?php echo $video ?>
+						</div>
+					</div>
+					<div class="col-md-7 marginM1" data-aos="fade-down">
+						<?php echo $texto ?>
+					</div>
+				<?php endwhile;
+			endwhile;?>
 		</div>
 	</div>
 </section>
-<?php if( is_active_sidebar('home_widget') ) { ?>
-     <section class="container" id="widgetHome">
-         <?php dynamic_sidebar('home_widget'); ?>
-     </section>
-<?php } ?>
 <?php get_template_part('includes/partners') ?>
 </section>
 <?php get_footer(); ?>

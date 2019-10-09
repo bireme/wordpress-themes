@@ -44,6 +44,19 @@
 		registrar_custom_post_type();
 	}
 	function registrar_custom_post_type() {
+		//HOME
+		$home = array(
+			'name' 				=> 'Home'
+		);
+		$argsHome = array(
+			'labels' 		=> $home,
+			'public' 		=> true,
+			'hierarchical' 	=> false,
+			'menu_position' => 10,
+			'supports' 		=> array('title'),
+			'menu_icon'		=> 'dashicons-admin-home',
+		);
+		register_post_type( 'home' , $argsHome );
 		//News
 		$News = array(
 			'name' 					=> 'News',
@@ -126,8 +139,22 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
-	//Tradução
 	add_action('init', function() {
-	 pll_register_string('Search', 'Search', 'Form'); 
+		pll_register_string('Search', 'Search', 'Form'); 
+		pll_register_string('Search for:', 'Search for:', 'Text default');
+		pll_register_string('Page:', 'Page:', 'Text default');
+		pll_register_string('Term', 'Terms and conditions of use', 'Text default'); 
+		pll_register_string('Privacy policy', 'Privacy policy', 'Text default'); 
+		pll_register_string('All Descriptor Terms', 'All Descriptor Terms', 'Text default');
+		pll_register_string('Main Heading (Descriptor) Terms', 'Main Heading (Descriptor) Terms', 'Text default');
+		pll_register_string('Unique ID', 'Unique ID', 'Text default');
+		pll_register_string('Concept ID', 'Concept ID', 'Text default');
+		pll_register_string('Tree number ID', 'Tree number ID', 'Text default');
+		pll_register_string('All Qualifier Terms', 'All Qualifier Terms', 'Text default');
+		pll_register_string('Meet DeCS', 'Meet DeCS', 'Text default');
+		pll_register_string('Contact us', 'Contact us', 'Text default');
+		pll_register_string('For Developers', 'For Developers', 'Text default');
+		pll_register_string('How to use DeCS', 'How to use DeCS', 'Text default');
+		pll_register_string('Partners', 'Partners', 'Text default');
 	});
 ?>
