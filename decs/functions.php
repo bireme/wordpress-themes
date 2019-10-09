@@ -139,6 +139,7 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
+
 	add_action('init', function() {
 		pll_register_string('Search', 'Search', 'Form'); 
 		pll_register_string('Search for:', 'Search for:', 'Text default');
@@ -157,4 +158,5 @@
 		pll_register_string('How to use DeCS', 'How to use DeCS', 'Text default');
 		pll_register_string('Partners', 'Partners', 'Text default');
 	});
+
 ?>

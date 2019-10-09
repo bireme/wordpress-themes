@@ -9,14 +9,14 @@
 	<div class="container">
 		<p class="text-justify">
 			<br>
-			Página não encontrada!
+			Page not found!
 		</p>
 	</div>
 </main>
 <?php if( is_active_sidebar('home_widget') ) { ?>
-     <section class="container" id="widgetHome">
-         <?php dynamic_sidebar('home_widget'); ?>
-     </section>
+	<section class="container" id="widgetHome">
+		<?php dynamic_sidebar('home_widget'); ?>
+	</section>
 <?php } ?>
 <?php get_template_part('includes/partners') ?>
 </section>
