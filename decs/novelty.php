@@ -25,7 +25,7 @@
 					'post_type' => 'News',
 					'orderby' => 'title',
 					'order'   => 'DESC',
-					'posts_per_page' => -1
+					'posts_per_page' => -1 // remover paginação
 				));
 				$i = 0; 
 				while($News->have_posts()) : $News->the_post();
