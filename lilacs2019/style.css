@@ -1,0 +1,1273 @@
+/*
+Theme Name: LILACS - v2019
+Theme URI: http://lilacs.bvsalud.org
+Author: Ricardo de Castro - BIREME
+Author URI: https://github.com/riccastros1979
+Description: Template criado para o novo Portal LILACS Fev de 2019
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: wordpress, bvs, bireme, lilacs
+Text Domain: lilacs2018
+
+About> 
+*/
+
+/**
+ * Reseth
+ *
+ * Resetting and rebuilding styles have been helped along thanks to the fine
+ * work of Eric Meyer, Nicolas Gallagher, Jonathan Neal, and Blueprint.
+ */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: inherit;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	background: #f1f1f1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+	display: block;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+caption,
+th,
+td {
+	font-weight: normal;
+	text-align: left;
+}
+
+fieldset {
+	min-width: inherit;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	quotes: none;
+}
+
+a:focus {
+	outline: 2px solid #c1c1c1;
+	outline: 2px solid rgba(51, 51, 51, 0.3);
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+a img {
+	border: 0;
+}
+
+
+/**/
+body {
+	font-size: 15px;
+	margin: 0px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	
+}
+
+.spacer {
+	width: 100%;
+	height: 1px;
+	clear: both;
+} 
+
+.container {
+}
+
+.bar {
+	background: #455f78;
+	color: #FFF;
+	padding: 3px 0px;
+}
+.bar a {
+	color: #FFF;
+	font-size: 80%;
+}
+
+.BarInner .col-6.text-right ul li {
+    display: inline;
+    margin: 0px 0px;
+    border-left: 1px solid;
+    padding: 0px 10px;
+}
+.BarInner .col-6.text-right ul li:first-child {
+	border: none;
+}
+
+.bvs_logo img, .lilacs_logo img {max-height: 100px !important;}
+
+.bvs_logo img{margin-right: 30px;}
+.header {
+	padding: 5px;
+}
+
+.site_info {
+	display: none;
+}
+ .header a.lilacs_logo img {
+	 max-width: 100%;
+ }
+
+ .institutional a {
+	 width: 460px;
+	 height: 52px;
+	 float: right;
+	 background-repeat: no-repeat;
+	 margin-top: 20px;
+	background-image: url("images/logo_bir_pt.png");
+ }
+.site_pt .institutional a {
+	background-image: url("images/logo_bir_pt.png");
+ }
+.site_es .institutional a {
+	background-image: url("images/logo_bir_es.png");
+ }
+.site_en .institutional a {
+	background-image: url("images/logo_bir_en.png");
+ }
+ .institutional a span {
+	 display: none;
+ }
+ 
+.header_menu,
+.home_panels {
+	 padding: 0px;
+ }
+.breadcrumb {
+	background: none;
+}
+
+ .highlight {
+	 min-height: 358px;
+}
+ 
+ .presentation_message {
+	 font-family: "Trebuchet MS", Helvetica, sans-serif;
+	 font-weight: bold;
+	 font-size: 25px;
+	 padding-top: 20px;
+	 text-align: center;
+	 
+ }
+ .presentation_message p {
+	color: #fff;
+	text-shadow: 3px 3px 0px #004D9D, 
+				-1px -1px 0 #004D9D, 
+				1px -1px 0 #004D9D, 
+				-1px 1px 0 #004D9D, 
+				1px 1px 0 #004D9D;
+	font-size: 30px;
+	padding: 20px;
+}
+ .home_panels .panel-grid {
+		margin: 0px !important;
+ }
+ 
+ /* SearchBox */
+ 
+ .search_box {
+	 padding-right: 20px;
+ }
+ 
+ 
+ .s003 {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.s003 form {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.s003 form .inner-form {
+  background-color: #fff;
+  /*
+  background-color: rgba(255, 255, 255, 0.75);
+  */
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.s003 form .inner-form .input-field {
+  height: 60px;
+}
+
+.s003 form .inner-form .input-field input {
+  height: 100%;
+  background: transparent;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: #555;
+}
+
+.s003 form .inner-form .input-field input.placeholder {
+  color: #888;
+  font-size: 16px;
+}
+
+.s003 form .inner-form .input-field input:-moz-placeholder {
+  color: #888;
+  font-size: 16px;
+}
+
+.s003 form .inner-form .input-field input::-webkit-input-placeholder {
+  color: #888;
+  font-size: 16px;
+}
+
+.s003 form .inner-form .input-field input:hover, .s003 form .inner-form .input-field input:focus {
+  box-shadow: none;
+  outline: 0;
+  border-color: #fff;
+}
+
+.s003 form .inner-form .input-field.first-wrap {
+  width: 200px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__inner {
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  height: 100%;
+  color: #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 10px 30px;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__inner .choices__list.choices__list--single {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__inner .choices__item.choices__item--selectable.choices__placeholder {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+  opacity: 1;
+  color: #888;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__inner .choices__list--single .choices__item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+  color: #555;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices[data-type*="select-one"]:after {
+  right: 30px;
+  border-color: #e5e5e5 transparent transparent transparent;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__list.choices__list--dropdown {
+  border: 0;
+  background: #fff;
+  padding: 20px 30px;
+  margin-top: 2px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__list.choices__list--dropdown .choices__item--selectable {
+  padding-right: 0;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background: #fff;
+  color: #63c76a;
+}
+
+.s003 form .inner-form .input-field.first-wrap .choices__list--dropdown .choices__item {
+  color: #555;
+  min-height: 24px;
+}
+
+.s003 form .inner-form .input-field.second-wrap {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+}
+
+.s003 form .inner-form .input-field.third-wrap {
+  width: 63px;
+  font-size: 32px;
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-search {
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  background: #1d93d1;
+  transition: all .2s ease-out, color .2s ease-out;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-search svg {
+  width: 16px;
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-search:hover {
+  background: #0e6a9a;
+}
+
+.s003 form .inner-form .input-field.third-wrap .btn-search:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.search_options {
+	font-size: 100%;
+	margin-top: 10px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.search_options a {
+	color: #fff;
+	text-decoration: underline;
+	/*
+	background-color: rgba(255, 255, 255, 0.75);
+	*/
+	padding: 3px;
+}
+
+/* Números destacados */
+.numbers {
+	font-weight: bold;
+	font-size: 30px;
+	color: #fff;
+    text-shadow: 2px 2px 0px #004D9D, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    padding: 20px;
+}
+
+.numbers a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.numbers a:hover {
+	text-shadow: 3px 3px 0px #05337d, -2px -2px 0 #05337d, 2px -2px 0 #05337d, -2px 2px 0 #05337d, 2px 2px 0 #05337d;
+
+text-decoration: none;
+}
+
+.numbers span.count {
+}
+
+.numbers p {
+	border-radius: 10px 0px;
+	margin: 0px 25px;
+}
+/* Cards Area */
+.cell_card {
+	margin: 15px 0px 15px 0px;
+	padding: 10px;
+	/*
+	border: 2px solid #304689;
+	border-radius: 10px;
+	*/
+	text-align: center;
+	font-size: 14px;
+	line-height: 16px;
+	height: 185px !important;
+}
+
+.cell_card .widget_media_image  {
+	margin: 0px 0px 10px 0px !important;
+}
+
+.cell_card .card_label {
+	color: #304689;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.cell_card .card_label a {
+	color: #ff6600;
+}
+
+
+h3.widget-title, h3.widget-title a {
+	font-size: 23px;
+	color: #304689;
+}
+
+.level-3 {
+	margin-top: 30px;
+	font-weight: bold;
+}
+
+h3 a.rsswidget img {
+	display: none;
+}
+
+.widget .widget_rss h3 a:last-child {
+	background: url("images/rss.gif") right 3px no-repeat;
+	padding-right: 25px;
+}
+
+.widget_rss ul li a {
+	font-size: 15px;
+	color: #304689;
+	line-height: 22px;
+} 
+.widget_rss ul li .rssSummary {
+	color: #323232;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.widget_rss ul li {
+	margin: 10px 5px 0px 5px;
+	border-bottom: 1px solid #ffc10754;
+    font-weight: normal;
+}
+.widget_rss ul {
+	padding: 5px;
+    border: 1px solid #ffc107;
+}
+.level-3 {
+	padding: 0px 20px;
+	margin-bottom: 20px;
+}
+.level-3 .so-panel.widget.widget_sow-editor.panel-first-child {
+	margin-bottom: none !important;
+}
+.slider01 .caption {
+	font-size: 13px;
+}
+.about_title {
+	padding: 0px 20px; 
+	margin-top: 5px;
+}
+.about_title h3 {
+	color: #FFFFFF;
+}
+.about_bg {
+	border-top: 8px solid #fe8404;
+}
+
+.about h3, .about h3 a {
+	color: #FFFFFF;
+}
+
+.about {
+	padding: 10px 20px;
+}
+
+.about .widget {
+	background: url("images/bg_80.png");
+	margin: 15px !important;
+}
+
+.about .widget h3 {
+	border-left: 15px solid;
+	padding: 2px 2px 2px 10px;
+}
+
+.about img {
+	max-width: 100%;
+	height: auto;
+}
+
+.about .box_mission h3 { 
+	border-color: #952d1e;
+}
+
+.about .box_objectives h3 { 
+	border-color: #547722;
+}
+
+.about .box_contents h3 { 
+	border-color: #9e8bba;
+}
+
+.about .box_methodology h3 { 
+	border-color: #e5ed0f;
+}
+
+.about .box_standards h3 { 
+	border-color: #7b407a;
+}
+
+.about .box_seeMore h3 { 
+	border-color: #ff6f61;
+}
+
+.about .box_network h3 { 
+	border-color: #ee5400;
+}
+
+.about .box_network .siteorigin-widget-tinymce.textwidget { 
+	padding: 15px;
+}
+
+
+.about .siteorigin-widget-tinymce.textwidget {
+	padding: 5px;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+
+.about ul {
+	margin-left: 20px;
+}
+.about ul li {
+	list-style: disc;
+	margin: 10px 0px;
+}
+
+.partners {
+   text-align: center;
+    clear: both;
+}
+
+.box_mission {
+    padding: 30px 300px 30px 0px;
+    color: #30459e;
+    line-height: 190%;
+
+}
+.box_mission h3 {
+    color: #ff6600;
+	font-size: 200%;
+	margin-bottom: 20px;
+}
+
+.box_mission .btn.btn-primary {
+    font-size: 16px;
+    margin-top: 20px;
+}
+.partners span {
+    border-bottom: 2px solid #fe8404;
+    width: 100%;
+    display: -webkit-box;
+    font-size: 150%;
+    color: #fe8404;
+}
+
+.partners li {
+    display: inline-table;
+    margin: 20px 30px;
+
+}
+.aboutMegaMenu .textwidget {
+    font-size: 120% !important;
+
+}
+
+.formcontato .btn-primary, .formcontato {
+	font-size: 120%;
+}
+.container .panel-row-style{padding: 0px !important;}
+ul.thematics,
+ul.centralAmerica,
+ul.southAmerica,
+ul.northAmerica,
+ul.Caribe {
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
+.continentTitle {
+	font-size: 150%;
+	font-weight: bold;
+
+}
+
+.country {
+	margin-left: 10px;
+	margin-top: 5px;
+}
+.countryName {
+	font-weight: bold;
+	display: block;
+}
+
+.center {
+	padding-left: 10px;
+	display: block;
+}
+footer .container {
+	padding: 20px;
+}
+
+footer {
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.single_post .container {
+	padding: 10px 30px;
+}
+
+.single_post h2 {
+	color: #134ba1; 
+	border-bottom: 2px solid #134ba1;
+	font-size: 22px;
+}
+
+.single_post .entry {
+	border-bottom: 2px solid #134b1
+}
+.single_post .entry p {
+	margin: 10px 0px;
+}
+
+.single_post .entry p:first-child {
+}
+
+.single_post .entry h2 {
+	border: none;
+}
+
+
+
+.mobile {
+	display: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+}
+
+ul.list-disc {
+	list-style: disc;
+	margin-left: 25px;
+}
+
+strong {
+	font-weight: bold;
+}
+/* Pages and posts styles (paragraphs, lists, bloquotes etc. */
+
+.single_post ol,
+.single_post ul {
+	margin-left: 25px;
+	}
+.single_post ul {
+	list-style: disc;
+}
+.single_post ol {
+	list-style: decimal;
+}
+.single_post blockquote {
+	border-left: 7px solid #dedede;
+	margin-left: 20px;
+	font-style: italic;
+	padding: 2px 15px;
+}
+.single_post .entry h1,
+.single_post .entry h2,
+.single_post .entry h3,
+.single_post .entry h4,
+.single_post .entry h5,
+.single_post .entry h6 {
+	clear: both !important;
+    font-weight: bold;
+    color: #134bac;
+    margin-top: 25px;
+
+}
+.single_post .entry h1 {
+	font-size: 150%;
+}
+.single_post .entry h2 {
+	font-size: 140%;
+}
+.single_post .entry h3 {
+	font-size: 130%;
+}
+.single_post .entry h4 {
+	font-size: 120%;
+}
+.single_post .entry h5 {
+	font-size: 110%;
+}
+.single_post .entry h6 {
+	font-size: 105%;
+}
+.single_post strong {
+	font-weight: bold;
+}
+.single_post em {
+	font-style: italic;
+}
+
+
+
+/* == WordPress WYSIWYG Editor Styles == */
+	.entry-content img {
+		margin: 0 0 1.5em 0;
+		}
+	.alignleft, img.alignleft {
+		margin-right: 1.5em;
+		display: inline;
+		float: left;
+		}
+	.alignright, img.alignright {
+		margin-left: 1.5em;
+		display: inline;
+		float: right;
+		}
+	.aligncenter, img.aligncenter {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		clear: both;
+		}
+	.alignnone, img.alignnone {
+		/* not sure about this one */
+		}
+	.wp-caption {
+		margin-bottom: 1.5em;
+		text-align: center;
+		padding-top: 5px;
+		}
+	.wp-caption img {
+		border: 0 none;
+		padding: 0;
+		margin: 0;
+		}
+	.wp-caption p.wp-caption-text {
+		line-height: 1.5;
+		font-size: 10px;
+		margin: 0;
+		}
+	.wp-smiley {
+		margin: 0 !important;
+		max-height: 1em;
+		}
+	blockquote.left {
+		margin-right: 20px;
+		text-align: right;
+		margin-left: 0;
+		width: 33%;
+		float: left;
+		}
+	blockquote.right {
+		margin-left: 20px;
+		text-align: left;
+		margin-right: 0;
+		width: 33%;
+		float: right;
+		}
+	.gallery dl {}
+	.gallery dt {}
+	.gallery dd {}
+	.gallery dl a {}
+	.gallery dl img {}
+	.gallery-caption {}
+
+	.size-full {}
+	.size-large {}
+	.size-medium {}
+	.size-thumbnail {}
+
+/* Mobile version CSS  */
+@media only screen and (max-width: 1199px) {
+	.header a.lilacs_logo {
+		 width: 80px;
+		 height: 80px;
+		 margin: 0 auto;
+		 background-image: url("images/logo_80px.jpg");
+	 }
+	 .site_name {
+		font-size: 35px;
+		margin-top: 0px;
+	 }
+	 .site_description {
+		 font-size: 12px;
+	 }
+	 .institutional a {
+		 margin-top: 10px;
+	 }
+	 .slider01 {
+		width: 530px;
+		margin: 0 auto;
+	}
+	 
+}
+@media only screen and (max-width: 991px) {
+	.level-3 .panel-grid-cell,
+	.about .panel-grid-cell {
+		margin: 0px !important;
+		width: 100% !important;
+	}
+	/*
+	#pg-w5c51f8d3b5d91-0.panel-no-style,
+	#pg-w5c51f8d3b5d91-0.panel-has-style > .panel-row-style, 
+	#pg-w5c51f8d3b5d91-1.panel-no-style, 
+	#pg-w5c51f8d3b5d91-1.panel-has-style > .panel-row-style {
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	
+	.about .panel-no-style, .about .panel-has-style > .panel-row-style {
+		-webkit-flex-direction: column !important;
+		-ms-flex-direction: column !important;
+		flex-direction: column !important;
+	}
+	.about .panel-grid-cell .widget {
+		margin: 10px 0px 0px 0px !important;
+	}*/
+	.about {
+		background: url("images/bg-about-720.jpg") bottom left !important;
+	}
+
+}
+
+
+
+@media only screen and (max-width: 780px) {
+	.mobile {
+		display: block;
+		text-align: center;
+		margin-bottom: 10px;
+	}  
+	img {
+		max-width: 100%;
+		height: auto;
+	} 
+	.institutional {
+		display: none;
+	}
+	.highlight {
+	}
+	
+	.presentation_message {
+		height: auto;
+		font-size: 22px;
+		padding: 10px;
+	}
+	.s003 {
+		margin-top: 0px;
+	}
+	.numbers .panel-grid-cell {
+		margin: 5px !important;
+	}
+	
+	.panel-layout .panel-grid-cell .cell_card {
+		max-width: 200px;
+		margin: 0 auto;
+	}
+	.panel-layout .container {
+		padding: 10px;
+	}
+	.box_mission{
+    padding: 30px 30px 30px 0px;
+
+}
+
+
+}
+@media only screen and (max-width: 576px) {
+	.slider01 {
+		width: 260px;
+		margin: 0 auto;
+	}
+	.presentation_message {
+		font-size: 18px;
+	}
+}
+
+.servplat-login a {
+	color: #FFF;
+}
+.servplat-login .bootstrap-iso .well {
+    border: none;
+    padding: 0px;
+    text-align: left;
+    background: no-repeat;
+	-webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.well.link.logged p {
+	border: none;
+    float: left;
+    margin-right: 15px;
+}
+
+.well.link.logged a {
+    color: #FFF !important;
+}
+
+.well.link a {
+    color: #FFF;
+}
+
+
+/***** FLAGS *******/
+li.country {
+    padding-left: 35px;
+    background-size: 30px auto;
+    background-repeat: no-repeat;
+}
+.redAD {background-image: url("images/flags/ad.png")}
+.redAE {background-image: url("images/flags/ae.png")}
+.redAF {background-image: url("images/flags/af.png")}
+.redAG {background-image: url("images/flags/ag.png")}
+.redAL {background-image: url("images/flags/al.png")}
+.redAM {background-image: url("images/flags/am.png")}
+.redAO {background-image: url("images/flags/ao.png")}
+.redAR {background-image: url("images/flags/ar.png")}
+.redAT {background-image: url("images/flags/at.png")}
+.redAU {background-image: url("images/flags/au.png")}
+.redAZ {background-image: url("images/flags/az.png")}
+.redBA {background-image: url("images/flags/ba.png")}
+.redBB {background-image: url("images/flags/bb.png")}
+.redBD {background-image: url("images/flags/bd.png")}
+.redBE {background-image: url("images/flags/be.png")}
+.redBF {background-image: url("images/flags/bf.png")}
+.redBG {background-image: url("images/flags/bg.png")}
+.redBH {background-image: url("images/flags/bh.png")}
+.redBI {background-image: url("images/flags/bi.png")}
+.redBJ {background-image: url("images/flags/bj.png")}
+.redBN {background-image: url("images/flags/bn.png")}
+.redBO {background-image: url("images/flags/bo.png")}
+.redBR {background-image: url("images/flags/br.png")}
+.redBS {background-image: url("images/flags/bs.png")}
+.redBT {background-image: url("images/flags/bt.png")}
+.redBW {background-image: url("images/flags/bw.png")}
+.redBY {background-image: url("images/flags/by.png")}
+.redBZ {background-image: url("images/flags/bz.png")}
+.redCA {background-image: url("images/flags/ca.png")}
+.redCD {background-image: url("images/flags/cd.png")}
+.redCF {background-image: url("images/flags/cf.png")}
+.redCG {background-image: url("images/flags/cg.png")}
+.redFLAGSCH {background-image: url("images/flagsch.png")}
+.redCI {background-image: url("images/flags/ci.png")}
+.redCL {background-image: url("images/flags/cl.png")}
+.redCM {background-image: url("images/flags/cm.png")}
+.redCN {background-image: url("images/flags/cn.png")}
+.redCO {background-image: url("images/flags/co.png")}
+.redCR {background-image: url("images/flags/cr.png")}
+.redCU {background-image: url("images/flags/cu.png")}
+.redCV {background-image: url("images/flags/cv.png")}
+.redCY {background-image: url("images/flags/cy.png")}
+.redCZ {background-image: url("images/flags/cz.png")}
+.redDE {background-image: url("images/flags/de.png")}
+.redDJ {background-image: url("images/flags/dj.png")}
+.redDK {background-image: url("images/flags/dk.png")}
+.redDM {background-image: url("images/flags/dm.png")}
+.redDO {background-image: url("images/flags/do.png")}
+.redDZ {background-image: url("images/flags/dz.png")}
+.redEC {background-image: url("images/flags/ec.png")}
+.redEE {background-image: url("images/flags/ee.png")}
+.redEG {background-image: url("images/flags/eg.png")}
+.redEH {background-image: url("images/flags/eh.png")}
+.redER {background-image: url("images/flags/er.png")}
+.redES {background-image: url("images/flags/es.png")}
+.redET {background-image: url("images/flags/et.png")}
+.redFI {background-image: url("images/flags/fi.png")}
+.redFJ {background-image: url("images/flags/fj.png")}
+.redFM {background-image: url("images/flags/fm.png")}
+.redFR {background-image: url("images/flags/fr.png")}
+.redGA {background-image: url("images/flags/ga.png")}
+.redGB {background-image: url("images/flags/gb.png")}
+.redGD {background-image: url("images/flags/gd.png")}
+.redGE {background-image: url("images/flags/ge.png")}
+.redGH {background-image: url("images/flags/gh.png")}
+.redGM {background-image: url("images/flags/gm.png")}
+.redGN {background-image: url("images/flags/gn.png")}
+.redGQ {background-image: url("images/flags/gq.png")}
+.redGR {background-image: url("images/flags/gr.png")}
+.redGT {background-image: url("images/flags/gt.png")}
+.redGW {background-image: url("images/flags/gw.png")}
+.redGY {background-image: url("images/flags/gy.png")}
+.redHN {background-image: url("images/flags/hn.png")}
+.redHR {background-image: url("images/flags/hr.png")}
+.redHT {background-image: url("images/flags/ht.png")}
+.redHU {background-image: url("images/flags/hu.png")}
+.redID {background-image: url("images/flags/id.png")}
+.redIE {background-image: url("images/flags/ie.png")}
+.redIL {background-image: url("images/flags/il.png")}
+.redIN {background-image: url("images/flags/in.png")}
+.redIQ {background-image: url("images/flags/iq.png")}
+.redIR {background-image: url("images/flags/ir.png")}
+.redIS {background-image: url("images/flags/is.png")}
+.redIT {background-image: url("images/flags/it.png")}
+.redJM {background-image: url("images/flags/jm.png")}
+.redJO {background-image: url("images/flags/jo.png")}
+.redJP {background-image: url("images/flags/jp.png")}
+.redKE {background-image: url("images/flags/ke.png")}
+.redKG {background-image: url("images/flags/kg.png")}
+.redKH {background-image: url("images/flags/kh.png")}
+.redKI {background-image: url("images/flags/ki.png")}
+.redKM {background-image: url("images/flags/km.png")}
+.redKN {background-image: url("images/flags/kn.png")}
+.redKP {background-image: url("images/flags/kp.png")}
+.redKR {background-image: url("images/flags/kr.png")}
+.redKS {background-image: url("images/flags/ks.png")}
+.redKW {background-image: url("images/flags/kw.png")}
+.redKZ {background-image: url("images/flags/kz.png")}
+.redLA {background-image: url("images/flags/la.png")}
+.redLB {background-image: url("images/flags/lb.png")}
+.redLC {background-image: url("images/flags/lc.png")}
+.redLI {background-image: url("images/flags/li.png")}
+.redLK {background-image: url("images/flags/lk.png")}
+.redLR {background-image: url("images/flags/lr.png")}
+.redLS {background-image: url("images/flags/ls.png")}
+.redLT {background-image: url("images/flags/lt.png")}
+.redLU {background-image: url("images/flags/lu.png")}
+.redLV {background-image: url("images/flags/lv.png")}
+.redLY {background-image: url("images/flags/ly.png")}
+.redMA {background-image: url("images/flags/ma.png")}
+.redMC {background-image: url("images/flags/mc.png")}
+.redMD {background-image: url("images/flags/md.png")}
+.redMR {background-image: url("images/flags/me.png")}
+.redMG {background-image: url("images/flags/mg.png")}
+.redMH {background-image: url("images/flags/mh.png")}
+.redMK {background-image: url("images/flags/mk.png")}
+.redML {background-image: url("images/flags/ml.png")}
+.redMM {background-image: url("images/flags/mm.png")}
+.redMN {background-image: url("images/flags/mn.png")}
+.redMR{background-image: url("images/flags/mr.png")}
+.redMT {background-image: url("images/flags/mt.png")}
+.redMU {background-image: url("images/flags/mu.png")}
+.redMV {background-image: url("images/flags/mv.png")}
+.redMW {background-image: url("images/flags/mw.png")}
+.redMX {background-image: url("images/flags/mx.png")}
+.redMY {background-image: url("images/flags/my.png")}
+.redMZ {background-image: url("images/flags/mz.png")}
+.redNA {background-image: url("images/flags/na.png")}
+.redNE {background-image: url("images/flags/ne.png")}
+.redNG {background-image: url("images/flags/ng.png")}
+.redNI {background-image: url("images/flags/ni.png")}
+.redNL {background-image: url("images/flags/nl.png")}
+.redNO {background-image: url("images/flags/no.png")}
+.redNP {background-image: url("images/flags/np.png")}
+.redNR {background-image: url("images/flags/nr.png")}
+.redNZ {background-image: url("images/flags/nz.png")}
+.redOM {background-image: url("images/flags/om.png")}
+.redPA {background-image: url("images/flags/pa.png")}
+.redPE {background-image: url("images/flags/pe.png")}
+.redPG {background-image: url("images/flags/pg.png")}
+.redPH {background-image: url("images/flags/ph.png")}
+.redPK {background-image: url("images/flags/pk.png")}
+.redPL {background-image: url("images/flags/pl.png")}
+.redPT {background-image: url("images/flags/pt.png")}
+.redPW {background-image: url("images/flags/pw.png")}
+.redPY {background-image: url("images/flags/py.png")}
+.redQA {background-image: url("images/flags/qa.png")}
+.redRO {background-image: url("images/flags/ro.png")}
+.redRS {background-image: url("images/flags/rs.png")}
+.redRU {background-image: url("images/flags/ru.png")}
+.redRW {background-image: url("images/flags/rw.png")}
+.redSA {background-image: url("images/flags/sa.png")}
+.redSB {background-image: url("images/flags/sb.png")}
+.redSC {background-image: url("images/flags/sc.png")}
+.redSD {background-image: url("images/flags/sd.png")}
+.redSE {background-image: url("images/flags/se.png")}
+.redSG {background-image: url("images/flags/sg.png")}
+.redSI {background-image: url("images/flags/si.png")}
+.redSK {background-image: url("images/flags/sk.png")}
+.redSL {background-image: url("images/flags/sl.png")}
+.redSM {background-image: url("images/flags/sm.png")}
+.redSN {background-image: url("images/flags/sn.png")}
+.redSO {background-image: url("images/flags/so.png")}
+.redSR {background-image: url("images/flags/sr.png")}
+.redST {background-image: url("images/flags/st.png")}
+.redSV {background-image: url("images/flags/sv.png")}
+.redSY {background-image: url("images/flags/sy.png")}
+.redSZ {background-image: url("images/flags/sz.png")}
+.redTD {background-image: url("images/flags/td.png")}
+.redTG {background-image: url("images/flags/tg.png")}
+.redTH {background-image: url("images/flags/th.png")}
+.redTJ {background-image: url("images/flags/tj.png")}
+.redTL {background-image: url("images/flags/tl.png")}
+.redTM {background-image: url("images/flags/tm.png")}
+.redTN {background-image: url("images/flags/tn.png")}
+.redTO {background-image: url("images/flags/to.png")}
+.redTR {background-image: url("images/flags/tr.png")}
+.redTT {background-image: url("images/flags/tt.png")}
+.redTV {background-image: url("images/flags/tv.png")}
+.redTW {background-image: url("images/flags/tw.png")}
+.redTZ {background-image: url("images/flags/tz.png")}
+.redUA {background-image: url("images/flags/ua.png")}
+.redUG {background-image: url("images/flags/ug.png")}
+.redUS {background-image: url("images/flags/us.png")}
+.redUY {background-image: url("images/flags/uy.png")}
+.redUZ {background-image: url("images/flags/uz.png")}
+.redVA {background-image: url("images/flags/va.png")}
+.redVC {background-image: url("images/flags/vc.png")}
+.redVE {background-image: url("images/flags/ve.png")}
+.redVN {background-image: url("images/flags/vn.png")}
+.redVU {background-image: url("images/flags/vu.png")}
+.redWS {background-image: url("images/flags/ws.png")}
+.redYE {background-image: url("images/flags/ye.png")}
+.redZA {background-image: url("images/flags/za.png")}
+.redZM {background-image: url("images/flags/zm.png")}
+.redZW {background-image: url("images/flags/zw.png")}
+.redEnfermagem {background-image: url("images/flags/xxenfermagem.png")}
+.redOdonto {background-image: url("images/flags/xxodontologia.png")}
+.redPsico {background-image: url("images/flags/xxpsicologia.png")}
+
+.timeline-TweetList-tweet.customisable-border {
+    width: 33% !important;
+    float: inline-start !important;
+    font-size: 15px !important;
+}
+
+.timeline-Tweet-text {
+    font-size: 20px !important;
+    line-height: 22px !important;
+}
+
+.site_pt .link_es,
+.site_pt .link_en {
+	display: none;
+}
+.site_en .link_es,
+.site_en .link_pt {
+	display: none;
+}
+.site_es .link_pt,
+.site_es .link_en {
+	display: none;
+}
+
+.network_list ul {
+	list-style: none;
+}
+.social {
+	margin-top: 15px;
+}
+
+.social a.social_Link {
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    background: url(images/social.png) no-repeat;
+}
+
+.social a.social_Link:hover {
+    filter: brightness(7);
+}
+
+.social a.social_Link span {
+	display: none;
+}
+
+.twitter_social {
+	background-position: 0px -57px !important;
+}
+
+.facebook_social {
+	background-position: -72px -57px !important;
+}
+
+.youtube_social {
+	background-position: -145px 0px !important;    
+}
+
+.instagram_social {
+	background-position: -145px -57px !important;
+}
+
+.iheu-data{background: #eeeeee !important;}
+
+.iheu-data li{list-style:none !important; border-bottom: 1px solid #dadada !important;}
+
+.iheu-data li a{color: #304689 !important;}
+
+.iheu-data li:hover{background: #e8e4e4!important;}
+
+.iheu-info{ background: #eeeeee !important; display: block !important; overflow-y:auto !important; overflow-x:hidden !important; z-index:100;}
+
+.iheu-data h3, .iheu-data h3 a{color: #fe8404 !important;}
+
+.rss h3, .rss h3.widget-title a{    font-size: 120%; color: #fe8404;   }
+
+.apagar {display: none !important;}
