@@ -380,6 +380,9 @@ label{
 }
 /************** Breakpoint ****************/
 @media (max-width: 768px){
+	#logosSecond img{
+		max-width: 100%;
+	}
 	#busca{
 		position: static;
 	}

@@ -24,7 +24,8 @@
 				$News = new WP_Query(array(
 					'post_type' => 'News',
 					'orderby' => 'title',
-					'order'   => 'DESC'
+					'order'   => 'DESC',
+					'posts_per_page' => -1
 				));
 				$i = 0; 
 				while($News->have_posts()) : $News->the_post();
@@ -51,8 +52,3 @@
 	</div>
 </main>
 <?php get_footer(); ?>
-
-
-
-
-
