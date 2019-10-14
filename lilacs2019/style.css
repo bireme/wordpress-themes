@@ -613,11 +613,13 @@ h3 a.rsswidget img {
 }
 
 .box_mission {
-    padding: 30px 300px 30px 0px;
+    padding: 30px 50px 30px 0px;
     color: #30459e;
     line-height: 190%;
 
 }
+
+.twitter{padding-top:30px !important;}
 .box_mission h3 {
     color: #ff6600;
 	font-size: 200%;
