@@ -47,8 +47,8 @@ $home = new WP_Query([
 							<?php echo $sub_title ?>
 						</h4>
 						<span id="iconStore">
-							<a href="#" data-toggle="modal" data-target="#googlePlay"><img src="<?php bloginfo('template_directory') ?>/img/googleplay.png" alt=""></a>
-							<a href="#" data-toggle="modal" data-target="#appleStore"><img src="<?php bloginfo('template_directory') ?>/img/applestore.png" alt=""></a>
+							<a href="#" data-toggle="modal" data-target="#googlePlay"><img src="<?php bloginfo('template_directory') ?>/img/googlePlay.png" alt=""></a>
+							<a href="#" data-toggle="modal" data-target="#appleStore"><img src="<?php bloginfo('template_directory') ?>/img/appleStore.png" alt=""></a>
 						</span>
 						<div class="text-center">
 							<br><a href="" data-toggle="modal" data-target="#countriesM"><?php pll_e('See more interested countries'); ?></a>
