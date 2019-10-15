@@ -1,0 +1,194 @@
+*{
+	font-family: 'Abel', sans-serif;
+}
+.container{
+	overflow: hidden;
+}
+.font20{
+	font-size: 20px;
+}
+.padding50{
+	padding: 50px;
+}
+.icons{
+	max-width: 80px; 
+	margin-bottom: 20px;
+}
+#header{
+	background: #eee url('../img/bgCinza.jpg') center top no-repeat;
+	background-attachment: fixed;
+	min-height: 550px;
+	position: relative;
+}
+#lang{
+	font-size: 16px;
+	text-align: center;
+	margin-top: 5px;
+}
+	#lang ul{
+		list-style: none;
+		padding: 0;
+	}
+		#lang ul li{
+			display: inline-block;
+			margin: 0px 5px;
+		}
+		#lang ul li a{
+			color: #000;
+		}
+#logoSite{
+	height: 100px;
+}
+#standoutTitulo{
+	padding-top: 20px;
+}
+#standoutTitulo h2{
+	font-family: 'Francois One', sans-serif;
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#standoutTitulo h4{
+	margin-bottom: 20px;
+}
+#man{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 100%;
+}
+#woman{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+}
+#iconStore img{
+	max-height: 50px;
+}
+#iconStore img:hover{
+	opacity: .8;
+}
+#bgGray{
+	font-size: 25px;
+	background-image: linear-gradient(to bottom right, #bbb, #1a547f);
+	color: #fff;
+}
+#bgBlue{
+	background: #1a547f;
+	color: #fff;
+	padding: 70px;
+}
+.boxIcons img{
+	max-width: 60px; 
+	margin-top: 10px;
+	margin-bottom: 30px;
+	transition: margin 1s ease;
+}
+.boxIcons:hover img{
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+#countries{
+	background: #173f5d;
+	color: #fff;
+	padding: 30px;
+	text-align: center;
+	font-size: 30px;
+}
+	#countries a{
+		color: #fff;
+	}
+	#countries a:hover{
+		color: #ff0;
+		text-decoration: none;
+	}
+#dataCountries{
+	background-color: #ddd;
+	padding: 50px;
+}
+	#dataCountries li{
+		list-style: none;
+	}
+#footer{
+	/* border-top: 5px #1a547f solid; */
+	padding: 30px 0 20px 0;
+}
+	#footer img{
+		max-width: 500px;
+	}
+#imgMobile{
+	animation: mobile 5s infinite;
+}
+
+/************** Internas **************/
+#headerIn{
+	background: #eee;
+	padding: 20px;
+	position: relative;
+}
+	#headerIn #lang{
+		text-align: right;
+	}
+	#headerIn #nav{
+		text-align: right;
+	}
+		#headerIn #nav ul{
+			list-style: none;
+		}
+			#headerIn #nav ul li{
+				display: inline-block;
+			}
+				#headerIn #nav ul li a{
+					font-weight: bold;
+					font-size: 20px;
+					color: #00408e;
+					padding-left: 10px;
+				}
+/************* Breakpoint *************/
+@media (max-width: 1300px){
+	#man{left: -50px;}
+	#woman{right: -80px;}
+}
+@media (max-width: 1200px){
+	#header{min-height: 420px;}
+	#standoutTitulo{padding-top: 0px;}
+	#standoutTitulo h2{font-size: 22px;	margin-bottom: 10px;}
+	#standoutTitulo h4{font-size: 18px;	margin-bottom: 10px;}
+	#man img, #woman img{height: 420px;}
+	#logoSite{height: auto; width: 80%;}
+	#woman{right: -70px;}
+	#man{left: -70px;}
+}
+@media (max-width: 900px){
+	#standoutTitulo h2{font-size: 20px;}
+	#standoutTitulo h4{font-size: 16px;}
+	#imgMobile img{width: 100%; text-align: center;}
+	#footer img{width: 80%; text-align: center;}
+	#iconStore img{max-width: 45%;}
+	#bgGray{font-size: 20px;}
+}
+@media (max-width: 768px){
+	.padding50, #standoutTitulo, #bgBlue, #footer{padding: 20px;}
+	#header, #footer{text-align: center;}
+	#mainTitle{ font-size: 20px; text-align: center; }
+	#footer img{width: 80%; text-align: center;}
+	#man, #woman{display: none;}
+	#logoSite{height: auto; width: 100%;}
+	#bgGray{padding: 50px; font-size: 20px;}
+	#logoOPAS{text-align: center!important; margin-top: 20px;}
+}
+@media (max-width: 600px){
+}
+/************* keyframe *************/
+@keyframes mobile{
+	0% {margin-left: -20px; margin-right: 0;}
+	50% {margin-left: 0px; margin-right: -20px;}
+	100% {margin-left: -20px; margin-right: 0;}
+}
+/*correções svg Internet Explorer Edge*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	img[src$=".svg"]{
+		width: 100%; 
+	}
+}

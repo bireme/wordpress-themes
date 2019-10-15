@@ -1,0 +1,48 @@
+#barAcessibilidade{background: #1a547f; color: #fff; padding: 6px 0; font-size: 12px; }
+#barAcessibilidade a{color: #fff; text-decoration: none;}
+#barAcessibilidade a:hover{color: #ddd;}
+#acessibilidadeFontes{text-align: right;}
+#acessibilidadeFontes a{ padding: 0 5px; cursor: pointer;}
+#acessibilidadeTutorial a{ margin-left: 10px;}
+#acessibilidadeTutorial span{ background-color: #ddd; color: #000; padding: 0 5px;}
+#acessibilidadeTutorial a:hover span{ background-color: #fff;}
+::selection {background-color: #333; color: #FF0;}
+/********************** Contraste *****************/
+.bodyBlack{background: #000; color: #fff;}
+.bodyBlack ::selection {background-color: #FF0; color: #000;}
+.bodyBlack .imgBlack{background: #fff;}
+.bodyBlack a{color: #ff0!important;}
+.bodyBlack #nav, .bodyBlack #barAcessibilidade
+{background: #666;}
+/*formatação diversas*/
+.padding1{padding-top: 30px; padding-bottom: 30px;}
+.bodyBlack input[type=text], .bodyBlack input[type=password], .bodyBlack input[type=url],
+.bodyBlack input[type=search], .bodyBlack input[type=email], .bodyBlack input[type=tel],
+.bodyBlack input[type=date], .bodyBlack input[type=month], .bodyBlack input[type=week],
+.bodyBlack input[type=datetime], .bodyBlack input[type=datetime-local],
+.bodyBlack textarea, .bodyBlack select,
+.bodyBlack input[type=number] {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+/****************** E-BlueInfo *********************/
+.bodyBlack,
+.bodyBlack .modal-content,
+.bodyBlack #header, .bodyBlack #headerIn,
+.bodyBlack #standout, .bodyBlack .footer, .bodyBlack .close,
+.bodyBlack #bgBlue, .bodyBlack #bgGray, .bodyBlack .countries, .bodyBlack #mainTitle, .bodyBlack #dataCountries,
+.bodyBlack #logoMain img, .bodyBlack #logosSecond img, .bodyBlack #indiceLetras, .bodyBlack .table
+{background: #000; color: #fff;}
+.bodyBlack footer
+{background: #666;}
+.bodyBlack img
+{background: #fff;}
+.bodyBlack .modal-backdrop.show
+{opacity: 0.5; background: #fff;}
+.bodyBlack #man, .bodyBlack #woman{display: none}
+@media (max-width: 768px){
+	#barAcessibilidade{text-align: center;}
+	#speakBtn{left: 30px;}
+	#fieldSearch{padding-left: 30px;}
+	#acessibilidadeFontes{text-align: center;}
+}
