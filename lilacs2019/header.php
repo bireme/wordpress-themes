@@ -71,7 +71,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 							 title="<?php bloginfo('description'); ?>" />
 					</a>
 					<a class="lilacs_logo" href="<?php echo site_url(); ?>">
-						<img src="http://logos.bireme.org/img/<?php echo ( $site_lang ); ?>/lilacs_color.svg" 
+						<img src="<?php echo get_bloginfo( 'stylesheet_directory' );?>/images/lilacs_logo_<?php echo ( $site_lang ); ?>.png" 
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
 					</a>
