@@ -861,8 +861,9 @@ strong {
 		 width: 80px;
 		 height: 80px;
 		 margin: 0 auto;
-		 background-image: url("images/logo_80px.jpg");
+		 background-image: url("images/logo_80px.jpg") no-repeat;
 	 }
+	 .bvs_logo{display:none !important;}
 	 .site_name {
 		font-size: 35px;
 		margin-top: 0px;
