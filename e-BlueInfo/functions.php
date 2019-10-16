@@ -72,6 +72,7 @@
 		pll_register_string('Privacy policy','Privacy policy', 'Default');
 		pll_register_string('QR Code','Scan QR Code with Mobile', 'Modal');
 		pll_register_string('Store','Dados dos países participantes', 'Modal');
+		pll_register_string('Interested Countries','Interested Countries', 'Modal');
 	});
 	//widgets - Home
 	register_sidebar(array(
