@@ -156,6 +156,7 @@
 		pll_register_string('Contact us', 'Contact us', 'Text default');
 		pll_register_string('For Developers', 'For Developers', 'Text default');
 		pll_register_string('How to use DeCS', 'How to use DeCS', 'Text default');
+		pll_register_string('DeCS in Numbers', 'DeCS in Numbers', 'Text default');
 		pll_register_string('Partners', 'Partners', 'Text default');
 	});
 

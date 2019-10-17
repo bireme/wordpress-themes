@@ -1,5 +1,5 @@
 <section class="text-center">
-	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+	<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
 					<div class="carousel-inner">
 			<?php 
