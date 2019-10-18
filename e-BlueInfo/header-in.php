@@ -9,10 +9,10 @@
 <header class="" id="headerIn">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="Brand e-BlueInfo" height="80px"></a>
+			<div class="col-12 col-md-12 col-lg-4" id="logoIn">
+				<a href="<?php bloginfo('url') ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="Brand e-BlueInfo"></a>
 			</div>
-			<div class="col-md-6" id="">
+			<div class="col-12 col-md-12 col-lg-8">
 				<div id="lang">
 					<?php 
 					wp_nav_menu( array(

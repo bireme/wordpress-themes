@@ -145,6 +145,7 @@
 					color: #00408e;
 					padding-left: 10px;
 				}
+#logoIn img{height: 80px;}
 /************* Breakpoint *************/
 @media (max-width: 1300px){
 	#man{left: -50px;}
@@ -178,7 +179,26 @@
 	#bgGray{padding: 50px; font-size: 20px;}
 	#logoOPAS{text-align: center!important; margin-top: 20px;}
 }
+@media (max-width: 992px){
+	
+	#headerIn #nav{
+		text-align: center;
+	}
+	#lang{
+		text-align: center!important;
+	}
+	#nav ul, #lang ul{
+		padding: 0; margin: 0;
+	}
+	#headerIn{
+		text-align: center;
+	}
+}
 @media (max-width: 600px){
+	#headerIn img{
+		max-width: 100%;
+		height: auto;
+	}
 }
 /************* keyframe *************/
 @keyframes mobile{
