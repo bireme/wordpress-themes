@@ -15,5 +15,5 @@
 				<!-- | <a id="acessibilidade" class="" tabindex="9" href="docAcessibilidade.php"><i class="fas fa-wheelchair"></i> Mais Acessibilidades</a> -->
 			</div>
 		</div>
-	</div>
+	</div> 
 </section>
