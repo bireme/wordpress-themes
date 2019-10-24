@@ -4,8 +4,6 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
 <?php get_template_part('includes/search') ?>
-
-
 <main id="main_container" class="padding1">
 	<div class="container">
 		<nav aria-label="breadcrumb">

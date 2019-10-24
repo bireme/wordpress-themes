@@ -1,7 +1,6 @@
 <?php
 /* Template Name: Novelty */
 ?>
-<?php get_template_part('includes/topAcessibility') ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
 <?php get_template_part('includes/search') ?>

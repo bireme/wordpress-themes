@@ -1,4 +1,3 @@
-<?php get_template_part('includes/topAcessibility') ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/search') ?>
 <?php get_template_part('includes/banners') ?>
