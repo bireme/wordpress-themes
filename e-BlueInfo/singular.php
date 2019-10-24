@@ -1,4 +1,3 @@
-<?php get_template_part('includes/topAccessibility') ?>
 <?php get_header('in'); ?>
 <section class="padding50">
 	<div class="container" id="main_container">
