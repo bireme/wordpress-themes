@@ -19,7 +19,7 @@
 			<label class="nucleo-date-id">
 				<?php echo get_the_term_list(get_the_ID(), 'teleconsultor', '', ', '); ?> | 
 				<?php echo get_the_date('d M Y', get_the_ID()); ?> | 
-				ID: sof-<?php echo get_the_ID(); ?>
+				ID: poems-<?php echo get_the_ID(); ?>
 			</label>
 		</header><!-- .entry-header -->
 		
