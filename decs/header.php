@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<?php wp_head(); ?>
 </head>
-
 <?php $idioma = pll_current_language(); ?>
+<?php get_template_part('includes/topAcessibility') ?>
 <header id="header">
 	<div class="container"  style="position: relative;">
 		<div id="language">

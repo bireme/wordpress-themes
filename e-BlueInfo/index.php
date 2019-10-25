@@ -1,4 +1,3 @@
-<?php get_template_part('includes/topAccessibility') ?>
 <?php get_header(); ?>
 <?php 
 $home = new WP_Query([
@@ -7,7 +6,6 @@ $home = new WP_Query([
 	'order' => 'ASC'
 ]);
 ?>
-
 <header id="header">
 	<div id="man" data-aos="fade-right" data-aos-duration="3000">
 		<img src="<?php bloginfo('template_directory') ?>/img/man.png" alt="">

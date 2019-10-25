@@ -7,6 +7,7 @@
 	<?php wp_head(); ?>
 </head>
 <?php $idioma = pll_current_language(); ?>
+<?php get_template_part('includes/topAccessibility') ?>
 <header class="" id="headerIn">
 	<div class="container">
 		<div class="row">
