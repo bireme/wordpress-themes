@@ -6,8 +6,8 @@
 				<?php bloginfo('name');?>
 			</div>
 			<div class="col-md-5 text-right">
-				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> |
-				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Privacy policy'); ?></a>
+				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
+				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
 			</div>
 			<div class="col-md-1 text-right">
 				<i class="fas fa-chevron-up" id="to-top"></i>
