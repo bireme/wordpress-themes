@@ -137,9 +137,9 @@ body {
 }
 
 .bar {
-	background: #455f78;
+	background: #FFF;
 	color: #FFF;
-	padding: 3px 0px;
+	padding: 0px 0px;
 }
 .bar a {
 	color: #FFF;
@@ -151,6 +151,7 @@ body {
     margin: 0px 0px;
     border-left: 1px solid;
     padding: 0px 10px;
+	background:#31286a;
 }
 .BarInner .col-6.text-right ul li:first-child {
 	border: none;
@@ -160,7 +161,7 @@ body {
 
 .bvs_logo img{margin-right: 30px;}
 .header {
-	padding: 5px;
+    padding: 0px 5px 17px 0px;
 }
 
 .site_info {

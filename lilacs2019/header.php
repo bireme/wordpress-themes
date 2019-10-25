@@ -40,10 +40,12 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 
 		<!-- Bootstrap core CSS -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/accessibility.css" rel="stylesheet">
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
 	</head>
 	<body class="bg-white site_<?php echo ( $site_lang ); ?>">
+    <?php get_template_part (  'topAccessibility'); ?>
 		<div class="col-lg-12 bar">
 			<div class="container BarInner">
 				<div class="row">
@@ -90,6 +92,6 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 			<header>
 			</header>
 		</div>
-		<div class="col-lg-12 header_menu">
+		<div class="col-lg-12 header_menu" id="nav">
 			<?php dynamic_sidebar(  'header_menu'); ?>
 		</div>
