@@ -67,7 +67,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 		<!-- Navigation -->
 			<div class="row header header_<?php echo ( $site_lang ); ?>">
 				<div class="col-lg-6">
-                <a class="bvs_logo" href="https://bvsalud.org/<?php echo ( $site_lang ); ?>">
+                <a class="bvs_logo" href="https://bvsalud.org/<?php echo ( "pt" == $site_lang ) ? '' : $site_lang; ?>">
 						<img src="http://logos.bireme.org/img/<?php echo ( $site_lang ); ?>/bvs_color.svg" 
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
