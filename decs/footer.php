@@ -2,13 +2,10 @@
 	<div class="container">
 		<?php $idioma = pll_current_language(); ?>
 		<div class="row" id="footerTermos">
-			<div class="col-md-3 text-left">
+			<div class="col-md-6 text-left">
 				<?php bloginfo('name');?>
 			</div>
-			<div class="col-md-4 text-center">
-				<!-- <a href="http://feedback.bireme.org/feedback/?application=iahx&version=2.0&lang=<?php echo $idioma; ?>&site=portal" target="_blank"><?php pll_e('enviar um comentário /comunicar um erro'); ?></a> -->
-			</div>
-			<div class="col-md-4 text-right">
+			<div class="col-md-5 text-right">
 				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> |
 				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Privacy policy'); ?></a>
 			</div>
