@@ -72,7 +72,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
 					</a>
-					<a class="lilacs_logo" href="<?php echo site_url(); ?>">
+					<a class="lilacs_logo" href="<?php echo site_url(); ?>/<?php echo ( "pt" == $site_lang ) ? '' : $site_lang; ?>">
 						<img src="<?php echo get_bloginfo( 'stylesheet_directory' );?>/images/lilacs_logo_<?php echo ( $site_lang ); ?>.png" 
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
@@ -86,7 +86,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 					</div>
 				</div>
 				<div class="col-lg-6 institutional">
-					<a href=""><span>BIREME | OPAS | OMS </span></a>
+					<a href="https://www.paho.org/bireme/index.php?lang=<?php echo ( $site_lang ); ?>"><span>BIREME | OPAS | OMS </span></a>
 				</div>
 			</div>
 			<header>
