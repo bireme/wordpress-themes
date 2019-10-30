@@ -5,7 +5,8 @@
 	// 	'width'		=> 150,
 	// 	'flex-width'=> true
 	// ]);
-	
+	// Title - tag <title>
+	add_theme_support('title-tag');
 	// Adicionar script e stule no header
 	add_action('wp_enqueue_scripts', 'add_script_cabecalho');
 	function add_script_cabecalho(){
