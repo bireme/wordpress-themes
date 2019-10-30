@@ -1,4 +1,5 @@
 <head>
+	<meta http-equiv="Content-Language" content="pt-br, en, es, zh, ry, fr">
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	<meta name="author" content="BIREME/OPAS/OMS">
