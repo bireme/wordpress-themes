@@ -201,7 +201,12 @@
          // Temo de Uso
         pll_register_string('Temo de Uso', 'enviar um comentário /comunicar um erro', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Termos e condições de uso', 'Temo de Uso'); 
-        pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso'); 
+        pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso');
+         // Acessibilidade
+        pll_register_string('Main content', 'Main content', 'Accessibility');
+		pll_register_string('Menu', 'Menu', 'Accessibility');
+		pll_register_string('Footer', 'Footer', 'Accessibility');
+		pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
     });
 
     function http_request_local( $args, $url ) {

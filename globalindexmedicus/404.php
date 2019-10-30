@@ -4,7 +4,7 @@
 <?php get_template_part( 'includes/search', 'box' ) ?>
 
 <!-- Bibliotecas -->
-<section class="padding1">
+<section class="padding1" id="main_container">
 	<div class="container text-center">
 		<h2 class="titulo1">404 Page not found!</h2>
 		<br><br><br>

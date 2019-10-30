@@ -4,7 +4,7 @@
 <?php get_template_part( 'includes/search', 'box' ) ?>
 
 <!-- Bibliotecas -->
-<section class="padding1">
+<section class="padding1" id="main_container">
 	<div class="container">
 		<?php
 		if ( have_posts() ) {

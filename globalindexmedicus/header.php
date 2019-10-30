@@ -12,7 +12,7 @@
 	<div class="row">
 		<?php $idioma = pll_current_language(); ?>
 		<div class="col-md-4 <?php echo $idioma=='ar'?'order-last':''; ?>" id="logo">
-			<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid">
+			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>"><img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="" class="img-fluid"></a>
 		</div>
 		<div class="col-md-8 <?php echo $idioma=='ar'?'order-first':''; ?>" id="logo2">
 			<div id="idiomas">  
@@ -34,7 +34,7 @@
 	</div>
 </header>
 <!-- Menu -->
-<nav class="navbar navbar-expand-lg navbar-light navbarblue">
+<nav class="navbar navbar-expand-lg navbar-light navbarblue" id="nav">
 	<div class="container">
 		<button class="navbar-toggler navBt" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
