@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<?php wp_head(); ?>
 </head>
-
 <!-- Topo -->
+<?php get_template_part('includes/topAccessibility') ?>
 <header class="container">
 	<div class="row">
 		<?php $idioma = pll_current_language(); ?>
