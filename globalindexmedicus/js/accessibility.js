@@ -1,38 +1,38 @@
 /*Versão Beta*/
 /*Aumentar ou Reduzir Fontes*/
 jQuery(document).ready(function(){
-	var font12 = 12; var class12 ='';
-	var font14 = 14; var class14 ='';
-	var font16 = 16; var class16 ='p, li, .card-header h2 .btn-link, dl';
-	var font20 = 20; var class20 ='';
-	var font24 = 24; var class24 ='.titulo2, h4';
+	var font12 = 12; var class12 ='#idiomas';
+	var font14 = 14; var class14 ='.widgetColumn a, .widgetColumn';
+	var font16 = 16; var class16 ='p, .accordion .collapse, .accordion h2 button, #nav, .sectionBlue h5, .sectionBlue';
+	var font20 = 20; var class20 ='.bibliotecaHome h4';
+	var font32 = 32; var class32 ='.titulo1';
 	jQuery('#fontPlus').click(function(){
 		if (font16<30){
-			font12 = font12+1; font14 = font14+1; font16 = font16+1; font20 = font20+1; font24 = font24+1;
+			font12 = font12+1; font14 = font14+1; font16 = font16+1; font20 = font20+1; font32 = font32+1;
 			jQuery(class12).css({'font-size' : font12+'px'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class14).css({'font-size' : font14+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
-			jQuery(class24).css({'font-size' : font24+'px'});
+			jQuery(class32).css({'font-size' : font32+'px'});
 		}
 	});
 	jQuery('#fontLess').click(function(){
 		if (font16>14){
-			font12 = font12-1; font16 = font16-1; font14 = font14-1; font20 = font20-1; font24 = font24-1;
+			font12 = font12-1; font16 = font16-1; font14 = font14-1; font20 = font20-1; font32 = font32-1;
 			jQuery(class12).css({'font-size' : font12+'px'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class14).css({'font-size' : font14+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
-			jQuery(class24).css({'font-size' : font24+'px'});
+			jQuery(class32).css({'font-size' : font32+'px'});
 		}
 	});
 	jQuery('#fontNormal').click(function(){
-		font12 = 12; font16 = 16; font14 = 14; font20 = 20; font24 = 24;
+		font12 = 12; font16 = 16; font14 = 14; font20 = 20; font32 = 32;
 		jQuery(class12).css({'font-size' : 12+'px'});
 		jQuery(class16).css({'font-size' : 16+'px'});
 		jQuery(class14).css({'font-size' : 14+'px'});
 		jQuery(class20).css({'font-size' : 20+'px'});
-		jQuery(class24).css({'font-size' : 24+'px'});
+		jQuery(class32).css({'font-size' : 32+'px'});
 	});
 })
 /*Navegação por atalhos*/
@@ -61,11 +61,11 @@ document.onkeydown=function(e){
 	//Footer ALT + 4
 	if(e.which == 52 && pressedALT == true) {
 		// window.location.assign("#pesquisa");
-		jQuery("#fieldSearch").focus();
+		jQuery("#buscaInput").focus();
 	}
 }
 jQuery('a[href="#pesquisa"]').click(function(){
-	jQuery("#fieldSearch").focus();
+	jQuery("#buscaInput").focus();
 })
 // cache contraste
 var cor = Cookies.get('cor');
@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', function() {
         	// console.log(e);
         	var result = e.results[0][0].transcript;
         	// console.log(result);
-        	document.getElementById("fieldSearch").value = result;
+        	document.getElementById("buscaInput").value = result;
             // jQuery("#pesquisa").val(result);
         }, false);
     } else {

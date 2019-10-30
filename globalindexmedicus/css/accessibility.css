@@ -63,7 +63,7 @@
 .bodyBlack .wpcf7 input[type="text"], .bodyBlack  .wpcf7 input[type="email"], .bodyBlack .wpcf7 input[type="tel"],
 .bodyBlack .wpcf7 select, .bodyBlack .wpcf7 textarea.wpcf7 input:active[type="submit"] 
 {border-color: #fff;}
-.bodyBlack #nav a, .bodyBlack .badgeWarning
+.bodyBlack #nav a, .bodyBlack .badgeWarning, .bodyBlack #speakBtn
 {color: #000!important;}
 .bodyBlack .bibliotecaHome:hover p{
 	background: #333;
