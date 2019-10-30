@@ -12,6 +12,7 @@
 		//Adicionar estilos
 		wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
 		wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
+		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
 		wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 
 		$idioma = pll_current_language();
@@ -25,6 +26,8 @@
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
 		wp_enqueue_script('main', get_stylesheet_directory_uri().'/js/main.js', array('jquery'));
+		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
+		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
 	}
 
 	// Menus Top e Rodape
