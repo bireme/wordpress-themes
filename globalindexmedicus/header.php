@@ -1,3 +1,4 @@
+<html <?php language_attributes() ?> >
 <head>
 	<meta http-equiv="Content-Language" content="pt-br, en, es, zh, ry, fr">
 	<meta charset="<?php bloginfo('charset'); ?>">
