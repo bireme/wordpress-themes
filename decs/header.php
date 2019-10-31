@@ -29,7 +29,7 @@
 						<a href="http://www.bvsalud.org/" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg" alt="Logo DeCS" class="img-fluid"></a>
+						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg" alt="Logo DeCS" class="img-fluid"></a>
 					</div>
 				</div>
 			</div>
