@@ -21,6 +21,7 @@
 		wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
 		wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
 		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/acessibilidade.css');
+		wp_enqueue_style('feedback',get_stylesheet_directory_uri().'/css/feedback.css');
 		wp_enqueue_style('fontawesome',get_stylesheet_directory_uri().'/css/fontawesome/css/all.css');
 	}
 	//Add Scripts Footer
@@ -32,6 +33,7 @@
 		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
 		wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
 		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
+		wp_enqueue_script('feedback',get_stylesheet_directory_uri().'/js/feedback.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
 	}
 	//Adiciona suporte a miniaturas (imagem destacada)
