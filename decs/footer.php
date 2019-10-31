@@ -15,4 +15,5 @@
 		</div>
 	</div>
 </footer>
+<?php get_template_part('includes/feedback') ?>
 <?php wp_footer(); ?>

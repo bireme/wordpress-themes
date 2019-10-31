@@ -1,0 +1,34 @@
+#feedback{
+	width: 370px; position: fixed;
+	left: -340px; bottom: 10px;
+	transition: left .5s ease;
+}
+#feedbackBox{
+	background: #f5f5f5; float: left;
+	width: 335px;
+	overflow-y: auto;
+	padding:20px; 
+	font-size: 14px;
+	border-bottom-right-radius: 10px;
+}
+.feedback{
+	left: 0px!important;
+}
+#feedbackIcone{
+	width: 35px; float: right;
+	cursor: pointer; margin-top: 0px;
+	position: relative;
+}
+#feedbackFechar{
+	float: right;
+	cursor: pointer;
+}
+#feedbackFechar:hover{
+	color: #999;
+}
+.clear{
+	clear: both;
+}
+
+#feedbackBox h1{font-size:20px;}
+#feedbackBox h2{font-size: 14px;}
