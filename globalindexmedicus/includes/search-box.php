@@ -29,7 +29,9 @@
 				<div class="col-md-12">
 					<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 					<input type="text" name="q" class="" id="buscaInput" placeholder="<?php pll_e('Digite o que você procura'); ?>">
-					<input type="submit"  id="buscaSubmit" class="btn btn-primary" value="<?php pll_e('Pesquisar'); ?>">
+					<button type="submit"  id="buscaSubmit" class="btn btn-primary">
+						<i class="fas fa-search"></i>
+					</button>
 				</div>
 				<div class="col-md-6 text-right d-sm-block d-md-none">
 					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>">Pesquisa via descritores DeCS/MeSH</a>

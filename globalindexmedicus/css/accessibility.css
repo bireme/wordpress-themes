@@ -27,7 +27,7 @@
     color: #fff !important;
 }
 #buscaPorVoz{position: relative}
-#speakBtn{position: absolute; font-size: 20px; margin-top: 15px; margin-left: 10px; z-index: 10; color: #999; border-right: 2px solid #999; padding-right: 10px;}
+#speakBtn{position: absolute; font-size: 20px; margin-top: 10px; margin-left: 10px; z-index: 10; color: #999; padding-right: 10px;}
 #speakBtn:hover{color: #000;}
 /****************** DECS *********************/
 .bodyBlack,
@@ -37,7 +37,7 @@
 .bodyBlack #logoMain img,
 .bodyBlack .headerSearch, .bodyBlack .card-header, .bodyBlack #assFooter
 {background: #000; color: #fff;}
-.bodyBlack .sectionBlue
+.bodyBlack .sectionBlue, .bodyBlack .area:hover
 {background: #333; color: #fff;}
 .bodyBlack #nav, .bodyBlack #busca, .bodyBlack #footer, .bodyBlack .titulo1, .bodyBlack #topAcessibility
 {background: #666; color: #fff;}

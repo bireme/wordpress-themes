@@ -30,8 +30,7 @@ header{padding-top: 10px;}
 #buscaInput{
 	display:inline-block;
 	outline:0; border:0;
-	padding: 10px 10px 15px 80px; width: 100%;
-	background: url(../img/search.svg) #fff no-repeat;
+	padding: 10px 10px 15px 40px; width: 100%;
 	background-position: 40px center;
 	border-radius: 5px;
 }
