@@ -6,7 +6,7 @@
 			<input type="hidden" name="lang" value="<?php echo $idioma ?>"/>
 			<input type="hidden" name="_charset_" value="utf-8"/>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<select class="formSelect" name="index">
 						<option value=""><?php pll_e('Todos os Índices'); ?></option>
 						<option value="ti"><?php pll_e('Título'); ?></option>
@@ -23,7 +23,7 @@
 						<option class="subGroup" value="WPRIM">&nbsp;&nbsp;&nbsp;&nbsp;WPRIM (WPRO)</option>
 					</select>
 				</div>
-				<div class="col-md-6 text-right d-none d-md-block">
+				<div class="col-md-5 text-right d-none d-md-block">
 					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>"><?php pll_e('Pesquisa via descritores'); ?></a>
 				</div>
 				<div class="col-md-12">
