@@ -209,6 +209,7 @@
          // Acessibilidade
         pll_register_string('Main content', 'Main content', 'Accessibility');
 		pll_register_string('Menu', 'Menu', 'Accessibility');
+		pll_register_string('Search', 'Search', 'Accessibility');
 		pll_register_string('Footer', 'Footer', 'Accessibility');
 		pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
     });
