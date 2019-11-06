@@ -54,6 +54,14 @@
 	max-width: 400px;
 	margin-top: 10px;
 }
+#versionBeta{
+	background: #fff;
+	color: #4e7952;
+	padding: 0 5px;
+	text-align:center;
+	font-size: 12px;
+	font-weight: bold;
+}
 #to-top{
 	cursor: pointer;
 }
