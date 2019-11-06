@@ -160,7 +160,7 @@
 		pll_register_string('How to use DeCS', 'How to use DeCS', 'Text default');
 		pll_register_string('DeCS in Numbers', 'DeCS in Numbers', 'Text default');
 		pll_register_string('Partners', 'Partners', 'Text default');
-		pll_register_string('New website DeCS in version beta', 'New website DeCS in version beta', 'Text default');
+		pll_register_string('New DeCS website in beta version', 'New DeCS website in beta version', 'Text default');
 		//Accessibility
 		pll_register_string('Main content', 'Main content', 'Accessibility');
 		pll_register_string('Menu', 'Menu', 'Accessibility');
