@@ -10,6 +10,8 @@
 .formSelect{background-position: -3%;}
 #logo2, #idiomas{direction:rtl; text-align: left!important;}
 #buscaSubmit{right: auto; left: 20px;}
+#acessibilidadeFontes{text-align: left;}
+#acessibilidadeTutorial{text-align: right;}
 /**************** Breakpoint****************/
 @media (max-width: 992px){
 	#buscaInput{padding:10px 110px 15px 10px; background-position:90%;}
