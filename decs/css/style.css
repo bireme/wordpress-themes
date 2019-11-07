@@ -55,12 +55,13 @@
 	margin-top: 10px;
 }
 #versionBeta{
-	background: #fff;
-	color: #4e7952;
+	background: #86ff47;
+	color: #000000;
 	padding: 0 5px;
 	text-align:center;
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: bold;
+	animation: beta 3s infinite;
 }
 #to-top{
 	cursor: pointer;
@@ -473,4 +474,9 @@ label{
 	img[src$=".svg"]{
 		width: 100%; 
 	}
+}
+@keyframes beta{
+	0%{ background: #86ff47; }
+	50%{ background: yellow; }
+	99%{ background: #86ff47; }
 }
