@@ -59,13 +59,13 @@ document.onkeydown=function(e){
 		window.location.assign("#nav");
 	}
 	//Footer ALT + 3
-	if(e.which == 51 && pressedALT == true) {
+	if(e.which == 52 && pressedALT == true) {
 		window.location.assign("#footer");
 	}
 	//Footer ALT + 4
-	if(e.which == 52 && pressedALT == true) {
+	if(e.which == 51 && pressedALT == true) {
 		// window.location.assign("#pesquisa");
-		jQuery("#fieldSearch").focus();
+		jQuery("#textEntry1").focus();
 	}
 }
 jQuery('a[href="#btnSearch"]').click(function(){

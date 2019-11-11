@@ -11,7 +11,7 @@
 				<a id="fontPlus"  tabindex="5">+A</a> | 
 				<a id="fontNormal"  tabindex="6">A</a> | 
 				<a id="fontLess"  tabindex="7">-A</a> | 
-				<a id="contraste"  tabindex="8"><i class="fas fa-adjust"></i><?php pll_e('High contrast'); ?></a>
+				<a id="contraste"  tabindex="8"><i class="fas fa-adjust"></i> <?php pll_e('High contrast'); ?></a>
 				<!-- | <a id="acessibilidade" class="" tabindex="9" href="docAcessibilidade.php"><i class="fas fa-wheelchair"></i> Mais Acessibilidades</a> -->
 			</div>
 		</div>

@@ -41,6 +41,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 		<!-- Bootstrap core CSS -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/accessibility.css" rel="stylesheet">
+        <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/feedback.css" rel="stylesheet">
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
 	</head>
