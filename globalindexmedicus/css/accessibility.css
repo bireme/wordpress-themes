@@ -73,4 +73,5 @@
 	#speakBtn{margin-left: 10px;}
 	#fieldSearch{padding-left: 30px;}
 	#acessibilidadeFontes, #acessibilidadeTutorial{text-align: center!important;}
+	.hiddenMobile{display: none;}
 }
