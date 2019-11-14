@@ -1,0 +1,74 @@
+#barAcessibilidade{background: #1a3b6d; color: #fff; padding: 6px 0; font-size: 12px; }
+#barAcessibilidade a{color: #fff; text-decoration: none;}
+#barAcessibilidade a:hover{color: #ddd;}
+#acessibilidadeFontes{text-align: right;}
+#acessibilidadeFontes a{ padding: 0 5px; cursor: pointer; }
+#acessibilidadeTutorial a{ margin-left: 10px;}
+#acessibilidadeTutorial span{ background-color: #ddd; color: #000; padding: 0 5px;}
+#acessibilidadeTutorial a:hover span{ background-color: #fff;}
+::selection {background-color: #333; color: #FF0;}
+/********************** Contraste *****************/
+.bodyBlack{background: #000; color: #fff;}
+.bodyBlack ::selection {background-color: #FF0; color: #000;}
+.bodyBlack .imgBlack{background: #fff;}
+.bodyBlack a{color: #ff0!important;}
+.bodyBlack #nav, .bodyBlack #footer, .bodyBlack #barAcessibilidade
+{background: #666;}
+/*formatação diversas*/
+.padding1{padding-top: 30px; padding-bottom: 30px;}
+.bodyBlack input[type=text], .bodyBlack input[type=password], .bodyBlack input[type=url],
+.bodyBlack input[type=search], .bodyBlack input[type=email], .bodyBlack input[type=tel],
+.bodyBlack input[type=date], .bodyBlack input[type=month], .bodyBlack input[type=week],
+.bodyBlack input[type=datetime], .bodyBlack input[type=datetime-local],
+.bodyBlack textarea, .bodyBlack select,
+.bodyBlack input[type=number] {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+#buscaPorVoz{position: relative}
+#speakBtn{position: absolute; font-size: 20px; top: 5px; left: 15px; z-index: 10; color: #999;}
+#speakBtn:hover{color: #000;}
+#fieldSearch{padding-left: 30px;}
+/****************** DECS *********************/
+.bodyBlack,
+.bodyBlack .modal-content,
+.bodyBlack #header,
+.bodyBlack #busca, .bodyBlack .bgColor1,
+.bodyBlack #parceiros,
+.bodyBlack .homeConsult .titulo2,
+.bodyBlack #logoMain img, .bodyBlack #logosSecond img, .bodyBlack #indiceLetras,
+.bodyBlack .headerSearch, .bodyBlack .card-header
+{background: #000; color: #fff;}
+/*fundo cinza, texto branco*/
+.bodyBlack #nav, .bodyBlack #footer, .bodyBlack #nav ul li a,
+.bodyBlack #topAcessibility, .bodyBlack #category, .bodyBlack #enquete, .bodyBlack .paginacao a, 
+.bodyBlack .wpcf7 input[type="text"], .bodyBlack .wpcf7 input[type="email"], .bodyBlack .wpcf7 input[type="tel"], .bodyBlack .wpcf7 select, .bodyBlack .wpcf7 textarea
+{background: #666!important; color: #fff!important;}
+.bodyBlack hr,.bodyBlack #linha::after, .bodyBlack .titulo2, .bodyBlack .titulo1::after, .bodyBlack .breadcrumb
+{background: #999!important;}
+.bodyBlack #language a, .bodyBlack .btnBoxSearch button
+{background: #666;}
+.bodyBlack .card, .bodyBlack .card li, .bodyBlack .card,
+.bodyBlack .boxParceiros:hover, .bodyBlack .homeConsult:hover .homeIconeConsulta,
+.bodyBlack .nav-tabs .nav-item.show .nav-link, .bodyBlack .nav-tabs .nav-link.active,
+.bodyBlack .table .bg-light
+{background: #333!important; color: #fff!important;}
+.bodyBlack .card a, .bodyBlack .card-header button
+{color: #ff0!important;}
+.bodyBlack .iconeCS,
+.bodyBlack .slick-prev::before, .bodyBlack .slick-next::before,
+.bodyBlack .breadcrumb-item.active, .bodyBlack .table, .bodyBlack>.table>thead>th
+{color: #fff!important;}
+.bodyBlack img
+{background: #fff;}
+.bodyBlack .modal-backdrop.show
+{opacity: 0.5; background: #fff;}
+.bodyBlack .homeIconeConsulta
+{border-color: #fff;}
+.bodyBlack #nav a, .bodyBlack .badgeWarning
+{color: #000!important;}
+@media (max-width: 768px){
+	#topAcessibility, #acessibilidadeTutorial, #acessibilidadeFontes{text-align: center;}
+	#speakBtn{left: 15px;}
+	.hiddenMobile{display: none;}
+}

@@ -1,0 +1,278 @@
+#tvContainer{
+	width: 1920px;
+	height: 1080px;
+	margin: auto;
+	overflow: hidden;
+}
+#tvMain{
+	height:1080px; 
+	overflow:hidden;
+	position: relative;
+}
+#tvTitle{
+	height: 150px;
+}
+#tvCarousel .carousel-caption{
+	width: 100%;
+	height: 250px;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .7);
+	text-align: left;
+}
+	#tvCarousel .carousel-caption h5{
+		margin-left: 50px;
+		font-size: 40px;
+		width: 1000px;
+	}	
+	#tvCarousel .carousel-caption p{
+		margin-left: 50px;
+		font-size: 30px;
+		width: 1000px;
+		line-height: 30px;
+	}
+	.tvQRCode{
+		position: absolute;
+		right: 30px;
+		top: -150px;
+	}
+	.tvQRCode img{
+		width: 192px;
+		height: 192px;
+	}
+	.tvQRCodeText{
+		width:190px;
+		padding: 5px;
+		background-color: #000;
+		color: #fff;
+	}
+#tvNews{
+	height:1080px; 
+	position: relative;
+	background: #1a3b6d;
+	color: #fff;
+}
+	#tvNewsNext{
+		height: 900px;
+		padding: 30px;
+	}
+		.tvNewsLoop{
+			width: 100%;
+			margin: auto;
+			font-size: 20px;
+			padding: 20px 0;
+			border-bottom: 1px solid #ddd;
+		}
+		.tvNewsLoop:nth-last-child(1){
+			border-bottom: none;
+		}
+	#tvNewsEquipe{
+		width: 90%;
+		margin: auto;
+		height: 180px;
+		padding: 20px 0;
+		border-top: 1px solid #ddd;
+	}
+#tvFooter{
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	padding: 10px 30px;
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+}
+	#tvFooterHora{
+		font-size: 30px;
+		font-weight: bold;
+	}
+	#tvFooterEmail{
+		font-size: 25px;
+	}
+/*********** Padrões *************/
+.title1{
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+	font-size: 30px;
+	font-family: 'DM Serif Text', serif;
+	position: relative;
+}
+	.title1::before{
+		content: "";
+	    position: absolute;
+	    bottom: 2.5px;
+	    left: 0;
+	    height: 3px;
+	    width: 100%;
+	    background: #1a3b6d;
+	}
+	.title1::after{
+		content: "";
+	    position: absolute;
+	    bottom: 0px;
+	    left: 0;
+	    height: 10px;
+	    width: 10%;
+	    background: #ddd;
+	}
+.title2{
+	font-family: 'DM Serif Text', serif;
+}
+.imgOpacity{
+	transition: filter .5s ease;
+}
+.imgOpacity:hover{
+	filter: opacity(0.7);
+}
+#nav{
+	margin-bottom: 20px;
+}
+.imgPost{
+	float: left; width: 400px;
+	margin: 0 20px 10px 0px;
+}
+.postsInter{
+	margin-bottom: 20px;
+}
+.postsInter img{
+	margin-bottom: 10px;
+}
+.imEffect img{
+	transition: filter 1s ease;
+}
+.imEffect:hover img{
+	filter: sepia(80%);
+}
+/*********** Site *************/
+.bg-dark{
+	background-color: #1a3b6d!important;
+}
+#recent{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#formHome{
+	margin-top: 20px;
+	width: 100%;
+	float: right;
+}
+#formHome .form-group{
+	text-align: right; 
+}
+#submitHome{
+	margin-left: 5px;
+}
+#banner .carousel-caption{
+	background: rgba(0, 0, 0, .6);
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	padding: 20px;
+}
+	#banner .carousel-caption a{
+		color: #fff;
+	}
+	#banner .carousel-caption a:hover{
+		color: #ccc;
+		text-decoration: none;
+	}
+#category{
+	background: #efefef;
+	border-bottom: 5px solid #1a3b6d;
+	padding: 20px;
+}
+.categoryHome a:hover{
+	color: #666;
+}
+
+#category ul, .categoryHome ul{
+	list-style: square;
+	padding-left: 20px;
+}
+.categoryHome ul li{
+	margin: 5px 0;
+	padding: 5px 0;
+	border-bottom: 1px dotted #ddd;
+}
+#footer{
+	font-size: 12px;
+	background-color: #1a3b6d;
+	color: #fff;
+	padding: 30px;
+	margin-top: 30px;
+	border-top: 40px solid #ddd;
+}
+#enquete{
+	padding: 20px 10px;
+	margin-bottom: 20px;
+	background: #efefef;
+	border-bottom: 5px solid #1a3b6d;
+}
+.paginacao a{
+	border: 2px solid #ddd;
+	background: #f8f9fa;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-right: 3px;
+}
+.paginacao a:hover{
+	background: #ddd;
+}
+/********** formulário **************/
+label{
+	width: 100%;
+}
+.wpcf7 {
+	width: 100%;
+}
+.formLabel{
+	display: block;
+	font-weight: bold;
+}
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 select,
+.wpcf7 textarea {
+	font-size: 16px;
+	background-color: #f5f5f5;
+	border: none;
+	width: 100%;
+	padding: 2%;
+}
+.wpcf7 textarea{
+	height: 100px;
+}
+@media (max-width: 992px){
+	#formHome{
+		margin-top: 15px;
+	}
+}
+@media (max-width: 768px){
+	#formHome{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		float: none;
+	}
+	#category{
+		background: #fff;
+		padding: 20px;
+	}
+	.category{
+		padding: 0 10px ;
+		background: none;
+	}
+	.categoryHome{
+		/*background-color: #eee;*/
+		padding: 20px;
+		margin-bottom: 20px;
+	}
+	#footerImg{
+		margin-top: 10px;
+		text-align: center!important;
+	}
+	#banner .carousel-caption{
+		background: #000;
+		position: static!important;
+	}
+}
