@@ -75,3 +75,9 @@
 	#acessibilidadeFontes, #acessibilidadeTutorial{text-align: center!important;}
 	.hiddenMobile{display: none;}
 }
+@media (max-width: 560px){
+	#acessibilidadeTutorial a{
+		margin-left: 5px;
+	}
+}
+	
