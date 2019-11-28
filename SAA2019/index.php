@@ -36,7 +36,7 @@
 						<?php 
 						$posts = new WP_Query([
 							'post_type' => 'post',
-							'offset'         => 1,
+							'offset'         => 5,
 							'posts_per_page' => '5'
 						]);
 						while($posts->have_posts()) : $posts->the_post(); ?>

@@ -23,12 +23,12 @@
 	#tvCarousel .carousel-caption h5{
 		margin-left: 50px;
 		font-size: 40px;
-		width: 1000px;
+		width: 93%;
 	}	
 	#tvCarousel .carousel-caption p{
 		margin-left: 50px;
 		font-size: 30px;
-		width: 1000px;
+		width: 93%;
 		line-height: 30px;
 	}
 	.tvQRCode{
@@ -89,7 +89,7 @@
 	#tvFooterEmail{
 		font-size: 25px;
 	}
-.current_text{
+.current_text, .weather-atlas-footer{
 	display: none;
 }
 /*********** Padrões *************/

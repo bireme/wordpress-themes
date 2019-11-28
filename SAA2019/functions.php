@@ -1,4 +1,6 @@
 <?php 
+	// Title - tag <title>
+	add_theme_support('title-tag');
 	//Register Custom Navigation Walker 
 	require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
 	add_action('wp_enqueue_scripts','style_top');
@@ -24,29 +26,8 @@
 	{
 		register_nav_menu('main-nav', 'Main Menu (top)');
 	}
-
-	add_action('init', 'custon_posts');
-	function custon_posts(){
-		registrar_custom_post_type();
-	}
-	
 	add_theme_support( 'post-thumbnails' );
 
-	function registrar_custom_post_type() {
-		//BANNER
-		$banner = array(
-			'name' 			=> 'Banner',
-		);
-		$argsBanner = array(
-			'labels' 		=> $banner,
-			'public' 		=> true,
-			'hierarchical' 	=> false,
-			'menu_position' => 10,
-			'supports' 		=> array('title'),
-			'menu_icon'		=> 'dashicons-welcome-widgets-menus',
-		);
-		register_post_type( 'banner' , $argsBanner );
-	}
 	// WIDGETS
 	//TV Clima
 	register_sidebar([
