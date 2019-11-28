@@ -27,10 +27,10 @@
 						if ($show == 2 ||  $show == 4) { ?>
 							<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?>">
 								<img src="<?php echo $image_tv['url']; ?>" class="d-block w-100" alt="...">
-								<div class="carousel-caption d-none d-md-block">
+								<div class="carousel-caption">
 									<h5><?php the_title(); ?></h5>
 									<p><?php echo $release; ?></p>
-									<div class="tvQRCode">
+									<div class="tvQRCode d-none">
 										<div class="tvQRCodeText">Posicione seu celular na imagem para escanear o QRCode e leia a matéria completa</div>
 										<?php echo $qr_code; ?>
 									</div>
@@ -66,7 +66,9 @@
 			<div id="tvNewsEquipe">
 				<b>Equipe de Divulgação Interna</b> <br>
 				Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
-				Secretaria-Executiva - Ministério da Saúde
+				Secretaria-Executiva<br>
+				Ministério da Saúde <br><br>
+				<img src=" <?php bloginfo('template_directory');?>/img/logoBr.png" class="img-fluid" alt="">
 			</div>
 		</div>
 		<footer id="tvFooter">
