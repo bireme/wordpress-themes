@@ -105,6 +105,7 @@ window.addEventListener('DOMContentLoaded', function() {
         	// console.log(result);
         	document.getElementById("buscaInput").value = result;
             // jQuery("#pesquisa").val(result);
+            jQuery('#speakBtn').css('display','none');
         }, false);
     } else {
     	// alert('Este navegador não suporta esta funcionalidade ainda!');
