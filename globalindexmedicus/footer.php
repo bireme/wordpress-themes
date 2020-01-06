@@ -2,13 +2,13 @@
 <footer id="footer" class="padding1">
 	<div class="container">
 		<div class="row">
-			<address id="footerWHO" class="col-md-6">
+			<address id="footerWHO" class="col-md-6" data-aos="fade-up">
 				<h5><?php pll_e('Outros Índices'); ?></h5>
 				<ul class="list-unstyled">
 					<?php dynamic_sidebar('footer_left'); ?>
 				</ul>
 			</address>
-			<address id="footerAddress" class="col-md-6">
+			<address id="footerAddress" class="col-md-6" data-aos="fade-up">
 				<h5><?php pll_e('Bireme'); ?></h5>
 				<ul class="list-unstyled">
 					<?php dynamic_sidebar('footer_right'); ?>

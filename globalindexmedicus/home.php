@@ -14,16 +14,20 @@
 				'orderby' => 'title',
 				'order'   => 'ASC'
 			));
+			$i = 1;
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				?>
-				<artigle class="col-12 col-sm-6 col-md-4 bibliotecaHome">
+				<artigle class="col-12 col-sm-6 col-md-4 bibliotecaHome" data-aos="zoom-in" data-aos-delay="<?php echo $i ?>00">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
 						<h4><span><?php the_title(); ?></span></h4>
 						<?php the_excerpt(); ?>
 					</a> <br><br>
 				</artigle>
-			<?php endwhile; ?>
+			<?php
+				$i++;
+				endwhile;
+			?>
 		</div>
 	</div>
 </section>

@@ -105,7 +105,7 @@ window.addEventListener('DOMContentLoaded', function() {
         	// console.log(result);
         	document.getElementById("buscaInput").value = result;
             // jQuery("#pesquisa").val(result);
-             document.getElementById("formBusca").submit();
+            document.getElementById("formBusca").submit();
         }, false);
     } else {
     	// alert('Este navegador não suporta esta funcionalidade ainda!');
