@@ -194,7 +194,7 @@ header{padding-top: 10px;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }
 	.bibliotecaHome h4 span{position: static; width: auto; padding: 0;}
 	#assFooter img{max-width: 90%!important;}
-	.widgetColumn{ margin-bottom: 20px; border-bottom: 2px solid #fff; }
+	.widgetColumn{ margin-bottom: 20px; border-bottom: none; }
 	.widgetDivisao{display: none;}
 }
 @media (max-width: 560px){
