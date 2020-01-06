@@ -8,10 +8,10 @@
 				<a href="#footer" tabindex="4"><?php pll_e('Footer'); ?> <span class="hiddenMobile">4</span></a>
 			</div>
 			<div class="col-md-6" id="acessibilidadeFontes">
-				<a href="#" id="fontPlus" tabindex="5">+A</a> | 
-				<a href="#" id="fontNormal" tabindex="6">A</a> | 
-				<a href="#" id="fontLess" tabindex="7">-A</a> | 
-				<a href="#" id="contraste" tabindex="8"><i class="fas fa-adjust"></i> <?php pll_e('High contrast'); ?></a>
+				<a href="#!" id="fontPlus" tabindex="5">+A</a> | 
+				<a href="#!" id="fontNormal" tabindex="6">A</a> | 
+				<a href="#!" id="fontLess" tabindex="7">-A</a> | 
+				<a href="#!" id="contraste" tabindex="8"><i class="fas fa-adjust"></i> <?php pll_e('High contrast'); ?></a>
 				<!-- | <a id="acessibilidade" class="" tabindex="9" href="docAcessibilidade.php"><i class="fas fa-wheelchair"></i> Mais Acessibilidades</a> -->
 			</div>
 		</div>
