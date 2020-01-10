@@ -11,7 +11,7 @@
 					<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
 				</span>
 			</div>
-			<div id="tvCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="8000">
+			<div id="tvCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="8000" data-touch="false" data-pause="false">
 				<div class="carousel-inner">
 					<?php 
 					$i = 0;
