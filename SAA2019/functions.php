@@ -1,6 +1,4 @@
 <?php 
-	// Title - tag <title>
-	add_theme_support('title-tag');
 	//Register Custom Navigation Walker 
 	require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
 	add_action('wp_enqueue_scripts','style_top');
@@ -26,8 +24,8 @@
 	{
 		register_nav_menu('main-nav', 'Main Menu (top)');
 	}
+	// Posta Thumbnails
 	add_theme_support( 'post-thumbnails' );
-
 	// WIDGETS
 	//TV Clima
 	register_sidebar([
@@ -53,4 +51,7 @@
 		'before_title'	=> '<h4>',
 		'after_title'	=> '</h4>'
 	]);
+	//Adicionar tamanhos de imagem no Wordpress
+	add_image_size('banners', 800, 400, true);
+	add_image_size('tv',1428,928,true);
 ?>

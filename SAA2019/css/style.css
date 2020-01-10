@@ -55,6 +55,7 @@
 	#tvNewsNext{
 		height: 780px;
 		padding: 30px;
+		overflow:hidden;
 	}
 		.tvNewsLoop{
 			width: 100%;
@@ -65,6 +66,9 @@
 		}
 		.tvNewsLoop:nth-last-child(1){
 			border-bottom: none;
+		}
+		#tvNewsNext .active{
+			color: #ff0;
 		}
 	#tvNewsEquipe{
 		width: 90%;
@@ -97,8 +101,8 @@
 	margin-bottom: 30px;
 	padding-bottom: 10px;
 	font-size: 30px;
-	font-family: 'DM Serif Text', serif;
 	position: relative;
+	padding-bottom: 15px;
 }
 	.title1::before{
 		content: "";
@@ -119,7 +123,7 @@
 	    background: #ddd;
 	}
 .title2{
-	font-family: 'DM Serif Text', serif;
+	margin-bottom: 20px;
 }
 .imgOpacity{
 	transition: filter .5s ease;
@@ -164,6 +168,10 @@
 }
 #submitHome{
 	margin-left: 5px;
+}
+#banner .carousel-item{
+	height: 350px;
+	overflow: hidden;
 }
 #banner .carousel-caption{
 	background: rgba(0, 0, 0, .6);
@@ -253,6 +261,9 @@ label{
 	}
 }
 @media (max-width: 768px){
+	#banner .carousel-item{
+		height: auto;
+	}
 	#formHome{
 		margin-top: 10px;
 		margin-bottom: 10px;
@@ -268,8 +279,7 @@ label{
 	}
 	.categoryHome{
 		/*background-color: #eee;*/
-		padding: 20px;
-		margin-bottom: 20px;
+		padding: 0 20px;
 	}
 	#footerImg{
 		margin-top: 10px;

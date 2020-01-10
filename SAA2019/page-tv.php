@@ -11,7 +11,7 @@
 					<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
 				</span>
 			</div>
-			<div id="tvCarousel" class="carousel slide" data-ride="carousel">
+			<div id="tvCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="8000">
 				<div class="carousel-inner">
 					<?php 
 					$i = 0;
@@ -21,19 +21,15 @@
 					]);
 					while($posts->have_posts()) : $posts->the_post();
 						$image_tv = get_field('image_tv'); 
-						$release = get_field('release'); 
-						$show = get_field('show'); 
+						$subtitulo = get_field('subtitulo'); 
+						$mostrar = get_field('mostrar'); 
 						$qr_code = get_field('qr_code'); 
-						if ($show == 2 ||  $show == 4) { ?>
+						if ($mostrar == 2 ||  $mostrar == 4) { ?>
 							<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?>">
 								<img src="<?php echo $image_tv['url']; ?>" class="d-block w-100" alt="...">
 								<div class="carousel-caption">
 									<h5><?php the_title(); ?></h5>
-									<p><?php echo $release; ?></p>
-									<div class="tvQRCode d-none">
-										<div class="tvQRCodeText">Posicione seu celular na imagem para escanear o QRCode e leia a matéria completa</div>
-										<?php echo $qr_code; ?>
-									</div>
+									<p><?php echo $subtitulo; ?></p>
 								</div>
 							</div>
 							<?php $i++; 
@@ -45,23 +41,25 @@
 		</div>
 		<div class="col-3" id="tvNews">
 			<div id="tvNewsNext">
-				<h2 class="">Mais Recentes</h2>
+				<h2 class="">Notícias</h2>
 				<?php 
 				$posts = new WP_Query([
 					'post_type' => 'post',
-					'posts_per_page' => '6'
+					'posts_per_page' => '-1'
 				]);
+				$i = 0;
 				while($posts->have_posts()) : $posts->the_post();
-					$show = get_field('show'); 
-					if ($show == 2 ||  $show == 4) { ?>
-						<article class="tvNewsLoop">
+					$mostrar = get_field('mostrar'); 
+					
+					if ($mostrar == 2 ||  $mostrar == 4) { ?>
+						<article class="tvNewsLoop <?php echo ($i == 0) ? 'active' : ''; ?>">
 							<b><?php the_title(); ?></b> <br>
 							<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
 						</article>
-						<?php
-					} 
-				endwhile;
-				?>
+					<?php $i++; 
+						} 
+					endwhile;
+					?>
 			</div>
 			<div id="tvNewsEquipe">
 				<b>Equipe de Divulgação Interna</b> <br>

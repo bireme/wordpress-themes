@@ -15,14 +15,14 @@
 <section class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<h4 class="title1">Mais Recentes</h4>
+			<h4 class="title1">Notícias</h4>
 			<div class="row">
 				<div class="col-md-6 categoryHome">
 					<ul>
 						<?php 
 						$posts = new WP_Query([
 							'post_type' => 'post',
-							'posts_per_page' => '5'
+							'posts_per_page' => '4'
 						]);
 						while($posts->have_posts()) : $posts->the_post(); ?>
 							<li><a href="<?php permalink_link(); ?>"><?php the_title(); ?></a></li>
@@ -31,12 +31,12 @@
 						?>
 					</ul>
 				</div>
-				<div class="col-md-6 categoryHome d-none d-md-block">
+				<div class="col-md-6 categoryHome">
 					<ul>
 						<?php 
 						$posts = new WP_Query([
 							'post_type' => 'post',
-							'offset'         => 5,
+							'offset'         => 4,
 							'posts_per_page' => '5'
 						]);
 						while($posts->have_posts()) : $posts->the_post(); ?>
@@ -48,8 +48,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col d-block d-md-none">
-			<h4 class="title1">Enquete</h4>
+		<div class="col d-block d-md-none ">
+			<br><h4 class="title1">Enquete</h4>
 		</div>
 		<div class="col-md-4" id="enquete">
 			<div class="row">

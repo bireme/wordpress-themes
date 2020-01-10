@@ -6,7 +6,7 @@
 		<?php if(have_posts()): while (have_posts()) : the_post(); ?>
 			<article class="col-md-4 imEffect">
 				<a href="<?php permalink_link(); ?>">
-					<?php the_post_thumbnail('medium',['class' => 'img-fluid  imgPost']); ?>
+					<?php the_post_thumbnail('banners',['class' => 'img-fluid  imgPost']); ?>
 					<b><?php the_title(); ?></b> <br>
 					<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
 				</a>
@@ -37,7 +37,7 @@
 		while($posts->have_posts()) : $posts->the_post(); ?>
 			<article class="col-md-3 imEffect">
 				<a href="<?php permalink_link(); ?>">
-					<?php the_post_thumbnail('medium_large',['class' => 'img-fluid  imgPost']); ?>
+					<?php the_post_thumbnail('banners',['class' => 'img-fluid imgPost']); ?>
 					<b><?php the_title(); ?></b> <br>
 					<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
 				</a>

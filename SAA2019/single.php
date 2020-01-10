@@ -3,18 +3,20 @@
 <section class="container">
 	<div class="row" id="main_container">
 		<div class="col-md-12">
-			<h4 class="title1"><?php the_title(); ?></h4>
-			<?php while(have_posts()) : the_post();
-				$qrcode = get_field('qr_code');
-				?>
+			<h4 class="title1">
+				<?php the_title(); ?> <br>
+				<?php echo  '<small>'.get_field('subtitulo').'</small>'; ?>
+			</h4>
+			
+			<?php while(have_posts()) : the_post();?>
 				<?php the_post_thumbnail('large',['class' => 'img-fluid  imgPost']); ?>
 				<?php the_content();
-				//echo get_field('qr_code');
 			endwhile;
 			?>
+			<div class="clearfix"></div>
 			<div class="paginacao text-center">
-				<?php previous_post_link( '%link', 'Anterior', true, '13' ); ?>  
-				<?php next_post_link( '%link', 'Próximo', true, '13' ); ?> 
+				<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav"><i class="fas fa-angle-double-left"></i> Anterior</span> ' ) ); ?></span>
+				<span class="nav-next"><?php next_post_link( '%link', __( '<span class="meta-nav">Próxima <i class="fas fa-angle-double-right"></i></span>' ) ); ?></span>
 			</div>
 		</div>
 
@@ -23,7 +25,7 @@
 		$atual = get_the_title();
 		$posts = new WP_Query([
 			'post_type' => 'post',
-			'posts_per_page' => '8'
+			'posts_per_page' => '9'
 		]);
 		while($posts->have_posts()) : $posts->the_post();
 			if(get_the_title()==$atual){continue;}
@@ -32,7 +34,7 @@
 				<a href="<?php permalink_link(); ?>">
 					<div class="row">
 						<div class="col-12">
-							<?php the_post_thumbnail('medium_large',['class' => 'img-fluid']); ?>
+							<?php the_post_thumbnail('banners',['class' => 'img-fluid']); ?>
 						</div>
 						<div class="col-12">
 							<b><?php the_title(); ?></b> <br>

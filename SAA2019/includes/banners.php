@@ -6,17 +6,17 @@
 				$i = 0;
 				while(have_posts()) : the_post();
 					$image_banner = get_field('image_banner'); 
-					$release = get_field('release'); 
-					$show = get_field('show'); 
-					if ($show == 3 ||  $show == 4) {
+					$subtitulo = get_field('subtitulo'); 
+					$mostrar = get_field('mostrar'); 
+					if ($mostrar == 3 ||  $mostrar == 4) {
 						?>
 						<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?>">
-							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-none d-sm-block" alt="...">
-							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-block d-sm-none" alt="...">
+							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-none d-sm-block" alt="<?php echo $image_banner['alt']; ?>">
+							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-block d-sm-none" alt="<?php echo $image_banner['alt']; ?>">
 							<div class="carousel-caption">
 								<a href="<?php permalink_link(); ?>">
 									<h5><?php the_title(); ?></h5>
-									<p><?php echo $release; ?></p>
+									<p><?php echo $subtitulo; ?></p>
 								</a>
 							</div>
 						</div>
