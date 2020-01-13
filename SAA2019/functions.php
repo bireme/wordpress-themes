@@ -1,4 +1,8 @@
-<?php 
+<?php
+	// Title - tag <title> 
+	add_theme_support( 'title-tag' );
+	// Posta Thumbnails
+	add_theme_support( 'post-thumbnails' );
 	//Register Custom Navigation Walker 
 	require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
 	add_action('wp_enqueue_scripts','style_top');
@@ -24,8 +28,6 @@
 	{
 		register_nav_menu('main-nav', 'Main Menu (top)');
 	}
-	// Posta Thumbnails
-	add_theme_support( 'post-thumbnails' );
 	// WIDGETS
 	//TV Clima
 	register_sidebar([

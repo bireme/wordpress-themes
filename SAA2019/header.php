@@ -2,8 +2,12 @@
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
-	<title>SAA Informa - Canal Informativo da Subsecretaria de Assuntos Administrativos</title>
+	<meta http-equiv="Content-Language" content="pt-br">
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="description" content="<?php bloginfo('description'); ?>">
+	<meta name="author" content="BIREME / OPAS / OMS - Márcio Alves">
+	<meta name="generator" content="BIREME / OPAS / OMS - Márcio Alves">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/accessibility.css">
 	<link rel="stylesheet" href="css/style.css">
