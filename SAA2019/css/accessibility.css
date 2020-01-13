@@ -67,8 +67,15 @@
 {border-color: #fff;}
 .bodyBlack #nav a, .bodyBlack .badgeWarning
 {color: #000!important;}
-@media (max-width: 768px){
-	#topAcessibility, #acessibilidadeTutorial, #acessibilidadeFontes{text-align: center;}
-	#speakBtn{left: 15px;}
+/********************* Breakpoint *********************/
+@media (max-width: 1024px){
 	.hiddenMobile{display: none;}
+}
+@media (max-width: 768px){
+	#topAcessibility,
+	#acessibilidadeFontes,
+	#acessibilidadeTutorial{
+		text-align: center;
+	}
+	#acessibilidadeTutorial{display: none;}
 }
