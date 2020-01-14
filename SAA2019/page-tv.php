@@ -41,7 +41,7 @@
 		</div>
 		<div class="col-3" id="tvNews">
 			<div id="tvNewsNext">
-				<h2 class="">Notícias</h2>
+				<h2>Notícias</h2>
 				<?php 
 				$posts = new WP_Query([
 					'post_type' => 'post',
@@ -66,7 +66,7 @@
 				Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
 				Secretaria-Executiva<br>
 				Ministério da Saúde <br><br>
-				<img src=" <?php bloginfo('template_directory');?>/img/logoBr.png" class="img-fluid" alt="">
+				<img src=" <?php bloginfo('template_directory');?>/img/logoBrTV.png" class="img-fluid" alt="">
 			</div>
 		</div>
 		<footer id="tvFooter">
