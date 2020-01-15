@@ -34,7 +34,12 @@
 				<a href="<?php permalink_link(); ?>">
 					<div class="row">
 						<div class="col-12">
-							<?php the_post_thumbnail('banners',['class' => 'img-fluid']); ?>
+							<?php 
+							if ( has_post_thumbnail()) {
+								the_post_thumbnail('banners',['class' => 'img-fluid']);
+							}else{ ?>
+								<img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
+							<?php }	 ?>
 						</div>
 						<div class="col-12">
 							<b><?php the_title(); ?></b> <br>
@@ -44,6 +49,8 @@
 				</a>
 			</article>
 			<?php
+			
+
 		endwhile;
 		?>
 	</div>

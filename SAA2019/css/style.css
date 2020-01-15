@@ -14,7 +14,7 @@
 }
 #tvCarousel .carousel-caption{
 	width: 100%;
-	height: 400px;
+	height: 440px;
 	left: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, .7);
@@ -29,7 +29,7 @@
 		margin-left: 50px;
 		font-size: 60px;
 		width: 93%;
-		line-height: 30px;
+		line-height: 60px;
 	}
 #tvNews{
 	height:2160px; 
@@ -72,13 +72,13 @@
 	width: 100%;
 	background-color: #000;
 	color: #fff;
-	padding: 10px 30px;
+	padding: 10px 70px;
 	position: absolute;
 	bottom: 0;
 	z-index: 10;
 }
 	#tvFooterHora{
-		font-size: 60px;
+		font-size: 70px;
 		font-weight: bold;
 	}
 	#tvFooterEmail{
@@ -170,6 +170,8 @@
 	left: 0;
 	bottom: 0;
 	padding: 20px;
+	text-align: left;
+	line-height: 15px;
 }
 	#banner .carousel-caption a{
 		color: #fff;
@@ -182,6 +184,9 @@
 	background: #efefef;
 	border-bottom: 5px solid #1a3b6d;
 	padding: 20px;
+}
+#category>ul>li{
+	list-style: none;
 }
 .categoryHome a:hover{
 	color: #666;
