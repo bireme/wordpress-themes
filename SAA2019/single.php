@@ -9,7 +9,7 @@
 			</h4>
 			
 			<?php while(have_posts()) : the_post();?>
-				<?php the_post_thumbnail('large',['class' => 'img-fluid  imgPost']); ?>
+				<?php the_post_thumbnail('large',['class' => 'img-fluid  imgPost', 'title' => the_title_attribute( 'echo=0' )]); ?>
 				<?php the_content();
 			endwhile;
 			?>
@@ -49,8 +49,6 @@
 				</a>
 			</article>
 			<?php
-			
-
 		endwhile;
 		?>
 	</div>

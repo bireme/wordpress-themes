@@ -1,6 +1,7 @@
 <?php
 /*	Template Name: TV*/
 ?>
+<meta http-equiv="refresh" content="3600">
 <?php wp_head(); ?>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
