@@ -21,12 +21,13 @@
 	text-align: left;
 }
 	#tvCarousel .carousel-caption h5{
-		margin-left: 50px;
-		font-size: 30px; /*font-size: 80px;*/
+		margin-left: 20px; /*margin-left: 50px;*/
+		font-size: 24px; /*font-size: 80px;*/
 		width: 93%;
+		margin-bottom: 0px;
 	}	
 	#tvCarousel .carousel-caption p{
-		margin-left: 50px;
+		margin-left: 20px; /*margin-left: 50px;*/
 		font-size: 20px; /*font-size: 60px;*/
 		width: 93%;
 		line-height: 30px; /*line-height: 60px;*/
@@ -36,22 +37,23 @@
 	position: relative;
 	background: #1a3b6d;
 	color: #fff;
+	padding: 0 10px;
 }
 	#tvNewsNext{
-		height: 550px; /*height: 1560px;*/
-		padding: 5px; /*padding: 30px 20px;*/
+		height: 580px; /*height: 1560px;*/
+		padding: 10px; /*padding: 30px 20px;*/
 		overflow:hidden;
 		border-bottom: 1px solid #ddd;
 	}
 	#tvNewsNext h2{
-		font-size: 30px; /*font-size: 60px;*/
+		font-size: 20px; /*font-size: 60px;*/
 		padding-bottom: 10px; /* padding-bottom: 20px;*/
 		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
 	}
 		.tvNewsLoop{
 			width: 100%;
 			margin: auto;
-			font-size: 16px; /*font-size: 40px;*/
+			font-size: 14px; /*font-size: 40px;*/
 			padding: 5px 0; /*padding: 20px 0;*/
 			border-bottom: 1px solid #ddd;
 		}
@@ -62,11 +64,11 @@
 			color: #ff0;
 		}
 	#tvNewsEquipe{
-		font-size: 12px; /*font-size: 30px;*/
+		font-size: 9.8px; /*font-size: 30px;*/
 		width: 100%;
 		margin: auto;
 		height: 200px; /*height: 440px;*/
-		padding: 10px; /*padding: 30px;*/
+		padding: 10px 10px 0 0; /*padding: 30px;*/
 	}
 		#tvNewsEquipe img{
 			margin-top: 10px;
