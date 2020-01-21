@@ -1,20 +1,20 @@
 #tvContainer{
-	width: 3840px;
-	height: 2160px;
+	width: 1024px; /*width: 3840px;*/
+	height: 768px; /*height: 2160px;*/
 	margin: auto;
 	overflow: hidden;
 }
 #tvMain{
-	height:2160px; 
+	height: 768px; /*height: 2160px;*/
 	overflow:hidden;
 	position: relative;
 }
 #tvTitle{
-	height: 300px;
+	height: 80px; /*height: 300px;*/
 }
 #tvCarousel .carousel-caption{
 	width: 100%;
-	height: 440px;
+	height: 120px; /*height: 440px;*/
 	left: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, .7);
@@ -22,36 +22,37 @@
 }
 	#tvCarousel .carousel-caption h5{
 		margin-left: 50px;
-		font-size: 80px;
+		font-size: 30px; /*font-size: 80px;*/
 		width: 93%;
 	}	
 	#tvCarousel .carousel-caption p{
 		margin-left: 50px;
-		font-size: 60px;
+		font-size: 20px; /*font-size: 60px;*/
 		width: 93%;
-		line-height: 60px;
+		line-height: 30px; /*line-height: 60px;*/
 	}
 #tvNews{
-	height:2160px; 
+	height: 768px; /*height: 2160px;*/
 	position: relative;
 	background: #1a3b6d;
 	color: #fff;
 }
 	#tvNewsNext{
-		height: 1560px;
-		padding: 30px 20px;
+		height: 550px; /*height: 1560px;*/
+		padding: 5px; /*padding: 30px 20px;*/
 		overflow:hidden;
+		border-bottom: 1px solid #ddd;
 	}
 	#tvNewsNext h2{
-		font-size: 60px;
-		padding-bottom: 20px;
-		border-bottom: 5px solid #ddd;
+		font-size: 30px; /*font-size: 60px;*/
+		padding-bottom: 10px; /* padding-bottom: 20px;*/
+		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
 	}
 		.tvNewsLoop{
 			width: 100%;
 			margin: auto;
-			font-size: 40px;
-			padding: 20px 0;
+			font-size: 16px; /*font-size: 40px;*/
+			padding: 5px 0; /*padding: 20px 0;*/
 			border-bottom: 1px solid #ddd;
 		}
 		.tvNewsLoop:nth-last-child(1){
@@ -61,27 +62,30 @@
 			color: #ff0;
 		}
 	#tvNewsEquipe{
-		font-size: 30px;
+		font-size: 12px; /*font-size: 30px;*/
 		width: 100%;
 		margin: auto;
-		height: 440px;
-		padding: 30px;
+		height: 200px; /*height: 440px;*/
+		padding: 10px; /*padding: 30px;*/
 	}
+		#tvNewsEquipe img{
+			margin-top: 10px;
+		}
 #tvFooter{
 	width: 100%;
 	background-color: #000;
 	color: #fff;
-	padding: 10px 70px;
+	padding: 10px 30px; /*padding: 10px 70px;*/
 	position: absolute;
 	bottom: 0;
 	z-index: 10;
 }
 	#tvFooterHora{
-		font-size: 70px;
+		font-size: 20px; /*font-size: 70px;*/
 		font-weight: bold;
 	}
 	#tvFooterEmail{
-		font-size: 50px;
+		font-size: 16px; /*font-size: 50px;*/
 	}
 .current_text, .weather-atlas-footer{
 	display: none;
@@ -190,7 +194,6 @@
 .categoryHome a:hover{
 	color: #666;
 }
-
 #category ul, .categoryHome ul{
 	list-style: square;
 	padding-left: 20px;
@@ -285,4 +288,3 @@ label{
 		position: static!important;
 	}
 }
-

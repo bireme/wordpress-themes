@@ -66,7 +66,7 @@
 				<b>Equipe de Divulgação Interna</b> <br>
 				Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
 				Secretaria-Executiva<br>
-				Ministério da Saúde <br><br>
+				Ministério da Saúde <br>
 				<img src=" <?php bloginfo('template_directory');?>/img/logoBrTV.png" class="img-fluid" alt="">
 			</div>
 		</div>
