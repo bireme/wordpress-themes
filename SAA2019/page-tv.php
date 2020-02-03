@@ -1,6 +1,7 @@
 <?php
 /*	Template Name: TV*/
 ?>
+<meta http-equiv="refresh" content="3600">
 <?php wp_head(); ?>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
@@ -63,9 +64,9 @@
 			</div>
 			<div id="tvNewsEquipe">
 				<b>Equipe de Divulgação Interna</b> <br>
-				Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
+				Subsecretaria de Assuntos Administrativos <small>(SAA/SE/MS)</small><br>
 				Secretaria-Executiva<br>
-				Ministério da Saúde <br><br>
+				Ministério da Saúde <br>
 				<img src=" <?php bloginfo('template_directory');?>/img/logoBrTV.png" class="img-fluid" alt="">
 			</div>
 		</div>
