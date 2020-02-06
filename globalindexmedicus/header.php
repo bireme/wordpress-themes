@@ -17,7 +17,7 @@
 		<div class="col-md-4 <?php //echo $idioma=='ar'?'order-last':''; ?>" id="logo">
 			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>"><img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logo.svg" alt="<?php bloginfo('name');?>" class="img-fluid"></a>
 		</div>
-		<div class="col-md-8 <?php //echo $idioma=='ar'?'order-first':''; ?>" id="logo2">
+		<div class="col-md-8 <?php //echo $idioma=='ar'?'order-first':''; ?>" id="logo2" role="navigation">
 			<div id="idiomas">  
 				<?php 
 				wp_nav_menu( array(
