@@ -27,7 +27,7 @@
 					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>"><?php pll_e('Pesquisa via descritores'); ?></a>
 				</div>
 				<div class="col-md-12">
-					<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
+					<a id="speakBtn" href="#"  aria-label="<?php pll_e('Ativar entrada de texto por voz'); ?>" role="button"><i class="fas fa-microphone-alt"></i></a>
 					<input type="text" name="q" class="" id="buscaInput" placeholder="<?php pll_e('Digite o que você procura'); ?>">
 					<button type="submit"  id="buscaSubmit" class="btn btn-primary">
 						<i class="fas fa-search"></i>

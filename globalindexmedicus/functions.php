@@ -204,6 +204,7 @@
         pll_register_string('Formulário', 'Pesquisar', 'Formulário');
         pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário'); 
         pll_register_string('Formulário', 'Saiba Mais', 'Formulário'); 
+        pll_register_string('Formulário', 'Ativar entrada de texto por voz', 'Formulário'); 
          // Temo de Uso
         pll_register_string('Temo de Uso', 'enviar um comentário /comunicar um erro', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Termos e condições de uso', 'Temo de Uso'); 
