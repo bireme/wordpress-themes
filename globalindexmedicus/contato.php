@@ -4,7 +4,7 @@
 	*/
 ?>
 <?php get_header(); ?>
-<section class="padding1" id="main_container">
+<main class="padding1" id="main_container" role="main">
 	<div class="container">
 		<h2 class="titulo1"><?php the_title(); ?></h2>
 		<div class="row">
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</main>
 
 <?php get_footer(); ?>
 <!-- 

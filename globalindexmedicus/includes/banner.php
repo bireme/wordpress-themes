@@ -21,7 +21,7 @@
 				<div class="carousel-caption text-left">
 					<h5><?php echo $texto; ?></h5>
 					<div class="clearfix"></div>
-					<a href="<?php echo $link; ?>" class="btn btn-info" target="<?php echo $janela; ?>"><?php echo pll_e('Saiba Mais'); ?> [+]</a>
+					<a href="<?php echo $link; ?>" role="button"  aria-label="<?php echo $texto; ?>" class="btn btn-info" target="<?php echo $janela; ?>"><?php echo pll_e('Saiba Mais'); ?> [+]</a>
 				</div>
 			</div>
 			<?php $i++; endwhile;

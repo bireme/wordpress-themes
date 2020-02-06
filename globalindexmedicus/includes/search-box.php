@@ -2,7 +2,7 @@
 <?php $idioma = pll_current_language();	?>
 <section id="busca">
 	<div class="container">
-		<form action="https://pesquisa.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
+		<form action="https://pesquisa.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" role="search">
 			<input type="hidden" name="lang" value="<?php echo $idioma ?>"/>
 			<input type="hidden" name="_charset_" value="utf-8"/>
 			<div class="row">

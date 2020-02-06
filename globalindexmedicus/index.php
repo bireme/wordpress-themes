@@ -3,7 +3,7 @@
 <?php get_template_part( 'includes/search', 'box' ) ?>
 
 <!-- Bibliotecas -->
-<section class="padding1" id="main_container">
+<main class="padding1" id="main_container" role="main">
 	<div class="container">
 		<h2 class="titulo1"><?php pll_e('Índices Regionais'); ?></h2>
 		<div class="row" id="libray">
@@ -30,6 +30,6 @@
 			?>
 		</div>
 	</div>
-</section>
+</main>
 <?php get_template_part('includes/widgets') ?>
 <?php get_footer() ?>

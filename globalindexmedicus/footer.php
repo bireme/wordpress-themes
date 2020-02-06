@@ -1,5 +1,5 @@
 <!-- Rodapé -->
-<footer id="footer" class="padding1">
+<footer id="footer" class="padding1" role="contextinfo">
 	<div class="container">
 		<div class="row">
 			<address id="footerWHO" class="col-md-6" data-aos="fade-up">
@@ -20,7 +20,7 @@
 <div id="assFooter" class="text-center">
 	<div class="container">
 		<?php $idioma = pll_current_language(); ?>
-		<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logoBireme.svg" alt="Bireme" class="img-fluid">
+		<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logoBireme.svg" alt="Bireme" class="img-fluid imgBlack">
 		<hr>
 		<div class="row" id="footerTermos">
 			<div class="col-md-4 text-left">

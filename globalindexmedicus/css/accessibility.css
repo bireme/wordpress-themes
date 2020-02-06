@@ -2,7 +2,8 @@
 #barAcessibilidade a{color: #fff; text-decoration: none;}
 #barAcessibilidade a:hover{color: #ddd;}
 #acessibilidadeFontes{text-align: right;}
-#acessibilidadeFontes a{ padding: 0 5px; cursor: pointer; }
+#acessibilidadeFontes a{ padding: 0 5px; cursor: pointer; border-right: 1px solid #ddd; }
+#acessibilidadeFontes a:nth-last-child(1){border-right: none; }
 #acessibilidadeTutorial a{ margin-left: 10px;}
 #acessibilidadeTutorial span{ background-color: #ddd; color: #000; padding: 0 5px;}
 #acessibilidadeTutorial a:hover span{ background-color: #fff;}

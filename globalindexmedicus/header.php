@@ -4,14 +4,14 @@
 	<meta http-equiv="Content-Language" content="pt-br, en, es, zh, ry, fr">
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="description" content="<?php bloginfo('description'); ?>">
-	<meta name="author" content="BIREME/OPAS/OMS">
-	<meta name="generator" content="Wordpress">
+	<meta name="author" content="BIREME / OPAS / OMS - Márcio Alves">
+	<meta name="generator" content="BIREME/OPAS/OMS - Márcio Alves">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<?php wp_head(); ?>
 </head>
 <!-- Topo -->
 <?php get_template_part('includes/topAccessibility') ?>
-<header class="container">
+<header class="container" role="banner">
 	<div class="row">
 		<?php $idioma = pll_current_language(); ?>
 		<div class="col-md-4 <?php //echo $idioma=='ar'?'order-last':''; ?>" id="logo">
@@ -37,7 +37,7 @@
 	</div>
 </header>
 <!-- Menu -->
-<nav class="navbar navbar-expand-lg navbar-light navbarblue" id="nav">
+<nav class="navbar navbar-expand-lg navbar-light navbarblue" id="nav" role="navigation">
 	<div class="container">
 		<button class="navbar-toggler navBt" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
