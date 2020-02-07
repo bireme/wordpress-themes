@@ -4,7 +4,7 @@
 		<?php while(have_posts()) : the_post(); ?>
 			<h2 class="titulo1" tabindex="10"><?php the_title(); ?></h2>
 			<div class="row">
-				<div class="col-12" data-aos="fade-up" tabindex="11">>
+				<div class="col-12" data-aos="fade-up" tabindex="11">
 					<?php //the_excerpt(); ?>
 					<?php the_content(); ?>
 				</div>
