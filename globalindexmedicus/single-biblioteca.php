@@ -26,8 +26,8 @@
 			while($biblioteca->have_posts()) : $biblioteca->the_post();
 				if(get_the_title()==$x){$biblioteca->the_post();}
 				?>
-				<div class="col-4 col-md-2" data-aos="zoom-in" data-aos-delay="<?php echo $i ?>00" tabindex="12">
-					<a href="<?php the_permalink(); ?>">
+				<div class="col-4 col-md-2" data-aos="zoom-in" data-aos-delay="<?php echo $i ?>00">
+					<a href="<?php the_permalink(); ?>" role="link">
 						<?php the_post_thumbnail('Bibliotecas', array('class'=>'img-fluid')); ?>
 						<h6><?php the_title(); ?></h6>
 					</a>
