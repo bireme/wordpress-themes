@@ -5,7 +5,7 @@
 
 <!-- Bibliotecas -->
 <main class="padding1" id="main_container" role="main">
-	<div class="container">
+	<div class="container" tabindex="10">
 		<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
