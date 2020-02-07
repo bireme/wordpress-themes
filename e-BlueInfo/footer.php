@@ -1,6 +1,6 @@
 <?php wp_footer(); ?>
 <?php $idioma = pll_current_language(); ?>
-<footer>
+<footer role="contentinfo">
 	<div id="footer" class="container">
 		<div class="row">
 			<div class="col-md-5">
@@ -8,8 +8,8 @@
 				<a href="https://politicas.bireme.org/terminos/<?php echo $idioma; ?>" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> | 
 				<a href="https://politicas.bireme.org/privacidad/<?php echo $idioma; ?>" target="_blank"><?php pll_e('Privacy policy'); ?></a>
 			</div>
-			<div class="col-md-7 text-right" id="logoOPAS">
-				<img src="https://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="">
+			<div class="col-md-7 text-right" id="logoOPAS" role="logo">
+				<img src="https://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="" alt="BIREME">
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 <?php get_header('in'); ?>
-<section class="padding50">
+<main class="padding50" role="main">
 	<div class="container" id="main_container">
 		<h1><?php the_title(); ?></h1>
 		<hr>
@@ -8,7 +8,7 @@
 		endwhile;
 		?>
 	</div>
-</section>
+</main>
 
 
 <?php get_footer(); ?>
