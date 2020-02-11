@@ -13,7 +13,7 @@
 				<a href="#!" role="button" id="fontNormal" tabindex="6">A</a>
 				<a href="#!" role="button" id="fontLess" tabindex="7">-A</a>
 				<a href="#!" role="button" id="contraste" tabindex="8"><i class="fas fa-adjust"></i> <?php pll_e('High contrast'); ?></a>
-				<a href="https://politicas.bireme.org/accesibilidad/<?php echo ( in_array($idioma, ['ar', 'fr', 'ru', 'zh']) ? "en" : $idioma ); ?>" role="button" id="accebilidade" tabindex="9" target="_blank"><i class="fas fa-wheelchair"></i></a>
+				<a href="https://politicas.bireme.org/accesibilidad/<?php echo ( in_array($idioma, array('ar', 'fr', 'ru', 'zh')) ? "en" : $idioma ); ?>" role="button" id="accebilidade" tabindex="9" target="_blank"><i class="fas fa-wheelchair"></i></a>
 			</div>
 		</div>
 	</div>
