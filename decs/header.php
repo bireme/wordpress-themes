@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<?php wp_head(); ?>
 </head>
-
 <?php $idioma = pll_current_language(); ?>
+<?php get_template_part('includes/topAcessibility') ?>
 <header id="header">
 	<div class="container"  style="position: relative;">
 		<div id="language">
@@ -29,7 +29,9 @@
 						<a href="http://www.bvsalud.org/" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg" alt="Logo DeCS" class="img-fluid"></a>
+						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg" alt="Logo DeCS" class="img-fluid">
+							<div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div>
+						</a>
 					</div>
 				</div>
 			</div>

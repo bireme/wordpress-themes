@@ -30,9 +30,8 @@ header{padding-top: 10px;}
 #buscaInput{
 	display:inline-block;
 	outline:0; border:0;
-	padding: 10px 10px 15px 50px; width: 100%;
-	background: url(../img/search.svg) #fff no-repeat;
-	background-position: 10px center;
+	padding: 10px 10px 15px 40px; width: 100%;
+	background-position: 40px center;
 	border-radius: 5px;
 }
 #buscaSubmit{
@@ -45,7 +44,7 @@ header{padding-top: 10px;}
    	background: url(../img/down.svg) no-repeat #fff;
    	padding:10px; 
    	background-position: 100% center;
-   	width: 255px;
+   	width: 300px;
    	/* height:40px; */
    	border:1px solid #ddd;	border-radius: 5px;
    	margin-bottom: 10px;
@@ -195,7 +194,7 @@ header{padding-top: 10px;}
 	.bibliotecaHome h4{min-height: auto; position: static; width: auto; padding: 20px; }
 	.bibliotecaHome h4 span{position: static; width: auto; padding: 0;}
 	#assFooter img{max-width: 90%!important;}
-	.widgetColumn{ margin-bottom: 20px; border-bottom: 2px solid #fff; }
+	.widgetColumn{ margin-bottom: 20px; border-bottom: none; }
 	.widgetDivisao{display: none;}
 }
 @media (max-width: 560px){
@@ -204,5 +203,4 @@ header{padding-top: 10px;}
 	   	background-position: 98% center;
 	   	width: 100%;
 	}
-	#buscaSubmit{display: none;}
 }

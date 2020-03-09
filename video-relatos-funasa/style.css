@@ -21,19 +21,37 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
 
 strong {display:inline;}
-body {background:#eaf6fe !important;}
-#parent {margin-top:10px;}
-.container {background: #fff !important;}
+body {
+    background: url(http://saudeambiental.teste.bvs.br/wp-content/plugins/bvs-site/bvs-themes/bvs-2012/bireme_archives/custom/pt/body.png) top left no-repeat !important;
+}
+
+.single2column{background: #f5f1f1;}
+.single2column .related_links{padding-top: 30px;
+    PADDING-LEFT: 30PX;}
+.header {
+    height: 256px !important;
+}
+.entry-title{line-height:20px;}
+#parent {
+  margin: 60px 0 11px 5px;
+}
+#parent img {
+    max-height: 115px !important;
+} 
+.container {background: # !important;}
+.entry-content {
+    font-size: 14px;
+}
 .bar a {color: #fff !important; text-decoration: none;}
 .bar a:hover {text-decoration: underline;}
 .top_sidebar {margin: 8px 0 20px 0;}
-.top_pt-br .site_name a{background: url(images/title-relatos.png) no-repeat;width:240px; height:76px;display: block;}
+#.top_pt-br .site_name a{background: url(images/title-relatos.png) no-repeat;width:240px; height:76px;display: block;}
 .top_pt-br .site_name a span{display: none;}
 #menu-main {text-transform: uppercase;font-weight: 700;font-size: 125%;}
 #menu-main a {color: #000 !important; text-decoration: none;}
 #menu-main a:hover {text-decoration: underline;}
 .metaslider .flexslider {margin-bottom: 10px !important; border-bottom: 4px double #ACACAC !important;border-radius: 0px !important}
-.widget-title {color: #b60000 !important; text-transform: uppercase !important; font-size: 170% !important;}
+.widget-title {color: #b60000 !important; font-size: 170% !important;}
 .widget_metaslider_widget div {padding:0 !important;opacity: 1.0 !important;}
 .widget_metaslider_widget .caption-wrap {color: #000 !important; background: #fff !important;}
 .widget_metaslider_widget .caption {padding:12px !important; line-height: 170% !important;}
@@ -71,12 +89,16 @@ body {background:#eaf6fe !important;}
 .widget_rss .widget-title a {color: #b60000 !important; text-decoration: none;}
 .widget_rss img {float:right;margin-top:6px;}
 /******* FOOTER *******/
-.footer {background: none !important;}
+
 .footer .wrap {width: 1080px;margin:0 auto;}
 .footer .wrap .institutionalInfo, .footer .wrap #socialMedia {color: #fff;padding: 22px; width: 44%; float: left;}
 .footer .wrap .institutionalInfo {font-weight: 300;}
 .footer .wrap .institutionalInfo strong {font-weight: 700; font-size: 160%;}
-.footer {background: #252525;padding: 0px !important;}
+.footer {
+    background: #0a4191;
+    padding: 0px !important;
+    height: 50px;
+}
 .footer .signature {padding: 22px;}
 .siteInfo {background: #fff;width: 976px;margin:0 auto !important;}
 #text-4 {background: #363636;}
@@ -84,7 +106,12 @@ body {background:#eaf6fe !important;}
 .single .site-content{width:98% !important;margin-top:0px !important;background:#fff;}
 .single .entry-title {margin-left: 0px !important;font-weight: bold;}
 .single .single1column {margin-right:1.5em !important;}
-.r-block-title {font-weight:bold;color: #b60000 !important;text-transform: uppercase !important;font-size: 170% !important;}
+.r-block-title {
+    font-weight: bold;
+    color: #168acc !important;
+    /* text-transform: uppercase !important; */
+    font-size: 130% !important;
+}
 .r-block {margin-bottom: 30px;}
 .r-block div {margin-bottom: 10px;}
 .r-block .whois-name {font-weight: bold;margin-bottom:5px;font-size: 120%;}
@@ -127,7 +154,7 @@ footer div {margin: 10px 0;}
 .archive article {clear:both;border-bottom: none !important;font-size: 110%;margin-bottom:0 !important;padding:0 5px .5em 5px !important;}
 .archive article header {float: left;margin: 0 12px 0 0;}
 .archive article header .entry-image{margin-bottom: 1em !important;}
-.archive .news-content {float: left;width: 73%;}
+.archive .news-content {float: left;width: 100%;}
 .archive .news-content .entry-title {font-size: 120%; font-weight: bold;margin-bottom: .5em;color:#000;}
 .archive .news-content .entry-title a {text-decoration: none;}
 .archive .news-content .entry-title a:hover {text-decoration:underline;}

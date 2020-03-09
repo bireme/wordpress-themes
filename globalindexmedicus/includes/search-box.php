@@ -2,11 +2,11 @@
 <?php $idioma = pll_current_language();	?>
 <section id="busca">
 	<div class="container">
-		<form action="https://pesquisa.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" >
+		<form action="https://pesquisa.bvsalud.org/gim/?output=site&lang=<?php echo $idioma; ?>&from=0&sort=&format=summary&count=20&fb=&page=1&index=tw&q=" id="formBusca" method="get" role="search">
 			<input type="hidden" name="lang" value="<?php echo $idioma ?>"/>
 			<input type="hidden" name="_charset_" value="utf-8"/>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<select class="formSelect" name="index">
 						<option value=""><?php pll_e('Todos os Índices'); ?></option>
 						<option value="ti"><?php pll_e('Título'); ?></option>
@@ -23,12 +23,15 @@
 						<option class="subGroup" value="WPRIM">&nbsp;&nbsp;&nbsp;&nbsp;WPRIM (WPRO)</option>
 					</select>
 				</div>
-				<div class="col-md-6 text-right d-none d-md-block">
+				<div class="col-md-5 text-right d-none d-md-block">
 					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>"><?php pll_e('Pesquisa via descritores'); ?></a>
 				</div>
 				<div class="col-md-12">
+					<a id="speakBtn" href="#"  aria-label="<?php pll_e('Ativar entrada de texto por voz'); ?>" role="button"><i class="fas fa-microphone-alt"></i></a>
 					<input type="text" name="q" class="" id="buscaInput" placeholder="<?php pll_e('Digite o que você procura'); ?>">
-					<input type="submit"  id="buscaSubmit" class="btn btn-primary" value="<?php pll_e('Pesquisar'); ?>">
+					<button type="submit"  id="buscaSubmit" class="btn btn-primary">
+						<i class="fas fa-search"></i>
+					</button>
 				</div>
 				<div class="col-md-6 text-right d-sm-block d-md-none">
 					<a href="https://pesquisa.bvsalud.org/gim/decs-locator/?lang=<?php echo $idioma; ?>">Pesquisa via descritores DeCS/MeSH</a>

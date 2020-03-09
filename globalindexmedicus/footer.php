@@ -1,14 +1,14 @@
 <!-- Rodapé -->
-<footer id="footer" class="padding1">
+<footer id="footer" class="padding1" role="contextinfo">
 	<div class="container">
 		<div class="row">
-			<address id="footerWHO" class="col-md-6">
+			<address id="footerWHO" class="col-md-6" data-aos="fade-up" tabindex="100">
 				<h5><?php pll_e('Outros Índices'); ?></h5>
 				<ul class="list-unstyled">
 					<?php dynamic_sidebar('footer_left'); ?>
 				</ul>
 			</address>
-			<address id="footerAddress" class="col-md-6">
+			<address id="footerAddress" class="col-md-6" data-aos="fade-up" tabindex="101">
 				<h5><?php pll_e('Bireme'); ?></h5>
 				<ul class="list-unstyled">
 					<?php dynamic_sidebar('footer_right'); ?>
@@ -20,7 +20,7 @@
 <div id="assFooter" class="text-center">
 	<div class="container">
 		<?php $idioma = pll_current_language(); ?>
-		<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logoBireme.svg" alt="Bireme" class="img-fluid">
+		<img src="<?php bloginfo('template_directory') ?>/img/<?php echo $idioma; ?>/logoBireme.svg" alt="Bireme" class="img-fluid imgBlack">
 		<hr>
 		<div class="row" id="footerTermos">
 			<div class="col-md-4 text-left">
@@ -30,8 +30,8 @@
 				<a href="http://feedback.bireme.org/feedback/?application=iahx&version=2.0&lang=<?php echo $idioma; ?>&site=portal" target="_blank"><?php pll_e('enviar um comentário /comunicar um erro'); ?></a>
 			</div>
 			<div class="col-md-4 text-right">
-				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
-				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
+				<a href="http://politicas.bireme.org/terminos/<?php echo ( in_array($idioma, array('ar', 'fr', 'ru', 'zh')) ? "en" : $idioma ); ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
+				<a href="http://politicas.bireme.org/privacidad/<?php echo ( in_array($idioma, array('ar', 'fr', 'ru', 'zh')) ? "en" : $idioma ); ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
 			</div>
 		</div>
 	</div>

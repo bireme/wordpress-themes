@@ -4,7 +4,7 @@
 	*/
 ?>
 <?php get_header(); ?>
-<section class="padding1">
+<main class="padding1" id="main_container" role="main">
 	<div class="container">
 		<h2 class="titulo1"><?php the_title(); ?></h2>
 		<?php while(have_posts()) : the_post();
@@ -13,8 +13,9 @@
 		?>
 		<div class="accordion" id="accordionExample">
 			<?php $itens  = get_field('accordion');
+			$i = 1;
 			foreach ($itens as $key => $item) { ?>
-				<div class="card">
+				<div class="card" data-aos="fade-up" data-aos-delay="<?php echo $i ?>00">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0">
 							<span class="acordionIcone float-right fas <?php echo ($key == 0 ? "fa-minus": "fa-plus" ); ?>"></span>
@@ -30,8 +31,11 @@
 						</div>
 					</div>
 				</div>
-			<?php } ?>	
+			<?php 
+				$i++;
+				}
+			?>	
 		</div>
 	</div>
-</section>
+</main>
 <?php get_footer(); ?>

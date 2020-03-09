@@ -5,13 +5,16 @@
 	// 	'width'		=> 150,
 	// 	'flex-width'=> true
 	// ]);
-	
+	// Title - tag <title>
+	add_theme_support('title-tag');
 	// Adicionar script e stule no header
 	add_action('wp_enqueue_scripts', 'add_script_cabecalho');
 	function add_script_cabecalho(){
 		//Adicionar estilos
 		wp_enqueue_style('bootstrap', get_stylesheet_directory_uri() . '/css/bootstrap.css');
 		wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
+		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
+		wp_enqueue_style('aos',get_stylesheet_directory_uri().'/css/aos.css');
 		wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 
 		$idioma = pll_current_language();
@@ -24,7 +27,10 @@
 	function add_script_rodape(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
+		wp_enqueue_script('aos', get_stylesheet_directory_uri().'/js/aos.js', array('jquery'));
 		wp_enqueue_script('main', get_stylesheet_directory_uri().'/js/main.js', array('jquery'));
+		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
+		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
 	}
 
 	// Menus Top e Rodape
@@ -198,10 +204,17 @@
         pll_register_string('Formulário', 'Pesquisar', 'Formulário');
         pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário'); 
         pll_register_string('Formulário', 'Saiba Mais', 'Formulário'); 
+        pll_register_string('Formulário', 'Ativar entrada de texto por voz', 'Formulário'); 
          // Temo de Uso
         pll_register_string('Temo de Uso', 'enviar um comentário /comunicar um erro', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Termos e condições de uso', 'Temo de Uso'); 
-        pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso'); 
+        pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso');
+         // Acessibilidade
+        pll_register_string('Main content', 'Main content', 'Accessibility');
+		pll_register_string('Menu', 'Menu', 'Accessibility');
+		pll_register_string('Search', 'Search', 'Accessibility');
+		pll_register_string('Footer', 'Footer', 'Accessibility');
+		pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
     });
 
     function http_request_local( $args, $url ) {

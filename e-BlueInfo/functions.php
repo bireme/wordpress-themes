@@ -73,6 +73,11 @@
 		pll_register_string('QR Code','Scan QR Code with Mobile', 'Modal');
 		pll_register_string('Store','Dados dos países participantes', 'Modal');
 		pll_register_string('Interested Countries','Interested Countries', 'Modal');
+		pll_register_string('Main content', 'Main content', 'Accessibility');
+		pll_register_string('Menu', 'Menu', 'Accessibility');
+		pll_register_string('Search', 'Search', 'Accessibility');
+		pll_register_string('Footer', 'Footer', 'Accessibility');
+		pll_register_string('High contrast', 'High contrast', 'Accessibility');
 	});
 	//widgets - Home
 	register_sidebar(array(

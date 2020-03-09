@@ -75,6 +75,8 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
                 $html4label = "<dt>label</dt>";
                 $html4custom_field = "<dd>custom_field</dd><br/>";
 
+                echo bir_show_custom_field_translated(get_the_ID(), 'responsible', __('Responsible','refnet'), $html4label, $html4custom_field);
+
                 echo bir_show_custom_field_translated(get_the_ID(), 'description_of_the_search', __('Description','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'main_subject_of_the_search', __('Main subjects','refnet'), $html4label, $html4custom_field);

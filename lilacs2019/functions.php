@@ -141,4 +141,8 @@ function register_theme_menu() {
   register_nav_menu('primary-menu',__( 'Menu Principal' ));
 }
 add_action( 'init', 'register_theme_menu' );
+pll_register_string('Main content', 'Main content', 'Accessibility');
+pll_register_string('Menu', 'Menu', 'Accessibility');
+pll_register_string('Footer', 'Footer', 'Accessibility');
+pll_register_string('High contrast', 'High contrast', 'Accessibility');
 ?>

@@ -6,3 +6,5 @@ jQuery( document ).ready( function( $ ) {
 		$(this).parent().find(".fa-minus").removeClass("fa-minus").addClass("fa-plus");
 	});
 });
+// aos scroll
+ AOS.init();

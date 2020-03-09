@@ -4,8 +4,8 @@
 <?php get_template_part( 'includes/search', 'box' ) ?>
 
 <!-- Bibliotecas -->
-<section class="padding1">
-	<div class="container">
+<main class="padding1" id="main_container" role="main">
+	<div class="container" tabindex="10">
 		<?php
 		if ( have_posts() ) {
 			while ( have_posts() ) {
@@ -16,6 +16,6 @@
 		}
 		?>
 	</div>
-</section>
+</main>
 <?php get_template_part( 'includes/widgets') ?>
 <?php get_footer() ?>

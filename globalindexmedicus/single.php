@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="padding1">
+<main class="padding1"  id="main_container" role="main">
 	<div class="container">
 		<?php while(have_posts()) : the_post(); ?>
 			<h2 class="titulo1"><?php the_title(); ?></h2>
@@ -66,5 +66,5 @@
 			<?php endwhile; ?>
 		</div>
 	</div>
-</section>
+</main>
 <?php get_footer(); ?>

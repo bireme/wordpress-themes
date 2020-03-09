@@ -40,10 +40,13 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 
 		<!-- Bootstrap core CSS -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/accessibility.css" rel="stylesheet">
+        <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/feedback.css" rel="stylesheet">
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
 	</head>
 	<body class="bg-white site_<?php echo ( $site_lang ); ?>">
+    <?php get_template_part (  'topAccessibility'); ?>
 		<div class="col-lg-12 bar">
 			<div class="container BarInner">
 				<div class="row">
@@ -65,12 +68,12 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 		<!-- Navigation -->
 			<div class="row header header_<?php echo ( $site_lang ); ?>">
 				<div class="col-lg-6">
-                <a class="bvs_logo" href="https://bvsalud.org/<?php echo ( $site_lang ); ?>">
+                <a class="bvs_logo" href="https://bvsalud.org/<?php echo ( "pt" == $site_lang ) ? '' : $site_lang; ?>">
 						<img src="http://logos.bireme.org/img/<?php echo ( $site_lang ); ?>/bvs_color.svg" 
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
 					</a>
-					<a class="lilacs_logo" href="<?php echo site_url(); ?>">
+					<a class="lilacs_logo" href="<?php echo site_url(); ?>/<?php echo ( "pt" == $site_lang ) ? '' : $site_lang; ?>">
 						<img src="<?php echo get_bloginfo( 'stylesheet_directory' );?>/images/lilacs_logo_<?php echo ( $site_lang ); ?>.png" 
 							 alt="<?php bloginfo('description'); ?>" 
 							 title="<?php bloginfo('description'); ?>" />
@@ -84,12 +87,12 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 					</div>
 				</div>
 				<div class="col-lg-6 institutional">
-					<a href=""><span>BIREME | OPAS | OMS </span></a>
+					<a href="https://www.paho.org/bireme/index.php?lang=<?php echo ( $site_lang ); ?>"><span>BIREME | OPAS | OMS </span></a>
 				</div>
 			</div>
 			<header>
 			</header>
 		</div>
-		<div class="col-lg-12 header_menu">
+		<div class="col-lg-12 header_menu" id="nav">
 			<?php dynamic_sidebar(  'header_menu'); ?>
 		</div>
