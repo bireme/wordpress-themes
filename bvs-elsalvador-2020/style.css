@@ -18,7 +18,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  
 /* =Imports styles from the parent theme
 -------------------------------------------------------------- */
-@import url('../../plugins/bvs-site-wp-plugin/bvs-themes/bvs-2012/style.css');
+@import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
