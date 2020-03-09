@@ -14,7 +14,7 @@
 }
 #tvCarousel .carousel-caption{
 	width: 100%;
-	height: 250px;
+	height: auto;
 	left: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, .7);
@@ -40,13 +40,13 @@
 	padding: 0 10px;
 }
 	#tvNewsNext{
-		height: 785px;
+		height: 740px;
 		padding: 30px;
 		overflow:hidden;
 		border-bottom: 1px solid #ddd;
 	}
 	#tvNewsNext h2{
-		font-size: 20px; /*font-size: 60px;*/
+		font-size: 30px; /*font-size: 60px;*/
 		padding-bottom: 10px; /* padding-bottom: 20px;*/
 		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
 	}
@@ -56,6 +56,7 @@
 			font-size: 20px;
 			padding: 20px 0;
 			border-bottom: 1px solid #ddd;
+			font-size: 28px;
 		}
 		.tvNewsLoop:nth-last-child(1){
 			border-bottom: none;
@@ -66,9 +67,9 @@
 	#tvNewsEquipe{
 		width: 90%;
 		margin: auto;
-		height: 180px;
+		height: 270px;
 		padding: 20px 0;
-		border-top: 1px solid #ddd;
+		font-size: 20px;
 	}
 		#tvNewsEquipe img{
 			margin-top: 10px;

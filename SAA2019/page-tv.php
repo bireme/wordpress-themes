@@ -5,7 +5,7 @@
 <?php wp_head(); ?>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
-		<div class="col-9" id="tvMain">
+		<div class="col-8" id="tvMain">
 			<div id="tvTitle">
 				<img src="<?php bloginfo( 'template_directory')?>/img/tvLogo.png" alt="">
 				<span class="float-right">
@@ -40,7 +40,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-3" id="tvNews">
+		<div class="col-4" id="tvNews">
 			<div id="tvNewsNext">
 				<h2>Notícias</h2>
 				<?php 
@@ -55,7 +55,6 @@
 					if ($mostrar == 2 ||  $mostrar == 4) { ?>
 						<article class="tvNewsLoop <?php echo ($i == 0) ? 'active' : ''; ?>">
 							<b><?php the_title(); ?></b> <br>
-							<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
 						</article>
 					<?php $i++; 
 						} 
