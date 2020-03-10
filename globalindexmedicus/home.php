@@ -1,7 +1,7 @@
 <?php get_header() ?>
 <?php get_template_part( 'includes/banner' ) ?>
 <?php get_template_part( 'includes/search', 'box' ) ?>
-
+<?php $idioma = pll_current_language(); ?>
 <!-- Bibliotecas -->
 <main class="padding1" id="main_container" role="main">
 	<div class="container">
