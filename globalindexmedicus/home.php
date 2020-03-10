@@ -32,4 +32,17 @@
 	</div>
 </main>
 <?php get_template_part('includes/widgets') ?>
+<section class="guia">
+	<div class="container text-center">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="<?php bloginfo('template_directory') ?>/img/guia<?php echo ( in_array($idioma, ['ar', 'fr', 'ru', 'zh']) ? "en" : $idioma ); ?>.png " alt="" class="img-fluid">
+			</div>
+			<div class="col-md-8">
+				<h2><?php pll_e('Veja como é fácil pesquisar no GIM'); ?></h2>
+				<h5><a href="<?php bloginfo('template_directory') ?>/img/guia<?php echo ( in_array($idioma, ['ar', 'fr', 'ru', 'zh']) ? "en" : $idioma ); ?>.pdf" target="_blank" class="btn btn-lg btn-warning"><?php pll_e('Clique aqui para baixar o guia rápido de pesquisa GIM'); ?></a></h5>
+			</div>
+		</div>
+	</div>
+</section>
 <?php get_footer() ?>

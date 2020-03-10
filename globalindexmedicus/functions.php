@@ -215,6 +215,9 @@
 		pll_register_string('Search', 'Search', 'Accessibility');
 		pll_register_string('Footer', 'Footer', 'Accessibility');
 		pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
+		// Diversos
+		pll_register_string('Veja como é fácil pesquisar no GIM', 'Veja como é fácil pesquisar no GIM', 'Geral');
+		pll_register_string('Clique para baixar o guia rápido de pesquisa GIM', 'Clique para baixar o guia rápido de pesquisa GIM', 'Geral');
     });
 
     function http_request_local( $args, $url ) {

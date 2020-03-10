@@ -129,6 +129,17 @@ header{padding-top: 10px;}
 	padding-bottom: 10px; transition: filter 1s ease;
 }
 .area:hover img{ filter: brightness(1.5); }
+.guia{
+	background: rgb(237,237,237);
+	background: linear-gradient(90deg, rgba(237,237,237,1) 35%, rgba(221,221,221,1) 100%);
+	color: #014c6e;
+	padding: 20px;
+}
+.guia h2{
+	margin-top: 70px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
 /********** formulário **************/
 .wpcf7 { width: 100%;}
 .formLabel{	display: block;	font-weight: bold;}
