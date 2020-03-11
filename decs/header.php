@@ -26,19 +26,20 @@
 			<div class="col-10 col-md-6 col-lg-5 offset-1 offset-md-0" id="logoMain">
 				<div class="row">
 					<div class="col-3 col-md-3">
-						<a href="http://www.bvsalud.org/" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid"></a>
+						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg" alt="Logo DeCS" class="img-fluid">
-							<div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div>
+						<a href="index.php">
+							<img src="http://logos.bireme.org/img/pt/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
+							<div id="versionBeta">Novo sitio beta do DeCS</div>
 						</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-10 col-md-6 col-lg-7 offset-1 offset-md-0 text-right" id="logosSecond">
-				<!-- <img src="img/logoOpas.svg" alt="" class="img-fluid"> -->
-				<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/v_bir_white.svg" alt="Logo BIREME" class="img-fluid">
+				<img src="http://logos.bireme.org/img/pt/v_bir_color.svg" alt="Logo BIREME" class="img-fluid imgBlack">
 			</div>
 		</div>
+	</div>
 	</div>
 </header>

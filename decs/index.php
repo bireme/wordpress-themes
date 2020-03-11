@@ -1,66 +1,47 @@
 <?php get_header(); ?>
-<?php get_template_part('includes/search') ?>
-<?php get_template_part('includes/banners') ?>
+<?php get_template_part('navHome') ?>
+
+
+
 <main id="main_container" class="padding1">
-	<section id="consultaServico">
-		<div class="container" id="main_container">
+
+<?php get_template_part('includes/search') ?>
+
+</main>
+
+	<section id="countHome">
+		<div class="container containerAos">
 			<div class="row">
-				
-				<div class="col-md-4 homeConsult" data-aos="flip-left" data-aos-delay="300">
-					<div class="homeIconeConsulta">
-						<i class="fas fa-th iconeCS"></i>
-					</div>
-					<h4 class="titulo2"><?php pll_e('Meet DeCS'); ?></h4>
-					<?php
-					wp_nav_menu( array(
-						'theme_location'    => 'home1',
-						'depth'             => 1,
-						'container'         => 'ul',
-						'container_class'   => 'list-unstyle',
-						'container_id'      => '',
-						'menu_class'        => '',
-					) );
-					?>
+				<div class="col-12">	
+					<h2 class="title1">Números</h2>
+					<div class="line"></div>
 				</div>
-
-				<div class="col-md-4 homeConsult" data-aos="flip-left" data-aos-delay="400">
-					<div class="homeIconeConsulta">
-						<i class="fas fa-envelope-open-text iconeCS"></i>
+				<div class="col-md-4" data-aos="fade-up">
+					<div class="boxHome">
+						<h3 class="title2 counter-up" data-count-to="33558"><span></span></h3>
+						<hr class="lineWhite">
+						<p data-aos="fade-left" data-aos-delay="300">Descritores e Qualificadores</p>
 					</div>
-					<h4 class="titulo2"><?php pll_e('Contact us'); ?></h4>
-					<?php
-					wp_nav_menu( array(
-						'theme_location'    => 'home2',
-						'depth'             => 1,
-						'container'         => 'ul',
-						'container_class'   => 'list-unstyle',
-						'container_id'      => '',
-						'menu_class'        => '',
-					) );
-					?>
 				</div>
-
-				<div class="col-md-4 homeConsult" data-aos="flip-left" data-aos-delay="500">
-					<div class="homeIconeConsulta">
-						<i class="fas fa-laptop-code iconeCS"></i>
+				<div class="col-md-4" data-aos="fade-down">
+					<div class="boxHome">
+						<h3 class="title2 counter-up" data-count-to="29018"><span></span>29.018</h3>
+						<hr class="lineWhite">
+						<p data-aos="fade-left" data-aos-delay="300">Descritores e Qualificadores exclusivos do DeCS</p>
 					</div>
-					<h4 class="titulo2"><?php pll_e('For Developers'); ?></h4>
-					<?php
-					wp_nav_menu( array(
-						'theme_location'    => 'home3',
-						'depth'             => 1,
-						'container'         => 'ul',
-						'container_class'   => 'list-unstyle',
-						'container_id'      => '',
-						'menu_class'        => '',
-					) );
-					?>
 				</div>
-
+				<div class="col-md-4" data-aos="fade-up">
+					<div class="boxHome">
+						<h3 class="title2 counter-up" data-count-to="7741"><span></span></h3>
+						<hr class="lineWhite">
+						<p data-aos="fade-left" data-aos-delay="300">Códigos Hierárquicos em categorias DeCS</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
-</main>
+
+
 <section class="padding1 bgColor1">
 	<div class="container">
 		<h2><?php pll_e('DeCS in Numbers'); ?></h2>
@@ -88,6 +69,11 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+
 <?php get_template_part('includes/partners') ?>
 </section>
 <?php get_footer(); ?>

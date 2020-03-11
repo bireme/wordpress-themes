@@ -28,13 +28,15 @@
 	add_action('wp_footer','scripts_footer');
 	function scripts_footer(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.4.1.min.js');
-		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
+		// A biblioteca popper.min.js deverá ser declarada antes de bootstrap.min.js
 		wp_enqueue_script('popper',get_stylesheet_directory_uri().'/js/popper.min.js');
+		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
 		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
 		wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
-		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 		wp_enqueue_script('feedback',get_stylesheet_directory_uri().'/js/feedback.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
+		wp_enqueue_script('aos',get_stylesheet_directory_uri().'/js/aos.js');
+		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 	}
 	//Adiciona suporte a miniaturas (imagem destacada)
 	add_theme_support('post-thumbnails');

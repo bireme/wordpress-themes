@@ -1,38 +1,64 @@
 <?php $ths_plugin_slug=''; ?>
-<section id="busca">
-	<div class="container" id="">
-		<div class="headerSearch" >
+
+<section class="container" id="main_container">
+	<div class="row padding2">
+		<div class="col-12">
 			<form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
-				<div class="row">
-					<div class="col-md-5 col-lg-4 selectBoxSearch">
-						<select name="filter" id="filter" class="formSelect">
-							<option value="ths_termall"><?php pll_e('All Descriptor Terms'); ?></option>
-							<option value="ths_preferredterm"><?php pll_e('Main Heading (Descriptor) Terms'); ?></option>
-							<option value="ths_regid"><?php pll_e('Unique ID'); ?></option>
-							<option value="ths_conceptui"><?php pll_e('Concept ID'); ?></option>
-							<option value="ths_decs_code"><?php pll_e('Thesaurus ID'); ?></option>
-							<option value="ths_treenumber"><?php pll_e('Tree number ID'); ?></option>
-							<option value="ths_qualifall"><?php pll_e('All Qualifier Terms'); ?></option>
-						</select>
-					</div>
-					<div class="col-md-5 col-lg-7 inputBoxSearch">
-						<input type="text" name="q" placeholder="<?php pll_e('Search'); ?>" id="fieldSearch" autocomplete="off" >
-						<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
-					</div>
-					<div class="col-md-2 col-lg-1 btnBoxSearch">
+				<fieldset class="fieldset2">
+					<legend><?php pll_e('Search'); ?></legend>
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+							<select name="filter" id="filter" class="formSelect">
+								<option value="ths_termall" selected><?php pll_e('Any descriptor term'); ?></option>
+								<option value="ths_exact_term" ><?php pll_e('Exact descriptor term'); ?></option>
+								<option value="ths_regid"><?php pll_e('Unique ID'); ?></option>
+								<option value="ths_treenumber"><?php pll_e('Hierarchical Code'); ?></option>
+								<option value="ths_qualifall"><?php pll_e('Any qualifier term'); ?></option>
 
-						<button type="submit">
-							<i class="fas fa-search"></i>
-							<span class="textBTSearch"> <?php pll_e('Search'); ?></span>
-						</button>
+
+<!-- 
+Qualquer descritor
+Descritor exato
+ID do registro
+Código hierárquico
+Qualquer qualificador
+
+
+Cualquier descriptor
+Descriptor exacto
+ID de registro
+Código jerárquico
+Cualquier calificador
+
+Tout descripteur
+Descripteur exact
+ID d'enregistrement
+Code hiérarchique
+N'importe quel qualificatif
+ -->
+
+
+
+
+
+
+
+							</select>
+						</div>
+						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
+							<!-- <input type="text" name="q" placeholder="<?php pll_e('Search'); ?>" id="fieldSearch" autocomplete="off" class="form-control"> -->
+							<input type="text" name="q" id="fieldSearch" autocomplete="off" class="form-control">
+							<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
+						</div>
+						<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
+							<button type="submit" class="btn btn-success btn-block">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
 					</div>
-				</div>
-			</div>
-
-			<!-- <div class="col-md-12" id="navConsultaAvancada">
-				<a href="consultaAvancada.php">Advanced Search</a>
-			</div> -->
-
-		</form>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 </section>
+
