@@ -47,7 +47,12 @@ N'importe quel qualificatif
 						</div>
 						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
 							<!-- <input type="text" name="q" placeholder="<?php pll_e('Search'); ?>" id="fieldSearch" autocomplete="off" class="form-control"> -->
-							<input type="text" name="q" id="fieldSearch" autocomplete="off" class="form-control">
+
+							<!-- <input type="text" name="q" id="fieldSearch" autocomplete="off" class="form-control" required> -->
+
+							<input type="text" value="<?php if ($q){ echo $q; } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
+
+
 							<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 						</div>
 						<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
@@ -61,4 +66,3 @@ N'importe quel qualificatif
 		</div>
 	</div>
 </section>
-

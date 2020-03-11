@@ -29,9 +29,9 @@
 						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="index.php">
-							<img src="http://logos.bireme.org/img/pt/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
-							<div id="versionBeta">Novo sitio beta do DeCS</div>
+						<a href="<?php echo real_site_url($ths_plugin_slug); ?>">
+						<img src="http://logos.bireme.org/img/pt/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
+						<div id="versionBeta">Novo sitio beta do DeCS</div>
 						</a>
 					</div>
 				</div>
