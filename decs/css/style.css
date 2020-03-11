@@ -1,10 +1,438 @@
-/*
-	Theme Name: DeCS
-	Theme URI: http://decs.bvsalud.org
-	Author: BIREME / OPAS / OMS - Márcio Alves
-	Author URI: http://decs.bvsalud.org
-	Description: DeCS - Descritores em Ciências da Saúde
-	Version: 1.0
-	Tags: DeCS, Descritores em Ciências da Saúde, BIREME
-	Text Domain: http://decs.bvsalud.org
-*/
+/* @autor: BIREME | OPAS | OMS - > Márcio Alves */
+/*Padrões*/
+*{
+	font-family: 'Roboto', sans-serif;
+}
+.bgColor1{
+	background: #4e7952;
+	color: #fff;
+}
+.bgColor2{
+	background: #669966;
+	color: #fff;
+}
+.lineWhite{
+	background: #ccc;
+}
+.font12{
+	font-size: 12px;
+}
+.font14{
+	font-size: 14px;
+}
+.title1{
+	font-family: 'Oswald', sans-serif;
+}
+.title2{
+	font-family: 'Oswald', sans-serif;
+}
+.titleMain{
+	padding: 30px 0;
+	margin-bottom: 30px;
+	background-image: linear-gradient(to bottom right, #eee, #f9f9f9);
+	border-bottom:1px solid #ddd;
+	position: relative;
+}
+.titleMain h2{
+	font-family: 'Oswald', sans-serif;
+	font-size: 50px;
+	font-weight: 300;
+}
+.titleMain::after{
+	content: "";
+	width:50%;
+	height: 5px;
+	background: orange;
+	position: absolute;
+	bottom: -3px;
+	left: 25%;
+}
+#countHome{
+	background-image: linear-gradient(to bottom right, #eee, #fff);
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.padding1{
+	padding-top: 30px; 
+	padding-bottom: 50px; 
+}
+.padding2{
+	padding-top: 50px; 
+	padding-bottom: 50px; 
+}
+#header{
+	background: #eee;
+	padding: 20px 0;
+}
+#logoMain img{
+	margin-top: 5px;
+}
+#logosSecond img{
+	max-width: 400px;
+	margin-top: 10px;
+}
+#versionBeta{
+	background: #7bb85c;
+	color: #fff;
+	padding: 0 5px;
+	text-align:center;
+	font-size: 16px;
+	font-weight: bold;
+	animation: beta 3s infinite;
+}
+#language{
+	float: right;
+	margin-top: -21px;
+	position: absolute;
+	right: 16px;
+}
+#language ul li{
+	list-style: none;
+	display: inline-block;
+}
+#language a{
+	background:#4e7952;
+	color: #fff;
+	font-size: 12px;
+	padding: 5px;
+}
+#language a:hover{
+	background: #86b986;
+	text-decoration: none;
+}
+#nav{
+	background: #669966;
+	color: #fff;
+}
+	#nav a{
+		color: #fff;		
+	}
+	#nav a:hover{
+		color: #ddd;		
+	}
+	#nav .dropdown-menu{
+		background: #669966;
+	}
+	#nav .dropdown-item:hover{
+		background: #86b986;
+	}
+#to-top{
+	cursor: pointer;
+}
+#to-top:hover{
+	color: #4e7952;
+}
+#footer{
+	padding: 20px;
+	font-size: 12px;
+}
+#footerTermos, #footerTermos a{
+	color: #fff;
+}
+.fieldset{
+	border:2px solid #ddd;
+	padding: 20px;
+	min-height: 160px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.fieldset2{
+	border:2px solid #ddd;
+	padding: 20px 20px 40px 20px;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.fieldset legend, .fieldset2 legend{
+	display: inline-block;
+	width: auto;
+	padding:0 50px 0 20px;
+	background: #86b986;
+	color: #fff;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.boxHome{
+    background-image: url(../img/bgBox.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #fff;
+    padding: 40px 40px 25px;
+    min-height: 260px;
+    border-radius: 10px;
+    border-bottom: 20px solid #aec806;
+    transition: all 0.5s ease;
+}
+.boxHome h3{
+	font-size: 50px;
+	transition: all .5s ease .5s;
+}
+.boxHome p{
+	font-size: 20px;
+}
+.boxHome:hover{
+	transform: scale(0.95)
+}
+.boxHome:hover h3{
+	padding-left: 30px;
+}
+.navFooter ul{
+	list-style: url(../img/arrowNext.svg);
+}
+.navFooter ul{
+	margin-bottom: 14px;
+}
+.navFooter a{
+	color: #fff;
+	font-size: 14px;
+}
+#parceiros{
+	background: #eee;
+	padding: 50px 20px;
+}
+.boxParceiros{
+	transition: all .5s ease;
+	padding: 20px;
+}
+.boxParceiros:hover{
+	background: #ddd;
+}
+.line{
+	display: block;
+	height: 1px;
+	background: #ddd;
+	position: relative;
+	margin-bottom: 30px;
+}
+.line::after{
+	content: "";
+	position: absolute;
+	top: -2px;
+	background: #aec806;
+	height: 4px;
+	width: 100px;
+}
+#footerBrand img{
+	max-width: 350px;
+}
+.tab-content {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-top: 0;
+}
+.listTree, .listTree ul{
+	list-style: none;
+	padding-left: 30px;
+	font-size: 14px;
+}
+.listTree b{
+	color: #000;
+}
+.resource{
+	border-bottom: 1px solid #ccc;
+	padding: 10px 20px;
+	margin-bottom: 10px;
+}
+.resource:nth-last-child(1){
+	border-bottom: none;
+}
+.boxTree{
+	max-height: 500px;
+	overflow: auto;
+}
+#languageSearch{
+	font-size: 14px;
+}
+.badge-descriptor{
+	color: #fff;
+    background-color: #669966;
+}
+.tableWidth{
+	width: 250px;
+}
+#dropdownLang{
+	position: absolute;
+	right: 0;
+}
+#fieldSearch{
+	padding-left: 30px; 
+}
+#speakBtn{
+	position: absolute;
+	font-size: 20px;
+	top: 5px;
+	left: 25px;
+	z-index: 10;
+	color: #999;
+}
+#speakBtn:hover{
+	color: #000;
+}
+#searchInside{
+	display: none;
+	background: #eee;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	margin-bottom: 20px;"
+}
+.breadcrumb{
+	background: #b5e6b5; color: #fff;
+}
+.boxBtnSeeMore{
+	position: relative;
+	/*background: #28a745;*/
+	/*background-image: linear-gradient(to bottom right, #358247, #28a745);*/
+	/*border-radius: 10px;*/
+}
+.btnSeeMore{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+}
+.dropdownLang{
+	border: 1px solid transparent;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+	background: #f7f7f7;
+	float: right;
+	position: absolute;
+	padding: 10px;
+	right: 0;
+	bottom: 0;
+}
+.containerAos{
+	overflow:hidden;
+}
+/************** Breakpoint ****************/
+@media (max-width: 1200px){
+	.boxHome{
+		min-height: 280px;
+	}
+}
+/************** Breakpoint ****************/
+@media (max-width: 1024px){
+	.tableWidth{
+		width: 200px;
+	}
+}
+/************** Breakpoint ****************/
+@media (max-width: 992px){
+	.boxHome{
+		min-height: 250px;
+	}
+	.boxHome h3{
+	font-size: 40px;
+	}
+	.boxHome p{
+		font-size: 16px;
+	}
+	.dropdownLang{
+		position: static;
+		right: auto;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 100px;
+	}
+	#myTab .nav-item a{
+		border-bottom: 0!important;
+	}
+}
+@media (max-width: 768px){
+	#logosSecond img{
+		max-width: 100%;
+	}
+	#footerTermos div{
+		text-align: center!important
+	}
+	#language{
+		float: none;
+		margin-bottom: 10px;
+		position: static;
+		text-align: center;
+	}
+	#barAcessibilidade, #logosSecond{
+		text-align: center!important;
+	}
+	.fieldset{
+		margin-bottom: 20px;
+	}
+	.boxHome{
+		margin-bottom: 20px;
+		min-height: auto;
+	}
+	.boxHome h3{
+	font-size: 60px;
+	}
+	.boxHome p{
+		font-size: 24px;
+	}
+	#countHome{
+		padding: 80px 10px;
+	}
+	#footerBrand{
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	#footerBrand img{
+		max-width: 100%;
+	}
+	#dropdownLang{
+		position: relative;
+		margin: 10px auto 10px auto;
+		border-top: 1px solid #ddd;
+		display: block;
+	}
+	#myTab .nav-item a{
+		border-bottom: 1px solid #ddd;
+		display: block;
+	}
+	.btnSeeMore{
+		position: static;
+		margin-top: 10px;
+	}
+	#myTab li{
+		border: 0;
+		margin: 0 2px 2px 0;
+		border: 1px solid #ddd;
+	}
+	#myTab .active{
+		border: 0;
+		background: #f7f7f7;
+	}
+}	
+@media (max-width: 576px){
+	#logoMain{
+		text-align: center;
+	}
+	#logosSecond{
+		text-align: center;
+		margin-top: 20px;
+	}
+	.tableWidth{
+		width: 150px;
+	}
+}
+@media (max-width: 768px){
+	.fieldset select, .fieldset2 select,
+	.fieldset input, .fieldset2 input
+	{
+		margin-bottom: 10px;
+	}
+}
+/*correções svg Internet Explorer Edge*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	img[src$=".svg"]{
+		width: 100%; 
+	}
+}
+@keyframes beta{
+	0%{ background: #7bb85c;}
+	50%{ background: darkgreen;}
+	99%{ background: #7bb85c;}
+}
