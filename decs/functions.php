@@ -163,6 +163,37 @@
 		pll_register_string('DeCS in Numbers', 'DeCS in Numbers', 'Text default');
 		pll_register_string('Partners', 'Partners', 'Text default');
 		pll_register_string('New DeCS website in beta version', 'New DeCS website in beta version', 'Text default');
+
+		pll_register_string('Allowable Qualifiers', 'Allowable Qualifiers', 'Text default');
+		pll_register_string('Annotation', 'Annotation', 'Text default');
+		pll_register_string('Any descriptor term', 'Any descriptor term', 'Text default');
+		pll_register_string('Any qualifier term', 'Any qualifier term', 'Text default');
+		pll_register_string('Concept UI', 'Concept UI', 'Text default');
+		pll_register_string('Concepts', 'Concepts', 'Text default');
+		pll_register_string('Date of Entry', 'Date of Entry', 'Text default');
+		pll_register_string('DeCS ID', 'DeCS ID', 'Text default');
+		pll_register_string('Descriptor English', 'Descriptor English', 'Text default');
+		pll_register_string('Descriptor French', 'Descriptor French', 'Text default');
+		pll_register_string('Descriptor Portuguese', 'Descriptor Portuguese', 'Text default');
+		pll_register_string('Descriptor Spanish', 'Descriptor Spanish', 'Text default');
+		pll_register_string('Details', 'Details', 'Text default');
+		pll_register_string('English', 'English', 'Text default');
+		pll_register_string('Entry term(s)', 'Entry term(s)', 'Text default');
+		pll_register_string('Exact descriptor term', 'Exact descriptor term', 'Text default');
+		pll_register_string('French', 'French', 'Text default');
+		pll_register_string('Hierarchical Code', 'Hierarchical Code', 'Text default');
+		pll_register_string('Page', 'Page', 'Text default');
+		pll_register_string('Portuguese', 'Portuguese', 'Text default');
+		pll_register_string('Preferred term', 'Preferred term', 'Text default');
+		pll_register_string('Revision Date', 'Revision Date', 'Text default');
+		pll_register_string('Scope note', 'Scope note', 'Text default');
+		pll_register_string('See details', 'See details', 'Text default');
+		pll_register_string('See in another language', 'See in another language', 'Text default');
+		pll_register_string('Spanish', 'Spanish', 'Text default');
+		pll_register_string('Tree number(s)', 'Tree number(s)', 'Text default');
+		pll_register_string('Tree Structures', 'Tree Structures', 'Text default');
+		pll_register_string('You have selected the view in', 'You have selected the view in', 'Text default');
+
 		//Accessibility
 		pll_register_string('Main content', 'Main content', 'Accessibility');
 		pll_register_string('Menu', 'Menu', 'Accessibility');
