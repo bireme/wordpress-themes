@@ -1,4 +1,11 @@
 <?php $ths_plugin_slug=''; ?>
+<!-- Garante que o valor pequisado passe adiante -->
+<?php
+	$q = $_GET['q'];
+	// if($q){
+	// 	echo $q;
+	// }
+?>
 
 <section class="container" id="main_container">
 	<div class="row padding2">
@@ -14,45 +21,10 @@
 								<option value="ths_regid"><?php pll_e('Unique ID'); ?></option>
 								<option value="ths_treenumber"><?php pll_e('Hierarchical Code'); ?></option>
 								<option value="ths_qualifall"><?php pll_e('Any qualifier term'); ?></option>
-
-
-<!-- 
-Qualquer descritor
-Descritor exato
-ID do registro
-Código hierárquico
-Qualquer qualificador
-
-
-Cualquier descriptor
-Descriptor exacto
-ID de registro
-Código jerárquico
-Cualquier calificador
-
-Tout descripteur
-Descripteur exact
-ID d'enregistrement
-Code hiérarchique
-N'importe quel qualificatif
- -->
-
-
-
-
-
-
-
 							</select>
 						</div>
 						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
-							<!-- <input type="text" name="q" placeholder="<?php pll_e('Search'); ?>" id="fieldSearch" autocomplete="off" class="form-control"> -->
-
-							<!-- <input type="text" name="q" id="fieldSearch" autocomplete="off" class="form-control" required> -->
-
 							<input type="text" value="<?php if ($q){ echo $q; } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
-
-
 							<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 						</div>
 						<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
