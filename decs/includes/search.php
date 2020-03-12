@@ -2,9 +2,15 @@
 <!-- Garante que o valor pequisado passe adiante -->
 <?php
 	$q = $_GET['q'];
+	$filter = $_GET['filter'];
 	// if($q){
-	// 	echo $q;
+	// 	echo $q."<br>";
 	// }
+
+	// if($filter){
+	// 	echo $filter."<br>";
+	// }
+
 ?>
 
 <section class="container" id="main_container">
@@ -16,11 +22,11 @@
 					<div class="row">
 						<div class="col-12 col-sm-12 col-md-4 col-lg-4">
 							<select name="filter" id="filter" class="formSelect">
-								<option value="ths_termall" selected><?php pll_e('Any descriptor term'); ?></option>
-								<option value="ths_exact_term" ><?php pll_e('Exact descriptor term'); ?></option>
-								<option value="ths_regid"><?php pll_e('Unique ID'); ?></option>
-								<option value="ths_treenumber"><?php pll_e('Hierarchical Code'); ?></option>
-								<option value="ths_qualifall"><?php pll_e('Any qualifier term'); ?></option>
+								<option value="ths_termall" <?php if ($filter == 'ths_termall'){ echo "selected";} ?>><?php pll_e('Any descriptor term'); ?></option>
+								<option value="ths_exact_term" <?php if ($filter == 'ths_exact_term'){ echo "selected";} ?>><?php pll_e('Exact descriptor term'); ?></option>
+								<option value="ths_regid" <?php if ($filter == 'ths_regid'){ echo "selected";} ?>><?php pll_e('Unique ID'); ?></option>
+								<option value="ths_treenumber" <?php if ($filter == 'ths_treenumber'){ echo "selected";} ?>><?php pll_e('Hierarchical Code'); ?></option>
+								<option value="ths_qualifall" <?php if ($filter == 'ths_qualifall'){ echo "selected";} ?>><?php pll_e('Any qualifier term'); ?></option>
 							</select>
 						</div>
 						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
