@@ -1,12 +1,39 @@
+<?php $idioma = pll_current_language(); ?>
 <footer id="footer" class="bgColor2">
-	<div class="container">
-		<?php $idioma = pll_current_language(); ?>
-		<div class="row" id="footerTermos">
-			<div class="col-md-6 text-left">
-				<?php bloginfo('name');?>
+	<div class="container containerAos">
+		<div class="row">
+			<div class="col-12 col-md-6" id="footerBrand" data-aos="fade-right">
+				<img src="http://logos.bireme.org/img/pt/decs_white.svg"  alt="Brand DeCS">
 			</div>
-			<div class="col-md-5 text-right">
-				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a> |
+			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
+				<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'rodape1',
+						'depth'             => 1,
+						'container'         => 'ul',
+						'container_class'   => 'list-unstyle',
+						'container_id'      => '',
+						'menu_class'        => '',
+					) );
+					?>
+			</div>
+			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
+				<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'rodape2',
+						'depth'             => 1,
+						'container'         => 'ul',
+						'container_class'   => 'list-unstyle',
+						'container_id'      => '',
+						'menu_class'        => '',
+					) );
+					?>
+			</div>
+		</div>
+		<hr class="lineWhite">
+		<div class="row" id="footerTermos">
+			<div class="col-md-11">
+				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a>
 				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
 			</div>
 			<div class="col-md-1 text-right">

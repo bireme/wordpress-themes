@@ -2,8 +2,7 @@
 /* Template Name: SearchPage*/
 ?>
 <?php get_header(); ?>
-<?php get_template_part('includes/nav') ?>
-<?php get_template_part('includes/search') ?>
+<?php get_template_part('includes/navInter') ?>
 <?php $idioma = pll_current_language(); ?>
 <main id="main_container" class="padding1">
 	<div class="container">

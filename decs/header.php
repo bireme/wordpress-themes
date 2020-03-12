@@ -1,8 +1,10 @@
+<!DOCTYPE html>
+<html <?php language_attributes() ?> >
 <head>
 	<meta charset="<?php bloginfo('charset') ?>">
 	<meta name="description" content="<?php bloginfo('description'); ?>">
-	<meta name="author" content="<?php bloginfo('admin_email'); ?>">
-	<meta name="generator" content="Wordpress - BIREME / OPAS / OMS - Márcio Alves">
+	<meta name="author" content="BIREME / OPAS / OMS - Márcio Alves">
+	<meta name="generator" content="BIREME / OPAS / OMS - Márcio Alves">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=1" /> 
 	<?php wp_head(); ?>
 </head>
@@ -26,12 +28,12 @@
 			<div class="col-10 col-md-6 col-lg-5 offset-1 offset-md-0" id="logoMain">
 				<div class="row">
 					<div class="col-3 col-md-3">
-						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
+						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="<?php echo real_site_url($ths_plugin_slug); ?>">
-						<img src="http://logos.bireme.org/img/pt/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
-						<div id="versionBeta">Novo sitio beta do DeCS</div>
+						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>">
+							<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
+							<div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div>
 						</a>
 					</div>
 				</div>
@@ -40,6 +42,5 @@
 				<img src="http://logos.bireme.org/img/pt/v_bir_color.svg" alt="Logo BIREME" class="img-fluid imgBlack">
 			</div>
 		</div>
-	</div>
 	</div>
 </header>

@@ -9,33 +9,33 @@
 	{
 		register_nav_menu('main-nav', 'Main Menu (top)');
 		register_nav_menu('Language', 'Language');
-		register_nav_menu('home1', 'Home Column 1');
-		register_nav_menu('home2', 'Home Column 2');
-		register_nav_menu('home3', 'Home Column 3');
+		register_nav_menu('rodape1', 'Rodapé 1');
+		register_nav_menu('rodape2', 'Rodapé 2');
 	}
 	add_action('wp_enqueue_scripts','style_top');
 	function style_top(){
 	//Add Styles Top
 		wp_enqueue_style('bootstrap',get_stylesheet_directory_uri().'/css/bootstrap.min.css');
 		wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css');
+		wp_enqueue_style('aos',get_stylesheet_directory_uri().'/css/aos.css');
 		wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
 		wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
-		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/acessibilidade.css');
+		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
 		wp_enqueue_style('feedback',get_stylesheet_directory_uri().'/css/feedback.css');
 		wp_enqueue_style('fontawesome',get_stylesheet_directory_uri().'/css/fontawesome/css/all.css');
+		wp_enqueue_style('fonts','https://fonts.googleapis.com/css?family=Oswald:600|Roboto:400,700&display=swap');
 	}
 	//Add Scripts Footer
 	add_action('wp_footer','scripts_footer');
 	function scripts_footer(){
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.4.1.min.js');
-		// A biblioteca popper.min.js deverá ser declarada antes de bootstrap.min.js
 		wp_enqueue_script('popper',get_stylesheet_directory_uri().'/js/popper.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
+		wp_enqueue_script('aos',get_stylesheet_directory_uri().'/js/aos.js');
 		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
 		wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
 		wp_enqueue_script('feedback',get_stylesheet_directory_uri().'/js/feedback.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
-		wp_enqueue_script('aos',get_stylesheet_directory_uri().'/js/aos.js');
 		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 	}
 	//Adiciona suporte a miniaturas (imagem destacada)
@@ -109,30 +109,6 @@
 			'menu_icon'		=> 'dashicons-screenoptions'
 		);
 		register_post_type( 'Partners' , $argsPartners );
-		//Banners
-		$Banners = array(
-			'name' 					=> 'Banners',
-			'singular_name' 		=> 'Banner',
-			'add_new' 				=> 'Add Banners',
-			'add_new_item' 			=> 'Add Banners Item',
-			'edit_item' 			=> 'Edit Banners',
-			'new_item' 				=> 'New Item',
-			'view_item' 			=> 'View Banners',
-			'search_items' 			=> 'Search Banners',
-			'not_found' 			=> 'No Banners Found',
-			'not_found_in_trash' 	=> 'No Banners in Trash',
-			'parent_item_colon' 	=> '',
-			'menu_name' 			=> 'Banners'
-		);
-		$argsBanners = array(
-			'labels' 		=> $Banners,
-			'public' 		=> true,
-			'hierarchical' 	=> false,
-			'menu_position' => 13,
-			'supports' => array('title'),
-			'menu_icon'		=> 'dashicons-images-alt'
-		);
-		register_post_type( 'Banners' , $argsBanners );
 	}
 	//widgets - Home
 	register_sidebar(array(
@@ -143,7 +119,6 @@
 		'before_title'	=> '<h5>',
 		'after_title'	=> '</h5>'
 	));
-
 	add_action('init', function() {
 		pll_register_string('Search', 'Search', 'Form'); 
 		pll_register_string('Search for:', 'Search for:', 'Text default');
@@ -199,6 +174,7 @@
 		pll_register_string('Menu', 'Menu', 'Accessibility');
 		pll_register_string('Footer', 'Footer', 'Accessibility');
 		pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
-	});
 
+
+	});
 ?>

@@ -1,38 +1,32 @@
 /*Versão Beta*/
 /*Aumentar ou Reduzir Fontes*/
 jQuery(document).ready(function(){
-	var font12 = 12; var class12 ='';
-	var font14 = 14; var class14 ='';
-	var font16 = 16; var class16 ='p, li, .card-header h2 .btn-link, dl';
-	var font20 = 20; var class20 ='';
-	var font24 = 24; var class24 ='.titulo2, h4';
+	var font14 = 14; var class14 ='.font14, #footer'; // inserir elementos com fonte 14px
+	var font16 = 16; var class16 ='.font16, p, #nav, .navFooter li a, .breadcrumb, .accordion, .accordion button'; // inserir elementos com fonte 16px
+	var font20 = 20; var class20 ='.font20'; // inserir elementos com fonte 20px
+	// Inserir novos tamanho aqui
+
 	jQuery('#fontPlus').click(function(){
-		if (font16<30){
-			font12 = font12+1; font14 = font14+1; font16 = font16+1; font20 = font20+1; font24 = font24+1;
-			jQuery(class12).css({'font-size' : font12+'px'});
-			jQuery(class16).css({'font-size' : font16+'px'});
+		if (font16<30){// Tamanho maximo com padrão 16px
+			font14 = font14+1; font16 = font16+1; font20 = font20+1;
 			jQuery(class14).css({'font-size' : font14+'px'});
+			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
-			jQuery(class24).css({'font-size' : font24+'px'});
 		}
 	});
 	jQuery('#fontLess').click(function(){
-		if (font16>14){
-			font12 = font12-1; font16 = font16-1; font14 = font14-1; font20 = font20-1; font24 = font24-1;
-			jQuery(class12).css({'font-size' : font12+'px'});
-			jQuery(class16).css({'font-size' : font16+'px'});
+		if (font16>12){// tamanho minino com padrão 16px
+			font14 = font14-1; font16 = font16-1; font20 = font20-1;
 			jQuery(class14).css({'font-size' : font14+'px'});
+			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
-			jQuery(class24).css({'font-size' : font24+'px'});
 		}
 	});
-	jQuery('#fontNormal').click(function(){
-		font12 = 12; font16 = 16; font14 = 14; font20 = 20; font24 = 24;
-		jQuery(class12).css({'font-size' : 12+'px'});
-		jQuery(class16).css({'font-size' : 16+'px'});
+	jQuery('#fontNormal').click(function(){ // Restaurar
+		font14 = 14; font16 = 16; font20 = 20;
 		jQuery(class14).css({'font-size' : 14+'px'});
+		jQuery(class16).css({'font-size' : 16+'px'});
 		jQuery(class20).css({'font-size' : 20+'px'});
-		jQuery(class24).css({'font-size' : 24+'px'});
 	});
 })
 /*Navegação por atalhos*/
@@ -47,24 +41,29 @@ document.onkeydown=function(e){
 		pressedALT = true;
 	}
 	// Main Alt + 1
-	if(e.which == 49 && pressedALT == true) {
+	if((e.which == 49 || e.which == 97 )&& pressedALT == true) {
 		window.location.assign("#main_container");
 	}
 	//Nav ALT + 2
-	if(e.which == 50 && pressedALT == true) {
+	if((e.which == 50 || e.which == 98) && pressedALT == true) {
 		window.location.assign("#nav");
 	}
 	//Footer ALT + 3
-	if(e.which == 52 && pressedALT == true) {
+	if((e.which == 51 || e.which == 99) && pressedALT == true) {
 		window.location.assign("#footer");
 	}
 	//Footer ALT + 4
-	if(e.which == 51 && pressedALT == true) {
+	if((e.which == 52 || e.which == 100) && pressedALT == true) {
 		// window.location.assign("#pesquisa");
 		jQuery("#fieldSearch").focus();
 	}
 }
-jQuery('a[href="#pesquisa"]').click(function(){
+jQuery('#accessibilitySearch').click(function(){
+	jQuery('#searchInside').show();
+		jQuery('#btSearch>i').addClass('fa-times');
+		jQuery("#fieldSearch").focus();
+})
+jQuery('a[href="#btnSearch"]').click(function(){
 	jQuery("#fieldSearch").focus();
 })
 // cache contraste
@@ -105,6 +104,9 @@ window.addEventListener('DOMContentLoaded', function() {
         	// console.log(result);
         	document.getElementById("fieldSearch").value = result;
             // jQuery("#pesquisa").val(result);
+             // $("#mainForm").submit();
+             document.getElementById("mainForm").submit();
+             alert('teste');
         }, false);
     } else {
     	// alert('Este navegador não suporta esta funcionalidade ainda!');

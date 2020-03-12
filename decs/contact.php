@@ -2,11 +2,10 @@
 /* Template Name: Contact */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('includes/nav') ?>
-<?php get_template_part('includes/search') ?>
+<?php get_template_part('includes/navInter') ?>
 <?php $idioma = pll_current_language(); ?>
-<div class="titulo1 text-center">
-	<h2><?php the_title(); ?></h2>
+<div class="titleMain text-center">
+	<h2>404</h2>
 </div>
 
 <main id="main_container" class="padding2">
