@@ -5,34 +5,29 @@
 	$filter = $_GET['filter'];
 ?>
 
-<section class="container" id="main_container">
-	<div class="row padding2">
-		<div class="col-12">
-			<form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
-				<fieldset class="fieldset2">
-					<legend><?php pll_e('Search'); ?></legend>
-					<div class="row">
-						<div class="col-12 col-sm-12 col-md-4 col-lg-4">
-							<select name="filter" id="filter" class="formSelect">
-								<option value="ths_termall" <?php if ($filter == 'ths_termall'){ echo "selected";} ?>><?php pll_e('Any descriptor term'); ?></option>
-								<option value="ths_exact_term" <?php if ($filter == 'ths_exact_term'){ echo "selected";} ?>><?php pll_e('Exact descriptor term'); ?></option>
-								<option value="ths_regid" <?php if ($filter == 'ths_regid'){ echo "selected";} ?>><?php pll_e('Unique ID'); ?></option>
-								<option value="ths_treenumber" <?php if ($filter == 'ths_treenumber'){ echo "selected";} ?>><?php pll_e('Hierarchical Code'); ?></option>
-								<option value="ths_qualifall" <?php if ($filter == 'ths_qualifall'){ echo "selected";} ?>><?php pll_e('Any qualifier term'); ?></option>
-							</select>
-						</div>
-						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
-							<input type="text" value="<?php if ($q){ echo str_replace('\\', '', $q); } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
-							<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
-						</div>
-						<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
-							<button type="submit" class="btn btn-success btn-block">
-								<i class="fas fa-search"></i>
-							</button>
-						</div>
-					</div>
-				</fieldset>
-			</form>
+
+<form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
+	<fieldset class="fieldset2">
+		<legend><?php pll_e('Search'); ?></legend>
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4">
+				<select name="filter" id="filter" class="form-control">
+					<option value="ths_termall" <?php if ($filter == 'ths_termall'){ echo "selected";} ?>><?php pll_e('Any descriptor term'); ?></option>
+					<option value="ths_exact_term" <?php if ($filter == 'ths_exact_term'){ echo "selected";} ?>><?php pll_e('Exact descriptor term'); ?></option>
+					<option value="ths_regid" <?php if ($filter == 'ths_regid'){ echo "selected";} ?>><?php pll_e('Unique ID'); ?></option>
+					<option value="ths_treenumber" <?php if ($filter == 'ths_treenumber'){ echo "selected";} ?>><?php pll_e('Hierarchical Code'); ?></option>
+					<option value="ths_qualifall" <?php if ($filter == 'ths_qualifall'){ echo "selected";} ?>><?php pll_e('Any qualifier term'); ?></option>
+				</select>
+			</div>
+			<div class="col-12 col-sm-9 col-md-6 col-lg-7">
+				<input type="text" value="<?php if ($q){ echo stripslashes($q); } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
+				<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
+			</div>
+			<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
+				<button type="submit" class="btn btn-success btn-block">
+					<i class="fas fa-search"></i>
+				</button>
+			</div>
 		</div>
-	</div>
-</section>
+	</fieldset>
+</form>

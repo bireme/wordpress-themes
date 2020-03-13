@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="col-10 col-md-6 col-lg-7 offset-1 offset-md-0 text-right" id="logosSecond">
-				<img src="http://logos.bireme.org/img/pt/v_bir_color.svg" alt="Logo BIREME" class="img-fluid imgBlack">
+				<img src="http://logos.bireme.org/img/<?php echo $idioma=='fr'?'en':$idioma; ?>/v_bir_color.svg" alt="Logo BIREME" class="img-fluid imgBlack">
 			</div>
 		</div>
 	</div>
