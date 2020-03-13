@@ -3,14 +3,6 @@
 <?php
 	$q = $_GET['q'];
 	$filter = $_GET['filter'];
-	// if($q){
-	// 	echo $q."<br>";
-	// }
-
-	// if($filter){
-	// 	echo $filter."<br>";
-	// }
-
 ?>
 
 <section class="container" id="main_container">
@@ -30,7 +22,7 @@
 							</select>
 						</div>
 						<div class="col-12 col-sm-9 col-md-6 col-lg-7">
-							<input type="text" value="<?php if ($q){ echo $q; } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
+							<input type="text" value="<?php if ($q){ echo str_replace('\\', '', $q); } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" required>
 							<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 						</div>
 						<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">

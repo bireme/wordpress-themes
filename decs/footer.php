@@ -1,8 +1,8 @@
 <?php $idioma = pll_current_language(); ?>
 <footer id="footer" class="bgColor2">
-	<div class="container containerAos">
+	<div class="container">
 		<div class="row">
-			<div class="col-12 col-md-6" id="footerBrand" data-aos="fade-right">
+			<div class="col-12 col-md-6" id="footerBrand">
 				<img src="http://logos.bireme.org/img/pt/decs_white.svg"  alt="Brand DeCS">
 			</div>
 			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
@@ -17,7 +17,7 @@
 					) );
 					?>
 			</div>
-			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
+			<div class="col-12 col-md-3 navFooter">
 				<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'rodape2',
