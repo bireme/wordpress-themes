@@ -5,7 +5,7 @@
 <?php get_template_part('includes/navInter') ?>
 <?php $idioma = pll_current_language(); ?>
 <div class="titleMain text-center">
-	<h2>404</h2>
+	<h2><?php the_title(); ?></h2>	
 </div>
 
 <main id="main_container" class="padding2">
