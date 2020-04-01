@@ -52,7 +52,7 @@ get_header(); ?>
 					</div>
 					<div class="spacer"></div>
 				</article>
-			<? endwhile; ?>
+			<?php endwhile; ?>
 
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
