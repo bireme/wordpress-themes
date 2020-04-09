@@ -45,6 +45,36 @@
 		</div>
 	</div>
 </section>
+
+<section class="padding2">
+	<div class="container containerAos">
+		<h2 class="title1"><?php pll_e('About DeCS'); ?></h2>
+		<div class="line"></div>
+		<div class="row">
+			<?php 
+			$home = new WP_Query([
+				'post_type' => 'Home',
+				'orderby' => 'title',
+				'order' => 'ASC'
+			]);
+			while($home->have_posts()):$home->the_post();
+				while(have_rows('group')):the_row(); 
+					$video = get_sub_field('video'); 
+					$texto = get_sub_field('texto'); 
+					?>
+					<div class="col-md-6" data-aos="fade-left">
+						<?php echo $texto; ?>
+					</div>
+					<div class="col-md-6 " data-aos="fade-right">
+						<?php echo $video; ?>	
+					</div>
+				<?php endwhile;
+			endwhile;
+			?>
+		</div>
+	</div>
+</section>
+
 <section class="padding2 bgColor1">
 	<div class="container containerAos">
 		<h2 class="title1"><?php pll_e('DeCS in Numbers'); ?></h2>
@@ -78,4 +108,4 @@
 
 <?php get_template_part('includes/partners') ?>
 </section>
-<?php get_footer(); ?>	
+<?php get_footer(); ?>
