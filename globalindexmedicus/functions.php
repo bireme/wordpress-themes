@@ -174,6 +174,30 @@
 			'supports' => array('title','editor','thumbnail', 'custom-fields', 'revisions', 'excerpt') //Quais recursos serão usados (metabox)
 	    );
 		register_post_type( 'biblioteca' , $args );
+		//MiniBanners
+		$MiniBanners = array(
+			'name' 					=> 'Mini Banners',
+			'singular_name' 		=> 'Mini Banner',
+			'add_new' 				=> 'Add Mini Banner',
+			'add_new_item' 			=> 'Add Mini Banners Item',
+			'edit_item' 			=> 'Edit Mini Banner',
+			'new_item' 				=> 'New Item',
+			'view_item' 			=> 'View Mini Banners',
+			'search_items' 			=> 'Search Mini Banners',
+			'not_found' 			=> 'No Mini Banners Found',
+			'not_found_in_trash' 	=> 'No Mini Banners in Trash',
+			'parent_item_colon' 	=> '',
+			'menu_name' 			=> 'Mini Banners'
+		);
+		$MiniBanners = array(
+			'labels' 		=> $MiniBanners,
+			'public' 		=> true,
+			'hierarchical' 	=> false,
+			'menu_position' => 12,
+			'supports'		=> array('title'),
+			'menu_icon'		=> 'dashicons-screenoptions'
+		);
+		register_post_type( 'MiniBanners' , $MiniBanners );
 	}
 
 	// Feed
