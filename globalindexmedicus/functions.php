@@ -15,6 +15,8 @@
 		wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
 		wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
 		wp_enqueue_style('aos',get_stylesheet_directory_uri().'/css/aos.css');
+		wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
+		wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
 		wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.3.1/css/all.css' );
 
 		$idioma = pll_current_language();
@@ -28,6 +30,7 @@
 		wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.3.1.min.js');
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
 		wp_enqueue_script('aos', get_stylesheet_directory_uri().'/js/aos.js', array('jquery'));
+		wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
 		wp_enqueue_script('main', get_stylesheet_directory_uri().'/js/main.js', array('jquery'));
 		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
@@ -218,6 +221,7 @@
 		// Diversos
 		pll_register_string('Veja como é fácil pesquisar no GIM', 'Veja como é fácil pesquisar no GIM', 'Geral');
 		pll_register_string('Clique para baixar o guia rápido de pesquisa GIM', 'Clique para baixar o guia rápido de pesquisa GIM', 'Geral');
+		pll_register_string('Title Mini Banners', 'Title Mini Banners', 'Geral');
     });
 
     function http_request_local( $args, $url ) {
