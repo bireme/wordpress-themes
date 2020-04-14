@@ -16,7 +16,7 @@
 					$window = get_sub_field('window');
 					?>
 					<div class="col-12 boxParceiros" data-aos="fade-up">
-						<a href="<?php echo $link; ?>">
+						<a href="<?php echo $link; ?>"  target="<?php echo $window; ?>">
 							<img src="<?php echo $picture['url']; ?>" alt="" class="img-fluid imgBlack">
 							<h5 style="margin-top: 20px;"><?php echo $release; ?></h5>
 						</a>
