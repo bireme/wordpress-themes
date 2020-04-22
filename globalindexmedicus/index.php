@@ -31,6 +31,7 @@
 		</div>
 	</div>
 </main>
+<?php get_template_part('includes/miniBanner') ?>
 <?php get_template_part('includes/widgets') ?>
 <section class="guia">
 	<div class="container text-center">
