@@ -31,7 +31,7 @@
 						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
 					</div>
 					<div class="col-9 col-md-9">
-						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='en'?'':$idioma; ?>">
+						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>">
 							<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
 							<div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div>
 						</a>
