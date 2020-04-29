@@ -170,6 +170,10 @@
 		pll_register_string('Tree Structures', 'Tree Structures', 'Text default');
 		pll_register_string('You have selected the view in', 'You have selected the view in', 'Text default');
 
+		pll_register_string('History Note', 'History Note', 'Text default');
+		pll_register_string('Date Established', 'Date Established', 'Text default');
+		pll_register_string('Results', 'Results', 'Text default');
+
 		//Accessibility
 		pll_register_string('Main content', 'Main content', 'Accessibility');
 		pll_register_string('Menu', 'Menu', 'Accessibility');
