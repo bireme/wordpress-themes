@@ -121,7 +121,7 @@
 	));
 	add_action('init', function() {
 		pll_register_string('Search', 'Search', 'Form'); 
-		pll_register_string('Search for:', 'Search for:', 'Text default');
+		pll_register_string('Search for', 'Search for', 'Text default');
 		pll_register_string('Page:', 'Page:', 'Text default');
 		pll_register_string('Term', 'Terms and conditions of use', 'Text default'); 
 		pll_register_string('Privacy policy', 'Privacy policy', 'Text default'); 
@@ -172,6 +172,7 @@
 
 		pll_register_string('History Note', 'History Note', 'Text default');
 		pll_register_string('Date Established', 'Date Established', 'Text default');
+		pll_register_string('No results found', 'No results found', 'Text default');
 		pll_register_string('Results', 'Results', 'Text default');
 
 		//Accessibility
