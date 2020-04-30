@@ -29,7 +29,7 @@
 			<div class="col-10 col-md-6 col-lg-5 offset-1 offset-md-0" id="logoMain">
 				<div class="row">
 					<div class="col-3 col-md-3">
-						<a href="http://www.bvsauld.org"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
+						<a href="https://bvsalud.org"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid imgBlack"></a>
 					</div>
 					<div class="col-9 col-md-9">
 						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>">
