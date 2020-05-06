@@ -189,7 +189,6 @@ add_action('init', function() {
 	pll_register_string('Footer', 'Footer', 'Accessibility');
 	pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
 
-
 });
 
 
