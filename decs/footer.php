@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-6" id="footerBrand">
-				<img src="http://logos.bireme.org/img/pt/decs_white.svg"  alt="Brand DeCS">
+				<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg"  alt="Brand DeCS">
 			</div>
 			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
 				<?php
@@ -33,8 +33,8 @@
 		<hr class="lineWhite">
 		<div class="row" id="footerTermos">
 			<div class="col-md-11">
-				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Termos e condições de uso'); ?></a>
-				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Política de privacidade'); ?></a>
+				<a href="http://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a>
+				<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Privacy policy'); ?></a>
 			</div>
 			<div class="col-md-1 text-right">
 				<i class="fas fa-chevron-up" id="to-top"></i>
