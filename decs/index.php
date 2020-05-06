@@ -18,28 +18,28 @@
 	<div class="container containerAos">
 		<div class="row">
 			<div class="col-12">	
-				<h2 class="title1">Números</h2>
+				<h2 class="title1"><?php pll_e('Numbers'); ?></h2>
 				<div class="line"></div>
 			</div>
 			<div class="col-md-4" data-aos="fade-up">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="33558"><span></span></h3>
+					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Descriptors and Qualifiers'); ?>"><span></span></h3>
 					<hr class="lineWhite">
-					<p data-aos="fade-left" data-aos-delay="300">Descritores e Qualificadores</p>
+					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Descriptors and Qualifiers'); ?></p>
 				</div>
 			</div>
 			<div class="col-md-4" data-aos="fade-down">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="29018"><span></span></h3>
+					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Unique DeCS Descriptors and Qualifiers'); ?>"><span></span></h3>
 					<hr class="lineWhite">
-					<p data-aos="fade-left" data-aos-delay="300">Descritores e Qualificadores exclusivos do DeCS</p>
+					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Unique DeCS Descriptors and Qualifiers'); ?></p>
 				</div>
 			</div>
 			<div class="col-md-4" data-aos="fade-up">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="7741"><span></span></h3>
+					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Hierarchical Codes in DeCS categories'); ?>"><span></span></h3>
 					<hr class="lineWhite">
-					<p data-aos="fade-left" data-aos-delay="300">Códigos Hierárquicos em categorias DeCS</p>
+					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Hierarchical Codes in DeCS categories'); ?></p>
 				</div>
 			</div>
 		</div>
