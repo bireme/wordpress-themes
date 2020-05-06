@@ -171,6 +171,7 @@ add_action('init', function() {
 	pll_register_string('Tree number(s)', 'Tree number(s)', 'Text default');
 	pll_register_string('Tree Structures', 'Tree Structures', 'Text default');
 	pll_register_string('You have selected the view in', 'You have selected the view in', 'Text default');
+	pll_register_string('Numbers', 'Numbers', 'Text default');
 	pll_register_string('Numbers - Descriptors and Qualifiers', 'Numbers - Descriptors and Qualifiers', 'Text default');
 	pll_register_string('Descriptors and Qualifiers', 'Descriptors and Qualifiers', 'Text default'); 
 	pll_register_string('Numbers - Unique DeCS Descriptors and Qualifiers', 'Numbers - Unique DeCS Descriptors and Qualifiers', 'Text default'); 
