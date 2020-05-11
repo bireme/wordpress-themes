@@ -96,3 +96,8 @@ jQuery('#btSearch').click(function(){
   jQuery('#searchInside').toggle();
   jQuery('#btSearch>i').toggleClass('fa-times');
 });
+
+jQuery('#btSearch, #btSearchM').click(function(){
+  jQuery('#searchInside').toggle();
+  jQuery('#btSearch>i').toggleClass('fa-times');
+});

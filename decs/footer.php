@@ -5,7 +5,7 @@
 			<div class="col-12 col-md-6" id="footerBrand">
 				<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/decs_white.svg"  alt="Brand DeCS">
 			</div>
-			<div class="col-12 col-md-3 navFooter" data-aos="fade-left">
+			<div class="col-12 col-md-3 navFooter">
 				<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'rodape1',
