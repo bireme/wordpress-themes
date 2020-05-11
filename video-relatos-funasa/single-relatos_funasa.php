@@ -51,15 +51,22 @@ get_header(); ?>
                         <?php $pod = pods_field( "relatos_funasa", $post->ID, 'instituicao_executora', true ); ?>
                         <?php if ( $pod ) : ?>
                             <div class="related_links r-block">
-                                <div class="r-block-title">Instituição executora</div>
+                                <div class="r-block-title">Instituição Executora</div>
                                 <?php echo $pod; ?>
                             </div>
                         <?php endif; ?>
                         <?php $pod = pods_field( "relatos_funasa", $post->ID, 'coordenadora', true ); ?>
                         <?php if ( $pod ) : ?>
                             <div class="related_links r-block">
-                                <div class="r-block-title">Coordenador(a) do projeto de pesquisa</div>
+                                <div class="r-block-title">Coordenador(a) do Projeto de Pesquisa</div>
                                 <?php echo $pod; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php $pod = pods_field( "relatos_funasa", $post->ID, 'curriculo_lattes', true ); ?>
+                        <?php if ( $pod ) : ?>
+                            <div class="related_links r-block">
+                                <div class="r-block-title">Currículo Lattes</div>
+                                <a href="<?php echo $pod; ?>" target="_blank"><?php echo $pod; ?></a>
                             </div>
                         <?php endif; ?>
                         <?php $pod = pods_field( "relatos_funasa", $post->ID, 'imagem', true ); ?>
@@ -85,7 +92,14 @@ get_header(); ?>
                         <?php $pod = pods_field( "relatos_funasa", $post->ID, 'links_relacionados', true ); ?>
                         <?php if ( $pod ) : ?>
                             <div class="related_links r-block">
-                                <div class="r-block-title">Links relacionados</div>
+                                <div class="r-block-title">Links Relacionados</div>
+                                <?php echo $pod; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php $pod = pods_field( "relatos_funasa", $post->ID, 'documentos_na_bvs', true ); ?>
+                        <?php if ( $pod ) : ?>
+                            <div class="related_links r-block">
+                                <div class="r-block-title">Documentos na BVS</div>
                                 <?php echo $pod; ?>
                             </div>
                         <?php endif; ?>
