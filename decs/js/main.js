@@ -7,7 +7,7 @@ toTop.click(function () {
   return false;
 });
 // Contador Banner
-const tempo_intervalo = 3; //ms -> define a velocidade da animação
+/*const tempo_intervalo = 3; //ms -> define a velocidade da animação
 const tempo = 2000; //ms -> define o tempo total da animaçao
 jQuery('.counter-up').each(function() {  
   let count_to = parseInt(jQuery(this).data('countTo'));
@@ -24,7 +24,7 @@ jQuery('.counter-up').each(function() {
      el.text(texto);
      valor += incremento;      
    }, tempo_intervalo);
-});
+});*/
 /*scrool tabs */
 jQuery('.navLinkList').click(function(){
   jQuery('html, body').animate({scrollTop: '250px'}, 800);
