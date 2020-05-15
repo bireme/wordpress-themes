@@ -23,21 +23,21 @@
 			</div>
 			<div class="col-md-4" data-aos="fade-up">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Descriptors and Qualifiers'); ?>"><span></span></h3>
+					<h3 class="title2">34118</h3>
 					<hr class="lineWhite">
 					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Descriptors and Qualifiers'); ?></p>
 				</div>
 			</div>
 			<div class="col-md-4" data-aos="fade-down">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Unique DeCS Descriptors and Qualifiers'); ?>"><span></span></h3>
+					<h3 class="title2">4402</h3>
 					<hr class="lineWhite">
 					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Unique DeCS Descriptors and Qualifiers'); ?></p>
 				</div>
 			</div>
 			<div class="col-md-4" data-aos="fade-up">
 				<div class="boxHome">
-					<h3 class="title2 counter-up" data-count-to="<?php pll_e('Numbers - Hierarchical Codes in DeCS categories'); ?>"><span></span></h3>
+					<h3 class="title2">2562</h3>
 					<hr class="lineWhite">
 					<p data-aos="fade-left" data-aos-delay="300"><?php pll_e('Hierarchical Codes in DeCS categories'); ?></p>
 				</div>
