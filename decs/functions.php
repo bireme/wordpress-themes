@@ -172,11 +172,8 @@ add_action('init', function() {
 	pll_register_string('Tree Structures', 'Tree Structures', 'Text default');
 	pll_register_string('You have selected the view in', 'You have selected the view in', 'Text default');
 	pll_register_string('Numbers', 'Numbers', 'Text default');
-	pll_register_string('Numbers - Descriptors and Qualifiers', 'Numbers - Descriptors and Qualifiers', 'Text default');
 	pll_register_string('Descriptors and Qualifiers', 'Descriptors and Qualifiers', 'Text default'); 
-	pll_register_string('Numbers - Unique DeCS Descriptors and Qualifiers', 'Numbers - Unique DeCS Descriptors and Qualifiers', 'Text default'); 
 	pll_register_string('Unique DeCS Descriptors and Qualifiers', 'Unique DeCS Descriptors and Qualifiers', 'Text default'); 
-	pll_register_string('Numbers - Hierarchical Codes in DeCS categories', 'Numbers - Hierarchical Codes in DeCS categories', 'Text default'); 
 	pll_register_string('Hierarchical Codes in DeCS categories', 'Hierarchical Codes in DeCS categories', 'Text default'); 
 	pll_register_string('History Note', 'History Note', 'Text default');
 	pll_register_string('Date Established', 'Date Established', 'Text default');
