@@ -15,7 +15,7 @@ jQuery( document ).ready( function( $ ) {
   slidesToScroll: 3,
   dots: true,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 8000,
   responsive: [
   {
     breakpoint: 1024,
