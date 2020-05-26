@@ -315,6 +315,11 @@
 	.boxHome{
 		min-height: 280px;
 	}
+	.bgpermutado{
+		margin-bottom: 1px;
+		padding:3px 5px 10px 10px;
+		border-bottom: 1px solid #ddd;
+	}
 }
 /************** Breakpoint ****************/
 @media (max-width: 1024px){
@@ -424,6 +429,9 @@
 	.fieldset input, .fieldset2 input
 	{
 		margin-bottom: 10px;
+	}
+	.alignM1{
+		text-align: left!important;
 	}
 }
 /*correções svg Internet Explorer Edge*/
