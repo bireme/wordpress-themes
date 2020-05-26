@@ -1,5 +1,5 @@
 <!-- Banners -->
-<div id="banners" class="carousel slide" data-ride="carousel">
+<div id="banners" class="carousel slide" data-ride="carousel" data-interval="10000">
 	<div class="carousel-inner">
 		<?php 
 	$banners = new WP_Query(array(
