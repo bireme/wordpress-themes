@@ -181,6 +181,7 @@ add_action('init', function() {
 	pll_register_string('Results', 'Results', 'Text default');
 	pll_register_string('Terms and conditions of use', 'Terms and conditions of use', 'Text default');
 	pll_register_string('Privacy policy', 'Privacy policy', 'Text default');
+	pll_register_string('List format', 'List format', 'List format');
 
 	//Accessibility
 	pll_register_string('Main content', 'Main content', 'Accessibility');
