@@ -65,11 +65,11 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 				<div class="spacer"></div>
 			</div>
         </div>
-        <div class="top top_<?php echo ($current_language);?>">
+        <div class="top top_<?php echo $site_lang; ?>">
             <div id="parent">
                 <img src="<?php bloginfo('template_url') ?>/images/<?php echo ( $site_lang ); ?>/logo_bvs.jpg" alt="<?php bloginfo('name'); ?>"/>
             </div>
-            <div id="identification_<?php echo get_bloginfo('language');?>">
+            <div id="identification_<?php echo $site_lang; ?>">
                 <h1><?php bloginfo('name'); ?></h1>
                 <h2><?php bloginfo('description'); ?></h2>
             </div>
