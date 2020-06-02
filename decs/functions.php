@@ -154,6 +154,10 @@ add_action('init', function() {
 	pll_register_string('Descriptor French', 'Descriptor French', 'Text default');
 	pll_register_string('Descriptor Portuguese', 'Descriptor Portuguese', 'Text default');
 	pll_register_string('Descriptor Spanish', 'Descriptor Spanish', 'Text default');
+	pll_register_string('Qualifier English', 'Qualifier English', 'Text default');
+	pll_register_string('Qualifier French', 'Qualifier French', 'Text default');
+	pll_register_string('Qualifier Portuguese', 'Qualifier Portuguese', 'Text default');
+	pll_register_string('Qualifier Spanish', 'Qualifier Spanish', 'Text default');
 	pll_register_string('Details', 'Details', 'Text default');
 	pll_register_string('English', 'English', 'Text default');
 	pll_register_string('Entry term(s)', 'Entry term(s)', 'Text default');
