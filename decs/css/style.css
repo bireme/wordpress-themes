@@ -224,8 +224,11 @@
 }
 .listTree, .listTree ul{
 	list-style: none;
-	padding-left: 30px;
+	padding-left: 0px;
 	font-size: 14px;
+}
+.listTree a:hover{
+	text-decoration: none;
 }
 .listTree b{
 	color: #000;
