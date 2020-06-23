@@ -1,0 +1,114 @@
+#barAccessibility{
+	background: #4e7952; /*Cor da barra*/
+	color: #fff;
+	padding: 6px 0;
+	font-size: 12px;
+}
+#barAccessibility a{
+	color: #fff;
+	text-decoration: none;
+}
+#barAccessibility a:hover{
+	color: #ddd;
+}
+#accessibilityFontes{
+	text-align: right;
+}
+#accessibilityFontes a{
+	padding: 0 5px; 
+	cursor: pointer;
+	border-right: 1px solid #ddd;
+}
+#accessibilityFontes a:nth-last-child(1){
+	border-right: none;
+}
+#accessibilityTutorial a{
+	margin-left: 5px;
+}
+#accessibilityTutorial span{
+	background-color: #ddd;
+	color: #000;
+	padding: 0 5px;
+}
+#accessibilityTutorial a:hover span{
+	background-color: #fff;
+}
+::selection{ /*cor de texto selecionado*/
+	background-color: #333;
+	color: #FF0;
+}
+/********************** Contraste *****************/
+.bodyBlack{ /*body*/
+	background: #000;
+	color: #fff;
+}
+.bodyBlack ::selection{/*texto selecionado*/
+	background-color: #FF0;
+	color: #000;
+}
+.bodyBlack .imgBlack{/*inserir esta classe em imagens sem fundos com texto em preto*/
+	background: #fff;
+}
+.bodyBlack a{ /*links*/
+	color: #ff0!important;
+}
+.bodyBlack #nav, .bodyBlack #countHome,.bodyBlack #nav .dropdown-menu, .bodyBlack .dropdown-menu,
+.bodyBlack #footer, .bodyBlack .card-header, .bodyBlack .nav-link, .bodyBlack .pagination .disabled .page-link,
+.bodyBlack #barAcessibilidade{/*menu, footer e barra de acessibiliadade*/
+	background: #666;
+}
+ .bodyBlack .titleMain, .bodyBlack .breadcrumb, .bodyBlack .nav-item .active,
+ .bodyBlack #searchInside, .bodyBlack .card, .bodyBlack #language a{
+ 	background: #333;
+ }
+/********************** Formatação Formulário **********************/
+.bodyBlack input[type=text], .bodyBlack input[type=password], .bodyBlack input[type=url],
+.bodyBlack input[type=search], .bodyBlack input[type=email], .bodyBlack input[type=tel],
+.bodyBlack input[type=date], .bodyBlack input[type=month], .bodyBlack input[type=week],
+.bodyBlack input[type=datetime], .bodyBlack input[type=datetime-local],
+.bodyBlack textarea, .bodyBlack select,
+.bodyBlack input[type=number] {
+	background-color: #000 !important;
+	color: #fff !important;
+}
+/******************
+Inserir divs do seu site
+ex: ".bodyBlack .noticias" para div noticia
+*********************/
+.bodyBlack #header, .bodyBlack .boxHome, .bodyBlack #searchInside, .bodyBlack .dropdown-menu a:hover,
+.bodyBlack .bgColor1, .bodyBlack #parceiros, .bodyBlack .table, .bodyBlack .page-item a, .bodyBlack .color1, .bodyBlack .title1{
+	background: #000;
+	color: #fff;
+}
+.bodyBlack .card button{
+	color: #fff;
+}
+.bodyBlack .table tr:hover{
+	color: #999;
+}
+#speakBtn{
+	position: absolute;
+	font-size: 20px;
+	top: 5px;
+	left: 15px;
+	z-index: 10;
+	color: #999;
+}
+#speakBtn:hover{
+	color: #000;
+}
+#fieldSearch{
+	padding-left: 30px;
+}
+/********************* Breakpoint *********************/
+@media (max-width: 1024px){
+	.hiddenMobile{display: none;}
+}
+@media (max-width: 768px){
+	#topAcessibility,
+	#accessibilityFontes,
+	#accessibilityTutorial{
+		text-align: center;
+	}
+	#accessibilityTutorial{display: none;}
+}

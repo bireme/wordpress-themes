@@ -1,0 +1,229 @@
+body{
+	/*font-family: 'Roboto', sans-serif;*/
+}
+a{
+	color: #00420c;
+}
+.title1{
+	color: #00420c;
+	border-left: 5px solid #00420c;
+	/*border-bottom: 1px dotted #00420c;*/
+	padding-bottom: 10px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+.margin1{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.margin2{
+	margin-bottom: 20px;
+}
+.margin3{
+	margin-bottom: 5px;
+}
+.margin4{
+	margin-top: 50px;
+	margin-bottom: 50px;}
+.padding1{
+	padding: 30px 0;
+}
+.padding2{
+	padding: 50px 0;
+}
+.color1{
+	background-color: #eee;
+}
+.btnRadius{
+	border-radius:100px;
+	border-left: 5px solid #28a745;
+	border-bottom: 5px solid #28a745;
+	margin-bottom: 10px;
+}
+.btnRadius:hover{
+	border-left: 5px solid #14d941;
+	border-bottom: 5px solid #14d941;
+}
+.btnRadius i{
+	font-size: 30px;
+}
+#header{
+	font-family: 'Roboto', sans-serif;
+	/*background: #148128;*/
+	color: #148128;
+	padding: 30px 0;
+}
+#header a{
+	color: #148128;
+	text-decoration: none;
+}
+#header a:hover{
+	opacity: .8;
+}
+#headerSocial{
+	text-align: right;
+	font-size: 24px;
+}
+	.twitter{
+		color: #3fc6ee; margin-left: 10px;
+	}
+	.facebook{
+		color: #1a4789; margin-left: 10px;
+	}
+	.youtube{
+		color: #cf2224; margin-left: 10px;
+	}	
+
+#sectionSearch{
+	background: url('../img/bgSearch.jpg') center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+#nav{
+	background: #36768c!important;
+	font-weight: bold;
+	color: #fff;
+}
+.navbar-dark .navbar-nav .nav-link{ 
+	color: #fff;
+}
+#navMain>li>a:hover{
+	opacity: .8;
+}
+#banner{
+	margin-top: 20px;
+}
+#banner .carousel-caption h5 span, #banner .carousel-caption p span{
+	background: rgba(22,134,43,0.6);
+    padding: 5px 20px;
+    line-height: 35px;
+    display: inline-block;
+
+}
+#temas{
+	background: #999 url('../img/bgTemas.jpg') center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+#sectionInteresse{
+	/*background: #31286b;*/
+	background-position: top center;
+	background: linear-gradient(142deg, rgba(108,96,191,1) 0%, rgba(49,40,107,1) 100%);
+}
+.btnAcervo{
+	display: inline-block;
+	margin: 0 30px 20px 30px;
+	border-bottom: 1px solid #28a745;
+	text-decoration: none!important;
+	color: #28a745!important;
+	transition: color .5s ease;
+}
+.btnAcervo:hover{
+	color: #36768c!important;
+	opacity: .8;
+}
+.btnAcervo i{
+	font-size: 30px;
+	padding-bottom: 10px;
+}
+.slideBox{
+	text-align: center;
+	margin-right: 10px!important;
+}
+.slideBox img{
+	max-width: 100%;
+}
+/*news home*/
+.slideNewsBox{
+	padding-right: 15px;
+}
+	.slideNewsBox img{
+		margin-bottom: 15px;
+	}
+		.slideNewsBox a:hover img{
+			opacity: 0.8;
+		}
+	.slideNewsBox h4, .clippingNews h4{
+		font-size: 18px;
+	}
+	.slideNewsDate{
+		color: #999;
+		font-size: 12px;
+		margin-bottom: 15px;
+	}
+#footer{
+	background: #00420c;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+.navFooter ul{
+	list-style: url(../img/arrowNext.svg);
+	margin-bottom: 14px;
+	}
+	.navFooter a{
+		color: #fff;
+		font-size: 14px;
+	}
+	#footerSocial a{
+		color: #fff;
+		margin-right: 10px;
+		font-size: 20px;
+	}
+	#footerSocial a:hover{
+		color: #ccc;
+	}
+.navFooter>ul{
+	list-style: none;
+	padding: 0;
+}
+.navFooter>ul h5, #footerSocial h5{
+	font-weight: 100;
+}
+.to-top {
+	color: rgba(255, 255, 255, 0.9); cursor: pointer; overflow: hidden; position: fixed;
+	bottom: -100px; right: 20px; text-align: center;	font-size: 25px;
+	-webkit-transition: all 0.4s ease-in-out; 
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	z-index: 9999; height: 50px; color: #999;  padding:5px;
+}
+.to-top:hover{background: #00420c; color: #fff;}
+.to-topText{font-size: 10px; font-weight: bold; line-height: 10px; padding-top: 5px;}
+.cardRecursos{
+	font-size: 16px;
+	background: none!important;
+	border:0;
+	transition: background .5s ease;
+	font-weight: bold;
+}
+.cardRecursos:hover{
+	background: #fff!important;
+}
+.imgOpacity{
+	transition: opacity .5s ease;
+}
+.imgOpacity:hover{
+	opacity: .8;
+}
+.paginacao a{
+	border: 2px solid #ddd;
+	background: #f8f9fa;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-right: 3px;
+}
+.paginacao a:hover{
+	background: #ddd;
+	text-decoration: none;
+}
+.boxResultSearch{
+	border-bottom: 1px solid #ddd;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+	.boxResultSearch a{
+		text-decoration: none;
+	}
