@@ -30,12 +30,12 @@ get_header(); ?>
 						printf( __( 'Monthly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentytwelve' ) ) . '</span>' );
 					elseif ( is_year() ) :
 						printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
-                                        elseif (is_tax() ) :
-                                                echo 'Tema: ' . get_queried_object()->name;
-                                        elseif (is_tag() ) :
-                                                echo 'Tag: ' . get_queried_object()->name;
+                    elseif (is_tax() ) :
+                            echo 'Tema: ' . get_queried_object()->name;
+                    elseif (is_tag() ) :
+                            echo 'Tag: ' . get_queried_object()->name;
 					else :
-						_e( 'Archives', 'twentytwelve' );
+						_e( 'Relatos', 'twentytwelve' );
 					endif;
 				?></strong>
 			</header><!-- .archive-header -->
@@ -54,9 +54,11 @@ get_header(); ?>
 				</article>
 			<?php endwhile; ?>
 
-			<?php else : ?>
-				<?php get_template_part( 'content', 'none' ); ?>
-			<?php endif; ?>
+			<?php the_posts_pagination( array('mid_size' => 2) ); ?>
+
+		<?php else : ?>
+			<?php get_template_part( 'content', 'none' ); ?>
+		<?php endif; ?>
 		</div><!-- #content -->
 		<div class="single2column">
 			<?php if ( is_active_sidebar( 'level2' ) ) : ?>

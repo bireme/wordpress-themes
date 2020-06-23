@@ -224,8 +224,11 @@
 }
 .listTree, .listTree ul{
 	list-style: none;
-	padding-left: 30px;
+	padding-left: 0px;
 	font-size: 14px;
+}
+.listTree a:hover{
+	text-decoration: none;
 }
 .listTree b{
 	color: #000;
@@ -310,10 +313,25 @@
 .containerAos{
 	overflow:hidden;
 }
+.bgpermutado{
+   margin-bottom: 1px;
+   padding:5px 0 5px 10px;
+   border-bottom: 1px solid #ddd;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #669966;
+    background-color: #669966;
+}
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
 	.boxHome{
 		min-height: 280px;
+	}
+	.bgpermutado{
+		margin-bottom: 1px;
+		padding:3px 5px 10px 10px;
+		border-bottom: 1px solid #ddd;
 	}
 }
 /************** Breakpoint ****************/
@@ -424,6 +442,9 @@
 	.fieldset input, .fieldset2 input
 	{
 		margin-bottom: 10px;
+	}
+	.alignM1{
+		text-align: left!important;
 	}
 }
 /*correções svg Internet Explorer Edge*/
