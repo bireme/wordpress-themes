@@ -233,6 +233,10 @@
 .listTree b{
 	color: #000;
 }
+#Tree_Structures{
+	width:100%;
+    overflow:auto
+}
 .resource{
 	border-bottom: 1px solid #ccc;
 	padding: 10px 20px;
