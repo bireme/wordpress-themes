@@ -8,7 +8,9 @@
 	<div class="row padding2">
 		<div class="col-12">
 
-		<?php get_template_part('includes/search') ?>
+			<?php get_template_part('includes/search') ?>
+
+			<?php get_template_part('includes/banners') ?>
 
 		</div>
 	</div>
