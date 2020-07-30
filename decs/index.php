@@ -7,14 +7,12 @@
 <section class="container" id="main_container">
 	<div class="row padding2">
 		<div class="col-12">
-
 			<?php get_template_part('includes/search') ?>
-
-			<?php get_template_part('includes/banners') ?>
-
 		</div>
 	</div>
 </section>
+
+<?php get_template_part('includes/banners') ?>
 
 <section id="countHome">
 	<div class="container containerAos">
