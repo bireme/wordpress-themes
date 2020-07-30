@@ -492,3 +492,13 @@
     background-color: #669966;
     border: solid 1px #669966;
 }
+
+.page-item.active .page-link {
+    background-color: #669966!important;
+    border-color: #669966!important;
+}
+
+.page-item.active:hover .page-link {
+    background-color: #83b583!important;
+    border-color: #83b583!important;
+}
