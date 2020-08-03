@@ -7,7 +7,7 @@
 	<div class="row" style="position: relative">
 		<div class="col-8" id="tvMain">
 			<div id="tvTitle">
-				<img src="<?php bloginfo( 'template_directory')?>/img/tvLogo.png" alt="">
+				<img src="<?php bloginfo( 'template_directory')?>/img/tvLogo2.png" alt="" class="img-fluid"> 
 				<span class="float-right">
 					<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
 				</span>
@@ -69,12 +69,12 @@
 				<img src=" <?php bloginfo('template_directory');?>/img/logoBrTV.png" class="img-fluid" alt="">
 			</div>
 		</div>
-		<footer id="tvFooter">
-			<div class="row">
-				<div class="col-md-4" id="tvFooterHora">00h00</div>
-				<div class="col-md-8 text-right" id="tvFooterEmail">Envie a sua notícia ou comentários - <b>saacomunica@saude.gov.br</b></div>
-			</div>
-		</footer>
 	</div>
+	<footer id="tvFooter">
+		<div class="row">
+			<div class="col-md-4" id="tvFooterHora">00h00</div>
+			<div class="col-md-8 text-right" id="tvFooterEmail">Envie a sua notícia ou comentários - <b>saacomunica@saude.gov.br</b></div>
+		</div>
+	</footer>
 </div>
 <?php wp_footer(); ?>

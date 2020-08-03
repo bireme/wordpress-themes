@@ -1,16 +1,16 @@
 #tvContainer{
-	width: 1920px;
-	height: 1080px;
+	width: 1260;
+	height: 710px;
 	margin: auto;
 	overflow: hidden;
 }
 #tvMain{
-	height:1080px; 
+	height:640px; 
 	overflow:hidden;
 	position: relative;
 }
 #tvTitle{
-	height: 150px;
+	height: 90px;
 }
 #tvCarousel .carousel-caption{
 	width: 100%;
@@ -21,42 +21,41 @@
 	text-align: left;
 }
 	#tvCarousel .carousel-caption h5{
-		margin-left: 50px;
-		font-size: 40px;
-		width: 93%;
+		margin-left: 30px;
+		font-size: 32px;
+		width: 730px;
 		margin-bottom: 0px;
 	}	
 	#tvCarousel .carousel-caption p{
-		margin-left: 50px;
-		font-size: 30px;
-		width: 1000px;
+		margin-left: 30px;
+		font-size: 24px;
+		width: 730px;
 		line-height: 30px;
 	}
 #tvNews{
-	height:1080px; 
+	height:660px; 
 	position: relative;
 	background: #1a3b6d;
 	color: #fff;
 	padding: 0 10px;
 }
 	#tvNewsNext{
-		height: 740px;
-		padding: 30px;
+		height: 470px;
+		padding: 10px;
 		overflow:hidden;
 		border-bottom: 1px solid #ddd;
 	}
 	#tvNewsNext h2{
 		font-size: 30px; /*font-size: 60px;*/
-		padding-bottom: 10px; /* padding-bottom: 20px;*/
+		padding-bottom: 7px; /* padding-bottom: 20px;*/
 		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
 	}
 		.tvNewsLoop{
 			width: 100%;
 			margin: auto;
-			font-size: 20px;
-			padding: 20px 0;
+			padding: 12px 0;
 			border-bottom: 1px solid #ddd;
-			font-size: 28px;
+			font-size: 20px;
 		}
 		.tvNewsLoop:nth-last-child(1){
 			border-bottom: none;
@@ -67,9 +66,9 @@
 	#tvNewsEquipe{
 		width: 90%;
 		margin: auto;
-		height: 270px;
-		padding: 20px 0;
-		font-size: 20px;
+		height: 180px;
+		padding: 10px 0;
+		font-size: 14px;
 	}
 		#tvNewsEquipe img{
 			margin-top: 10px;
@@ -78,20 +77,27 @@
 	width: 100%;
 	background-color: #000;
 	color: #fff;
-	padding: 10px 30px;
-	position: absolute;
+	padding: 5px 30px;
+
 	bottom: 0;
 	z-index: 10;
+
 }
 	#tvFooterHora{
-		font-size: 30px;
+		font-size: 20px;
 		font-weight: bold;
 	}
 	#tvFooterEmail{
-		font-size: 25px;
+		font-size: 20px;
 	}
 .current_text, .weather-atlas-footer{
 	display: none;
+}
+.weather-atlas-wrapper .current_temp .wi{
+	font-size: 20px;
+}
+.weather-atlas-wrapper .current_temp .temp{
+	font-size: 20px;
 }
 /*********** Padrões *************/
 .title1{
