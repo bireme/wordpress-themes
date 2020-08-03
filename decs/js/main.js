@@ -97,3 +97,25 @@ jQuery('#btSearch, #btSearchM').click(function(){
   jQuery('#btSearch>i').toggleClass('fa-times');
 });
 
+
+// Faz com que a aba seja selecionada após refresh
+// -------------------------------------------------------------------------------
+jQuery('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+   localStorage.setItem('activeTab', jQuery(e.target).attr('href'));
+});
+// Aqui salva o índice ao qual corresponde a aba. Você pode vê-lo na ferramenta de desenvolvimento do Chrome.
+
+//Obtém os dados da localStorage
+var activeTab = localStorage.getItem('activeTab');
+
+// No console, ele mostrará a aba onde você fez o último clique e o 
+// salve em "activeTab". Deixo o console para você ver. E quando você der refresh
+// no navegador, o último em que você clicou estará ativo.
+
+console.log(activeTab);
+
+if (activeTab) {
+  jQuery('a[href="' + activeTab + '"]').tab('show');
+
+}
+// -------------------------------------------------------------------------------
