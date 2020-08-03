@@ -27,7 +27,7 @@
 						$qr_code = get_field('qr_code'); 
 						if ($mostrar == 2 ||  $mostrar == 4) { ?>
 							<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?>">
-								<img src="<?php echo $image_tv['url']; ?>" class="d-block w-100" alt="...">
+								<img src="<?php echo esc_url($image_tv['sizes']['tv']); ?>" class="d-block w-100" alt="<?php echo esc_attr($image_tv['alt']);?> " >
 								<div class="carousel-caption">
 									<h5><?php the_title(); ?></h5>
 									<p><?php echo $subtitulo; ?></p>
