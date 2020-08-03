@@ -5,11 +5,11 @@
 				<div class="form-row">
 					<div class="col-10 col-lg-10 offset-lg-1 text-right">
 						<input type="text" id="fieldSearch" class="form-control" autocomplete="off" name="s" value="<?php echo get_search_query(); ?>">
-						<input type="hidden" name="post_type" value="post">
+						<input type="hidden" name="pt" value="">
 						<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 						<div class="text-left">
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1" checked>
 								<label class="form-check-label" for="inlineRadio1"><small>No Portal</small></label>
 							</div>
 							<div class="form-check form-check-inline">

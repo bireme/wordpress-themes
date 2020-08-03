@@ -1,3 +1,13 @@
+jQuery(function () {
+    jQuery('#inlineRadio1').on('click', function(){
+        jQuery('#formHome').attr('action', '');
+        jQuery("#fieldSearch").attr('name', 's');
+    });
+    jQuery('#inlineRadio2').click(function(){
+        jQuery('#formHome').attr('action', 'https://pesquisa.bvsalud.org/bvsms/');
+        jQuery("#fieldSearch").attr('name', 'q');
+    });
+});
 // Sliders Parceiros
 jQuery('.slideTemas').slick({
   slidesToShow: 2,
@@ -72,23 +82,3 @@ jQuery('.interesse').slick({
   }
   ]
 });
-
-// Scroll totop button
-var toTop = $('#to-top');
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 1) {
-        toTop.css({
-            bottom: '11px'
-        });
-    } else {
-        toTop.css({
-            bottom: '-100px'
-        });
-    }
-});
-toTop.click(function() {
-    $('html, body').animate({
-        scrollTop: '0px'
-    }, 800);
-    return false;
-})

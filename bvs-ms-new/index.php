@@ -48,6 +48,7 @@ endwhile;
 			<?php 
 			$Tema = new WP_Query(array(
 				'post_type' => 'Tema',
+				'posts_per_page' => '-1'
 			));
 			while($Tema->have_posts()) : $Tema->the_post();
 				$itens = get_field('group');
