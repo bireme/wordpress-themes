@@ -18,9 +18,10 @@
 						?>
 						<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?> ">
 							<a href="<?php echo $link; ?>" target="<?php echo $abrir; ?>">
-								<img src="<?php echo $fotoDesktop['url']; ?>" class="d-block w-100"alt="<?php echo $fotoDesktop['alt'] ?>" />
+								<img src="<?php echo esc_url($fotoDesktop['sizes']['banners']); ?>" class="img-fluid d-none d-sm-block"alt="<?php echo $fotoDesktop['alt'] ?>" />
+								<img src="<?php echo esc_url($fotoMobile['sizes']['banners-mobile']); ?>" class="img-fluid d-block d-sm-none"alt="<?php echo $fotoMobile['alt'] ?>" />
 								<div class="carousel-caption d-none d-md-block">
-									<h5><span><?php echo $texto; ?></span></h5>
+									<?php echo ($texto ==! "") ? '<h5><span>'.$texto.'</span></h5>': '' ; ?>
 								</div>
 							</a>
 						</div>

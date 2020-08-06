@@ -1,6 +1,16 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
 <?php get_template_part('includes/search') ?>
+<div class="container">
+	<div class="alert alert-warning margin1" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<h4 class="alert-heading">Erro 404!</h4>
+		<hr>
+		<p>Link quebrado ou a página foi removida.</p>
+	</div>
+</div>
 <?php get_template_part('includes/banners') ?>
 <?php
 $home = new WP_Query([

@@ -4,6 +4,9 @@ body{
 a{
 	color: #00420c;
 }
+a:focus{
+	outline: 0;
+}
 .title1{
 	color: #00420c;
 	border-left: 5px solid #00420c;

@@ -1,7 +1,7 @@
 <section class="padding2" id="sectionInteresse">
-		<div class="container">
-			<div class="interesse">
-				<?php 
+	<div class="container">
+		<div class="interesse">
+			<?php 
 			$MiniBanners = new WP_Query(array(
 				'post_type' => 'MiniBanners',
 			));
@@ -12,15 +12,16 @@
 					$link = get_sub_field('link');
 					$abrir = get_sub_field('abrir');
 					?>
-				<div class="slideNewsBox">
-					<a href="<?php echo $link; ?>" target="<?php echo $abrir; ?>">
-						<img src="<?php echo $foto['url']; ?>" alt="" class="img-fluid">
-					</a>
-				</div>	
-				<?php
-					$i++; endwhile;
+					<div class="slideNewsBox">
+						<a href="<?php echo $link; ?>" target="<?php echo $abrir; ?>">
+							<img src="<?php echo esc_url($foto['sizes']['mini-banners']); ?>" alt="<?php echo $foto['alt'] ?>" class="img-fluid">
+						</a>
+					</div>	
+					<?php
+					$i++;
 				endwhile;
-				?>
-			</div>
+			endwhile;
+			?>
 		</div>
-	</section>
+	</div>
+</section>
