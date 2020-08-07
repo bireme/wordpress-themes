@@ -55,5 +55,5 @@
 	]);
 	//Adicionar tamanhos de imagem no Wordpress
 	add_image_size('banners', 800, 400, true);
-	add_image_size('tv',1428,928,true);
+	add_image_size('tv',830,530,true);
 ?>
