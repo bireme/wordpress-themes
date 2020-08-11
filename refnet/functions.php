@@ -743,7 +743,7 @@ function custom_slug_box() {
     global $pagenow;
     $post_type = $_GET['post_type'];
 
-    if (is_admin() &&  $post_type == 'search_strategy' && $pagenow == 'post-new.php' OR $pagenow == 'post.php') {
+    if (is_admin() &&  $post_type == 'search_strategy' && ($pagenow == 'post-new.php' OR $pagenow == 'post.php')) {
         echo "<script type='text/javascript'>
 	            $ = jQuery;
 	            $(document).ready(function() {
