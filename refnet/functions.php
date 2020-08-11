@@ -747,20 +747,15 @@ function custom_slug_box() {
         echo "<script type='text/javascript'>
 	            $ = jQuery;
 	            $(document).ready(function() {
-                    var selection;
+                    var id, selection;
                     $('#edit-slug-box').append('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
-                    $('.postbox textarea.textarea').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
+                    $('.postbox textarea:not(.wp-editor-area)').after('<div class=\"langbox\"><a href=\"#\" class=\"button button-small wrap-lang pt_BR\">pt_BR</a> <a href=\"#\" class=\"button button-small wrap-lang es_ES\">es_ES</a> <a href=\"#\" class=\"button button-small wrap-lang en_US\">en_US</a></div>');
                     $('.wrap-lang').hover(function(){
-                        selection = getSelectedText();
-                        id = $(':focus').attr('id');
-                        editorSelection = tinyMCE.activeEditor.selection.getContent();
+                        var input = $(':focus');
+                        selection = getSelectedText(input.get(0));
+                        id = input.attr('id');
                     });
 	                $('.wrap-lang').click(function(){
-
-                        if (editorSelection) {
-                        	alert('AVISO: Em campos WYSIWYG, os shortcodes para idiomas devem ser inseridos manualmente.');
-                        }
-
                         if (selection) {
 	                        var element = $('#'+id);
 	                        var start = element[0].selectionStart;
@@ -780,19 +775,19 @@ function custom_slug_box() {
                         }
 
                         return false;
-
-                        });
-                        function getSelectedText(){
-                            if(window.getSelection){
-                                return window.getSelection().toString();
-                            }
-                            else if(document.getSelection){
-                                return document.getSelection();
-                            }
-                            else if(document.selection){
-                                return document.selection.createRange().text;
-                            }
+                    });
+                    function getSelectedText(input){
+                        if(window.getSelection){
+                            // return window.getSelection().toString();
+                            return input.value.substring(input.selectionStart, input.selectionEnd);
                         }
+                        else if(document.getSelection){
+                            return document.getSelection();
+                        }
+                        else if(document.selection){
+                            return document.selection.createRange().text;
+                        }
+                    }
 	            });
             </script>
             <style type='text/css'>.langbox { display: inline; }</style>
