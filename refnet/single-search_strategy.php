@@ -135,9 +135,9 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
-                if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression"))) {
-                    echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result");
-                }
+                // if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression"))) {
+                //     echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result");
+                // }
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
