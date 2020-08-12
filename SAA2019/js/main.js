@@ -2,7 +2,7 @@ $ = jQuery;
 
 var $clock = $('#tvFooterHora');
 setInterval(function () {
-	$clock.html((new Date).toLocaleString().substr(11, 8));
+	$clock.html((new Date).toLocaleString('pt-BR',{hour12:false}).substr(10, 8));
 }, 1000);
 
 

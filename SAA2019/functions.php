@@ -28,7 +28,7 @@
 	{
 		register_nav_menu('main-nav', 'Main Menu (top)');
 	}
-// WIDGETS
+	// WIDGETS
 	//TV Clima
 	register_sidebar([
 		'name'			=> 'Clima',

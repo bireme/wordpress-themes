@@ -11,6 +11,8 @@
 					if ($mostrar == 3 ||  $mostrar == 4) {
 						?>
 						<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?>">
+
+							<!-- <img src="<?php echo esc_url($image_banner['sizes']['tv']); ?>" class="img-fluid" alt="<?php echo $image_banner['alt']; ?>"> -->
 							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-none d-sm-block" alt="<?php echo $image_banner['alt']; ?>">
 							<img src="<?php echo $image_banner['url']; ?>" class="img-fluid d-block d-sm-none" alt="<?php echo $image_banner['alt']; ?>">
 							<div class="carousel-caption">

@@ -69,12 +69,12 @@
 				<img src=" <?php bloginfo('template_directory');?>/img/logoBrTV.png" class="img-fluid" alt="">
 			</div>
 		</div>
+		<footer id="tvFooter">
+			<div class="row">
+				<div class="col-md-4" id="tvFooterHora">00h00</div>
+				<div class="col-md-8 text-right" id="tvFooterEmail">Envie a sua notícia ou comentários - <b>saacomunica@saude.gov.br</b></div>
+			</div>
+		</footer>
 	</div>
-	<footer id="tvFooter">
-		<div class="row">
-			<div class="col-md-4" id="tvFooterHora"></div>
-			<div class="col-md-8 text-right" id="tvFooterEmail">Envie a sua notícia ou comentários - <b>saacomunica@saude.gov.br</b></div>
-		</div>
-	</footer>
 </div>
 <?php wp_footer(); ?>
