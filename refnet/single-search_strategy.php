@@ -259,7 +259,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             ?>
             </dl>
             <!-- END: Other Databases Search Strategy -->
-
+<!--
             <?php 
                 $custom_field_keys = array ("search_details","vhl_instance");
                 if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
@@ -275,6 +275,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
                 echo bir_show_custom_field_translated(get_the_ID(), 'search_details', __('Search details','refnet'), $html4label, $html4custom_field);
             ?>
             </dl>
+-->
         </div>
         <?php comments_template(''); ?>
         
