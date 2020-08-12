@@ -99,6 +99,9 @@
 .weather-atlas-wrapper .current_temp .temp{
 	font-size: 20px;
 }
+.weather-atlas-wrapper .weather-atlas-body{
+	padding: 6.5px 40px; 
+}
 /*********** Padrões *************/
 .title1{
 	margin-bottom: 30px;
