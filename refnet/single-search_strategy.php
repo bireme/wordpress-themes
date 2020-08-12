@@ -161,7 +161,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php
-                echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
@@ -185,7 +185,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php
-                echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
