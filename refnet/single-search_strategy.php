@@ -255,7 +255,17 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php                
-                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression', __('Search strategy','refnet'), $html4label, $html4custom_field );
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_I', __('Search strategy','refnet'), $html4label, $html4custom_field );
+            ?>
+            </dl>
+            <dl class="expr">
+            <?php                
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_II', __('Search strategy','refnet'), $html4label, $html4custom_field );
+            ?>
+            </dl>
+            <dl class="expr">
+            <?php                
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_III', __('Search strategy','refnet'), $html4label, $html4custom_field );
             ?>
             </dl>
             <!-- END: Other Databases Search Strategy -->
