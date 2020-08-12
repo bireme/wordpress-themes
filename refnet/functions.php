@@ -741,7 +741,7 @@ function bir_show_search_rss_buttons($id, $custom_field_name, $button_type="") {
 function custom_slug_box() {
     global $post;
     global $pagenow;
-    $post_type = $_GET['post_type'];
+    $post_type = get_post_type();
 
     if (is_admin() &&  $post_type == 'search_strategy' && ($pagenow == 'post-new.php' OR $pagenow == 'post.php')) {
         echo "<script type='text/javascript'>
