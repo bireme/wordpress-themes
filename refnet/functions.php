@@ -2,6 +2,36 @@
 
 //load_theme_textdomain('refnet', get_stylesheet_directory() . '/languages');
 
+// Hooks your functions into the correct filters
+function add_custom_mce_button() {
+	global $post;
+    global $pagenow;
+    $post_type = get_post_type();
+
+	// check user permissions
+	if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
+		return;
+	}
+	// check if WYSIWYG is enabled
+    if (is_admin() && 'true' == get_user_option( 'rich_editing' ) &&  $post_type == 'search_strategy' && ($pagenow == 'post-new.php' OR $pagenow == 'post.php')) {
+		add_filter( 'mce_external_plugins', 'add_custom_tinymce_plugin' );
+		add_filter( 'mce_buttons', 'register_custom_mce_button' );
+	}
+}
+add_action('admin_head', 'add_custom_mce_button');
+
+// Declare script for new button
+function add_custom_tinymce_plugin( $plugin_array ) {
+	$plugin_array['custom_mce_button'] = get_stylesheet_directory_uri() .'/js/mce-button.js';
+	return $plugin_array;
+}
+
+// Register new button in the editor
+function register_custom_mce_button( $buttons ) {
+	array_push( $buttons, 'custom_mce_button' );
+	return $buttons;
+}
+
 function my_theme_localized( $locale )
 {
         if ( isset( $_GET['l'] ) )
@@ -744,6 +774,8 @@ function custom_slug_box() {
     $post_type = get_post_type();
 
     if (is_admin() &&  $post_type == 'search_strategy' && ($pagenow == 'post-new.php' OR $pagenow == 'post.php')) {
+    	// $baseurl = includes_url( 'js/tinymce' );
+    	// echo "<script type='text/javascript' src='{$baseurl}/wp-tinymce.php?c=1&amp;$version'></script>\n";
         echo "<script type='text/javascript'>
 	            $ = jQuery;
 	            $(document).ready(function() {
