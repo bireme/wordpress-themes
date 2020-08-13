@@ -774,8 +774,6 @@ function custom_slug_box() {
     $post_type = get_post_type();
 
     if (is_admin() &&  $post_type == 'search_strategy' && ($pagenow == 'post-new.php' OR $pagenow == 'post.php')) {
-    	// $baseurl = includes_url( 'js/tinymce' );
-    	// echo "<script type='text/javascript' src='{$baseurl}/wp-tinymce.php?c=1&amp;$version'></script>\n";
         echo "<script type='text/javascript'>
 	            $ = jQuery;
 	            $(document).ready(function() {
