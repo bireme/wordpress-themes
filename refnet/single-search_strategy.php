@@ -83,7 +83,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'secondary_subject_of_the_search', __('Secondary subjects','refnet'), $html4label, $html4custom_field);
 
-                echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Scope','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Scope','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'url_to_search_result', __('Search result','refnet'), $html4label, $html4custom_field);
             ?>
