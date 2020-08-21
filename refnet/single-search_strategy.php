@@ -83,7 +83,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'secondary_subject_of_the_search', __('Secondary subjects','refnet'), $html4label, $html4custom_field);
 
-                echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Scope','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'type_of_search_strategy', __('Scope','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'url_to_search_result', __('Search result','refnet'), $html4label, $html4custom_field);
             ?>
@@ -135,9 +135,9 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
-                if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression"))) {
-                    echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result");
-                }
+                // if (bir_has_no_empty_custom_field (get_the_ID(), array("lilacs_iah_search_expression"))) {
+                //     echo bir_show_search_rss_buttons_iah(get_the_ID(), "url_to_search_result");
+                // }
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'lilacs_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
@@ -161,7 +161,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php
-                echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'medline_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'medline_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
@@ -185,7 +185,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php
-                echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
+                // echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iah_search_expression', __('iAH search strategy','refnet'), $html4label, $html4custom_field);
 
                 echo bir_show_custom_field_translated(get_the_ID(), 'cochrane_iahx_search_expression', __('iAHx search strategy','refnet'), $html4label, $html4custom_field);
 
@@ -255,11 +255,21 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
             </dl>
             <dl class="expr">
             <?php                
-                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression', __('Search strategy','refnet'), $html4label, $html4custom_field );
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_I', __('Search strategy','refnet'), $html4label, $html4custom_field );
+            ?>
+            </dl>
+            <dl class="expr">
+            <?php                
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_II', __('Search strategy','refnet'), $html4label, $html4custom_field );
+            ?>
+            </dl>
+            <dl class="expr">
+            <?php                
+                echo bir_show_custom_field_translated( get_the_ID(), 'other_search_strategy_expression_III', __('Search strategy','refnet'), $html4label, $html4custom_field );
             ?>
             </dl>
             <!-- END: Other Databases Search Strategy -->
-
+<!--
             <?php 
                 $custom_field_keys = array ("search_details","vhl_instance");
                 if (bir_has_no_empty_custom_field (get_the_ID(), $custom_field_keys)) {
@@ -275,6 +285,7 @@ if (isset($_GET["redirect"]) && ($_GET["what"] == 'html' || $_GET["what"] == 'rs
                 echo bir_show_custom_field_translated(get_the_ID(), 'search_details', __('Search details','refnet'), $html4label, $html4custom_field);
             ?>
             </dl>
+-->
         </div>
         <?php comments_template(''); ?>
         
