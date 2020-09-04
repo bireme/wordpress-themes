@@ -71,7 +71,7 @@ jQuery('.sliderParceiros').slick({
   slidesToShow: 4,
   slidesToScroll: 2,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 8000,
   responsive: [
   {
     breakpoint: 1024,
