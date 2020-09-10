@@ -3,6 +3,9 @@
 *{
 	font-family: 'Roboto', sans-serif;
 }
+a{
+    outline: none;
+}
 .bgColor1{
 	background: #4e7952;
 	color: #fff;
