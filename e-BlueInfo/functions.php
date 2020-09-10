@@ -32,7 +32,7 @@
 		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
 	}
-		//Custo post type
+	//Custo post type
 	add_action('init', 'custon_posts');
 	function custon_posts(){
 		registrar_custom_post_type();
@@ -65,7 +65,6 @@
 		);
 		register_post_type( 'countries' , $argsCountries );
 	}
-
 	add_action('init', function() {
 		pll_register_string('More Countries','See more interested countries', 'Home');
 		pll_register_string('Terns','Terms and conditions of use', 'Default');
@@ -87,9 +86,20 @@
 		'class'			=> 'list-unstyled'
 	));
 	register_sidebar(array(
+		'name'			=> 'Home Center',
+		'id'			=> 'home_widget_center',
+		'description'	=> 'Widgets Home Center',
+		'class'			=> 'list-unstyled'
+	));
+	register_sidebar(array(
 		'name'			=> 'Home Right',
 		'id'			=> 'home_widget_right',
 		'description'	=> 'Widgets Home Right',
 		'class'			=> 'list-unstyled'
 	));
+	function add_favicon() {
+echo '<link rel="shortcut icon" type="image/png" href="'.get_template_directory_uri().'/assets/favicon.png" />';
+}
+
+add_action('wp_head', 'add_favicon');
 ?>
