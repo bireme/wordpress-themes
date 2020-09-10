@@ -1,5 +1,9 @@
 *{
 	font-family: 'Abel', sans-serif;
+	outline: none;
+}
+a:hover{
+	text-decoration: none;
 }
 .container{
 	overflow: hidden;
@@ -19,6 +23,8 @@
 	background-attachment: fixed;
 	min-height: 550px;
 	position: relative;
+	width: 100%;
+	overflow: hidden;
 }
 #lang{
 	font-size: 16px;

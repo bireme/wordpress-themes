@@ -49,7 +49,7 @@ $home = new WP_Query([
 						</h4>
 						<span id="iconStore">
 							<a href="#" data-toggle="modal" data-target="#googlePlay" role="button"><img src="<?php bloginfo('template_directory') ?>/img/googlePlay.png" alt="Google Play"></a>
-							<a href="#" data-toggle="modal" data-target="#appleStore" role="button"><img src="<?php bloginfo('template_directory') ?>/img/appleStore.png" lt="Apple Store" ></a>
+							<a href="#" data-toggle="modal" data-target="#appleStore" role="button"><img src="<?php bloginfo('template_directory') ?>/img/appleStore.png" alt="Apple Store" ></a>
 						</span>
 					</div>
 				<?php endwhile;
@@ -57,7 +57,6 @@ $home = new WP_Query([
 		</div>
 	</div>
 </header>
-
 
 <section id="bgGray" class="padding50" tabindex="14">
 	<div class="container">
@@ -79,44 +78,65 @@ $home = new WP_Query([
 	$trusted_text = get_sub_field('trusted_text'); 
 	$updated_title = get_sub_field('updated_title'); 
 	$updated_text  = get_sub_field('updated_text'); 
-	?>
-	<section id="bgBlue">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 text-center boxIcons" data-aos="fade-left" data-aos-duration="1000" tabindex="16">
-					<img src="<?php bloginfo('template_directory') ?>/img/icon1.svg" alt="">
-					<h4><?php echo $health_title ?></h4>
-					<p><?php echo $health_text ?></p>
-				</div>
-				<div class="col-md-4 text-center boxIcons" data-aos="fade-up" data-aos-duration="1000" tabindex="17">
-					<img src="<?php bloginfo('template_directory') ?>/img/icon2.svg" alt="">
-					<h4><?php echo $trusted_title ?></h4>
-					<p><?php echo $trusted_text ?></p>
-				</div>
-				<div class="col-md-4 text-center boxIcons" data-aos="fade-right" data-aos-duration="1000" tabindex="18">
-					<img src="<?php bloginfo('template_directory') ?>/img/icon3.svg" alt="">
-					<h4><?php echo $updated_title ?></h4>
-					<p><?php echo $updated_text ?></p>
-				</div>
+?>
+<section id="bgBlue">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 text-center boxIcons" data-aos="fade-left" data-aos-duration="1000" tabindex="16">
+				<img src="<?php bloginfo('template_directory') ?>/img/icon1.svg" alt="">
+				<h4><?php echo $health_title ?></h4>
+				<p><?php echo $health_text ?></p>
+			</div>
+			<div class="col-md-4 text-center boxIcons" data-aos="fade-up" data-aos-duration="1000" tabindex="17">
+				<img src="<?php bloginfo('template_directory') ?>/img/icon2.svg" alt="">
+				<h4><?php echo $trusted_title ?></h4>
+				<p><?php echo $trusted_text ?></p>
+			</div>
+			<div class="col-md-4 text-center boxIcons" data-aos="fade-right" data-aos-duration="1000" tabindex="18">
+				<img src="<?php bloginfo('template_directory') ?>/img/icon3.svg" alt="">
+				<h4><?php echo $updated_title ?></h4>
+				<p><?php echo $updated_text ?></p>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
+<?php endwhile;?>
 
-	<section id="dataCountries">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 text-center" data-aos="zoom-out" data-aos-duration="1000" tabindex="19">
-					<?php dynamic_sidebar('home_widget_left'); ?>
-				</div>
-				<div class="col-md-6 text-center" data-aos="zoom-in" data-aos-duration="1000" tabindex="20">
-					<?php dynamic_sidebar('home_widget_right'); ?>
-				</div>
+<?php while(have_rows('grupo3')):the_row(); 
+	$image_guide = get_sub_field('image_guide'); 
+	$text_guide = get_sub_field('text_guide'); 
+?>
+<section id="guide" class="padding50">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="<?php echo $image_guide['url']; ?>" alt="<?php echo $image_guide['alt']; ?>" class="img-fluid">
+			</div>
+			<div class="col-md-8">
+				<?php echo $text_guide ?>
 			</div>
 		</div>
-	</section>
-	<?php
-endwhile;?>
+	</div>
+</section>
+<?php endwhile;?>
+
+<section id="dataCountries">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="19">
+				<?php dynamic_sidebar('home_widget_left'); ?>
+			</div>
+			<div class="col-md-4 text-center" data-aos="zoom-in" data-aos-duration="1000"  tabindex="20">
+				<?php dynamic_sidebar('home_widget_center'); ?>
+			</div>
+			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="20">
+				<?php dynamic_sidebar('home_widget_right'); ?>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 <?php get_footer(); ?>
 <?php get_template_part('includes/modais') ?>
