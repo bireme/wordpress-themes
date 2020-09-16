@@ -222,7 +222,7 @@ add_action('init', function() {
 });
 
 
-// http://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
+// https://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
 class description_walker extends Walker_Nav_Menu
 {
 	function start_el(&$output, $item, $depth, $args)
