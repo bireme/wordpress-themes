@@ -14,7 +14,7 @@
 				<select name="filter" id="filter" class="form-control">
 					<option data-msg="<?php pll_e('Use * or $ for permuted search'); ?>" value="ths_termall" <?php if ($filter == 'ths_termall'){ echo "selected";} ?>><?php pll_e('Any descriptor term'); ?></option>
 					<option data-msg="" value="ths_exact_term" <?php if ($filter == 'ths_exact_term'){ echo "selected";} ?>><?php pll_e('Exact descriptor term'); ?></option>
-					<option data-msg="<?php pll_e('Use * or $ for permuted search'); ?>" value="ths_regid" <?php if ($filter == 'ths_regid'){ echo "selected";} ?>><?php pll_e('Unique ID'); ?></option>
+					<option data-msg="" value="ths_regid" <?php if ($filter == 'ths_regid'){ echo "selected";} ?>><?php pll_e('Unique ID'); ?></option>
 					<option data-msg="<?php pll_e('Use * or $ for permuted search'); ?>" value="ths_treenumber" <?php if ($filter == 'ths_treenumber'){ echo "selected";} ?>><?php pll_e('Hierarchical Code'); ?></option>
 					<option data-msg="<?php pll_e('Use * or $ for permuted search'); ?>" value="ths_qualifall" <?php if ($filter == 'ths_qualifall'){ echo "selected";} ?>><?php pll_e('Any qualifier term'); ?></option>
 				</select>
