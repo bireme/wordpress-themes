@@ -86,7 +86,7 @@ ex: ".bodyBlack .noticias" para div noticia
 .bodyBlack .table tr:hover{
 	color: #999;
 }
-.bodyBlack .alert-success a, .bodyBlack .last-child a{
+.bodyBlack .alert-success a, .bodyBlack .dropdownLang a{
 	color: #333!important;
 }
 
