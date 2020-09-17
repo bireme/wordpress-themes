@@ -54,7 +54,7 @@
 }
 .bodyBlack #nav, .bodyBlack #countHome,.bodyBlack #nav .dropdown-menu, .bodyBlack .dropdown-menu,
 .bodyBlack #footer, .bodyBlack .card-header, .bodyBlack .nav-link, .bodyBlack .pagination .disabled .page-link,
-.bodyBlack #barAcessibilidade{/*menu, footer e barra de acessibiliadade*/
+.bodyBlack #barAcessibilidade, .bodyBlack .highlight{/*menu, footer e barra de acessibiliadade*/
 	background: #666;
 }
  .bodyBlack .titleMain, .bodyBlack .breadcrumb, .bodyBlack .nav-item .active,
