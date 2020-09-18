@@ -34,7 +34,7 @@
 					<div class="col-9 col-md-9">
 						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>">
 							<img src="https://logos.bireme.org/img/<?php echo $idioma; ?>/decs_color.svg" alt="Logo DeCS" class="img-fluid imgBlack">
-							<div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div>
+							<!-- <div id="versionBeta"><?php pll_e('New DeCS website in beta version'); ?></div> -->
 						</a>
 					</div>
 				</div>
