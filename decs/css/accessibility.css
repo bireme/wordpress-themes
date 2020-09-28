@@ -54,7 +54,7 @@
 }
 .bodyBlack #nav, .bodyBlack #countHome,.bodyBlack #nav .dropdown-menu, .bodyBlack .dropdown-menu,
 .bodyBlack #footer, .bodyBlack .card-header, .bodyBlack .nav-link, .bodyBlack .pagination .disabled .page-link,
-.bodyBlack #barAcessibilidade{/*menu, footer e barra de acessibiliadade*/
+.bodyBlack #barAcessibilidade, .bodyBlack .highlight{/*menu, footer e barra de acessibiliadade*/
 	background: #666;
 }
  .bodyBlack .titleMain, .bodyBlack .breadcrumb, .bodyBlack .nav-item .active,
@@ -86,6 +86,10 @@ ex: ".bodyBlack .noticias" para div noticia
 .bodyBlack .table tr:hover{
 	color: #999;
 }
+.bodyBlack .alert-success a, .bodyBlack .dropdownLang a{
+	color: #333!important;
+}
+
 /********************* Breakpoint *********************/
 @media (max-width: 1024px){
 	.hiddenMobile{display: none;}

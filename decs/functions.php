@@ -211,7 +211,8 @@ add_action('init', function() {
 	pll_register_string('Privacy policy', 'Privacy policy', 'Text default');
 	pll_register_string('List format', 'List format', 'List format');
 	pll_register_string('Related', 'Related', 'Related');
-
+	pll_register_string('Use * or $ for permuted search', 'Use * or $ for permuted search', 'Text default');
+	
 	//Accessibility
 	pll_register_string('Main content', 'Main content', 'Accessibility');
 	pll_register_string('Menu', 'Menu', 'Accessibility');
@@ -221,7 +222,7 @@ add_action('init', function() {
 });
 
 
-// http://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
+// https://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
 class description_walker extends Walker_Nav_Menu
 {
 	function start_el(&$output, $item, $depth, $args)
