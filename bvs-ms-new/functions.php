@@ -30,6 +30,7 @@ add_action('init', 'action_init');
 function action_init()
 {
 	register_nav_menu('main-nav', 'Main Menu (top)');
+	register_nav_menu('boletim-nav', 'Boletim');
 }
 //Custom Post Type
 add_action('init', 'custon_posts');
@@ -128,6 +129,13 @@ register_sidebar([
 	'name'			=> 'Rodape 3',
 	'id'			=> 'footer3',
 	'description'	=> 'Coluna 3',
+	'before_title'	=> '<h5>',
+	'after_title'	=> '</h5>'
+]);
+register_sidebar([
+	'name'			=> 'Galeria de Ministros',
+	'id'			=> 'galeria-ministros',
+	'description'	=> 'Galeria de Ministros',
 	'before_title'	=> '<h5>',
 	'after_title'	=> '</h5>'
 ]);
