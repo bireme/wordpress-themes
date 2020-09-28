@@ -230,3 +230,19 @@ a:focus{
 	.boxResultSearch a{
 		text-decoration: none;
 	}
+.menuInterno{
+	background: #ededed;
+	padding: 20px;
+}
+	.menuInterno ul{
+		position: sticky;
+	top: 0;
+	}
+	.menuInterno h5{
+		border-bottom: 2px solid #00420c;
+		padding-bottom: 10px;
+	}
+.navBoletim{
+	background: #efefef;
+	border-radius: 0 5px 5px 0;
+}
