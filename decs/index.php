@@ -104,8 +104,18 @@
 		</div>
 	</div>
 </section>
-
-
-<?php get_template_part('includes/partners') ?>
+<section class="container padding2">
+	<?php
+		$home = new WP_Query([
+				'post_type' => 'home',
+				'orderby' => 'title',
+				'order' => 'ASC'
+		]);
+	?>
+	<?php while($home->have_posts()):$home->the_post();
+		the_content();
+	endwhile;
+	?>
 </section>
+<?php get_template_part('includes/partners') ?>
 <?php get_footer(); ?>

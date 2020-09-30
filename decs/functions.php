@@ -57,7 +57,7 @@ function registrar_custom_post_type() {
 		'public' 		=> true,
 		'hierarchical' 	=> false,
 		'menu_position' => 10,
-		'supports' 		=> array('title'),
+		'supports' 		=> array('title','editor'),
 		'menu_icon'		=> 'dashicons-admin-home',
 	);
 	register_post_type( 'home' , $argsHome );
