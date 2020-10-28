@@ -83,6 +83,12 @@
 		pll_register_string('Search', 'Search', 'Accessibility');
 		pll_register_string('Footer', 'Footer', 'Accessibility');
 		pll_register_string('High contrast', 'High contrast', 'Accessibility');
+		pll_register_string('Introduction', 'Introduction', 'Page Countries');
+		pll_register_string('Statistic', 'Statistic', 'Page Countries');
+		pll_register_string('Videos', 'Videos', 'Page Countries');
+		pll_register_string('Depositions', 'Depositions', 'Page Countries');
+		pll_register_string('Partners', 'Partners', 'Page Countries');
+		pll_register_string('Social Networks', 'Social Networks', 'Page Countries');
 	});
 	//widgets - Home
 	register_sidebar(array(

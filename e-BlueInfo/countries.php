@@ -1,6 +1,6 @@
 <?php /* Template Name: Countries */ ?>
 <?php get_header('in'); ?>
-<main class="padding1 " role="main">
+<main class="padding2 " role="main">
 	<div class="container" id="main_container">
 		<h1><?php the_title(); ?></h1>
 		<hr />
@@ -19,7 +19,7 @@
 
 	<section class="sectionsCountries">
 		<div class="container">		
-			<h3>Estatística</h3>
+			<h3><?php pll_e('Statistic'); ?></h3>
 			<?php echo $statistic ?>
 		</div>
 	</section>
@@ -27,7 +27,7 @@
 
 <section class="sectionsCountries">
 	<div class="container">		
-		<h3>Vídeos</h3>
+		<h3><?php pll_e('Videos'); ?></h3>
 		<div class="row">
 			<?php if( have_rows('group_video') ): ?>
 				<?php while( have_rows('group_video') ): the_row(); $row = get_row(); $count = count($row); $loop = 0; ?>
@@ -35,7 +35,7 @@
 						<?php $url_video = get_sub_field('url_video_'.$loop); ?>
 						<?php if ( $url_video ) : ?>
 
-							<div class="col-md-4 margin1">
+							<div class="col-12 col-md-6 col-lg-4 margin1">
 								<div class="embed-responsive embed-responsive-16by9">
 									<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_video_code($url_video);  ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
@@ -51,7 +51,7 @@
 
 <section class="sectionsCountries">
 	<div class="container">		
-		<h3>Depoimentos</h3>
+		<h3><?php pll_e('Depositions'); ?></h3>
 		<div class="card-columns">
 			<?php if( have_rows('group_depositions') ): ?>
 				<?php while( have_rows('group_depositions') ): the_row(); $row = get_row(); $count = count($row)/3; $loop = 0; ?>
@@ -80,18 +80,16 @@
 
 <section class="sectionsCountries">
 	<div class="container">		
-		<h3>Parceiros</h3>
+		<h3><?php pll_e('Partners'); ?></h3>
 		<div class="row" >
 			<?php if( have_rows('group_partners') ): ?>
 				<?php while( have_rows('group_partners') ): the_row(); $row = get_row(); $count = count($row); $loop = 0; ?>
 					<?php while ($count > $loop) : $loop++; ?>
 						<?php $partners = get_sub_field('partners_'.$loop); ?>
 						<?php if ( $partners ) : ?>
-
-							<div class="col-md-4 margin1">
+							<div class="col-6 col-md-4 margin1">
 								<img src="<?php echo esc_url( $partners['url'] ); ?>" alt="<?php echo esc_attr( $partners['alt'] ); ?>" class="img-fluid" />
 							</div>
-
 						<?php endif; ?>
 					<?php endwhile; ?>
 				<?php endwhile; ?>
@@ -99,4 +97,23 @@
 		</div>
 	</div>
 </section>
+
+
+<?php while(have_posts()) : the_post();
+	$twitter = get_field('twitter'); 
+	?>
+	<section class="sectionsCountries">
+		<div class="container">		
+			<h3><?php pll_e('Social Networks'); ?></h3>
+			<div id="iframeSocial">
+				<?php echo $twitter ?>
+			</div>
+		</div>
+	</section>
+<?php  endwhile; ?>
+
+
+
+
+
 <?php get_footer(); ?>

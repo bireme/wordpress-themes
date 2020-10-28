@@ -20,6 +20,9 @@ a:hover{
 .padding1{
 	padding: 50px 0;
 }
+.padding2{
+	padding-top: 30px;
+}
 .margin1{
 	margin-bottom: 10px;
 }
@@ -183,6 +186,7 @@ a:hover{
 	left: 0!important;
 	z-index: 10;
 }
+
 /************* Breakpoint *************/
 @media (max-width: 1300px){
 	#man{left: -50px;}
