@@ -9,7 +9,7 @@
 				<a href="https://politicas.bireme.org/privacidad/<?php echo ( in_array($idioma, ['ar', 'fr', 'ru', 'zh']) ? "en" : $idioma ); ?>" target="_blank"><?php pll_e('Privacy policy'); ?></a>
 			</div>
 			<div class="col-md-7 text-right" id="logoOPAS" role="logo">
-				<img src="https://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="" alt="BIREME">
+				<img src="https://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="BIREME">
 			</div>
 		</div>
 	</div>

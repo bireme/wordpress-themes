@@ -56,12 +56,12 @@
 						'order' => 'ASC'
 					]);
 					?>
-					<table class="table table-bordered table-striped">
+					<table class="table table-bordered table-striped" role="table" >
 						<thead>
 							<tr>
-								<td></td>
-								<td>Países</td>
-								<td>Status</td>
+								<td role="columnheader"></td>
+								<td role="columnheader">Países</td>
+								<td role="columnheader">Status</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -71,9 +71,9 @@
 								$status = get_field('status');
 							?>
 							<tr>
-								<td><img src="<?php echo $flag['url']; ?>" alt=""></td>
-								<td><?php echo $name; ?></td>
-								<td><?php echo $status; ?></td>
+								<td role="cell"><img src="<?php echo $flag['url']; ?>" alt="<?php echo $name; ?>"></td>
+								<td role="cell"><?php echo $name; ?></td>
+								<td role="cell"><?php echo $status; ?></td>
 							</tr>
 							<?php endwhile;?>
 						</tbody>

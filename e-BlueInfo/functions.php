@@ -1,4 +1,7 @@
 <?php
+	define( 'PLUGIN_PATH',  plugin_dir_path(__FILE__) );
+	require_once(PLUGIN_PATH . '/template_functions.php');
+	
 	// Title - tag <title>
 	add_theme_support('title-tag');
 	//Adiciona suporte a miniaturas (imagem destacada)
@@ -18,6 +21,8 @@
 		wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css');
 		wp_enqueue_style('accessibility',get_stylesheet_directory_uri().'/css/accessibility.css');
 		wp_enqueue_style('aos',get_stylesheet_directory_uri().'/css/aos.css');
+		wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
+		wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
 		wp_enqueue_style('fontawesome',get_stylesheet_directory_uri().'/css/fontawesome/css/all.css');
 		wp_enqueue_style('fontes','https://fonts.googleapis.com/css?family=Abel|Francois+One&display=swap');
 	}
@@ -28,6 +33,7 @@
 		wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
 		wp_enqueue_script('popper',get_stylesheet_directory_uri().'/js/popper.min.js');
 		wp_enqueue_script('aos',get_stylesheet_directory_uri().'/js/aos.js');
+		wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
 		wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
 		wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 		wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');

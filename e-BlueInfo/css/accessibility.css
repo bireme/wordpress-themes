@@ -46,4 +46,5 @@
 	#speakBtn{left: 30px;}
 	#fieldSearch{padding-left: 30px;}
 	#acessibilidadeFontes{text-align: center;}
+	.hiddenMobile{display: none;}
 }

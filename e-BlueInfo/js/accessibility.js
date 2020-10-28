@@ -9,8 +9,8 @@ jQuery(document).ready(function(){
 	jQuery('#fontPlus').click(function(){
 		if (font16<40){
 			font14 = font14+1; font16 = font16+1; font20 = font20+1; font25 = font25+1; font40 = font40+1;
-			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class14).css({'font-size' : font14+'px'});
+			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 			jQuery(class25).css({'font-size' : font25+'px'});
 			jQuery(class40).css({'font-size' : font40+'px'});
@@ -19,8 +19,8 @@ jQuery(document).ready(function(){
 	jQuery('#fontLess').click(function(){
 		if (font16>14){
 			font16 = font16-1; font14 = font14-1; font20 = font20-1; font25 = font25-1; font40 = font40-1;
-			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class14).css({'font-size' : font14+'px'});
+			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 			jQuery(class25).css({'font-size' : font25+'px'});
 			jQuery(class40).css({'font-size' : font40+'px'});
