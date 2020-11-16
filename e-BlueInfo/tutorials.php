@@ -3,6 +3,7 @@
 <main class="padding2 " role="main">
 	<div class="container" id="main_container">
 		<h1><?php the_title(); ?></h1>
+		<?php the_content(); ?>
 		<hr>
 		<div class="row">
 			<?php if( have_rows('group') ): ?>
@@ -25,4 +26,3 @@
 	</div>
 </main>
 <?php get_footer('app'); ?>
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis, quae!
