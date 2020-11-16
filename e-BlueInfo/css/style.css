@@ -36,7 +36,6 @@ a:hover{
 	margin-bottom: 20px;
 	padding: 20px;
 	border-bottom: 1px solid #ddd;
-
 }
 .icons{
 	max-width: 80px; 
@@ -176,6 +175,15 @@ a:hover{
 					padding-left: 10px;
 				}
 #logoIn img{height: 80px;}
+/************** Header App **************/
+#headerApp{
+	background: #eee;
+	padding: 20px;
+	text-align: center;
+}
+	#headerApp img{
+		max-width: 150px;
+	}
 .slick-prev:before, .slick-next:before{
 	color: #1a547f!important;
 }
@@ -186,7 +194,6 @@ a:hover{
 	left: 0!important;
 	z-index: 10;
 }
-
 /************* Breakpoint *************/
 @media (max-width: 1300px){
 	#man{left: -50px;}
