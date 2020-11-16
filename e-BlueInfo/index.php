@@ -124,10 +124,13 @@ $home = new WP_Query([
 <section id="dataCountries">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="19">
+			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="19">
 				<?php dynamic_sidebar('home_widget_left'); ?>
 			</div>
-			<div class="col-md-6 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="20">
+			<div class="col-md-4 text-center" data-aos="zoom-in" data-aos-duration="1000"  tabindex="20">
+				<?php dynamic_sidebar('home_widget_center'); ?>
+			</div>
+			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="20">
 				<?php dynamic_sidebar('home_widget_right'); ?>
 			</div>
 		</div>
