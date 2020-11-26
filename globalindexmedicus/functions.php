@@ -232,11 +232,11 @@
         pll_register_string('Formulário', 'Pesquisa via descritores', 'Formulário'); 
         pll_register_string('Formulário', 'Saiba Mais', 'Formulário'); 
         pll_register_string('Formulário', 'Ativar entrada de texto por voz', 'Formulário'); 
-         // Temo de Uso
+        // Temo de Uso
         pll_register_string('Temo de Uso', 'enviar um comentário /comunicar um erro', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Termos e condições de uso', 'Temo de Uso'); 
         pll_register_string('Temo de Uso', 'Política de privacidade', 'Temo de Uso');
-         // Acessibilidade
+        // Acessibilidade
         pll_register_string('Main content', 'Main content', 'Accessibility');
 		pll_register_string('Menu', 'Menu', 'Accessibility');
 		pll_register_string('Search', 'Search', 'Accessibility');
@@ -246,6 +246,9 @@
 		pll_register_string('Veja como é fácil pesquisar no GIM', 'Veja como é fácil pesquisar no GIM', 'Geral');
 		pll_register_string('Clique para baixar o guia rápido de pesquisa GIM', 'Clique para baixar o guia rápido de pesquisa GIM', 'Geral');
 		pll_register_string('Title Mini Banners', 'Title Mini Banners', 'Geral');
+		// 404
+        pll_register_string('Página não encontrada!', 'Página não encontrada!', 'Default');
+        pll_register_string('A página que você tentou acessar está indisponível ou não existe.', 'A página que você tentou acessar está indisponível ou não existe.', 'Default');
     });
 
     function http_request_local( $args, $url ) {

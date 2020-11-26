@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <main class="padding1" id="main_container" role="main">
 	<div class="container">
 		<?php while(have_posts()) : the_post(); ?>

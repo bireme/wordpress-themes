@@ -8,8 +8,9 @@
 	<div class="container text-center">
 		<h2 class="titulo1">404 Page not found!</h2>
 		<br><br><br>
-		<h1>Ooops! Página não encontrada!</h1>
-		<h5>A página que você tentou acessar está indisponível ou não existe.</h5>
+		
+		<h1>Ooops! <?php pll_e('Página não encontrada!'); ?></h1>
+		<h5><?php pll_e('A página que você tentou acessar está indisponível ou não existe.'); ?></h5>
 		<br><br><br>
 	</div>
 </main>

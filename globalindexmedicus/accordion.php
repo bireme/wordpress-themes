@@ -31,9 +31,9 @@
 						</div>
 					</div>
 				</div>
-			<?php 
+				<?php 
 				$i++;
-				}
+			}
 			?>	
 		</div>
 	</div>

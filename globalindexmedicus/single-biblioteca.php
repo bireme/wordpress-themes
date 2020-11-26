@@ -5,8 +5,9 @@
 			<h2 class="titulo1" tabindex="10"><?php the_title(); ?></h2>
 			<div class="row">
 				<div class="col-12" data-aos="fade-up" tabindex="11">
-					<?php //the_excerpt(); ?>
 					<?php the_content(); ?>
+					<hr>
+					<?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
 				</div>
 			</div>
 			<br>
