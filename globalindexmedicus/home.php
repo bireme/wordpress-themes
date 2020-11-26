@@ -1,3 +1,8 @@
+<?php
+	/*
+		template name: Home
+	*/
+?>
 <?php get_header() ?>
 <?php get_template_part( 'includes/banner' ) ?>
 <?php get_template_part( 'includes/search', 'box' ) ?>
