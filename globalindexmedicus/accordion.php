@@ -36,6 +36,9 @@
 			}
 			?>	
 		</div>
+		<hr>
+		<?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?>
+		<br>
 	</div>
 </main>
 <?php get_footer(); ?>
