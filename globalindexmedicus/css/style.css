@@ -180,6 +180,13 @@ header{padding-top: 10px;}
 	font-size: 10px!important;
 	color: #0093d5!important;
 }
+/******Ultimate Social Media Icon *********/
+.sfsi_widget{
+	min-height: 0px;
+}
+.norm_row{
+	width: auto!important;
+}
 /************** Breakpoint *******************/
 @media (min-width: 1600px){
 	.carousel-item img{width: 100%;}

@@ -54,5 +54,6 @@
 			// 'walker'            => new WP_Bootstrap_Navwalker(),
 		) );
 		?>
+		<div><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div>
 	</div>
 </nav>
