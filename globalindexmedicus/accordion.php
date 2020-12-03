@@ -11,7 +11,6 @@
 			the_content();
 		endwhile;
 		?>
-		<div class="clearfix"><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div><br>
 		<div class="accordion" id="accordionExample">
 			<?php $itens  = get_field('accordion');
 			$i = 1;
@@ -35,7 +34,8 @@
 				<?php 
 				$i++;
 			}
-			?>		
+			?>
+			<hr><div class="clearfix"><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div><br>	
 		</div>
 		<br>
 	</div>
