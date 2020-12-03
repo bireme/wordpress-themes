@@ -35,9 +35,8 @@
 				$i++;
 			}
 			?>
-			<hr><div class="clearfix"><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div><br>	
 		</div>
-		<br>
+		<hr><div class="clearfix"><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div><br>	
 	</div>
 </main>
 <?php get_footer(); ?>

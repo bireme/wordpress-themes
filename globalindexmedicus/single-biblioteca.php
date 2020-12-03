@@ -6,8 +6,8 @@
 			<div class="row">
 				<div class="col-12" data-aos="fade-up" tabindex="11">
 					<?php the_content(); ?>
-				</div>
 				<hr><div class="clearfix"><?php echo do_shortcode('[DISPLAY_ULTIMATE_SOCIAL_ICONS]'); ?></div><br>
+				</div>
 			</div>
 			<br>
 		<?php endwhile; ?>
