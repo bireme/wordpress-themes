@@ -21,7 +21,9 @@
 				<h2 class="title1"><?php echo $title; ?></h2>
 				<div class="line2"></div>
 				<div class="row">
-					<div class="col-md-6 font18"><?php echo $text; ?></div>
+					<div class="col-md-6 font18">
+						<?php echo $text; ?>
+					</div>
 					<div class="col-md-6">
 						<img src="<?php echo $image['url']; ?>" alt="" class="img-fluid">
 					</div>

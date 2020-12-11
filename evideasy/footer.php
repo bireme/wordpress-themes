@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-md-5">
 					<b>EVID@Easy</b> <br>
-					<a href="http://politicas.bireme.org/terminos/<?php echo $idioma?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a>
+					<a href="http://politicas.bireme.org/terminos/<?php echo $idioma?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> | 
 					<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma?>/" target="_blank"><?php pll_e('Privacy Policy'); ?></a>
 				</div>
 				<div class="col-md-7 text-right">

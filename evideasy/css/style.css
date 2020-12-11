@@ -4,36 +4,37 @@ a:hover{
 #header{
 	padding: 20px 0;
 }
-	#header .container{
-		position: relative;
-	}
+#header .container{
+	position: relative;
+}
 .lang{
 	position: absolute;
-	right:0;
-	top: -19px;
+	right: 20px;
+	top: -20px;
 }
-	.lang ul{
-		list-style: none;
-	}
-		.lang ul li{
-			display: inline-block;
-		}
-			.lang ul li a{
-				background:#30348d;
-				color: #FFF;
-				font-size: 12px;
-				padding: 5px;
-				text-decoration:none;
-			}
-			.lang ul li .active, .lang .current-lang{
-				background:#4b50c5;
-				color: #fff;
-			}
-			.lang ul li a:hover{
-				color: #fff;
-				text-decoration:none;
-				background: #464bbb;
-			}
+.lang ul{
+	padding: 0;
+	list-style: none;
+}
+.lang ul li{
+	display: inline-block;
+}
+.lang ul li a{
+	background:#30348d;
+	color: #FFF;
+	font-size: 12px;
+	padding: 5px;
+	text-decoration:none;
+}
+.lang ul li .active, .lang .current-lang{
+	background:#4b50c5;
+	color: #fff;
+}
+.lang ul li a:hover{
+	color: #fff;
+	text-decoration:none;
+	background: #464bbb;
+}
 
 #logo{
 	text-align: center;
@@ -46,6 +47,15 @@ a:hover{
 }
 .font18{
 	font-size: 18px;
+}
+.limitTransparente{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	z-index: 10;
+	background: #2f3d6b;
+	min-height: 35px;
+	cursor: pointer;
 }
 .bgColor1{
 	color: #fff;
@@ -112,29 +122,46 @@ a:hover{
 #bases li{
 	margin-bottom: 5px;	
 	display: inline-block;
-    font-weight: 400;
-    border-color: #ffc107;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid  #ffc107;
-    color: #ffc107;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	font-weight: 400;
+	border-color: #ffc107;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 1px solid  #ffc107;
+	color: #ffc107;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 @media (max-width: 768px){
+	#logo, #logoBir{
+		padding-top: 15px;
+	}
+	.lang{
+		right: 0px;
+		left:50%;
+		transform: translateX(-50%);
+	}
+	.lang ul{
+		text-align: center;
+	}
 	#footer{
 		padding: 20px; 
 		text-align: center;
 	}
-	#footer img{width: 100%; height: auto; text-align: center;}
+	#footer img{
+		width: 100%;
+		height: auto;
+		text-align: center;
+		margin-top: 10px;
+	}
 }
 /*correções svg Internet Explorer Edge*/
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
