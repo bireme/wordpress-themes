@@ -22,19 +22,17 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 strong {display:inline;}
 body {
-    background: url(http://saudeambiental.teste.bvs.br/wp-content/plugins/bvs-site/bvs-themes/bvs-2012/bireme_archives/custom/pt/body.png) top left no-repeat !important;
+    background: url(http://saudeambiental.teste.bvs.br/relatosfunasa/wp-content/uploads/2020/04/body.png) top left no-repeat !important;
 }
 
 .single2column{background: #f5f1f1;}
 .single2column .related_links{padding-top: 30px;
     PADDING-LEFT: 30PX;}
 .header {
-    height: 256px !important;
+    height: 170px !important;
 }
 .entry-title{line-height:20px;}
-#parent {
-  margin: 60px 0 11px 5px;
-}
+
 #parent img {
     max-height: 115px !important;
 } 
@@ -45,7 +43,6 @@ body {
 .bar a {color: #fff !important; text-decoration: none;}
 .bar a:hover {text-decoration: underline;}
 .top_sidebar {margin: 8px 0 20px 0;}
-#.top_pt-br .site_name a{background: url(images/title-relatos.png) no-repeat;width:240px; height:76px;display: block;}
 .top_pt-br .site_name a span{display: none;}
 #menu-main {text-transform: uppercase;font-weight: 700;font-size: 125%;}
 #menu-main a {color: #000 !important; text-decoration: none;}
@@ -73,7 +70,7 @@ body {
 .column_1 .upw-posts a.more-link {color: #b60000 !important; background-color: transparent; padding: 0px; -webkit-border-radius: none; -moz-border-radius: none; border-radius: none; margin-top: 0; display: inline; text-decoration: none;}
 .column_1 .news-content h4 a {color: #21759b !important;}
 .column_1 .upw-posts a.more-link:hover {text-decoration: underline;}
-.upw-posts .entry-image img {border: 1px solid;}
+.upw-posts .entry-image img {max-width:80% !important;}
 /******* COLUNA 2 *******/
 .column_2 .widget_search div {padding: 0px !important;}
 .widget_search label.screen-reader-text {display: none;}
@@ -165,6 +162,77 @@ footer div {margin: 10px 0;}
 .archive .single2column .widget strong {border-bottom:1px solid #006633 !important;display:block;height:36px;margin-bottom:6px;}
 .archive .single2column .widget li a {color:#333; text-decoration:none;}
 .archive .single2column .widget li a:hover {text-decoration: underline;}
+.widget_ultimate_posts .entry-image {
+    float: left;
+    width: 15%;
+    margin-right: 1em;
+}
+.widget_ultimate_posts .entry-meta,
+.widget_ultimate_posts .entry-title {
+    clear: none;
+}
+body.archive .entry-image {
+    float: left;
+}
+body.archive .news-content {
+    float: none;
+}
+.containerTopo {
+    min-height: 50.5px !important;
+}
+.containerTopo {
+    background-color: #00598b;
+    min-height: 50.5px !important;
+}
+.logoFunasa {
+    width: 85px;
+}
+.marca {
+    float: left;
+    padding: 7px 0;
+}
+.topo {
+    max-width: 950px;
+    margin: 0 auto;
+}
+.menuAcessibilidade {
+    float: right;
+    padding-top: 20px;
+}
+.pull-left {
+    float: left !important;
+}
+.menuAcessibilidade li {
+    color: #FFF !important;
+    font-size: 0.8em;
+    float: left;
+    margin-left: 0px !important;
+}
+.menuAcessibilidade a {
+    text-transform: uppercase;
+    color: #FFF !important;
+	text-decoration: none;
+}
+
+#sow-editor-2{
+    border: 1px solid #7F96C4;
+    line-height: 19px;
+}
+#sow-editor-2 .widget-title {color: #0e55a3 !important}
+.tax-title a {
+    font-size: 16px;
+    font-weight: 100;
+    margin: 0px 30px;
+}
+
+#content .entry-title{
+    border-bottom: 1px solid #7F96C4 !important;
+    color: #b60000 !important;
+}
+
+.post-type-archive-relatos_funasa .breadcrumb{display: none;}
+.post-type-archive-relatos_funasa .single1column {width: 100% !important;}
+.post-type-archive-relatos_funasa .entry-image img {width: 70% !important;}
 /******* MEDIA QUERIES  *******/
 @media (max-width: 600px){
 	.has-post-thumbnail .entry-image {width: 30%;}
