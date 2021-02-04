@@ -1,10 +1,9 @@
 <?php
-add_action( 'wp_body_open', 'barra_gov_render' );
 function barra_acessibilidade_render() {
-    get_template_part( 'topAcessibility' );
+    get_template_part( 'topAccessibility' );
 }
-
 add_action( 'wp_body_open', 'barra_acessibilidade_render' );
+
 function accessibility_enqueue_style(){
     wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
 }
