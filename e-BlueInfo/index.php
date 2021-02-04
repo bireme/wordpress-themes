@@ -103,7 +103,7 @@ $home = new WP_Query([
 
 <?php endwhile;?>
 
-<?php while(have_rows('grupo3')):the_row(); 
+<!-- <?php while(have_rows('grupo3')):the_row(); 
 	$image_guide = get_sub_field('image_guide'); 
 	$text_guide = get_sub_field('text_guide'); 
 ?>
@@ -119,7 +119,7 @@ $home = new WP_Query([
 		</div>
 	</div>
 </section>
-<?php endwhile;?>
+<?php endwhile;?> -->
 
 <section id="dataCountries">
 	<div class="container">
@@ -128,7 +128,7 @@ $home = new WP_Query([
 				<?php dynamic_sidebar('home_widget_left'); ?>
 			</div>
 			<div class="col-md-4 text-center" data-aos="zoom-in" data-aos-duration="1000"  tabindex="20">
-				<?php dynamic_sidebar('home_widget_center'); ?>
+				<?php #dynamic_sidebar('home_widget_center'); ?>
 			</div>
 			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="20">
 				<?php dynamic_sidebar('home_widget_right'); ?>
