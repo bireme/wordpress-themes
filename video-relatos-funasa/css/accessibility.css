@@ -1,0 +1,61 @@
+/********************** Contraste *****************/
+.bodyBlack{ /*body*/
+	background: #000!important;
+	color: #fff;
+}
+.bodyBlack ::selection{/*texto selecionado*/
+	background-color: #FF0;
+	color: #000;
+}
+.bodyBlack .imgBlack{/*inserir esta classe em imagens sem fundos com texto em preto*/
+	background: #fff;
+}
+.bodyBlack a{ /*links*/
+	color: #ff0!important;
+}
+.bodyBlack #nav, .bodyBlack footer,.bodyBlack #barra-brasil, .bodyBlack .footer,
+.bodyBlack #footer, .bodyBlack #myfooter-brasil, .bodyBlack .nav-link, .bodyBlack #panel-w5ec43a1db9587-0-0-0> .panel-widget-style,
+.bodyBlack #pg-w5ec43a1db9587-1> .panel-row-style, #pg-w5ec43a1db9587-2> .panel-row-style{/*menu, footer e barra de acessibiliadade*/
+	background: #666!important;
+}
+ .bodyBlack .titleMain, .bodyBlack .breadcrumb, .bodyBlack .nav-item .active,
+ .bodyBlack #searchInside, .bodyBlack .card, .bodyBlack #language a{
+ 	background: #333;
+ }
+/********************** Formatação Formulário **********************/
+.bodyBlack input[type=text], .bodyBlack input[type=password], .bodyBlack input[type=url],
+.bodyBlack input[type=search], .bodyBlack input[type=email], .bodyBlack input[type=tel],
+.bodyBlack input[type=date], .bodyBlack input[type=month], .bodyBlack input[type=week],
+.bodyBlack input[type=datetime], .bodyBlack input[type=datetime-local],
+.bodyBlack textarea, .bodyBlack select,
+.bodyBlack input[type=number] {
+	background-color: #000 !important;
+	color: #fff !important;
+}
+/******************
+Inserir divs do seu site
+ex: ".bodyBlack .noticias" para div noticia
+*********************/
+.bodyBlack #header, .bodyBlack .boxHome, .bodyBlack #searchInside, .bodyBlack .siteInfo, .bodyBlack #searchsubmit,.bodyBlack .single,
+.bodyBlack .bgColor1, .bodyBlack #parceiros, .bodyBlack .table, .bodyBlack .column_2 .widget, .bodyBlack .site-content, .bodyBlack .single2column, .bodyBlock #primary{
+	background: #000!important;
+	color: #fff;
+}
+.bodyBlack .card button{
+	color: #fff;
+}
+.bodyBlack .table tr:hover{
+	color: #999;
+}
+/********************* Breakpoint *********************/
+@media (max-width: 1024px){
+	.hiddenMobile{display: none;}
+}
+@media (max-width: 768px){
+	#topAcessibility,
+	#accessibilityFontes,
+	#accessibilityTutorial{
+		text-align: center;
+	}
+	#accessibilityTutorial{display: none;}
+}

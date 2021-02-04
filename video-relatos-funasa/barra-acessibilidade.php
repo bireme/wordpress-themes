@@ -8,7 +8,7 @@
                 <ul class="nav nav-pills pull-right">
                     <div class="pull-left idoptions">
                         <li>
-                            <a class="hidden-xs" id="btnContrast" href="#">Contraste</a>
+                            <a class="hidden-xs" href="#!" id="contraste">Contraste</a>
                         </li>
                     </div>
                 </ul>
