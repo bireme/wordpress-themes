@@ -42,30 +42,22 @@ document.onkeydown=function(e){
 	}
 	// Main Alt + 1
 	if((e.which == 49 || e.which == 97 )&& pressedALT == true) {
-		window.location.assign("#main_container");
+		window.location.assign(".container");
 	}
 	//Nav ALT + 2
 	if((e.which == 50 || e.which == 98) && pressedALT == true) {
-		window.location.assign("#nav");
+		window.location.assign("#menu-menu-principal");
 	}
 	//Footer ALT + 3
-	if((e.which == 51 || e.which == 99) && pressedALT == true) {
+	if((e.which == 52 || e.which == 100) && pressedALT == true) {
 		window.location.assign("#footer");
 	}
 	//Footer ALT + 4
-	if((e.which == 52 || e.which == 100) && pressedALT == true) {
+	if((e.which == 51 || e.which == 99) && pressedALT == true) {
 		// window.location.assign("#pesquisa");
-		jQuery("#fieldSearch").focus();
+		jQuery("#vhl-search-input").focus();
 	}
 }
-jQuery('#accessibilitySearch').click(function(){
-	jQuery('#searchInside').show();
-		jQuery('#btSearch>i').addClass('fa-times');
-		jQuery("#fieldSearch").focus();
-})
-jQuery('a[href="#btnSearch"]').click(function(){
-	jQuery("#fieldSearch").focus();
-})
 // cache contraste
 var cor = Cookies.get('cor');
 // Ao Abrir a pagina 
@@ -85,31 +77,3 @@ jQuery('#contraste').on( "click", function(){
 	}
 	jQuery('body').toggleClass('bodyBlack');
 });
-/*Busca por voz*/
-window.addEventListener('DOMContentLoaded', function() {
-	var speakBtn = document.querySelector('#speakBtn');
-    // testa se o navegador suporta o reconhecimento de voz
-    if (window.SpeechRecognition || window.webkitSpeechRecognition) {
-        // captura a voz
-        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-        var recognition = new SpeechRecognition();
-        // inicia reconhecimento
-        speakBtn.addEventListener('click', function(e) {
-        	recognition.start();
-        }, false);
-        // resultado do reconhecimento
-        recognition.addEventListener('result', function(e) {
-        	// console.log(e);
-        	var result = e.results[0][0].transcript;
-        	// console.log(result);
-        	document.getElementById("fieldSearch").value = result;
-            // jQuery("#pesquisa").val(result);
-             // $("#mainForm").submit();
-             document.getElementById("mainForm").submit();
-             alert('teste');
-        }, false);
-    } else {
-    	// alert('Este navegador não suporta esta funcionalidade ainda!');
-    	jQuery('#speakBtn').css('display','none');
-    }
-}, false);
