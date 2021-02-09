@@ -42,7 +42,7 @@ document.onkeydown=function(e){
 	}
 	// Main Alt + 1
 	if((e.which == 49 || e.which == 97 )&& pressedALT == true) {
-		window.location.assign(".container");
+		window.location.assign("#primary");
 	}
 	//Nav ALT + 2
 	if((e.which == 50 || e.which == 98) && pressedALT == true) {
