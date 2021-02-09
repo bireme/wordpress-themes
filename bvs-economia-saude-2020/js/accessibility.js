@@ -1,7 +1,7 @@
 /*Versão Beta*/
 /*Aumentar ou Reduzir Fontes*/
 jQuery(document).ready(function(){
-	var font14 = 14; var class14 ='.font14, #footer, .widget-title, .widget-title ul li, #menu-menu-principal'; // inserir elementos com fonte 14px
+	var font14 = 14; var class14 ='.font14, #footer, .widget-title, .widget-title li'; // inserir elementos com fonte 14px
 	var font16 = 16; var class16 ='.font16, p, #nav, .navFooter li a, .breadcrumb, .accordion, .accordion button'; // inserir elementos com fonte 16px
 	var font20 = 20; var class20 ='.font20'; // inserir elementos com fonte 20px
 	// Inserir novos tamanho aqui
@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
 	jQuery('#fontPlus').click(function(){
 		if (font16<30){// Tamanho maximo com padrão 16px
 			font14 = font14+1; font16 = font16+1; font20 = font20+1;
-			jQuery(class14).css({'font-size' : font14+'px'});.w
+			jQuery(class14).css({'font-size' : font14+'px'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 		}
