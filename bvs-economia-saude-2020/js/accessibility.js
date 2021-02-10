@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
 	jQuery('#fontPlus').click(function(){
 		if (font16<30){// Tamanho maximo com padrão 16px
 			font14 = font14+1; font16 = font16+1; font20 = font20+1;
-			jQuery(class14).css({'font-size' : font14+'px', 'line-height' : 1.5+'en'});
+			jQuery(class14).css({'font-size' : font14+'px', 'line-height' : '1.5en'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 		}
