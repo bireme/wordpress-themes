@@ -1,7 +1,7 @@
 /*Versão Beta*/
 /*Aumentar ou Reduzir Fontes*/
 jQuery(document).ready(function(){
-	var font14 = 14; var class14 ='.font14, #footer, .widget-title, .widget-title li, .entry-content li, #menu-menu-principal'; // inserir elementos com fonte 14px
+	var font14 = 14; var class14 ='.font14, #footer, .widget-title, .widget-title li, .entry-content li, #menu-menu-principal a, #menu-menu-principal a, .searchItens, .vhl-themes'; // inserir elementos com fonte 14px
 	var font16 = 16; var class16 ='.font16, p, #nav, .navFooter li a, .breadcrumb, .accordion, .accordion button'; // inserir elementos com fonte 16px
 	var font20 = 20; var class20 ='.font20'; // inserir elementos com fonte 20px
 	// Inserir novos tamanho aqui
