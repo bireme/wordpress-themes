@@ -6,6 +6,8 @@ add_action( 'wp_body_open', 'barra_acessibilidade_render' );
 
 function accessibility_enqueue_style(){
     wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
+    wp_enqueue_style('icones','https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+   
 }
 
 add_action('wp_enqueue_scripts','accessibility_enqueue_style');
