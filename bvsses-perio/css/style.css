@@ -1,0 +1,168 @@
+a{
+	color: #333;
+	outline: none;
+	text-decoration: none;
+}
+.padding1{
+	padding: 50px 0;
+}
+.title1{
+	padding-left: 30px;
+	border-left: 5px solid #3987bd;
+	margin-bottom: 30px;
+}
+.color1{
+	background: #ededed;
+	color: #333;
+}
+.color2{
+	border-top: 10px solid #ddd;
+	background: #ededed;
+}
+.color2 a{
+	color: #333;
+	text-decoration: none;
+}
+.color2 a:hover{
+	color: #999;
+}
+#header{
+	padding: 20px 0;
+}
+#brand{
+	width: 300px;
+	float: left;
+}
+#brandTitle{
+	width: 500px;
+	float: left;
+	font-weight: bold;
+	padding-left: 20px;
+}
+	#brandTitle h1{
+		font-size: 24px;
+		margin-top: 30px;
+	}
+#brandGoverno{
+	width: 180px;
+	float: right;
+	text-align: center;
+}
+	#brandGoverno img{
+		width: 200px;
+	}
+#headerConfig{
+	width: 300px;
+	float: right;
+	right: 16px;
+	text-align: right;
+}
+	#language ul li{
+		list-style: none;
+		display: inline-block;
+	}
+	#language a{
+			background:#2b5b7c;
+			color: #fff;
+			font-size: 12px;
+			padding: 5px;
+			text-decoration: none;
+		}
+		#language a:hover{
+			background: #ff4748;
+			text-decoration: none;
+		}
+#social{
+	text-align: right;
+	font-size: 30px;
+}
+	#social a,
+	.fa-facebook:hover, .fa-twitter:hover, .fa-linkedin:hover{
+		color: #999;
+	}
+.fa-facebook{color: #4c568b;}
+.fa-twitter{color: #629dd2;}
+.fa-linkedin{color: #4172ab;}
+.fa-facebook:hover, .fa-twitter:hover, .fa-linkedin:hover{
+	opacity: 
+}
+#nav{
+	background: #2b5b7c;
+	color: #000!important;
+	border-bottom: 4px solid #3987bd;
+}
+#nav .nav-link{
+	color: #fff;
+}
+#nav .nav-link:hover{
+	opacity: .8;
+}
+#formHome .mb-3{
+	margin-bottom: 0!important;
+}
+#footer{
+	border-top: 10px solid #4ea8e6;
+	background: #2b5b7c;
+	color: #fff;
+	padding: 50px 0 20px 0;
+}
+.carousel-caption{
+	padding: 5px 10px;
+	background: rgba(57, 135, 189,.8);
+	border-bottom: 3px solid rgba(0, 0, 0,.3);
+}
+.boxRevistas{
+	margin-bottom: 30px;
+	border-left: 1px solid #3987bd;
+}
+/*news home*/
+.slideNewsBox{
+	padding-right: 20px;
+}
+.slideNewsBox a:hover{
+	text-decoration: none;
+}
+.slideNewsBox h4{
+	font-size: 18px;
+}
+.slideNewsDate{
+	color: #333;
+	font-size: 12px;
+	margin-bottom: 10px;
+	border-bottom: 2px solid #2b5b7c;
+}
+.newsBox{
+	margin-bottom: 20px;
+}
+.pagination{
+	display: block;
+}
+.pagination a{
+	border: 2px solid #ddd;
+	background: #f8f9fa;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-right: 3px;
+}
+.pagination a:hover{
+	background: #ddd;
+	text-decoration: none;
+}
+#miniBanners{
+	background-position: top center;
+	background: linear-gradient(142deg, rgb(11 37 51) 0%, rgb(18 17 93) 100%);
+	
+}
+@media (max-width: 768px){
+	.marginM1{
+		margin-bottom: 10px;
+	}
+	#brand, #brandTitle, #brandGoverno, #headerConfig, #social{
+		width: 100%;
+		float: none;
+		text-align: center;
+	}
+		#brand img{
+			max-width: 70%;
+		}
+}
