@@ -9,11 +9,10 @@
 </head>
 <body>
 	<?php get_template_part('includes/topAcessibility') ?>
-	<?php $idioma = pll_current_language(); ?>
 	<header id="header">
 		<div class="container">
 			<div id="brand">
-				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="" class="img-fluid imgBlack"></a>
+				<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="" class="img-fluid imgBlack"></a>
 			</div>
 			<div id="brandTitle">
 				<h1>
