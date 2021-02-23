@@ -49,11 +49,11 @@ document.onkeydown=function(e){
 		window.location.assign("#nav");
 	}
 	//Footer ALT + 3
-	if((e.which == 51 || e.which == 99) && pressedALT == true) {
+	if((e.which == 52 || e.which == 100) && pressedALT == true) {
 		window.location.assign("#footer");
 	}
-	//Footer ALT + 4
-	if((e.which == 52 || e.which == 100) && pressedALT == true) {
+	//search ALT + 4
+	if((e.which == 51 || e.which == 99) && pressedALT == true) {
 		// window.location.assign("#pesquisa");
 		jQuery("#fieldSearch").focus();
 	}

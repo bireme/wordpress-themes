@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section class="padding1 bgColor1">
+<section class="padding1 bgColor1" id="main_container">
 	<div class="container">
 		<?php
 		$home = new WP_Query([

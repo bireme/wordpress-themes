@@ -8,7 +8,7 @@
 					<a href="http://politicas.bireme.org/privacidad/<?php echo $idioma?>/" target="_blank"><?php pll_e('Privacy Policy'); ?></a>
 				</div>
 				<div class="col-md-7 text-right">
-					<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="" class="img-fluid">
+					<a href="https://www.paho.org/<?php echo $idioma?>/bireme" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/h_bir_color.svg" alt="" class="img-fluid"></a>
 				</div>
 			</div>
 		</div>
