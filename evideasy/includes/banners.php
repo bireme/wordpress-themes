@@ -21,19 +21,25 @@
 				$image5 = get_field('image_5');
 				?>
 				<div class="carousel-item active">
-					<img src="<?php echo $image1['url']; ?>" class="d-block w-100" alt="...">
+					<img src="<?php echo $image1['url']; ?>" class="d-block w-100" alt="">
 				</div>
 				<div class="carousel-item ">
-					<img src="<?php echo $image2['url']; ?>" class="d-block w-100" alt="...">
+					<img src="<?php echo $image2['url']; ?>" class="d-block w-100" alt="">
 				</div>
 				<div class="carousel-item ">
-					<img src="<?php echo $image3['url']; ?>" class="d-block w-100" alt="...">
+					<img src="<?php echo $image3['url']; ?>" class="d-block w-100" alt="">
 				</div>
 				<div class="carousel-item ">
-					<img src="<?php echo $image4['url']; ?>" class="d-block w-100" alt="...">
+					<img src="<?php echo $image4['url']; ?>" class="d-block w-100" alt="">
 				</div>
 				<div class="carousel-item ">
-					<img src="<?php echo $image5['url']; ?>" class="d-block w-100" alt="...">
+					<img src="<?php echo $image5['url']; ?>" class="d-block w-100" alt="">
+					<div class="carousel-caption d-none d-md-block">
+						<a href="https://pesquisa.bvsalud.org/portal/?display_wizard=true&lang=<?php echo $idioma; ?>" class="btn btn-lg btn-warning">
+							
+							<?php pll_e('Try EVID@Easy right now!'); ?>
+						</a>
+					</div>
 				</div>
 			</div>
 			<?php $i++; endwhile; ?>

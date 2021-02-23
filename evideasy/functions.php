@@ -71,14 +71,17 @@ add_action('init', function() {
 	#pll_register_string('How does EVID @ Easy work?', 'How does EVID@Easy work?', 'Home');
 	#pll_register_string('In which databases does EVID@Easy search?', 'In which databases does EVID@Easy search?', 'Home');
 	#pll_register_string('EVID@Easy incorporates the following databases from the Virtual Health Library:', 'EVID@Easy incorporates the following databases from the Virtual Health Library:', 'Home');
-			// Temo de Uso
+	
+	// Termo de Uso
 	pll_register_string('Terms and conditions of use', 'Terms and conditions of use', 'Terms'); 
 	pll_register_string('Privacy Policy', 'Privacy Policy', 'Terms'); 
-	        //Accessibility
+	 //Accessibility
 	pll_register_string('Main content', 'Main content', 'Accessibility');
 	pll_register_string('Menu', 'Menu', 'Accessibility');
 	pll_register_string('Search', 'Search', 'Accessibility');
 	pll_register_string('Footer', 'Footer', 'Accessibility');
 	pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
+	//Default
+	pll_register_string('Try EVID@Easy right now!', 'Try EVID@Easy right now!', 'Default');
 });
 ?>
