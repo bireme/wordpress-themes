@@ -1,3 +1,4 @@
+<?php $idioma = pll_current_language(); ?>
 <div class="col-md-12">
 	<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -35,8 +36,7 @@
 				<div class="carousel-item ">
 					<img src="<?php echo $image5['url']; ?>" class="d-block w-100" alt="">
 					<div class="carousel-caption d-none d-md-block">
-						<a href="https://pesquisa.bvsalud.org/portal/?display_wizard=true&lang=<?php echo $idioma; ?>" class="btn btn-lg btn-warning">
-							
+						<a href="https://pesquisa.bvsalud.org/portal/?display_wizard=true&lang=<?php echo $idioma; ?>" target="_blank" class="btn btn-lg btn-warning">
 							<?php pll_e('Try EVID@Easy right now!'); ?>
 						</a>
 					</div>
