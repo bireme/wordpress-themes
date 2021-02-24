@@ -141,8 +141,14 @@ a:hover{
 }
 
 @media (max-width: 768px){
+	.marginM1{
+		margin-top: 20px;
+	}
 	#logo, #logoBir{
 		padding-top: 15px;
+	}
+	#logo img{
+		max-width: 90%;
 	}
 	.lang{
 		right: 0px;
@@ -161,6 +167,9 @@ a:hover{
 		height: auto;
 		text-align: center;
 		margin-top: 10px;
+	}
+	.carousel-caption{
+		margin-bottom: -100px; 
 	}
 }
 /*correções svg Internet Explorer Edge*/

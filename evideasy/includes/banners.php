@@ -53,3 +53,9 @@
 			</a>
 		</div>
 	</div>
+	<div class="text-center marginM1 container d-md-none">
+		
+		<a href="https://pesquisa.bvsalud.org/portal/?display_wizard=true&lang=<?php echo $idioma; ?>" target="_blank" class="btn btn-lg btn-warning">
+			<?php pll_e('Try EVID@Easy right now!'); ?>
+		</a>
+	</div>
