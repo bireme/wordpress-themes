@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div id="logoBir" class="col-3 col-md-2">
-					<a href="https://bvsalud.org/<?php echo $idioma=='pt'?'':$idioma; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma?>/bvs_color.svg" alt="BIREME / OPAS / OMS" class="img-fluid"></a>
+					<a href="https://bvsalud.org/<?php echo $idioma=='pt'?'':$idioma; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma?>/bvs_color.svg" alt="BIREME / OPAS / OMS" class="img-fluid imgBlack"></a>
 				</div>
 				<div id="logo" class="col-9 col-md-9">
 					<img src="<?php bloginfo('template_directory') ?>/img/logo-<?php echo $idioma?>.png" class="img-fluid">

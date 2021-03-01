@@ -17,8 +17,13 @@
 				<div class="line2"></div>
 				<div class="row">
 					<div class="col-md-6 font18 "><?php echo $text; ?></div>
-					<div class="col-md-6">
+					<div class="col-md-6 text-center">
 						<img src="<?php echo $image['url']; ?>" alt="" class="img-fluid">
+						<br>
+						<?php $idioma = pll_current_language(); ?>
+						<a href="https://pesquisa.bvsalud.org/portal/?display_wizard=true&lang=<?php echo $idioma; ?>" target="_blank" class="btn btn-lg btn-warning">
+							<?php pll_e('Try EVID@Easy right now!'); ?>
+						</a>
 					</div>
 				</div>
 			<?php endwhile;
