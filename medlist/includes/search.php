@@ -1,7 +1,7 @@
 <!-- Formário de Busca -->
 <div class="container" id="boxSearch">
 	<div id="search">
-		<form method="get" action="http://pesquisa.teste.bvsalud.org/medlist/">
+		<form method="get" action="https://pesquisa.bvsalud.org/medlist/">
 			<input type="hidden" name="lang" value="<?php echo pll_current_language();?>"/>
 			<input type="hidden" name="where" value="MEDICINES"/>
 
