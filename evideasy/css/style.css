@@ -43,7 +43,8 @@ a:hover{
 	max-width: 300px;
 }
 #logoBir img{
-	max-height: 100px;
+	max-width: 100%;
+	width: 350px;
 }
 .font18{
 	font-size: 18px;
@@ -139,7 +140,9 @@ a:hover{
 	border-radius: .25rem;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-
+.btn-warning{
+	color: #000!important;
+}
 @media (max-width: 768px){
 	.marginM1{
 		margin-top: 20px;
@@ -149,6 +152,10 @@ a:hover{
 	}
 	#logo img{
 		max-width: 90%;
+	}
+	#logoBir img{
+		max-width: 80%;
+		width: 250px;
 	}
 	.lang{
 		right: 0px;
