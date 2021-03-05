@@ -106,6 +106,9 @@ a:hover{
 	background-image: linear-gradient(to bottom right, #bbb, #1a547f);
 	color: #fff;
 }
+#bgGray p{
+	font-size: 25px;
+}
 #bgBlue{
 	background: #1a547f;
 	color: #fff;
