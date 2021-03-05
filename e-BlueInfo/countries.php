@@ -86,7 +86,7 @@
 <?php if( have_rows('group_partners') ): while ( have_rows('group_partners') ) : the_row(); $partners = get_sub_field('partners_1'); endwhile; endif; ?>
 <section class="sectionsCountries <?php echo $partners==''?'d-none':''; ?>">
 	<div class="container">		
-		<h3><?php pll_e('Partners'); ?></h3>
+		<!--h3><?php pll_e('Partners'); ?></h3-->
 		<div class="row" >
 			<?php if( have_rows('group_partners') ): ?>
 				<?php while( have_rows('group_partners') ): the_row(); $row = get_row(); $count = count($row); $loop = 0; ?>
