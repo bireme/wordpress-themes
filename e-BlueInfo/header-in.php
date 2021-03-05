@@ -27,6 +27,8 @@
 					) );
 					?>
 				</div>
+			</div>
+			<div class="col-12">
 				<nav id="nav" role="navigation">
 					<?php
 					wp_nav_menu( array(

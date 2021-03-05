@@ -159,14 +159,16 @@ a:hover{
 /************** Internas **************/
 #headerIn{
 	background: #eee;
-	padding: 20px;
+	padding: 20px 20px 0px 20px;
 	position: relative;
 }
 	#headerIn #lang{
 		text-align: right;
 	}
 	#headerIn #nav{
-		text-align: right;
+		text-align: center;
+		border-top: 1px solid #ddd;
+		padding-top: 10px;
 	}
 		#headerIn #nav ul{
 			list-style: none;
