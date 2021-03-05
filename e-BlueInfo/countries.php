@@ -10,6 +10,7 @@
 <?php while(have_posts()) : the_post();
 	$introduction = get_field('introduction'); 
 	$statistic = get_field('statistic'); 
+	$twitter = get_field('twitter'); 
 	?>
 	<section class="sectionsCountries">
 		<div class="container">	
@@ -17,7 +18,7 @@
 		</div>
 	</section>
 
-	<section class="sectionsCountries">
+	<section class="sectionsCountries <?php echo $statistic==''?'d-none':''; ?>">
 		<div class="container">		
 			<h3><?php pll_e('Statistic'); ?></h3>
 			<?php echo $statistic ?>
@@ -25,7 +26,8 @@
 	</section>
 <?php  endwhile; ?>
 
-<section class="sectionsCountries">
+<?php if( have_rows('group_video') ): while ( have_rows('group_video') ) : the_row(); $videos = get_sub_field('url_video_1'); endwhile; endif; ?>
+<section class="sectionsCountries <?php echo $videos==''?'d-none':''; ?>">
 	<div class="container">		
 		<h3><?php pll_e('Videos'); ?></h3>
 		<div class="row">
@@ -49,7 +51,9 @@
 	</div>
 </section>
 
-<section class="sectionsCountries">
+
+<?php if( have_rows('group_depositions') ): while ( have_rows('group_depositions') ) : the_row(); $depositions = get_sub_field('name_1'); endwhile; endif; ?>
+<section class="sectionsCountries <?php echo $depositions==''?'d-none':''; ?>">
 	<div class="container">		
 		<h3><?php pll_e('Depositions'); ?></h3>
 		<div class="card-columns">
@@ -78,7 +82,9 @@
 	</div>
 </section>
 
-<section class="sectionsCountries">
+
+<?php if( have_rows('group_partners') ): while ( have_rows('group_partners') ) : the_row(); $partners = get_sub_field('partners_1'); endwhile; endif; ?>
+<section class="sectionsCountries <?php echo $partners==''?'d-none':''; ?>">
 	<div class="container">		
 		<h3><?php pll_e('Partners'); ?></h3>
 		<div class="row" >
@@ -99,21 +105,12 @@
 </section>
 
 
-<?php while(have_posts()) : the_post();
-	$twitter = get_field('twitter'); 
-	?>
-	<section class="sectionsCountries">
-		<div class="container">		
-			<h3><?php pll_e('Social Networks'); ?></h3>
-			<div id="iframeSocial">
-				<?php echo $twitter ?>
-			</div>
+<section class="sectionsCountries <?php echo $twitter==''?'d-none':''; ?>">
+	<div class="container">		
+		<h3><?php pll_e('Social Networks'); ?></h3>
+		<div id="iframeSocial">
+			<?php echo $twitter ?>
 		</div>
-	</section>
-<?php  endwhile; ?>
-
-
-
-
-
+	</div>
+</section>
 <?php get_footer(); ?>
