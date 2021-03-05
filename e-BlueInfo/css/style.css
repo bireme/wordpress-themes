@@ -2,6 +2,9 @@
 	font-family: 'Abel', sans-serif;
 	outline: none;
 }
+p{
+	font-size: 18px;
+}
 .body2{
 	font-family: 'Francois One', sans-serif;
 }
