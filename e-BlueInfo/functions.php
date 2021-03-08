@@ -114,4 +114,6 @@ echo '<link rel="shortcut icon" type="image/png" href="'.get_template_directory_
 }
 
 add_action('wp_head', 'add_favicon');
+
+add_image_size('sizecard',576,300,true);
 ?>

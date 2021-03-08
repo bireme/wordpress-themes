@@ -74,10 +74,9 @@ a:hover{
 #standoutTitulo{
 	padding-top: 20px;
 }
-#standoutTitulo h2{
+#standoutTitulo h2, #standoutTitulo h2 p{
 	font-family: 'Francois One', sans-serif;
 	font-size: 40px;
-	font-weight: bold;
 	margin-bottom: 20px;
 }
 #standoutTitulo h4{
@@ -155,7 +154,16 @@ a:hover{
 #imgMobile{
 	animation: mobile 5s infinite;
 }
-
+.card-title{
+	font-weight: 700;
+	font-size: 30px;
+}
+.cardImg{
+	overflow: hidden;
+}
+.cardImg img{
+	margin-left: -100%;
+}
 /************** Internas **************/
 #headerIn{
 	background: #eee;
@@ -210,7 +218,7 @@ a:hover{
 @media (max-width: 1200px){
 	#header{min-height: 420px;}
 	#standoutTitulo{padding-top: 0px;}
-	#standoutTitulo h2{font-size: 22px;	margin-bottom: 10px;}
+	#standoutTitulo h2, #standoutTitulo h2 p{font-size: 22px;	margin-bottom: 10px;}
 	#standoutTitulo h4{font-size: 18px;	margin-bottom: 10px;}
 	#man img, #woman img{height: 420px;}
 	#logoSite{height: auto; width: 80%;}
@@ -223,10 +231,10 @@ a:hover{
 	#imgMobile img{width: 100%; text-align: center;}
 	#footer img{width: 80%; text-align: center;}
 	#iconStore img{max-width: 45%;}
-	#bgGray{font-size: 20px;}
+	#bgGray p{font-size: 20px;}
 }
 @media (max-width: 768px){
-	.padding50, #standoutTitulo, #bgBlue, #footer{padding: 20px;}
+	.padding50, #standoutTitulo, #bgGray p, #footer{padding: 20px;}
 	#header, #footer{text-align: center;}
 	#mainTitle{ font-size: 20px; text-align: center; }
 	#footer img{width: 80%; text-align: center;}
@@ -248,6 +256,10 @@ a:hover{
 	}
 	#headerIn{
 		text-align: center;
+	}
+	.cardImg img{
+		margin-left:0%;
+		width: 100%;
 	}
 }
 @media (max-width: 600px){
