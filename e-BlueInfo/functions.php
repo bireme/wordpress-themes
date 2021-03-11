@@ -70,6 +70,30 @@
 			'menu_icon'		=> 'dashicons-admin-site'
 		);
 		register_post_type( 'countries' , $argsCountries );
+		//Banners
+		$Banners = array(
+			'name' 					=> 'Banners',
+			'singular_name' 		=> 'Banner',
+			'add_new' 				=> 'Add Banners',
+			'add_new_item' 			=> 'Add Banners Item',
+			'edit_item' 			=> 'Edit Banners',
+			'new_item' 				=> 'New Item',
+			'view_item' 			=> 'View Banners',
+			'search_items' 			=> 'Search Banners',
+			'not_found' 			=> 'No Banners Found',
+			'not_found_in_trash' 	=> 'No Banners in Trash',
+			'parent_item_colon' 	=> '',
+			'menu_name' 			=> 'Banners'
+		);
+		$argsBanners = array(
+			'labels' 		=> $Banners,
+			'public' 		=> true,
+			'hierarchical' 	=> false,
+			'menu_position' => 13,
+			'supports' => array('title'),
+			'menu_icon'		=> 'dashicons-images-alt'
+		);
+		register_post_type( 'Banners' , $argsBanners );
 	}
 	add_action('init', function() {
 		pll_register_string('More Countries','See more interested countries', 'Home');

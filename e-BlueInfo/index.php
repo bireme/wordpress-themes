@@ -58,12 +58,7 @@ $home = new WP_Query([
 	</div>
 </header>
 
-
-<!-- <section class="" style="background: #43d4e6;">
-	<div class="container">
-	<img src="<?php bloginfo('template_directory') ?>/img/nv-pt.jpg" class="img-fluid rounded" alt="Banner">
-	</div>
-</section> -->
+<?php get_template_part('includes/banners') ?>
 
 <section id="bgGray" class="padding50" tabindex="14">
 	<div class="container">
