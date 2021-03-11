@@ -1,11 +1,5 @@
 <?php get_header(); ?>
-<?php 
-$home = new WP_Query([
-	'post_type' => 'Home',
-	'orderby' => 'title',
-	'order' => 'ASC'
-]);
-?>
+
 <header id="header">
 	<div id="man" data-aos="fade-right" data-aos-duration="3000">
 		<img src="<?php bloginfo('template_directory') ?>/img/man.png" alt="">
@@ -29,7 +23,7 @@ $home = new WP_Query([
 					?>
 				</div>
 			</div>
-			<?php 
+			<?php $home = new WP_Query([ 'post_type' => 'Home']);
 			while($home->have_posts()):$home->the_post();
 				while(have_rows('grupo')):the_row(); 
 					$title = get_sub_field('title'); 
@@ -58,22 +52,26 @@ $home = new WP_Query([
 	</div>
 </header>
 
-<?php #get_template_part('includes/banners') ?>
+<?php get_template_part('includes/banners'); ?>
 
-<section id="bgGray" class="padding50" tabindex="14">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-lg-8" data-aos="fade-left" data-aos-duration="1000">
-				<?php echo $description ?>
-			</div>
-			<div class="col-12 offset-md-0 col-md-6 col-lg-4 " id="imgMobile" data-aos="fade-right" data-aos-duration="1000">
-				<img src="<?php bloginfo('template_directory') ?>/img/mobile3.png" class="img-fluid" alt="Picture Mobile">
+<?php 
+while($home->have_posts()):$home->the_post();?>
+	<section id="bgGray" class="padding50" tabindex="14">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-8" data-aos="fade-left" data-aos-duration="1000">
+					<?php echo $description ?>
+				</div>
+				<div class="col-12 offset-md-0 col-md-6 col-lg-4 " id="imgMobile" data-aos="fade-right" data-aos-duration="1000">
+					<img src="<?php bloginfo('template_directory') ?>/img/mobile3.png" class="img-fluid" alt="Picture Mobile">
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<?php endwhile; ?>
 
-<?php while(have_rows('grupo3')):the_row(); 
+<?php 
+while(have_rows('grupo3')):the_row(); 
 	$image_section 	= get_sub_field('image_section'); 
 	$text_section	= get_sub_field('text_section'); 
 	$image_card_1 	= get_sub_field('image_card_1'); 
@@ -167,24 +165,5 @@ $home = new WP_Query([
 		</div>
 	</div>
 </section>
-
-
-<!-- <section id="dataCountries">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="19">
-				<?php dynamic_sidebar('home_widget_left'); ?>
-			</div>
-			<div class="col-md-4 text-center" data-aos="zoom-in" data-aos-duration="1000"  tabindex="20">
-				<?php dynamic_sidebar('home_widget_center'); ?>
-			</div>
-			<div class="col-md-4 text-center" data-aos="zoom-out" data-aos-duration="1000"  tabindex="20">
-				<?php dynamic_sidebar('home_widget_right'); ?>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
 <?php get_footer(); ?>
 <?php get_template_part('includes/modais') ?>
