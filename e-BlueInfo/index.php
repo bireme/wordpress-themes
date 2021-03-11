@@ -58,7 +58,7 @@ $home = new WP_Query([
 	</div>
 </header>
 
-<?php get_template_part('includes/banners') ?>
+<?php #get_template_part('includes/banners') ?>
 
 <section id="bgGray" class="padding50" tabindex="14">
 	<div class="container">
