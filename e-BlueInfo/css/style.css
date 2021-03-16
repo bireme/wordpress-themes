@@ -75,8 +75,9 @@ a:hover{
 	padding-top: 20px;
 }
 #standoutTitulo h2, #standoutTitulo h2 p{
-	font-family: 'Francois One', sans-serif;
+	/*font-family: 'Francois One', sans-serif;*/
 	font-size: 34px;
+	font-weight: bold;
 	margin-bottom: 20px;
 }
 #standoutTitulo h4{
