@@ -211,6 +211,9 @@ a:hover{
 	z-index: 10;
 }
 /************* Breakpoint *************/
+@media (max-width: 1800px){
+	.card-columns {column-count: 2;}
+}
 @media (max-width: 1300px){
 	#man{left: -50px;}
 	#woman{right: -80px;}
@@ -242,6 +245,7 @@ a:hover{
 	#logoSite{height: auto; width: 100%;}
 	#bgGray{padding: 50px; font-size: 20px;}
 	#logoOPAS{text-align: center!important; margin-top: 20px;}
+	.card-columns {column-count: 1;}
 }
 @media (max-width: 992px){
 	

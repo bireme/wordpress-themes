@@ -37,7 +37,7 @@
 						<?php $url_video = get_sub_field('url_video_'.$loop); ?>
 						<?php if ( $url_video ) : ?>
 
-							<div class="col-12 col-md-6 col-lg-4 margin1">
+							<div class="col-12 col-md-6 margin1">
 								<div class="embed-responsive embed-responsive-16by9">
 									<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_video_code($url_video);  ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								</div>
@@ -67,7 +67,7 @@
 						?>
 						<?php if ( $text ) : ?>
 
-							<div class="card mb-4">
+							<div class="card mb-1">
 								<div class="card-body">
 									<p class="card-text"><?php echo $text; ?></p>
 									<p class="card-text"><cite><?php echo $name; ?></cite></p>
