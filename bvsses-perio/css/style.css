@@ -30,11 +30,11 @@ a{
 	padding: 20px 0;
 }
 #brand{
-	width: 300px;
+	width: 350px;
 	float: left;
 }
 #brandTitle{
-	width: 500px;
+	width: 400px;
 	float: left;
 	font-weight: bold;
 	padding-left: 20px;
@@ -45,14 +45,14 @@ a{
 	}
 #brandGoverno{
 	width: 180px;
-	float: right;
+	float: left;
 	text-align: center;
 }
 	#brandGoverno img{
 		width: 200px;
 	}
 #headerConfig{
-	width: 300px;
+	width: 250px;
 	float: right;
 	right: 16px;
 	text-align: right;
@@ -74,12 +74,7 @@ a{
 		}
 #social{
 	text-align: right;
-	font-size: 30px;
 }
-	#social a,
-	.fa-facebook:hover, .fa-twitter:hover, .fa-linkedin:hover{
-		color: #999;
-	}
 .fa-facebook{color: #4c568b;}
 .fa-twitter{color: #629dd2;}
 .fa-linkedin{color: #4172ab;}
@@ -153,6 +148,56 @@ a{
 	background: linear-gradient(142deg, rgb(11 37 51) 0%, rgb(18 17 93) 100%);
 	
 }
+.boxThumbnail{
+	margin-bottom: 20px;
+	text-align: center;
+}
+.boxResultSearch{
+	border-bottom: 1px solid #ddd;
+	padding-bottom:5px;
+	margin-bottom:5px;
+}
+	.boxResultSearch a{
+		text-decoration: none;
+	}
+@media (max-width:1400px){
+	#headerConfig{
+		width: 220px;
+	}
+	#menu-idiomas{
+		margin: 0;
+		padding: 0;
+	}
+	#brandTitle{
+		width: 350px;
+	}
+}
+@media (max-width: 1200px){
+	#headerConfig{
+		width: 100%;
+		float: none;
+		clear: both;
+		text-align: center;
+		margin-top: 10px;
+	}
+	.norm_row{
+		margin-top: 10px;
+		position: static!important;
+		width: 100%!important;
+		text-align: center!important;
+	}
+}
+@media (max-width: 992px){
+	#brandTitle, #brand{
+		width: 50%;
+	}
+	#brandGoverno{
+		width: 100%;
+		float: none;
+		clear: both;
+		text-align: center;
+	}
+}
 @media (max-width: 768px){
 	.marginM1{
 		margin-bottom: 10px;
@@ -165,4 +210,7 @@ a{
 		#brand img{
 			max-width: 70%;
 		}
+	#brandTitle h1{
+		margin-top: 10px;
+	}
 }

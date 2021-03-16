@@ -9,6 +9,7 @@
 </head>
 <body>
 	<?php get_template_part('includes/topAcessibility') ?>
+	<?php $idioma = pll_current_language(); ?>
 	<header id="header">
 		<div class="container">
 			<div id="brand">
@@ -19,6 +20,9 @@
 					Portal de Revistas Científicas<br>
 					<small>da Secretaria da Saúde - SP</small>
 				</h1>
+			</div>
+			<div id="brandGoverno">
+				<img src="<?php bloginfo('template_directory') ?>/img/logoGoverno.png" alt="" class="img-fluid imgBlack">
 			</div>
 			<div id="headerConfig">
 				<div id="language">
@@ -36,9 +40,6 @@
 				<div id="social">
 					<ul class="list-unstyled"><?php dynamic_sidebar('social') ?></ul>
 				</div>
-			</div>
-			<div id="brandGoverno">
-				<img src="<?php bloginfo('template_directory') ?>/img/logoGoverno.png" alt="" class="img-fluid imgBlack">
 			</div>
 		</div>
 		<div class="clearfix"></div>

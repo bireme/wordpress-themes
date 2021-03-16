@@ -4,6 +4,7 @@
 <main class="padding1">
 	<div class="container">
 		<h1 class="title1"><?php the_title(); ?></h1>
+		<div class="boxThumbnail"><?php the_post_thumbnail('full',['class' => 'img-fluid imgPost']); ?></div>
 		<?php the_content(); ?>
 		<hr>
 		<div class="pagination text-center">
@@ -13,5 +14,5 @@
 	</div>
 </main>
 
-<?php # get_template_part('includes/noticias-outras') ?>
+<?php get_template_part('includes/noticias-outras') ?>
 <?php get_footer(); ?>

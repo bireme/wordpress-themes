@@ -55,7 +55,7 @@
 </section>
 
 
-<?php #get_template_part('includes/noticias') ?>
+<?php get_template_part('includes/noticias') ?>
 <?php get_template_part('includes/miniBanners') ?>
 <section class="padding1">
 	<div class="container">

@@ -138,6 +138,10 @@
 	add_action('init', function() {
 		//Default
 		pll_register_string('About', 'About', 'Default');
+		pll_register_string('Notícias', 'Notícias', 'Default');
+		pll_register_string('Outras Notícias', 'Outras Notícias', 'Default');
+		pll_register_string('Ver todas', 'Ver todas', 'Default');
+		pll_register_string('Resultado de Busca', 'Resultado de Busca', 'Default');
 		
 		//Accessibility
 		pll_register_string('Main content', 'Main content', 'Accessibility');
@@ -151,6 +155,4 @@
 		pll_register_string('Edição Atual', 'Edição Atual', 'Revistas');
 
 	});
-
-
 ?>

@@ -1,6 +1,6 @@
 <section class="padding1 color2">
 	<div class="container">
-		<h2 class="title1">Notícias</h2>
+		<h2 class="title1"><?php pll_e('Notícias'); ?></h2>
 		<div class="slideNews">
 			<?php 
 			$atual = get_the_title();
@@ -22,7 +22,7 @@
 			
 		</div>
 		<p class="text-center">
-			<a href="noticias" class="btn btn-outline-success">Ver todas</a>
+			<a href="noticias" class="btn btn-outline-success"><?php pll_e('Ver todas'); ?></a>
 		</p>
 	</div>
 </section>
