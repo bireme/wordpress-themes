@@ -12,6 +12,13 @@
 				if(get_the_title()==$atual){continue;}?>
 				<article class="slideNewsBox">
 					<a href="<?php permalink_link(); ?>">
+						<?php
+						if ( has_post_thumbnail()) {
+							the_post_thumbnail('medium_large',['class' => 'img-fluid rounded']);
+						}else{ ?>
+							<img src="<?php bloginfo('template_directory')?>/img/indisponivel.jpg" class="img-fluid rounded" alt="">
+						<?php }	 ?>
+						<br>		
 						<div class="slideNewsDate"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></div>
 						<h4><?php the_title(); ?></h4>
 						<?php the_excerpt(); ?>
