@@ -27,10 +27,6 @@
 				<?php
 			endwhile;
 			?>
-			
 		</div>
-		<!-- <p class="text-center">
-			<a href="noticias" class="btn btn-outline-success"><?php pll_e('Ver todas'); ?></a>
-		</p> -->
 	</div>
 </section>
