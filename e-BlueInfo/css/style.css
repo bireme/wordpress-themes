@@ -47,7 +47,7 @@ a:hover{
 #header{
 	background: #eee url('../img/bgCinza.jpg') center top no-repeat;
 	background-attachment: fixed;
-	min-height: 550px;
+	min-height: 500px;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
