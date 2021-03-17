@@ -8,7 +8,7 @@
 
 <main id="main_container" class="padding1">
 	<div class="container">
-		<h2 class="title1">Notícias</h2>
+		<h2 class="title1"><?php pll_e('Notícias'); ?></h2>
 		
 		<div class="row">
 			<?php 

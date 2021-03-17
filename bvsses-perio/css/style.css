@@ -72,6 +72,10 @@ a{
 			background: #ff4748;
 			text-decoration: none;
 		}
+#language .current-lang a{
+	background: #6cc7e8!important;
+	cursor: default;
+}
 #social{
 	text-align: right;
 }
