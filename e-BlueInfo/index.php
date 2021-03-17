@@ -30,7 +30,7 @@
 					$sub_title = get_sub_field('sub_title'); 
 					$description  = get_sub_field('description'); 
 					?>
-					<div class="col-md-6 offset-md-3 text-center" id="standoutTitulo" role="logo" tabindex="12">
+					<div class="col-md-6 offset-md-3 col-lg-8 offset-lg-2 text-center" id="standoutTitulo" role="logo" tabindex="12">
 						<img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="Logo E-BlueInfo" id="logoSite"> <br>
 						<h2>
 							<?php echo $title ?>
