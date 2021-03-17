@@ -67,6 +67,11 @@ a:hover{
 		}
 		#lang ul li a{
 			color: #000;
+			padding: 3px;
+		}
+		#lang .current-lang a{
+			border-bottom: 3px solid rgba(108, 199, 232,0.5)!important;
+			cursor: default;
 		}
 #logoSite{
 	height: 100px;
