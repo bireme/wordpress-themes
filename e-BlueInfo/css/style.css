@@ -47,7 +47,7 @@ a:hover{
 #header{
 	background: #eee url('../img/bgCinza.jpg') center top no-repeat;
 	background-attachment: fixed;
-	min-height: 500px;
+	min-height: 460px;
 	position: relative;
 	width: 100%;
 	overflow: hidden;
@@ -72,7 +72,7 @@ a:hover{
 	height: 100px;
 }
 #standoutTitulo{
-	padding-top: 20px;
+	padding-top: 00px;
 }
 #standoutTitulo h2, #standoutTitulo h2 p{
 	/*font-family: 'Francois One', sans-serif;*/
