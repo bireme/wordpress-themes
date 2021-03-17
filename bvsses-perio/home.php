@@ -60,8 +60,8 @@
 </section>
 
 
-<?php get_template_part('includes/noticias') ?>
 <?php get_template_part('includes/miniBanners') ?>
+<?php get_template_part('includes/noticias') ?>
 <section class="padding1">
 	<div class="container">
 		<div class="row">
@@ -73,20 +73,16 @@
 			while($home->have_posts()) : $home->the_post();
 				$sobre = get_field('sobre'); 
 				$imagem_1 = get_field('imagem_1');
-				$link_1 = get_field('link_1');
-				$abrir_1 = get_field('abrir_1');
 				$imagem_2 = get_field('imagem_2');
-				$link_2 = get_field('link_2');
-				$abrir_2 = get_field('abrir_2');
 				?>
 
 				<div class="col-md-6 marginM1">
-					<a href="<?php echo $link_1; ?>" target="<?php echo $abrir_1; ?>">
+					<a href="https://ses.sp.bvs.br/" target="_blank">
 						<img src="<?php echo $imagem_1['url']; ?>" class="img-fluid" alt="<?php echo $imagem_1['alt']; ?>">
 					</a>
 				</div>
 				<div class="col-md-6 marginM1">
-					<a href="<?php echo $link_2; ?>" target="<?php echo $abrir_2; ?>">
+					<a href="https://ses.sp.bvs.br/" target="_blank">
 						<img src="<?php echo $imagem_2['url']; ?>" class="img-fluid" alt="<?php echo $imagem_2['alt']; ?>">
 					</a>
 				</div>
