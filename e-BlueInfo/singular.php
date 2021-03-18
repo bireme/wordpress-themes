@@ -9,5 +9,6 @@
 		?>
 	</div>
 </main>
+<?php get_template_part('includes/stores') ?>
 <?php get_footer(); ?>
 <?php get_template_part('includes/modais') ?>

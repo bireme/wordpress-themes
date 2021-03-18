@@ -170,6 +170,14 @@ a:hover{
 .cardImg img{
 	margin-left: -100%;
 }
+#footerStores{
+	background-color: #1a547f;
+	padding: 20px 0 10px 0;
+	color: #fff;
+}
+#footerStores img{
+	max-height: 50px;
+}
 /************** Internas **************/
 #headerIn{
 	background: #eee;
