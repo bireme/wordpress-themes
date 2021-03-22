@@ -118,22 +118,28 @@
 		
 	});
 	//widgets - Home
+	// register_sidebar(array(
+	// 	'name'			=> 'Home Left',
+	// 	'id'			=> 'home_widget_left',
+	// 	'description'	=> 'Widgets Home Left',
+	// 	'class'			=> 'list-unstyled'
+	// ));
+	// register_sidebar(array(
+	// 	'name'			=> 'Home Center',
+	// 	'id'			=> 'home_widget_center',
+	// 	'description'	=> 'Widgets Home Center',
+	// 	'class'			=> 'list-unstyled'
+	// ));
+	// register_sidebar(array(
+	// 	'name'			=> 'Home Right',
+	// 	'id'			=> 'home_widget_right',
+	// 	'description'	=> 'Widgets Home Right',
+	// 	'class'			=> 'list-unstyled'
+	// ));
 	register_sidebar(array(
-		'name'			=> 'Home Left',
-		'id'			=> 'home_widget_left',
-		'description'	=> 'Widgets Home Left',
-		'class'			=> 'list-unstyled'
-	));
-	register_sidebar(array(
-		'name'			=> 'Home Center',
-		'id'			=> 'home_widget_center',
-		'description'	=> 'Widgets Home Center',
-		'class'			=> 'list-unstyled'
-	));
-	register_sidebar(array(
-		'name'			=> 'Home Right',
-		'id'			=> 'home_widget_right',
-		'description'	=> 'Widgets Home Right',
+		'name'			=> 'Social',
+		'id'			=> 'social',
+		'description'	=> 'Social',
 		'class'			=> 'list-unstyled'
 	));
 	function add_favicon() {
