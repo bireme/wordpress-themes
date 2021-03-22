@@ -104,7 +104,7 @@
 	</div>
 </section>
 
-<section class="sectionsCountries <?php #echo $twitter==''?'d-none':''; ?>">
+<section class="sectionsCountries <?php echo $twitter==''?'d-none':''; ?>">
 	<div class="container">		
 		<h3><?php pll_e('Social Networks'); ?></h3>
 		<div id="iframeSocial">
