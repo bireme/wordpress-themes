@@ -9,4 +9,6 @@
 	<?php wp_head(); ?>
 </head>
 <?php $idioma = pll_current_language(); ?>
-<?php get_template_part('includes/topAccessibility') ?>
+<?php if ( !is_webview() ) : ?>
+	<?php get_template_part('includes/topAccessibility') ?>
+<?php endif; ?>
