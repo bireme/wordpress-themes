@@ -187,6 +187,7 @@ a:hover{
 	#headerIn #lang{
 		text-align: right;
 	}
+	.bg-light{ background: #eee!important; }
 	#headerIn #nav{
 		text-align: center;
 		border-top: 1px solid #ddd;
@@ -279,6 +280,13 @@ a:hover{
 	.cardImg img{
 		margin-left:0%;
 		width: 100%;
+	}
+}
+@media (max-width: 768px){
+	#nav li{
+		margin-bottom: 10px;
+		text-align: left;
+		border-bottom: 1px solid #ddd;
 	}
 }
 @media (max-width: 600px){
