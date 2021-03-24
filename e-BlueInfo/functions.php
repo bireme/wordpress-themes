@@ -143,6 +143,12 @@
 		'description'	=> 'Social',
 		'class'			=> 'list-unstyled'
 	));
+	register_sidebar(array(
+		'name'			=> 'Social2',
+		'id'			=> 'social2',
+		'description'	=> 'Social2',
+		'class'			=> 'list-unstyled'
+	));
 	function add_favicon() {
 echo '<link rel="shortcut icon" type="image/png" href="'.get_template_directory_uri().'/assets/favicon.png" />';
 }

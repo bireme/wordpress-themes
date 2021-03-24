@@ -104,12 +104,20 @@
 	</div>
 </section>
 
-<section class="sectionsCountries <?php echo $twitter==''?'d-none':''; ?>">
+<section class="sectionsCountries <?php echo $twitter=='yes'?'':'d-none'; ?>">
 	<div class="container">		
 		<h3><?php pll_e('Social Networks'); ?></h3>
 		<div id="iframeSocial">
-			<ul class="list-unstyled"><?php dynamic_sidebar('social') ?></ul>
-			<?php #echo $twitter ?>
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="list-unstyled"><?php dynamic_sidebar('social') ?></ul>
+				</div>
+				<div class="col-md-6">
+					<ul class="list-unstyled"><?php dynamic_sidebar('social2') ?></ul>
+				</div>
+			</div>
+			
+			
 		</div>
 	</div>
 </section>
