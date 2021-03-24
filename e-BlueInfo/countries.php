@@ -11,6 +11,8 @@
 	$introduction = get_field('introduction'); 
 	$statistic = get_field('statistic'); 
 	$twitter = get_field('twitter'); 
+	$network_1 = get_field('network_1'); 
+	$network_2 = get_field('network_2');
 	?>
 	<section class="sectionsCountries">
 		<div class="container">	
@@ -110,14 +112,12 @@
 		<div id="iframeSocial">
 			<div class="row">
 				<div class="col-md-6">
-					<ul class="list-unstyled"><?php dynamic_sidebar('social') ?></ul>
+					<?php echo $network_1 ?>
 				</div>
 				<div class="col-md-6">
-					<ul class="list-unstyled"><?php dynamic_sidebar('social2') ?></ul>
+					<?php echo $network_1 ?>
 				</div>
 			</div>
-			
-			
 		</div>
 	</div>
 </section>
