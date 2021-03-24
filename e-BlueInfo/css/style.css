@@ -257,7 +257,8 @@ a:hover{
 	#footer img{width: 80%; text-align: center;}
 	#man, #woman{display: none;}
 	#logoSite{height: auto; width: 100%;}
-	#bgGray{padding: 50px; font-size: 20px;}
+	#bgGray{padding: 50px 0; font-size: 20px;}
+	#dataCountries{padding: 50px 0;}
 	#logoOPAS{text-align: center!important; margin-top: 20px;}
 	.card-columns {column-count: 1;}
 }

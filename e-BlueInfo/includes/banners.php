@@ -1,6 +1,6 @@
 <section class="padding1" style="background: #43d4e6;">
 	<div class="container">
-		<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" style=" margin-bottom: 30px; z-index: 0">
+		<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-inner">
 					<?php 
@@ -41,3 +41,21 @@
 		</div>
 	</div>
 </section>
+
+<!-- Modal lancameto-->
+<?php $idioma = pll_current_language(); ?>
+<div class="modal fade" id="lancamento" tabindex="-1" role="dialog" aria-labelledby="lancamento" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<img src="<?php bloginfo( 'template_directory' ) ?>/img/lancamentoH-<?php echo $idioma; ?>.jpg" alt="" class="img-fluid d-none d-md-block">
+				<img src="<?php bloginfo( 'template_directory' ) ?>/img/lancamento-<?php echo $idioma; ?>.jpg" alt="" class="img-fluid d-sm-block d-md-none">
+			</div>
+		</div>
+	</div>
+</div>
