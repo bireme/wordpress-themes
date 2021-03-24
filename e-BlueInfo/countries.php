@@ -115,7 +115,7 @@
 					<?php echo $network_1 ?>
 				</div>
 				<div class="col-md-6">
-					<?php echo $network_1 ?>
+					<?php echo $network_2 ?>
 				</div>
 			</div>
 		</div>
