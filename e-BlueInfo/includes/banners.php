@@ -53,8 +53,13 @@
 				</button>
 			</div>
 			<div class="modal-body text-center">
+				
 				<img src="<?php bloginfo( 'template_directory' ) ?>/img/lancamentoH-<?php echo $idioma; ?>.jpg" alt="" class="img-fluid d-none d-md-block">
 				<img src="<?php bloginfo( 'template_directory' ) ?>/img/lancamento-<?php echo $idioma; ?>.jpg" alt="" class="img-fluid d-sm-block d-md-none">
+				
+			</div>
+			<div class="modal-footer">
+				<a href="https://bit.ly/e-blueinfo2" class="btn btn-lg btn-primary" target="_blank"><?php pll_e('Get involved'); ?> </a>
 			</div>
 		</div>
 	</div>
