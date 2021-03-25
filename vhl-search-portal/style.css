@@ -31,6 +31,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -57,9 +58,6 @@ table {
 }
 /* END CSS RESET */
 
-
-
-
 .spacer {
 	width: 100%;
 	height: 1px;
@@ -79,9 +77,9 @@ h1, h2, h3 {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-h4{
+h4 {
 	font-size: 14px;
-	}
+}
 a {
 	color: #133B5E;
 	text-decoration: none;
@@ -90,7 +88,7 @@ a {
 
 .container {
 	width: 1000px;
-margin: 0px auto;
+	margin: 0px auto;
 	background: #FFF;
 	box-shadow: 0px 0px 6px 6px #E6E6E6;
 }
@@ -113,7 +111,6 @@ margin: 0px auto;
 .bar .topMenu LI {
 	display: inline-block;
 	padding: 0px 5px;
-	 
 }
 #otherVersions img {
 	display: none;
@@ -122,8 +119,6 @@ margin: 0px auto;
 	display: inline-block;
 	padding: 0px 5px;
 	border-left: 1px solid #fff;
-	
-
 }
 #otherVersions li:first-child {
 	border: none;
@@ -143,7 +138,6 @@ margin: 0px auto;
 .topSlot {
 	float: right;
 	margin-top: 96px;
-
 }
 .top {
 	clear: both;
@@ -151,30 +145,21 @@ margin: 0px auto;
 	margin: 0px auto;
 	padding: 0px 12px;
 	height: 104px;
-	
 }
 .top #parent {
 	float: left;
 	margin: 18px 6px 14px 50px;
 }
 
+.top.top_pt { background: url(images/pt/bireme_azul_pt_horizontal.png) right no-repeat; }
+.top.top_en { background: url(images/en/bireme_azul_en_horizontal.png) right no-repeat; }
+.top.top_es { background: url(images/es/bireme_azul_es_horizontal.png) right no-repeat; }
+.top.top_fr { background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat; }
 
-.top.top_pt{
-	background: url(images/pt/bireme_azul_pt_horizontal.png) right no-repeat; 
-	
-}
-
-.top.top_en{
-	background: url(images/en/bireme_azul_en_horizontal.png) right no-repeat; 
-	
-}
-
-.top.top_es{
-	background: url(images/es/bireme_azul_es_horizontal.png) right no-repeat;  
-	
-}
-
-.top #identification_pt, .top #identification_en, .top #identification_es {
+.top #identification_pt,
+.top #identification_en,
+.top #identification_es,
+.top #identification_fr {
 	float: left;
 }
 
@@ -183,9 +168,12 @@ margin: 0px auto;
 .top #identification_en h1, 
 .top #identification_en h2, 
 .top #identification_es h1, 
-.top #identification_es h2{
+.top #identification_es h2,
+.top #identification_fr h1, 
+.top #identification_fr h2 {
 	display:none;
 }
+
 .top #identification_pt {
 	background: url(images/pt/title.png) no-repeat;
 	width: 280px;
@@ -204,7 +192,17 @@ margin: 0px auto;
 	height: 48px;
 	margin-top: 30px;
 }
-.top #identification_pt H1 SPAN, .top #identification_en H1 SPAN, .top #identification_es H1 SPAN {
+.top #identification_fr {
+	background: url(images/fr/title.png) no-repeat;
+	width: 280px;
+	height: 48px;
+	margin-top: 30px;
+}
+
+.top #identification_pt H1 SPAN,
+.top #identification_en H1 SPAN,
+.top #identification_es H1 SPAN,
+.top #identification_fr H1 SPAN {
 	display: none;
 }
 
@@ -213,21 +211,18 @@ margin: 0px auto;
 	width: 980px;
 	margin: 0px auto;
 	background: url(images/border-bottom.jpg) top no-repeat;
-	
-
 }
 
 .storytitle, .storycontent{
 	margin-left: 72px;
 	font-size: 13px;
 	margin-bottom: 36px;
-	}
+}
 .middle .searchVHL {
 	/* standard searchbox */
 	background: url(images/search-bg.png) no-repeat;
 	height: 148px;
 	padding: 62px 0px 0px 0px;
-
 		
 	/* styles for doodle like highlight
 	padding: 5px 0px 20px 0px;
@@ -236,9 +231,10 @@ margin: 0px auto;
 	*/
 }
 
-
-.vitrines {border-bottom: 1px solid #023062;
-    margin-bottom: 22px;}
+.vitrines {
+	border-bottom: 1px solid #023062;
+    margin-bottom: 22px;
+}
 	
 .vitrines span {
     float: right !important;
@@ -375,7 +371,6 @@ margin-bottom: 20px;
 	padding-top: 30px;
 }
 
-
 .middle .vhl-collection ul li {
 	margin-left:10px;
 }
@@ -391,7 +386,7 @@ margin-bottom: 20px;
 .vhl-collection .collectiontitle, .footer .widgettitle {
 	color: #007dc4;
 }
-.middle .collectiontitle { display: none;}
+.middle .collectiontitle { display: none; }
 .vhl-collection ul {
 	padding: 8px;
 	margin: 5px;
@@ -465,7 +460,7 @@ margin-bottom: 20px;
 .footerArea .widget_nav_menu div LI {
 	margin-bottom: 6px;
 }
-x.footerArea .widget_nav_menu div LI A {
+.footerArea .widget_nav_menu div LI A {
 	font-size: 110%;
 	font-weight: bold;
 	color: #065798;
@@ -530,11 +525,10 @@ x.footerArea .widget_nav_menu div LI A {
 	padding-top:38px;
 }
 .storycontent p {
-line-height: 141%;
-
+	line-height: 141%;
 }
-/**************** SLIDER ****************/
 
+/**************** SLIDER ****************/
 .sliderInner {
 	width: 900px;
 	margin: 30px auto;
@@ -595,23 +589,17 @@ line-height: 141%;
 .rssSummary{
 	margin-top:5px;
 	font-size: 11px;
-
-
-	}
+}
 .widget_rss .collectiontitle a{
 	font-size: 14px;
 	font-weight: bold;
 	letter-spacing: -0.2px;
 	color: #007DC4;
-	}
+}
 .widget_rss li{
 	margin: 10px;
 	color: #666;
-	}
-.coutries{
-	
-	}
-
+}
 
 #bvsnet strong {
     color: #21759B;
@@ -619,42 +607,41 @@ line-height: 141%;
 }
 .footerArea {
 	font-size:13px;
-	}
-
+}
 
 .footerArea ul li{
 	line-height: 16px;
-	}
+}
 #bvsnet{
     margin-left: 48px;
-
-	}
+}
 .collections_3col{
 	margin-left: -10px;
 	padding-left: 0px;
 	background: #DBE8EE none repeat scroll 0% 0%;
 	width: 1000px;
-	}
+}
 
 .inst{
 	margin-top: 60px;
 	font-weight: bold;
-	}
+}
 .inst li{
 	margin-bottom:22px;
-	}
+}
 .inst li img{
 	float:left;
-	}
+}
 
 .widget_metaslider_widget{
 	float:left;
 	width:40%;
 	margin: 20px 0px 40px 80px;
-	}
+}
 
 #pl-w56604d3fd565a #pl-w56604e4a94e4e .panel-grid-cell .so-panel {
-    margin-bottom: 0px !important;}
+    margin-bottom: 0px !important;
+}
 	
 .panel-grid-cell .so-panel {
     margin-bottom: 16px !important;
@@ -665,69 +652,64 @@ line-height: 141%;
 	color: #183a60;
 	margin-bottom: 30px;
 	padding-top: 28px;
-	}
+}
 .double{
 	margin-top: -14px !important;
-	}
+}
 
 .links_rel{
 	width: 1000px;
 	margin-left: 15px;
-height: 105px;
+	height: 105px;
 	background: #b9cfd9;
-	}
+}
 .links_rel .textwidget{
 	margin-top: 20px;
-	xwidth: 103px;
+	width: 103px;
 	margin-bottom: 0px !important;
-	}
+}
 .temas{
-		margin-top: 74px;
-	}
+	margin-top: 74px;
+}
 .temas h3{
 	font-size: 16px;
 	color: #183a60;
-	}
+}
 .temas li{
 	margin-top: 11px;
-	}
+}
 .temas li a{
 	color: #666666;
-	}
+}
 .eportuguese{
-		margin-top: 74px;
-	}
+	margin-top: 74px;
+}
 .eportuguese h3{
 	font-size: 16px;
 	color: #183a60;
-	}
+}
 .eportuguese li{
 	margin-top: 11px;
-	}
+}
 .eportuguese li a{
 	color: #666666;
-
-	}
+}	
 	
-	
-.mlf_alert, .postmeta_translations {display:none;}
+.mlf_alert, .postmeta_translations { display:none; }
 
-
-
-.my_bvs {background: url(/wp-content/uploads/2017/08/logo_mybvs.png) left no-repeat !important;
-	padding: 10px 0px 10px 32px !important; color: #0772a2 !important;
-
- }
-
+.my_bvs {
+	background: url(images/logo_mybvs.png) left no-repeat !important;
+	padding: 10px 0px 10px 32px !important;
+	color: #0772a2 !important;
+}
 
 /**************** MEDIA QUERIES ****************/
-
-
 @media (max-width: 525px) {
 	.top h1 {width:200px !important;background-size:200px 30px !important;}
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
 	
 	.top, .footerArea {width: 93%;}
 	.middle, .bar .barInner, .sliderInner{width:100%;}
@@ -740,35 +722,36 @@ height: 105px;
 	.middle .searchVHL{background-position: 50% 0 !important;}
 	.middle .searchVHL .vhl-search-input {width: 58% !important; margin-left:6%;}
 }
+
 @media (width: 360px) {
-	.container {width: 360px;}
-		
+	.container {width: 360px;}		
 	.top, .footerArea {width: 93% !important;}
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
+
 	.top #parent {margin: 85px 6px 14px -11px;}
 	.topSlot {margin-top: 0px; width: 360px;}
 	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
 	.middle .searchVHL {background-position: 50% -34px!important; height: 85px;padding: 28px 0px 20px 0px;}
 	.middle .collections {margin-left: 0px;}
-	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
-	 .widget_rss {margin-left: 30px;}
-	 #bvsnet {width: 194px;}
-	 .temas{margin-left:60px;}
-	 .panel-last-child h3{ margin-left:30px;}
-	 .eportuguese {margin-top: 0px; margin-left: 55px;}
-	 .eportuguese h3 {margin-left: 0px;}
-	 .tipsy-social-icon {clear: both; }
-	 .links_rel{width: 357px !important;}
-	 .links_rel .panel-grid-cell img{max-width: 102px;}
-	 .collections_3col{width: 371px;} 
-	 .acesso_direto img{width: 308px !important;}
-	 .next_events img{width: 82% !important; margin-left: 30px;} 
-	 .top #identification_pt, .top #identification_en, .top #identification_es {margin-top: -91px; margin-left: 69px;}
+	.vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	.widget_rss {margin-left: 30px;}
+	#bvsnet {width: 194px;}
+	.temas{margin-left:60px;}
+	.panel-last-child h3{ margin-left:30px;}
+	.eportuguese {margin-top: 0px; margin-left: 55px;}
+	.eportuguese h3 {margin-left: 0px;}
+	.tipsy-social-icon {clear: both; }
+	.links_rel{width: 357px !important;}
+	.links_rel .panel-grid-cell img{max-width: 102px;}
+	.collections_3col{width: 371px;} 
+	.acesso_direto img{width: 308px !important;}
+	.next_events img{width: 82% !important; margin-left: 30px;} 
+	.top #identification_pt, .top #identification_en, .top #identification_es {margin-top: -91px; margin-left: 69px;}
 }
-
 
 @media (width: 320px) {
 	.container {width: 319px;}
@@ -776,6 +759,8 @@ height: 105px;
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
+
 	.footerArea {width: 95% !important;}
 	.top #parent {margin: 85px 0px 14px 0px;}
 	.top #identification_pt {margin-top:-22px !important;}
@@ -786,51 +771,51 @@ height: 105px;
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important; margin-right:42px !important;}
 	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;}
 	.middle .collections {margin-left: 0px;}
-	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
-	 .widget_rss {margin-left: 30px;}
-	 #bvsnet {width: 194px;}
-	 .temas{margin-left:60px;}
-	 .panel-last-child h3{ margin-left:30px;}
-	 .eportuguese {margin-top: 0px; margin-left: 55px;}
-	 .eportuguese h3 {margin-left: 0px;}
-	 .tipsy-social-icon {clear: both; }
-	 .links_rel{width: 322px !important;}
-	 .links_rel .panel-grid-cell img{max-width: 102px;}
-	 .collections_3col{width: 338px;} 
-	 .acesso_direto img{width: 290px !important;}
-	 .next_events img{width: 290px !important; margin-left: 30px;} 
-	 
-	
+	.vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	.widget_rss {margin-left: 30px;}
+	#bvsnet {width: 194px;}
+	.temas{margin-left:60px;}
+	.panel-last-child h3{ margin-left:30px;}
+	.eportuguese {margin-top: 0px; margin-left: 55px;}
+	.eportuguese h3 {margin-left: 0px;}
+	.tipsy-social-icon {clear: both; }
+	.links_rel{width: 322px !important;}
+	.links_rel .panel-grid-cell img{max-width: 102px;}
+	.collections_3col{width: 338px;} 
+	.acesso_direto img{width: 290px !important;}
+	.next_events img{width: 290px !important; margin-left: 30px;} 
 }
+
 @media (width: 375px) {
 	.container {width: 375px;}
 	.top, .footerArea {width: 92% !important;}
-		.top #identification_pt{margin-top: 80px !important;}
-		.top #identification_en{margin-top: 90px !important;}
-		.top #identification_es{margin-top: 90px !important;}
+	.top #identification_pt{margin-top: 80px !important;}
+	.top #identification_en{margin-top: 90px !important;}
+	.top #identification_es{margin-top: 90px !important;}
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) center no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
+
 	.top #parent {    margin: 85px 0px 14px 0px;}
 	.topSlot {margin-top: 0px; }
 	ul.dropdown a, ul.dropdown a:link, ul.dropdown a:visited, ul.dropdown li {font-size: 12px;}
 	.shailan-dropdown-menu .dropdown-horizontal-container {width: 320px !important;}
 	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;}
 	.middle .collections {margin-left: 0px;}
-	 .vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
-	 .widget_rss {margin-left: 30px;}
-	 #bvsnet {width: 194px;}
-	 .temas{margin-left:60px;}
-	 .panel-last-child h3{ margin-left:30px;}
-	 .eportuguese {margin-top: 0px; margin-left: 55px;}
-	 .eportuguese h3 {margin-left: 0px;}
-	 .tipsy-social-icon-container {clear: both; }
-	 .links_rel{width: 370px !important;}
-	 .links_rel .panel-grid-cell img{max-width: 120px;}
-	 .collections_3col{width: 385px;}
-	 .acesso_direto img{width: 325px !important;}
-	 .next_events img{width: 325px !important; margin-left: 30px;}
-	 
+	.vhl-collection ul li.page_item{margin: 5px 0px 6px 14px; width: 81%;}
+	.widget_rss {margin-left: 30px;}
+	#bvsnet {width: 194px;}
+	.temas{margin-left:60px;}
+	.panel-last-child h3{ margin-left:30px;}
+	.eportuguese {margin-top: 0px; margin-left: 55px;}
+	.eportuguese h3 {margin-left: 0px;}
+	.tipsy-social-icon-container {clear: both; }
+	.links_rel{width: 370px !important;}
+	.links_rel .panel-grid-cell img{max-width: 120px;}
+	.collections_3col{width: 385px;}
+	.acesso_direto img{width: 325px !important;}
+	.next_events img{width: 325px !important; margin-left: 30px;} 
 }
 
 @media (width: 568px) { 
@@ -838,6 +823,7 @@ height: 105px;
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) right no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
 	.eportuguese {margin-left: 60px;}
 }
 
@@ -846,16 +832,16 @@ height: 105px;
 	.top.top_pt{ background: url(images/pt/bireme_azul_pt_horizontal_new.png) right no-repeat !important; }
 	.top.top_es{ background: url(images/es/bireme_azul_es_horizontal_new.png) right no-repeat !important; }
 	.top.top_en{ background: url(images/en/bireme_azul_en_horizontal_new.png) right no-repeat !important; }
+	.top.top_fr{ background: url(images/fr/bireme_azul_fr_horizontal.png) right no-repeat !important; }
+
 	.temas{margin-left:70px;} 
-     .next_events {margin-left: 30px;}
+    .next_events {margin-left: 30px;}
 	.top, .footerArea {width: 727px !important;}
 	.bar .barInner {width: 727px !important;}
 	.middle .searchVHL {background-position: 50% -34px !important; height: 85px;padding: 28px 0px 20px 0px;width: 759px;}
 	.middle {width: 759px;}
 	.sliderItem{    width: 255px; margin: 0px !important; }
 	.collections_3col {    width: 768px;}
-	 .eportuguese{margin-top: 0px; margin-left:60px;}
+	.eportuguese{margin-top: 0px; margin-left:60px;}
 	.widget_rss {margin-left: 40px;}
-
-	
 }
