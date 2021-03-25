@@ -3,36 +3,36 @@
 jQuery(document).ready(function(){
 	var font14 = 14; var class14 ='#bgBlue p';
 	var font16 = 16; var class16 ='#lang, #dataCountries p';
-	var font20 = 20; var class20 ='.font20, #headerIn #nav ul li a';
+	var font20 = 20; var class20 ='.font20, #headerIn #nav ul li a, p';
 	var font25 = 25; var class25 ='#bgGray, #bgBlue h4';
-	var font40 = 40; var class40 ='#standoutTitulo h2, #dataCountries h2';
+	var font36 = 36; var class36 ='#standoutTitulo h2, #dataCountries h2, #standoutTitulo h2 p';
 	jQuery('#fontPlus').click(function(){
-		if (font16<40){
-			font14 = font14+1; font16 = font16+1; font20 = font20+1; font25 = font25+1; font40 = font40+1;
+		if (font16<36){
+			font14 = font14+1; font16 = font16+1; font20 = font20+1; font25 = font25+1; font36 = font36+1;
 			jQuery(class14).css({'font-size' : font14+'px'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 			jQuery(class25).css({'font-size' : font25+'px'});
-			jQuery(class40).css({'font-size' : font40+'px'});
+			jQuery(class36).css({'font-size' : font36+'px'});
 		}
 	});
 	jQuery('#fontLess').click(function(){
 		if (font16>14){
-			font16 = font16-1; font14 = font14-1; font20 = font20-1; font25 = font25-1; font40 = font40-1;
+			font16 = font16-1; font14 = font14-1; font20 = font20-1; font25 = font25-1; font36 = font36-1;
 			jQuery(class14).css({'font-size' : font14+'px'});
 			jQuery(class16).css({'font-size' : font16+'px'});
 			jQuery(class20).css({'font-size' : font20+'px'});
 			jQuery(class25).css({'font-size' : font25+'px'});
-			jQuery(class40).css({'font-size' : font40+'px'});
+			jQuery(class36).css({'font-size' : font36+'px'});
 		}
 	});
 	jQuery('#fontNormal').click(function(){
-		font16 = 16; font14 = 14; font20 = 20; font25 = 25; font40 = 40;
+		font16 = 16; font14 = 14; font20 = 20; font25 = 25; font36 = 36;
 		jQuery(class16).css({'font-size' : 16+'px'});
 		jQuery(class14).css({'font-size' : 14+'px'});
 		jQuery(class20).css({'font-size' : 20+'px'});
 		jQuery(class25).css({'font-size' : 25+'px'});
-		jQuery(class40).css({'font-size' : 40+'px'});
+		jQuery(class36).css({'font-size' : 36+'px'});
 	});
 })
 /*Navegação por atalhos*/

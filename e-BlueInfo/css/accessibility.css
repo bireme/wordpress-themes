@@ -32,7 +32,7 @@
 .bodyBlack #header, .bodyBlack #headerIn,
 .bodyBlack #standout, .bodyBlack .footer, .bodyBlack .close,
 .bodyBlack #bgBlue, .bodyBlack #bgGray, .bodyBlack .countries, .bodyBlack #mainTitle, .bodyBlack #dataCountries,
-.bodyBlack #logoMain img, .bodyBlack #logosSecond img, .bodyBlack #indiceLetras, .bodyBlack .table
+.bodyBlack #logoMain img, .bodyBlack #logosSecond img, .bodyBlack #indiceLetras, .bodyBlack .table, .bodyBlack .card
 {background: #000; color: #fff;}
 .bodyBlack footer
 {background: #666;}
@@ -42,6 +42,7 @@
 {opacity: 0.5; background: #fff;}
 .bodyBlack #man, .bodyBlack #woman{display: none}
 @media (max-width: 768px){
+	#acessibilidadeTutorial{display: none;}
 	#barAcessibilidade{text-align: center;}
 	#speakBtn{left: 30px;}
 	#fieldSearch{padding-left: 30px;}

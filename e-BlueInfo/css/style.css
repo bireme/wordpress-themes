@@ -234,37 +234,35 @@ a:hover{
 	#woman{right: -80px;}
 }
 @media (max-width: 1200px){
-	#header{min-height: 420px;}
-	#standoutTitulo{padding-top: 0px;}
-	#standoutTitulo h2, #standoutTitulo h2 p{font-size: 22px;	margin-bottom: 10px;}
-	#standoutTitulo h4{font-size: 18px;	margin-bottom: 10px;}
-	#man img, #woman img{height: 420px;}
-	#logoSite{height: auto; width: 80%;}
-	#woman{right: -70px;}
-	#man{left: -70px;}
-}
-@media (max-width: 900px){
-	#standoutTitulo h2{font-size: 20px;}
-	#standoutTitulo h4{font-size: 16px;}
-	#imgMobile img{width: 100%; text-align: center;}
-	#footer img{width: 80%; text-align: center;}
-	#iconStore img{max-width: 45%;}
-	#bgGray p{font-size: 20px;}
-}
-@media (max-width: 768px){
-	.padding50, #standoutTitulo, #bgGray p, #footer{padding: 20px;}
-	#header, #footer{text-align: center;}
-	#mainTitle{ font-size: 20px; text-align: center; }
-	#footer img{width: 80%; text-align: center;}
-	#man, #woman{display: none;}
-	#logoSite{height: auto; width: 100%;}
-	#bgGray{padding: 50px 0; font-size: 20px;}
-	#dataCountries{padding: 50px 0;}
-	#logoOPAS{text-align: center!important; margin-top: 20px;}
-	.card-columns {column-count: 1;}
+	#header{
+		min-height: 420px;
+	}
+	#standoutTitulo{
+		padding-top: 0px;
+	}
+	#standoutTitulo h2, #standoutTitulo h2 p{
+		font-size: 22px;
+		margin-bottom: 10px;
+	}
+	#standoutTitulo h4{
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	#man img, #woman img{
+		height: 420px;
+	}
+	#logoSite{
+		height: auto;
+		width: 80%;
+	}
+	#woman{
+		right: -70px;
+	}
+	#man{
+		left: -70px;
+	}
 }
 @media (max-width: 992px){
-	
 	#headerIn #nav{
 		text-align: center;
 	}
@@ -282,11 +280,83 @@ a:hover{
 		width: 100%;
 	}
 }
+@media (max-width: 900px){
+	#standoutTitulo h2{
+		font-size: 20px;
+	}
+	#standoutTitulo h4{
+		font-size: 16px;
+	}
+	#imgMobile img{
+		width: 100%;
+		text-align: center;
+	}
+	#footer img{
+		width: 80%;
+		text-align: center;
+	}
+	#iconStore img{
+		max-width: 45%;
+	}
+	#bgGray p{
+		font-size: 20px;
+	}
+	#bgBlue{
+		padding: 50px 0px;
+	}
+}
 @media (max-width: 768px){
+	.padding50, #standoutTitulo, #bgGray p, #footer{
+		padding: 20px;
+	}
+	#header, #footer{
+		text-align: center;
+	}
+	#mainTitle{
+		font-size: 20px;
+		text-align: center;
+	}
+	#footer img{
+		width: 80%;
+		text-align: center;
+	}
+	#man, #woman{
+		display: none;
+	}
+	#logoSite{
+		height: auto;
+		width: 100%;
+	}
+	#bgGray{
+		padding: 50px 0;
+		font-size: 20px;
+	}
+	#dataCountries{
+		padding: 50px 0;
+	}
+	#logoOPAS{
+		text-align: center!important;
+		margin-top: 20px;
+	}
+	.card-columns {
+		column-count: 1;
+	}
 	#nav li{
 		margin-bottom: 10px;
 		text-align: left;
 		border-bottom: 1px solid #ddd;
+	}
+	#headerIn #nav {
+		margin-top: 10px;
+	}
+	#guide{
+		padding: 50px 20px;
+	}
+	#guide h2{
+		margin: 20px 0;
+	}
+	#footerStores{
+		text-align: center;
 	}
 }
 @media (max-width: 600px){
