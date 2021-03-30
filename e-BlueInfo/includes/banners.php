@@ -43,7 +43,7 @@
 </section>
 
 <!-- Modal lancameto-->
-<?php $idioma = pll_current_language(); ?>
+<!--?php $idioma = pll_current_language(); ?>
 <div class="modal fade" id="lancamento" tabindex="-1" role="dialog" aria-labelledby="lancamento" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
@@ -63,4 +63,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div-->

@@ -27,6 +27,6 @@ jQuery('.sliderParceiros').slick({
   ]
 });
 
-jQuery(document).ready(function(){
+/*jQuery(document).ready(function(){
   jQuery('#lancamento').modal('show');
-});
+});*/
