@@ -53,6 +53,20 @@
 </header>
 
 <?php get_template_part('includes/banners'); ?>
+<?php while($home->have_posts()):$home->the_post(); while(have_rows('grupo4')):the_row();  
+	$image_desktop 	= get_sub_field('image_desktop'); 
+	$image_mobile	= get_sub_field('image_mobile'); 
+	$link 			= get_sub_field('link'); 
+	?>
+	<section>
+		<div class="container">
+			<a href="<?php echo $link; ?>">
+				<img src="<?php echo $image_desktop['url']; ?>" class="img-fluid d-none d-sm-block" alt="<?php echo $image_desktop['alt']; ?>">
+				<img src="<?php echo $image_mobile['url']; ?>" class="img-fluid d-block d-sm-none" alt="<?php echo $image_mobile['alt']; ?>">
+			</a>
+		</div>
+	</section>
+<?php endwhile; endwhile; ?>
 
 <?php 
 while($home->have_posts()):$home->the_post();?>
