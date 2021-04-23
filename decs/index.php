@@ -1,8 +1,6 @@
 <?php get_header(); ?>
+
 <?php get_template_part('includes/nav') ?>
-
-
-
 
 <section class="container" id="main_container">
 	<div class="row padding2">

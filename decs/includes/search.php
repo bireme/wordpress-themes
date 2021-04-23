@@ -5,7 +5,6 @@
 	$filter = $_GET['filter'];
 ?>
 
-
 <form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
 	<fieldset class="fieldset2">
 		<legend><?php pll_e('Search'); ?></legend>

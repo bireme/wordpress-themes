@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php get_template_part('includes/navInter') ?>
+
 <div class="titleMain text-center">
 	<h2>404</h2>
 </div>

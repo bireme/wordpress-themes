@@ -1,9 +1,11 @@
 <?php
 /* Template Name: Novelty */
 ?>
+
 <?php get_header(); ?>
-<?php get_template_part('includes/navInter') ?>
+
 <?php $idioma = pll_current_language(); ?>
+
 <div class="titleMain text-center">
 	<h2><?php the_title(); ?></h2>
 </div>
