@@ -45,4 +45,9 @@
 		</div>
 	</div>
 </header>
-<?php get_template_part('includes/navInter') ?>
+
+<?php if ( is_front_page() ) : ?>
+	<?php get_template_part('includes/nav'); ?>
+<?php else : ?>
+	<?php get_template_part('includes/navInter'); ?>
+<?php endif; ?>
