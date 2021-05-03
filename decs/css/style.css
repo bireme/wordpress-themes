@@ -99,6 +99,10 @@ a{
 	font-size: 12px;
 	padding: 5px;
 }
+#language .current-lang a{
+	background:#9bcc9b;
+	color: #fff;
+}
 #language a:hover{
 	background: #86b986;
 	text-decoration: none;
@@ -329,6 +333,21 @@ a{
     color: #fff;
     border-color: #669966;
     background-color: #669966;
+}
+.tabDescriptors .cat{
+	font-weight: bold;
+	font-size: 24px;
+}
+.tabDescriptors .level1{
+	padding: 10px;
+}
+.tabDescriptors .cat td{
+	padding: 10px 0;
+	font-weight: bold;
+}
+.tabDescriptors .languages td{
+	text-align: center;
+	font-weight: bold;
 }
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
