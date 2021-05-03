@@ -1,8 +1,8 @@
 <?php $ths_plugin_slug=''; ?>
 <!-- Garante que o valor pequisado passe adiante -->
 <?php
-	$q = $_GET['q'];
-	$filter = $_GET['filter'];
+	$q = sanitize_text_field($_GET['q']);
+	$filter = sanitize_text_field($_GET['filter']);
 ?>
 
 <form action="<?php echo real_site_url($ths_plugin_slug) . 'ths'; ?>">
@@ -20,7 +20,7 @@
 			</div>
 
 			<div class="col-12 col-sm-9 col-md-6 col-lg-7">
-				<input type="text" value="<?php if ($q){ echo stripslashes($q); } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" placeholder="<?php pll_e('Use * or $ for permuted search'); ?>" required>
+				<input type="text" value="<?php if ($q) { echo $q; } ?>" name="q" id="fieldSearch" autocomplete="off" class="form-control" placeholder="<?php pll_e('Use * or $ for permuted search'); ?>" required>
 				<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 			</div>
 			<div class="col-12 col-sm-3 col-md-2 col-lg-1 text-right">
