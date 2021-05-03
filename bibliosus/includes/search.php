@@ -10,11 +10,11 @@
 						<div class="text-left">
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1" checked>
-								<label class="form-check-label" for="inlineRadio1"><small>ColecionaSUS</small></label>
+								<label class="form-check-label" for="inlineRadio1"><small>Portal</small></label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opcao2">
-								<label class="form-check-label" for="inlineRadio2"><small>Portal</small></label>
+								<label class="form-check-label" for="inlineRadio2"><small>ColecionaSUS</small></label>
 							</div>
 						</div>
 					</div>

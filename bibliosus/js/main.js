@@ -4,7 +4,7 @@ jQuery(function () {
         jQuery("#fieldSearch").attr('name', 's');
     });
     jQuery('#inlineRadio2').click(function(){
-        jQuery('#formHome').attr('action', 'https://pesquisa.bvsalud.org/bvsms/');
+        jQuery('#formHome').attr('action', 'https://pesquisa.bvsalud.org/bvsms');
         jQuery("#fieldSearch").attr('name', 'q');
     });
 });
