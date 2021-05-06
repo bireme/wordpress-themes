@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="col-md-12">
 			<form id="formHome" method="get" action="<?php bloginfo('home'); ?>" >
+				<input type="hidden" name="filter[db][]" value="colecionaSUS" />
 				<div class="form-row">
 					<div class="col-10 col-lg-10 offset-lg-1 text-right">
 						<input type="text" id="fieldSearch" class="form-control" autocomplete="off" name="s" value="<?php echo get_search_query(); ?>">
