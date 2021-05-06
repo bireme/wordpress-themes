@@ -238,9 +238,9 @@ class description_walker extends Walker_Nav_Menu
 		$output .= '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
 
 		// from search
-		$q = $_GET['q'];
-		$filter = $_GET['filter'];
-		$id= $_GET['id'];
+		$q = sanitize_text_field($_GET['q']);
+		$filter = sanitize_text_field($_GET['filter']);
+		$id = sanitize_text_field($_GET['id']);
 
 		if ( !empty($q) and !empty($filter) and empty($id) ){
 			// renders results page
