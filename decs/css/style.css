@@ -345,7 +345,7 @@ a{
 	padding: 30px 0 10px 0;
 	font-weight: bold;
 }
-.tabDescriptors .languages td{
+.tabDescriptors .languages td, .tabDescriptors .labels td{
 	text-align: center;
 	font-weight: bold;
 }
