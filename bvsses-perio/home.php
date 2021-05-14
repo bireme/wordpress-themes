@@ -73,16 +73,18 @@
 			while($home->have_posts()) : $home->the_post();
 				$sobre = get_field('sobre'); 
 				$imagem_1 = get_field('imagem_1');
+				$link_1 = get_field('link_1');
 				$imagem_2 = get_field('imagem_2');
+				$link_2 = get_field('link_2');
 				?>
 
 				<div class="col-md-6 marginM1">
-					<a href="https://ses.sp.bvs.br/" target="_blank">
+					<a href="<?php echo $link_1; ?>" target="_blank">
 						<img src="<?php echo $imagem_1['url']; ?>" class="img-fluid" alt="<?php echo $imagem_1['alt']; ?>">
 					</a>
 				</div>
 				<div class="col-md-6 marginM1">
-					<a href="https://ses.sp.bvs.br/" target="_blank">
+					<a href="<?php echo $link_2; ?>" target="_blank">
 						<img src="<?php echo $imagem_2['url']; ?>" class="img-fluid" alt="<?php echo $imagem_2['alt']; ?>">
 					</a>
 				</div>
