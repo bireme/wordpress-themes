@@ -5,6 +5,7 @@
 }
 a{
     outline: none;
+	word-wrap: break-word;
 }
 .bgColor1{
 	background: #4e7952;
