@@ -9,7 +9,7 @@
 
 <?php $idioma = pll_current_language(); ?>
 
-<?php if ( !is_webview() ) : ?>
+<?php if ( strpos($_SERVER['HTTP_USER_AGENT'], 'gonative') === false ) : ?>
 	<?php get_template_part('includes/topAccessibility') ?>
 	<header class="" id="headerIn" role="banner">
 		<div class="container">

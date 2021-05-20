@@ -1,5 +1,5 @@
 <?php
-	if ( !is_webview() ) {
+	if ( strpos($_SERVER['HTTP_USER_AGENT'], 'gonative') === false ) {
 		$home = new WP_Query([ 'post_type' => 'Home']);
 		while($home->have_posts()):$home->the_post();
 			while(have_rows('grupo')):the_row(); 
