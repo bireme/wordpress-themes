@@ -22,7 +22,7 @@
 							if ( $foto == "") { ?>
 								<img src="<?php bloginfo('template_directory')?>/img/produtoIndisponivel.jpg" class="img-fluid" alt="sem fotos">
 							<?php }else{ ?>
-								<img src="<?php echo esc_url($foto['sizes']['tema']); ?>" alt="<?php echo $foto['alt'] ?>" class="img-fluid rounded">
+								<img src="<?php echo esc_url($foto['sizes']['mini-banners']); ?>" alt="<?php echo $foto['alt'] ?>" class="img-fluid rounded">
 							<?php }	 ?>
 							<h5><?php the_title(); ?></h5>
 						</a>

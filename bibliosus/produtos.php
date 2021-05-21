@@ -8,18 +8,32 @@
 		<div class="row">
 			<?php 
 			$atual = get_the_title();
-			$posts = new WP_Query([
-				'post_type' => 'produto',
+			$produto = new WP_Query(array(
+				'post_type' => 'Produto',
 				'posts_per_page' => '-1'
-			]);
-			while($posts->have_posts()) : $posts->the_post();?>
-				<article class="col-6 col-md-4 col-lg-4 newsBox">
-					<a href="<?php permalink_link(); ?>">
-						<div class="slideNewsDate"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></div>
-						<h6><?php the_title(); ?></h6>
-					</a>
-				</article>
-				<?php
+			));
+			while($produto->have_posts()) : $produto->the_post();
+				if(get_the_title()==$atual){continue;}
+				$itens = get_field('group');
+				while( have_rows('group') ): the_row(); 
+					$foto = get_sub_field('foto'); 
+					$link = get_sub_field('link');
+					$abrir = get_sub_field('abrir');
+					?>
+					<article class="col-6 col-md-4 col-lg-4 produtosBox">
+						<a href="<?php permalink_link(); ?>">
+							<?php 
+							if ( $foto == "") { ?>
+								<img src="<?php bloginfo('template_directory')?>/img/produtoIndisponivel.jpg" class="img-fluid" alt="sem fotos">
+							<?php }else{ ?>
+								<img src="<?php echo esc_url($foto['sizes']['mini-banners']); ?>" alt="<?php echo $foto['alt'] ?>" class="img-fluid rounded">
+							<?php }	 ?>
+							<h5><?php the_title(); ?></h5>
+						</a>
+					</article>
+					<?php
+					$i++;
+				endwhile;
 			endwhile;
 			?>
 		</div>
