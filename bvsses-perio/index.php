@@ -53,7 +53,7 @@
 		</div>
 	</div>
 </section>
-marcio
+
 
 <?php get_template_part('includes/miniBanners') ?>
 <?php get_template_part('includes/noticias') ?>

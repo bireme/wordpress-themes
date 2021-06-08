@@ -1,3 +1,6 @@
+*{
+	word-wrap: break-word;
+}
 a{
 	color: #333;
 	outline: none;
@@ -177,6 +180,15 @@ a{
 	}
 }
 @media (max-width: 1200px){
+	#header{
+		padding-bottom: 0px;
+	}
+	#sfsi_holder{
+		display:none;
+	}
+	.sfsi_widget{
+		min-height: auto;
+	}
 	#headerConfig{
 		width: 100%;
 		float: none;
@@ -216,5 +228,14 @@ a{
 		}
 	#brandTitle h1{
 		margin-top: 10px;
+	}
+	.carousel-caption  {
+		bottom: 0;
+		width: 90%;
+		left: 5%;
+		padding: 5px;
+	}
+	.carousel-caption h5{
+		font-size: 14px;
 	}
 }

@@ -20,7 +20,7 @@
 							<a href="<?php echo $link; ?>" target="<?php echo $abrir; ?>">
 								<img src="<?php echo esc_url($fotoDesktop['sizes']['banners']); ?>" class="img-fluid d-none d-sm-block"alt="<?php echo $fotoDesktop['alt'] ?>" />
 								<img src="<?php echo esc_url($fotoMobile['sizes']['banners-mobile']); ?>" class="img-fluid d-block d-sm-none"alt="<?php echo $fotoMobile['alt'] ?>" />
-								<div class="carousel-caption d-none d-md-block">
+								<div class="carousel-caption  <?php echo ($texto == "") ? 'd-none' : ''; ?>">
 									<?php echo ($texto ==! "") ? '<h5><span>'.$texto.'</span></h5>': '' ; ?>
 								</div>
 							</a>

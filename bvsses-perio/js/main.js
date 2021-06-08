@@ -22,6 +22,13 @@ jQuery('.slideNews').slick({
       slidesToShow: 2,
       slidesToScroll: 1
     }
+  }  ,
+  {
+    breakpoint: 560,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
   }
   ]
 });
