@@ -1,21 +1,21 @@
 <section id="sectionSearch" class="padding2">
 	<div class="container">
 		<div class="col-md-12">
-			<form id="formHome" method="get" action="<?php bloginfo('home'); ?>" >
-				<input type="hidden" name="filter[db][]" value="colecionaSUS" />
+			<form id="formHome" method="get"  action="https://pesquisa.bvsalud.org/brasil/" >
 				<div class="form-row">
 					<div class="col-10 col-lg-10 offset-lg-1 text-right">
 						<input type="text" id="fieldSearch" class="form-control" autocomplete="off" name="s" value="<?php echo get_search_query(); ?>">
+						<input type="hidden" name="filter[db][]" value="colecionaSUS" />
 						<input type="hidden" name="pt" value="">
 						<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 						<div class="text-left">
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opcao1" checked>
-								<label class="form-check-label" for="inlineRadio1"><small>Portal</small></label>
+								<label class="form-check-label" for="inlineRadio1"><small>ColecionaSUS</small></label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opcao2">
-								<label class="form-check-label" for="inlineRadio2"><small>ColecionaSUS</small></label>
+								<label class="form-check-label" for="inlineRadio2"><small>Páginas do site</small></label>
 							</div>
 						</div>
 					</div>

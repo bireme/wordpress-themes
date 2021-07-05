@@ -1,10 +1,10 @@
 jQuery(function () {
-    jQuery('#inlineRadio1').on('click', function(){
+    jQuery('#inlineRadio2').on('click', function(){
         jQuery('#formHome').attr('action', '');
         jQuery("#fieldSearch").attr('name', 's');
     });
-    jQuery('#inlineRadio2').click(function(){
-        jQuery('#formHome').attr('action', 'https://pesquisa.bvsalud.org/brasil');
+    jQuery('#inlineRadio1').click(function(){
+        jQuery('#formHome').attr('action', 'https://pesquisa.bvsalud.org/brasil/');
         jQuery("#fieldSearch").attr('name', 'q');
     });
 });

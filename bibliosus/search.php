@@ -18,9 +18,7 @@
 					<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
 				</a>
 			</article>
-		<?php endwhile; else:?>
-	<?php endif;?>
-
-</div>
+		<?php endwhile; else: endif;?>
+	</div>
 </section>
 <?php get_footer(); ?>

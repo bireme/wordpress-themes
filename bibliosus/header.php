@@ -17,9 +17,7 @@
 					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.png" alt="" class="img-fluid"></a>
 				</div>
 				<div class="col-md-4" id="headerSocial">
-					<a href="https://twitter.com/twitter" target="_blank"><i class="fab fa-twitter twitter"></i></a>
-					<a href="https://www.youtube.com/playlist?list=PL9E509996961ABADD" target="_blank"><i class="fab fa-youtube youtube"></i></a>
-					<a href="https://pt-br.facebook.com/minsaude" target="_blank"><i class="fab fa-facebook facebook"></i></a>
+
 				</div>
 			</div>
 		</div>

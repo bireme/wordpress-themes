@@ -97,14 +97,16 @@
 				while( have_rows('group1') ): the_row(); 
 					$titulo = get_sub_field('titulo'); 
 					$texto = get_sub_field('texto');
-					$foto = get_sub_field('foto');
-						?>
-			<div class="col-md-8">
+					$titulo_2 = get_sub_field('titulo_2');
+					$texto_2 = get_sub_field('texto_2');
+			?>
+			<div class="col-md-6">
 				<h2 class="title1"><?php echo $titulo; ?></h2>
 				<?php echo $texto; ?>
 			</div>
-			<div class="col-md-4">
-				<img src="<?php echo $foto['url']; ?>" alt="<?php echo $foto_parceiro_2['alt'] ?>" class="img-fluid">
+			<div class="col-md-6">
+				<h2 class="title1"><?php echo $titulo_2; ?></h2>
+				<?php echo $texto_2; ?>
 			</div>
 			<?php endwhile;
 			endwhile;
