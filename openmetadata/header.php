@@ -6,6 +6,7 @@
 	<?php wp_head(); ?>
 </head>
 <body>
+	<?php $idioma = pll_current_language(); ?>
 	<?php get_template_part('includes/topAccessibility') ?>
 	<header id="header">
 		<div class="container">
@@ -25,10 +26,10 @@
 			</div>
 			<div class="row">
 				<div id="brand" class="col-md-2 text-center">
-					<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="" class="img-fluid">
+					<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="" class="img-fluid">
 				</div>
 				<div class="col-md-10" id="textTop">
-					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo.svg" class="img-fluid" alt=""></a>
+					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo-<?php echo $idioma; ?>.svg" class="img-fluid" alt=""></a>
 				</div>
 			</div>
 		</div>

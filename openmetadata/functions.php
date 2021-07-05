@@ -60,8 +60,20 @@ register_sidebar([
     register_post_type( 'home' , $argsHome );
   }
 
+  add_action('init', function() {
+    //Accessibiblity
+    pll_register_string('Main content', 'Main content', 'Accessibility');
+    pll_register_string('Menu', 'Menu', 'Accessibility');
+    pll_register_string('Footer', 'Footer', 'Accessibility');
+    pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
 
+    //Default
+    pll_register_string('Metadados Abertos das Fontes de Informação da BVS - BETA', 'Metadados Abertos das Fontes de Informação da BVS - BETA', 'Default');
+    pll_register_string('Ask for help / Leave a comment / Report an error', 'Ask for help / Leave a comment / Report an error', 'Default');
+    pll_register_string('Terms and conditions', 'Terms and conditions', 'Default');
+    pll_register_string('Privacy policy', 'Privacy policy', 'Default');
 
+    });
 
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
