@@ -192,6 +192,11 @@ a:hover{
 .boxResultSearch a{
 	text-decoration: none;
 }
+#content{
+	float: none;
+	padding-top: 20px;
+	border-top: 5px solid #1780b4;
+}
 nav.pagination { text-align: center; display: block;  }
 nav.pagination h2 { display: none; }
 @media(max-width: 768px){
