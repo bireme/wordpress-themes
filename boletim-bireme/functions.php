@@ -419,3 +419,11 @@ function filter_bcn_template_no_anchor( $template, $type, $id ) {
     return $template;
 }; 
 add_filter( 'bcn_breadcrumb_template_no_anchor', 'filter_bcn_template_no_anchor', 10, 3 ); 
+
+function themes_remove_hentry( $classes ) {
+	if ( is_single() ) {
+		$classes = array_diff( $classes, array( 'hentry' ) );
+  	}
+	return $classes;
+}
+add_filter( 'post_class', 'themes_remove_hentry' );
