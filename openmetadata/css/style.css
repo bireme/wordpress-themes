@@ -196,8 +196,6 @@ code {
 	border-radius: 3px;
 	font-family: 'Courier Prime', monospace;
 	padding: 0 3px;
-}
-.code code{
 	display: block;
 	padding: 10px;
 	max-height: 400px;
