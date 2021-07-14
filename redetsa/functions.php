@@ -112,11 +112,16 @@ add_image_size('bannerDesktop', 1280, 480, true);
 add_image_size('bannerMobile', 600, 350, true);
 
 add_action('init', function() {
-//Default
+  //Default
   pll_register_string('Terms and conditions of use', 'Terms and conditions of use','Default');
   pll_register_string('Privacy policy', 'Privacy policy', 'Default');
+  pll_register_string('View more', 'View more', 'Default');
 
-//Accessibility
+  //Home
+  pll_register_string('Latest news', 'Latest news','Home');
+  pll_register_string('Know RedETSA', 'Know RedETSA', 'Home');
+
+  //Accessibility
   pll_register_string('Main content', 'Main content', 'Accessibility');
   pll_register_string('Menu', 'Menu', 'Accessibility');
   pll_register_string('Search', 'Search', 'Accessibility');

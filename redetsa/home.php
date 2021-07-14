@@ -105,7 +105,7 @@ endwhile;
 
 <section class="padding1 color1">
   <div class="container">
-    <h2 class="title1 marginB1">Conheça</h2>
+    <h2 class="title1 marginB1"><?php pll_e('Know RedETSA'); ?></h2>
 
     <div id="boxConheca">
       <nav>
