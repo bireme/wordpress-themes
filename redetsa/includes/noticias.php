@@ -7,7 +7,7 @@
 			$posts = new WP_Query([
 				'post_type' => 'post',
 				// 'category_name'  => 'ultimas-noticias',
-				'posts_per_page' => '-1'
+				'posts_per_page' => '12'
 			]);
 			while($posts->have_posts()) : $posts->the_post();?>
 			<article class="slideNewsBox">
