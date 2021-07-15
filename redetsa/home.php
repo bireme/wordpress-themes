@@ -117,7 +117,7 @@ endwhile;
                 $title = get_sub_field('title_'.$loop);
                 ?>
                 <?php if ( $title ) : ?>
-                  <a class="nav-link  <?=$loop=='1'?'active':''; ?>" id="nav-<?=$loop; ?>-tab" data-bs-toggle="tab" href="#nav-<?=$loop ?>" role="tab" aria-controls="nav-<?=$loop; ?>" aria-selected="true"><?=$title; ?>?</a>
+                  <a class="nav-link  <?=$loop=='1'?'active':''; ?>" id="nav-<?=$loop; ?>-tab" data-bs-toggle="tab" href="#nav-<?=$loop ?>" role="tab" aria-controls="nav-<?=$loop; ?>" aria-selected="true"><?=$title; ?></a>
                 <?php endif; ?>
               <?php endwhile; ?>
             <?php endwhile; ?>
