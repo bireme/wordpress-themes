@@ -12,7 +12,6 @@
 				<thead>
 					<tr>
 						<th>Nome da Instituição</th>
-						<th>Nome da Unidade</th>
 						<th>CNPJ</th>
 						<th>Telefone</th>
 						<th>E-mail</th>
@@ -46,7 +45,6 @@
 						?>
 						<tr>
 							<td><?php the_title(); ?></td>
-							<td><?php echo $nome_da_unidade; ?></td>
 							<td><?php echo $cnpj; ?></td>
 							<td><?php echo $telefones; ?></td>
 							<td><?php echo $email; ?></td>
