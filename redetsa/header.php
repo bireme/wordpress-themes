@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row" style="position: relative;">
 				<div class="col-12" id="brand">
-					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $language=='es'?'':$language; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $language; ?>.png" alt="" class="img-fluid"></a>
+					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $language=='es'?'':$language; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $language; ?>.png" alt="" class="img-fluid imgBlack"></a>
 				</div>
 				<div id="language">
 					<?php 

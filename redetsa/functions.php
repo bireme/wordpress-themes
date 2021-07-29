@@ -31,7 +31,6 @@ add_action('init', 'action_init');
 function action_init()
 {
   register_nav_menu('Primary Menu', 'primary');
-  register_nav_menu('Footer Menu', 'footer');
   register_nav_menu('Language', 'Language');
 }
 //Custom Post Type
@@ -90,15 +89,6 @@ register_sidebar([
   'after_title'   => '</h2>'
 ]);
 register_sidebar([
-  'name'			=> 'Footer',
-  'id'			=> 'footer',
-  'description'	=> 'Footer',
-  'before_widget' => '<aside>',
-  'after_widget'  => '</aside>',
-  'before_title'  => '<h2 class="widget-title">',
-  'after_title'   => '</h2>'
-]);
-register_sidebar([
   'name'           => 'RSS Home',
   'id'             => 'rss_home',
   'description'    => 'RSS Home',
@@ -110,6 +100,7 @@ register_sidebar([
 
 add_image_size('bannerDesktop', 1280, 480, true);
 add_image_size('bannerMobile', 600, 350, true);
+
 
 add_action('init', function() {
   //Default

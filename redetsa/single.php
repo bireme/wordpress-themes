@@ -1,9 +1,3 @@
-<?php
-/**
- * Template Name: Full Width
- *
- */
-?>
 <?php get_header();?>
 <?php get_template_part('includes/nav'); ?>
 <main id="main_container" class="padding1">
@@ -12,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-<?php echo !is_active_sidebar( 'sidebar-1' ) ? '12' : '9'; ?>">
 				<?php while(have_posts()) : the_post();	?>
-					<?php the_post_thumbnail('large',['class' => 'img-fluid imgPost']); ?>
+					<?php  the_post_thumbnail('large',['class' => 'img-fluid margin1 mx-auto d-block']); ?><br>
 					<?php the_content();
 				endwhile;
 				?>

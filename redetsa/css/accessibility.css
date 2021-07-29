@@ -52,10 +52,10 @@
 .bodyBlack a{ /*links*/
 	color: #ff0!important;
 }
-.bodyBlack #nav, .bodyBlack #countHome,.bodyBlack #nav .dropdown-menu, .bodyBlack .dropdown-menu,
+.bodyBlack #nav,.bodyBlack #nav .dropdown-menu, .bodyBlack .dropdown-menu,
 .bodyBlack #footer, .bodyBlack .card-header, .bodyBlack .nav-link, .bodyBlack .pagination .disabled .page-link,
-.bodyBlack #barAcessibilidade{/*menu, footer e barra de acessibiliadade*/
-	background: #666;
+.bodyBlack #barAccessibility{/*menu, footer e barra de acessibiliadade*/
+	background: #666!important;
 }
  .bodyBlack .titleMain, .bodyBlack .breadcrumb, .bodyBlack .nav-item .active,
  .bodyBlack #searchInside, .bodyBlack .card, .bodyBlack #language a{
@@ -75,8 +75,8 @@
 Inserir divs do seu site
 ex: ".bodyBlack .noticias" para div noticia
 *********************/
-.bodyBlack #header, .bodyBlack .boxHome, .bodyBlack #searchInside, .bodyBlack .dropdown-menu a:hover,
-.bodyBlack .bgColor1, .bodyBlack #parceiros, .bodyBlack .table, .bodyBlack .page-item a, .bodyBlack .color1, .bodyBlack .title1{
+.bodyBlack #header, .bodyBlack .boxHome, .bodyBlack #searchInside, .bodyBlack .dropdown-menu a:hover, .bodyBlack #rssHome ul, .bodyBlack #boxConheca .active,
+.bodyBlack .bgColor1, .bodyBlack .color2, .bodyBlack .table, .bodyBlack .page-item a, .bodyBlack .color1, .bodyBlack .title1{
 	background: #000;
 	color: #fff;
 }

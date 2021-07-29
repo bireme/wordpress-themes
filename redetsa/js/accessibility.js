@@ -86,3 +86,31 @@ jQuery('#contraste').on( "click", function(){
 	}
 	jQuery('body').toggleClass('bodyBlack');
 });
+/*Busca por voz*/
+window.addEventListener('DOMContentLoaded', function() {
+	var speakBtn = document.querySelector('#speakBtn');
+    // testa se o navegador suporta o reconhecimento de voz
+    if (window.SpeechRecognition || window.webkitSpeechRecognition) {
+        // captura a voz
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        // inicia reconhecimento
+        speakBtn.addEventListener('click', function(e) {
+        	recognition.start();
+        }, false);
+        // resultado do reconhecimento
+        recognition.addEventListener('result', function(e) {
+        	// console.log(e);
+        	var result = e.results[0][0].transcript;
+        	// console.log(result);
+        	document.getElementById("fieldSearch").value = result;
+            // jQuery("#pesquisa").val(result);
+             // $("#mainForm").submit();
+             document.getElementById("mainForm").submit();
+             alert('teste');
+        }, false);
+    } else {
+    	// alert('Este navegador não suporta esta funcionalidade ainda!');
+    	jQuery('#speakBtn').css('display','none');
+    }
+}, false);

@@ -2,11 +2,11 @@
 <?php get_template_part('includes/nav') ?>
 <div class="container">  
 <br>  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Error 404 - Page not found!</strong> You should check in on some of those fields below.
+    <strong>Error 404 - Page not found!</strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
-<?php get_template_part('includes/banners') ?>
+
 <?php
 $home = new WP_Query(['post_type' => 'home',]);
 while($home->have_posts()) : $home->the_post();

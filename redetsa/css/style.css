@@ -3,6 +3,9 @@ a{
 	outline: 0;
 	/*color: #000;*/
 }
+.margin1{
+	margin-bottom: 30px;
+}
 .title1{
 	font-family: 'Ubuntu', sans-serif;
 	position: relative;
