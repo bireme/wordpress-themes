@@ -171,12 +171,12 @@ a{
 	transition: all 0.4s ease-in-out;
 	z-index: 9999;
 	height: 50px;
-	color: #999;
+	color: #826fde;
 	padding:5px;
 }
 .to-top:hover{
-	background: #999;
-	color: #fff;
+	background: #FFF;
+	color: #3b2c85;
 }
 .to-topText{
 	font-size: 10px;
@@ -186,6 +186,14 @@ a{
 }
 #footer{
 	font-size: 12px;
+	background: #3b2c85;
+	color: #fff;
+}
+#footer a{
+	color: #fff;
+}
+#footer a{
+	color: #ccc;
 }
 .areaCode{
 	resize: none

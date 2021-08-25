@@ -1,7 +1,6 @@
 	<?php $idioma = pll_current_language(); ?>
 	<footer id="footer" class="padding1 d-print-none">
 		<div class="container">
-			<hr><br>
 			<div class="row">
 				<div class="col-md-4">
 					<?php pll_e('Metadados Abertos das Fontes de Informação da BVS - BETA'); ?>
