@@ -119,6 +119,7 @@
 	margin-bottom: 5px;
 	display: inline-block;
 	background:#4c9e38;
+	cursor: pointer;
 }
 .aSpan:hover{
 	opacity: .8;
@@ -206,6 +207,18 @@
 .carousel-control-next-icon, .carousel-control-prev-icon{
 	width: 2rem;
 	height: 2rem;
+}
+.goalCheck{
+	position: static;
+    margin-top: auto; 
+ 	margin-left: auto;
+}
+.flagsFiltros label{
+	border-bottom: 2px solid #ddd;
+	cursor: pointer;
+}
+.flagsFiltros img{
+	width: 30px;
 }
 /************************** Breakpoints *********************/
 @media (max-width: 768px){
