@@ -1,5 +1,4 @@
 	<?php $idioma = pll_current_language(); ?>
-	<?php get_template_part('includes/termo') ?>
 	<footer id="footer" class="padding1 d-print-none">
 		<div class="container">
 			<hr><br>

@@ -30,15 +30,6 @@ function action_init()
   register_nav_menu('Primary Menu', 'primary');
   register_nav_menu('Language', 'Language');
 }
-// WIDGETS
-register_sidebar([
-  'name'      => 'Terms',
-  'id'      => 'Terms',
-  'description' => 'Terns',
-  'before_title'  => '<h5>',
-  'after_title' => '</h5>'
-]);
-
   //Custo post type
   add_action('init', 'custon_posts');
   function custon_posts(){
