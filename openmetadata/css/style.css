@@ -219,6 +219,15 @@ code {
 	#termo a:hover{
 		color: #999;
 	}
+.sectionColor{
+	background: linear-gradient(45deg, rgba(230,230,230,1) 0%, rgba(190,226,255,1) 100%);
+}
+.sectionColor:nth-child(even){
+	background: linear-gradient(45deg,  rgba(253,254,254,1) 0%, rgba(210,210,210,1) 100%);
+}
+.sectionColor{
+	border-bottom: 1px solid #ddd;
+}
 /************ Breakpoint ****************/
 @media (max-width: 768px){
 	#footer, #footer .text-end{
