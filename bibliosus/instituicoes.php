@@ -1,8 +1,7 @@
 <?php /* Template Name: Instituições */ ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <main id="main_container" class="padding1">
 	<div class="container">
 		<h2 class="title1">Diretório de Instituições</h2>
