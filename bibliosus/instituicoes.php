@@ -45,7 +45,7 @@
 							<td><?=$cnpj; ?></td>
 							<td><i class="fas fa-phone-alt"></i> <?=$telefones; ?> <br> <i class="far fa-envelope"></i> <?=$email; ?></td>
 							<td><i class="fas fa-map-marker-alt"></i> <?=$endereco_completo; ?> <br> <?=$cidade; ?> - <?=$uf; ?> - <?=$cep; ?></td>
-							<td><a href="<?php echo $home_page; ?>" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-file-word"></i> Link</a></td>
+							<td><?php echo $home_page; ?></td>
 							<td><?=$tipo_de_instituicao; ?></td>
 						</tr>
 						<?php
