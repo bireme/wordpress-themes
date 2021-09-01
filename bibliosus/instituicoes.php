@@ -41,11 +41,11 @@
 						$tipo_de_instituicao 	= get_field('tipo_de_instituicao');
 						?>
 						<tr>
-							<td><?php the_title(); ?></td>
+							<td><b><?php the_title(); ?></b></td>
 							<td><?=$cnpj; ?></td>
-							<td><?=$telefones; ?> <br> <?=$email; ?></td>
-							<td><?=$endereco_completo; ?> <br> <?=$cidade; ?> - <?=$uf; ?> - <?=$cep; ?></td>
-							<td><a href="<?php echo $home_page; ?>" target="_blank">Link</a></td>
+							<td><i class="fas fa-phone-alt"></i> <?=$telefones; ?> <br> <i class="far fa-envelope"></i> <?=$email; ?></td>
+							<td><i class="fas fa-map-marker-alt"></i> <?=$endereco_completo; ?> <br> <?=$cidade; ?> - <?=$uf; ?> - <?=$cep; ?></td>
+							<td><a href="<?php echo $home_page; ?>" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fas fa-file-word"></i> Link</a></td>
 							<td><?=$tipo_de_instituicao; ?></td>
 						</tr>
 						<?php
