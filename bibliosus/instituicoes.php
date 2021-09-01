@@ -1,12 +1,14 @@
 <?php /* Template Name: Instituições */ ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
+
+
 <main id="main_container" class="padding1">
 	<div class="container">
 		<h2 class="title1">Diretório de Instituições</h2>
 		<p><?php the_content(); ?></p>
-		
 		<br><hr><br>
+		<input class="form-control" id="myInput" type="text" placeholder="Pesquisar..."> <br>
 		<div class="table-responsive">
 			<table class="table table-bordered table-striped">
 				<thead>
@@ -23,7 +25,7 @@
 						<th>Tipo</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody  id="myTable">
 					<?php 
 					$posts = new WP_Query([
 						'post_type' => 'instituicoes',
@@ -60,6 +62,16 @@
 					?>
 				</tbody>
 			</table>
+			<script>
+				$(document).ready(function(){
+					$("#myInput").on("keyup", function() {
+						var value = $(this).val().toLowerCase();
+						$("#myTable tr").filter(function() {
+							$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+						});
+					});
+				});
+			</script>
 		</div>
 	</div>
 </main>
