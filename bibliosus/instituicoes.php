@@ -14,12 +14,8 @@
 					<tr>
 						<th>Nome da Instituição</th>
 						<th>CNPJ</th>
-						<th>Telefone</th>
-						<th>E-mail</th>
+						<th>Contato</th>
 						<th>Endereço</th>
-						<th>Cidade</th>
-						<th>UF</th>
-						<th>CEP</th>
 						<th>Página Web</th>
 						<th>Tipo</th>
 					</tr>
@@ -46,15 +42,11 @@
 						?>
 						<tr>
 							<td><?php the_title(); ?></td>
-							<td><?php echo $cnpj; ?></td>
-							<td><?php echo $telefones; ?></td>
-							<td><?php echo $email; ?></td>
-							<td><?php echo $endereco_completo; ?></td>
-							<td><?php echo $cidade; ?></td>
-							<td><?php echo $uf; ?></td>
-							<td><?php echo $cep; ?></td>
+							<td><?=$cnpj; ?></td>
+							<td><?=$telefones; ?> <br> <?=$email; ?></td>
+							<td><?=$endereco_completo; ?> <br> <?=$cidade; ?> - <?=$uf; ?> - <?=$cep; ?></td>
 							<td><a href="<?php echo $home_page; ?>" target="_blank">Link</a></td>
-							<td><?php echo $tipo_de_instituicao; ?></td>
+							<td><?=$tipo_de_instituicao; ?></td>
 						</tr>
 						<?php
 					endwhile;
