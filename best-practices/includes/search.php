@@ -10,7 +10,7 @@
 						<a id="speakBtn" href="#"><i class="fas fa-microphone-alt"></i></a>
 					</div>
 					<div class="col-1 float-end">
-						<button type="submit" id="submitHome" class="btn btn-primary">
+						<button type="submit" id="submitHome" class="btn btn-warning">
 							<i class="fas fa-search"></i>
 						</button>
 					</div>
