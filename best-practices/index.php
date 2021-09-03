@@ -4,10 +4,8 @@
 <?php get_template_part('includes/banners') ?>
 <section class="padding2 color1">
 	<div class="container">
-		<div class="alert alert-warning" role="alert">
-			<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas facere id tenetur numquam cumque unde amet ab accusantium libero architecto accusamus exercitationem magnam similique reprehenderit, nesciunt voluptate itaque? Expedita, animi.</p>
-			<a href="https://bestpractices.teste.bvsalud.org/login" class="alert-link"  target="_blank">Haga clic aquí y registre su buena práctica</a>.
-		</div>
+		<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas facere id tenetur numquam cumque unde amet ab accusantium libero architecto accusamus exercitationem magnam similique reprehenderit, nesciunt voluptate itaque? Expedita, animi.</p>
+		<a href="https://bestpractices.teste.bvsalud.org/login" class="alert-link"  target="_blank">Haga clic aquí y registre su buena práctica</a>.
 	</div>
 </section>
 <section class="padding1">
