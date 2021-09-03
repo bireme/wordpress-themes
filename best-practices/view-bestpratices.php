@@ -5,7 +5,6 @@
 **/
 ?>
 <?php get_header(); ?>
-<?php get_template_part('includes/nav') ?>
 <?php get_template_part('includes/search') ?>
 <section class="padding1">
 	<div class="container">
@@ -17,12 +16,11 @@
 					<a href="" class="btn btn-sm btn-outline-secondary" title="Compartilhar"><i class="fas fa-share-alt"></i></a>
 					<a href="" class="btn btn-sm btn-outline-secondary" title="Email"><i class="fas fa-envelope-open-text"></i></a>
 					<a href="" class="btn btn-sm btn-outline-secondary" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-					<a href="" class="btn btn-sm btn-outline-secondary" title="Twiiter"><i class="fab fa-twitter"></i></a>
+					<a href="" class="btn btn-sm btn-outline-secondary" title="Twitter"><i class="fab fa-twitter"></i></a>
 					<a href="" class="btn btn-sm btn-outline-secondary" title="fa-whatsapp"><i class="fab fa-whatsapp"></i></a>
 				</div>
 				<div>
 					<h3><b>Title Sessao</b></h3><br>
-
 					<h5><b>Title: </b></h5>
 					<p>Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Sapiente provident corporis saepe aperiam architecto, in fugiat libero consequuntur id quam, ratione aliquam sunt perferendis atque quia laboriosam, possimus, iusto enim.</p>
 					<hr>
@@ -87,7 +85,6 @@
 						</tr>
 					</table>
 				</div>
-
 				<div class="box1 title1">
 					<h4>OBJETIVOS</h4>
 					<a href="#" class="aSpan" data-toggle="tooltip" data-placement="top" title="Descrição">Goal 3 - Target 3.1</a>
@@ -114,7 +111,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </section>
-<?php get_footer(); ?> 
+<?php get_footer(); ?>
