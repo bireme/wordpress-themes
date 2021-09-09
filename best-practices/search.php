@@ -1,28 +1,5 @@
 <?php get_header(); ?>
-<?php get_template_part('includes/nav') ?>
 <?php get_template_part('includes/search') ?>
-
-<?php
-/*
-$posts = new WP_Query([
-	'post_type' => 'post',
-	's' => $_GET['s'],
-	'posts_per_page' => '-1'
-]);
-if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
-	<article class="">
-		<a href="<?php permalink_link(); ?>">
-			<b><?php the_title(); ?></b> <br>
-			<small><?php the_excerpt(); ?></small>
-			<hr>
-		</a>
-	</article>
-<?php endwhile; else: endif;
-*/
-?>
-
-
-
 <section class="padding1">
 	<div class="container" id="main_container">
 		<h3 class="title1">Results found:: <?php echo esc_html(get_query_var('s')); ?></h3>
@@ -35,7 +12,7 @@ if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
 								<b>Lorem ipsum dolor sit amet.</b>
 							</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ea tempora, illum aliquam dolores nostrum doloremque inventore quo, ipsa delectus iste temporibus minus, earum labore odio natus, blanditiis sed tempore.</p>
-							<b>Objetivos:</b> 
+							<b>Objetivos:</b>
 							<a href="#" class="aSpan" data-toggle="tooltip" data-placement="top" title="Descrição">Goal 3 - Target 3.1</a>
 							<a href="#" class="aSpan" data-toggle="tooltip" data-placement="top" title="Descrição">Goal 3 - Target 3.2</a>
 							<a href="#" class="aSpan" data-toggle="tooltip" data-placement="top" title="Descrição">Goal 3 - Target 3.3</a>
@@ -208,7 +185,4 @@ if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
 		</div>
 	</div>
 </section>
-
-
-
 <?php get_footer(); ?>

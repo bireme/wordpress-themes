@@ -1,21 +1,25 @@
 <?php
-//Register Custom Navigation Walker 
+//Register Custom Navigation Walker
 require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
-//thumb, title
+
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'align-wide' );
-add_action('wp_enqueue_scripts','style_top');
+add_image_size('bannerDesktop', 1100, 350, true);
+add_image_size('bannerMobile', 600, 350, true);
 
-function style_top(){
 //Add Styles Top
+function styles_top(){
   wp_enqueue_style('bootstrap',get_stylesheet_directory_uri().'/css/bootstrap.min.css');
   wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css');
+  wp_enqueue_style('404-style',get_stylesheet_directory_uri().'/css/404-style.css');
   wp_enqueue_style('acessibilidade',get_stylesheet_directory_uri().'/css/accessibility.css');
   wp_enqueue_style('fontawesome',get_stylesheet_directory_uri().'/css/fontawesome/css/all.css');
-  wp_enqueue_style('fonts','https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
-  wp_enqueue_style('zabuto_calendar',get_stylesheet_directory_uri().'/zabuto_calendar.min.css');
+  wp_enqueue_style('fonts','https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Maven+Pro:400,900&display=swap');
+  wp_enqueue_style('zabuto_calendar',get_stylesheet_directory_uri().'/css/zabuto_calendar.min.css');
 }
+add_action('wp_enqueue_scripts','styles_top');
+
 //Add Scripts Footer
 add_action('wp_footer','scripts_footer');
 function scripts_footer(){
@@ -24,42 +28,54 @@ function scripts_footer(){
   wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
   wp_enqueue_script('cookie',get_stylesheet_directory_uri().'/js/cookie.js');
   wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
+  wp_enqueue_script('aos',get_stylesheet_directory_uri().'/js/aos.js');
   wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 }
-//menu
-add_action('init', 'action_init');
+
+//Menu
 function action_init()
 {
   register_nav_menu('Primary Menu', 'primary');
   register_nav_menu('Language', 'Language');
 }
-// WIDGETS
-register_sidebar([
-  'name'           => 'Footer 1',
-  'id'             => 'footer_1',
-  'description'    => 'Footer 1',
-  'before_widget'  => '<aside>',
-  'after_widget'   => '</aside>',
-  'before_title'   => '<h3>',
-  'after_title'    => '</h3>'
-]);
-register_sidebar([
-  'name'           => 'Footer 2',
-  'id'             => 'footer_2',
-  'description'    => 'Footer 2',
-  'before_widget'  => '<aside>',
-  'after_widget'   => '</aside>',
-  'before_title'   => '<h3>',
-  'after_title'    => '</h3>'
-]);
-//Custom Post Type
-add_action('init', 'custon_posts');
-function custon_posts(){
-  registrar_custom_post_type();
+add_action('init', 'action_init');
+
+// Sidebars
+function register_theme_sidebars(){
+    register_sidebar([
+      'name'           => 'Footer 1',
+      'id'             => 'footer_1',
+      'description'    => 'Footer 1',
+      'before_widget'  => '<aside>',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<h3>',
+      'after_title'    => '</h3>'
+    ]);
+    register_sidebar([
+      'name'           => 'Footer 2',
+      'id'             => 'footer_2',
+      'description'    => 'Footer 2',
+      'before_widget'  => '<aside>',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<h3>',
+      'after_title'    => '</h3>'
+    ]);
+    register_sidebar([
+      'name'           => 'Main Sidebar',
+      'id'             => 'bp-sidebar',
+      'description'    => 'Main Sidebar',
+      'before_widget'  => '<aside>',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<h3>',
+      'after_title'    => '</h3>'
+    ]);
 }
-function registrar_custom_post_type() {
-// Banners
-  $descritivosBanner = array(
+add_action('widgets_init', 'register_theme_sidebars');
+
+//Custom Post Types
+function register_custom_post_types() {
+  // Banners
+  $descBanner = array(
     'name'                => 'Banner',
     'singular_name'      => 'Banner',
     'add_new'            => 'Adicionar novo banner',
@@ -74,7 +90,7 @@ function registrar_custom_post_type() {
     'menu_name'          => 'Banner'
   );
   $argsBanner = array(
-    'labels'            => $descritivosBanner,
+    'labels'            => $descBanner,
     'public'            => true,
     'hierarchical'      => false,
     'menu_position'     => 11,
@@ -84,27 +100,27 @@ function registrar_custom_post_type() {
   register_post_type( 'banners' , $argsBanner );
   flush_rewrite_rules();
 }
-add_image_size('bannerDesktop', 1100, 350, true);
-add_image_size('bannerMobile', 600, 350, true);
+add_action('init', 'register_custom_post_types');
 
-
+//Polylang Strings
 add_action('init', function() {
     //default
-    pll_register_string('Search', 'Search', 'Form'); 
-    pll_register_string('Latest registered good practices', 'Latest registered good practices', 'Default'); 
+    pll_register_string('Search', 'Search', 'Form');
+    pll_register_string('Latest registered good practices', 'Latest registered good practices', 'Default');
     //Footer
-    pll_register_string('Best Pratices', 'Best Pratices', 'Footer'); 
-    pll_register_string('Terms and conditions of use', 'Terms and conditions of use', 'Footer'); 
+    pll_register_string('Best Pratices', 'Best Pratices', 'Footer');
+    pll_register_string('Terms and conditions of use', 'Terms and conditions of use', 'Footer');
     pll_register_string('Privacy policy', 'Privacy policy', 'Footer');
     //Accessibility
     pll_register_string('Main content', 'Main content', 'Accessibility');
     pll_register_string('Menu', 'Menu', 'Accessibility');
     pll_register_string('Footer', 'Footer', 'Accessibility');
-    pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
-  });
+    pll_register_string('High contrast', 'High contrast', 'Accessibility');
+});
+
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
-  class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
-  {
+class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
+{
     private $current_item;
     private $dropdown_menu_alignment_values = [
       'dropdown-menu-start',
@@ -165,5 +181,5 @@ add_action('init', function() {
       $item_output .= $args->after;
       $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
-  }
+}
 ?>

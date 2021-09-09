@@ -1,9 +1,12 @@
-	<?php $language = pll_current_language(); ?>
+<?php
+	$site_language = strtolower(get_bloginfo('language'));
+	$lang = substr($site_language,0,2);
+?>
 	<footer id="footer" class="padding2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6" id="logoFooter">
-					<img src="<?php bloginfo('template_directory'); ?>/img/logo-footer-<?=$language; ?>.svg" alt="">
+					<img src="<?php bloginfo('template_directory'); ?>/img/logo-footer-<?php echo $lang; ?>.svg" alt="">
 				</div>
 				<nav class="col-md-3">
 					<ul class="list-unstyled"><?php dynamic_sidebar('footer_1') ?></ul>
@@ -16,15 +19,12 @@
 	</footer>
 	<div id="assFooter" class="text-center padding3">
 		<div class="container">
-			<img src="http://logos.bireme.org/img/<?=$language; ?>/h_bir_color.svg" alt="Bireme" class="img-fluid imgBlack">
+			<img src="https://logos.bireme.org/img/<?php echo $lang; ?>/h_bir_color.svg" alt="BIREME" class="img-fluid imgBlack">
 			<hr>
 			<div class="row" id="footerTermos">
-				<div class="col-md-6 text-left">
-					<?php pll_e('Best Pratices'); ?>
-				</div>
-				<div class="col-md-6 text-right">
-					<a href="http://politicas.bireme.org/terminos/<?php echo $language?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> |
-					<a href="http://politicas.bireme.org/privacidad/<?php echo $language?>/" target="_blank"><?php pll_e('Privacy Policy'); ?></a>
+				<div class="col-md-12 text-center">
+					<a href="https://politicas.bireme.org/terminos/<?php echo $lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'bp'); ?></a> |
+					<a href="https://politicas.bireme.org/privacidad/<?php echo $lang; ?>/" target="_blank"><?php _e('Privacy Policy', 'bp'); ?></a>
 				</div>
 			</div>
 		</div>
