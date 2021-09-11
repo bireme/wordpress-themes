@@ -8,12 +8,16 @@
 				<div class="col-md-6" id="logoFooter">
 					<img src="<?php bloginfo('template_directory'); ?>/img/logo-footer-<?php echo $lang; ?>.svg" alt="">
 				</div>
-				<nav class="col-md-3">
-					<ul class="list-unstyled"><?php dynamic_sidebar('footer_1') ?></ul>
-				</nav>
-				<nav class="col-md-3">
-					<ul class="list-unstyled"><?php dynamic_sidebar('footer_2') ?></ul>
-				</nav>
+				<?php if ( is_active_sidebar( 'footer_1' ) ) : $class = ( is_active_sidebar( 'footer_2' ) ) ? 'col-md-3' : 'col-md-6'; ?>
+					<nav class="<?php echo $class; ?>">
+						<ul class="list-unstyled"><?php dynamic_sidebar('footer_1') ?></ul>
+					</nav>
+				<?php endif; ?>
+				<?php if ( is_active_sidebar( 'footer_2' ) ) : $class = ( is_active_sidebar( 'footer_1' ) ) ? 'col-md-3' : 'col-md-6'; ?>
+					<nav class="<?php echo $class; ?>">
+						<ul class="list-unstyled"><?php dynamic_sidebar('footer_2') ?></ul>
+					</nav>
+				<?php endif; ?>
 			</div>
 		</div>
 	</footer>
