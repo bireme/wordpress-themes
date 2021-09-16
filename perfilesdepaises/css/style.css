@@ -1,0 +1,259 @@
+a{
+	text-decoration: none;
+	outline: 0;
+	/*color: #000;*/
+}
+.bg{
+	background: url('../img/bg.png') right bottom no-repeat;
+	background-color: #f3f5f8;
+}
+#nav{
+	background-color: #006489!important;
+}
+#nav .nav-link{
+	color: #fff;
+}
+#nav .nav-link:hover{
+	color: #999;
+}
+.title1{
+	font-family: 'Ubuntu', sans-serif;
+	position: relative;
+	padding-bottom: 30px;
+}
+.title1:before {
+	content: "";
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	height: 1px;
+	width: 100%;
+	background: #999;
+}
+.title1:after {
+	content: "";
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	height: 5px;
+	width: 80px;
+	background: #006489;
+}
+.title1 select{
+	margin-bottom: 20px;
+}
+.title1 .btn-light{
+	border: 1px solid #17a2b8;
+}
+.padding1{
+	padding: 20px 0 50px 0;
+}
+.padding2{
+	padding: 50px 0;
+}
+.marginB1{
+	margin-bottom: 20px;
+}
+.color1{
+	background: #efefef;
+}
+.color2{
+	color: #000;
+	/*background: linear-gradient(142deg, rgb(11 37 51) 0%, rgb(18 17 93) 100%);*/
+	background: linear-gradient(142deg, rgb(197 235 255) 0%, rgb(255 255 255) 100%);
+}
+#header{
+	padding: 20px 0;
+}
+#language{
+	text-align: right;
+	float: right;
+	position: absolute;
+	right: 0px;
+	z-index: 1;
+	max-width: 300px;
+	margin-top: 30px;
+}
+#language ul li{
+	list-style: none;
+	display: inline-block;
+}
+#language a{
+	background:#006489;
+	color: #fff;
+	font-size: 12px;
+	padding: 5px;
+}
+#language a:hover{
+	background: #6cc7e8;
+}
+#language .current-lang a{
+	background: #6cc7e8;
+	cursor: default;
+	text-decoration: none;
+}
+#footer{
+	background-color: #006489;
+	color: #fff;
+}
+#footer a{
+	color: #fff;
+}
+#footer a:hover{
+	color: #ccc;
+}
+fieldset{
+	border: 1px solid #ddd;
+	border-left:5px solid #006489;
+	padding: 20px;
+}
+legend{
+	background: #fff;
+	float: none;
+	padding: 0 10px;
+	width: auto;
+	font-size: 30px;
+	font-weight: 600;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+	background: #006489;
+}
+.dimension .card{
+	margin-bottom: 10px;
+	border: 3px solid #fff!important;
+}
+
+.card a:hover{
+	color: #0000ff;
+	text-decoration: underline;
+}
+.menos{
+	transform: rotate(180deg);
+}
+/*** padrao ***/
+.bg1{
+	background: #0a94d3 url(../img/bgCard.png) bottom right;
+}
+.bg2{
+	background: #1ec598 url(../img/bgCard.png) bottom right;
+}
+.bg3{
+	background: #f86e64 url(../img/bgCard.png) bottom right;
+}
+.bg4{
+	background: #ddd url(../img/bgCard.png) bottom right;
+}
+.bg1, .bg2, .bg3, .bg4{
+	font-size: 18px;
+	text-align: center;
+	border-radius: 20px;
+	color: #000;
+}
+.bg1 a, .bg2 a, .bg3 a{
+	color: #fff;
+	font-weight: 600;
+}
+.bg1 a:hover, .bg2 a:hover, .bg3 a:hover, .bg4 a:hover, .bg5 a:hover, .bg6 a:hover{
+	color: #ff0;
+	text-decoration: none;
+}
+.bg4 a{
+	color: #000;
+	font-weight: bold;
+}
+.bg4 a:hover{
+	color: #666; text-decoration: none;
+	font-weight: bold;
+}
+.bg1pad1{
+	padding: 30px; font-size: 24px;
+}
+.bg1pad2{
+	padding: 20px;
+	font-size: 20px;
+}
+.bgW1{
+	margin-top: 40px;
+	min-height: 120px;
+	padding: 10px 0px;
+	font-size: 20px;
+}
+.bgW2{
+	min-height: 200px;
+	padding: 10px 0px;
+	font-size: 24px;
+}
+.card-header, .card-body{
+	padding: 10px;
+}
+.card-header{
+	background: none;
+	border: none;
+}
+.card-header button{
+	margin-left: 10px;
+}
+.card-body{
+	border-top: 1px solid rgba(255, 255, 255, .2);
+	font-size: 16px!important;
+}
+.divRelative{
+	position: relative;
+}
+.col-12{
+	z-index: 0;
+}
+#arrow1{	position: absolute; left: 40%; 		top: -120px; 	z-index: -1;}
+#arrow2{	position: absolute;	right: -30px;	top: -5px; 		z-index: -1;}
+#arrow3{	position: absolute;	right: -30px; 	top: 65px; 		z-index: -1;}
+#arrow4{	position: absolute;	right: -30px; 	top: 25px; 		z-index: -1;}
+#arrow5{	position: absolute;	right: -30px; 	top: 65px; 		z-index: -1;}
+#arrow5B{	position: absolute; right: -30px; 	bottom: -20px; 	z-index: -1; 	transform: rotate(45deg);}
+#arrow6{	position: absolute;	right: -30px; 	top: 25px; 		z-index: -1;}
+#arrow7{	position: absolute;	left: -40px; 	bottom: -25px;	z-index: -1;	transform: rotate(-45deg);}
+@media (max-width: 768px){
+	.marginB1{
+		margin-bottom: 20px;
+	}
+	#brand{
+		text-align: center;
+	}
+	#language{
+		float: none;
+		text-align: center;
+		position: static;
+		right: auto;
+		max-width: 100%;
+		margin-top: 10px;
+	}
+}
+/*** RedETSA ***/
+.bg1{
+	background: #428cc5  url(../img/bgCard.png) bottom right;
+}
+.bg2{
+	background: #efce4e  url(../img/bgCard.png) bottom right;
+}
+.bg3{
+	background: #ec3e4e url(../img/bgCard.png) bottom right;
+}
+.bg4{
+	background: #ddd url(../img/bgCard.png) bottom right;
+}
+.bg2 a{
+	color: #000;
+}
+.bg2 a:hover{
+	color: #666;
+	text-decoration: none;
+}
+.bg3 a:hover{
+	color: #ddd;
+	text-decoration: none;
+}
+/************* breakpoint *************/
+@media (max-width: 768px){
+	#arrow1, #arrow2, #arrow3, #arrow4, #arrow5, #arrow5B, #arrow6, #arrow7{
+		display: none;
+	}
+}

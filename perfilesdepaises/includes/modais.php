@@ -1,0 +1,16 @@
+<?php get_template_part('includes/modal-evaluacion') ?>
+<?php get_template_part('includes/modal-marco-legal') ?>
+<?php get_template_part('includes/modal-estructura') ?>
+<?php get_template_part('includes/modal-redes') ?>
+<?php get_template_part('includes/modal-directrices') ?>
+<?php get_template_part('includes/modal-produccion') ?>
+<?php get_template_part('includes/modal-participacion') ?>
+<?php get_template_part('includes/modal-productos') ?>
+<?php get_template_part('includes/modal-mecanismo') ?>
+<?php get_template_part('includes/modal-incorporadas') ?>
+<?php get_template_part('includes/modal-processo-desinversion') ?>
+<?php get_template_part('includes/modal-uso-racional') ?>
+<?php get_template_part('includes/modal-guia-practiva') ?>
+<?php get_template_part('includes/modal-monitoreo') ?>
+<?php get_template_part('includes/modal-priorizacion') ?>
+<?php get_template_part('includes/modal-autorizacion') ?>
