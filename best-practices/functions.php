@@ -5,7 +5,7 @@ require_once get_template_directory().'/class-wp-bootstrap-navwalker.php';
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'align-wide' );
-add_image_size('bannerDesktop', 1100, 350, true);
+add_image_size('bannerDesktop', 1600, 450, true);
 add_image_size('bannerMobile', 600, 350, true);
 
 //Add Styles Top

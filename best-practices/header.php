@@ -20,7 +20,7 @@
 				<div class="col-md-5">
 					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='es'?'':$lang; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" alt="" class="img-fluid" id="logo" ></a>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-7 d-print-none">
 					<div id="lang">
 						<?php
 	                        if ( function_exists( 'pll_the_languages' ) ) {

@@ -1,5 +1,5 @@
 <section>
-	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+	<div id="carouselExampleCaptions" class="carousel slide d-print-none" data-ride="carousel">
 		<div class="carousel-inner">
 			<?php 
 			$banners = new WP_Query([

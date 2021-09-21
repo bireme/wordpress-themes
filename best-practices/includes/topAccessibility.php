@@ -2,7 +2,7 @@
 	$site_language = strtolower(get_bloginfo('language'));
 	$lang = substr($site_language,0,2);
 ?>
-<section id="barAccessibility">
+<section id="barAccessibility" class="d-print-none">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6" id="accessibilityTutorial">

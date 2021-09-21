@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</footer>
-	<div id="assFooter" class="text-center padding3">
+	<div id="assFooter" class="text-center padding3 d-print-none">
 		<div class="container">
 			<img src="https://logos.bireme.org/img/<?php echo $lang; ?>/h_bir_color.svg" alt="BIREME" class="img-fluid imgBlack">
 			<hr>

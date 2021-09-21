@@ -8,7 +8,7 @@
 		$action = real_site_url($bp_config['plugin_slug']);
 	}
 ?>
-<section id="sectionSearch" class="padding2">
+<section id="sectionSearch" class="padding2 d-print-none">
 	<div class="container">
 		<div class="col-md-12">
 			<form id="formHome" method="get" action="<?php echo $action; ?>" >
