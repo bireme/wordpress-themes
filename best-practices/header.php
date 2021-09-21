@@ -1,6 +1,12 @@
 <?php
 	$site_language = strtolower(get_bloginfo('language'));
 	$lang = substr($site_language,0,2);
+
+	if ( function_exists('pll_home_url') ) {
+		$home_url = pll_home_url($lang);
+	} else {
+		$home_url = ( 'en' == $lang ) ? get_option('siteurl') : get_option('siteurl') . '/' . $lang;
+	}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes() ?> >
@@ -18,7 +24,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='es'?'':$lang; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" alt="" class="img-fluid" id="logo" ></a>
+					<a href="<?php echo $home_url; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" alt="" class="img-fluid" id="logo" ></a>
 				</div>
 				<div class="col-md-7 d-print-none">
 					<div id="lang">
