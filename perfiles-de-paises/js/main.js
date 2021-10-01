@@ -1,5 +1,5 @@
 jQuery('.btnPlus').click(function(){
-	 jQuery(this).children('i').toggleClass("menos");
+  jQuery(this).children('i').toggleClass("menos");
 });
 jQuery.fn.dropdown.Constructor.prototype._addEventListeners = function _addEventListeners() {
     var _this = this;
@@ -9,8 +9,13 @@ jQuery.fn.dropdown.Constructor.prototype._addEventListeners = function _addEvent
     });
 };
 
-jQuery(document).ready(function(){
-    jQuery("select#country").change(function(){
-        var selectedCountry = jQuery(this).children("option:selected").val();
-    });
-});
+
+
+function countryRedirect (url) {
+    jQuery(function () {
+            // var country = jQuery('#country option').filter(':selected').val();
+            var country = jQuery('#country').val();
+            var href = url + "?country=" + encodeURIComponent(country);
+            window.location.href = href;
+        });
+}

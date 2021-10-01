@@ -131,57 +131,12 @@ legend{
 	transform: rotate(180deg);
 }
 /*** padrao ***/
-.bg1{
-	background: #0a94d3 url(../img/bgCard.png) bottom right;
-}
-.bg2{
-	background: #1ec598 url(../img/bgCard.png) bottom right;
-}
-.bg3{
-	background: #f86e64 url(../img/bgCard.png) bottom right;
-}
-.bg4{
-	background: #ddd url(../img/bgCard.png) bottom right;
-}
-.bg1, .bg2, .bg3, .bg4{
-	font-size: 18px;
-	text-align: center;
-	border-radius: 20px;
-	color: #000;
-}
-.bg1 a, .bg2 a, .bg3 a{
-	color: #fff;
-	font-weight: 600;
-}
-.bg1 a:hover, .bg2 a:hover, .bg3 a:hover, .bg4 a:hover, .bg5 a:hover, .bg6 a:hover{
-	color: #ff0;
-	text-decoration: none;
-}
-.bg4 a{
-	color: #000;
-	font-weight: bold;
-}
-.bg4 a:hover{
-	color: #666; text-decoration: none;
-	font-weight: bold;
-}
 .bg1pad1{
 	padding: 30px; font-size: 24px;
 }
 .bg1pad2{
 	padding: 20px;
 	font-size: 20px;
-}
-.bgW1{
-	margin-top: 40px;
-	min-height: 120px;
-	padding: 10px 0px;
-	font-size: 20px;
-}
-.bgW2{
-	min-height: 200px;
-	padding: 10px 0px;
-	font-size: 24px;
 }
 .card-header, .card-body{
 	padding: 10px;
@@ -211,6 +166,91 @@ legend{
 #arrow5B{	position: absolute; right: -30px; 	bottom: -20px; 	z-index: -1; 	transform: rotate(45deg);}
 #arrow6{	position: absolute;	right: -30px; 	top: 25px; 		z-index: -1;}
 #arrow7{	position: absolute;	left: -40px; 	bottom: -25px;	z-index: -1;	transform: rotate(-45deg);}
+.m70{
+	margin-top: 70px;
+}
+.p30{
+	padding-top: 30px;
+}
+.p20{
+	padding-top: 20px;
+}
+
+/*** Fichas Tecnicas ***/
+.bg1, .bg2, .bg3, .bg4{
+	font-size: 18px;
+	text-align: center;
+	border-radius: 15px;
+	color: #000;
+}
+.bg1 a, .bg2 a, .bg3 a{
+	color: #fff;
+	font-weight: 600;
+}
+.bg1 a:hover, .bg2 a:hover, .bg3 a:hover,
+.bg4 a:hover, .bg5 a:hover, .bg6 a:hover{
+	color: #ff0;
+	text-decoration: none;
+}
+.bg1{
+	background: #428cc5 url(../img/bgCard.png) bottom right;
+}
+.bg2{
+	background: #efce4e url(../img/bgCard.png) bottom right;
+}
+	.bg2 a{
+		color: #000;
+	}
+	.bg2 a:hover{
+		color: #666;
+		text-decoration: none;
+	}
+.bg3{
+	background: #ec3e4e url(../img/bgCard.png) bottom right;
+}
+	.bg3 a:hover{
+		color: #ddd;
+		text-decoration: none;
+	}
+.bg4{
+	background: #ddd url(../img/bgCard.png) bottom right;
+}
+	.bg4 a{
+		color: #000;
+		font-weight: bold;
+	}
+	.bg4 a:hover{
+		color: #666; text-decoration: none;
+		font-weight: bold;
+	}
+.bgW1{
+	margin-top: 40px;
+	min-height: 120px;
+	padding: 10px 0px;
+}
+.bgW2{
+	min-height: 200px;
+	padding: 40px 0px 10px 0;
+	font-size: 24px;
+}
+/************* breakpoint *************/
+@media (max-width: 1400px){
+	.bg1, .bg2, .bg3, .bg4{
+		font-size: 16px;
+	}
+	.bgW1{
+		margin-top:30px ;
+	}
+	.bgW1{
+		padding:0px ;
+	}
+}
+
+@media (max-width: 964px){
+	#arrow1, #arrow2, #arrow3, #arrow4, #arrow5, #arrow5B, #arrow6, #arrow7{
+		display: none;
+	}
+}
 @media (max-width: 768px){
 	.marginB1{
 		margin-bottom: 20px;
@@ -226,34 +266,20 @@ legend{
 		max-width: 100%;
 		margin-top: 10px;
 	}
-}
-/*** RedETSA ***/
-.bg1{
-	background: #428cc5  url(../img/bgCard.png) bottom right;
-}
-.bg2{
-	background: #efce4e  url(../img/bgCard.png) bottom right;
-}
-.bg3{
-	background: #ec3e4e url(../img/bgCard.png) bottom right;
-}
-.bg4{
-	background: #ddd url(../img/bgCard.png) bottom right;
-}
-.bg2 a{
-	color: #000;
-}
-.bg2 a:hover{
-	color: #666;
-	text-decoration: none;
-}
-.bg3 a:hover{
-	color: #ddd;
-	text-decoration: none;
-}
-/************* breakpoint *************/
-@media (max-width: 768px){
-	#arrow1, #arrow2, #arrow3, #arrow4, #arrow5, #arrow5B, #arrow6, #arrow7{
-		display: none;
+	.bg1pad1, .bg1pad2,
+	.bgW1, .bgW2,
+	.m70, .p30, .p20{
+		padding-top: 0!important;
+		padding-bottom: 0!important;
+		font-size: 18px!important;
+		margin:auto!important;
+		min-height: auto!important;
 	}
+	.mb1{
+		margin:5px 0;
+	}
+	.bg{
+		background: none;
+	}
+
 }

@@ -9,21 +9,33 @@
       </button>
     </div>
     <div class="modal-body">
-      <?php 
-      $fichas = new WP_Query([
+      <?php
+      $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
+      $cmp = ( isset($_GET['country']) ) ? '=' : '!=';
+      $fichas = new WP_Query(array(
         'post_type' => 'fichas',
-        'posts_per_page' => '-1'
-      ]);
+        'post_status' => 'publish',
+        'orderby' => 'title',
+          'order'   => 'asc',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+          array(
+            'key' => 'pais',
+            'value' => $country,
+            'compare' => $cmp,
+          ),
+        ),
+      ));
       while($fichas->have_posts()) : $fichas->the_post();
         $pais = get_field('pais');
         $bandera = get_field('bandera');
         $text = get_field('ts_incorporadas');
         ?>
         <div class="<?php echo $text == '' ? "d-none" : ""; ?>">
-            <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>"> <b><?=$pais; ?></b> <hr> 
-            <?=$text; ?>
-            <hr><br><br>
-          </div>
+          <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>"> <b><?=$pais; ?></b> <hr> 
+          <?=$text; ?>
+          <hr><br><br>
+        </div>
         <?php 
       endwhile; 
       ?>
