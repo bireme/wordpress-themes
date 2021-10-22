@@ -43,6 +43,24 @@ add_action('init', 'action_init');
 // Sidebars
 function register_theme_sidebars(){
     register_sidebar([
+      'name'           => 'BP Sidebar 1',
+      'id'             => 'bp-sidebar-1',
+      'description'    => 'BP Sidebar 1',
+      'before_widget'  => '<aside>',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<h3>',
+      'after_title'    => '</h3>'
+    ]);
+    register_sidebar([
+      'name'           => 'BP Sidebar 2',
+      'id'             => 'bp-sidebar-2',
+      'description'    => 'BP Sidebar 2',
+      'before_widget'  => '<aside>',
+      'after_widget'   => '</aside>',
+      'before_title'   => '<h3>',
+      'after_title'    => '</h3>'
+    ]);
+    register_sidebar([
       'name'           => 'Footer 1',
       'id'             => 'footer_1',
       'description'    => 'Footer 1',
@@ -55,15 +73,6 @@ function register_theme_sidebars(){
       'name'           => 'Footer 2',
       'id'             => 'footer_2',
       'description'    => 'Footer 2',
-      'before_widget'  => '<aside>',
-      'after_widget'   => '</aside>',
-      'before_title'   => '<h3>',
-      'after_title'    => '</h3>'
-    ]);
-    register_sidebar([
-      'name'           => 'Main Sidebar',
-      'id'             => 'bp-sidebar',
-      'description'    => 'Main Sidebar',
       'before_widget'  => '<aside>',
       'after_widget'   => '</aside>',
       'before_title'   => '<h3>',
