@@ -9,8 +9,6 @@
         </button>
       </div>
       <div class="modal-body">
-
-
         <?php
         $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
         $cmp = ( isset($_GET['country']) ) ? '=' : '!=';
@@ -31,7 +29,7 @@
         while($fichas->have_posts()) : $fichas->the_post();
           $pais = get_field('pais');
           $bandera = get_field('bandera');
-          $text = get_field('directrices_y_aspectos_a_evaluar');
+          $text = get_field('autorizacion_de_mercado');
           ?>
           <div class="<?php echo $text == '' ? "d-none" : ""; ?>">
             <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>"> <b><?=$pais; ?></b> <hr> 

@@ -12,9 +12,6 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
     <div class="row mb-3">
       <label for="pais" class="col-sm-4 col-md-3 col-lg-2 col-form-label"><b><?php pll_e('Seleccionar país'); ?>:</b></label>
       <div class="col-sm-8 col-md-9 col-lg-10">
-
-
-
         <form action="">
           <select class="form-control" id="country" onchange="countryRedirect('<?php echo $current_url;?>');">
             <option value="all"><?php pll_e('Seleccionar país'); ?></option>
@@ -31,9 +28,6 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
             <?php  endwhile; ?>
           </select>
         </form>
-
-
-
       </div>
     </div>
     <hr>
@@ -48,8 +42,8 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
               <a href="#!"><?php pll_e('Configuración institucional y Gobernanza'); ?>: </a>
             </div>
             <div class="card-body collapse" id="area1">
-              <a href="#marcoLegal" data-toggle="modal"><?php pll_e('Marco legal y dependencia'); ?></a>
-              <a href="#estructura" data-toggle="modal"><?php pll_e('Estructura y Recursos'); ?></a> 
+              <a href="#marcoLegal" data-toggle="modal"><?php pll_e('Marco legal y dependencia'); ?></a> <br>
+              <a href="#estructura" data-toggle="modal"><?php pll_e('Estructura y Recursos'); ?></a>  <br>
               <a href="#redesColaboradores" data-toggle="modal"><?php pll_e('Redes y Colaboradores'); ?></a>
             </div>
           </div>
@@ -138,8 +132,8 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
               <a href="#!" data-toggle="modal"><?php pll_e('Uso de las Tecnologías de Salud'); ?></a>
             </div>
             <div class="card-body collapse" id="area4">
-              <a href="#usoRacional" data-toggle="modal"><?php pll_e('Uso Racional'); ?></a> 
-              <a href="#gpc" data-toggle="modal"><?php pll_e('GPC'); ?></a> 
+              <a href="#usoRacional" data-toggle="modal"><?php pll_e('Uso Racional'); ?></a> <br>
+              <a href="#gpc" data-toggle="modal"><?php pll_e('GPC'); ?></a> <br>
               <a href="#monitoreo" data-toggle="modal"><?php pll_e('Monitoreo'); ?></a>
             </div>
           </div>
@@ -155,8 +149,8 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
               <a href="#!"><?php pll_e('Aspectos metodológicos y procedimentales'); ?></a>
             </div>
             <div class="card-body collapse" id="area5">
-              <a href="#directrices" data-toggle="modal"><?php pll_e('Directrices y aspectos a evaluar'); ?></a>
-              <a href="#produccion" data-toggle="modal"><?php pll_e('Producción y ejecución'); ?></a>
+              <a href="#directrices" data-toggle="modal"><?php pll_e('Directrices y aspectos a evaluar'); ?></a> <br>
+              <a href="#produccion" data-toggle="modal"><?php pll_e('Producción y ejecución'); ?></a> <br>
               <a href="#participacion" data-toggle="modal"><?php pll_e('Participación social'); ?></a>
             </div>
           </div>
@@ -229,8 +223,8 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
             <a href="#!"><?php pll_e('Configuración institucional y Gobernanza'); ?>: </a>
           </div>
           <div class="card-body collapse" id="area1">
-            <a href="#marcoLegal" data-toggle="modal"><?php pll_e('Marco legal y dependencia'); ?></a>
-            <a href="#estructura" data-toggle="modal"><?php pll_e('Estructura y Recursos'); ?></a> 
+            <a href="#marcoLegal" data-toggle="modal"><?php pll_e('Marco legal y dependencia'); ?></a> <br>
+            <a href="#estructura" data-toggle="modal"><?php pll_e('Estructura y Recursos'); ?></a>  <br>
             <a href="#redesColaboradores" data-toggle="modal"><?php pll_e('Redes y Colaboradores'); ?></a>
           </div>
         </div>
