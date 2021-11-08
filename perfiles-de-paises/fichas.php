@@ -2,6 +2,7 @@
 <?php
 global $wp;
 $current_url = home_url( add_query_arg( array(), $wp->request ) );
+$country = (isset($_GET['country']) ) ? $_GET['country'] : '';
 ?>
 <?php get_header(); ?>
 <main id="main_container" class="padding1 bg">
@@ -14,7 +15,8 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
       <div class="col-sm-8 col-md-9 col-lg-10">
         <form action="">
           <select class="form-control" id="country" onchange="countryRedirect('<?php echo $current_url;?>');">
-            <option value="all"><?php pll_e('Seleccionar país'); ?></option>
+            <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
+            <option value=""><?php pll_e('Seleccionar país'); ?></option>
             <?php 
             $fichas = new WP_Query([
               'post_type' => 'fichas',
