@@ -15,18 +15,18 @@ $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
       <div class="col-sm-8 col-md-9 col-lg-10">
         <form action="">
           <select class="form-control" id="country" onchange="countryRedirect('<?php echo $current_url;?>');">
-            <option value="<?php echo $country; ?>"><?php echo $country; ?></option>
             <option value=""><?php pll_e('Seleccionar país'); ?></option>
             <?php 
             $fichas = new WP_Query([
-              'post_type' => 'fichas',
-              'orderby'=>'title',
-              'order'=>'ASC'
+              'post_type'         => 'fichas',
+              'orderby'           =>'title',
+              'order'             =>'ASC',
+              'posts_per_page'    => -1,
             ]);
             while($fichas->have_posts()) : $fichas->the_post();
               $pais = get_field('pais');
               ?>
-              <option value="<?php echo $pais; ?>"><?php echo $pais; ?></option>
+              <option value="<?php echo $pais; ?>" <?php echo ( $pais == $country ) ? 'selected' : ''; ?>><?php echo $pais; ?></option>
             <?php  endwhile; ?>
           </select>
         </form>

@@ -10,22 +10,22 @@
     </div>
     <div class="modal-body">
       <?php
-        $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
-        $cmp = ( isset($_GET['country']) ) ? '=' : '!=';
-        $fichas = new WP_Query(array(
-          'post_type' => 'fichas',
-          'post_status' => 'publish',
-          'orderby' => 'title',
-          'order'   => 'asc',
-          'posts_per_page' => -1,
-          'meta_query' => array(
-            array(
-              'key' => 'pais',
-              'value' => $country,
-              'compare' => $cmp,
-            ),
+      $country = ( isset($_GET['country']) && !empty($_GET['country']) ) ? $_GET['country'] : '';
+      $cmp = ( isset($_GET['country']) && !empty($_GET['country']) ) ? '=' : '!=';
+      $fichas = new WP_Query(array(
+        'post_type'       => 'fichas',
+        'post_status'     => 'publish',
+        'orderby'         => 'title',
+        'order'           => 'asc',
+        'posts_per_page'  => -1,
+        'meta_query'      => array(
+          array(
+            'key'         => 'pais',
+            'value'       => $country,
+            'compare'     => $cmp,
           ),
-        ));
+        ),
+      ));
       while($fichas->have_posts()) : $fichas->the_post();
         $pais = get_field('pais');
         $bandera = get_field('bandera');
