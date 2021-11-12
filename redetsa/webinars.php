@@ -8,7 +8,7 @@ Template Name: Webinars
 <main id="main_container" class="padding1">
   <div class="container">
     <h1 class="title1"><?php the_title(); ?></h1>
-    <div class="searchNews">
+    <!-- <div class="searchNews">
       <div class="row g-3 align-items-center">
         <div class="col-12">
           <input type="text" id="text" class="form-control" aria-describedby="text" placeholder="Título">
@@ -35,12 +35,12 @@ Template Name: Webinars
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <?php
       $posts = new WP_Query([
         'post_type' => 'post',
-        'category_name'  => 'webinars',
+        'category_name'  => 'webinars, webinar_es, webinar_en, webinar-portugues',
         'posts_per_page' => '-1'
       ]);
       if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
