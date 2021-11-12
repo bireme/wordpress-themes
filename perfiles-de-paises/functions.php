@@ -30,6 +30,7 @@ add_action('init', 'action_init');
 function action_init()
 {
   register_nav_menu('Primary Menu', 'primary');
+  register_nav_menu('Secondary Menu', 'secondary');
   register_nav_menu('Language', 'Language');
 }
 //Custom Post Type
@@ -62,6 +63,30 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-format-gallery'
   );
   register_post_type( 'fichas' , $argsFichas );
+  // ToolKits
+  /*$descritivosToolKit = array(
+    'name'                => 'Toolkits',
+    'singular_name'      => 'Toolkits',
+    'add_new'            => 'Adicionar novo toolkit',
+    'add_new_item'       => 'Adicionar toolkit',
+    'edit_item'          => 'Editar toolkit',
+    'new_item'           => 'Novas toolkit',
+    'view_item'          => 'Visualizar toolkit',
+    'search_items'       => 'Pesquisar toolkit',
+    'not_found'          => 'Nenhum toolkit encontrado',
+    'not_found_in_trash' => 'Nenhum toolkit na lixeira',
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Toolkits'
+  );
+  $argsToolkit = array(
+    'labels'            => $descritivosToolKit,
+    'public'            => true,
+    'hierarchical'      => false,
+    'menu_position'     => 12,
+    'supports'          => array('title','editor'),
+    'menu_icon'         => 'dashicons-media-document'
+  );
+  register_post_type( 'toolkit' , $argsToolkit );*/
   flush_rewrite_rules();
 }
 add_image_size('flag', 20, 20, true);

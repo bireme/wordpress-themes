@@ -1,7 +1,7 @@
 <?php /* Template Name: Fichas */ ?>
 <?php
 global $wp;
-$current_url = home_url( add_query_arg( array(), $wp->request ) );
+$current_url = home_url(add_query_arg(array(),$wp->request ));
 $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
 ?>
 <?php get_header(); ?>
