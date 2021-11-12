@@ -40,7 +40,7 @@ Template Name: News
       <?php
       $posts = new WP_Query([
         'post_type' => 'post',
-        'category_name'  => 'ultimas-noticias, noticias',
+        'category_name'  => 'noticias-es, noticias-pt',
         'posts_per_page' => '-1'
       ]);
       if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
