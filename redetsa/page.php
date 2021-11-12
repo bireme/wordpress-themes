@@ -4,7 +4,7 @@
 	<div class="container">
 		<h1 class="title1"><?php the_title(); ?></h1>
 		<?php while(have_posts()) : the_post();	?>
-			<?php the_post_thumbnail('large',['class' => 'img-fluid imgPost']); ?>
+			<?php the_post_thumbnail('large',['class' => 'img-fluid']); ?>
 			<?php the_content();
 		endwhile;
 		?>

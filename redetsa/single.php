@@ -6,7 +6,6 @@
 		<div class="row">
 			<div class="col-md-<?php echo !is_active_sidebar( 'sidebar-1' ) ? '12' : '9'; ?>">
 				<?php while(have_posts()) : the_post();	?>
-					<?php  the_post_thumbnail('large',['class' => 'img-fluid margin1 mx-auto d-block']); ?><br>
 					<?php the_content();
 				endwhile;
 				?>
@@ -23,9 +22,7 @@
 			<div class="col-md-3 <?php echo !is_active_sidebar( 'sidebar-1' ) ? 'd-none' : ''; ?>">
 				<?php dynamic_sidebar('sidebar-1') ?>
 			</div>
-
-		</div>
-		
+		</div>	
 	</div>
 </main>
 <?php get_footer(); ?>

@@ -29,6 +29,14 @@ a{
 	width: 80px;
 	background: #006489;
 }
+.title2{
+	font-family: 'Ubuntu', sans-serif;
+	background: #0f75bc;
+	border-radius: 5px;
+	color: #FFF;
+	padding: 10px;
+	font-size: 22px;
+}
 .padding1{
 	padding: 50px 0;
 }
@@ -42,6 +50,11 @@ a{
 	color: #000;
 	/*background: linear-gradient(142deg, rgb(11 37 51) 0%, rgb(18 17 93) 100%);*/
 	background: linear-gradient(142deg, rgb(197 235 255) 0%, rgb(255 255 255) 100%);
+}
+.searchNews{
+	background: #eee;
+	padding: 20px;
+	margin-bottom: 10px;
 }
 #header{
 	padding: 20px 0;

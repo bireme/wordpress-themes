@@ -52,7 +52,7 @@ function registrar_custom_post_type() {
     'menu_icon'     => 'dashicons-admin-home'
   );
   register_post_type( 'home' , $argsHome );
-  // Banners
+// Banners
   $descritivosBanner = array(
     'name'                => 'Banner',
     'singular_name'      => 'Banner',
@@ -76,6 +76,32 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-format-gallery'
   );
   register_post_type( 'banners' , $argsBanner );
+  // Timeline
+  // $descritivosTimeline = array(
+  //   'name'                => 'Timeline',
+  //   'singular_name'      => 'Timeline',
+  //   'add_new'            => 'Adicionar nova timeline',
+  //   'add_new_item'       => 'Adicionar timeline',
+  //   'edit_item'          => 'Editar timeline',
+  //   'new_item'           => 'Novo timeline',
+  //   'view_item'          => 'Visualizar timeline',
+  //   'search_items'       => 'Pesquisar timeline',
+  //   'not_found'          => 'Nenhum timeline encontrado',
+  //   'not_found_in_trash' => 'Nenhum timeline na lixeira',
+  //   'parent_item_colon'  => '',
+  //   'menu_name'          => 'Timeline'
+  // );
+  // $argsTimeLine = array(
+  //   'labels'            => $descritivosTimeline,
+  //   'public'            => true,
+  //   'hierarchical'      => false,
+  //   'menu_position'     => 11,
+  //   'supports'          => array('title'),
+  //   'menu_icon'         => 'dashicons-backup'
+  // );
+  // register_post_type( 'timeline' , $argsTimeLine );
+
+
   flush_rewrite_rules();
 }
 // WIDGETS
@@ -98,21 +124,21 @@ register_sidebar([
   'after_title'    => '</h3>'
 ]);
 
-add_image_size('bannerDesktop', 1280, 480, true);
+add_image_size('bannerDesktop', 1280, 350, true);
 add_image_size('bannerMobile', 600, 350, true);
 
 
 add_action('init', function() {
-  //Default
+//Default
   pll_register_string('Terms and conditions of use', 'Terms and conditions of use','Default');
   pll_register_string('Privacy policy', 'Privacy policy', 'Default');
   pll_register_string('View more', 'View more', 'Default');
 
-  //Home
+//Home
   pll_register_string('Latest news', 'Latest news','Home');
   pll_register_string('Know RedETSA', 'Know RedETSA', 'Home');
 
-  //Accessibility
+//Accessibility
   pll_register_string('Main content', 'Main content', 'Accessibility');
   pll_register_string('Menu', 'Menu', 'Accessibility');
   pll_register_string('Search', 'Search', 'Accessibility');

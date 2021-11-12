@@ -65,7 +65,7 @@ endwhile;
 
 <?php get_template_part('includes/noticias') ?>
 
-<section class="padding1">
+<!-- <section class="padding1">
   <div class="container">
     <div class="row">
       <?php
@@ -102,8 +102,8 @@ endwhile;
     </div> 
   </div>
 </section>
-
-<section class="padding1 color1">
+ -->
+<!-- <section class="padding1 color1">
   <div class="container">
     <h2 class="title1 marginB1"><?php pll_e('Know RedETSA'); ?></h2>
 
@@ -143,5 +143,5 @@ endwhile;
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <?php get_footer(); ?>

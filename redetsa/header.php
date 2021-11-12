@@ -9,8 +9,6 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-	
-
 	<?php $language = pll_current_language(); ?>
 	<?php get_template_part('includes/topAccessibility') ?>
 	<header id="header">
