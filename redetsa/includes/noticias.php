@@ -6,7 +6,7 @@
 			$atual = get_the_title();
 			$posts = new WP_Query([
 				'post_type' => 'post',
-				'category_name'  => 'ultimas-noticias',
+				'category_name'  => 'noticias-es, noticias-pt',
 				'posts_per_page' => '12'
 			]);
 			while($posts->have_posts()) : $posts->the_post();?>
