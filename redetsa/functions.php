@@ -26,6 +26,7 @@ function scripts_footer(){
   wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
   wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 }
+
 //menu
 add_action('init', 'action_init');
 function action_init()
@@ -33,11 +34,13 @@ function action_init()
   register_nav_menu('Primary Menu', 'primary');
   register_nav_menu('Language', 'Language');
 }
+
 //Custom Post Type
 add_action('init', 'custon_posts');
 function custon_posts(){
   registrar_custom_post_type();
 }
+
 function registrar_custom_post_type() {
 // Banners
   $home = array(
@@ -101,9 +104,9 @@ function registrar_custom_post_type() {
   // );
   // register_post_type( 'timeline' , $argsTimeLine );
 
-
   flush_rewrite_rules();
 }
+
 // WIDGETS
 register_sidebar([
   'name'			=> 'Sidebar',
@@ -127,7 +130,6 @@ register_sidebar([
 add_image_size('bannerDesktop', 1280, 350, true);
 add_image_size('bannerMobile', 600, 350, true);
 
-
 add_action('init', function() {
 //Default
   pll_register_string('Terms and conditions of use', 'Terms and conditions of use','Default');
@@ -146,6 +148,13 @@ add_action('init', function() {
   pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
 });
 
+function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+   return $args;
+}
+add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
