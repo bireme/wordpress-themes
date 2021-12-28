@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row" style="position: relative;">
 				<div class="col-12" id="brand">
-					<a href="https://redetsa.teste.bvsalud.org/<?php echo $language=='es'?'':$language; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?=$language; ?>.png" alt="" class="img-fluid" id="logo" ></a>
+					<a href="https://redetsa.bvsalud.org/<?php echo $language=='es'?'':$language; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?=$language; ?>.png" alt="" class="img-fluid" id="logo" ></a>
 				</div>
 				<div id="language">
 					<?php 
