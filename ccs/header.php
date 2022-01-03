@@ -14,7 +14,7 @@
 					<div class="float-start">
 						<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="" class="img-fluid" style="width: 90px; margin-right: 10px; background: #fff;">
 					</div>
-					<h1>Comunicação Científica em Saúde</h1>
+					<h1><?php bloginfo('name');?></h1>
 				</div>
 				<div class="col-md-4">
 					<div id="lang">

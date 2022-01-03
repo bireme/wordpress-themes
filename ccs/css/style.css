@@ -60,6 +60,10 @@ a{
 #lang ul li .active{
 	background: #39c0f0;
 }
+#lang .current-lang a{
+	background:#88bcf9;
+	color: #fff;
+}
 #nav{
 	background: #3880d4!important;
 }
