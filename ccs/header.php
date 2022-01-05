@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="float-start">
-						<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid" style="width: 90px; margin-right: 10px; background: #fff;">
+						<img src="http://logos.bireme.org/img/<?php echo $language; ?>/bvs_color.svg" alt="Logo BVS" class="img-fluid" style="width: 90px; margin-right: 10px; background: #fff;">
 					</div>
 					<h1><?php bloginfo('name');?></h1>
 				</div>
