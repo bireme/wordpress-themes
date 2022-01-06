@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<b><?php pll_e('Comunicação Científica em Saúde'); ?></b> <br>
+					<b><?php bloginfo('name');?></b> <br>
 					<a href="http://politicas.bireme.org/terminos/<?php echo $language==''?'pt':$language; ?>/" target="_blank">
 						<?php pll_e('Terms and conditions of use'); ?>
 					</a> | 
