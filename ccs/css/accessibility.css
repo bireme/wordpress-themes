@@ -100,6 +100,14 @@ ex: ".bodyBlack .noticias" para div noticia
 #fieldSearch{
 	padding-left: 30px;
 }
+.bodyBlack .bg1{
+ 	background: #333!important;
+	color: #fff!important;
+ }
+.bodyBlack #barAccessibility{
+	background: #666;
+	color: #fff;
+}
 /********************* Breakpoint *********************/
 @media (max-width: 1024px){
 	.hiddenMobile{display: none;}
