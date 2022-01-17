@@ -1,0 +1,112 @@
+/*
+Theme Name: Portal Vitrines do Conhecimento
+Description: Tema padrão para o portal Vitrines do Conhecimento
+Author: BIREME/OPAS/OMS
+Author URI: https://github.com/bireme
+Template: bvs-2012
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl.html
+Version: 1.0
+*/
+
+/*
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Imports styles from the parent theme
+-------------------------------------------------------------- */
+@import url('../../plugins/bvs-site/bvs-themes/bvs-2012/style.css');
+/*
+ *
+ * Create here your custom styles
+ *
+ */
+.site_name {margin: 12px;}
+.top_pt-br .site_name a,
+.top_en-us .site_name a,
+.top_es-es .site_name a {display: block;width:auto;height:65px;}
+.site_name a span {display: none;}
+#parent{margin-top:37px;}
+.site_name{background: url(images/pt/title-pt.png);float: left;margin: 60px 0 0 5px;width: 240px;height: 45px;}
+.top_en-us .site_name{background: url(images/en/title-en.png)}
+.top_es-es .site_name{background: url(images/es/title-es.png)}
+.header {background:url(images/topbar-bg.png) repeat-x;border-bottom: 1px solid #8BB0C0;height: 136px;}
+.header .headerWidget {color: #FFF;font-size: 80%;width: 115px;float: right;margin: 10px 0 0 0;line-height: 135%;}
+.bar{margin-top:3px;}
+.bar a:hover{color:#00aaff !important;}
+.archive-title,
+.page-title,
+.widget-title,
+.entry-content th,
+.comment-content th {font-size: 1.6rem !important;font-weight: normal !important;text-transform: none !important;color: #28367D !important;}
+.column_3 .widget a.rsswidget img {float: right;}
+.column .widget-title {background: none !important;padding-left: 0px;border-bottom: none !important;}
+.widget_metaslider_widget div {padding:0 !important;}
+.widget_metaslider_widget .caption {padding:6px 12px !important;}
+.lis-service {float:left;width:42%;margin-left:3%;padding:0}
+.lis-service .l-title{float:right;padding-right:20px;background:url(images/more.png)no-repeat right 11px;} 
+.lis-service .see-more{font-weight:normal;font-size:50%;color:#666;text-decoration:none;} 
+.lis-service ul{list-style:none;padding:0;} 
+.lis-service li{line-height:230% !important;border-bottom:1px solid #e5e5e5;} 
+.lis-service li a{text-decoration:none;color:#666;} 
+.lis-service a.see-more:hover, .lis-service li a:hover{color:#09c;}
+/* TIPSY ICONS */
+.tipsy-social-icon-container{width:auto !important;float:right !important;}
+header .headerWidget {width: 180px;float: right;margin: 20px 0px 0px 0px !important;}
+/* SIDEBAR */
+.column_2 .widget_text, .single2column .widget_text {border-bottom: 1px solid #8bb0c0;padding:0px;}
+.suggest-site {font-size: 170%;text-decoration: none;color: #28367D !important;padding-left:22px;background: url(images/plus.png) 0px 6px no-repeat;}
+/* SEARCH FORM */
+#searchForm {margin-bottom: 0px;border-bottom: 1px solid #8bb0c0;padding-bottom:12px;}
+.vhl-search-submit{background: url(images/button-search.png) no-repeat !important;border: none !important;color: #fff !important;width: 101px;height: 41px;margin-left: -6px;}
+.vhl-search-input{border-radius:8px 0 0 8px !important;padding:0px 8px;width:200px;height:37px;margin:0;vertical-align: bottom;}
+body.page .site-content { padding: 10px; }
+/* ULTIMATE POST WIDGET */
+.widget_ultimate_posts ul {list-style: none;padding:0 0 18px 0;}
+.widget_ultimate_posts li {clear: both;margin-bottom:14px;}
+.widget_ultimate_posts li .upw-image {margin: 0 8px 0 0;padding:0;float:left;margin-bottom:14px;}
+.widget_ultimate_posts li .upw-content {margin:0;padding:0;}
+.widget_ultimate_posts li .post-title {font-weight: bold;line-height:120%;margin:0;}
+.widget_ultimate_posts li .post-title a {text-decoration:none;color:#28367d;}
+.widget_ultimate_posts li .post-title a:hover {color:#09c;}
+.widget_ultimate_posts li .post-excerpt {margin:4px 0 0 0;line-height:120%;font-size: 85%;color:#666;}
+.widget_ultimate_posts li div{padding:0px !important;}
+/* FOOTER AUX SIDEBAR */
+.footer_sidebar{background: #2e3e4f;padding:10px;}
+.footer_sidebar .widget_text{display: inline-block;vertical-align:top;margin:0 40px 0 0;width:25%;}
+.footer_sidebar .widget-title {color: #fff !important;font-size:140% !important;}
+.footer_sidebar ul.lis-net{list-style:none;padding:0;}
+.footer_sidebar ul.lis-net li a{color:#d6d6d6;text-decoration:none;font-size:85%;}
+.footer_sidebar ul.lis-net li a:hover{color:#09f;}
+
+/* FOOTER */
+.footer{background:#d3d3d3;padding:10px;color:#0397d6;}
+.footer .widget widget_text p {line-height: 100%;}
+.footer div{margin-top:12px;}
+.footer .logo-footer{display: inline-block;}
+.footer .institutional-info{display: inline-block;vertical-align: top;margin: 18px 0 0 6px;}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 730px) and (max-width: 1015px) {
+    .vhl-search-input{width:48%;}
+}
+@media screen and (max-width: 729px) {
+    .toppt-br .site_name a,
+    .topen-us .site_name a,
+    .topes-es .site_name a {
+        background: none;
+        width:auto !important;
+    }
+    .bar{width: 100% !important;}
+    #parent{margin-top:20px;}
+    .header .headerWidget {margin-top:40px !important;}
+    .site_name {width: auto;background: none !important;}
+    .site_name a span {
+        display: block;
+        color: #28367D !important;
+    }
+    .column {width: 97% !important;}
+    .lis-service {float:none !important;width:97% !important;padding:0px !important;margin:0px !important;}
+    .footer_sidebar .widget_text{width:97%;}
+}
