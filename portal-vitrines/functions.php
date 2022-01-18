@@ -74,14 +74,4 @@ function unfilter_multisite( $caps, $cap, $user_id, $args ) {
 add_filter( 'map_meta_cap', 'unfilter_multisite', 10, 4 );
 endif;
 
-if(!function_exists('http_request_local')):
-function http_request_local( $args, $url ) {
-   if ( preg_match('/xml|rss|feed/', $url) ){
-      $args['reject_unsafe_urls'] = false;
-   }
-   return $args;
-}
-add_filter( 'http_request_args', 'http_request_local', 5, 2 );
-endif;
-
 ?>
