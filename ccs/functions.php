@@ -104,7 +104,7 @@ function registrar_custom_post_type() {
 		'public'            => true,
 		'hierarchical'      => false,
 		'menu_position'     => 13,
-		'supports'          => array('title', 'thumbnail', 'editor'),
+		'supports'          => array('title', 'thumbnail', 'editor', 'excerpt'),
 		'menu_icon'         => 'dashicons-welcome-learn-more'
 	);
 	register_post_type( 'cursos' , $argsCursos );
