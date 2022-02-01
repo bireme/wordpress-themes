@@ -69,15 +69,17 @@
 			?>
 			<?php while($cursos->have_posts()) : $cursos->the_post(); ?>
 				<div class="col-md-12 col-lg-6">
-					<div class="row">
-						<div class="col-md-6">
-							<?php the_post_thumbnail('large',['class' => 'img-fluid']); ?>
+					<a href="<?php the_permalink(); ?>">
+						<div class="row">
+							<div class="col-md-6">
+								<?php the_post_thumbnail('large',['class' => 'img-fluid']); ?>
+							</div>
+							<div class="col-md-6">
+								<h4><?php the_title(); ?></h4>
+								<?php the_excerpt(); ?>
+							</div>
 						</div>
-						<div class="col-md-6">
-							<h4><?php the_title(); ?></h4>
-							<?php the_content(); ?>
-						</div>
-					</div>
+					</a>
 				</div>
 			<?php endwhile; ?>	
 		</div>
