@@ -32,7 +32,7 @@
           $text = get_field('estructura_y_recursos');
           ?>
           <div class="<?php echo $text == '' ? "d-none" : ""; ?>">
-            <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>"> <b><?=$pais; ?></b> <hr> 
+            <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>" class="thumbnail-flag"> <b><?=$pais; ?></b> <hr> 
             <?=$text; ?>
             <hr><br><br>
           </div>

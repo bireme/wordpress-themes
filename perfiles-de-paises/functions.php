@@ -89,7 +89,7 @@ function registrar_custom_post_type() {
   register_post_type( 'toolkit' , $argsToolkit );*/
   flush_rewrite_rules();
 }
-add_image_size('flag', 20, 20, true);
+add_image_size('flag', 30, 20, true);
 
 add_action('init', function() {
     //Accessibility

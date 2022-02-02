@@ -233,6 +233,10 @@ legend{
 	padding: 40px 0px 10px 0;
 	font-size: 24px;
 }
+.thumbnail-flag{
+	width: 30px;
+	height: 20px;
+}
 /************* breakpoint *************/
 @media (max-width: 1400px){
 	.bg1, .bg2, .bg3, .bg4{

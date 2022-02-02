@@ -32,7 +32,7 @@
           $text = get_field('productos_de_ets');
           ?>
           <div class="<?php echo $text == '' ? "d-none" : ""; ?>">
-            <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>"> <b><?=$pais; ?></b> <hr> 
+            <img src="<?= esc_url($bandera['sizes']['flag']); ?>" alt="<?= $bandera['alt'] ?>" class="thumbnail-flag"> <b><?=$pais; ?></b> <hr> 
             <?=$text; ?>
             <hr><br><br>
           </div>
