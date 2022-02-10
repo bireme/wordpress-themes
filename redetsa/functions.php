@@ -26,7 +26,6 @@ function scripts_footer(){
   wp_enqueue_script('accessibility',get_stylesheet_directory_uri().'/js/accessibility.js');
   wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
 }
-
 //menu
 add_action('init', 'action_init');
 function action_init()
@@ -34,13 +33,11 @@ function action_init()
   register_nav_menu('Primary Menu', 'primary');
   register_nav_menu('Language', 'Language');
 }
-
 //Custom Post Type
 add_action('init', 'custon_posts');
 function custon_posts(){
   registrar_custom_post_type();
 }
-
 function registrar_custom_post_type() {
 // Banners
   $home = array(
@@ -79,6 +76,54 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-format-gallery'
   );
   register_post_type( 'banners' , $argsBanner );
+// Covid Brisa
+  $covidBrisa = array(
+    'name'               => 'Covid-Brisa',
+    'singular_name'      => 'Covid-Brisa',
+    'add_new'            => 'Adicionar nova estratégia Covid-19 Brisa',
+    'add_new_item'       => 'Adicionar estratégia Covid-19 Brisa',
+    'edit_item'          => 'Editar estratégia Covid-19 Brisa',
+    'new_item'           => 'Nova estratégia Covid-19 Brisa',
+    'view_item'          => 'Visualizar estratégia Covid-19 Brisa',
+    'search_items'       => 'Pesquisar estratégia Covid-19 Brisa',
+    'not_found'          => 'Nenhuma estratégia Covid-19 Brisa encontrada',
+    'not_found_in_trash' => 'Nenhuma estratégia Covid-19 Brisa na lixeira',
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Estratégia Covid-19'
+  );
+  $argsCovidBrisa = array(
+    'labels'            => $covidBrisa,
+    'public'            => true,
+    'hierarchical'      => false,
+    'menu_position'     => 11,
+    'supports'          => array('title', 'editor', 'thumbnail'),
+    'menu_icon'         => 'dashicons-rest-api'
+  );
+  register_post_type( 'covid-brisa' , $argsCovidBrisa );
+// Estratégias
+  $estrategias = array(
+    'name'               => 'Estratégias',
+    'singular_name'      => 'Estratégia',
+    'add_new'            => 'Adicionar nova Estratégia Brisa',
+    'add_new_item'       => 'Adicionar Estratégia Brisa',
+    'edit_item'          => 'Editar Estratégia Brisa',
+    'new_item'           => 'Nova Estratégia Brisa',
+    'view_item'          => 'Visualizar Estratégias Brisa',
+    'search_items'       => 'Pesquisar Estratégias Brisa',
+    'not_found'          => 'Nenhuma Estratégia Brisa encontrada',
+    'not_found_in_trash' => 'Nenhuma Estratégia Brisa na lixeira',
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Estratégia Brisa'
+  );
+  $argsOutrasEstrategias = array(
+    'labels'            => $estrategias,
+    'public'            => true,
+    'hierarchical'      => false,
+    'menu_position'     => 11,
+    'supports'          => array('title', 'editor', 'thumbnail'),
+    'menu_icon'         => 'dashicons-editor-kitchensink'
+  );
+  register_post_type( 'estrategia-brisa' , $argsOutrasEstrategias );
   // Timeline
   // $descritivosTimeline = array(
   //   'name'                => 'Timeline',
@@ -104,9 +149,9 @@ function registrar_custom_post_type() {
   // );
   // register_post_type( 'timeline' , $argsTimeLine );
 
+
   flush_rewrite_rules();
 }
-
 // WIDGETS
 register_sidebar([
   'name'			=> 'Sidebar',
@@ -127,10 +172,14 @@ register_sidebar([
   'after_title'    => '</h3>'
 ]);
 
+
+
+
 add_image_size('bannerDesktop', 1280, 350, true);
 add_image_size('bannerMobile', 600, 350, true);
 
-add_action('init', function() {
+
+/*add_action('init', function() {
 //Default
   pll_register_string('Terms and conditions of use', 'Terms and conditions of use','Default');
   pll_register_string('Privacy policy', 'Privacy policy', 'Default');
@@ -146,15 +195,8 @@ add_action('init', function() {
   pll_register_string('Search', 'Search', 'Accessibility');
   pll_register_string('Footer', 'Footer', 'Accessibility');
   pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
-});
+});*/
 
-function http_request_local( $args, $url ) {
-   if ( preg_match('/xml|rss|feed/', $url) ){
-      $args['reject_unsafe_urls'] = false;
-   }
-   return $args;
-}
-add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
