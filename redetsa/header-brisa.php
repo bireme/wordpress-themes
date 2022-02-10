@@ -18,7 +18,7 @@
 					<div class="float-start" id="bvsbox">
 						<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="" id="bvs" class="img-fluid">
 					</div>
-					<img src="<?php bloginfo('template_directory'); ?>/img/logoBrisa.png" alt="" id="logoBrisa">
+					<a href="<?php echo get_option('siteurl'); ?>/brisa-3"><img src="<?php bloginfo('template_directory'); ?>/img/logoBrisa.png" alt="" id="logoBrisa"></a>
 					<img src="<?php bloginfo('template_directory'); ?>/img/logoRedETSA.png" alt="" id="logoRedETSA">
 				</div>
 				<div class="col-12 col-lg-3">
