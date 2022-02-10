@@ -184,6 +184,64 @@ a{
 .cardA{
 	height: 300px;
 }
+.catNames li{
+	display: inline-block;
+	border: 1px solid #999;
+	margin: 1px;
+	padding: 3px;
+	border-radius: 3px;
+}
+/**plugin filter**/
+.searchandfilter>div{
+	padding: 20px 0px 10px 10px;
+	background: #eee;
+	margin-bottom: 20px;
+	border-radius: 3px;
+}
+.searchandfilter>div>ul{
+	width: 100%;
+	padding-left: 10px;
+}
+.searchandfilter li{
+	display: inline-block;
+	width: 33%;
+}
+.searchandfilter input[type="text"], .searchandfilter select{
+	width: 100%;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 2px;
+}
+.searchandfilter input[type="text"]:acitve, .searchandfilter select:acitve{
+	border: 1px solid #ddd;
+}
+.searchandfilter input[type="submit"]{
+	width: 100%;
+	color: #fff;
+	background-color: #0d6efd;
+	border: none;
+	padding: 8px 15px;
+	border-radius: 5px;
+}
+.searchandfilter input[type="submit"]:hover{
+	background: #0b5ed7;
+}
+.widgetfilter div{
+	padding: 10px;
+}
+.widgetfilter ul{
+	padding: 0;
+}
+.widgetfilter li{
+	width: 100%;
+	margin:10px 0 10px 5px;
+}
+.widgetfilter li:last-child{
+	margin-bottom: 0px;
+}
+.widgets-category p{
+	display: none;
+}
 @media (max-width: 768px){
 	.marginB1{
 		margin-bottom: 20px;
@@ -204,3 +262,88 @@ a{
 		margin-top: 10px;
 	}
 }
+/*Page Brisa*/
+.padding2{
+    padding: 50px 0;
+  }
+  #hearderBrisa{
+    padding: 30px 0;
+    background: url('../img/bgHeaderBrisa.png') center;  
+  }
+  #bvs{
+    width: 90px;
+    margin-right: 10px;
+    background: #fff;
+  }
+  #logoBrisa{
+    width: 500px!important;
+  }
+  #logoRedETSA{
+    width: 200px!important;
+  }
+  #lang{
+    text-align: right;
+    margin-top: 20px;
+  }
+  #lang ul{
+    list-style: none;
+  }
+  #lang ul li{
+    display: inline-block;
+    font-size: 12px;
+  }
+  #lang ul li a{
+    background: #0093d6;
+    margin: 0px;
+    padding: 5px;
+    color: #fff;
+  }
+  #lang ul li .active{
+    background: #39c0f0;
+  }
+  #searchBrisa{
+    background-color: #f7941e;
+    border-bottom: 5px solid #c4771a;
+  }
+  #footerBrisa{
+    background-color: #f7941e;
+    color: #fff;
+  }
+  #footerBrisa a{
+    color: #fff;
+  }
+  #footerBrisa a:hover{
+    color: #ddd;
+  }
+  #footerBrisa img{
+    max-width: 500px;
+  }
+  #barAcessibilidade {
+    background: #f7941e!important;
+  }
+  .sectionPageBrisa:nth-child(odd){
+    background-image: linear-gradient(#f2f2f2, #ddd);
+  }
+  @media (max-width: 1200px) {
+    #logoBrisa{
+      width: 35%;
+    }
+    #logoRedETSA{
+      width:35%;
+    }
+  }
+  @media (max-width: 992px) {
+    #bvsbox{
+      float: none!important;
+      text-align: center;
+    }
+    #logoBrisa{
+      width: 45%;
+    }
+    #logoRedETSA{
+      width:45%;
+    }
+    #lang{
+      text-align: center;
+    }
+  }

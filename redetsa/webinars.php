@@ -8,34 +8,7 @@ Template Name: Webinars
 <main id="main_container" class="padding1">
   <div class="container">
     <h1 class="title1"><?php the_title(); ?></h1>
-    <!-- <div class="searchNews">
-      <div class="row g-3 align-items-center">
-        <div class="col-12">
-          <input type="text" id="text" class="form-control" aria-describedby="text" placeholder="Título">
-        </div>
-        <div class="col-4">
-          <select class="form-select" aria-label="Categoría">
-            <option selected>Categoría</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <select class="form-select" aria-label="Categoría">
-            <option selected>Año</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-        <div class="col-4">
-          <div class="d-grid">
-            <input type="submit" class="btn btn-primary btn-block" value="Buscar">
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <?php echo do_shortcode( '[searchandfilter fields="search,category" submit_label="Filtrar"]' ); ?>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <?php
       $posts = new WP_Query([

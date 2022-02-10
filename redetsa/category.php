@@ -6,6 +6,7 @@
 		<div class="row">
 			<div class="col-md-9">
 				<?php
+				
 				if(have_posts()): while (have_posts()) : the_post(); ?>
 					<?php $thumb = has_post_thumbnail();  ?>
 					<article class="row">
@@ -23,7 +24,7 @@
 				<?php endwhile; else: endif;?>
 			</div>
 			<div class="col-md-3">
-				<div class="card text-dark bg-light">
+				<div class="card text-dark bg-light widgets-category">
 					<div class="card-header">Filtros</div>
 					<?php dynamic_sidebar('sidebar-1') ?>
 				</div>
