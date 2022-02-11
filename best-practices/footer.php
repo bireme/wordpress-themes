@@ -27,8 +27,8 @@
 			<hr>
 			<div class="row" id="footerTermos">
 				<div class="col-md-12 text-center">
-					<a href="https://politicas.bireme.org/terminos/<?php echo $lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'bp'); ?></a> |
-					<a href="https://politicas.bireme.org/privacidad/<?php echo $lang; ?>/" target="_blank"><?php _e('Privacy Policy', 'bp'); ?></a>
+					<a href="https://politicas.bireme.org/terminos/<?php echo $lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'best-practices'); ?></a> |
+					<a href="https://politicas.bireme.org/privacidad/<?php echo $lang; ?>/" target="_blank"><?php _e('Privacy Policy', 'best-practices'); ?></a>
 				</div>
 			</div>
 		</div>

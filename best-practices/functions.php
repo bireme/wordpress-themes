@@ -8,6 +8,11 @@ add_theme_support( 'align-wide' );
 add_image_size('bannerDesktop', 1600, 450, true);
 add_image_size('bannerMobile', 600, 350, true);
 
+function load_translation(){
+    load_plugin_textdomain( 'best-practices', false,  get_template_directory() . '/languages' );
+}
+add_action('init', 'load_translation');
+
 //Add Styles Top
 function styles_top(){
   wp_enqueue_style('bootstrap',get_stylesheet_directory_uri().'/css/bootstrap.min.css');
@@ -110,22 +115,6 @@ function register_custom_post_types() {
   flush_rewrite_rules();
 }
 add_action('init', 'register_custom_post_types');
-
-//Polylang Strings
-add_action('init', function() {
-    //default
-    pll_register_string('Search', 'Search', 'Form');
-    pll_register_string('Latest registered good practices', 'Latest registered good practices', 'Default');
-    //Footer
-    pll_register_string('Best Pratices', 'Best Pratices', 'Footer');
-    pll_register_string('Terms and conditions of use', 'Terms and conditions of use', 'Footer');
-    pll_register_string('Privacy policy', 'Privacy policy', 'Footer');
-    //Accessibility
-    pll_register_string('Main content', 'Main content', 'Accessibility');
-    pll_register_string('Menu', 'Menu', 'Accessibility');
-    pll_register_string('Footer', 'Footer', 'Accessibility');
-    pll_register_string('High contrast', 'High contrast', 'Accessibility');
-});
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu

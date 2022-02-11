@@ -14,7 +14,7 @@
 			<form id="formHome" method="get" action="<?php echo $action; ?>" >
 				<div class="row g-3">
 					<div class="col-9 offset-1 text-right">
-						<input type="text" id="fieldSearch" class="form-control" autocomplete="off" name="q" value="" placeholder="<?php _e('Enter one or more words', 'bp'); ?>">
+						<input type="text" id="fieldSearch" class="form-control" autocomplete="off" name="q" value="" placeholder="<?php _e('Enter one or more words', 'best-practices'); ?>">
 						<input type="hidden" name="lang" value="<?php echo $lang; ?>">
 						<input type="hidden" name="home_url" value="<?php echo get_bloginfo('home'); ?>">
 						<input type="hidden" name="home_text" value="<?php echo get_bloginfo('name'); ?>">
