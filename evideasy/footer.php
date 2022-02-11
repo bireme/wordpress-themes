@@ -9,7 +9,7 @@
 				</div>
 				<div class="col-md-6 text-right" id="logoBir">
 					<a href="https://www.paho.org/<?php echo $idioma?>/bireme" target="_blank">
-						<img src="http://logos.bireme.org/img/<?php echo $idioma=='fr'?'en':$idioma; ?>/v_bir_color.svg" alt="" class="imgBlack">
+						<img src="http://logos.bireme.org/img/<?php echo $idioma; ?>/v_bir_color.svg" alt="" class="imgBlack">
 					</a>
 				</div>
 			</div>

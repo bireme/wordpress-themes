@@ -35,7 +35,10 @@ a:hover{
 	text-decoration:none;
 	background: #464bbb;
 }
-
+#lang .current-lang a{
+	background:#9bcc9b;
+	color: #fff;
+}
 #logo{
 	text-align: center;
 }
