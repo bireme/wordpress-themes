@@ -116,6 +116,15 @@ a{
 .slideNewsBox h3{
 	font-size: 20px;
 }
+.slideNewsBoxImg{
+	text-align: center!important;
+	background: #eee;
+}
+.slideNewsBoxImg img{
+	margin: auto;
+	width: auto;
+	max-height: 180px;
+}
 .slideNewsDate{
 	border-bottom: 1px solid #666;
 	margin-bottom: 20px;
@@ -242,6 +251,21 @@ a{
 .widgets-category p{
 	display: none;
 }
+@media (max-width: 1400px){
+	.slideNewsBoxImg img{
+		max-height: 155px;
+	}
+}
+@media (max-width: 1200px){
+	.slideNewsBoxImg img{
+		max-height: 175px;
+	}
+}
+@media (max-width: 992px){
+	.slideNewsBoxImg img{
+		max-height: 200px;	
+	}
+}
 @media (max-width: 768px){
 	.marginB1{
 		margin-bottom: 20px;
@@ -260,6 +284,9 @@ a{
 		right: auto;
 		max-width: 100%;
 		margin-top: 10px;
+	}
+	.slideNewsBoxImg img{
+		max-height: 100%;
 	}
 }
 /*Page Brisa*/
