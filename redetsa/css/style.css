@@ -251,6 +251,11 @@ a{
 .widgets-category p{
 	display: none;
 }
+.box-perfil{
+	border-left: 10px solid #1c76bc;
+	background: rgb(244,244,244) url(../img/stripes.png);
+	background: background: linear-gradient(228deg, rgba(244,244,244,1) 0%, rgba(228,228,228,1) 100%);
+}
 @media (max-width: 1400px){
 	.slideNewsBoxImg img{
 		max-height: 155px;

@@ -43,12 +43,12 @@ endwhile;
               $window = get_sub_field('window_'.$loop);
               ?>
               <?php if ( $title ) : ?>
-                <article class="col col-md-6">
-                  <div class="card h-100">
+                <article class="col col-md-12">
+                  <div class="card h-100 box-perfil">
                     <img src="<?php echo esc_url($image['url']); ?>" class="card-img-top" alt="<?php echo esc_url($image['alt']); ?>">
                     <div class="card-body">
                       <a href="<?php echo $link; ?>" target="<?php echo $window; ?>">
-                        <h5 class="card-title"><?php echo $title; ?></h5>
+                        <h4 class="card-title"><?php echo $title; ?></h4>
                         <p class="card-text"><?php echo $text; ?></p>
                       </a>
                     </div>
