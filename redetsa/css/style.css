@@ -293,89 +293,101 @@ a{
 	.slideNewsBoxImg img{
 		max-height: 100%;
 	}
+
 }
 /*Page Brisa*/
 .padding2{
-    padding: 50px 0;
-  }
-  #hearderBrisa{
-    padding: 30px 0;
-    background: url('../img/bgHeaderBrisa.png') center;  
-  }
-  #bvs{
-    width: 90px;
-    margin-right: 10px;
-    background: #fff;
-  }
-  #logoBrisa{
-    width: 500px!important;
-  }
-  #logoRedETSA{
-    width: 200px!important;
-  }
-  #lang{
-    text-align: right;
-    margin-top: 20px;
-  }
-  #lang ul{
-    list-style: none;
-  }
-  #lang ul li{
-    display: inline-block;
-    font-size: 12px;
-  }
-  #lang ul li a{
-    background: #0093d6;
-    margin: 0px;
-    padding: 5px;
-    color: #fff;
-  }
-  #lang ul li .active{
-    background: #39c0f0;
-  }
-  #searchBrisa{
-    background-color: #f7941e;
-    border-bottom: 5px solid #c4771a;
-  }
-  #footerBrisa{
-    background-color: #f7941e;
-    color: #fff;
-  }
-  #footerBrisa a{
-    color: #fff;
-  }
-  #footerBrisa a:hover{
-    color: #ddd;
-  }
-  #footerBrisa img{
-    max-width: 500px;
-  }
-  #barAcessibilidade {
-    background: #f7941e!important;
-  }
-  .sectionPageBrisa:nth-child(odd){
-    background-image: linear-gradient(#f2f2f2, #ddd);
-  }
-  @media (max-width: 1200px) {
-    #logoBrisa{
-      width: 35%;
-    }
-    #logoRedETSA{
-      width:35%;
-    }
-  }
-  @media (max-width: 992px) {
-    #bvsbox{
-      float: none!important;
-      text-align: center;
-    }
-    #logoBrisa{
-      width: 45%;
-    }
-    #logoRedETSA{
-      width:45%;
-    }
-    #lang{
-      text-align: center;
-    }
-  }
+	padding: 50px 0;
+}
+#hearderBrisa{
+	padding: 30px 0;
+	background: url('../img/bgHeaderBrisa.png') center;  
+}
+#bvs{
+	width: 90px;
+	margin-right: 10px;
+	background: #fff;
+}
+#logoBrisa{
+	width: 500px!important;
+}
+#logoRedETSA{
+	text-align: right;
+}
+#logoRedETSA img{
+	width: 200px!important;
+}
+#lang{
+	text-align: right;
+	margin-top: 20px;
+}
+#lang ul{
+	list-style: none;
+}
+#lang ul li{
+	display: inline-block;
+	font-size: 12px;
+}
+#lang ul li a{
+	background: #0093d6;
+	margin: 0px;
+	padding: 5px;
+	color: #fff;
+}
+#lang ul li .active{
+	background: #39c0f0;
+}
+#searchBrisa{
+	background-color: #f7941e;
+	border-bottom: 5px solid #c4771a;
+}
+#footerBrisa{
+	background-color: #f7941e;
+	color: #fff;
+}
+#footerBrisa a{
+	color: #fff;
+}
+#footerBrisa a:hover{
+	color: #ddd;
+}
+#footerBrisa img{
+	max-width: 500px;
+}
+#barAcessibilidade {
+	background: #f7941e!important;
+}
+.sectionPageBrisa:nth-child(odd){
+	background-image: linear-gradient(#f2f2f2, #ddd);
+}
+
+@media (max-width: 1200px) {
+	#logoBrisa{
+		width: 35%;
+	}
+	#logoRedETSA{
+		width:35%;
+	}
+}
+@media (max-width: 992px) {
+	#bvsbox{
+		float: none!important;
+		text-align: center;
+	}
+	#logoBrisa{
+		width: 45%;
+	}
+	#logoRedETSA{
+		width:45%;
+	}
+	#lang{
+		text-align: center;
+	}
+}
+.page-brisa .widget_rss ul{
+	padding:0
+}
+.page-brisa .widget_rss li{
+	margin-bottom:30px;
+	list-style: none;
+}
