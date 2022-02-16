@@ -87,6 +87,91 @@ body.page .site-content { padding: 10px; }
 .footer .logo-footer{display: inline-block;}
 .footer .institutional-info{display: inline-block;vertical-align: top;margin: 18px 0 0 6px;}
 
+.site_name{
+    background-size: 100%!important;
+}
+.wp-block-rss.wp-block-rss{
+    width:95%;
+}
+.wp-block-rss.wp-block-rss li{
+    border-bottom:5px solid #eee;
+    background:#fefef2;
+}
+.wp-block-rss.wp-block-rss li a{
+    font-weight:bold;
+}
+.header a{
+    color:#fff;
+}
+.title-widgets-h2{
+    font-size:24px!important;
+    text-align:center;
+}
+.classic-textwidget{
+    text-align:center;
+}
+.column strong.widget-title{
+    text-align:center!important;
+    font-weight:bold!important;
+}
+.btn-widgets a{
+    font-size: 21px;
+    font-weight: 100;
+    text-decoration: none;
+    background: #03a9f4;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff!important;
+}
+.btn-widgets a:hover{
+    background:#66c9f5;
+}
+.widget_rss li{
+    border-bottom:3px solid #eee;
+    background:#fefef2;
+    padding:5px 10px;
+}
+.wp-block-rss.wp-block-rss li a{
+    font-weight:bold;
+}
+.column .widget DIV{
+    padding:0px;
+}
+.widget_super_rss_reader{
+    padding:10px 20px;
+}
+.widget_super_rss_reader .widget-title{
+    padding-bottom:10px;
+    display:block;
+}
+.srr-title{
+    border-bottom:3px solid #eee;
+    background:#fefef2;
+    color:#000;
+    font-weight:bold;
+    padding:10px!important;
+}
+.srr-style-none .srr-item{
+    padding:5px!important;
+}
+#searchForm{
+    border-bottom:none;
+}
+.siteorigin-widget-tinymce{
+    font-size:16px;
+    line-height:30px;
+}
+.lang-item-fr{
+    display:none;
+}
+.widget_metaslider_widget .caption{
+    font-size:24px;
+    line-height:40px;
+    padding:10px 20px!important;
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 730px) and (max-width: 1015px) {
     .vhl-search-input{width:48%;}
