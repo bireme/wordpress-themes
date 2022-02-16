@@ -12,11 +12,13 @@
 			while($posts->have_posts()) : $posts->the_post();?>
 				<article class="slideNewsBox">
 					<a href="<?php permalink_link(); ?>">
-						<?php if ( has_post_thumbnail()) {
-							the_post_thumbnail('bannerMobile',['class' => 'img-fluid']);
-						}else{ ?>
-							<img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
-						<?php }	 ?>
+						<div class="text-center slideNewsBoxImg">
+							<?php if ( has_post_thumbnail()) {
+								the_post_thumbnail('thumbnail',['class' => 'img-fluid']);
+							}else{ ?>
+								<img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
+							<?php }	 ?>
+						</div>
 						<div class="slideNewsDate"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></div>
 						<h3><?php the_title(); ?></h3>
 					</a>

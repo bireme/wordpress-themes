@@ -8,8 +8,8 @@ Template Name: News
 <main id="main_container" class="padding1">
   <div class="container">
     <h1 class="title1"><?php the_title(); ?></h1>
-     <?php echo do_shortcode( '[searchandfilter fields="search,category" submit_label="Filtrar"]' ); ?>
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="loopNews">
+    <?php echo do_shortcode( '[searchandfilter fields="search,category" submit_label="Filtrar"]' ); ?>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="loopNews">
       <?php
       $posts = new WP_Query([
         'post_type' => 'post',
@@ -19,11 +19,13 @@ Template Name: News
       if($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
         <article class="col">
           <div class="card h-100">
-            <?php if ( has_post_thumbnail()) {
-              the_post_thumbnail('bannerMobile',['class' => 'img-fluid']);
-            }else{ ?>
-              <img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
-            <?php }  ?>
+            <div class="slideNewsBoxImg">
+              <?php if ( has_post_thumbnail()) {
+                the_post_thumbnail('bannerMobile',['class' => 'img-fluid']);
+              }else{ ?>
+                <img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
+              <?php }  ?>
+            </div>
             <div class="card-body">
               <a href="<?php permalink_link(); ?>">
                 <h5 class="card-title"><?php the_title(); ?></h5>
