@@ -124,6 +124,30 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-editor-kitchensink'
   );
   register_post_type( 'estrategia-brisa' , $argsOutrasEstrategias );
+  // Estratégias Rebrats
+  $rebrats = array(
+    'name'               => 'Estratégias Rebrats',
+    'singular_name'      => 'Estratégia Rebrats',
+    'add_new'            => 'Adicionar nova Estratégia Rebrats',
+    'add_new_item'       => 'Adicionar Estratégia Rebrats',
+    'edit_item'          => 'Editar Estratégia Rebrats',
+    'new_item'           => 'Nova Estratégia Rebrats',
+    'view_item'          => 'Visualizar Estratégias Rebrats',
+    'search_items'       => 'Pesquisar Estratégias Rebrats',
+    'not_found'          => 'Nenhuma Estratégia Rebrats encontrada',
+    'not_found_in_trash' => 'Nenhuma Estratégia Rebrats na lixeira',
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Estratégia Rebrats'
+  );
+  $argsRebrats = array(
+    'labels'            => $rebrats,
+    'public'            => true,
+    'hierarchical'      => false,
+    'menu_position'     => 11,
+    'supports'          => array('title', 'editor', 'thumbnail'),
+    'menu_icon'         => 'dashicons-clipboard'
+  );
+  register_post_type( 'estrategia-rebrats' , $argsRebrats );
   // Timeline
   // $descritivosTimeline = array(
   //   'name'                => 'Timeline',
