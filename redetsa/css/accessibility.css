@@ -89,8 +89,8 @@ ex: ".bodyBlack .noticias" para div noticia
 #speakBtn{
 	position: absolute;
 	font-size: 20px;
-	top: 5px;
-	left: 10px;
+	top: 3px;
+	left: 15px;
 	z-index: 10;
 	color: #999;
 }
