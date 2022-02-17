@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Best Practices Theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
 "POT-Creation-Date: 2022-02-11 20:30-0300\n"
-"PO-Revision-Date: 2022-02-11 20:30-0300\n"
+"PO-Revision-Date: 2022-02-17 02:11-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -20,50 +20,52 @@ msgstr ""
 
 #: 404.php:9
 msgid "We are sorry, Page not found!"
-msgstr ""
+msgstr "Desculpe, página não encontrada!"
 
 #: 404.php:10
 msgid ""
 "The page you are looking for might have been removed had its name changed or "
 "is temporarily unavailable."
 msgstr ""
+"A página que você está procurando pode ter sido removida, teve "
+"seu nome alterado ou está temporariamente indisponível."
 
 #: 404.php:11
 msgid "Back to homepage"
-msgstr ""
+msgstr "Voltar para a página inicial"
 
 #: footer.php:30
 msgid "Terms and Conditions of Use"
-msgstr ""
+msgstr "Termos e Condições de Uso"
 
 #: footer.php:31
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Políticas de Privacidade"
 
 #: includes/search.php:17
 msgid "Enter one or more words"
-msgstr ""
+msgstr "Digite uma ou mais palavras"
 
 #: includes/topAccessibility.php:9
 msgid "Main Content"
-msgstr ""
+msgstr "Conteúdo Principal"
 
 #: includes/topAccessibility.php:10
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: includes/topAccessibility.php:11
 msgid "Search"
-msgstr ""
+msgstr "Pesquisa"
 
 #: includes/topAccessibility.php:12
 msgid "Footer"
-msgstr ""
+msgstr "Rodapé"
 
 #: includes/topAccessibility.php:18
 msgid "High Contrast"
-msgstr ""
+msgstr "Alto Contraste"
 
 #: index.php:11
 msgid "Click here and register your Best Practice"
-msgstr ""
+msgstr "Clique aqui e cadastre sua Boa Prática"
