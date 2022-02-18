@@ -38,6 +38,11 @@ add_action('init', 'custon_posts');
 function custon_posts(){
   registrar_custom_post_type();
 }
+//Quantidade de caracteres do excerpt
+add_filter('excerpt_length', 'custom_excerpt_length');
+function custom_excerpt_length($length) {
+return 15;
+}
 function registrar_custom_post_type() {
 // Banners
   $home = array(

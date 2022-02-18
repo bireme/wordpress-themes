@@ -8,7 +8,7 @@ Template Name: News
 <main id="main_container" class="padding1">
   <div class="container">
     <h1 class="title1"><?php the_title(); ?></h1>
-    <?php echo do_shortcode( '[searchandfilter fields="search,category" submit_label="Filtrar"]' ); ?>
+    <div class="d-none"><?php echo do_shortcode( '[searchandfilter fields="search,category" submit_label="Filtrar"]' ); ?></div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="loopNews">
       <?php
       $posts = new WP_Query([
@@ -32,7 +32,7 @@ Template Name: News
                 <p class="card-text"><?php the_excerpt(); ?></p>
               </a>
             </div>
-            <div class="card-footer">
+            <div class="card-footer d-none">
               <small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></small>
             </div>
           </div>
