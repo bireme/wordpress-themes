@@ -1,12 +1,12 @@
 <section class="padding1 color1">
 	<div class="container">
-		<h2 class="title1 marginB1"><?php pll_e('Latest news'); ?></h2>
+		<h2 class="title1 marginB1"><?php pll_e('Latest News'); ?></h2>
 		<div class="slideNews">
 			<?php 
 			$atual = get_the_title();
 			$posts = new WP_Query([
 				'post_type' => 'post',
-				'category_name'  => 'noticias-es, noticias-pt',
+				'category_name'  => 'noticias-es, noticias-pt, noticias-en',
 				'posts_per_page' => '12'
 			]);
 			while($posts->have_posts()) : $posts->the_post();?>

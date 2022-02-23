@@ -34,8 +34,8 @@ function action_init()
   register_nav_menu('Language', 'Language');
 }
 //Custom Post Type
-add_action('init', 'custon_posts');
-function custon_posts(){
+add_action('init', 'custom_posts');
+function custom_posts(){
   registrar_custom_post_type();
 }
 //Quantidade de caracteres do excerpt
@@ -202,8 +202,6 @@ register_sidebar([
 ]);
 
 
-
-
 add_image_size('bannerDesktop', 1280, 350, true);
 add_image_size('bannerMobile', 600, 350, true);
 
@@ -223,8 +221,28 @@ add_image_size('bannerMobile', 600, 350, true);
   pll_register_string('Menu', 'Menu', 'Accessibility');
   pll_register_string('Search', 'Search', 'Accessibility');
   pll_register_string('Footer', 'Footer', 'Accessibility');
-  pll_register_string('High contrast', 'High contrast', 'Accessibility'); 
+  pll_register_string('High contrast', 'High contrast', 'Accessibility');
+
+//Filters
+  pll_register_string('all_cats', 'All Categories', 'Theme');
+  pll_register_string('placeholder', 'Enter one or more words', 'Theme');
+  pll_register_string('search', 'Search', 'Theme');
+  pll_register_string('not_found', 'No results found', 'Theme');
+  pll_register_string('filters', 'Filters', 'Theme');
+  pll_register_string('ago', 'ago', 'Theme');
 });*/
+
+
+function custom_template_include( $template ) {
+    global $wp;
+    
+    if ( !$wp->request && array_key_exists('category_name', $wp->query_vars) && empty($wp->query_vars['category_name']) ) {
+        $template = locate_template( array( 'category.php' ) );
+    }
+
+    return $template;
+}
+add_filter( 'template_include', 'custom_template_include' );
 
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
