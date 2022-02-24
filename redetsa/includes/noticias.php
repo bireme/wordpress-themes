@@ -10,18 +10,23 @@
 				'posts_per_page' => '12'
 			]);
 			while($posts->have_posts()) : $posts->the_post();?>
-				<article class="slideNewsBox">
-					<a href="<?php permalink_link(); ?>">
-						<div class="text-center slideNewsBoxImg">
-							<?php if ( has_post_thumbnail()) {
-								the_post_thumbnail('thumbnail',['class' => 'img-fluid']);
-							}else{ ?>
-								<img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
-							<?php }	 ?>
-						</div>
-						<div class="slideNewsDate"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' atrás'; ?></div>
-						<h3><?php the_title(); ?></h3>
-					</a>
+				<article>
+					<div class="slideNewsBoxImg">
+						<?php if ( has_post_thumbnail()) {
+							the_post_thumbnail('bannerMobile',['class' => 'img-fluid']);
+						}else{ ?>
+							<img src="<?php bloginfo( 'template_directory')?>/img/indisponivel.jpg" class="img-fluid" alt="">
+						<?php } ?>
+					</div>
+					<div class="card-body">
+						<a href="<?php permalink_link(); ?>">
+							<h5 class="card-title"><?php the_title(); ?></h5>
+							<p class="card-text"><?php the_excerpt(); ?></p>
+						</a>
+					</div>
+					<div class="card-footer d-none">
+						<small><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); ?> <?php pll_e("ago"); ?></small>
+					</div>
 				</article>
 				<?php
 			endwhile;
