@@ -8,10 +8,10 @@ add_theme_support( 'align-wide' );
 add_image_size('bannerDesktop', 1600, 450, true);
 add_image_size('bannerMobile', 600, 350, true);
 
-function load_translation(){
-    load_plugin_textdomain( 'best-practices', false,  get_template_directory() . '/languages' );
+function theme_load_translation(){
+    load_theme_textdomain( 'best-practices', get_template_directory() . '/languages' );
 }
-add_action('init', 'load_translation');
+add_action('after_setup_theme', 'theme_load_translation');
 
 //Add Styles Top
 function styles_top(){
