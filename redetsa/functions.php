@@ -206,7 +206,7 @@ add_image_size('bannerDesktop', 1280, 350, true);
 add_image_size('bannerMobile', 600, 350, true);
 
 
-/*add_action('init', function() {
+add_action('init', function() {
 //Default
   pll_register_string('Terms and conditions of use', 'Terms and conditions of use','Default');
   pll_register_string('Privacy policy', 'Privacy policy', 'Default');
@@ -230,7 +230,7 @@ add_image_size('bannerMobile', 600, 350, true);
   pll_register_string('not_found', 'No results found', 'Theme');
   pll_register_string('filters', 'Filters', 'Theme');
   pll_register_string('ago', 'ago', 'Theme');
-});*/
+});
 
 
 function custom_template_include( $template ) {
