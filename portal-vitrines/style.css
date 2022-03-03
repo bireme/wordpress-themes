@@ -30,8 +30,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .site_name a span {display: none;}
 #parent{margin-top:37px;}
 .site_name{background: url(images/pt/title-pt.png);float: left;margin: 60px 0 0 5px;width: 240px;height: 45px;}
-.top_en-us .site_name{background: url(images/en/title-en.png)}
+.top_en-us .site_name{background: url(images/en/title-en.png)!important;}
 .top_es-es .site_name{background: url(images/es/title-es.png)!important;}
+.top_es .site_name{background: url(images/es/title-es.png)!important;}
 .header {background:url(images/topbar-bg.png) repeat-x;border-bottom: 1px solid #8BB0C0;height: 136px;}
 .header .headerWidget {color: #FFF;font-size: 80%;width: 115px;float: right;margin: 10px 0 0 0;line-height: 135%;}
 .bar{margin-top:3px;}
