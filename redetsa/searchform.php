@@ -4,7 +4,7 @@
     <div>
       <ul>
         <li><input type="text" name="ofsearch" placeholder="<?php pll_e("Enter one or more words"); ?>" value="<?php echo $ofsearch; ?>"></li>
-        <li>
+        <li class="d-none">
           <select name="category_name" id="ofcategory" class="postform">
             <option value=""><?php pll_e("All Categories"); ?></option>
             <?php

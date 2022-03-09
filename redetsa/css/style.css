@@ -213,6 +213,10 @@ a{
 }
 .searchandfilter li{
 	display: inline-block;
+	width: 66%;
+}
+.searchandfilter li:last-child{
+	display: inline-block;
 	width: 33%;
 }
 .searchandfilter input[type="text"], .searchandfilter select{
