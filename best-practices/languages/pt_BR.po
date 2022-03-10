@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Best Practices Theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
-"POT-Creation-Date: 2022-02-11 20:30-0300\n"
-"PO-Revision-Date: 2022-02-17 02:11-0300\n"
+"POT-Creation-Date: 2022-03-10 01:28-0300\n"
+"PO-Revision-Date: 2022-03-10 01:29-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -38,9 +38,17 @@ msgstr "Voltar para a página inicial"
 msgid "Terms and Conditions of Use"
 msgstr "Termos e Condições de Uso"
 
-#: footer.php:31
+#: footer.php:30
 msgid "Privacy Policy"
 msgstr "Políticas de Privacidade"
+
+#: footer.php:33
+msgid "Regional Office for the Americas of the World Health Organization"
+msgstr "Escritório Regional para as Américas da Organização Mundial da Saúde"
+
+#: footer.php:35
+msgid "Pan American Health Organization. All rights reserved."
+msgstr "Organização Pan-Americana da Saúde. Todos os direitos reservados."
 
 #: includes/search.php:17
 msgid "Enter one or more words"
