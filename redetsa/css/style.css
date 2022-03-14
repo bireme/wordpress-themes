@@ -364,7 +364,14 @@ a{
 .sectionPageBrisa:nth-child(odd){
 	background-image: linear-gradient(#f2f2f2, #ddd);
 }
-
+.accordion-button{
+	background: #7dc1db;
+	color: #fff;
+}
+.accordion-button:not(.collapsed){
+	background: #27afe1;
+	color: #fff;
+}
 @media (max-width: 1200px) {
 	#logoBrisa{
 		width: 35%;

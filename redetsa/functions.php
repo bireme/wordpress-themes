@@ -59,16 +59,16 @@ function registrar_custom_post_type() {
   register_post_type( 'home' , $argsHome );
 // Banners
   $descritivosBanner = array(
-    'name'                => 'Banner',
+    'name'               => 'Banner',
     'singular_name'      => 'Banner',
-    'add_new'            => 'Adicionar novo banner',
-    'add_new_item'       => 'Adicionar banner',
+    'add_new'            => 'Agregar nuevo banner',
+    'add_new_item'       => 'Agregar banner',
     'edit_item'          => 'Editar banner',
-    'new_item'           => 'Novo banner',
-    'view_item'          => 'Visualizar banner',
-    'search_items'       => 'Pesquisar banner',
-    'not_found'          => 'Nenhum banner encontrado',
-    'not_found_in_trash' => 'Nenhum banner na lixeira',
+    'new_item'           => 'Nuevo banner',
+    'view_item'          => 'Ver banner',
+    'search_items'       => 'Buscar banner',
+    'not_found'          => 'No se encontraron banner encontrado',
+    'not_found_in_trash' => 'No se encontraron banner en la papelera',
     'parent_item_colon'  => '',
     'menu_name'          => 'Banner'
   );
@@ -85,14 +85,14 @@ function registrar_custom_post_type() {
   $covidBrisa = array(
     'name'               => 'Covid-Brisa',
     'singular_name'      => 'Covid-Brisa',
-    'add_new'            => 'Adicionar nova estratégia Covid-19 Brisa',
-    'add_new_item'       => 'Adicionar estratégia Covid-19 Brisa',
+    'add_new'            => 'Agregar nueva estratégia Covid-19 Brisa',
+    'add_new_item'       => 'Agregar estratégia Covid-19 Brisa',
     'edit_item'          => 'Editar estratégia Covid-19 Brisa',
-    'new_item'           => 'Nova estratégia Covid-19 Brisa',
-    'view_item'          => 'Visualizar estratégia Covid-19 Brisa',
-    'search_items'       => 'Pesquisar estratégia Covid-19 Brisa',
-    'not_found'          => 'Nenhuma estratégia Covid-19 Brisa encontrada',
-    'not_found_in_trash' => 'Nenhuma estratégia Covid-19 Brisa na lixeira',
+    'new_item'           => 'Nueva estratégia Covid-19 Brisa',
+    'view_item'          => 'Ver estratégia Covid-19 Brisa',
+    'search_items'       => 'Buscar estratégia Covid-19 Brisa',
+    'not_found'          => 'No se encontraron estratégia Covid-19 Brisa encontrada',
+    'not_found_in_trash' => 'No se encontraron estratégia Covid-19 Brisa en la papelera',
     'parent_item_colon'  => '',
     'menu_name'          => 'Estratégia Covid-19'
   );
@@ -109,14 +109,14 @@ function registrar_custom_post_type() {
   $estrategias = array(
     'name'               => 'Estratégias',
     'singular_name'      => 'Estratégia',
-    'add_new'            => 'Adicionar nova Estratégia Brisa',
-    'add_new_item'       => 'Adicionar Estratégia Brisa',
+    'add_new'            => 'Agregar nueva Estratégia Brisa',
+    'add_new_item'       => 'Agregar Estratégia Brisa',
     'edit_item'          => 'Editar Estratégia Brisa',
-    'new_item'           => 'Nova Estratégia Brisa',
-    'view_item'          => 'Visualizar Estratégias Brisa',
-    'search_items'       => 'Pesquisar Estratégias Brisa',
-    'not_found'          => 'Nenhuma Estratégia Brisa encontrada',
-    'not_found_in_trash' => 'Nenhuma Estratégia Brisa na lixeira',
+    'new_item'           => 'Nueva Estratégia Brisa',
+    'view_item'          => 'Ver Estratégias Brisa',
+    'search_items'       => 'Buscar Estratégias Brisa',
+    'not_found'          => 'No se encontraron Estratégia Brisa encontrada',
+    'not_found_in_trash' => 'No se encontraron Estratégia Brisa en la papelera',
     'parent_item_colon'  => '',
     'menu_name'          => 'Estratégia Brisa'
   );
@@ -133,14 +133,14 @@ function registrar_custom_post_type() {
   $rebrats = array(
     'name'               => 'Estratégias Rebrats',
     'singular_name'      => 'Estratégia Rebrats',
-    'add_new'            => 'Adicionar nova Estratégia Rebrats',
-    'add_new_item'       => 'Adicionar Estratégia Rebrats',
+    'add_new'            => 'Agregar nueva Estratégia Rebrats',
+    'add_new_item'       => 'Agregar Estratégia Rebrats',
     'edit_item'          => 'Editar Estratégia Rebrats',
-    'new_item'           => 'Nova Estratégia Rebrats',
-    'view_item'          => 'Visualizar Estratégias Rebrats',
-    'search_items'       => 'Pesquisar Estratégias Rebrats',
-    'not_found'          => 'Nenhuma Estratégia Rebrats encontrada',
-    'not_found_in_trash' => 'Nenhuma Estratégia Rebrats na lixeira',
+    'new_item'           => 'Nueva Estratégia Rebrats',
+    'view_item'          => 'Ver Estratégias Rebrats',
+    'search_items'       => 'Buscar Estratégias Rebrats',
+    'not_found'          => 'No se encontraron Estratégia Rebrats encontrada',
+    'not_found_in_trash' => 'No se encontraron Estratégia Rebrats en la papelera',
     'parent_item_colon'  => '',
     'menu_name'          => 'Estratégia Rebrats'
   );
@@ -153,32 +153,30 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-clipboard'
   );
   register_post_type( 'estrategia-rebrats' , $argsRebrats );
-  // Timeline
-  // $descritivosTimeline = array(
-  //   'name'                => 'Timeline',
-  //   'singular_name'      => 'Timeline',
-  //   'add_new'            => 'Adicionar nova timeline',
-  //   'add_new_item'       => 'Adicionar timeline',
-  //   'edit_item'          => 'Editar timeline',
-  //   'new_item'           => 'Novo timeline',
-  //   'view_item'          => 'Visualizar timeline',
-  //   'search_items'       => 'Pesquisar timeline',
-  //   'not_found'          => 'Nenhum timeline encontrado',
-  //   'not_found_in_trash' => 'Nenhum timeline na lixeira',
-  //   'parent_item_colon'  => '',
-  //   'menu_name'          => 'Timeline'
-  // );
-  // $argsTimeLine = array(
-  //   'labels'            => $descritivosTimeline,
-  //   'public'            => true,
-  //   'hierarchical'      => false,
-  //   'menu_position'     => 11,
-  //   'supports'          => array('title'),
-  //   'menu_icon'         => 'dashicons-backup'
-  // );
-  // register_post_type( 'timeline' , $argsTimeLine );
-
-
+  // Eventos
+  $eventos = array(
+    'name'               => 'Eventos',
+    'singular_name'      => 'Evento',
+    'add_new'            => 'Agregar nuevo evento',
+    'add_new_item'       => 'Agregar evento',
+    'edit_item'          => 'Editar evento',
+    'new_item'           => 'Nuevo evento',
+    'view_item'          => 'Ver evento',
+    'search_items'       => 'Buscar eventos',
+    'not_found'          => 'No se encontraron eventos',
+    'not_found_in_trash' => 'No se encontraron eventos en la papelera',
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Eventos'
+  );
+  $argsEventos = array(
+    'labels'            => $eventos,
+    'public'            => true,
+    'hierarchical'      => false,
+    'menu_position'     => 11,
+    'supports'          => array('title', 'editor', 'thumbnail'),
+    'menu_icon'         => 'dashicons-media-document'
+  );
+  register_post_type( 'eventos' , $argsEventos );
   flush_rewrite_rules();
 }
 // WIDGETS
