@@ -8,7 +8,7 @@ Template Name: News
 <?php $site_language = strtolower(get_bloginfo('language')); ?>
 <?php $lang = substr($site_language,0,2); ?>
 <?php $ofsearch = ( $_GET['ofsearch'] ) ? sanitize_text_field($_GET['ofsearch']) : ''; ?>
-<?php $ofcategory = ( $_GET['category_name'] ) ? sanitize_text_field($_GET['category_name']) : 'noticias-pt, noticias-es, noticias-en'; ?>
+<?php $ofyear = ( $_GET['ofyear'] ) ? intval($_GET['ofyear']) : ''; ?>
 <main id="main_container" class="padding1">
   <div class="container">
     <h1 class="title1"><?php the_title(); ?></h1>
@@ -18,9 +18,9 @@ Template Name: News
         'searchform',
         null,
         array(
-          'lang'       => $lang,
-          'ofsearch'   => $ofsearch,
-          'ofcategory' => $ofcategory
+          'lang'     => $lang,
+          'ofsearch' => $ofsearch,
+          'ofyear'   => $ofyear
         )
       );
     ?>
@@ -30,8 +30,13 @@ Template Name: News
       $posts = new WP_Query([
         'post_type'      => 'post',
         's'              => $ofsearch,
-        'category_name'  => $ofcategory,
-        'posts_per_page' => '-1'
+        'category_name'  => 'noticias-pt, noticias-es, noticias-en',
+        'posts_per_page' => '-1',
+        'date_query' => array(
+            array(
+                'year' => $ofyear,
+            ),
+        ),
       ]);
       if ($posts->have_posts()): while ($posts->have_posts()) : $posts->the_post(); ?>
         <article class="col">

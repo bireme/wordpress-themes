@@ -223,6 +223,7 @@ add_action('init', function() {
 
 //Filters
   pll_register_string('all_cats', 'All Categories', 'Theme');
+  pll_register_string('year_filter', 'Filter by year', 'Theme');
   pll_register_string('placeholder', 'Enter one or more words', 'Theme');
   pll_register_string('search', 'Search', 'Theme');
   pll_register_string('not_found', 'No results found', 'Theme');
@@ -240,7 +241,7 @@ function custom_template_include( $template ) {
 
     return $template;
 }
-add_filter( 'template_include', 'custom_template_include' );
+// add_filter( 'template_include', 'custom_template_include' );
 
 // Ajuste RSS
 function http_request_local( $args, $url ) { 
