@@ -16,7 +16,7 @@
             $title = get_sub_field('title');
             $contents = get_sub_field('contents');
             ?>
-            <div>
+            <div id="sessao1">
               <div class="content">
                 <h2 class="title1"><?php echo $title; ?></h2>
                 <?php echo $contents; ?>
@@ -31,7 +31,7 @@
             $title = get_sub_field('title');
             $contents = get_sub_field('contents');
             ?>
-            <div>
+            <div id="sessao2">
               <div class="content">
                 <h2 class="title1"><?php echo $title; ?></h2>
                 <?php echo $contents; ?>
@@ -46,7 +46,7 @@
             $title = get_sub_field('title');
             $contents = get_sub_field('contents');
             ?>
-            <div>
+            <div id="sessao3">
               <div class="content">
                 <h2 class="title1"><?php echo $title; ?></h2>
                 <?php echo $contents; ?>
@@ -57,7 +57,7 @@
 
       </div>
       <div class="col-md-4 col-lg-3 order-md-first">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion sticky-top" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
