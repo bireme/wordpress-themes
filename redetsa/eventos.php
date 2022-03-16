@@ -1,3 +1,8 @@
+<?php
+/***
+Template Name: Eventos
+***/
+?>
 <?php get_header();?>
 <?php get_template_part('includes/nav'); ?>
 <main id="main_container" class="padding1">
@@ -10,52 +15,9 @@
           <?php the_content();
         endwhile;
         ?>
-
-        <?php if( have_rows('grupo_1') ): ?>
-          <?php while( have_rows('grupo_1') ): the_row(); 
-            $title = get_sub_field('title');
-            $contents = get_sub_field('contents');
-            ?>
-            <div>
-              <div class="content">
-                <h2 class="title1"><?php echo $title; ?></h2>
-                <?php echo $contents; ?>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-
-
-        <?php if( have_rows('grupo_2') ): ?>
-          <?php while( have_rows('grupo_2') ): the_row(); 
-            $title = get_sub_field('title');
-            $contents = get_sub_field('contents');
-            ?>
-            <div>
-              <div class="content">
-                <h2 class="title1"><?php echo $title; ?></h2>
-                <?php echo $contents; ?>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-
-
-        <?php if( have_rows('grupo_3') ): ?>
-          <?php while( have_rows('grupo_3') ): the_row(); 
-            $title = get_sub_field('title');
-            $contents = get_sub_field('contents');
-            ?>
-            <div>
-              <div class="content">
-                <h2 class="title1"><?php echo $title; ?></h2>
-                <?php echo $contents; ?>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        <?php endif; ?>
-
       </div>
+
+      
       <div class="col-md-4 col-lg-3 order-md-first">
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
@@ -108,7 +70,7 @@
         </div>
       </div>
     </div>
-
+    
   </div>
 </main>
 <?php get_footer(); ?>
