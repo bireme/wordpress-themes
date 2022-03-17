@@ -25,12 +25,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 .site_name {margin: 12px;}
 .top_pt-br .site_name a,
 .top_en-us .site_name a,
-.top_es-es .site_name a {display: block;width:auto;height:65px;}
+.top_es-es .site_name a,
+.top_es .site_name a {display: block;width:auto;height:65px;}
 .site_name a span {display: none;}
 #parent{margin-top:37px;}
 .site_name{background: url(images/pt/title-pt.png);float: left;margin: 60px 0 0 5px;width: 240px;height: 45px;}
-.top_en-us .site_name{background: url(images/en/title-en.png)}
-.top_es-es .site_name{background: url(images/es/title-es.png)}
+.top_en-us .site_name{background-image: url(images/en/title-en.png)!important;}
+.top_es-es .site_name{background-image: url(images/es/title-es.png)!important;}
+.top_es .site_name{background-image: url(images/es/title-es.png)!important;}
 .header {background:url(images/topbar-bg.png) repeat-x;border-bottom: 1px solid #8BB0C0;height: 136px;}
 .header .headerWidget {color: #FFF;font-size: 80%;width: 115px;float: right;margin: 10px 0 0 0;line-height: 135%;}
 .bar{margin-top:3px;}
@@ -86,6 +88,91 @@ body.page .site-content { padding: 10px; }
 .footer div{margin-top:12px;}
 .footer .logo-footer{display: inline-block;}
 .footer .institutional-info{display: inline-block;vertical-align: top;margin: 18px 0 0 6px;}
+
+.site_name{
+    background-size: 100%!important;
+}
+.wp-block-rss.wp-block-rss{
+    width:95%;
+}
+.wp-block-rss.wp-block-rss li{
+    border-bottom:5px solid #eee;
+    background:#fefef2;
+}
+.wp-block-rss.wp-block-rss li a{
+    font-weight:bold;
+}
+.header a{
+    color:#fff;
+}
+.title-widgets-h2{
+    font-size:24px!important;
+    text-align:center;
+}
+.classic-textwidget{
+    text-align:center;
+}
+.column strong.widget-title{
+    text-align:center!important;
+    font-weight:bold!important;
+}
+.btn-widgets a{
+    font-size: 21px;
+    font-weight: 100;
+    text-decoration: none;
+    background: #03a9f4;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff!important;
+}
+.btn-widgets a:hover{
+    background:#66c9f5;
+}
+.widget_rss li{
+    border-bottom:3px solid #eee;
+    background:#fefef2;
+    padding:5px 10px;
+}
+.wp-block-rss.wp-block-rss li a{
+    font-weight:bold;
+}
+.column .widget DIV{
+    padding:0px;
+}
+.widget_super_rss_reader{
+    padding:10px 20px;
+}
+.widget_super_rss_reader .widget-title{
+    padding-bottom:10px;
+    display:block;
+}
+.srr-title{
+    border-bottom:3px solid #eee;
+    background:#fefef2;
+    color:#000;
+    font-weight:bold;
+    padding:10px!important;
+}
+.srr-style-none .srr-item{
+    padding:5px!important;
+}
+#searchForm{
+    border-bottom:none;
+}
+.siteorigin-widget-tinymce{
+    font-size:16px;
+    line-height:30px;
+}
+.lang-item-fr{
+    display:none;
+}
+.widget_metaslider_widget .caption{
+    font-size:24px;
+    line-height:40px;
+    padding:10px 20px!important;
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 730px) and (max-width: 1015px) {
