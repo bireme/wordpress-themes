@@ -251,10 +251,36 @@ a{
 .widgets-category p{
 	display: none;
 }
-.box-perfil{
-	border-left: 10px solid #1c76bc;
-	background: rgb(244,244,244) url(../img/stripes.png);
-	background: background: linear-gradient(228deg, rgba(244,244,244,1) 0%, rgba(228,228,228,1) 100%);
+#bg-perfil{
+	background: linear-gradient(45deg, #151c48, #3b70a2,#70c2e8 ,#5bb9d3);
+	background-size: 300% 300%;
+	color: #fff;
+	animation: colors 15s ease infinite;
+	position: relative;
+}
+#bg-perfil::after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background: url(../img/bg-perfil.png) bottom;
+	opacity: 0.5;
+}
+#bg-perfil a{
+	color: #fff;
+}
+@keyframes colors {
+	0%{
+		background-position: 0% 50%;
+	}
+	50%{
+		background-position: 100% 50%;
+	}
+	100%{
+		background-position: 0% 50%;
+	}
 }
 @media (max-width: 1400px){
 	.slideNewsBoxImg img{

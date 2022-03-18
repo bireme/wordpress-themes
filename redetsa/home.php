@@ -27,7 +27,7 @@ endwhile;
 
 
 
-<section class="padding1">
+<section class="padding1" id="bg-perfil">>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <?php
@@ -44,15 +44,11 @@ endwhile;
               ?>
               <?php if ( $title ) : ?>
                 <article class="col col-md-12">
-                  <div class="card h-100 box-perfil">
                     <img src="<?php echo esc_url($image['url']); ?>" class="card-img-top" alt="<?php echo esc_url($image['alt']); ?>">
-                    <div class="card-body">
                       <a href="<?php echo $link; ?>" target="<?php echo $window; ?>">
-                        <h4 class="card-title"><?php echo $title; ?></h4>
-                        <p class="card-text"><?php echo $text; ?></p>
+                        <h4><?php echo $title; ?></h4>
+                        <p><?php echo $text; ?></p>
                       </a>
-                    </div>
-                  </div>
                 </article>
               <?php endif; ?>
             <?php endwhile; ?>
