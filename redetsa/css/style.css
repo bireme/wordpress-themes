@@ -265,7 +265,7 @@ a{
 	height: 100%;
 	top: 0;
 	right: 0;
-	background: url(../img/bg-perfil.png) bottom;
+	background: url(../img/bg-perfil.png) bottom right no-repeat;
 	opacity: 0.5;
 }
 #bg-perfil a{
