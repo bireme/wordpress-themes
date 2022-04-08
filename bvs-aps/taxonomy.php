@@ -3,7 +3,7 @@
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="<?php echo get_option('siteurl'); ?>">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?php echo rtrim($home_url, '/'); ?>">Home</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Taxonomia</li>
 			</ol>
 		</nav>

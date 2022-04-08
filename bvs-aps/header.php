@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php $config = get_option('bvs_aps_config'); ?>
+<?php $home_url = ( $config['home_url'] ) ? $config['home_url'] : get_option('siteurl'); ?><!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8">
@@ -10,7 +11,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-1">
-						<a href="<?php echo get_option('siteurl'); ?>"><img src="http://logos.bireme.org/img/pt/bvs_color.svg" class="img-fluid" id="logoBVS" alt=""></a>
+						<a href="<?php echo rtrim($home_url, '/'); ?>"><img src="http://logos.bireme.org/img/pt/bvs_color.svg" class="img-fluid" id="logoBVS" alt=""></a>
 					</div>
 					<div class="col-md-7" id="header-site">
 						<b><?php echo get_option('blogname'); ?></b> <br>
