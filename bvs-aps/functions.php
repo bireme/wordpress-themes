@@ -29,20 +29,13 @@ function custom_excerpt_length($length) {
 function bvs_aps_admin_menu() {
     add_submenu_page( 'options-general.php', __('VHL APS Theme Settings', 'bvs-aps'), __('VHL APS', 'bvs-aps'), 'manage_options', 'bvs-aps', 'bvs_aps_page_admin');
     // call register settings function
-    add_action( 'admin_init', 'register_settings' );
+    add_action( 'admin_init', 'bvs_aps_register_settings' );
 }
 add_action( 'admin_menu', 'bvs_aps_admin_menu' );
 
-function register_settings() {
+function bvs_aps_register_settings() {
     register_setting('bvs-aps-settings-group', 'bvs_aps_config');
 }
-
-function settings_link($links) {
-    $settings_link = '<a href="options-general.php?page=bvs-aps">'.__('Settings').'</a>';
-    array_unshift($links, $settings_link);
-    return $links;
-}
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'settings_link' );
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
