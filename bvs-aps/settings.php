@@ -1,6 +1,7 @@
 <?php
 function bvs_aps_page_admin() {
     $config = get_option('bvs_aps_config');
+    $home_url = ( empty($config['home_url']) ) ? '' : $config['home_url'];
 ?>
     <div class="wrap">
         <div id="icon-options-general" class="icon32"></div>
@@ -14,7 +15,7 @@ function bvs_aps_page_admin() {
                 <tbody>
                     <tr valign="top">
                         <th scope="row"><?php _e('Home URL', 'bvs-aps'); ?>:</th>
-                        <td><input type="text" name="config[home_url]" value="<?php echo $config['home_url']; ?>" class="regular-text code"></td>
+                        <td><input type="text" name="config[home_url]" value="<?php echo $home_url; ?>" class="regular-text code"></td>
                     </tr>
                 </tbody>
             </table>
