@@ -1,5 +1,6 @@
 <?php $config = get_option('bvs_aps_config'); ?>
-<?php $home_url = ( $config['home_url'] ) ? $config['home_url'] : get_option('siteurl'); ?><!DOCTYPE html>
+<?php $home_url = ( empty($config['home_url']) ) ? get_option('siteurl') : $config['home_url']; ?>
+<!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8">
