@@ -18,31 +18,28 @@
 	endwhile;
 	?>
 	<div class="small">
-		<b>Solicitante:</b>  <?php echo get_the_term_list(get_the_ID(), 'tipo-de-profissional', '', ', '); ?> <br>
-		<b>CIAP2:</b> <?php echo get_the_term_list(get_the_ID(), 'ciap2', '', ', '); ?> <br>
-		<b>DeCS/MeSH:</b> <?php echo get_the_term_list(get_the_ID(), 'decs', '', ', '); ?> <br>
-		<b>Graus da Evidência:</b>  <?php echo get_the_term_list(get_the_ID(), 'grau-da-evidencia', '', ', '); ?> <br>
-		<b>Recorte Temático:</b>  <?php echo get_the_term_list(get_the_ID(), 'recorte-tematico', '', ', '); ?> <br>
-		<!--b>Destaque:</b>  <?php echo get_the_term_list(get_the_ID(), 'highlight', '', ', '); ?> <br-->
+		<?php $solicitante =  get_the_term_list(get_the_ID(), 'tipo-de-profissional', '', ', ');?>
+		<?php $ciap =  get_the_term_list(get_the_ID(), 'ciap2', '', ', ');?>
+		<?php $decs =  get_the_term_list(get_the_ID(), 'decs', '', ', ');?>
+		<?php $evidencia =  get_the_term_list(get_the_ID(), 'grau-da-evidencia', '', ', ');?>
+		<?php $tematico =  get_the_term_list(get_the_ID(), 'recorte-tematico', '', ', ');?>
+
+		<?php echo $solicitante != "" ? "<b>Solicitante:</b> $solicitante <br>" : ""; ?>
+		<?php echo $ciap != "" ? "<b>CIAP2:</b> $ciap <br>" : ""; ?>
+		<?php echo $decs != "" ? "<b>DeCS/MeSH:</b> $decs <br>" : ""; ?>
+		<?php echo $evidencia != "" ? "<b>Graus da Evidência:</b> $evidencia <br>" : ""; ?>
+		<?php echo $tematico != "" ? "<b>Recorte Temático:</b> $tematico <br>" : ""; ?>
+		
 	</div>
 	<hr>
 	<?php the_content(); ?>
-
+	<hr>
+	<?php echo $observacoes; ?>
 	<div class="card">
 		<div class="card-body">
 			<div class="margin2">
 				<h4>Bibliografia Selecionada:</h4>
 				<?php echo $bibliografia_selecionada; ?>
-			</div>
-
-			<div class="margin2">
-				<h4>Revisão:</h4>
-				<?php echo $revisao; ?>
-			</div>
-
-			<div class="margin2">
-				<h4>Oservações:</h4>
-				<?php echo $observacoes; ?>
 			</div>
 		</div>
 	</div>
