@@ -99,4 +99,14 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
   }
 }
+
+// Add sup and sub buttons to visual editor 
+function my_mce_buttons_2( $buttons ) {	
+	$buttons[] = 'superscript';
+	$buttons[] = 'subscript';
+
+	return $buttons;
+}
+add_filter( 'mce_buttons_2', 'my_mce_buttons_2' );
+
 ?>
