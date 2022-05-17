@@ -4,15 +4,15 @@ Template Name: Eventos
 ***/
 ?>
 <?php
-    $count = 0;
+$counts = 0;
 
-    $args = array(
-        'post_type' => 'eventos',
-        'post_status' => 'publish',
-        'posts_per_page' => -1
-    );
+$args = array(
+  'post_type' => 'eventos',
+  'post_status' => 'publish',
+  'posts_per_page' => -1
+);
 
-    $events = new WP_Query( $args );
+$events = new WP_Query( $args );
 ?>
 <?php get_header(); ?>
 <?php get_template_part('includes/nav'); ?>
@@ -27,35 +27,37 @@ Template Name: Eventos
         <?php endwhile; ?>
       </div>
       <div class="col-md-4 col-lg-3 order-md-first">
-        <div class="accordion" id="accordionExample">
-          <?php if ($events->have_posts()): while ($events->have_posts()) : $events->the_post(); $count++; ?>
+        <div class="accordion sticky-top" id="accordionExample">
+          <?php if ($events->have_posts()): while ($events->have_posts()) : $events->the_post(); $counts++; ?>
             <div class="accordion-item">
-              <h2 class="accordion-header" id="heading<?php echo $count; ?>">
-                <button class="accordion-button <?php if ( $count > 1 ) { echo 'collapsed'; } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $count; ?>" aria-expanded="<?php echo ( $count == 1 ) ? 'true' : 'false'; ?>" aria-controls="collapse<?php echo $count; ?>">
+              <h2 class="accordion-header" id="heading<?php echo $counts; ?>">
+                <button class="accordion-button <?php if ( $counts > 1 ) { echo 'collapsed'; } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $counts; ?>" aria-expanded="<?php echo ( $counts == 1 ) ? 'true' : 'false'; ?>" aria-controls="collapse<?php echo $counts; ?>">
                   <?php the_title(); ?>
                 </button>
               </h2>
-              <div id="collapse<?php echo $count; ?>" class="accordion-collapse collapse <?php if ( $count == 1 ) { echo 'show'; } ?>" aria-labelledby="heading<?php echo $count; ?>" data-bs-parent="#accordionExample">
+              <div id="collapse<?php echo $counts; ?>" class="accordion-collapse collapse <?php if ( $counts == 1 ) { echo 'show'; } ?>" aria-labelledby="heading<?php echo $counts; ?>" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                   <ul>
                     <?php
-                      $section  = 0;
-                      $first    = true;
+                    $section  = 0;
+                    $first    = true;
+                    $fields = get_fields();
+                    $count = count($fields);
 
-                      $groups   = array();
-                      $groups[] = get_field('grupo_1');
-                      $groups[] = get_field('grupo_2');
-                      $groups[] = get_field('grupo_3');
+                    $groups   = array();
+                    for ($i=1; $i <= $count; $i++) { 
+                      $groups[] = get_field('grupo_'.$i);
+                    }
                     ?>
                     <?php foreach ($groups as $group) : $section++; ?>
                       <?php if ( $group['title'] ) : ?>
                         <?php
-                          if ( $first ) {
-                            $hash = '';
-                            $first = false;
-                          } else {
-                            $hash = '#section' . $section;
-                          }
+                        if ( $first ) {
+                          $hash = '';
+                          $first = false;
+                        } else {
+                          $hash = '#section' . $section;
+                        }
                         ?>
                         <li><a href="<?php echo get_the_permalink() . $hash; ?>"><?php echo $group['title']; ?></a></li>
                       <?php endif; ?>
