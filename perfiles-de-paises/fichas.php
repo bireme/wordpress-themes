@@ -135,7 +135,7 @@ $country = (isset($_GET['country']) ) ? $_GET['country'] : '';
             </div>
             <div class="card-body collapse" id="area4">
               <a href="#usoRacional" data-toggle="modal"><?php pll_e('Uso Racional'); ?></a> <br>
-              <a href="#gpc" data-toggle="modal"><?php pll_e('GPC'); ?></a> <br>
+              <a href="#gpc" data-toggle="modal"><?php pll_e('Guías de Práctica Clínica'); ?></a> <br>
               <a href="#monitoreo" data-toggle="modal"><?php pll_e('Monitoreo'); ?></a>
             </div>
           </div>
