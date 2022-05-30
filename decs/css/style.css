@@ -351,7 +351,7 @@ a{
 	font-weight: bold;
 }
 .slick-prev:before, .slick-next:before{
-	color: #4e7952;
+	color: #4e7952!important;
 }
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
