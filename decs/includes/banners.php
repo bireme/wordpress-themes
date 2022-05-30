@@ -1,4 +1,4 @@
-<section class="text-center container">
+<section class="text-center container d-none">
 	<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" style=" margin-bottom: 30px; z-index: 0">
 		<div class="carousel-inner">
 			<div class="carousel-inner">

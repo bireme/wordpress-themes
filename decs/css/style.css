@@ -350,6 +350,9 @@ a{
 	text-align: center;
 	font-weight: bold;
 }
+.slick-prev:before, .slick-next:before{
+	color: #4e7952;
+}
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
 	.boxHome{

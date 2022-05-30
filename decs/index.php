@@ -10,7 +10,7 @@
 
 <?php get_template_part('includes/banners') ?>
 
-<section id="countHome">
+<section id="countHome" class="d-none">
 	<div class="container containerAos">
 		<div class="row">
 			<div class="col-12">	
@@ -42,7 +42,7 @@
 	</div>
 </section>
 
-<section class="padding2">
+<section class="padding2 d-none">
 	<div class="container containerAos">
 		<h2 class="title1"><?php pll_e('About DeCS'); ?></h2>
 		<div class="line"></div>
@@ -71,7 +71,7 @@
 	</div>
 </section>
 
-<section class="padding2 bgColor1">
+<section class="padding2 bgColor1 d-none">
 	<div class="container containerAos">
 		<h2 class="title1"><?php pll_e('DeCS in Numbers'); ?></h2>
 		<div class="line"></div>
