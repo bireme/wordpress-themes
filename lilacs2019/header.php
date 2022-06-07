@@ -45,7 +45,7 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
 	</head>
-	<body class="bg-white site_<?php echo ( $site_lang ); ?>">
+	<body <?php body_class('bg-white site_'.$site_lang); ?>>
     <?php get_template_part (  'topAccessibility'); ?>
 		<div class="col-lg-12 bar">
 			<div class="container BarInner">
