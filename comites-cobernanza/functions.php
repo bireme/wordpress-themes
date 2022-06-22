@@ -43,8 +43,6 @@ add_action('init', function() {
 	pll_register_string('View more', 'View more', 'Default');
 	pll_register_string('Scientific Comittee', 'Scientific Comittee', 'Default');
 	pll_register_string('Advisory Committee', 'Advisory Committee', 'Default');
-
-	Comité Científico
 });
 //Custom Post Type
 add_action('init', 'custon_posts');
