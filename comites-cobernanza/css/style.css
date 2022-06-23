@@ -92,7 +92,7 @@ a:hover{
 	#lang{
 		text-align: center;
 	}
-	#footerTermos div{
+	#footerTermos div, #assFooter{
 		text-align: center!important;
 	}
 }
