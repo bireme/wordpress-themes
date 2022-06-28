@@ -108,6 +108,22 @@
 .title1{
 	font-family: 'Roboto', sans-serif;
 }
+.logo-header {
+    float: left;
+    margin-right: 1rem;
+}
+.site-title {
+    font-size: 28px;
+    line-height: 2rem;
+    text-transform: uppercase;
+    color: #0093d6;
+    display: inline-block;
+    margin-top: 8px;
+    max-width: 200px;
+}
+[class^='lang-item'] img {
+    display: none;
+}
 /******************** Cores **************/
 .aSpan{
 	padding: 3px 5px;
