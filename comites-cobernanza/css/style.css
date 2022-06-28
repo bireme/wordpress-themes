@@ -42,8 +42,8 @@ a:hover{
 	padding: 5px;
 	color: #fff;
 }
-#lang ul li .active{
-	background: #39c0f0;
+#lang .current-lang a{
+	background: #aeb1b2;
 }
 #nav{
 	background: #05548b!important;
