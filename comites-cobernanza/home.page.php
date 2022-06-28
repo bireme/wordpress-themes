@@ -18,7 +18,7 @@
 				while($posts->have_posts()) : $posts->the_post();?>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br><?php the_excerpt(); ?>
 				<?php endwhile;	?>
-				<a class="btn btn-sm btn-warning" href="ca/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="ca-/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
 			</div>
 			<div class="col-md-6 marginM1">
 				<h2 class="title1"><?php pll_e('Scientific Comittee'); ?></h2>
@@ -31,13 +31,13 @@
 				while($posts->have_posts()) : $posts->the_post();?>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br><?php the_excerpt(); ?>
 				<?php endwhile;	?>
-				<a class="btn btn-sm btn-warning" href="cc-ca/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="cc-/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
 			</div>
 			<div class="col-md-12 list-news">
 				<hr>
 				<h2 class="title1">Noticias</h2>
 				<ul class="list-unstyled"><?php dynamic_sidebar('home_widget') ?></ul>
-				<a class="btn btn-sm btn-warning" href="https://boletin.bireme.org/pt/?s=Comit%C3%AA+Cient%C3%ADfico" target="_blank"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="https://boletin.bireme.org/<?php echo $language==''?'es':$language; ?>/?s=Comit%C3%AA+Cient%C3%ADfico" target="_blank"><?php pll_e('View more'); ?></a>
 			</div>
 		</div>
 	</div>
