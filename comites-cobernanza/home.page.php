@@ -2,6 +2,16 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
 <?php $language = pll_current_language(); ?>
+<?php
+$posts = new WP_Query([
+	'post_type' => 'acessor',
+	'posts_per_page' => '3'
+]);
+?>
+<?php 
+$linkCA = get_field('link_comite_assessor'); 
+$linkCC = get_field('link_comite_cientifico'); 
+?>
 <main id="main_container" class="margin1 padding2">
 	<div class="container">
 		<?php the_content(); ?>
@@ -18,7 +28,7 @@
 				while($posts->have_posts()) : $posts->the_post();?>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br><?php the_excerpt(); ?>
 				<?php endwhile;	?>
-				<a class="btn btn-sm btn-warning" href="ca-/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="<?php echo $linkCA; ?>"><?php pll_e('View more'); ?></a>
 			</div>
 			<div class="col-md-6 marginM1">
 				<h2 class="title1"><?php pll_e('Scientific Comittee'); ?></h2>
@@ -26,12 +36,12 @@
 				$cientifico = get_the_title();
 				$posts = new WP_Query([
 					'post_type' => 'cientifico',
-					'posts_per_page' => '3'
+					'posts_per_page' => '3',
 				]);
 				while($posts->have_posts()) : $posts->the_post();?>
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br><?php the_excerpt(); ?>
 				<?php endwhile;	?>
-				<a class="btn btn-sm btn-warning" href="cc-/<?php echo $language==''?'es':$language; ?>"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="<?php echo $linkCC; ?>"><?php pll_e('View more'); ?></a>
 			</div>
 			<div class="col-md-12 list-news">
 				<hr>
