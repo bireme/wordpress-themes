@@ -1,4 +1,17 @@
-<section class="text-center container d-none">
+<?php 
+$home = new WP_Query([
+	'post_type' => 'Home',
+	'orderby' => 'title',
+	'order' => 'ASC'
+]);
+while($home->have_posts()):$home->the_post();
+	$banners = get_field('banners');
+endwhile;
+?>
+<section id="banner" class="text-center container alert alert-dismissible fade show <?php echo ($banners == 'Yes') ? '' : 'd-none'; ?>">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
 	<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel" style=" margin-bottom: 30px; z-index: 0">
 		<div class="carousel-inner">
 			<div class="carousel-inner">

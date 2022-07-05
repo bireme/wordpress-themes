@@ -353,6 +353,19 @@ a{
 .slick-prev:before, .slick-next:before{
 	color: #4e7952!important;
 }
+#banner{
+	padding-right: 0;
+}
+#banner button{
+	z-index: 30;
+	background: #fff;
+	border-radius: 5px 0 5px 5px;
+}
+#banner .close{
+	padding: 10px;
+	right: 15px;
+	top: 10px;
+}
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
 	.boxHome{
