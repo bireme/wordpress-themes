@@ -31,14 +31,14 @@
 	background: #05548b!important;
 	padding: 10px;
 }
-#nav a{
+#nav .nav-link{
 	color: #fff;
 }
-#nav a:hover{
-	color: #aaa;
+#nav .nav-link:hover{
+	color: #ddd;
 }
-#nav ul li{
-	margin-right: 10px;
+#nav .dropdown-item:hover{
+	color: #999;
 }
 #footer{
 	background:#05548b;
