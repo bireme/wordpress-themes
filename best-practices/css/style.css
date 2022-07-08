@@ -40,6 +40,10 @@
 #nav .dropdown-item:hover{
 	color: #999;
 }
+.navbar-light .navbar-toggler{
+	border-color: #fff;
+	background-color: #fff;
+}
 #footer{
 	background:#05548b;
 	border-top: 5px solid #ed742c;
