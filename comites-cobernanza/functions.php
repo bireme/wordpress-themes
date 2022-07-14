@@ -43,6 +43,8 @@ add_action('init', function() {
 	pll_register_string('View more', 'View more', 'Default');
 	pll_register_string('Scientific Comittee', 'Scientific Comittee', 'Default');
 	pll_register_string('Advisory Committee', 'Advisory Committee', 'Default');
+	pll_register_string('Reference Documents', 'Reference Documents', 'Default');
+	pll_register_string('News', 'News', 'Default');
 });
 //Custom Post Type
 add_action('init', 'custon_posts');
@@ -100,14 +102,6 @@ function registrar_custom_post_type() {
 	register_post_type( 'acessor' , $argsAcessor );
 	flush_rewrite_rules();
 }
-
-function http_request_local( $args, $url ) {
-   if ( preg_match('/xml|rss|feed/', $url) ){
-      $args['reject_unsafe_urls'] = false;
-   }
-   return $args;
-}
-add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu

@@ -11,6 +11,7 @@ $posts = new WP_Query([
 <?php 
 $linkCA = get_field('link_comite_assessor'); 
 $linkCC = get_field('link_comite_cientifico'); 
+$documentos_de_referencia = get_field('documentos_de_referencia'); 
 ?>
 <main id="main_container" class="margin1 padding2">
 	<div class="container">
@@ -43,9 +44,14 @@ $linkCC = get_field('link_comite_cientifico');
 				<?php endwhile;	?>
 				<a class="btn btn-sm btn-warning" href="<?php echo $linkCC; ?>"><?php pll_e('View more'); ?></a>
 			</div>
-			<div class="col-md-12 list-news">
+			<div class="col-md-6 list-news">
 				<hr>
-				<h2 class="title1">Noticias</h2>
+				<h2 class="title1"><?php pll_e('Reference Documents'); ?></h2>
+				<?php echo $documentos_de_referencia; ?>
+			</div>
+			<div class="col-md-6 list-news">
+				<hr>
+				<h2 class="title1"><?php pll_e('News'); ?></h2>
 				<ul class="list-unstyled"><?php dynamic_sidebar('home_widget') ?></ul>
 				<a class="btn btn-sm btn-warning" href="https://boletin.bireme.org/<?php echo $language==''?'es':$language; ?>/?s=Comit%C3%AA+Cient%C3%ADfico" target="_blank"><?php pll_e('View more'); ?></a>
 			</div>
