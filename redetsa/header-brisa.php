@@ -19,7 +19,7 @@
 						<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="" id="bvs" class="img-fluid">
 					</div>
 					<div class="text-center">
-					<a href="<?php echo get_option('siteurl'); ?>/brisa-3"><img src="<?php bloginfo('template_directory'); ?>/img/logoBrisa.png" alt="" id="logoBrisa"></a>
+					<a href="http://pesquisa.bvsalud.org/brisa"><img src="<?php bloginfo('template_directory'); ?>/img/logoBrisa.png" alt="" id="logoBrisa"></a>
 					</div>
 					
 				</div>
@@ -37,7 +37,7 @@
 						?>
 					</div>
 					<div id="logoRedETSA">
-						<img src="<?php bloginfo('template_directory'); ?>/img/logoRedETSA.png" alt="" >  
+						<a href="<?php echo get_option('siteurl'); ?>/<?php echo $language=='es'?'':$language; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logoRedETSA.png" alt="" ></a>
 					</div>
 				</div>
 			</div>
