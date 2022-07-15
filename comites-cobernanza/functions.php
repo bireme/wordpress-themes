@@ -102,6 +102,16 @@ function registrar_custom_post_type() {
 	register_post_type( 'acessor' , $argsAcessor );
 	flush_rewrite_rules();
 }
+// Correção RSS
+function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+   return $args;
+}
+add_filter( 'http_request_args', 'http_request_local', 5, 2 );
+
+
 
 //////////////////////////////////////////// Menu boostrap 5 ////////////////////////////////////////////////////////
 class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
