@@ -53,7 +53,7 @@ $documentos_de_referencia = get_field('documentos_de_referencia');
 				<hr>
 				<h2 class="title1"><?php pll_e('News'); ?></h2>
 				<ul class="list-unstyled"><?php dynamic_sidebar('home_widget') ?></ul>
-				<a class="btn btn-sm btn-warning" href="https://boletin.bireme.org/<?php echo $language==''?'es':$language; ?>" target="_blank"><?php pll_e('View more'); ?></a>
+				<a class="btn btn-sm btn-warning" href="https://boletin.bireme.org<?php echo $language=='es'?'':'/'.$language.'/'; ?>" target="_blank"><?php pll_e('View more'); ?></a>
 			</div>
 		</div>
 	</div>
