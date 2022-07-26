@@ -18,6 +18,9 @@ a:hover{
 .padding1{
 	padding: 40px 0;
 }
+.padding2{
+	padding: 40px;
+}
 #header{
 	border-top: 25px solid #004b9b;
 	padding: 30px 0; 
