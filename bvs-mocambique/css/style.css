@@ -21,6 +21,11 @@ a:hover{
 .padding2{
 	padding: 40px;
 }
+.title1{
+	color:#ff6600;
+	border-bottom: 1px solid #ff6600;
+	padding-bottom:20px;
+}
 #header{
 	border-top: 25px solid #004b9b;
 	padding: 30px 0; 
@@ -63,6 +68,44 @@ a:hover{
 }
 .post-badge ul li a:hover{
 	background-color: #eee;
+}
+#section-rss{
+	border: 1px solid #ff6600;
+	padding:15px;
+}
+#section-rss .title1{
+	border-bottom:1px solid #ff6600;
+	padding-bottom:10px;
+}
+#section-rss ul li{
+	margin-bottom:10px;
+	font-size:14px
+}
+#home-bibliotecas img{
+	width:150px;
+}
+.margin2{
+	margin-bottom:30px;
+}
+.destaque-coluna h4{
+	background-image: linear-gradient(to 	right, #009cd9, #65479d);
+	color:#fff;
+	width:90%;
+	text-align:center;
+	padding:10px 0;
+	z-index:10;
+}
+.destaque-coluna p{
+	position: relative;
+	height:120px;
+	text-align:center;
+	border:1px solid #ddd;
+	padding:20px;
+	border-radius:0 0 0 50px;
+	box-shadow:-2px 2px 5px #eee;
+	margin-top:-20px;
+	margin-left:10px;
+	z-index:-1;
 }
 @media (max-width: 772px){
 	#header, #footer{
