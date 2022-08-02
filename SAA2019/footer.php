@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<b>Equipe de Divulgação Interna</b><br> 
+				<b>Equipe de Divulgação</b><br> 
 				Subsecretaria de Assuntos Administrativos (SAA/SE/MS)<br>
 				Secretaria-Executiva<br>
 				Ministério da Saúde

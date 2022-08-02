@@ -62,7 +62,7 @@
 					?>
 			</div>
 			<div id="tvNewsEquipe">
-				<b>Equipe de Divulgação Interna</b> <br>
+				<b>Equipe de Divulgação</b> <br>
 				Subsecretaria de Assuntos Administrativos <small>(SAA/SE/MS)</small><br>
 				Secretaria-Executiva<br>
 				Ministério da Saúde <br>
