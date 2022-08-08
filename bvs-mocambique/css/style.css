@@ -34,6 +34,9 @@ a:hover{
 	width: 150px;
 	margin-right: 30px;
 }
+#banners{
+	overflow:hidden
+}
 #nav{
 	background-color: #00728a!important;
 }
@@ -93,19 +96,23 @@ a:hover{
 	width:90%;
 	text-align:center;
 	padding:10px 0;
-	z-index:10;
 }
 .destaque-coluna p{
 	position: relative;
 	height:120px;
 	text-align:center;
 	border:1px solid #ddd;
+	border-top: 0;
 	padding:20px;
 	border-radius:0 0 0 50px;
-	box-shadow:-2px 2px 5px #eee;
-	margin-top:-20px;
+		box-shadow:-5px 5px 5px #eee;
+	margin-top:-7px;
 	margin-left:10px;
-	z-index:-1;
+}
+@media (max-width: 1024px){
+	.destaque-coluna p{
+		height:auto;
+	}
 }
 @media (max-width: 772px){
 	#header, #footer{
@@ -124,5 +131,14 @@ a:hover{
 	}
 	#logo-bireme{
 		margin-top: 20px;
+	}
+	.destaque-coluna p{
+		width:90%;
+	}
+	.destaque-coluna h4{
+		margin:auto;
+	}
+	.destaque-coluna p{
+		margin:0px auto 10px auto;
 	}
 }
