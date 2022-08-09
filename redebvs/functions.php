@@ -62,7 +62,7 @@ function portal_breadcrumb() { ?>
 				<?php
 				if ( is_home() ) { ?>
 					<span class="active section"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></span>
-				<? } else { ?>
+				<?php } else { ?>
 					<a href="<?php echo esc_attr( get_bloginfo( 'wpurl', 'display' ) ); ?>" class="section"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 					<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 					<?php 
@@ -87,9 +87,9 @@ function portal_breadcrumb() { ?>
 						}
 					?>
 					<span class="active section"><?php the_title(); ?></span>
-				<? }
+				<?php }
 				?>
 		</div>
-<? }
+<?php }
 
 ?>
