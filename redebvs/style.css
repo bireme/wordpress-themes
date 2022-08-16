@@ -331,10 +331,16 @@ h3.widget-title a {
 	padding: 15px !important;  
 }
 
-.showHide_widget .ewd-ufaq-post-margin-symbol span {
+.showHide_widget .ufaq-post-margin-symbol,
+.showHide_widget .ewd-ufaq-post-margin-symbol {
 	display: none;
 }
-.showHide_widget .faq_level1 .ufaq-faq-category-title {
+.ufaq-faq-title-text,
+.ewd-ufaq-faq-title-text {
+	margin-left: 16px;
+}
+.showHide_widget .faq_level1 .ufaq-faq-category-title,
+.showHide_widget .faq_level1 .ewd-ufaq-faq-category-title {
 	display: none;
 }
 
@@ -342,7 +348,8 @@ h3.widget-title a {
 	margin-left: 30px;
 }
 
-.showHide_widget .faq_level2 .ufaq-faq-category-title h4 {
+.showHide_widget .faq_level2 .ufaq-faq-category-title h4,
+.showHide_widget .faq_level2 .ewd-ufaq-faq-category-title h4 {
 	margin: 20px 0px 0px 0px;
 }
 
@@ -365,35 +372,38 @@ a:hover {
 }
 
 .style_list ul {
-  list-style: none;
-  padding: 0;
-  }
+    list-style: none;
+    padding: 0;
+}
 .style_list li {
-  padding-left: 1.3em;
+    padding-left: 1.3em;
 }
 .style_list li:before {
-  content: "\f0da"; /* FontAwesome Unicode */
-  font-family: FontAwesome;
-  display: inline-block;
-  margin-left: -1.3em; /* same as padding-left set on li */
-  width: 0.8em; /* same as padding-left set on li */
-}  
-.panel-grid-cell {
+    content: "\f0da"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: -1.3em; /* same as padding-left set on li */
+    width: 0.8em; /* same as padding-left set on li */
 }
+
+.panel-grid-cell {}
 
 .side {
 	font-size: 90%;
 }
 
-.ufaq-faq-div:nth-child(even) {
+.ufaq-faq-div:nth-child(even),
+.ewd-ufaq-faq-div:nth-child(even) {
 	background: #FFFFFF;
 	border: 1px solid #f2f2f2;
 }
-.ufaq-faq-div:nth-child(odd) {
+.ufaq-faq-div:nth-child(odd),
+.ewd-ufaq-faq-div:nth-child(odd) {
 	background: #F2f2f2; 
 	border: 1px solid #f2f2f2;
 }
-.ufaq-faq-div {
+.ufaq-faq-div,
+.ewd-ufaq-faq-div {
 	margin: 0px;
 }
 
@@ -405,8 +415,7 @@ h2.entry-title {
 	font-size: 110%;
 }
 
-.textwidget {
-}
+.textwidget {}
 
 .entry-content h1, .textwidget h1,
 .entry-content h2, .textwidget h2,
