@@ -15,7 +15,7 @@ Template Name: Page Brisa
 </main>
 
 
-<section class="padding1 sectionPageBrisa">
+<section class="padding1 sectionPageBrisa d-none">
   <div class="container">
     <h2 class="title1">COVID-19</h2>
     <div class="row row-cols-2 row-cols-md-4 g-4">
