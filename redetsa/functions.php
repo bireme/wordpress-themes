@@ -229,6 +229,8 @@ add_action('init', function() {
   pll_register_string('not_found', 'No results found', 'Theme');
   pll_register_string('filters', 'Filters', 'Theme');
   pll_register_string('ago', 'ago', 'Theme');
+//Page Brisa
+  pll_register_string('Advanced Search', 'Advanced Search', 'Page Brisa');
 });
 
 
