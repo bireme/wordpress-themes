@@ -260,6 +260,7 @@ a{
 #bg-perfil a{
 	color: #fff;
 }
+
 @media (max-width: 1400px){
 	.slideNewsBoxImg img{
 		max-height: 155px;
@@ -371,6 +372,11 @@ a{
 .accordion-button:not(.collapsed){
 	background: #27afe1;
 	color: #fff;
+}
+.advanced-search{
+	padding-top: 10px;
+	display: inline-block;
+	color: #000;
 }
 @media (max-width: 1200px) {
 	#logoBrisa{
