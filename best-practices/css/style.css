@@ -119,11 +119,11 @@
 .site-title {
     font-size: 28px;
     line-height: 2rem;
-    text-transform: uppercase;
     color: #0093d6;
-    display: inline-block;
-    margin-top: 8px;
-    max-width: 200px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 [class^='lang-item'] img {
     display: none;
@@ -313,5 +313,22 @@
 	}
 	.carousel-caption p{
 		font-size: 14px;
+	}
+}
+@media (max-width: 414px){
+	.site-title {
+	    display: inline-block;
+	    margin-top: 8px;
+	    height: auto;
+	    text-align: center;
+	}
+	.logo-header {
+		float: none;
+    	display: block;
+    	margin-right: 0;
+    	text-align: center;
+	}
+	#lang ul {
+		padding-left: 0;
 	}
 }
