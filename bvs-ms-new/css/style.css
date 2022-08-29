@@ -4,17 +4,31 @@ body{
 a{
 	color: #00420c;
 }
+a:hover{
+	text-decoration: none;
+}
 a:focus{
 	outline: 0;
 }
 .title1{
 	color: #00420c;
 	border-left: 5px solid #00420c;
-	/*border-bottom: 1px dotted #00420c;*/
 	padding-bottom: 10px;
     padding-left: 20px;
     margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
+}
+.title2{
+	color: #00420c;
+	border-left: 2px solid #00420c;
+	padding-bottom: 0px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+}
+.title3{
+	display: inline-block;
 }
 .margin1{
 	margin-top: 20px;
@@ -37,6 +51,9 @@ a:focus{
 }
 .color1{
 	background-color: #eee;
+}
+.color2{
+	background-color: #fdd;
 }
 .btnRadius{
 	border-radius:100px;
@@ -63,6 +80,14 @@ a:focus{
 }
 #header a:hover{
 	opacity: .8;
+}
+#logoBVS{
+	float: left;
+}
+#logo img{
+	width: 90px;
+	margin-right: 10px;
+	background: #fff;
 }
 #headerSocial{
 	text-align: right;
@@ -105,7 +130,7 @@ a:focus{
 
 }
 #temas{
-	background: #999 url('../img/bgTemas.jpg') center;
+	background: url('../img/bgTemas.jpg') center;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -155,6 +180,9 @@ a:focus{
 		font-size: 12px;
 		margin-bottom: 15px;
 	}
+.boxClipping{
+	margin-bottom: 30px;
+}
 #footer{
 	background: #00420c;
 	color: #fff;
@@ -242,7 +270,94 @@ a:focus{
 		border-bottom: 2px solid #00420c;
 		padding-bottom: 10px;
 	}
-.navBoletim{
+.navBoletim, .navMinistros{
 	background: #efefef;
 	border-radius: 0 5px 5px 0;
+	padding: 20px;
+}
+	.navBoletimUl ul{
+		padding-left: 0;
+	}
+	.navBoletimUl>ul>li>a{
+		border-bottom: 2px solid #000;
+		display: block;
+		margin-bottom: 10px;
+		padding: 10px 0;
+
+	}
+	.navBoletimUl ul li{
+		padding-left: 0;
+		list-style: none;
+
+	}
+.boxBoletim{
+	border-bottom: 1px dotted #ddd;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+.paginacao a{
+	border: 2px solid #ddd;
+	background: #f8f9fa;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin-right: 3px;
+}
+.paginacao a:hover{
+	background: #ddd;
+	text-decoration: none;
+}
+.page-numbers {
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0 2px 0 0;
+	border: 1px solid #eee;
+	line-height: 1;
+	text-decoration: none;
+	border-radius: 2px;
+	font-weight: 600;
+}
+.page-numbers.current,
+a.page-numbers:hover {
+	background: #f9f9f9;
+}
+nav.pagination { text-align: center; display: block;  }
+nav.pagination h2 { display: none; }
+#content{
+	float: none;
+	padding-top: 20px;
+	border-top: 5px solid #00420c;
+}
+@media(max-width: 992px){
+	#logo h1{
+		font-size: 32px;
+	}
+}
+@media(max-width: 768px){
+	#logo img{
+		width: 90px;
+		margin-right: 10px;
+		background: #fff;
+	}
+	#logo h1{
+		font-size: 28px;
+	}
+	#headerSocial{
+		text-align: center;
+		margin-top: 10px;
+	}
+	#footerSocial{
+		text-align: center;
+		margin-top: 30px;
+	}
+}
+@media(max-width: 390px){
+	#logoBVS{
+		float: none;
+		text-align: center;
+	}
+	#logo h1{
+		font-size: 22px;
+		text-align: center;
+		margin-top: 10px;
+	}
 }
