@@ -20,7 +20,9 @@
 			</article>
 		<?php endwhile; else:?>
 	<?php endif;?>
-
+	<div class="text-center">
+		<?php the_posts_pagination(array('mid_size' => 2) ); ?>
+	</div>
 </div>
 </section>
 <?php get_footer(); ?>

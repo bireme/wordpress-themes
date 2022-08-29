@@ -1,4 +1,6 @@
-<?php /* Template Name: Informação para a saúde */ ?>
+<?php
+/* Template Name: Galeria de Ministros */
+?>
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
 
@@ -8,7 +10,7 @@
 			<nav class="col-md-3 navBoletim" >
 				<?php
 				wp_nav_menu(array(
-					'theme_location'    => 'boletim-nav',
+					'theme_location'    => 'ministros-nav',
 					'depth'             => 2,
 					'container'         => 'div',
 					'container_class'   => 'navBoletimUl',
@@ -20,6 +22,8 @@
 			<h1 class=" title1"><?php the_title(); ?></h1><br> 
 			<?php while(have_posts()) : the_post();?>
 				<?php the_content(); ?>
+
+				<br><?php the_category(', '); ?>
 			<?php endwhile;	?>
 		</div>		
 	</div>

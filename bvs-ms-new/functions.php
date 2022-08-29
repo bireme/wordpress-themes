@@ -31,6 +31,7 @@ function action_init()
 {
 	register_nav_menu('main-nav', 'Main Menu (top)');
 	register_nav_menu('boletim-nav', 'Boletim');
+	register_nav_menu('ministros-nav', 'Ministros');
 }
 //Custom Post Type
 add_action('init', 'custon_posts');
@@ -109,6 +110,7 @@ function registrar_custom_post_type() {
 		'menu_icon'		=> 'dashicons-feedback'
 	);
 	register_post_type( 'Tema' , $Temas );
+	flush_rewrite_rules();
 }
 // WIDGETS
 register_sidebar([
@@ -129,13 +131,6 @@ register_sidebar([
 	'name'			=> 'Rodape 3',
 	'id'			=> 'footer3',
 	'description'	=> 'Coluna 3',
-	'before_title'	=> '<h5>',
-	'after_title'	=> '</h5>'
-]);
-register_sidebar([
-	'name'			=> 'Galeria de Ministros',
-	'id'			=> 'galeria-ministros',
-	'description'	=> 'Galeria de Ministros',
 	'before_title'	=> '<h5>',
 	'after_title'	=> '</h5>'
 ]);
