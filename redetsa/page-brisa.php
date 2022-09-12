@@ -53,7 +53,7 @@ Template Name: Page Brisa
 
 <section class="padding1 sectionPageBrisa">
   <div class="container">
-    <h3><?php pll_e('Explore the BRISA database by category'); ?></h3>
+    <h3><?php pll_e('Explore the BRISA database by category'); ?></h3> <br>
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <?php 
       $atual = get_the_title();
