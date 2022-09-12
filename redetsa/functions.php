@@ -231,6 +231,7 @@ add_action('init', function() {
   pll_register_string('ago', 'ago', 'Theme');
 //Page Brisa
   pll_register_string('Advanced Search', 'Advanced Search', 'Page Brisa');
+  pll_register_string('Explore the BRISA database by category', 'Explore the BRISA database by category', 'Page Brisa');
 });
 
 
