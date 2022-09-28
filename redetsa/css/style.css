@@ -305,7 +305,7 @@ a{
 }
 #hearderBrisa{
 	padding: 30px 0;
-	/*background: url('../img/bgHeaderBrisa.png') center;  */
+	background: url('../img/bgHeaderBrisa.png') bottom fixed;
 }
 #bvs{
 	width: 90px;
