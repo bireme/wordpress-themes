@@ -82,7 +82,7 @@ function registrar_custom_post_type() {
   );
   register_post_type( 'banners' , $argsBanner );
 // Covid Brisa
-  $covidBrisa = array(
+/* $covidBrisa = array(
     'name'               => 'Covid-Brisa',
     'singular_name'      => 'Covid-Brisa',
     'add_new'            => 'Agregar nueva estratégia Covid-19 Brisa',
@@ -105,6 +105,7 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-rest-api'
   );
   register_post_type( 'covid-brisa' , $argsCovidBrisa );
+*/
 // Estratégias
   $estrategias = array(
     'name'               => 'Estratégias',
@@ -129,8 +130,8 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-editor-kitchensink'
   );
   register_post_type( 'estrategia-brisa' , $argsOutrasEstrategias );
-  // Estratégias Rebrats
-  $rebrats = array(
+// Estratégias Rebrats
+/*  $rebrats = array(
     'name'               => 'Estratégias Rebrats',
     'singular_name'      => 'Estratégia Rebrats',
     'add_new'            => 'Agregar nueva Estratégia Rebrats',
@@ -153,7 +154,8 @@ function registrar_custom_post_type() {
     'menu_icon'         => 'dashicons-clipboard'
   );
   register_post_type( 'estrategia-rebrats' , $argsRebrats );
-  // Eventos
+*/
+// Eventos
   $eventos = array(
     'name'               => 'Eventos',
     'singular_name'      => 'Evento',
@@ -181,9 +183,9 @@ function registrar_custom_post_type() {
 }
 // WIDGETS
 register_sidebar([
-  'name'			=> 'Sidebar',
-  'id'			=> 'sidebar-1',
-  'description'	=> 'Sidebar',
+  'name'      => 'Sidebar',
+  'id'      => 'sidebar-1',
+  'description' => 'Sidebar',
   'before_widget' => '<aside>',
   'after_widget'  => '</aside>',
   'before_title'  => '<h2 class="widget-title">',
@@ -232,6 +234,7 @@ add_action('init', function() {
 //Page Brisa
   pll_register_string('Advanced Search', 'Advanced Search', 'Page Brisa');
   pll_register_string('Explore the BRISA database by category', 'Explore the BRISA database by category', 'Page Brisa');
+
 });
 
 

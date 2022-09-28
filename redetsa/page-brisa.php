@@ -7,13 +7,11 @@ Template Name: Page Brisa
 <?php get_header('brisa');?>
 <?php get_template_part('includes/search-brisa') ?>
 
-
 <main id="main_container" class="padding1 sectionPageBrisa">
   <div class="container">
     <?php the_content(); ?>
   </div>
 </main>
-
 
 <section class="padding1 sectionPageBrisa d-none">
   <div class="container">
@@ -87,9 +85,7 @@ Template Name: Page Brisa
   </div>
 </section>
 
-
-
-<section class="padding1 sectionPageBrisa">
+<section class="padding1 sectionPageBrisa d-none">
   <div class="container">
     <div class="row row-cols-2 row-cols-md-4 g-4">
       <?php 
@@ -123,9 +119,4 @@ Template Name: Page Brisa
     </div>
   </div>
 </section>
-
-
-
-
-
 <?php get_footer('brisa'); ?>
