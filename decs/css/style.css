@@ -295,18 +295,14 @@ a{
 }
 #searchInside{
 	background: #eee;
-	border-bottom-right-radius: 20px;
-	border-bottom-left-radius: 20px;
-	margin-bottom: 20px;"
+	border-radius: 0;
 }
 #searchInside legend{
 	display: none;
 }
 #searchInside .fieldset2{
 	border: 0;
-	border-radius: 0;
 	padding: 0;
-	margin-bottom: 0;
 }
 .breadcrumb{
 	background: #b5e6b5; color: #fff;
