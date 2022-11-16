@@ -64,6 +64,14 @@ a{
 	padding-top: 30px; 
 	padding-bottom: 30px; 
 }
+.padding3{
+	padding-top: 25px; 
+	padding-bottom: 25px;
+	background-color: #4e7952!important; 
+}
+.padding3 input, .padding3 select{
+	margin-bottom: 5px;
+}
 #header{
 	background: #eee;
 	padding: 20px 0;
@@ -291,6 +299,13 @@ a{
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
 	margin-bottom: 20px;"
+}
+#searchInside legend{
+	display: none;
+}
+#searchInside .fieldset2{
+	border: 0;
+	padding: 0;
 }
 .breadcrumb{
 	background: #b5e6b5; color: #fff;
