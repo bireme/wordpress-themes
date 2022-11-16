@@ -64,6 +64,14 @@ a{
 	padding-top: 30px; 
 	padding-bottom: 30px; 
 }
+.padding3{
+	padding-top: 15px; 
+	padding-bottom: 10px;
+	background-color: #4e7952!important; 
+}
+.padding3 input, .padding3 select{
+	margin-bottom: 5px;
+}
 #header{
 	background: #eee;
 	padding: 20px 0;
@@ -286,11 +294,15 @@ a{
 	color: #000;
 }
 #searchInside{
-	display: none;
 	background: #eee;
-	border-bottom-right-radius: 20px;
-	border-bottom-left-radius: 20px;
-	margin-bottom: 20px;"
+	border-radius: 0;
+}
+#searchInside legend{
+	display: none;
+}
+#searchInside .fieldset2{
+	border: 0;
+	padding: 0;
 }
 .breadcrumb{
 	background: #b5e6b5; color: #fff;
@@ -368,6 +380,9 @@ a{
 }
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
+	#nav{
+		font-size: 14px;
+	}
 	.boxHome{
 		min-height: 280px;
 	}
@@ -385,6 +400,9 @@ a{
 }
 /************** Breakpoint ****************/
 @media (max-width: 992px){
+	#nav{
+		font-size: 16px;
+	}
 	.boxHome{
 		min-height: 250px;
 	}
