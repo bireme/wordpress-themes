@@ -368,6 +368,9 @@ a{
 }
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
+	#nav{
+		font-size: 14px;
+	}
 	.boxHome{
 		min-height: 280px;
 	}
@@ -385,6 +388,9 @@ a{
 }
 /************** Breakpoint ****************/
 @media (max-width: 992px){
+	#nav{
+		font-size: 16px;
+	}
 	.boxHome{
 		min-height: 250px;
 	}
