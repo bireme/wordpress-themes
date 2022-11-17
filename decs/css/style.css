@@ -485,6 +485,9 @@ a{
 		border: 0;
 		background: #f7f7f7;
 	}
+	.custom-filters{
+		justify-content:start;
+	}
 }	
 @media (max-width: 576px){
 	#logoMain{
