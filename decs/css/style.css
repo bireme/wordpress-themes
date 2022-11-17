@@ -486,7 +486,7 @@ a{
 		background: #f7f7f7;
 	}
 	.custom-filters{
-		justify-content:start;
+		justify-content:start!important;
 	}
 }	
 @media (max-width: 576px){
