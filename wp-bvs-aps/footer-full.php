@@ -11,7 +11,7 @@
 
 ?>
 <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
-    <?php if( is_front_page() || is_home() ): ?>
+    <?php if( !is_front_page() && !is_home() ): ?>
                 </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- #content -->
