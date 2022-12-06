@@ -42,4 +42,4 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/last', 'sofs' ); ?>
 
 <?php 
-get_footer();
+get_footer('full');
