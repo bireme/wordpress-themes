@@ -48,18 +48,21 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
 	<body <?php body_class('bg-white site_'.$site_lang); ?>>
     <?php get_template_part (  'topAccessibility'); ?>
 		<div class="col-lg-12 bar">
-			<div class="container BarInner">
+			<div class="container bar-inner">
 				<div class="row">
 					<div class="col-6">
-						<?php dynamic_sidebar(  'vhl_menu_1'); ?>
+						<?php dynamic_sidebar('vhl_menu_1'); ?>
 					</div>
 					<div class="col-6 text-right">
-							<?php
-								if ( function_exists( 'mlf_links_to_languages' ) )
-									mlf_links_to_languages();
-								else
-									language_switcher();
-							?>					
+						<?php if ( has_nav_menu( 'custom-menu-location' ) ) {
+    						wp_nav_menu( array( 'theme_location' => 'custom-menu-location', 'container_class' => 'custom-menu-location' ) );
+    					} else {
+							if ( function_exists( 'mlf_links_to_languages' ) ) {
+								mlf_links_to_languages();
+							} else {
+								language_switcher();
+							}
+						} ?>
 					</div>
 				</div>
 			</div>

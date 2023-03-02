@@ -141,6 +141,12 @@ function register_theme_menu() {
   register_nav_menu('primary-menu',__( 'Menu Principal' ));
 }
 add_action( 'init', 'register_theme_menu' );
+
+function custom_menu_location() {
+  register_nav_menu('custom-menu-location',__( 'Custom Menu', $text_domain ));
+}
+add_action( 'init', 'custom_menu_location' );
+
 pll_register_string('Main content', 'Main content', 'Accessibility');
 pll_register_string('Menu', 'Menu', 'Accessibility');
 pll_register_string('Footer', 'Footer', 'Accessibility');

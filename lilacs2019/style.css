@@ -146,14 +146,14 @@ body {
 	font-size: 80%;
 }
 
-.BarInner .col-6.text-right ul li {
+.bar-inner .col-6.text-right ul li {
     display: inline;
     margin: 0px 0px;
     border-left: 1px solid;
     padding: 0px 10px;
 	background:#31286a;
 }
-.BarInner .col-6.text-right ul li:first-child {
+.bar-inner .col-6.text-right ul li:first-child {
 	border: none;
 }
 
