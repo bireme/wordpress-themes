@@ -1,6 +1,5 @@
 <?php wp_head(); ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="BIREME / OPAS / OMS - Márcio Alves">
@@ -23,21 +22,17 @@
 					<img src="<?php bloginfo('template_directory') ?>/img/logo-<?php echo $idioma?>.png" class="img-fluid">
 				</div>
 			</div>
-				<div class="lang">
-					<?php 
-					wp_nav_menu( array(
-						'theme_location'    => 'Language',
-						'depth'             => 1,
-						'container'         => 'ul',
-						'container_class'   => 'list-unstyled',
-						'container_id'      => '',
-						'menu_class'        => '',
-					) );
-					?>
-				</div>
-				
+			<div class="lang">
+				<?php 
+				wp_nav_menu( array(
+					'theme_location'    => 'Language',
+					'depth'             => 1,
+					'container'         => 'ul',
+					'container_class'   => 'list-unstyled',
+					'container_id'      => '',
+					'menu_class'        => '',
+				) );
+				?>
+			</div>	
 		</div>
 	</header>
-
-
-
