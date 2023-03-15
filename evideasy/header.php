@@ -1,5 +1,6 @@
 <?php wp_head(); ?>
 <!DOCTYPE html>
+<html <?php language_attributes() ?> >
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="BIREME / OPAS / OMS - Márcio Alves">
