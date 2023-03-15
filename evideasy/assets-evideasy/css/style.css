@@ -44,7 +44,7 @@ body {
 
 /*--- remove container of bootstrap and use container from theme ---*/
 body > .container {
-    max-width: 100%;
+    /*max-width: 100%;*/
     padding: 0;
 }
 
