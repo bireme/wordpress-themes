@@ -201,11 +201,11 @@ jQuery(document).ready(function($){
 		var quantity_selected = $(ul).find('li').length;
 
 		if(quantity_selected < 4){
-			var num_selected = '<span class="index-selection">'+ (quantity_selected+1) +'</span><span class="line"></span>';
+			var num_selected = '<span class="index-selection">'+ (quantity_selected+1) +'</span><span class="line-selection"></span>';
 	  		$(ul).append('<li class="badge badge-pill badge-primary" data-filter="'+ filter +'" data-value="'+ value +'">'+num_selected+'<span title="'+ answer +'">'+ answer +'</span> <i class="fas fa-times-circle fa-lg"></i></li>');
 		}
 		else{
-			var num_selected = '<span class="index-selection">4</span><span class="line"></span>';
+			var num_selected = '<span class="index-selection">4</span><span class="line-selection"></span>';
 			$(ul).find('li:last-child').remove();
 			$(ul).append('<li class="badge badge-pill badge-primary" data-filter="'+ filter +'" data-value="'+ value +'">'+num_selected+'<span title="'+ answer +'">'+ answer +'</span> <i class="fas fa-times-circle fa-lg"></i></li>');
 		}

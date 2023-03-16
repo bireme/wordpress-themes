@@ -42,12 +42,6 @@ body {
     left: 50%;
 }
 
-/*--- remove container of bootstrap and use container from theme ---*/
-body > .container {
-    /*max-width: 100%;*/
-    /*padding: 0;*/
-}
-
 .container{
     box-shadow: none;
     background: transparent;
@@ -282,7 +276,7 @@ header #menu .navbar-light .navbar-nav .nav-link {
     padding: 0;
 }
 
-.grid-content-search .grid-selected-options .badge-primary .line{
+.grid-content-search .grid-selected-options .badge-primary .line-selection{
     position: absolute;
     width: 1px;
     background-color: #27367D;
@@ -291,11 +285,11 @@ header #menu .navbar-light .navbar-nav .nav-link {
     left: -18px;
 }
 
-.grid-content-search .grid-selected-options ul li:first-child .line{
+.grid-content-search .grid-selected-options ul li:first-child .line-selection{
     top: 50%;
 }
 
-.grid-content-search .grid-selected-options ul li:last-child .line{
+.grid-content-search .grid-selected-options ul li:last-child .line-selection{
     bottom: 50%;
 }
 
