@@ -34,6 +34,21 @@ a:hover{
 	width: 150px;
 	margin-right: 30px;
 }
+#oms-mocambique{
+	margin-bottom: 10px;
+	height: 100px;
+}
+#logo-bireme{
+	padding-top: 10px;
+	border-top: 1px solid #fff;
+}
+#nav{
+	background-color: #00728a!important;
+	font-size: 20px;
+}
+#nav li{
+	margin-right: 15px;
+}
 #banners{
 	overflow:hidden
 }
@@ -131,6 +146,10 @@ a:hover{
 	}
 	#logo-bireme{
 		margin-top: 20px;
+	}
+	#oms-mocambique{
+		height: auto;
+		width: 80%;
 	}
 	.destaque-coluna p{
 		width:90%;
