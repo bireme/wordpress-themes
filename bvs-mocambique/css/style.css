@@ -56,7 +56,9 @@ a:hover{
 	background-color: #00728a!important;
 }
 #sectionSearch{
-	background-color: #294f99;
+	background: #294f99 url("../img/bg-search.jpg") center right no-repeat;
+	background-size: 100%;
+	padding: 150px 0;
 }
 #formHome a{
 	color: #fff;
@@ -124,12 +126,23 @@ a:hover{
 	margin-top:-7px;
 	margin-left:10px;
 }
+@media (max-width: 1400px){
+	#sectionSearch{
+		padding: 100px 0;
+	}
+}
 @media (max-width: 1024px){
+	#sectionSearch{
+		padding: 70px 0;
+	}
 	.destaque-coluna p{
 		height:auto;
 	}
 }
 @media (max-width: 772px){
+	#sectionSearch{
+		background: #294f99;
+	}
 	#header, #footer{
 		text-align: center;
 	}
