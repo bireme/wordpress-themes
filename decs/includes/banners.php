@@ -29,10 +29,10 @@ endwhile;
 						$window = get_sub_field('window');
 						?>
 						<div class="carousel-item <?php echo ($i == 0) ? 'active' : ''; ?> ">
-							<a href="<?php echo $link; ?>">
+							<a href="<?php echo $link; ?>" target="<?php echo $window; ?>">
 								<img src="<?php echo $desktop_picture['url']; ?>" class="img-fluid d-none d-sm-block" alt="...">
 							</a>
-							<a href="<?php echo $link; ?>">
+							<a href="<?php echo $link; ?>"  target="<?php echo $window; ?>">
 								<img src="<?php echo $mobile_picture['url']; ?>" class="img-fluid d-block d-sm-none" alt="...">
 							</a>
 						</div>
