@@ -20,7 +20,7 @@
 					<a href="https://bvsalud.org/<?php echo $idioma=='pt'?'':$idioma; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $idioma?>/bvs_color.svg" alt="BIREME / OPAS / OMS" class="img-fluid imgBlack"></a>
 				</div>
 				<div id="logo" class="col-9 col-md-9">
-					<img src="<?php bloginfo('template_directory') ?>/img/logo-<?php echo $idioma?>.png" class="img-fluid">
+					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $idioma=='pt'?'':$idioma; ?>"><img src="<?php bloginfo('template_directory') ?>/img/logo-<?php echo $idioma?>.png" class="img-fluid"></a>
 				</div>
 			</div>
 			<div class="lang">
@@ -34,6 +34,10 @@
 					'menu_class'        => '',
 				) );
 				?>
-			</div>	
+			</div>
+			
 		</div>
 	</header>
+
+
+

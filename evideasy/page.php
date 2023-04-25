@@ -1,0 +1,15 @@
+<?php get_header(); ?>
+<section>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php the_title(); ?></li>
+          </ol>
+        </nav>
+        <hr>
+        <h1><?php the_title(); ?></h1>
+        <?php the_content(); ?>
+	</div>
+</section>
+<?php get_footer(); ?>
