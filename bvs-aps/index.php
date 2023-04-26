@@ -19,6 +19,7 @@
 						<div class="card h-100 box1">
 							<a href="<?php the_permalink(); ?>">
 								<div class="card-body">
+									<small><?php echo get_the_date( 'j F Y' ); ?></small>
 									<h5 class="card-title"><?php the_title(); ?></h5>
 									<p class="card-text"><?php the_excerpt(); ?></p>
 									<div class="small">
@@ -61,6 +62,7 @@
 						<div class="card h-100 box1">
 							<a href="<?php the_permalink(); ?>">
 								<div class="card-body">
+									<small><?php echo get_the_date( 'j F Y' ); ?></small>
 									<h5 class="card-title"><?php the_title(); ?></h5>
 									<p class="card-text"><?php the_excerpt(); ?></p>
 								</div>
