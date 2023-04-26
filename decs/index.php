@@ -113,5 +113,6 @@
 	endwhile;
 	?>
 </section>
+<?php get_template_part('includes/posts') ?>
 <?php get_template_part('includes/partners') ?>
 <?php get_footer(); ?>
