@@ -1,6 +1,9 @@
 a:hover{
 	text-decoration: none;
 }
+.padding1{
+	padding-top: 20px;
+}
 #header{
 	padding: 20px 0;
 }

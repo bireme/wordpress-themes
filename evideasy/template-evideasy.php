@@ -38,7 +38,7 @@ else{ //es
 }
 ?>
 
-<section class="container">
+<section class="container padding1">
   <div class="middle">
     <div class="row d-none">
       <div class="col-md-12">
@@ -51,7 +51,7 @@ else{ //es
       </div>
     </div>
 
-    <div class="row grid-evid-easy">
+    <div class="row grid-evid-easy" style="margin">
       <div class="col-md-12">
         <a href="#">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets-evideasy/img/evid-easy.png" alt="Evid@Easy Logo" class="img-fluid">
