@@ -18,7 +18,6 @@ function load_scripts_evideasy_template() {
 }
 add_action( 'wp_enqueue_scripts', 'load_scripts_evideasy_template' );
 get_header();
-get_template_part('includes/nav');
 
 if($site_lang == 'pt'){
   $subtitle = 'Evidências para apoiar suas decisões de saúde';    
