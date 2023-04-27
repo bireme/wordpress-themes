@@ -5,7 +5,6 @@ Template Name: Evid@Easy Template
 
 $lang = get_locale();
 $site_lang = substr($lang, 0,2);
-get_template_part('includes/nav');
 
 //include scripts for template page
 function load_scripts_evideasy_template() {
@@ -17,6 +16,7 @@ function load_scripts_evideasy_template() {
         //wp_enqueue_script('evideasy-responsivity-script', get_stylesheet_directory_uri() .'/assets-evideasy/js/responsivity.js', array('jquery'), '1.0', false);
   }
 }
+get_template_part('includes/nav');
 add_action( 'wp_enqueue_scripts', 'load_scripts_evideasy_template' );
 
 get_header();
