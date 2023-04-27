@@ -39,7 +39,7 @@ else{ //es
 ?>
 
 <section class="container">
-  <div class="middle">
+  <div class="middle d-none">
     <div class="row">
       <div class="col-md-12">
         <nav aria-label="breadcrumb">
