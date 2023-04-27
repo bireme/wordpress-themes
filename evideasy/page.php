@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php get_template_part('includes/nav') ?>
 <section>
 	<div class="container">
 		<nav aria-label="breadcrumb" class="d-none">
