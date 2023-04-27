@@ -156,6 +156,9 @@ a:hover{
 .btn-warning{
 	color: #000!important;
 }
+.middle{
+	border-top: none;
+}
 @media (max-width: 768px){
 	.marginM1{
 		margin-top: 20px;

@@ -38,6 +38,7 @@ else{ //es
 }
 ?>
 
+<?php get_template_part('includes/nav') ?>
 <section class="container padding1">
   <div class="middle">
     <div class="row d-none">
