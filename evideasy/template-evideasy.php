@@ -16,10 +16,9 @@ function load_scripts_evideasy_template() {
         //wp_enqueue_script('evideasy-responsivity-script', get_stylesheet_directory_uri() .'/assets-evideasy/js/responsivity.js', array('jquery'), '1.0', false);
   }
 }
-get_template_part('includes/nav');
 add_action( 'wp_enqueue_scripts', 'load_scripts_evideasy_template' );
-
 get_header();
+get_template_part('includes/nav');
 
 if($site_lang == 'pt'){
   $subtitle = 'Evidências para apoiar suas decisões de saúde';    
