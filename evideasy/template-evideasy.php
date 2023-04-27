@@ -5,6 +5,7 @@ Template Name: Evid@Easy Template
 
 $lang = get_locale();
 $site_lang = substr($lang, 0,2);
+get_template_part('includes/nav');
 
 //include scripts for template page
 function load_scripts_evideasy_template() {
@@ -19,7 +20,6 @@ function load_scripts_evideasy_template() {
 add_action( 'wp_enqueue_scripts', 'load_scripts_evideasy_template' );
 
 get_header();
-get_template_part('includes/nav');
 
 if($site_lang == 'pt'){
   $subtitle = 'Evidências para apoiar suas decisões de saúde';    
