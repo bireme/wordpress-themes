@@ -37,5 +37,5 @@
 			</div>
 			
 		</div>
-	</header>
 	<?php get_template_part('includes/nav'); ?>
+	</header>
