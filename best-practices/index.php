@@ -8,7 +8,7 @@
 		        <?php dynamic_sidebar( 'bp-sidebar-1' ); ?>
 		    </div>
 		<?php endif; ?>
-		<a href="https://admin.bestpractices.bvsalud.org" class="alert-link"  target="_blank"><?php _e('Click here and register your Good Practice', 'best-practices'); ?></a>
+		<a href="https://admin.portalbp.bvsalud.org" class="alert-link"  target="_blank"><?php _e('Click here and register your Good Practice', 'best-practices'); ?></a>
 	</div>
 </section>
 <section class="padding1">
