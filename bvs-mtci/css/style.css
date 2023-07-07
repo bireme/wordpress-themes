@@ -11,6 +11,9 @@ a:hover{
 .padding2{
 	padding: 80px 0;
 }
+.pading3{
+	padding:20px 0;
+}
 .margin1{
 	margin-bottom: 50px;
 }
@@ -20,13 +23,15 @@ a:hover{
 #header{
 	padding: 20px;
 	border-top: 10px solid #87b401;
+	border-color: #0a674b!important;
 }
 #header-bvs{
 	height: 120px;
 }
 #nav{
-	background-color: #a7c353!important;
+	background:#0a674b!important;
 	color: #fff;
+	font-size:18px;
 }
 #nav a{
 	color: #fff;
@@ -43,7 +48,7 @@ a:hover{
 }
 #search{
 	background-color: #e4dfcb;
-	padding: 50px 0;
+	padding:50px 0 30px 0;
 }
 #formText{
 	margin-top: 20px;
@@ -55,12 +60,13 @@ a:hover{
 	background-color: #b9af82;
 	color: #fff;
 	padding: 50px 0;
+	font-size:12px;
 }
 #footer a{
 	color: #fff;
 }
 #footer-term{
-	background-color: #908658;
+	background:#00835c;
 	color: #fff;
 	padding: 10px 0;
 	font-size: 12px;
@@ -90,18 +96,89 @@ a:hover{
 	display: inline-block;
 }
 #lang a{
-	background:#acdd1b;
+	background:#0a674b;
 	color: #fff;
 	font-size: 12px;
 	padding: 5px;
 }
 #lang .current-lang a{
-	background:#87b401;
+	background:#00997c;
 	color: #fff;
 }
 #lang a:hover{
-	background: #87b401;
+	background: #00997c;
 	text-decoration: none;
+}
+
+
+#home-posts a, #events a{
+	font-weight:bold;
+}
+#home-posts h2, #events h2{
+	margin-bottom: 30px;
+}
+
+#events .wp-block-rss__item-excerpt{
+	font-size:12px
+}
+.sfsiplus_footerLnk{
+	display:none;
+}
+.category img.wp-post-image, .alignleft{
+	float:left;
+	margin: 0px 20px 20px 0;
+}
+h1, h2, h3, h4, h5, h6{
+	display:block!important;
+	clear:both!important;
+}
+.container h3{
+	border-bottom: 2px solid;
+	margin-bottom: 5px;
+	line-height: 150%;
+	padding: 0% 0.4rem;
+}
+.card-padding{
+	padding:30px 0;
+}
+.card{
+	border: 2px solid #00997c;
+	padding:30px 10px;
+	border-radius:20px;
+	border-bottom-width:10px;
+	transition: all .5s ease;
+}
+.card:hover{
+	border-color:#61a735;
+	border-radius:10px;
+}
+#home-posts h2, #events h2{
+	border-bottom:2px solid #a7c353;
+	padding-bottom:20px;
+}
+.banners{
+	border-bottom:8px solid #e4dfcb;
+}
+#home-posts{
+	background:#dfdfdf;
+}
+#events{
+	background:#eaeaea;
+}
+#grupo1{
+	padding-bottom: 10px;
+}
+#grupo2{
+	padding:30px 0 5px 0;
+	background:#00997c;
+}
+
+#rede h4{
+	margin-bottom:30px
+}
+#rede{
+	background:#fff!important;
+	color:#0a674b!important;
 }
 @media (max-width:772px){
 	#header-bvs{
