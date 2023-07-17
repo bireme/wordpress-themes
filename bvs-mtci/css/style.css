@@ -57,7 +57,7 @@ a:hover{
 	font-size: 14px;
 }
 #footer{
-	background:#0a674b;
+	background-color: #b9af82;
 	color: #fff;
 	padding: 50px 0;
 	font-size:12px;
@@ -179,6 +179,15 @@ h1, h2, h3, h4, h5, h6{
 #rede{
 	background:#fff!important;
 	color:#0a674b!important;
+}
+#grupo1 a:hover{
+	color:#999;
+}
+#grupo2 img{
+	transition: all .5s ease;
+}
+#grupo2 img:hover{
+	transform:scale(1.05);
 }
 @media (max-width:772px){
 	#header-bvs{

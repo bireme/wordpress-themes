@@ -17,7 +17,7 @@
 					<a href="https://bvsalud.org/<?php echo $lang=='pt'?'':$lang; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" id="header-bvs" class="img-fluid" alt=""></a>
 				</div>
 				<div class="col-8 col-md-2">
-					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.png" id="header-mtci" alt=""></a>
+					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='es'?'':$lang; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.png" id="header-mtci" alt=""></a>
 				</div>
 				<div class="col-4 col-md-2 offset-md-6 text-end">
 					<img src="<?php bloginfo('template_directory'); ?>/img/red-mtci-<?php echo $lang; ?>.png" id="header-red" alt="">
