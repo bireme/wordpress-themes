@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
-<?php #get_template_part('includes/search') ?>
 <main id="main_container">
 	<div class="container">
 		<?php the_content(); ?>
