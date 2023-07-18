@@ -11,7 +11,7 @@
 					<input name="home_url" type="hidden" value="<?php echo home_url('/'); ?>" />
 					<input name="home_text" type="hidden" value="<?php echo get_bloginfo('name'); ?>" />
 					<label for="fieldSearch" style="display: none;"><?php _e('Search', 'mtci'); ?></label>
-					<input type="text" id="fieldSearch" class="form-control" placeholder="Buscar" autocomplete="off" name="q" value="<?php echo get_search_query(); ?>">
+					<input type="text" id="fieldSearch" class="form-control" placeholder="<?php _e('Search', 'mtci'); ?>" autocomplete="off" name="q" value="<?php echo get_search_query(); ?>">
 					<div id="formText" class="">
 						<input type="radio" name="engine" class="form-check-input" checked="checked" value="op1">
 						<label for="search-op1"> <?php _e('All databases', 'mtci'); ?></label>
