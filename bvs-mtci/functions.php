@@ -6,11 +6,10 @@ add_theme_support('title-tag');
 // Posta Thumbnails
 add_theme_support( 'post-thumbnails' );
 
-add_action('after_setup_theme', 'load_theme_setup');
-
 /**
  * Load translations
  */
+add_action('after_setup_theme', 'load_theme_setup');
 function load_theme_setup(){
     load_theme_textdomain('mtci', get_template_directory() . '/languages');
 }

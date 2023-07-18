@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Bibliographic package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Best Practices Theme\n"
+"Project-Id-Version: BVS MTCI Américas 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
 "POT-Creation-Date: 2023-07-18 15:59-0300\n"
-"PO-Revision-Date: 2023-07-18 16:00-0300\n"
+"PO-Revision-Date: 2023-07-18 16:55-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
