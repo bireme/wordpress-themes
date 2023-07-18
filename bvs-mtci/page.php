@@ -8,7 +8,9 @@
 		</div>
 	</section>
 	<div class="container padding1">
-		<div class="text-center"><?php if ( has_post_thumbnail()) { the_post_thumbnail('large', ['class' => 'img-fluid margin2']);} ?></div>
+		<div class="<?php echo has_post_thumbnail() ? 'margin1 text-center' : 'd-none'; ?>">
+			<?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?>
+		</div>
 		<?php the_content(); ?>
 	</div>
 </main>
