@@ -1,22 +1,23 @@
-# Copyright (C) 2021 Bibliographic
-# This file is distributed under the same license as the Bibliographic package.
+# Copyright (C) 2023 BIREME / OPAS / OMS - Márcio Alves
+# This file is distributed under the .
 msgid ""
 msgstr ""
 "Project-Id-Version: BVS MTCI Américas 1.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
-"POT-Creation-Date: 2023-07-18 15:59-0300\n"
-"PO-Revision-Date: 2023-07-18 16:55-0300\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bvs-mtci\n"
+"POT-Creation-Date: 2023-07-18 17:47-0300\n"
+"PO-Revision-Date: 2023-07-18 17:52-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Domain: mtci\n"
 "X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: js\n"
 
 #: footer.php:15
 msgid "Terms and Conditions of Use"
@@ -41,36 +42,3 @@ msgstr "Páginas do site"
 #: includes/search.php:20
 msgid "Advanced search"
 msgstr "Pesquisa avançada"
-
-#~ msgid "We are sorry, Page not found!"
-#~ msgstr "Desculpe, página não encontrada!"
-
-#~ msgid "The page you are looking for might have been removed had its name changed or is temporarily unavailable."
-#~ msgstr "A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível."
-
-#~ msgid "Back to homepage"
-#~ msgstr "Voltar para a página inicial"
-
-#~ msgid "Regional Office for the Americas of the World Health Organization"
-#~ msgstr "Escritório Regional para as Américas da Organização Mundial da Saúde"
-
-#~ msgid "Pan American Health Organization. All rights reserved."
-#~ msgstr "Organização Pan-Americana da Saúde. Todos os direitos reservados."
-
-#~ msgid "Enter one or more words"
-#~ msgstr "Digite uma ou mais palavras"
-
-#~ msgid "Main Content"
-#~ msgstr "Conteúdo Principal"
-
-#~ msgid "Menu"
-#~ msgstr "Menu"
-
-#~ msgid "Footer"
-#~ msgstr "Rodapé"
-
-#~ msgid "High Contrast"
-#~ msgstr "Alto Contraste"
-
-#~ msgid "Click here and register your Good Practice"
-#~ msgstr "Clique aqui e cadastre sua Boa Prática"
