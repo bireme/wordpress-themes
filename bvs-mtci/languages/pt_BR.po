@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Best Practices Theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
-"POT-Creation-Date: 2023-05-31 01:36-0300\n"
-"PO-Revision-Date: 2023-05-31 16:20-0300\n"
+"POT-Creation-Date: 2023-07-18 15:59-0300\n"
+"PO-Revision-Date: 2023-07-18 16:00-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -18,62 +18,59 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: js\n"
 
-#: 404.php:9
-msgid "We are sorry, Page not found!"
-msgstr "Desculpe, página não encontrada!"
-
-#: 404.php:10
-msgid ""
-"The page you are looking for might have been removed had its name changed or "
-"is temporarily unavailable."
-msgstr ""
-"A página que você está procurando pode ter sido removida, teve "
-"seu nome alterado ou está temporariamente indisponível."
-
-#: 404.php:11
-msgid "Back to homepage"
-msgstr "Voltar para a página inicial"
-
-#: footer.php:32
+#: footer.php:15
 msgid "Terms and Conditions of Use"
 msgstr "Termos e Condições de Uso"
 
-#: footer.php:32
-msgid "Privacy Policy"
+#: footer.php:16
+msgid "Privacy policy"
 msgstr "Políticas de Privacidade"
 
-#: footer.php:35
-msgid "Regional Office for the Americas of the World Health Organization"
-msgstr "Escritório Regional para as Américas da Organização Mundial da Saúde"
-
-#: footer.php:37
-msgid "Pan American Health Organization. All rights reserved."
-msgstr "Organização Pan-Americana da Saúde. Todos os direitos reservados."
+#: includes/search.php:13
+msgid "Search"
+msgstr "Buscar"
 
 #: includes/search.php:17
-msgid "Enter one or more words"
-msgstr "Digite uma ou mais palavras"
+msgid "All databases"
+msgstr "Todas as bases de dados"
 
-#: includes/topAccessibility.php:9
-msgid "Main Content"
-msgstr "Conteúdo Principal"
+#: includes/search.php:19
+msgid "Site pages"
+msgstr "Páginas do site"
 
-#: includes/topAccessibility.php:10
-msgid "Menu"
-msgstr "Menu"
+#: includes/search.php:20
+msgid "Advanced search"
+msgstr "Pesquisa avançada"
 
-#: includes/topAccessibility.php:11
-msgid "Search"
-msgstr "Pesquisa"
+#~ msgid "We are sorry, Page not found!"
+#~ msgstr "Desculpe, página não encontrada!"
 
-#: includes/topAccessibility.php:12
-msgid "Footer"
-msgstr "Rodapé"
+#~ msgid "The page you are looking for might have been removed had its name changed or is temporarily unavailable."
+#~ msgstr "A página que você está procurando pode ter sido removida, teve seu nome alterado ou está temporariamente indisponível."
 
-#: includes/topAccessibility.php:18
-msgid "High Contrast"
-msgstr "Alto Contraste"
+#~ msgid "Back to homepage"
+#~ msgstr "Voltar para a página inicial"
 
-#: index.php:11
-msgid "Click here and register your Good Practice"
-msgstr "Clique aqui e cadastre sua Boa Prática"
+#~ msgid "Regional Office for the Americas of the World Health Organization"
+#~ msgstr "Escritório Regional para as Américas da Organização Mundial da Saúde"
+
+#~ msgid "Pan American Health Organization. All rights reserved."
+#~ msgstr "Organização Pan-Americana da Saúde. Todos os direitos reservados."
+
+#~ msgid "Enter one or more words"
+#~ msgstr "Digite uma ou mais palavras"
+
+#~ msgid "Main Content"
+#~ msgstr "Conteúdo Principal"
+
+#~ msgid "Menu"
+#~ msgstr "Menu"
+
+#~ msgid "Footer"
+#~ msgstr "Rodapé"
+
+#~ msgid "High Contrast"
+#~ msgstr "Alto Contraste"
+
+#~ msgid "Click here and register your Good Practice"
+#~ msgstr "Clique aqui e cadastre sua Boa Prática"

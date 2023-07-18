@@ -12,8 +12,8 @@
 	</div>
 </footer>
 <div id="footer-term" class="text-center">
-	<a href="https://politicas.bireme.org/terminos/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'MTCI'); ?></a> | 
-	<a href="https://politicas.bireme.org/privacidad/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Privacy policy', 'MTCI'); ?><?php pll_e('Privacy policy'); ?></a>
+	<a href="https://politicas.bireme.org/terminos/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'mtci'); ?></a> | 
+	<a href="https://politicas.bireme.org/privacidad/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Privacy policy', 'mtci'); ?><?php pll_e('Privacy policy'); ?></a>
 </div>
 </body>
 </html>
