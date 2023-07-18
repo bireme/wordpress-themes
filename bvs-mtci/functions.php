@@ -4,7 +4,17 @@ require_once get_template_directory().'/includes/class-wp-bootstrap-navwalker.ph
 // Title - tag <title>
 add_theme_support('title-tag');
 // Posta Thumbnails
-add_theme_support( 'post-thumbnails' ); 
+add_theme_support( 'post-thumbnails' );
+
+add_action('after_setup_theme', 'load_theme_setup');
+
+/**
+ * Load translations
+ */
+function load_theme_setup(){
+    load_theme_textdomain('mtci', get_template_directory() . '/languages');
+}
+
 // Menus Top/Language
 add_action('init', 'action_init');
 function action_init()
