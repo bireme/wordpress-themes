@@ -13,6 +13,9 @@ a{
 .padding1{
 	padding: 50px;
 }
+.padding2{
+	padding:30px 0 1px 0;
+}
 #header{
 	padding: 20px 0;
 }
@@ -55,4 +58,24 @@ a{
 }
 #footer a:hover{
 	color: #ccc;
+}
+#literatura .card{
+	border:2px solid #1a7dbb;
+	border-bottom-width:10px;
+	border-top-width:5px;
+	text-align:center;
+	padding:10px 5px 0px 5px ;
+	font-weight:bold;
+	font-size:20px
+}
+#literatura .card img{
+	max-width:120px;
+}
+#rss-home li{
+	margin-bottom:10px;
+	border-bottom: 1px solid #ddd;
+	padding:10px 10px 5px 10px;
+}
+#rss-home li:hover{
+	background: #f2f2f2;
 }
