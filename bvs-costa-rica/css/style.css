@@ -79,3 +79,45 @@ a{
 #rss-home li:hover{
 	background: #f2f2f2;
 }
+.home-destaques .bi{
+	font-size:30px;
+	margin-right:10px;
+}
+.home-destaques a{
+	font-size:30px;
+	color:#31296c;
+	position:relative;
+}
+.home-destaques a:hover{
+	color:#1772b1;
+}
+.home-destaques a::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    height: 7px;
+    width: 50px;
+    background: #da291c;
+    border-radius: 20px;
+    transition: width .5s ease;
+}
+.home-destaques a:hover:after{
+	width: 30px;
+}
+@media (max-width:772px){
+	#header-bvs{
+		width: 30%;
+	}
+	#logo-costarica{
+		max-width: 60%;
+	}
+}
+@media (max-width:560px){
+	#header-bvs{
+		width: 20%;
+	}
+	#logo-costarica{
+		max-width: 70%;
+	}
+}
