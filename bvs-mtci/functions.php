@@ -63,6 +63,14 @@ function get_breadcrumb() {
         echo '</em>"';
     }
 }
+//RSS Produção
+function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+   return $args;
+}
+add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 
 // https://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
 // bootstrap 5 wp_nav_menu walker
