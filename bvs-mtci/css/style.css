@@ -41,10 +41,16 @@ a:hover{
 }
 #nav .dropdown-menu{
 	color: #333;
-	background-color: #a7c353!important;
+	background-color: #00997c!important
 }
 #nav .dropdown-menu a:focus, #nav .dropdown-menu a:hover{
 	background-color: #819c33!important;
+}
+.navbar-toggler {
+	background: #ddd;
+}
+#nav .dropdown-menu a:focus, #nav .dropdown-menu a:hover{
+	background: #0a674b!important;
 }
 #search{
 	background-color: #e4dfcb;
@@ -52,13 +58,12 @@ a:hover{
 }
 #formText{
 	margin-top: 20px;
-	text-align: left;
 }
 #formHome{
 	font-size: 14px;
 }
 #footer{
-	background-color: #0a674b;
+	background-color: #0a674b!important;
 	color: #fff;
 	padding: 50px 0;
 	font-size:12px;
