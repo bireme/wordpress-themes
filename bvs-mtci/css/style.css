@@ -28,6 +28,9 @@ a:hover{
 #header-bvs{
 	height: 120px;
 }
+#logo-mtci{
+	margin-left: -5%;
+}
 #nav{
 	background:#0a674b!important;
 	color: #fff;
@@ -205,6 +208,9 @@ h1, h2, h3, h4, h5, h6{
 	#nav{
 		font-size:14px!important;
 	}
+	#logo-mtci{
+		margin-left: 0;
+	}
 }
 @media (max-width:772px){
 	#header-bvs{
@@ -214,6 +220,9 @@ h1, h2, h3, h4, h5, h6{
 	#header-bvs, #header-mtci, #header-red{
 		height: auto;
 		width: 100%;
+	}
+	#logo-mtci{
+		margin-top: 20px;
 	}
 	#lang{
 		text-align: center;

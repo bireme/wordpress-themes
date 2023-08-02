@@ -13,13 +13,13 @@
 	<header id="header">
 		<div class="container">
 			<div class="row" id="lang-row">
-				<div class="col-4 offset-4 offset-md-0 col-md-2">
+				<div class="col-3 col-md-2" id=logo-bvs>
 					<a href="https://bvsalud.org/<?php echo $lang=='pt'?'':$lang; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" id="header-bvs" class="img-fluid" alt=""></a>
 				</div>
-				<div class="col-8 col-md-2">
+				<div class="col-6 col-md-2" id="logo-mtci">
 					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='es'?'':$lang; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.png" id="header-mtci" alt=""></a>
 				</div>
-				<div class="col-4 col-md-2 offset-md-6 text-end">
+				<div class="col-3 col-md-2 offset-md-6 text-end" id="logo-red-mtci">
 					<img src="<?php bloginfo('template_directory'); ?>/img/red-mtci-<?php echo $lang; ?>.png" id="header-red" alt="">
 				</div>
 				<div id="lang">
