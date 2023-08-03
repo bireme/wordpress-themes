@@ -260,3 +260,11 @@
 		padding: 10px;
 	}
 }
+#intro-cumbre{
+	background: url('../img/bg-cumbre.jpg') no-repeat center fixed;
+	background-size: 100%;
+}
+#intro-video{
+	background: #fff;
+	padding: 20px;
+}
