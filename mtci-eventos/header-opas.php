@@ -9,11 +9,20 @@
 	<?php wp_head(); ?>
 </head>
 <?php $lang = pll_current_language(); ?>
+<?php while(have_posts()) : the_post();
+	$logo = get_field('logo');
+endwhile;
+?>
 <body>
 	<header id="header-opas">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<img src="<?php bloginfo('template_directory'); ?>/img/header-opas-<?php echo $lang; ?>.png" class="img-fluid" alt="">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<img src="<?php bloginfo('template_directory'); ?>/img/header-opas-<?php echo $lang; ?>.png" class="img-fluid" alt="">
+				</div>
+				<div class="col-md-4" id="logo-event">
+					<?php the_post_thumbnail('full', ['class' => 'img-fluid rounded ']);  ?>
+				</div>
 			</div>
 		</div>
 	</header>

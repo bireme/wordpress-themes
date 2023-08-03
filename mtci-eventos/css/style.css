@@ -58,6 +58,16 @@
 #header{
 	position: relative;
 }
+#logo-event {
+	text-align: right;
+}
+#logo-event img{
+	width: auto!important;
+	height: 115px!important;
+	border: 2px solid #ddd;
+	border-radius: 10px;
+	background: #fff;
+}
 #lang{
 	margin-top: 10px;
 	position: absolute;
