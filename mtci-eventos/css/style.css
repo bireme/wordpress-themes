@@ -238,7 +238,7 @@
 #footer-opas{
 	background: #075bba;
 	color: #fff;
-	padding: 30px 0;
+	padding: 15px 0;
 }
 #footer-opas a{
 	color: #fff;
@@ -271,8 +271,8 @@
 	}
 }
 #intro-cumbre{
-	background: url('../img/bg-cumbre.jpg') no-repeat center fixed;
-	background-size: 100%;
+	background: #216093 url('../img/bg-cumbre.jpg') no-repeat bottom right fixed;
+	background-size: cover;
 }
 #intro-video{
 	background: #fff;

@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<img src="<?php bloginfo('template_directory'); ?>/img/footer-ops-<?php echo $lang; ?>.png" class="img-fluid" alt="">
+						<img src="<?php bloginfo('template_directory'); ?>/img/footer-paho-<?php echo $lang; ?>.png" class="img-fluid" alt="">
 					</div>
 					<div class="col-md-9 text-end">
 						<a href="https://politicas.bireme.org/terminos/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'Eventos-BVS'); ?></a> | 
