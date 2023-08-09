@@ -9,10 +9,6 @@
 	<?php wp_head(); ?>
 </head>
 <?php $lang = pll_current_language(); ?>
-<?php while(have_posts()) : the_post();
-	$logo = get_field('logo');
-endwhile;
-?>
 <body>
 	<header id="header-opas">
 		<div class="container">

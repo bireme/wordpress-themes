@@ -8,5 +8,4 @@
 <main id="main_container">
 	<?php the_content(); ?>
 </main>
-
 <?php get_footer('opas'); ?>
