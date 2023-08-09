@@ -6,6 +6,15 @@ add_theme_support('title-tag');
 // Posta Thumbnails
 add_theme_support( 'post-thumbnails' ); 
 // Menus Top/Language
+
+/**
+ * Load translations
+ */
+function load_theme_setup(){
+    load_theme_textdomain('vhl-costa-rica', get_template_directory() . '/languages');
+}
+add_action('after_setup_theme', 'load_theme_setup');
+
 add_action('init', 'action_init');
 function action_init()
 {
@@ -25,7 +34,7 @@ function scripts_footer(){
 	wp_enqueue_script('jquery', get_stylesheet_directory_uri().'/js/jquery-3.7.0.min.js');
 	wp_enqueue_script('popper',get_stylesheet_directory_uri().'/js/popper.min.js');
   wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
-	wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
+	wp_enqueue_script('scripts',get_stylesheet_directory_uri().'/js/scripts.js');
 }
 // WIDGETS
 register_sidebar([
