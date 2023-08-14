@@ -14,7 +14,7 @@
 		</footer>
 		<section id="powered">
 			<div class="container text-center">
-				Powered by BIREME | OPS | OMS
+				Powered by <a href="https://www.paho.org/en/bireme" target="_blank">BIREME | PAHO | WHO</a>
 			</div>
 		</section>
 		<?php wp_footer(); ?>
