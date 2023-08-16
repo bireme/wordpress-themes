@@ -17,7 +17,7 @@
 					<img src="<?php bloginfo('template_directory'); ?>/img/header-opas-<?php echo $lang; ?>.png" class="img-fluid" alt="">
 				</div>
 				<div class="col-md-4" id="logo-event">
-					<?php the_post_thumbnail('full', ['class' => 'img-fluid rounded ']);  ?>
+					<a href="https://www.who.int/initiatives/who-global-centre-for-traditional-medicine/traditional-medicine-global-summit" target="_blank"><?php the_post_thumbnail('full', ['class' => 'img-fluid rounded ']);  ?></a>
 				</div>
 			</div>
 		</div>
