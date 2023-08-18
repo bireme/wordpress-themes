@@ -9,7 +9,8 @@
 	<?php wp_head(); ?>
 	<?php $lang = pll_current_language(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+	<?php wp_body_open(); ?>
 	<header id="header">
 		<div class="container">
 			<div class="row">
