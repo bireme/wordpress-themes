@@ -44,6 +44,13 @@ register_sidebar([
 	'before_title'  => '<h5>',
 	'after_title' 	=> '</h5>'
 ]);
+//RSS Produção
+function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+   return $args;
+}
 //Breadcrumb
 function get_breadcrumb() {
     echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
