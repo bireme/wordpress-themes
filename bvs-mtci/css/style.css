@@ -1,9 +1,10 @@
 a{
 	text-decoration: none;
-	color: #333;
+	color:#406cff;
 }
 a:hover{
-	color: #666;
+	color:#1d42bf;
+	text-decoration:underline;
 }
 .padding1{
 	padding: 50px 0;
@@ -20,10 +21,13 @@ a:hover{
 .margin2{
 	margin-bottom: 30px;
 }
+.text-justify{
+	text-align: justify;
+}
 #header{
 	padding: 20px;
 	border-top: 10px solid #87b401;
-	border-color: #0a674b!important;
+	border-bottom:2px solid #0a674b;
 }
 #header-bvs{
 	height: 120px;
@@ -34,14 +38,11 @@ a:hover{
 #nav{
 	background:#0a674b!important;
 	color: #fff;
-	font-size:18px;
+	font-size:17px;
 }
 #nav a{
 	color: #fff;
-		padding-right:10px;
-}
-#nav a:hover{
-	color: #ddd;
+	padding-right:10px;
 }
 #nav .dropdown-menu{
 	color: #333;
@@ -62,6 +63,7 @@ a:hover{
 }
 #formText{
 	margin-top: 20px;
+	text-align: left;
 }
 #formHome{
 	font-size: 14px;
@@ -119,8 +121,6 @@ a:hover{
 	background: #00997c;
 	text-decoration: none;
 }
-
-
 #home-posts a, #events a{
 	font-weight:bold;
 }
@@ -199,9 +199,21 @@ h1, h2, h3, h4, h5, h6{
 #grupo2 img:hover{
 	transform:scale(1.05);
 }
+#content{
+	margin-top:20px;	
+}
+.so-panel{
+	margin-bottom:auto!important;
+}
+.panel-grid-cell .so-panel:after{
+	display:none!important;
+}
+.wpsm_nav-tabs a{
+	background:none!important;
+}
 @media (max-width:1400px){
 	#nav{
-		font-size:16px!important;
+		font-size:14px!important;
 	}
 }
 @media (max-width:1200px){
@@ -222,13 +234,9 @@ h1, h2, h3, h4, h5, h6{
 		width: 100%;
 	}
 	#logo-mtci{
-		margin-top: 20px;
+		margin: 20px 0 0 0;
 	}
 	#lang{
 		text-align: center;
-	}
-	#nav a {
-		padding-left:20px;
-		padding-right:20px;
 	}
 }
