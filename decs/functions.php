@@ -234,7 +234,7 @@ add_action('init', function() {
 
 class Description_Walker extends Walker_Nav_Menu
 {
-	/**
+    /**
      * Start the element output.
      *
      * @param  string $output Passed by reference. Used to append additional content.
