@@ -21,7 +21,7 @@
 					'container_class'   => 'list-unstyled',
 					'container_id'      => '',
 					'menu_class'        => '',
-					'walker' => new description_walker(),
+					'walker' => new Description_Walker(),
 				) );
 			?>
 		</div>
