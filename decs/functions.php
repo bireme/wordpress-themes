@@ -244,7 +244,6 @@ class Description_Walker extends Walker_Nav_Menu
      * @return void
      */
     function start_el(&$output, $item, $depth = 0, $args = [], $id = 0) {
-    {
 
         $class_names = $value = '';
         $classes = empty( $item->classes ) ? array() : (array) $item->classes;
