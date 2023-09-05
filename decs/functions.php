@@ -57,7 +57,7 @@ function custom_posts(){
 function register_custom_post_type() {
     // HOME
     $home = array(
-        'name'                 => 'Home'
+        'name' => 'Home'
     );
     $argsHome = array(
         'labels'        => $home,
@@ -147,12 +147,12 @@ function register_custom_post_type() {
 
 // Widgets - Home
 register_sidebar(array(
-    'name'            => 'Home',
-    'id'            => 'home_widget',
-    'description'    => 'Widgets Home',
-    'class'            => 'list-unstyled',
-    'before_title'    => '<h5>',
-    'after_title'    => '</h5>'
+    'name'         => 'Home',
+    'id'           => 'home_widget',
+    'description'  => 'Widgets Home',
+    'class'        => 'list-unstyled',
+    'before_title' => '<h5>',
+    'after_title'  => '</h5>'
 ));
 
 add_action('init', function() {
@@ -262,7 +262,6 @@ class Description_Walker extends Walker_Nav_Menu
         if ( !empty($q) and !empty($filter) and empty($id) ){
             // renders results page
             // ex.: ths?filter=ths_termall&q=temefos
-
             $url_filter = 'ths?filter=' . $filter . '&q=' . $q ;
             $attributes .= !empty( $item->url ) ? ' href="' . esc_attr( $item->url ) . $url_filter . '"' : '';
         } elseif ( !empty($q) and !empty($filter) and !empty($id) ){
@@ -275,10 +274,13 @@ class Description_Walker extends Walker_Nav_Menu
             $url_filter = '';
             $attributes .= !empty( $item->url ) ? ' href="' . esc_attr( $item->url ) .'"' : '';
         }
+
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
         
         $item_output .= '<a'. $attributes .'>';
-        $item_output .= $args->link_before .apply_filters( 'the_title', $item->title, $item->ID );
-        $item_output .= $description.$args->link_after;
+        $item_output .= $args->link_before;
+        $item_output .= $title;
+        $item_output .= $args->link_after;
         $item_output .= '</a>';
 
         // Since $output is called by reference we don't need to return anything.
