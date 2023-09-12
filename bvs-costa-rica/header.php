@@ -9,14 +9,13 @@
 	<?php wp_head(); ?>
 	<?php $lang = pll_current_language(); ?>
 </head>
-<body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
+<body>
 	<header id="header">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="https://bvsalud.org/<?php echo $lang=='pt'?'':$lang; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" id="header-bvs" class="img-fluid" alt=""></a>
-					<a href=""><img src="<?php bloginfo('template_directory') ;?>/img/logo-costa-rica.png" id="logo-costarica" alt=""></a>
+					<a href="<?php echo get_option('siteurl'); ?>"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" id="header-bvs" class="img-fluid" alt=""></a>
+					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory') ;?>/img/logo-costa-rica.png" id="logo-costarica" alt=""></a>
 				</div>
 			</div>
 		</div>
