@@ -4,7 +4,12 @@
 	<section id="title">
 		<div class="container">
 			<h1 class="title1">404</h1>
-			<?php if (!is_home()): ?><div class="breadcrumb"><?php get_breadcrumb(); ?></div><?php endif; ?>
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+				<?php if(function_exists('bcn_display'))
+				{
+					bcn_display();
+				}?>
+			</div>
 		</div>
 	</section>
 	<div class="container padding1 text-center">

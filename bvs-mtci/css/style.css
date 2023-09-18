@@ -216,6 +216,9 @@ h1, h2, h3, h4, h5, h6{
 .thumbpost img{
 	border-radius: 5px!important;
 }
+.breadcrumbs{
+	padding-bottom: 20px;
+}
 @media (max-width:1400px){
 	#nav{
 		font-size:14px!important;
