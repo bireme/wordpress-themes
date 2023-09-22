@@ -57,7 +57,7 @@ function custom_posts(){
 function register_custom_post_type() {
     // HOME
     $home = array(
-        'name' => 'Home'
+        'name'  => 'Home'
     );
     $argsHome = array(
         'labels'        => $home,
@@ -66,6 +66,7 @@ function register_custom_post_type() {
         'menu_position' => 10,
         'supports'      => array('title','editor'),
         'menu_icon'     => 'dashicons-admin-home',
+        'show_in_rest'  => true,
     );
     register_post_type( 'home' , $argsHome );
     
@@ -96,18 +97,18 @@ function register_custom_post_type() {
     
     // Partners
     $partners = array(
-        'name'               => 'Partners',
-        'singular_name'      => 'Partner',
-        'add_new'            => 'Add Partners',
-        'add_new_item'       => 'Add Partners Item',
-        'edit_item'          => 'Edit Partners',
-        'new_item'           => 'New Item',
-        'view_item'          => 'View Partners',
-        'search_items'       => 'Search Partners',
-        'not_found'          => 'No Partners Found',
-        'not_found_in_trash' => 'No Partners in Trash',
-        'parent_item_colon'  => '',
-        'menu_name'          => 'Partners'
+        'name'                  => 'Partners',
+        'singular_name'         => 'Partner',
+        'add_new'               => 'Add Partners',
+        'add_new_item'          => 'Add Partners Item',
+        'edit_item'             => 'Edit Partners',
+        'new_item'              => 'New Item',
+        'view_item'             => 'View Partners',
+        'search_items'          => 'Search Partners',
+        'not_found'             => 'No Partners Found',
+        'not_found_in_trash'    => 'No Partners in Trash',
+        'parent_item_colon'     => '',
+        'menu_name'             => 'Partners'
     );
     $argsPartners = array(
         'labels'        => $partners,
