@@ -44,9 +44,11 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
                             language_switcher();
                     ?>
 				</div>
-				<div id="contact"> 
-					<span><a href="/<?php echo ( $site_lang ); ?>/contact-<?php echo ( $site_lang ); ?>/"><?php _e('Contact', 'contact-form-7'); ?></a></span>
-				</div>
+				<?php if ( defined( 'POLYLANG_VERSION' ) ) : ?>
+					<div id="contact"> 
+						<span><a href="/<?php echo ( $site_lang ); ?>/contact-<?php echo ( $site_lang ); ?>/"><?php pll_e('Contact'); ?></a></span>
+					</div>
+				<?php endif; ?>
 				<div class="spacer"></div>
 			</div>
         </div>

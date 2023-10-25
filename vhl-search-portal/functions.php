@@ -129,4 +129,8 @@ function http_request_local( $args, $url ) {
 }
 add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 
+add_action('init', function() {
+    pll_register_string('contact', 'Contact', 'Theme');
+});
+
 ?>
