@@ -202,14 +202,18 @@ function update_categories($ID) {
 
 		$categories = get_the_category($ID);
 		$term_ids = wp_list_pluck($categories, 'term_id');
-		$post_category = array_values(array_filter($_POST['post_category']));
-		$cat_ids = array_values(array_diff($term_ids, $post_category));
+		
+		$post_category = array();
+		if ( array_key_exists('post_category', $_POST) ) {
+			$post_category = array_values(array_filter($_POST['post_category']));
+		}
 
+		$cat_ids = array_values(array_diff($term_ids, $post_category));
 		if ( $cat_ids ) {
 			foreach ($cat_ids as $cat_id) {
-	            wp_remove_object_terms($ID, $cat_id, 'category');
-	        }
-	    }
+		        	wp_remove_object_terms($ID, $cat_id, 'category');
+		        }
+		}
 
 	 	add_action('save_post', 'update_categories');
 	}
@@ -299,6 +303,7 @@ function append_language_category_link ($categories){
 }
 
 function translate_categories_edit_post($categories){
+	$translated_categories = array();
 
 	if (is_array($categories)) {
 		foreach ($categories as $cat) {
@@ -310,6 +315,7 @@ function translate_categories_edit_post($categories){
 	} else {
 		$translated_categories = extract_text_by_language_markup($categories);
 	}
+
 	return $translated_categories;
 }
 
