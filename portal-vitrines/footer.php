@@ -17,6 +17,8 @@
 
 ?>
 
+    <div class="spacer"></div>
+
     <div class="footer">
         <?php dynamic_sidebar( $bottom ); ?>
         <div class="spacer"></div>
