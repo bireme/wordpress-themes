@@ -17,7 +17,7 @@
 
 ?>
 
-    <div class="spacer"></div>
+    <div class="spacer margintop25"></div>
 
     <div class="footer">
         <?php dynamic_sidebar( $bottom ); ?>
