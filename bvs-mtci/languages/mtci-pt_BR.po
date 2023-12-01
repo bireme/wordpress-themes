@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BVS MTCI Américas 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bvs-mtci\n"
-"POT-Creation-Date: 2023-07-18 17:47-0300\n"
-"PO-Revision-Date: 2023-07-18 17:52-0300\n"
+"POT-Creation-Date: 2023-11-30 21:31-0300\n"
+"PO-Revision-Date: 2023-11-30 21:31-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -20,6 +20,10 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: footer.php:15
+msgid "The TCIM VHL contents are the responsibility of the TCIM Americas Network"
+msgstr "A responsabilidade pelo conteúdo da BVS da MTCI é da Rede MTCI Américas"
+
+#: footer.php:15
 msgid "Terms and Conditions of Use"
 msgstr "Termos e Condições de Uso"
 
@@ -27,7 +31,7 @@ msgstr "Termos e Condições de Uso"
 msgid "Privacy policy"
 msgstr "Políticas de Privacidade"
 
-#: includes/search.php:13
+#: includes/search.php:13 includes/search.php:14
 msgid "Search"
 msgstr "Buscar"
 

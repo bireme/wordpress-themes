@@ -12,7 +12,7 @@
 	</div>
 </footer>
 <div id="footer-term" class="text-center">
-	<?php pll_e('La responsabilidad de los contenidos de la BVS MTCI es de la Red MTCI Américas'); ?> | <a href="https://politicas.bireme.org/terminos/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'mtci'); ?></a> | 
+	<?php _e('The TCIM VHL contents are the responsibility of the TCIM Americas Network', 'mtci'); ?> | <a href="https://politicas.bireme.org/terminos/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Terms and Conditions of Use', 'mtci'); ?></a> | 
 	<a href="https://politicas.bireme.org/privacidad/<?php echo $lang=='fr'?'en':$lang; ?>/" target="_blank"><?php _e('Privacy policy', 'mtci'); ?><?php pll_e('Privacy policy'); ?></a>
 </div>
 </body>
