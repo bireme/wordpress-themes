@@ -1,0 +1,367 @@
+*{
+	font-family: 'Poppins', sans-serif;
+}
+a{
+	text-decoration: none!important;
+}
+.padding1{
+	padding: 80px 0;
+}
+.padding2{
+	padding: 15px 0 30px 0;
+}
+.padding3{
+	padding: 20px 0;
+}
+.padding4{
+	padding: 40px 0;
+}
+#mapa{
+	
+}
+.box-apoio{
+	border:2px solid #ccc;
+	border-radius: 20px;
+	padding: 20px;
+	border-bottom: 5px solid #f36f23;
+	background: linear-gradient(#eee, #fff);
+}
+.marginb1{
+	margin-bottom: 20px;
+}
+.btn-primary{
+	background: #31286b!important;
+}
+.btn-primary:hover{
+	background: #4a3e93!important;
+}
+.title1{
+	position: relative;
+	margin-bottom: 50px;
+	font-family: 'Poppins', sans-serif;
+}
+.title1::after {
+	content: " ";
+	background-color: #f36f23;
+	position: absolute;
+	border-radius: 20px;
+	bottom: -15px;
+	left: 0;
+	height: 7px;
+	width: 50px;
+}
+.title1a{
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+.title1a::after {
+	width: 30px;
+}
+.color-gray{
+	background-image: linear-gradient(to bottom right, #fff, #eee);
+	border-top: 1px solid #eee;
+	padding: 40px;
+}
+#header{
+	margin: 10px 0 10px 0px;
+}
+#header-bvs{
+	max-height: 100px;
+	margin-right: 30px;
+}
+#logo-bvs img{
+	z-index: 99;
+}
+#logo-bvs h1{
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 20px;
+	color: #01558c;
+	line-height: 25px;
+}
+#logo-bvs h1 small{
+	font-size: 16px;
+	font-weight: 400;
+}
+#header-bireme{
+	max-height: 70px;
+	margin-top: 10px;
+}
+#nav{
+	background: #31286b!important;
+}
+#nav .nav-link{
+	color: #fff;
+}
+#nav .nav-link:hover{
+	color: #ddd;
+}
+#lang{
+	text-align: right;
+	font-size: 14px;
+	margin-top: 10px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 400px;
+}
+#lang ul li{
+	display: inline-block;
+}
+#lang ul li a{
+	padding: 4px 6px;
+}
+#lang ul li a:hover{
+	background:#ddd;
+	border-radius: 5px;
+}
+#lang ul li .active{
+	background: #ddd;
+	border-radius: 5px;
+}
+#lang .current-lang a{
+	background:#f2f2f2;
+	border-radius: 5px;
+}
+#bt-login{
+	text-align: right;
+	margin-top: 50px;
+}
+#search{
+	background: url('../img/bg-search.jpg') center top no-repeat;
+	background-size:cover;
+	padding: 80px 0px 80px 20px;
+	border-bottom: 1px solid #bbe8fc;
+	color: #fff;
+	/*text-shadow: 2px 2px 2px #000;*/
+}
+#search a{
+	color: #fff;
+}
+#search a:hover{
+	color: #ccc;
+}
+.search-icons{
+	float: left;
+	margin-right: 10px;
+	width: 50px;
+}
+.search-option a{
+	/*background: rgba(19, 10, 77, .7);*/
+	background: #07625d;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+#form-img{
+	width: 30px;
+}
+#section-bvs{
+	padding: 40px 0;
+	background: url("../img/parallax-bvs.jpg")top right no-repeat fixed;
+	background-size: cover;
+}
+#section-bvs h2{
+	text-shadow: 2px 2px 1px #fff;
+}
+#section-bvs a:hover{
+	opacity: .8;
+}
+#search-produtos{
+	font-size: 30px;
+}
+.icon-bvs{
+	background: #31286b;
+	margin: 0 5px 10px 5px;
+	transition: margin .5s ease;
+	padding: 10px;
+	border-radius: 20px;
+	text-align: center;
+	transition: all .5s ease;
+}
+.icon-bvs:hover{
+	margin-bottom: 10px;
+	background: #fff;
+}
+
+#icons-bvs a{
+	color: #fff;
+}
+#icons-bvs a:hover{
+	color: #31286b;
+}
+#footer{
+	padding: 60px;
+	background: #31286b;
+	border-bottom: 5px solid #0093d6;;
+	color: #fff;
+	font-size: 12px;
+}
+#footer a{
+	color: #fff;
+	text-decoration: none;
+}
+#footer a:hover{
+	color: #ddd;
+	text-decoration: underline;
+}
+#footer-bireme{
+	text-align: right;
+}
+#footer-bireme img{
+	width: 300px;
+}
+#powered{
+	text-align: center;
+	padding: 10px 0;
+}
+.ajuda-box img, .apoio-box img{
+	margin-bottom:30px;
+}
+.ajuda-box a:hover, .apoio-box a:hover{
+	opacity: .8;
+}
+.ajuda-box, .apoio-box{
+	margin-bottom: 30px;
+}
+.to-top {
+	cursor: pointer; overflow: hidden; position: fixed;
+	bottom: -100px; right: 20px; text-align: center; font-size: 30px;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	z-index: 9999; height: 50px; color: #0093d6;  padding:5px;
+	border-radius:3px ;
+	background: rgba(255, 255, 255, .5);
+}
+.to-top:hover{
+	background: #31286b;
+	color: #fff;
+}
+.to-topText{
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 10px;
+	padding-top: 5px;
+}
+#social{
+	position: fixed;
+	width: 40px;
+	top: 60%;
+	right: 0;
+	transform: translateY(-50%);
+	z-index: 999;
+	background: rgba(277, 277, 277, .6);
+	padding: 10px 0px 0 5px;
+	border-radius: 10px 0 0 10px;
+	transition: all .5s ease;
+}
+#social:hover{
+	background: #31286b;
+	width: 50px;
+}
+#social ul{
+	list-style: none;
+	padding: 0;
+}
+#social ul li{
+	padding: 0;
+	margin-bottom: 5px;
+}
+#social img{
+	width: 30px;
+}
+#social img:hover{
+	filter: opacity(70%);
+}
+.slick-prev:before, .slick-next:before{
+	color:#31286b!important;
+	font-size: 30px!important;
+}
+.multiple-card{
+	margin: 10px;
+}
+.search-option a{
+	margin-right: 20px;
+}
+.search-option i{
+	margin-right: 10px;
+}
+.apoio-section{
+	padding: 30px;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+}
+.apoio-section:nth-child(even){
+	background-image: linear-gradient(to bottom right, #fff, #eee);
+}
+.apoio-section img{
+	border-radius: 2px;
+}
+.btn-decisao a{
+	border: 1px solid #ddd!important;
+}
+.btn-decisao a:hover{
+	background: #f2f2f2!important;
+}
+/**/
+#accessibilityTutorial{
+	text-align: left;
+}
+@media (max-width:1200px){
+	#logo-bvs h1{
+		font-size: 22px;
+		margin-top: 16px;
+	}
+	#logo-bvs h1 small{
+		font-size: 14px;
+	}
+	#section-bvs{
+		background-color: #ddeffd;;
+		background-size: 100%;
+		background-position: center right;
+	}
+}
+@media (max-width:992px){
+	#section-bvs{
+		background-color: #ddeffd;;
+		background-size: 100%;
+		background-position: bottom right;
+	}
+	#footer{
+		text-align: center;
+	}
+	#footer-bireme{
+		text-align: center;
+		margin-top: 20px;
+	}
+	#acessibilidade1{
+		display: none;
+	}
+	#acessibilidade2{
+		text-align: center;
+	}
+	#lang{
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+	}
+	#header-bvs{
+		float: none!important;
+		margin: 40px 0 0 0;
+	}
+	#bt-login{
+		text-align: center;
+		margin: 0;
+	}
+	#logo-bvs{
+		text-align: center;
+	}
+}
+@media (max-width:772px){
+	#section-bvs{
+		background: #ddeffd;
+	}
+}
