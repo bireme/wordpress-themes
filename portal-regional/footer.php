@@ -9,7 +9,10 @@
 					</div>
 				</div>
 				<hr>	
-				<p class="text-center"><a href="">Termos e Condições de uso</a> | <a href="">Políticas de Privacidade</a></p>	
+				<p class="text-center">
+					<a href="https://politicas.bireme.org/terminos/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Terms and conditions of use'); ?></a> | 
+					<a href="https://politicas.bireme.org/privacidad/<?php echo $idioma=='fr'?'en':$idioma; ?>/" target="_blank"><?php pll_e('Privacy policy'); ?></a>
+				</p>
 			</div>
 		</footer>
 		<div id="powered">

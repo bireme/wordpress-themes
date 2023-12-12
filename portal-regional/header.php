@@ -15,7 +15,7 @@
 			<div class="row" style="position:relative;">
 				<div class="col-lg-6" id="logo-bvs">
 					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">
-						<img src="http://logos.bireme.org/img/pt/bvs_color.svg" alt="BVS" id="header-bvs" class="float-start">
+						<img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" alt="BVS" id="header-bvs" class="float-start">
 					</a>
 					<h1>
 						<?php echo get_option('blogname'); ?><br>
@@ -23,7 +23,7 @@
 					</h1>
 				</div>
 				<div class="col-lg-6">
-					<div id="bt-login"><a href="https://minhabvs.bvsalud.org/client/controller/authentication" target="_blank" class="btn btn-sm btn-outline-primary"> <i class="bi bi-person-circle"></i> Login em Minha BVS</a></div>
+					<div id="bt-login"><a href="https://minhabvs.bvsalud.org/client/controller/authentication" target="_blank" class="btn btn-sm btn-outline-primary"> <i class="bi bi-person-circle"></i><?php pll_e('Login em Minha BVS'); ?></a></div>
 				</div>
 				<div id="lang">
 					<?php 

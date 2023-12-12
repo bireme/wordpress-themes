@@ -17,7 +17,11 @@ a{
 	padding: 40px 0;
 }
 #mapa{
-	
+	background: url("../img/parallax-bvs.jpg")top right no-repeat;
+	background-color: red;
+	background-size: cover;
+	padding: 50px 0 20px 0;
+	border-top: 1px solid #ddd;
 }
 .box-apoio{
 	border:2px solid #ccc;
@@ -120,8 +124,9 @@ a{
 	border-radius: 5px;
 }
 #lang .current-lang a{
-	background:#f2f2f2;
+	background:#45e7db;
 	border-radius: 5px;
+	color: #fff;
 }
 #bt-login{
 	text-align: right;

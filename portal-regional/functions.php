@@ -96,8 +96,11 @@ function register_custom_post_type() {
   register_post_type( 'Destaques' , $argsDestaques );
 }
 
-
-
+add_action('init', function() {
+  pll_register_string('Term', 'Terms and conditions of use', 'Text default'); 
+  pll_register_string('Privacy policy', 'Privacy policy', 'Text default'); 
+  pll_register_string('Login em Minha BVS', 'Login em Minha BVS', 'Text default'); 
+});
 
 // https://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html
 // bootstrap 5 wp_nav_menu walker
