@@ -5,16 +5,20 @@ a{
 	text-decoration: none!important;
 }
 .padding1{
-	padding: 80px 0;
+	padding-top: 80px;
+	padding-bottom: 80px;
 }
 .padding2{
-	padding: 15px 0 30px 0;
+	padding-top: 15px;
+	padding-bottom: 30px;
 }
 .padding3{
-	padding: 20px 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 .padding4{
-	padding: 40px 0;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 #mapa{
 	background: url("../img/parallax-bvs.jpg")top right no-repeat;
