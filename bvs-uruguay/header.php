@@ -11,7 +11,7 @@
 		<div class="container">
 			<div class="row" style="position:relative;">
 				<div class="col-lg-6" id="logo-bvs">
-					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='es'?'':$lang; ?>">
+					<a href="<?php echo get_option('siteurl'); ?>">
 						<img src="http://logos.bireme.org/img/es/bvs_color.svg" alt="BVS" id="header-bvs" class="float-start">
 					</a>
 

@@ -2,7 +2,7 @@
 			<div class="container">
 				<ul type="none"><?php dynamic_sidebar('footer') ?></ul>
 				<hr>	
-				<p class="text-center"><a href="">Termos e Condições de uso</a> | <a href="">Políticas de Privacidade</a></p>
+				<p class="text-center"><a href="">Términos y condiciones de uso</a> | <a href="">Política de privacidad</a></p>
 			</div>
 		</footer>
 		<div id="powered">
