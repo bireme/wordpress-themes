@@ -40,6 +40,7 @@ a{
 .btn-primary{
 	background: #31286b!important;
 }
+.btn-outline-primary:hover,
 .btn-primary:hover{
 	background: #4a3e93!important;
 }
@@ -73,7 +74,7 @@ a{
 #header{
 	margin: 10px 0 10px 0px;
 }
-#header-bvs{
+#header-bvs, #footer-bvs{
 	max-height: 100px;
 	margin-right: 30px;
 }
@@ -84,7 +85,7 @@ a{
 	font-size: 24px;
 	font-weight: bold;
 	margin-top: 20px;
-	color: #01558c;
+	color: #31286b;
 	line-height: 25px;
 }
 #logo-bvs h1 small{
@@ -97,12 +98,16 @@ a{
 }
 #nav{
 	background: #31286b!important;
+	padding:0;
 }
 #nav .nav-link{
 	color: #fff;
 }
 #nav .nav-link:hover{
 	color: #ddd;
+}
+#nav .active{
+	background:#238b8e;
 }
 #lang{
 	text-align: right;
@@ -121,14 +126,15 @@ a{
 }
 #lang ul li a:hover{
 	background:#ddd;
+	color:#5b6efd;
 	border-radius: 5px;
 }
 #lang ul li .active{
-	background: #ddd;
+	background: #31286b;
 	border-radius: 5px;
 }
 #lang .current-lang a{
-	background:#45e7db;
+	background:#31286b;
 	border-radius: 5px;
 	color: #fff;
 }
@@ -203,7 +209,12 @@ a{
 	background: #31286b;
 	border-bottom: 5px solid #0093d6;;
 	color: #fff;
-	font-size: 12px;
+	font-size: 14px;
+	text-align: justify;
+}
+#footer ul{
+	padding: 0;
+	margin: 0;
 }
 #footer a{
 	color: #fff;
@@ -220,7 +231,7 @@ a{
 	width: 300px;
 }
 #powered{
-	text-align: center;
+	text-align: right;
 	padding: 10px 0;
 }
 .ajuda-box img, .apoio-box img{
@@ -240,7 +251,7 @@ a{
 	-ms-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
-	z-index: 9999; height: 50px; color: #0093d6;  padding:5px;
+	z-index: 9999; height: 50px; color: #31286b;  padding:5px;
 	border-radius:3px ;
 	background: rgba(255, 255, 255, .5);
 }
@@ -346,6 +357,9 @@ a{
 		text-align: center;
 		margin-top: 20px;
 	}
+	#copyright, #powered{
+		text-align: center ;
+	}
 	#acessibilidade1{
 		display: none;
 	}
@@ -357,9 +371,9 @@ a{
 		width: 100%;
 		margin: 0 auto;
 	}
-	#header-bvs{
+	#header-bvs, #footer-bvs{
 		float: none!important;
-		margin: 40px 0 0 0;
+		margin: 40px 0 10px 0;
 	}
 	#bt-login{
 		text-align: center;
