@@ -100,6 +100,7 @@ add_action('init', function() {
   pll_register_string('Term', 'Terms and conditions of use', 'Text default'); 
   pll_register_string('Privacy policy', 'Privacy policy', 'Text default'); 
   pll_register_string('Access My VHL', 'Access My VHL', 'Text default'); 
+  pll_register_string('All rights are reserved', 'All rights are reserved', 'Text default'); 
 });
 
 // https://wordpressbr.blogspot.com/2012/11/personalizar-o-menu-do-wpnavmenu.html

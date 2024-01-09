@@ -13,10 +13,11 @@
 				<hr>
 				<div class="row">
 					<div class="col-md-6" id="copyright">
-						© BIREME / OPAS / OMS. Todo os direitos são reservados.
+					
 					</div>
 					<div class="col-md-6" id="powered">
-						<img src="<?php bloginfo('template_directory') ;?>/img/powered.png" alt="">
+						<img src="<?php bloginfo('template_directory') ;?>/img/powered.png" alt="BIREME"><br>
+						<small>© <?php pll_e('All rights are reserved'); ?></small>
 					</div>
 				</div>	
 			</div>
