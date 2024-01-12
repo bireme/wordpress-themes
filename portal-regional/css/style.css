@@ -231,8 +231,11 @@ a{
 	width: 300px;
 }
 #powered{
-	text-align: right;
 	padding: 10px 0;
+}
+#powered img{
+	height: 20px;
+	margin-bottom: 10px;
 }
 .ajuda-box img, .apoio-box img{
 	margin-bottom:30px;
