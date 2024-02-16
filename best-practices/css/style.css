@@ -116,6 +116,9 @@
     float: left;
     margin-right: 1rem;
 }
+.logo-header img {
+	max-width: 200px;
+}
 .site-branding {
     height: 100%;
 	display: flex;

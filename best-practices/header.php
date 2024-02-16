@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-9">
 					<!-- <a href="<?php echo $home_url; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" alt="" class="img-fluid" id="logo" ></a> -->
-					<a href="<?php echo $home_url; ?>" class="logo-header"><img src="<?php bloginfo('template_directory'); ?>/img/120-logo-color-<?php echo $lang; ?>.png" alt="" class="img-fluid" id="logo" ></a>
+					<a href="<?php echo $home_url; ?>" class="logo-header"><img src="<?php bloginfo('template_directory'); ?>/img/logo-paho-<?php echo $lang; ?>.png" alt="" class="img-fluid" id="logo" ></a>
 					<div class="site-branding">
 						<span class="site-title"><?php bloginfo('name'); ?></span>
 						<h5 class="tagline"><?php bloginfo('description'); ?></h5>
