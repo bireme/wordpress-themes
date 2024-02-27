@@ -46,3 +46,10 @@ jQuery('.multiple-items').slick({
     }
     ]
 });
+
+jQuery('.apoio-menu a').click(function(){
+    var menu_id = jQuery(this).attr('id').split('-').pop();
+    var section_id = 'section-' + menu_class;
+    jQuery('.apoio-section').addClass('hide');
+    jQuery('#' + section_id).removeClass('hide');
+});
