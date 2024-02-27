@@ -205,7 +205,7 @@ a{
 	color: #31286b;
 }
 #footer{
-	padding: 60px;
+	padding: 60px 0 20px 0;
 	background: #31286b;
 	border-bottom: 5px solid #0093d6;;
 	color: #fff;
@@ -348,6 +348,9 @@ a{
 	}
 }
 @media (max-width:992px){
+	#nav{
+		padding:20 0;
+	}
 	#section-bvs{
 		background-color: #ddeffd;;
 		background-size: 100%;
@@ -390,4 +393,16 @@ a{
 	#section-bvs{
 		background: #ddeffd;
 	}
+}
+.hide{
+	display: none;
+}
+.bt-active, .bt-active1>a{
+	background-color: #fff!important;
+	border:solid 3px #238b8e;
+	color: #238b8e!important;
+}
+.apoio-menu a:hover{
+	color: #ddd;
+
 }

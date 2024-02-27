@@ -48,8 +48,13 @@ jQuery('.multiple-items').slick({
 });
 
 jQuery('.apoio-menu a').click(function(){
-    var menu_id = jQuery(this).attr('id').split('-').pop();
-    var section_id = 'section-' + menu_class;
+    var menu_id = jQuery(this).attr('href').split('-').pop();
+    var section_id = 'section-' + menu_id;
     jQuery('.apoio-section').addClass('hide');
     jQuery('#' + section_id).removeClass('hide');
+});
+jQuery('.apoio-menu a').click(function(){
+    jQuery('.apoio-menu a').removeClass('bt-active');
+    jQuery('.apoio-menu .bt-active1').removeClass('bt-active1');
+    jQuery(this).addClass('bt-active')
 });
