@@ -23,7 +23,7 @@
 					</h1>
 				</div>
 				<div class="col-lg-6">
-					<div id="bt-login"><a href="https://minhabvs.bvsalud.org/client/controller/authentication" target="_blank" class="btn btn-sm btn-outline-primary"> <i class="bi bi-person-circle"></i> <?php pll_e('Access My VHL'); ?></a></div>
+					<div id="bt-login"><a href="https://minhabvs.bvsalud.org/client/controller/authentication/?lang=<?php echo $lang; ?>" target="_blank" class="btn btn-sm btn-outline-primary"> <i class="bi bi-person-circle"></i> <?php pll_e('Access My VHL'); ?></a></div>
 				</div>
 				<div id="lang">
 					<?php 
