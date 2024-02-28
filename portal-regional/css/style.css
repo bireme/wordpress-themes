@@ -311,16 +311,16 @@ a{
 .search-option i{
 	margin-right: 10px;
 }
-.apoio-section{
+.produtos-box{
 	padding: 30px;
 	border-radius: 10px;
 	margin-bottom: 20px;
 	border: 1px solid #ddd;
 }
-.apoio-section:nth-child(even){
+.produtos-box:nth-child(even){
 	background-image: linear-gradient(to bottom right, #fff, #eee);
 }
-.apoio-section img{
+.produtos-box img{
 	border-radius: 2px;
 }
 .btn-decisao a{
@@ -405,4 +405,7 @@ a{
 .apoio-menu a:hover{
 	color: #ddd;
 
+}
+.wp-block-button__link:hover{
+	color:#ddd!important;
 }
