@@ -5,8 +5,8 @@ a{
 	text-decoration: none!important;
 }
 .padding1{
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-top: 50px;
+	padding-bottom: 70px;
 }
 .padding2{
 	padding-top: 15px;
@@ -42,11 +42,11 @@ a{
 }
 .btn-outline-primary:hover,
 .btn-primary:hover{
-	background: #4a3e93!important;
+	background: #31286b!important;
 }
 .title1{
 	position: relative;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	font-family: 'Poppins', sans-serif;
 }
 .title1::after {
@@ -108,6 +108,9 @@ a{
 }
 #nav .active{
 	background:#238b8e;
+}
+#nav .dropdown-menu .active{
+	background: #ffffff;
 }
 #lang{
 	text-align: right;
@@ -279,6 +282,7 @@ a{
 	padding: 10px 0px 0 5px;
 	border-radius: 10px 0 0 10px;
 	transition: all .5s ease;
+	display:none;
 }
 #social:hover{
 	background: #31286b;
@@ -349,7 +353,10 @@ a{
 }
 @media (max-width:992px){
 	#nav{
-		padding:20 0;
+		padding:10px;
+	}
+	#nav .active{
+		padding-left: 10px;
 	}
 	#section-bvs{
 		background-color: #ddeffd;;
@@ -388,6 +395,9 @@ a{
 	#logo-bvs{
 		text-align: center;
 	}
+	#lilacs p, #decs p, #lilacs figure, #decs figure{
+		text-align:left!important;
+	}
 }
 @media (max-width:772px){
 	#section-bvs{
@@ -404,8 +414,19 @@ a{
 }
 .apoio-menu a:hover{
 	color: #ddd;
-
 }
 .wp-block-button__link:hover{
-	color:#ddd!important;
+	background:#238b8e!important;
+}
+.btn-accordion:hover{
+	opacity:.8;
+}
+.btn-accordion .active{
+	background: #fff!important;
+	border:2px solid #238B8E!important;
+	color: #238B8E;
+}
+.box-apoio a:hover{
+	color: #238b8e;
+	opacity: .8;
 }
