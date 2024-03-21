@@ -21,9 +21,9 @@ a{
 	padding-bottom: 40px;
 }
 #mapa{
-	background: url("../img/parallax-bvs.jpg")top right no-repeat;
-	background-color: red;
-	background-size: cover;
+	background: url("../img/parallax-bvs.jpg")top center no-repeat;
+	background-color: #f2f2f2;
+	background-size: 100%;
 	padding: 50px 0 20px 0;
 	border-top: 1px solid #ddd;
 }
@@ -429,4 +429,7 @@ a{
 .box-apoio a:hover{
 	color: #238b8e;
 	opacity: .8;
+}
+summary{
+	margin-bottom: 15px;
 }
