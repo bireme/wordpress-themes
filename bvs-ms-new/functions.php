@@ -114,6 +114,13 @@ function registrar_custom_post_type() {
 }
 // WIDGETS
 register_sidebar([
+	'name'			=> 'Header',
+	'id'			=> 'header',
+	'description'	=> 'header',
+	'before_title'	=> '<h5>',
+	'after_title'	=> '</h5>'
+]);
+register_sidebar([
 	'name'			=> 'Rodape 1',
 	'id'			=> 'footer1',
 	'description'	=> 'Coluna 1',
@@ -131,6 +138,13 @@ register_sidebar([
 	'name'			=> 'Rodape 3',
 	'id'			=> 'footer3',
 	'description'	=> 'Coluna 3',
+	'before_title'	=> '<h5>',
+	'after_title'	=> '</h5>'
+]);
+register_sidebar([
+	'name'			=> 'Rodape 4',
+	'id'			=> 'footer4',
+	'description'	=> 'Coluna 4',
 	'before_title'	=> '<h5>',
 	'after_title'	=> '</h5>'
 ]);

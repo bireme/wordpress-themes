@@ -28,8 +28,7 @@
 					</h1>
 				</div>
 				<div class="col-md-3" id="headerSocial">
-					<a href="https://www.youtube.com/playlist?list=PL9E509996961ABADD" target="_blank"><i class="fab fa-youtube youtube"></i></a>
-					<a href="https://pt-br.facebook.com/minsaude" target="_blank"><i class="fab fa-facebook facebook"></i></a>
+					<ul class="list-unstyled"><?php dynamic_sidebar('header') ?></ul>
 				</div>
 			</div>
 		</div>
