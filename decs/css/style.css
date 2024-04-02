@@ -393,6 +393,12 @@ a{
 .blog-box{
 	margin-bottom: 30px;
 }
+.img-post{
+	max-width: 500px;
+	height: auto;
+	float: right;
+	margin: 0 0 10px 20px;
+}
 /************** Breakpoint ****************/
 @media (max-width: 1200px){
 	#nav{
@@ -513,6 +519,11 @@ a{
 	}
 	.margin1{
 		margin: 10px auto 30px auto;
+	}
+	.img-post{
+		max-width: 100%;
+		float: none;
+		margin: 10px auto;
 	}
 }	
 @media (max-width: 576px){

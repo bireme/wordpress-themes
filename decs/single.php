@@ -12,19 +12,11 @@
 		</nav>
 
 		<div id="main_container">
-			<div class="text-center"><?php if(has_post_thumbnail()){ the_post_thumbnail('large', ['class' => 'img-fluid margin1']);  {
-			}} ?></div>
 			<h3><?php the_title(); ?></h3>
-			<div id="linha"></div>
-			<div class="row">
-				<div class="col-12">
-					<?php while(have_posts()) : the_post();
-						the_content();
-					endwhile;
-					?>
-				</div>
-			</div>
-				<hr>
+			<hr>
+			<?php if(has_post_thumbnail()){ the_post_thumbnail('', ['class' => 'img-post']);} ?>
+			<?php the_content();?>
+			<hr>
 			<div class="row">
 				<div class="col-12 col-md-6 blog-more">
 					<?php previous_post_link( '%link' ); ?>  
