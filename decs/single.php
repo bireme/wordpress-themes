@@ -14,7 +14,8 @@
 			<hr>
 			<?php the_content();?>
 			<hr>
-			<span>Categoria</span> - <?php the_category(', '); ?>
+			<span><?php pll_e('Category'); ?></span>: <?php the_category(', '); ?> <br>
+			<?php the_tags( 'Tags: ', ', ' ); ?>
 			<hr>
 			<div class="row">
 				<div class="col-12 col-md-6 blog-more">
