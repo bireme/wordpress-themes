@@ -225,6 +225,7 @@ add_action('init', function() {
     pll_register_string('List format', 'List format', 'List format');
     pll_register_string('Related', 'Related', 'Related');
     pll_register_string('Use * or $ for permuted search', 'Use * or $ for permuted search', 'Text default');
+    pll_register_string('Category', 'Category', 'Text default');
     
     // Accessibility
     pll_register_string('Main content', 'Main content', 'Accessibility');

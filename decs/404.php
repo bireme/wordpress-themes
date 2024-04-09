@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="titleMain text-center">
 	<h2>404</h2>
 </div>
@@ -11,7 +10,5 @@
 		</p>
 	</div>
 </main>
-
 <?php get_template_part('includes/partners') ?>
-
 <?php get_footer(); ?>
