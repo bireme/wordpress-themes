@@ -47,7 +47,7 @@ a{
 }
 #header{
 	padding: 20px 0;
-	background: url('../img/bg-header.png') no-repeat right center;
+	/*background: url('../img/bg-header.png') no-repeat right center;*/
 }
 #header-bvs{
 	max-height: 100px;
@@ -59,6 +59,10 @@ a{
 }
 #logo-bvs img{
 	z-index: 99;
+}
+#img-bvsuru{
+	text-align: right;
+	margin-top: 20px;
 }
 #logo-bvs h1{
 	font-size: 34px;
@@ -201,6 +205,9 @@ a{
 	}
 	#header-bvs{
 		float: none!important;
+		text-align: center;
+	}
+	#img-bvsuru{
 		text-align: center;
 	}
 }

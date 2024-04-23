@@ -20,7 +20,9 @@
 						<img src="<?php bloginfo('template_directory') ?>/img/flag.svg" alt=""  id="flag"><?php echo get_option('blogname'); ?>
 					</h1>
 				</div>
-
+				<div class="col-md-6" id="img-bvsuru">
+					<img src="<?php bloginfo('template_directory') ?>/img/bvsuru.png" alt="">
+				</div>
 			</div>
 		</div>
 	</header>
