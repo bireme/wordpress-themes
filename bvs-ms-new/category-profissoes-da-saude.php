@@ -4,7 +4,7 @@
 $args = array(
 	'post_type' 		=> 'post',
 	's' 				=> $_GET['q'],
-	'category_name' 	=> 'dicas-em-saude-anteriores',
+	'category_name' 	=> 'profissoes-da-saude',
 	'posts_per_page' 	=> '-1',
 );
 
