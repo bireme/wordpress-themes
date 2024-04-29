@@ -20,7 +20,6 @@
 		</div>
 	</div>
 </section>
-
 <section class="padding1" id="temas">
 	<div class="container">
 		<!-- <h2 class="title1">Temas</h2> -->
@@ -57,9 +56,6 @@
 		</div>
 	</div>
 </section>
-
-
-
 <section class="padding2">
 	<div class="container">
 		<div class="row">
@@ -97,7 +93,6 @@
 		</div>
 	</div>
 </section>
-
 <section class="padding2 color1">
 	<div class="container">
 		<div class="row">

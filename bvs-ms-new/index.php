@@ -32,7 +32,6 @@
 		</div>
 	</div>
 </section>
-
 <section class="padding2" id="temas">
 	<div class="container">
 		<h3 class="title2">Temas</h3>
@@ -74,9 +73,6 @@
 		</div>
 	</div>
 </section>
-
-
-
 <section class="padding2">
 	<div class="container">
 		<div class="row">
@@ -110,7 +106,6 @@
 					<?php endif; ?>
 				<?php endwhile; ?>
 			</div>
-
 			<div class="col-md-8">
 				<div class="text-center"><h3 class="title2 title3">Produtos da BVS</h3></div>
 				<p class="text-center">
@@ -136,7 +131,6 @@
 		</div>
 	</div>
 </section>
-
 <section class="padding2 color1">
 	<div class="container">
 		<div class="row">

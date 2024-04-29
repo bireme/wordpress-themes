@@ -9,7 +9,6 @@
 	<?php wp_head(); ?>
 </head>
 <body>
-
 	<?php get_template_part('includes/topAcessibility') ?>
 	<header id="header">
 		<div class="container">

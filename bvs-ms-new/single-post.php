@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php get_template_part('includes/nav') ?>
-
 <section class="margin4">
 	<div class="container">
 		<div class="row">
@@ -16,6 +15,6 @@
 	</div>
 </section>
 <div class="color1">
-<?php get_template_part('includes/noticias') ?>
+	<?php get_template_part('includes/noticias') ?>
 </div>
 <?php get_footer(); ?>

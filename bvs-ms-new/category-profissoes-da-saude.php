@@ -12,15 +12,7 @@ $dicas = new WP_Query($args);
 ?>
 <section class="margin4">
 	<div class="container">
-		<h1 class=" title1">Dicas em Saúde</h1><br> 
-		<form role="search" method="get" class="search-form form-row" action="">
-			<div class="form-group col-md-9">
-				<input type="search" class="form-control" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="q" title="<?php _ex( 'Search for:', 'label'); ?>">
-			</div>
-			<div class="form-group col-md-3">
-				<input type="submit" class="btn btn-success btn-block" value="<?php echo esc_attr_x( 'Search', 'submit button'); ?>">
-			</div>
-		</form>
+		<h1 class=" title1">Profissões da Saúde</h1><br> 
 		<div class="row">
 			<?php 
 			while($dicas->have_posts()) : $dicas->the_post(); ?>

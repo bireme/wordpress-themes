@@ -42,9 +42,7 @@ query_posts( $args );
 					<?php the_posts_pagination(array('mid_size' => 2) ); ?>
 				</div>
 			</div>	
-
 		</div>
-
 	</div>
 </section>
 <?php get_footer(); ?>
