@@ -35,9 +35,9 @@
 						<h2>
 							<?php echo $title ?>
 						</h2>
-						<div class="text-center" tabindex="13">
-							<h5><a href="" data-toggle="modal" data-target="#countriesM"><?php pll_e('See more interested countries'); ?></a></h5>
-						</div>
+						<!-- <div class="text-center" tabindex="13">
+							<h5><a href="" data-toggle="modal" data-target="#countriesM"><//?php pll_e('See more interested countries'); ?></a></h5>
+						</div> -->
 						<h4>
 							<?php echo $sub_title ?>
 						</h4>
