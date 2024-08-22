@@ -92,12 +92,11 @@
 }
 #home-highlights{
 	background: rgb(255,218,185);
-	background: linear-gradient(15deg, rgba(255,255,255,1) 2%, rgba(255,218,185,1) 33%, rgba(173,216,230,1) 61%, rgba(95,144,195,1) 100%);
-	background-size: cover;
-	background-position: center;
-	min-height: 100vh;
+	background-image: url('../img/bg-lighlights.png'), linear-gradient(15deg, rgba(255,255,255,1) 2%, rgba(255,218,185,1) 33%, rgba(173,216,230,1) 61%, rgba(95,144,195,1) 100%);
 	margin: 0;
 	padding: 50px 0 20px 0;
+	background-position: bottom;
+	background-repeat: repeat-x;
 }
 .title1{
 	color: #000;
