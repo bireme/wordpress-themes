@@ -273,6 +273,10 @@
 .news-card .card-img-top{
 	padding: 10px;
 }
+.card-img-top{
+	width: 100%;
+	height: auto;
+}
 .news-card a{
 	color: #000;
 	text-decoration: none;
@@ -280,6 +284,13 @@
 .news-card a:hover{
 	color: #999;
 	text-decoration: none;
+	border-radius: 16px;
+}
+.news-card .card-footer, .card-trend .card-footer{
+	border-top: 0;
+	background: none;
+	padding-top: 0;
+	padding-bottom: 20px;
 }
 #powered-by{
 	text-align: center;
