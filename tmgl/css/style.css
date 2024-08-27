@@ -1,6 +1,22 @@
 *{
 	font-family: 'Roboto' sans-serif;
 }
+.font-1{	
+	font-family: "Roboto Serif";
+}
+.title1{
+	color: #000;
+	font-family: "Roboto Serif";
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 900;
+	line-height: normal;
+}
+.title-icon{
+	float: left;
+	height: 45px;
+	margin-right: 10px;
+}
 #header{
 	padding: 35px 0 0 0;
 	/*position: sticky;
@@ -131,19 +147,6 @@
 	padding: 50px 0 20px 0;
 	background-position: bottom;
 	background-repeat: repeat-x;
-}
-.title1{
-	color: #000;
-	font-family: "Roboto Serif";
-	font-size: 36px;
-	font-style: normal;
-	font-weight: 900;
-	line-height: normal;
-}
-.title-icon{
-	float: left;
-	height: 45px;
-	margin-right: 10px;
 }
 #desc-trend{
 	font-size: 20px;
@@ -368,4 +371,21 @@
 
 .content {
 	z-index: 1;
+}
+.breadcrumbs{
+	padding: 20px 0;
+	font-size: 16px;
+}
+.breadcrumbs a{
+	text-decoration: none;
+	font-weight: 700;
+}
+/*pages*/
+#trending-bts i{
+	font-size: 30px;
+}
+.title-filter{
+	font-family: "Roboto Serif";
+	font-weight: 700;
+	font-size: 24px;
 }

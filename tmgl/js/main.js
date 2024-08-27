@@ -28,6 +28,21 @@ jQuery(document).ready(function(jQuery) {
   });
 });
 
+jQuery(document).ready(function() {
+       jQuery('#trending-blocks').click(function() {
+           jQuery('#trend').removeClass('row-cols-md-1').addClass('row-cols-md-3');
+           jQuery('#trending-blocks').addClass('disabled');
+           jQuery('#trending-list').removeClass('disabled');
+        });
+
+       jQuery('#trending-list').click(function() {
+           jQuery('#trend').removeClass('row-cols-md-3').addClass('row-cols-md-1');
+           jQuery('#trending-list').addClass('disabled');
+           jQuery('#trending-blocks').removeClass('disabled');
+        });
+    });
+
+
 /*
 jQuery(document).ready(function() {
     var navOffsetTop = jQuery('header').height();
