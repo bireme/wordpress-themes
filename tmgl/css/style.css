@@ -19,8 +19,8 @@
 }
 #header{
 	padding: 35px 0 0 0;
-	/*position: sticky;
-	top: 0;*/
+	position: sticky;
+	top: 0;
 	background: #FFF;
 	z-index: 9999;
 	transition:  all .5s ease;
@@ -42,6 +42,13 @@
 	background: #D9D9D9;
 	padding: 50px 0 20px 0;
 }
+#footer a{
+	color: #000;
+	text-decoration: none;
+} 
+#footer a:hover{
+	color: #999;
+}
 #hamburger{
 	display: none;
 	position: absolute;
@@ -51,7 +58,7 @@
 	background: #fff;
 	font-size: 30px;
 }
-.show-hamburger{
+.hamburger{
 	display: block!important;
 }
 #brand-icon{
@@ -330,7 +337,9 @@
 .headerFixo #brand-icon{
 	width: 60px;
 }
-
+.headerFixo #brand small{
+	display: none;
+}
 /**/
 .tmg-section {
 	position: relative;

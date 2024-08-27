@@ -1,6 +1,5 @@
 <?php /* Template Name: Trending Topics */ ?>
 <?php get_header(); ?>
-
 <main id="main_container" class="pt-3 pb-3">
 	<div class="container">
 		<div class="float-end" id="trending-bts">

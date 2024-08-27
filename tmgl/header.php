@@ -12,10 +12,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-
 	<header id="header">
 		<div class="container">
-			<button id="hamburger" class="hamburger">
+			<button id="hamburger" class="">
 				<i class="bi bi-list"></i>
 			</button>	
 			<div class="row">

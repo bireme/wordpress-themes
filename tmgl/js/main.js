@@ -42,45 +42,38 @@ jQuery(document).ready(function() {
         });
     });
 
-
-/*
+//Nav
 jQuery(document).ready(function() {
-    var navOffsetTop = jQuery('header').height();
-    // Função para fixar o header e manipular o botão de hambúrguer
-    function handleScroll() {
-        var scrollTop = jQuery(window).scrollTop();
-        var header = jQuery('header');
-        var hamburger = jQuery('#hamburger');
+    let isHamburgerClicked = false; // Variável de controle
 
-        if (scrollTop >= navOffsetTop) {
-            header.addClass('headerFixo');
-            hamburger.fadeIn(); // Mostra o botão de hambúrguer
-        } else {
-            header.removeClass('headerFixo');
-            hamburger.fadeOut(); // Esconde o botão de hambúrguer
-        }
-    }
-    // Detecta a rolagem da página
-    jQuery(window).on('scroll', function() {
-        handleScroll();
-    });
-    // Ação do botão de hambúrguer
-    jQuery('#hamburger').on('click', function() {
-        var header = jQuery('header');
-        var menu = jQuery('#nav-global');
-
-        if (header.hasClass('headerFixo')) {
-            header.removeClass('headerFixo');
-            menu.slideDown(); // Abre o menu deslizando para baixo
-            jQuery(this).html('<i class="bi bi-x-lg"></i>'); // Altera o ícone para "X"
-        } else {
-            header.addClass('headerFixo');
-            menu.slideUp(); // Fecha o menu deslizando para cima
-            jQuery(this).html('<i class="bi bi-list"></i>'); // Altera o ícone de volta para "hambúrguer"
-            header.classList.add('headerFixo');
+    // Função para monitorar o scroll da página
+    jQuery(window).scroll(function() {
+        if (!isHamburgerClicked) { // Somente executa se o botão não foi clicado
+            if (jQuery(this).scrollTop() > 10) {
+                jQuery('#header').addClass('headerFixo');
+                jQuery('#hamburger').addClass('hamburger');
+            } else {
+                jQuery('#header').removeClass('headerFixo');
+                jQuery('#hamburger').removeClass('hamburger'); 
+            }
         }
     });
-    // Inicializa o estado do menu com base na rolagem ao carregar a página
-    handleScroll();
+
+    // Função para monitorar o clique no botão #hamburger
+    jQuery('#hamburger').click(function() {
+        isHamburgerClicked = !isHamburgerClicked; // Inverte o estado da variável
+
+        if (isHamburgerClicked) {
+            jQuery('#header').removeClass('headerFixo');
+        } else if (jQuery(window).scrollTop() > 10) {
+            jQuery('#header').addClass('headerFixo');
+        }
+        
+        // Alterna o ícone dentro do botão #hamburger
+        if (jQuery(this).find('i').hasClass('bi-list')) {
+            jQuery(this).html('<i class="bi bi-x-lg"></i>');
+        } else {
+            jQuery(this).html('<i class="bi bi-list"></i>');
+        }
+    });
 });
-*/
