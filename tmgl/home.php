@@ -17,7 +17,7 @@ if (function_exists('have_rows')) {
 </section>
 <?php get_template_part('includes/events') ?>
 <?php get_template_part('includes/news') ?>
-<?php get_template_part('includes/newsletter') ?>
+
 <!-- Newsletter -->
 <section id="newsletter">
 	<div class="container">

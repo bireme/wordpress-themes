@@ -6,7 +6,7 @@
 		</h2>
 		<div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
 			<?php 
-			$posts = new WP_Query(['post_type' => 'post','posts_per_page' => '2']);
+			$posts = new WP_Query(['post_type' => 'post','posts_per_page' => '4']);
 			while($posts->have_posts()) : $posts->the_post(); ?>
 				<div class="col">
 					<div class="card h-100 news-card">

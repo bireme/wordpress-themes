@@ -10,8 +10,7 @@ if (function_exists('have_rows')) {
 ?>
 <section class="tmd-section">
 	<video autoplay muted loop class="background-video">
-		<source src="https://s3-figma-videos-production-sig.figma.com/video/1302605490711481880/TEAM/c13f/40ea/-9667-4f82-a5ab-6cedb81e54e0?Expires=1725840000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=a7pUgJ0kfSzoCWc8EnYa8kBgUrD6CV7isUKHs-Uj1zr-7VMFheJ1OIXEpFVT7BkT6FpHkEENmhlxYGZFzVvWENzNctixmSHBotgg7iObEqyEzjuy39KaPlo4w26hCVZ71jpAGO~4OqqnhIP7fzcm-8UB4uwhiZ46L7j1ooToTUVBJ5G2222NC7eceHWUKRjQMOrg0oSShQxnlLlEWX2tV9UN3IjZF8t3R--0dwYC96s0UuTNgSSWVd865iMD0oOYBhldt5w5tT0eNM~ocY906OpTGQmvILlsHku5RUHYM~apw-5jCb0-HrbJT~bXLBYkyDJEbFeHs2a0hJrdyL3mLA__" type="video/mp4">
-		</video>
+		<source src="<?php bloginfo('template_directory'); ?>/video/bg.mp4" type="video/mp4"></video>
 		<div class="content text-center">
 			<div class="container">
 				<h2 class="title1"><?= esc_html($tmd_title);?></h2>
@@ -35,12 +34,12 @@ if (function_exists('have_rows')) {
 							?>
 							<article class="col tmd-loop">
 								<a href="<?php the_permalink(); ?>">
-								<div class="card h-100 tmd-card">
-									<div class="card-body">
-										<img src="<?php echo esc_url($dimensions_image_url); ?>" alt="">
-										<h5 class="card-title"><?php the_title(); ?></h5>
+									<div class="card h-100 tmd-card">
+										<div class="card-body">
+											<img src="<?php echo esc_url($dimensions_image_url); ?>" alt="">
+											<h5 class="card-title"><?php the_title(); ?></h5>
+										</div>
 									</div>
-								</div>
 								</a>
 							</article>
 

@@ -5,6 +5,7 @@
 			<button id="trending-blocks" class="btn btn-light disabled"><i class="bi bi-grid-3x3-gap"></i></button>
 			<button id="trending-list" class="btn btn-light"><i class="bi bi-hdd-stack"></i></button>
 		</div>
+		<div class="clearfix"></div>
 		<div class="row pt-5  pb-5">
 			<div class="col-md-3">
 				<div class="title-filter">Filters</div>
