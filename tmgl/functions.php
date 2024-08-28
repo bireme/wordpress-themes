@@ -157,6 +157,64 @@ function create_featured_stories_cpt() {
     register_post_type('featured_stories', $args);
 }
 add_action('init', 'create_featured_stories_cpt', 0);
+
+// Custom Post Type Dimensions
+function create_dimensions_cpt() {
+    $labels = array(
+        'name'                      => _x('Dimensions', 'Post Type General Name', 'textdomain'),
+        'singular_name'             => _x('Dimension', 'Post Type Singular Name', 'textdomain'),
+        'menu_name'                 => __('Dimensions', 'textdomain'),
+        'name_admin_bar'            => __('Dimension', 'textdomain'),
+        'archives'                  => __('Dimension Archives', 'textdomain'),
+        'attributes'                => __('Dimension Attributes', 'textdomain'),
+        'parent_item_colon'         => __('Parent Dimension:', 'textdomain'),
+        'all_items'                 => __('All Dimensions', 'textdomain'),
+        'add_new_item'              => __('Add New Dimension', 'textdomain'),
+        'add_new'                   => __('Add New', 'textdomain'),
+        'new_item'                  => __('New Dimension', 'textdomain'),
+        'edit_item'                 => __('Edit Dimension', 'textdomain'),
+        'update_item'               => __('Update Dimension', 'textdomain'),
+        'view_item'                 => __('View Dimension', 'textdomain'),
+        'view_items'                => __('View Dimensions', 'textdomain'),
+        'search_items'              => __('Search Dimension', 'textdomain'),
+        'not_found'                 => __('Not found', 'textdomain'),
+        'not_found_in_trash'        => __('Not found in Trash', 'textdomain'),
+        'featured_image'            => __('Featured Image', 'textdomain'),
+        'set_featured_image'        => __('Set featured image', 'textdomain'),
+        'remove_featured_image'     => __('Remove featured image', 'textdomain'),
+        'use_featured_image'        => __('Use as featured image', 'textdomain'),
+        'insert_into_item'          => __('Insert into dimension', 'textdomain'),
+        'uploaded_to_this_item'     => __('Uploaded to this dimension', 'textdomain'),
+        'items_list'                => __('Dimensions list', 'textdomain'),
+        'items_list_navigation'     => __('Dimensions list navigation', 'textdomain'),
+        'filter_items_list'         => __('Filter dimensions list', 'textdomain'),
+    );
+    $args = array(
+        'label'                     => __('Dimension', 'textdomain'),
+        'description'               => __('Post Type for Dimensions', 'textdomain'),
+        'labels'                    => $labels,
+        'supports'                  => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'post-formats'),
+        'hierarchical'              => false,
+        'public'                    => true,
+        'show_ui'                   => true,
+        'show_in_menu'              => true,
+        'menu_position'             => 5,
+        'show_in_admin_bar'         => true,
+        'show_in_nav_menus'         => true,
+        'can_export'                => true,
+        'has_archive'               => true,
+        'exclude_from_search'       => false,
+        'publicly_queryable'        => true,
+        'capability_type'           => 'post',
+        'show_in_rest'              => true, // Suport Editor Gutenberg
+        'menu_icon'                 => 'dashicons-chart-bar',
+    );
+    register_post_type('dimensions', $args);
+}
+add_action('init', 'create_dimensions_cpt', 0);
+
+
+
 flush_rewrite_rules();
 
 ?>

@@ -12,7 +12,7 @@ if (function_exists('have_rows')) {
 <div class="container mt-5">
 	<h2 class="title1">
 		<img src="<?php bloginfo('template_directory'); ?>/img/icon-logo.svg" id="title-icon" alt="">
-		Events
+		<?php _e( 'Events', 'tmgl' ); ?>
 	</h2>
 </div>
 <section id="events">
@@ -27,7 +27,7 @@ if (function_exists('have_rows')) {
 		</div>
 
 		<div class="pb-5">
-			Explore all events <small class="text-body-secondary"><a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></small>
+			<?php _e( 'Explore all events', 'tmgl' ); ?> <small class="text-body-secondary"><a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></small>
 		</div>
 	</div>
 </section>

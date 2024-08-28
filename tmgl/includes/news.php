@@ -2,7 +2,7 @@
 	<div class="container">
 		<h2 class="title1 mb-5">
 			<img src="<?php bloginfo('template_directory'); ?>/img/icon-logo.svg" id="title-icon" alt="">
-			News
+			<?php _e( 'News', 'tmgl' ); ?>
 		</h2>
 		<div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
 			<?php 
@@ -29,6 +29,6 @@
 				</div>
 			<?php endwhile; ?>
 		</div>
-		<p class="mt-4">Explore archived news <a href="#" class="btn btn-primary btn-sm"><img src="<?php bloginfo('template_directory'); ?>/img/arrow-right.svg" alt=""></a></p>
+		<p class="mt-4"><?php _e( 'Explore archived news', 'tmgl' ); ?> <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
 	</div>
 </section>

@@ -13,7 +13,7 @@ if (function_exists('have_rows')) {
 
 <h2 class="title1">
 	<img src="<?php bloginfo('template_directory'); ?>/img/icon-logo.svg" id="title-icon" alt="">
-	Trending Topics
+	<?php _e( 'Trending Topics', 'tmgl' ); ?>
 </h2>
 <div class="row mt-5 mb-5">
 	<div class="col-md-3">

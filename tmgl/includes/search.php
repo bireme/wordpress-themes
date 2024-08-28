@@ -11,7 +11,7 @@ if (function_exists('have_rows')) {
 <!-- Search -->
 <section id="section-search">
 	<div class="container">
-		<div id="box-search">ssss
+		<div id="box-search">
 			<div class="title"><?= esc_html($search_title);?></div>
 			<p><?= esc_html($search_subtitle);?></p>
 		</div>
@@ -24,8 +24,8 @@ if (function_exists('have_rows')) {
 			</div>
 		</form>
 		<div id="box-search-links">
-			<a href="https://pesquisa.bvsalud.org/tmgl/advanced/?lang=en">How to search</a>
-			<a href="https://pesquisa.bvsalud.org/tmgl/decs-locator/?lang=en">Advanced search</a>
+			<a href="https://pesquisa.bvsalud.org/tmgl/advanced/?lang=en"><?php _e( 'How to search', 'tmgl' ); ?></a>
+			<a href="https://pesquisa.bvsalud.org/tmgl/decs-locator/?lang=en"><?php _e( 'Advanced search', 'tmgl' ); ?></a>
 		</div>
 	</div>
 </section>
