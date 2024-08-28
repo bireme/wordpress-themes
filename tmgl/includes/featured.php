@@ -28,7 +28,7 @@ if (function_exists('have_rows')) {
 			<article class="card maior card-featured featured1" style="background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)), url(<?php echo esc_url($featured_image_url); ?>);">
 				<div class="box-card-maior">
 					<h2 class="title"><?php the_title(); ?></h2>
-					<?php the_excerpt(); ?>
+					<p><?php the_excerpt(); ?></p>
 					<a href="<?php the_permalink(); ?>" class="btn btn-primary mb-3">Read full story</a>
 				</div>
 			</article>

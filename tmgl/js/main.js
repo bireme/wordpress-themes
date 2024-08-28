@@ -49,7 +49,7 @@ jQuery(document).ready(function() {
     // Função para monitorar o scroll da página
     jQuery(window).scroll(function() {
         if (!isHamburgerClicked) { // Somente executa se o botão não foi clicado
-            if (jQuery(this).scrollTop() > 10) {
+            if (jQuery(this).scrollTop() > 300) {
                 jQuery('#header').addClass('headerFixo');
                 jQuery('#hamburger').addClass('hamburger');
             } else {
