@@ -117,15 +117,13 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top center;
-	height: 700px;
+	height: calc(100vh - 190px);
+	align-items: center;
+	display: flex;
 }
 #box-search{
-	display: flex;
 	width: 800px;
-	flex-direction: column;
-	align-items: flex-start;
 	gap: 30px;
-	padding-top: 220px;
 	z-index: 10;
 }
 #section-search .title{
