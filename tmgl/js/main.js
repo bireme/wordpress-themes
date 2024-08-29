@@ -27,7 +27,7 @@ jQuery(document).ready(function(jQuery) {
     ]
   });
 });
-
+// bt block x list
 jQuery(document).ready(function() {
        jQuery('#trending-blocks').click(function() {
            jQuery('#trend').removeClass('row-cols-md-1').addClass('row-cols-md-3');

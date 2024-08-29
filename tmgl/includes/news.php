@@ -20,7 +20,9 @@
 								<?php
 								$categories = get_the_category();
 								if (!empty($categories)) {
-									echo '<span class="badge text-bg-danger mt-3">' . esc_html($categories[0]->name) . '</span>';
+									$category_link = esc_url(get_category_link($categories[0]->term_id));
+									$category_name = esc_html($categories[0]->name);
+									echo '<a href="' . $category_link . '" class="badge text-bg-danger mt-3">' . $category_name . '</a>';
 								}
 								?>
 							</div>

@@ -1,6 +1,9 @@
 *{
 	font-family: 'Roboto' sans-serif;
 }
+a{
+	text-decoration: none;
+}
 .padding1{
 	padding-top: 30px;
 	padding-bottom: 30px;
