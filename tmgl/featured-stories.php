@@ -1,11 +1,14 @@
+<?php /* Template Name: Featured Stories */ ?>
 <?php get_header(); ?>
 <main id="main_container" class="pt-3 pb-3">
 	<div class="container">
+		<?php get_template_part('includes/breadcrumb') ?>
 		<div class="float-end" id="trending-bts">
 			<button id="trending-blocks" class="btn btn-light disabled"><i class="bi bi-grid-3x3-gap"></i></button>
 			<button id="trending-list" class="btn btn-light"><i class="bi bi-hdd-stack"></i></button>
 		</div>
-		<div class="clearfix"></div>
+		<h1 class="title1"><?php the_title(); ?></h1>
+		<?php the_content(); ?>
 		<div class="row pt-5  pb-5">
 			<div class="col-md-3">
 				<div class="title-filter">Filters</div>
@@ -47,15 +50,18 @@
 				<div id="trend" class="row row-cols-1 row-cols-md-3 g-4">
 					<?php
 					$args = array(
-						'post_type' => 'trending_topics',
+						'post_type' => 'featured_stories',
 						'posts_per_page' => -1,
 					);
-					$trending_topics_query = new WP_Query($args);
-					if ($trending_topics_query->have_posts()) : 
-						while ($trending_topics_query->have_posts()) : $trending_topics_query->the_post(); ?>
+					$featured_stories_query = new WP_Query($args);
+					if ($featured_stories_query->have_posts()) : 
+						while ($featured_stories_query->have_posts()) : $featured_stories_query->the_post(); ?>
 							<article class="col">
 								<div class="card card-trend h-100">
 									<div class="card-body">
+									<div class="card-trend-thumb">
+									<?php the_post_thumbnail('full', ['class' => 'card-img-top', 'alt' => get_the_title()]); ?>
+									</div>
 										<h5 class="card-title"><?php the_title(); ?></h5>
 										<p class="card-text"><?php the_excerpt(); ?></p>
 									</div>

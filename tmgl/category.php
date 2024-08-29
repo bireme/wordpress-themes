@@ -8,7 +8,7 @@
 				<a href="<?php the_permalink() ?>">
 					<b><?php the_title(); ?></b>
 				</a>
-					<?php the_excerpt(); ?>
+				<?php the_excerpt(); ?>
 				<hr>
 			</article>
 		<?php endwhile; ?>

@@ -463,7 +463,20 @@ a{
 	font-family: 'Roboto Serif';
 	transition: all .5s ease;
 }
-
+.card-trend-thumb{
+	border-radius: 16px;
+	margin-bottom: 16px;
+}
+.card-trend-thumb img{
+	border-radius: 10px;
+}
+.row-cols-md-1 .card-trend-thumb{
+	float: left!important;
+	max-width: 200px;
+	margin-right: 20px;
+}.row-cols-md-1 .card-body{
+	float: right;
+}
 @media (max-width:1140px){
 	#newsletter{
 		background-size: 100%;

@@ -1,6 +1,11 @@
+<?php /* Template Name: Dimensions */ ?>
 <?php get_header(); ?>
 <main id="main_container" class="pt-3 pb-5">
-	<div class="container"><?php get_template_part('includes/breadcrumb') ?></div>
+	<div class="container">
+		<?php get_template_part('includes/breadcrumb') ?>
+		<h1><?php the_title(); ?></h1>
+		<?php the_content(); ?>
+	</div>
 	<div class="container" id="tmd-section-in">
 		<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
 			<?php
@@ -26,7 +31,6 @@
 							</div>
 						</a>
 					</article>
-
 				<?php endwhile;
 				wp_reset_postdata();
 			else : 

@@ -2,6 +2,7 @@
 <?php get_header(); ?>
 <main id="main_container" class="pt-3 pb-3">
 	<div class="container">
+		<?php get_template_part('includes/breadcrumb') ?>
 		<div class="float-end" id="trending-bts">
 			<button id="trending-blocks" class="btn btn-light disabled"><i class="bi bi-grid-3x3-gap"></i></button>
 			<button id="trending-list" class="btn btn-light"><i class="bi bi-hdd-stack"></i></button>
