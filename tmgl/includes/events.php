@@ -19,11 +19,7 @@ if (function_exists('have_rows')) {
 	<div class="container">
 		<div id="box-events">
 			<h3 class="title1"><?= esc_html($events_title);?></h3>
-			<p><?= esc_html($events_subtitle);?></p>
-
-			<a href="" class="btn btn-sm btn-primary">Webcasts</a>
-			<a href="" class="btn btn-sm btn-primary">Meeting Reports</a>
-			<a href="" class="btn btn-sm btn-primary">Concept Notes</a>
+			<p><?= $events_subtitle;?></p>
 		</div>
 
 		<div class="pb-5">
