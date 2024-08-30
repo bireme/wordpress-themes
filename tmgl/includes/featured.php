@@ -64,5 +64,7 @@ if (function_exists('have_rows')) {
 			echo '<p>Featured Stories not found</p>';
 		endif;
 		?>
+
 	</div>
 </div>
+<p class="mt-4"><?php _e( 'Explore all featured stories', 'tmgl' ); ?> <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>

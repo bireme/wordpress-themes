@@ -48,4 +48,5 @@ if (function_exists('have_rows')) {
 			?>
 		</div>
 	</div>
+	<p class="mt-4"><?php _e( 'Trending Topics', 'tmgl' ); ?> <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
 </div>

@@ -431,14 +431,16 @@ a{
 	background: #0093D5;
 	border-color: #0093D5;
 }
-.bagde{
-}
 .text-bg-danger{
 	background: #8B142A!important;
 	border-radius: 99px;
 	font-weight: 400;
 	font-family: Roboto;
 	padding: 6px 16px;
+}
+.text-bg-danger:hover{
+	background: #b31937!important;
+
 }
 /**/
 #tmd-section-in {
