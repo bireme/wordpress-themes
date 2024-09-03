@@ -35,6 +35,12 @@ a{
 #header .container{
 	position: relative;
 }
+#header a{
+	color: #000;
+}
+#header a:hover{
+	opacity: .8;
+}
 #brand{
 	font-size: 36px;
 	font-weight: 600;

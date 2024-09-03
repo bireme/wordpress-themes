@@ -19,11 +19,13 @@
 			</button>	
 			<div class="row">
 				<div class="col-md-5">
-					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" id="brand-icon" alt=""></a>
-					<div id="brand">
-						TMGL
-						<small>The WHO Traditional Medicine Global Library</small>
-					</div>
+					<a href="<?php echo get_option('siteurl'); ?>">
+						<img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" id="brand-icon" alt="">
+						<div id="brand">
+							TMGL
+							<small>The WHO Traditional Medicine Global Library</small>
+						</div>
+					</a>
 				</div>
 				<div class="col-md-7" id="nav">
 					<nav id="nav-global">
