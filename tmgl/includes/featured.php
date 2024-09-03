@@ -6,6 +6,7 @@ if (function_exists('have_rows')) {
 			$events_subtitle = get_sub_field('subtitle');
 		endwhile;
 	endif;
+	$url_featured_stories = get_field('url_featured_stories');
 }
 ?>
 
@@ -67,4 +68,4 @@ if (function_exists('have_rows')) {
 
 	</div>
 </div>
-<p class="mt-4"><?php _e( 'Explore all featured stories', 'tmgl' ); ?> <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
+<p class="mt-4"><?php _e( 'Explore all featured stories', 'tmgl' ); ?> <a href="<?= $url_featured_stories;?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>

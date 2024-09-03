@@ -7,6 +7,7 @@
 		<div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4">
 			<?php 
 			$posts = new WP_Query(['post_type' => 'post','posts_per_page' => '4']);
+			$url_news = get_field('url_news');
 			while($posts->have_posts()) : $posts->the_post(); ?>
 				<div class="col">
 					<div class="card h-100 news-card">
@@ -31,6 +32,6 @@
 				</div>
 			<?php endwhile; ?>
 		</div>
-		<p class="mt-4"><?php _e( 'Explore archived news', 'tmgl' ); ?> <a href="#" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
+		<p class="mt-4"><?php _e( 'Explore archived news', 'tmgl' ); ?> <a href="<?= $url_news;?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
 	</div>
 </section>

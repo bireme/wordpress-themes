@@ -7,6 +7,7 @@ if (function_exists('have_rows')) {
 			$events_subtitle = get_sub_field('subtitle');
 		endwhile;
 	endif;
+	$url_events = get_field('url_events');
 }
 ?>
 <div class="container mt-5">
@@ -23,7 +24,7 @@ if (function_exists('have_rows')) {
 		</div>
 
 		<div class="pb-5">
-			<?php _e( 'Explore all events', 'tmgl' ); ?> <small class="text-body-secondary"><a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></small>
+			<?php _e( 'Explore all events', 'tmgl' ); ?> <small class="text-body-secondary"><a href="<?= $url_events;?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></small>
 		</div>
 	</div>
 </section>
