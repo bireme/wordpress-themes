@@ -15,7 +15,7 @@ if (function_exists('have_rows')) {
 			<div class="title"><?= esc_html($search_title);?></div>
 			<p><?= esc_html($search_subtitle);?></p>
 		</div>
-		<form class="row" action="http://pesquisa.bvsalud.org/tmgl" method="get">
+		<form class="row" action="https://pesquisa.bvsalud.org/tmgl" method="get">
 			<div class="col-7">
 				<input type="text" class="form-control form-control-lg" id="search" placeholder="Articles, Evidence, Regulations and Policies, Thesis, Events, Multimedia, Digital resources..." name="q">
 			</div>

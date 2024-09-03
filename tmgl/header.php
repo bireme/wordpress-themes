@@ -22,7 +22,7 @@
 					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" id="brand-icon" alt=""></a>
 					<div id="brand">
 						TMGL
-						<small>Traditional Medicine Global Library</small>
+						<small>The WHO Traditional Medicine Global Library</small>
 					</div>
 				</div>
 				<div class="col-md-8" id="nav">

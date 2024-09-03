@@ -10,7 +10,7 @@
 		</div>
 		<div id="powered-by">
 			<img src="<?php bloginfo('template_directory'); ?>/img/powered-by-bireme.png" id="" alt=""> <br>
-			© All rights reserved
+			© WHO (CC BY-NC-SA 4.0
 		</div>
 	</div>
 </footer>
