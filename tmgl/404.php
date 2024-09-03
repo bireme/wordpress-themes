@@ -8,7 +8,7 @@
 				<img src="<?php bloginfo('template_directory'); ?>/img/404.png" class="img-fluid" alt="">
 			</div>
 			<div class="col-md-6">
-				<h1 class="mt-5">Error 404</h1>
+				<h1 class="mt-5 title1"> Error 404</h1>
 				<p class="mb-5">That's embarrassing... e couldn't find the page you're looking for. But don't worry, you can go to the homepage to browse TMGL or do a new search.</p>
 				</p>
 				<a href="<?php echo get_option('siteurl'); ?>" class="btn btn-primary">TMGL Homepage</a>

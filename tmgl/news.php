@@ -3,7 +3,7 @@
 <main id="main_container" class="pt-3 pb-5">
 	<div class="container">
 		<?php get_template_part('includes/breadcrumb') ?>
-		<h1 class=""><?php the_title(); ?></h1>
+		<h1 class="title1"><img src="<?php bloginfo('template_directory'); ?>/img/icon-logo.svg" id="title-icon" alt=""> <?php the_title(); ?></h1>
 		<?php the_content(); ?>
 		<div class="row row-cols-2 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
 			<?php 

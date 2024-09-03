@@ -7,7 +7,7 @@
 			<button id="trending-blocks" class="btn btn-light disabled"><i class="bi bi-grid-3x3-gap"></i></button>
 			<button id="trending-list" class="btn btn-light"><i class="bi bi-hdd-stack"></i></button>
 		</div>
-		<h1 class="title1"><?php the_title(); ?></h1>
+		<h1 class="title1"><img src="<?php bloginfo('template_directory'); ?>/img/icon-logo.svg" id="title-icon" alt=""> <?php the_title(); ?></h1>
 		<?php the_content(); ?>
 		<div class="row pt-5  pb-5">
 			<div class="col-md-3">
