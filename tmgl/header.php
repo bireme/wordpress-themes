@@ -18,14 +18,14 @@
 				<i class="bi bi-list"></i>
 			</button>	
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<a href="<?php echo get_option('siteurl'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" id="brand-icon" alt=""></a>
 					<div id="brand">
 						TMGL
 						<small>The WHO Traditional Medicine Global Library</small>
 					</div>
 				</div>
-				<div class="col-md-8" id="nav">
+				<div class="col-md-7" id="nav">
 					<nav id="nav-global">
 						<?php
 						wp_nav_menu(array(
