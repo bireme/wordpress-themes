@@ -5,7 +5,7 @@
 		<?php get_template_part('includes/breadcrumb') ?>
 		<div class="row">
 			<div class="col-md-6">
-				<img src="<?php bloginfo('template_directory'); ?>/img/404.png" class="img-fluid" alt="">
+				<img src="<?php bloginfo('template_directory'); ?>/img/404-error.svg" class="img-fluid" alt="">
 			</div>
 			<div class="col-md-6">
 				<h1 class="mt-5 title1"> Error 404</h1>

@@ -212,9 +212,9 @@ function create_dimensions_cpt() {
     register_post_type('dimensions', $args);
 }
 add_action('init', 'create_dimensions_cpt', 0);
-
-
-
 flush_rewrite_rules();
-
+function custom_excerpt_length($length) {
+    return 20; // Substitua 100 pelo número de palavras que você deseja
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
 ?>
