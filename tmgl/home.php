@@ -23,9 +23,7 @@ if (function_exists('have_rows')) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7">
-				<form class="">
 					<?php echo do_shortcode(esc_html($shortcode_newsletter)); ?>
-				</form>
 			</div>
 			<div class="col-md-5" id="news-img">
 
