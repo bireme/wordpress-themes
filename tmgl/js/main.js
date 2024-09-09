@@ -1,3 +1,13 @@
+jQuery(document).ready(function(){
+    jQuery('.slider').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: false,
+        arrows: false,
+        fade: true,  // Efeito de transição fade entre os slides
+        infinite: true
+    });
+});
 jQuery(document).ready(function(jQuery) {
   jQuery('.trending-slider').slick({
     dots: false,
@@ -77,3 +87,6 @@ jQuery(document).ready(function() {
         }
     });
 });
+
+
+

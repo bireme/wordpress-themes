@@ -11,8 +11,8 @@ function style_top(){
     wp_enqueue_style('bootstrap',get_stylesheet_directory_uri().'/css/bootstrap.min.css');
     wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css');
     wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
-    wp_enqueue_style('icones-bootstrap','https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
     wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
+    wp_enqueue_style('icones-bootstrap','https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
 }
 //Add Scripts Footer
 add_action('wp_footer','scripts_footer');
@@ -217,4 +217,23 @@ function custom_excerpt_length($length) {
     return 20; // Substitua 100 pelo número de palavras que você deseja
 }
 add_filter('excerpt_length', 'custom_excerpt_length');
+
+//support custom images
+function custom_image_sizes() {
+    add_image_size('bg-header', 1600, 990, true);
+    add_image_size('news', 290, 150, true);
+    add_image_size('stories-lg', 900, 500, true);
+    add_image_size('stories-sm', 400, 250, true);
+}
+add_action('after_setup_theme', 'custom_image_sizes');
+function custom_sizes($sizes) {
+    return array_merge($sizes, array(
+        'bg-header'         => __('BG Header 1600x990'),
+        'news'              => __('News 290x150'),
+        'stories-lg'        => __('Stories Large 900x500'),
+        'stories-sm'        => __('Stories Small 400x250'),
+    ));
+}
+add_filter('image_size_names_choose', 'custom_sizes');
+
 ?>
