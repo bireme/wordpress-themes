@@ -24,7 +24,7 @@ if (function_exists('have_rows')) {
 	$featured_stories_query = new WP_Query($args);
 	if ($featured_stories_query->have_posts()) : 
 		while ($featured_stories_query->have_posts()) : $featured_stories_query->the_post();
-			$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+			$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'stories-lg');
 			?>
 			<article class="card maior card-featured featured1" style="background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)), url(<?php echo esc_url($featured_image_url); ?>);">
 				<div class="box-card-maior">
@@ -53,7 +53,7 @@ if (function_exists('have_rows')) {
 		$featured_stories_query = new WP_Query($args);
 		if ($featured_stories_query->have_posts()) : 
 			while ($featured_stories_query->have_posts()) : $featured_stories_query->the_post();
-				$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+				$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'stories-sm');
 				?>
 				<article class="card card-featured featured2" style="background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)), url(<?php echo esc_url($featured_image_url); ?>);" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<h3 class="title"><?php the_title(); ?></h3>

@@ -11,7 +11,12 @@ a{
 .font-1{	
 	font-family: "Roboto Serif";
 	font-weight: 800;
-	font-size: 28px;
+	font-size: 26px;
+}
+.font-2{	
+	font-family: "Roboto Serif";
+	font-weight: 800;
+	font-size: 22px;
 }
 .title1{
 	color: #000;
@@ -575,11 +580,9 @@ a{
     height: 100%;
     object-fit: cover;
 }
-
 .slick-slide {
     height: calc(100vh - 190px); /* Garante que o slide tenha a altura correta */
 }
-
 .slick-slider {
     position: absolute;
     top: 0;
@@ -601,4 +604,16 @@ a{
 	background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));
 	display: flex;
 	align-items: center;
+}
+/**/
+.related{
+	background: #D5D5D5;
+	padding: 50px 0;
+}
+.recommended{
+	background: #F3F3F2;
+	padding: 50px 0;
+}
+.recommended h5{
+	font-size: 22px!important;
 }
