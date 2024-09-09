@@ -9,12 +9,10 @@
 	<div class="container" id="tmd-section-in">
 		<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
 			<?php
-			$total_posts = wp_count_posts('featured_stories')->publish;
-			$offset = $total_posts - 2;
 			$args = array(
 				'post_type' => 'dimensions',
 				'posts_per_page' => -1,
-				'offset' => $offset,
+				'post_parent' => 0,
 			);
 			$dimensions_query = new WP_Query($args);
 			if ($dimensions_query->have_posts()) : 

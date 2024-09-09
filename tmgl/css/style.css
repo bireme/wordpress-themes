@@ -10,6 +10,8 @@ a{
 }
 .font-1{	
 	font-family: "Roboto Serif";
+	font-weight: 800;
+	font-size: 28px;
 }
 .title1{
 	color: #000;
@@ -23,6 +25,14 @@ a{
 	float: left;
 	height: 45px;
 	margin-right: 10px;
+}
+.title-icon-sm{
+	float: left;
+	height: 30px;
+	margin-right: 10px;
+}
+.color-1{
+	color: #006CB0!important;
 }
 #header{
 	padding: 35px 0 0 0;
@@ -446,7 +456,6 @@ a{
 }
 .text-bg-danger:hover{
 	background: #b31937!important;
-
 }
 /**/
 #tmd-section-in {
@@ -485,8 +494,69 @@ a{
 }.row-cols-md-1 .card-body{
 	float: right;
 }
+/*Single Dimensions*/
+#header-title{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	background-attachment: fixed;
+	color: #fff;
+	padding: 30px;
+}
+#header-title .breadcrumbs{
+	color: #fff;
+}
+#header-title .title1{
+	color: #fff;
+}
+.header-box{
+	max-width: 800px;
+	padding: 200px 0 100px 0;
+}
+.header-box h3{
+	font-size: 26px;
+	font-weight: 800;
+	margin-bottom: 50px;
+}
+#header-title #title-icon{
+	height: 32px;
+}
 @media (max-width:1140px){
 	#newsletter{
 		background-size: 100%;
 	}
 }
+
+/*News*/
+.news-excerpt{
+	font-family: 'Roboto';
+	font-size:26px;
+	line-height: 41px;
+}
+#news-date{
+	border-top: 1px solid #D3D3CF;
+	border-bottom: 1px solid #D3D3CF;
+	padding: 5px 10px;
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+.news-content{
+	font-family: Roboto;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 32.4px;
+	text-align: left;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.breadcrumbs-box{
+	display: inline-block;
+	border-radius: 8px;
+	padding:10px 16px;
+	font-weight: bold;
+	background: #C7C6C04D;
+}
+#header-title .breadcrumbs-box{
+	color: #fff;
+}
+

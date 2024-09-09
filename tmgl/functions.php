@@ -194,7 +194,7 @@ function create_dimensions_cpt() {
         'description'               => __('Post Type for Dimensions', 'textdomain'),
         'labels'                    => $labels,
         'supports'                  => array('title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', 'post-formats'),
-        'hierarchical'              => false,
+        'hierarchical'              => true,
         'public'                    => true,
         'show_ui'                   => true,
         'show_in_menu'              => true,
