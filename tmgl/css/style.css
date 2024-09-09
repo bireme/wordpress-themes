@@ -361,6 +361,8 @@ a{
 	padding: 0!important;
 	opacity: .9;
 	transition:  all .5s ease;
+	padding: 5px 0!important;
+	box-shadow: 2px 2px 20px #999;
 }
 
 .headerFixo:hover{
@@ -371,7 +373,7 @@ a{
 	transition:  all .5s ease;
 }
 .headerFixo #brand-icon{
-	width: 60px;
+	height: 55px;
 }
 .headerFixo #brand small{
 	display: none;

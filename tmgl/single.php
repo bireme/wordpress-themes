@@ -11,12 +11,12 @@
 					<?php the_excerpt(); ?>
 				</div>
 				<div id="news-date">
-					<?php echo get_the_date(); ?> | X | X
+					<?php echo get_the_date(); ?>
    				</div>
 				<div class="mb-1 text-center">
 					<?php
 					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'full' );
+						the_post_thumbnail('full', array( 'class' => 'img-fluid' ));
 					}
 					?>
 				</div>
