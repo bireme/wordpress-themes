@@ -1,4 +1,4 @@
-<section class="related">
+<section class="related d-none">
 	<div class="container">
 		<h4 class="font-2 mb-4">Related videos</h4>
 
