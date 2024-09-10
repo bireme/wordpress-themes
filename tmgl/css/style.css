@@ -18,6 +18,12 @@ a{
 	font-weight: 800;
 	font-size: 22px;
 }
+.font-3{	
+	font-size: 22px;
+}
+.rounded-16{
+	border-radius: 16px;
+}
 .title1{
 	color: #000;
 	font-family: "Roboto Serif";
@@ -616,4 +622,24 @@ a{
 }
 .recommended h5{
 	font-size: 22px!important;
+}
+#fs-1{
+	padding: 80px 0 40px 0;
+	/*background: fixed;*/
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+#fs-2{
+	padding: 40px 0;
+}
+#fs-2 h1, #fs-2 h2, #fs-2 h3, #fs-2 h4, #fs-2 h5, #fs-2 h6{
+	font-family: 'Roboto Serif';
+	margin-bottom: 30px;
+}
+#fs-3{
+	padding: 100vh 0 40px 0;
+	background-position: center top;
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 }

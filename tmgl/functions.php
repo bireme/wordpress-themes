@@ -236,4 +236,6 @@ function custom_sizes($sizes) {
 }
 add_filter('image_size_names_choose', 'custom_sizes');
 
+
+
 ?>

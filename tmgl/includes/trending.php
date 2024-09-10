@@ -2,7 +2,6 @@
 if (function_exists('have_rows')) {
 	if (have_rows('events')) : 
 		while (have_rows('events')) : the_row(); 
-            // Obtém os valores dos campos
 			$events_title = get_sub_field('title');
 			$events_subtitle = get_sub_field('subtitle');
 		endwhile;
