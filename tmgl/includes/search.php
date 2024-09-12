@@ -46,8 +46,8 @@ if (function_exists('have_rows')) {
 				</div>
 			</form>
 			<div id="box-search-links">
-				<a href="https://pesquisa.bvsalud.org/tmgl/advanced/?lang=en"><?php _e( 'How to search', 'tmgl' ); ?></a>
-				<a href="https://pesquisa.bvsalud.org/tmgl/decs-locator/?lang=en"><?php _e( 'Advanced search', 'tmgl' ); ?></a>
+				<a href="https://pesquisa.bvsalud.org/tmgl/decs-locator/?lang=en"><?php _e( 'Subject descriptor lookup', 'tmgl' ); ?></a>
+				<a href="https://pesquisa.bvsalud.org/tmgl/decs-locator/?lang=en&mode=&tree_id=MT"><?php _e( 'Advanced search', 'tmgl' ); ?></a>
 			</div>
 		</div>
 	</div>
