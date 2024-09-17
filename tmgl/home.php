@@ -8,6 +8,7 @@ if (function_exists('have_rows')) {
 ?>
 <?php get_template_part('includes/search') ?>
 <?php get_template_part('includes/tmd') ?>
+<?php get_template_part('includes/modal') ?>
 <!-- trending / Featured-->
 <section id="home-highlights">
 	<div class="container">
@@ -23,7 +24,7 @@ if (function_exists('have_rows')) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7">
-					<?php echo do_shortcode(esc_html($shortcode_newsletter)); ?>
+				<?php echo do_shortcode(esc_html($shortcode_newsletter)); ?>
 			</div>
 			<div class="col-md-5" id="news-img">
 
