@@ -50,7 +50,7 @@ a{
 	/*position: sticky;
 	top: 0;*/
 	background: #FFF;
-	z-index: 9999;
+	z-index: 1050;
 	transition:  all .5s ease;
 }
 #header .container{
