@@ -643,3 +643,29 @@ a{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
+@media (max-width: 1200px){
+	#events{
+		background-size: cover;
+	}
+}
+@media (max-width: 992px){
+	#box-search{
+		width: auto;
+	}
+	.container-featured, .card-container{
+		display: block;
+	}
+	.tmd-section{
+		height: auto;
+		padding: 50px 0;
+	}
+	.card-trend{
+		margin-top: 30px;
+	}
+	.featured1, .featured2{
+		margin-bottom: 20px;
+	}
+	#box-events	{
+		width: auto;
+	}
+}
