@@ -122,7 +122,7 @@ if (function_exists('have_rows')) {
 	</div>
 </section>
 
-<section id="fs-3" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 1)), url(<?= $third_imagem['url'] ?>);">	
+<section id="fs-3" style="background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.3) 100%), url(<?= $third_imagem['url'] ?>);">	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2">
