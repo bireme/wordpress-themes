@@ -638,17 +638,17 @@ a{
 	background-repeat: no-repeat;
 }
 .slick-prev:before, .slick-next:before{
-	font-size:35px;
-	color:#0093D5;
+	font-size:35px!important;
+	color:#0093D5!important;
 }
 .slick-prev{
-	left:auto;
-	top: -30px;
-	right: 73px;
+	left:auto!important;
+	top: -30px!important;
+	right: 73px!important;
 }
 .slick-next{
-	top: -30px;
-	right: 30px;
+	top: -30px!important;
+	right: 30px!important;
 }
 @media (max-width:1300px){
 	#newsletter{
