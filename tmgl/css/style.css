@@ -637,6 +637,19 @@ a{
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
+.slick-prev:before, .slick-next:before{
+	font-size:35px;
+	color:#0093D5;
+}
+.slick-prev{
+	left:auto;
+	top: -30px;
+  right: 73px;
+}
+.slick-next{
+	top: -30px;
+  right: 30px;
+}
 @media (max-width:1300px){
 	#newsletter{
 		background-size: 100%;
