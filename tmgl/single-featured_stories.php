@@ -80,8 +80,8 @@ if (function_exists('have_rows')) {
 <section id="evidence-maps" class="related">
 	<div class="container">
 		<h4 class="font-2 mb-4">Evidence Maps</h4>
-		<div class="row row-flex">
-			<article class="col">
+		<div class="row">
+			<article class="col-lg-4 mb-5">
 				<div class="card card-trend h-100">
 					<div class="card-body">
 						<h5 class="card-title">Guia das Parteiras Tradicionais na Amazônia</h5>
@@ -93,7 +93,7 @@ if (function_exists('have_rows')) {
 				</div>
 			</article>
 
-			<article class="col">
+			<article class="col-lg-4 mb-5">
 				<div class="card card-trend h-100">
 					<div class="card-body">
 						<h5 class="card-title">Spirituality and Well-Being: Theory, Science, and the Nature Connection.</h5>
@@ -106,7 +106,7 @@ if (function_exists('have_rows')) {
 			</article>
 
 
-			<article class="col">
+			<article class="col-lg-4 mb-5">
 				<div class="card card-trend h-100">
 					<div class="card-body">
 						<h5 class="card-title">Use of traditional medication on the health of women and children of the Togutil tribe in North Moluccas Province.</h5>
@@ -118,14 +118,14 @@ if (function_exists('have_rows')) {
 				</div>
 			</article>
 		</div>
-		<p class="mt-4 text-end"><?php _e( 'Explore more articles', 'tmgl' ); ?> <a href="<?= $url_news;?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
+		<p class=" text-end"><?php _e( 'Explore more articles', 'tmgl' ); ?> <a href="<?= $url_news;?>" class="btn btn-primary btn-sm"><i class="bi bi-arrow-right"></i></a></p>
 	</div>
 </section>
 
-<section id="fs-3" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(<?= $third_imagem['url'] ?>);">	
+<section id="fs-3" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgba(0, 0, 0, 1)), url(<?= $third_imagem['url'] ?>);">	
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
+			<div class="col-lg-8 offset-lg-2">
 				<?= $third_content; ?>
 			</div>
 		</div>
@@ -135,11 +135,7 @@ if (function_exists('have_rows')) {
 
 <main id="main_container" class="padding1 d-none">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<?php the_content(); ?>
-			</div>
-		</div>
+		<?php the_content(); ?>
 	</div>
 </main>
 <?php get_template_part('includes/related-videos'); ?>
