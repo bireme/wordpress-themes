@@ -18,7 +18,7 @@
 				<i class="bi bi-list"></i>
 			</button>	
 			<div class="row">
-				<div class="col-md-5">
+				<div class="col-lg-5">
 					<a href="<?php echo get_option('siteurl'); ?>">
 						<img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" id="brand-icon" alt="">
 						<div id="brand">
@@ -27,7 +27,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-md-7" id="nav">
+				<div class="col-lg-7" id="nav">
 					<nav id="nav-global">
 						<?php
 						wp_nav_menu(array(

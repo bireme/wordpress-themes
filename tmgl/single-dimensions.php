@@ -23,10 +23,10 @@ if (function_exists('have_rows')) {
 <main id="main_container" class="padding1">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-lg-9">
 				<?php the_content(); ?>
 			</div>
-			<div class="col-md-3">
+			<div class="col-lg-3">
 				<div class="sticky-top">
 					<h3 class="font-1 color-1 mb-3">Lorem ipsum dolor sit amet consectetur.</h3>
 					<?php
