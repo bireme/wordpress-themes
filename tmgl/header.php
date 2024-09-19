@@ -37,20 +37,18 @@
 						));
 						?>
 					</nav>
+					<nav id="nav-regional">
+						<?php
+						wp_nav_menu(array(
+							'theme_location' => 'regional-menu',
+							'container' => 'div',
+							'container_class' => 'regional-menu'
+						));
+						?>
+					</nav>
 				</div>
 			</div>
 		</div>
-		<nav id="nav-regional">
-			<div class="container">
-				<?php
-				wp_nav_menu(array(
-					'theme_location' => 'regional-menu',
-					'container' => 'div',
-					'container_class' => 'regional-menu'
-				));
-				?>
-			</div>
-		</nav>
 	</header>
 </body>
 </html>
