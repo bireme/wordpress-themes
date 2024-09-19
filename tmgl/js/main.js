@@ -17,12 +17,12 @@ jQuery(document).ready(function(jQuery) {
     adaptiveHeight: true,
     responsive: [
     {
-      breakpoint: 992,
+      breakpoint: 1024,
       settings: {
         arrows: false,
         centerMode: true,
         centerPadding: '40px',
-        slidesToShow: 1
+        slidesToShow: 2
       }
     },
     {
@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
     // Função para monitorar o scroll da página
     jQuery(window).scroll(function() {
         if (!isHamburgerClicked) { // Somente executa se o botão não foi clicado
-            if (jQuery(this).scrollTop() > 300) {
+            if (jQuery(this).scrollTop() > 150) {
                 jQuery('#header').addClass('headerFixo');
                 jQuery('#hamburger').addClass('hamburger');
             } else {
