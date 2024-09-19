@@ -533,12 +533,6 @@ a{
 #header-title #title-icon{
 	height: 32px;
 }
-@media (max-width:1140px){
-	#newsletter{
-		background-size: 100%;
-	}
-}
-
 /*News*/
 .news-excerpt{
 	font-family: 'Roboto';
@@ -642,6 +636,14 @@ a{
 	background-size: 100%;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+}
+@media (max-width:1300px){
+	#newsletter{
+		background-size: 100%;
+	}
+	#events{
+		background-size: cover;
+	}
 }
 @media (max-width: 992px){
 	#box-search{
