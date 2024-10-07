@@ -327,6 +327,11 @@ nav.pagination h2 { display: none; }
 	padding-top: 20px;
 	border-top: 5px solid #00420c;
 }
+#contMinistros img{
+	float: left;
+	margin: 0 30px 10px 0!important;
+	border-radius:10px!important;
+}
 @media(max-width: 992px){
 	#logo h1{
 		font-size: 32px;
