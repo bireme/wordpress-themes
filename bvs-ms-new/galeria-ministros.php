@@ -16,7 +16,7 @@
 				));
 				?>
 			</nav>
-			<div class="col-md-9">
+			<div class="col-md-9" id="contMinistros">
 				<h1 class=" title1"><?php the_title(); ?></h1><br> 
 				<?php while(have_posts()) : the_post();?>
 					<?php the_content(); ?>
