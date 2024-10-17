@@ -25,6 +25,9 @@
 		<?php wp_head(); ?>
 
 		<!-- block extrahead -->
+		<?php 
+		$header['extrahead'] = isset($header['extrahead']) ? $header['extrahead'] : ''; 
+		?>
 		<?= stripslashes( $header['extrahead'] ) ?>
 
 		<!-- block extra files -->

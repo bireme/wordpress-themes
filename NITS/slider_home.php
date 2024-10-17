@@ -5,13 +5,16 @@
 
 class My_Widget_Slider_Categories extends WP_Widget {
 
-    function My_Widget_Slider_Categories() {
+    public function __construct() {
         $widget_ops = array( 'classname' => 'widget_slider_categories', 'description' => __( "Slider de posts feito em Bootstrap por categoria" ) );
-        $this->WP_Widget('my_categories', __('Home Slider Category Widget'), $widget_ops);
+        parent::__construct('my_categories', __('Home Slider Category Widget'), $widget_ops);
     }
 
     function widget( $args, $instance ) {
-        extract( $args );
+        $before_widget = $args["before_widget"];
+        $after_widget = $args["after_widget"];
+        $before_title = $args["before_title"];
+        $after_title = $args["after_title"];
 
         $title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Categories' ) : $instance['title']);
         $category_slug = $instance['category_slug'];
@@ -23,14 +26,14 @@ class My_Widget_Slider_Categories extends WP_Widget {
 		<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 			<?php 
-				query_posts( array(
+				$custom_query = new WP_Query( array(
 					'category_name'  => $category_slug,
 					'posts_per_page' => $x_posts
 				) );
 				$num_posts=0;
-				if ( have_posts() ) : while ( have_posts() ) : the_post();
+				if ( $custom_query->have_posts() ) : while ( $custom_query->have_posts() ) : $custom_query->the_post();
 			?>
-			  <li data-target="#carouselIndicators" data-slide-to="<? echo $num_posts;?>"></li>
+			  <li data-target="#carouselIndicators" data-slide-to="<?php echo $num_posts;?>"></li>
 			<?php
 				$num_posts ++;
 			?>
@@ -43,29 +46,30 @@ class My_Widget_Slider_Categories extends WP_Widget {
 				$active="active";
 				$default_image = "/images/default01.jpg";
 			?>
-			<? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				
-				<?php 
-				if ( has_post_thumbnail() ) {
-					?>
-					<div class="carousel-item <?php echo $active; ?>" style="background-image: url('<?php the_post_thumbnail_url( 'slider' ); ?>')">
-					<?
-					} 
-					else {
-						?>
-					<div class="carousel-item <?php echo $active; ?>" style="background-image: url('<?php echo get_bloginfo( 'stylesheet_directory' );?>/images/default01.jpg')">
-						<?
-					}
-				?>
-					<div class="carousel_highlight">
-						<span class=""><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>
-					</div>
-				</div>
-				<?php 
-					$active="zero";
-				?>
-			<?php endwhile; endif; ?>		
-				
+			<?php if ( $custom_query->have_posts() ) : while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
+
+			    <?php
+                                if ( has_post_thumbnail() ) {
+                                ?>
+                                    <div class="carousel-item <?php echo $active; ?>" style="background-image: url('<?php the_post_thumbnail_url( 'slider' ); ?>')">
+                                <?php
+                                } else {
+                                ?>
+                                    <div class="carousel-item <?php echo $active; ?>" style="background-image: url('<?php echo get_bloginfo( 'stylesheet_directory' );?>/images/default01.jpg')">
+                                <?php
+                                }
+                                ?>
+                                    <div class="carousel_highlight">
+                                        <span class=""><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></span>
+                                    </div>
+                                </div>
+
+                                <?php
+                                    $active = "zero";
+                                ?>
+
+                            <?php endwhile; endif; ?>
+	
 			</div>
 			<a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -113,7 +117,9 @@ class My_Widget_Slider_Categories extends WP_Widget {
 
 }
 
-add_action('widgets_init', create_function('', "register_widget('My_Widget_Slider_Categories');"));
+add_action('widgets_init', function() {
+    register_widget('My_Widget_Slider_Categories');
+});
 
 
 ?>
