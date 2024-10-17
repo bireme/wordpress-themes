@@ -1,0 +1,19 @@
+archive-edital.php:	<? include 'part-archive-edital_order.php'; ?> 
+archive-search.php:	<? 
+archive-search.php:	<? include 'loop-edital.php'; ?>
+home_newslevel3.php:					<h2><? echo $title ?></h2>
+home_newslevel3.php:				<? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+home_newslevel3.php:					<? 
+home_news.php:				<? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+home_news.php:				<div class="col-md-12 col-lg-<? echo $md;?> col-xl-<? echo $md;?>">
+part-archive-edital_order.php:				<? include 'loop-edital.php'; ?>
+part-archive-edital_order.php:				<? include 'loop-edital.php'; ?>
+part-archive-edital_order.php:				<? include 'loop-edital.php'; ?>
+part-archive-edital.php:	<? 
+slider_home.php:			  <li data-target="#carouselIndicators" data-slide-to="<? echo $num_posts;?>"></li>
+slider_home.php:			<? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+taxonomy-agencias.php:	<? include 'part-archive-edital.php'; ?> 
+taxonomy-institutions.php:	<? include 'part-archive-edital.php'; ?> 
+taxonomy-publicos.php:	<? include 'part-archive-edital.php'; ?> 
+taxonomy-researchLines.php:	<? include 'part-archive-edital.php'; ?> 
+taxonomy-topics.php:	<? include 'part-archive-edital.php'; ?> 
