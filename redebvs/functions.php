@@ -7,42 +7,46 @@ Tema Portal de Rede da BVS
  * Exibe uma breadcrumb personalizada do portal da rede BVS
  */
 class breadcrumb_widget extends WP_Widget {
- 
- 
-    /** constructor -- name this the same as the class above */
-    function breadcrumb_widget() {
-        parent::WP_Widget(false, $name = 'BreadCrumb do Portal da Rede BVS');	
+
+    /** Constructor - Corrected */
+    function __construct() {
+        parent::__construct(
+            'breadcrumb_widget', // Widget ID
+            __('BreadCrumb do Portal da Rede BVS', 'text_domain'), // Widget name
+            array('description' => __('Displays the breadcrumb of the network', 'text_domain')) // Widget options
+        );
     }
- 
+
     /** @see WP_Widget::widget -- do not rename this */
-    function widget($args, $instance) {	
-        extract( $args );
-			if ( function_exists( 'portal_breadcrumb' ) ) { portal_breadcrumb(); } 
-        ?>
-		<?php
+    function widget($args, $instance) {
+        extract($args);
+        if (function_exists('portal_breadcrumb')) { 
+            portal_breadcrumb(); 
+        }
     }
- 
+
     /** @see WP_Widget::update -- do not rename this */
-    function update($new_instance, $old_instance) {		
-		$instance = $old_instance;
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
         return $instance;
     }
- 
+
     /** @see WP_Widget::form -- do not rename this */
-    function form($instance) {	
- 
+    function form($instance) {
         ?>
-         <p>
-			Exibe a breadcrumb da Rede <br>
-			Displays the breadcrumb of the network<br>
-			Muestra la breadcrumb de la red
+        <p>
+            Exibe a breadcrumb da Rede <br>
+            Displays the breadcrumb of the network<br>
+            Muestra la breadcrumb de la red
         </p>
-        <?php 
+        <?php
     }
- 
- 
 } // end class breadcrumb_widget
-add_action('widgets_init', create_function('', 'return register_widget("breadcrumb_widget");'));
+
+// Register the widget
+add_action('widgets_init', function() {
+    register_widget('breadcrumb_widget');
+});
 
 
 // breadcrumb portal da rede bvs 
