@@ -1,0 +1,165 @@
+:root {
+	--white:#fff;
+	--green-dark: #426A5A;
+	--green-light: #b8e22d;
+	--red: #bd3131;
+	--orange: #eb5f08;
+}
+.btn-ia{
+	/*background: linear-gradient(to bottom right, #426A5A, #eb5f08);*/
+	background-color: var(--red);
+	color: var(--white);
+	border: 3px solid var(--red)!important;
+}
+.btn-ia:hover{
+	background: var(--white)!important;
+	color: var(--green-dark)!important;
+}
+.ptb-50{
+	padding:50px 0 ;
+}
+.ptb-30{
+	padding:30px 0 ;
+}
+.color1{
+	color:var(--green-dark) ;
+}
+#header{
+	padding: 20px 0;
+}
+#highlights{
+	/*height: calc(100vh - 150px);*/
+	margin: 0;
+	box-sizing: border-box;
+	padding: 80px;
+	color: var(--white);
+	background: linear-gradient(
+    to bottom right,
+    var(--green-dark) 0%,
+    var(--green-light) 80%,
+    var(--orange) 90%
+  );
+  background-size: 200% 100%;
+  animation: gradientShift 30s ease-in-out infinite;
+}
+.header-inter{
+	box-sizing: border-box;
+	padding: 20px 0 10px 0!important;
+}
+#lang{
+	text-align: right;
+	font-size: 14px;
+	margin-top: 0px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 400px;
+}
+#lang ul li{
+	display: inline-block;
+}
+#lang ul li a{
+	padding: 4px 6px;
+	text-decoration: none;
+	color: var(--green-dark);
+}
+#lang ul li a:hover{
+	background:#ddd;
+	color:#5b6efd;
+	border-radius: 5px;
+}
+#lang ul li .active{
+	background: #31286b;
+	border-radius: 5px;
+}
+#lang .current-lang a{
+	background:#ddd;
+	border-radius: 5px;
+	color: var(--green-dark);
+}
+#nav{
+	font-size: 24px;
+	margin-top: 20px;
+}
+#footer{
+	background-color: var(--green-dark);
+	color: var(--white);
+	padding: 50px 0 20px 0;
+}
+#footer-logo-bir{
+	text-align: right;
+}
+#footer-logo-bir img{
+	height: 70px;
+}
+#powered{
+	background-color: var(--green-dark);
+	color: var(--white);
+	text-align: center;
+	font-size: .85rem;
+	padding: 5px 0;
+}
+#powered img{
+	height: 20px;
+	margin-bottom: 10px;
+}
+#powered a{
+	color: var(----white);
+	text-decoration: none;
+}
+#powered a:hover{
+	color: #999;
+	text-decoration: none;
+}
+.howToUse{
+	border: 4px solid var(--green-light);
+	border-radius: 16px;
+	padding: 20px;
+	margin:16px;
+	transition: all .2s ease;
+}
+.howToUse img{
+	width: 80px;
+	margin-bottom: 20px;
+}
+.howToUse h3{
+	font-size: 1.4rem;
+}
+.howToUse:hover{
+	/*background-color: var(--green-light);*/
+	border-left: 10px solid var(--green-light);
+}
+.howToUseCard{
+	border: 4px solid var(--green-light);
+	border-radius: 16px;
+	padding: 20px;
+	margin:16px;
+	transition: all .2s ease;
+}
+#whyUse{
+	background: url("../img/whyUse.jpg") no-repeat center fixed;
+	background-size: cover;
+	color: var(--white);
+}
+.accordion-button:not(.collapsed){
+	background-color: var(--green-dark);
+	color: var(--white);
+}
+.accordion-button:not(.collapsed)::after{
+	filter: brightness(10);
+}
+#goDeCS{
+	background: var(--green-light);
+}
+/************/
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
