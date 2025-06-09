@@ -1,10 +1,6 @@
 <?php 
 // Register Custom Navigation Walker 
 require_once get_template_directory().'/includes/class-wp-bootstrap-navwalker.php';
-
-// Disable WordPress Partial Match Redirection
-add_filter('do_redirect_guess_404_permalink', '__return_false');
-
 // Title - tag <title>
 add_theme_support('title-tag');
 // Posta Thumbnails

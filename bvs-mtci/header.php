@@ -9,12 +9,11 @@
 	<?php wp_head(); ?>
 </head>
 <?php $lang = pll_current_language(); ?>
-<body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
+<body>
 	<header id="header">
 		<div class="container">
 			<div class="row" id="lang-row">
-				<div class="col-3 col-md-2" id=logo-bvs>
+				<div class="col-3 offset-md-0 col-md-2" id=logo-bvs>
 					<a href="https://bvsalud.org/<?php echo $lang=='pt'?'':$lang; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/bvs_color.svg" id="header-bvs" class="img-fluid" alt=""></a>
 				</div>
 				<div class="col-6 col-md-2" id="logo-mtci">
