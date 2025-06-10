@@ -222,6 +222,7 @@ h1, h2, h3, h4, h5, h6{
 /*events*/
 #mtci-events-header img{
 	width: 100%;
+	height: auto;
 	margin-bottom: 40px;
 }
 @media (max-width:1400px){
