@@ -31,19 +31,19 @@
 	height: 100px;
 }
 #highlights{
-	/*height: calc(100vh - 150px);*/
-	margin: 0;
-	box-sizing: border-box;
-	padding: 80px;
-	color: var(--white);
-	background: linear-gradient(
-    to bottom right,
-    var(--green-dark) 0%,
-    var(--green-light) 80%,
-    var(--orange) 90%
-  );
-  background-size: 200% 100%;
-  animation: gradientShift 30s ease-in-out infinite;
+/*height: calc(100vh - 150px);*/
+margin: 0;
+box-sizing: border-box;
+padding: 80px;
+color: var(--white);
+background: linear-gradient(
+	to bottom right,
+	var(--green-dark) 0%,
+	var(--green-light) 80%,
+	var(--orange) 90%
+);
+background-size: 200% 100%;
+animation: gradientShift 30s ease-in-out infinite;
 }
 .header-inter{
 	box-sizing: border-box;
@@ -56,6 +56,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+	z-index: 999;
 	width: 400px;
 }
 #lang ul li{
@@ -154,15 +155,28 @@
 #goDeCS{
 	background: var(--green-light);
 }
+@media (max-width: 772px){
+	#brand{
+		text-align: center;
+	}
+	#lang{
+		float: none;
+		margin-bottom: 10px;
+		position: static;
+		text-align: center;
+		width: 100%;
+	}
+	
+}
 /************/
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

@@ -13,6 +13,18 @@
 	<header id="header">
 		<div class="container">
 			<div class="row" style="position:relative;">
+				<div id="lang">
+					<?php 
+					wp_nav_menu( array(
+						'theme_location'    => 'Language',
+						'depth'             => 1,
+						'container'         => 'ul',
+						'container_class'   => 'list-unstyled',
+						'container_id'      => '',
+						'menu_class'        => '',
+					) );
+					?>
+				</div>
 				<div class="col-md-4" id="brand">
 					<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">
 						<img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" id="" alt="Logo DeCS Finder">
@@ -22,18 +34,6 @@
 					<?php 
 					wp_nav_menu( array(
 						'theme_location'    => 'main-nav',
-						'depth'             => 1,
-						'container'         => 'ul',
-						'container_class'   => 'list-unstyled',
-						'container_id'      => '',
-						'menu_class'        => '',
-					) );
-					?>
-				</div>
-				<div id="lang">
-					<?php 
-					wp_nav_menu( array(
-						'theme_location'    => 'Language',
 						'depth'             => 1,
 						'container'         => 'ul',
 						'container_class'   => 'list-unstyled',
