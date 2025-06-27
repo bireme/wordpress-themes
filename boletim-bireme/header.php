@@ -12,6 +12,17 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="<?php echo htmlspecialchars($post['title']); ?>" />
+	<meta property="og:description" content="<?php echo htmlspecialchars($post['excerpt']); ?>" />
+	<meta property="og:image" content="<?php echo $post['image_url']; ?>" />
+	<meta property="og:url" content="https://boletin.bireme.org/<?php echo $post['slug']; ?>" />
+	<meta property="og:type" content="article" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="<?php echo htmlspecialchars($post['title']); ?>" />
+	<meta name="twitter:description" content="<?php echo htmlspecialchars($post['excerpt']); ?>" />
+	<meta name="twitter:image" content="<?php echo $post['image_url']; ?>" />
+	<meta name="twitter:url" content="https://boletin.bireme.org/<?php echo $post['slug']; ?>" />
+
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	<?php /* if ( ! get_option( 'site_icon' ) ) : ?>
