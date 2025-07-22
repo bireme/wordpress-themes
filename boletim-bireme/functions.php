@@ -427,3 +427,6 @@ function themes_remove_hentry( $classes ) {
 	return $classes;
 }
 add_filter( 'post_class', 'themes_remove_hentry' );
+
+//Add new size thumbnail
+add_image_size('tv',950,600,true);
