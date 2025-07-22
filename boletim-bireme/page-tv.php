@@ -104,7 +104,8 @@
 					$i = 0;
 					$posts = new WP_Query([
 						'post_type' => 'post',
-						'posts_per_page' => '-1'
+						'posts_per_page' => '-1',
+						'lang' => 'all'
 					]);
 					while($posts->have_posts()) : $posts->the_post();
 						$image_tv = get_field('image_tv'); 
