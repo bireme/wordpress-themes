@@ -134,7 +134,8 @@
 				<?php 
 				$posts = new WP_Query([
 					'post_type' => 'post',
-					'posts_per_page' => '-1'
+					'posts_per_page' => '-1',
+					'lang' => 'all'
 				]);
 				$i = 0;
 				while($posts->have_posts()) : $posts->the_post();
