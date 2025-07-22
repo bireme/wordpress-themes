@@ -1,0 +1,28 @@
+/*
+Theme Name: BVS ECOS
+Author: Guilherme Alves
+Author URI: https://www.guilhermealves.dev/
+Description: Tema personalizado desenvolvido para a BVS ECOS 2024
+Version: 1.1
+Text Domain: bvs-ecos
+Tags: bootstrap-5, blog, custom-menu, featured-images, threaded-comments, translation-ready, right-sidebar, custom-background, e-commerce, theme-options, sticky-post, full-width-template
+*/
+
+.component_content {
+	width: 75% !important
+}
+.image_background {
+	margin: 0 !important;
+	position: absolute !important;
+	top: 630px !important;
+	left: 50% !important;
+	transform: translate(-50%, -50%) !important;
+}
+
+.ls_container .widget_title{
+    display: none;
+}
+.ls_container .ls_page_list{
+    list-style-type: none;
+}
+

@@ -1,0 +1,222 @@
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+#map>div.ol-viewport {
+    border-radius: 16px;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+}
+
+#grid-map-locations {
+    border-radius: 16px;
+    background: #ECEEEE;
+    padding: 0;
+}
+
+#grid-map-locations .grid-list-locations {
+    padding: 10px 12px 20px 17px;
+    margin-top: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+    --sb-track-color: #f1f1f1;
+    --sb-thumb-color: #9a9a9a;
+    --sb-size: 5px;
+}
+
+#grid-map-locations .grid-list-locations::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+#grid-map-locations .grid-list-locations::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 5px;
+}
+
+#grid-map-locations .grid-list-locations::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    #grid-map-locations .grid-list-locations {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+#grid-map-locations .grid-map {
+    padding: 20px 17px 20px 12px;
+}
+
+#grid-map-locations .grid-list-locations .list-locations {
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.25);
+}
+
+#grid-map-locations .grid-list-locations .separator {
+    width: 90%;
+    border: 1px solid #B6BDBE;
+    margin: 0px auto;
+    display: block;
+}
+
+#grid-map-locations .grid-list-locations .separator:last-child {
+    border: none;
+}
+
+.location-item {
+    margin: 0;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 0;
+    transition: background-color 0.3s;
+}
+
+.location-item:first-child {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.location-item:last-child {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.location-item:hover,
+.location-item.active {
+    background-color: #efefef;
+}
+
+.location-item .title {
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.location-item p {
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.ol-popup {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    width: 230px; /* largura do popup */
+    text-align: center;
+}
+
+.ol-popup:after,
+.ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ol-popup:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+}
+
+.ol-popup:before {
+    border-color: rgba(204, 204, 204, 0);
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+
+.ol-popup #popup-content h5.title{
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+}
+.ol-popup #popup-content p{
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}
+
+#grid-legend-map{
+    margin-top: 1rem;
+}
+
+#grid-legend-map .title-legend{
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0.5rem 0;
+}
+
+#grid-legend-map .item-legend{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+#grid-legend-map .item-legend label{
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    #grid-map-locations .grid-list-locations{
+        margin-top: 0;
+        padding: 20px 17px 20px 22px;
+    }
+
+    #grid-map-locations .grid-map {
+        padding: 20px 17px 20px 17px;
+    }
+}
+
+@media (max-width: 425px) {
+    #grid-map-locations .grid-list-locations{
+        height: 450px;
+    }
+
+    #map{
+        height: 391px;
+    }
+}

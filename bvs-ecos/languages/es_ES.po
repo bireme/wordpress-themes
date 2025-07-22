@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS ECOS\n"
+"POT-Creation-Date: 2024-09-02 00:10-0300\n"
+"PO-Revision-Date: 2024-09-02 01:18-0300\n"
+"Last-Translator: \n"
+"Language-Team: www.guilhermealves.dev\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+msgid "Portal Nacional de Economia e Desenvolvimento em Saúde"
+msgstr "Portal Nacional de Economía y Desarrollo en Salud"
+
+msgid "Plataforma colaborativa dedicada a promover o intercâmbio de conhecimento, experiências e inovação em políticas de saúde pública."
+msgstr "Plataforma colaborativa dedicada a promover el intercambio de conocimiento, experiencias e innovación en políticas de salud pública."
+
+msgid "Conecte-se à Rede Ecos"
+msgstr "Conéctese a la Red Ecos"
+
+msgid "Icone Mapa NES"
+msgstr "Icono Mapa NES"
+
+msgid "Mapa NES"
+msgstr "Mapa NES"
+
+msgid "Núcleos de Economia da Saúde da Rede Ecos"
+msgstr "Núcleos de Economía de la Salud de la Red Ecos"
+
+msgid "Icone Membros"
+msgstr "Icono Miembros"
+
+msgid "Membros"
+msgstr "Miembros"
+
+msgid "Conheça o perfil de quem faz a Rede Ecos"
+msgstr "Conozca el perfil de quienes hacen la Red Ecos"
+
+msgid "Icone Fóruns Temáticos"
+msgstr "Icono Foros Temáticos"
+
+msgid "Fóruns Temáticos"
+msgstr "Foros Temáticos"
+
+msgid "Temas relevantes sobre Economia da Saúde"
+msgstr "Temas relevantes sobre Economía de la Salud"
+
+msgid "Icone Podcasts e Webcasts"
+msgstr "Icono Podcasts y Webcasts"
+
+msgid "Podcasts e Webcasts"
+msgstr "Podcasts y Webcasts"
+
+msgid "Temas apresentados de forma envolvente"
+msgstr "Temas presentados de manera atractiva"
+
+msgid "Seu navegador não suporta a tag de vídeo."
+msgstr "Su navegador no soporta la etiqueta de video."
+
+msgid "Video by Google DeepMind"
+msgstr "Vídeo de Google DeepMind"
+
+msgid "Pesquisa na BVS Ecos"
+msgstr "Búsqueda en BVS Ecos"
+
+msgid "Busca em bases de dados especializadas em economia da saúde"
+msgstr "Búsqueda en bases de datos especializadas en economía de la salud"
+
+msgid "O que você está procurando hoje?"
+msgstr "¿Qué estás buscando hoy?"
+
+msgid "Todas as Bases de dados"
+msgstr "Todas las Bases de datos"
+
+msgid "Rede Ecos"
+msgstr "Red Ecos"
+
+msgid "Pesquisa Avançada"
+msgstr "Búsqueda Avanzada"
+
+msgid "Acesso e Uso da Informação em Economia da Saúde"
+msgstr "Acceso y Uso de la Información en Economía de la Salud"
+
+msgid "Notícias"
+msgstr "Noticias"
+
+msgid "Mantenha-se atualizado com as notícias de economia da saúde"
+msgstr "Mantente actualizado con las noticias de economía de la salud"
+
+msgid "Veja mais notícias"
+msgstr "Ver más noticias"
+
+msgid "Atualize a sua agenda"
+msgstr "Actualiza tu agenda"
+
+msgid "Cursos e Capacitações"
+msgstr "Cursos y Capacitaciones"
+
+msgid "Próximos Eventos"
+msgstr "Próximos Eventos"
+
+msgid "Veja todos os cursos"
+msgstr "Ver todos los cursos"
+
+msgid "Veja todos os eventos"
+msgstr "Ver todos los eventos"
+
+msgid "Imagem Conecte-se à Rede Ecos"
+msgstr "Imagen Conéctese a la Red Ecos"
+
+msgid "Junte-se a nós e participe do debate essencial sobre a formulação de políticas públicas em saúde."
+msgstr "Únase a nosotros y participe en el debate esencial sobre la formulación de políticas públicas en salud."
+
+msgid "Para ser um membro ativo da Rede Ecos, envie seus dados para análise do Comitê Gestor."
+msgstr "Para ser un miembro activo de la Red Ecos, envíe sus datos para el análisis del Comité Gestor."
+
+msgid "Preencha a declaração de interesse"
+msgstr "Complete la declaración de interés"
+
+msgid "Rede Nacional de Economia da Saúde"
+msgstr "Red Nacional de Economía de la Salud"
+
+msgid "BVS Ecos"
+msgstr "BVS Ecos"
+
+msgid "Biblioteca Virtual em Economia da Saúde"
+msgstr "Biblioteca Virtual en Economía de la Salud"
+
+msgid "Departamento de Economia e Desenvolvimento em Saúde"
+msgstr "Departamento de Economía y Desarrollo en Salud"
+
+msgid "Secretaria de Ciência, Tecnologia e Inovação e do Complexo Econômico-Industrial da Saúde - Ministério da Saúde - Brasil"
+msgstr "Secretaría de Ciencia, Tecnología e Innovación y del Complejo Económico-Industrial de la Salud - Ministerio de Salud - Brasil"
+
+msgid "Esplanada dos Ministérios - Bloco \"G\" - Sobreloja - CEP: 70.058-900"
+msgstr "Explanada de los Ministerios - Bloque \"G\" - Entresuelo - CP: 70.058-900"
+
+msgid "Fones:"
+msgstr "Teléfonos:"
+
+msgid "Uma iniciativa do"
+msgstr "Una iniciativa de"
+
+msgid "Ministério da Saúde"
+msgstr "Ministerio de Salud"
+
+msgid "e"
+msgstr "y"
+
+msgid "BIREME/OPAS/OMS"
+msgstr "BIREME/OPAS/OMS"
+
+msgid "Termos e Condições de uso"
+msgstr "Términos y Condiciones de uso"
+
+msgid "Políticas de Privacidade"
+msgstr "Políticas de Privacidad"
+
+msgid "Você pode se interessar:"
+msgstr "Puede que te interese:"
+
+msgid "Receba os informes da Rede Ecos via e-mail"
+msgstr "Reciba las actualizaciones de la Red Ecos por correo electrónico"
+
+msgid "Inscreva-se"
+msgstr "Suscríbete"
+
+msgid "Newsletter"
+msgstr "Boletín"
+
+msgid "Nome"
+msgstr "Nombre"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Inscrever-se"
+msgstr "Suscribir"
+
+msgid "Fórum Rede Ecos"
+msgstr "Foro Red Ecos"
+
+msgid "Página não encontrada"
+msgstr "Página no encontrada"
+
+msgid "Nada foi encontrado neste local. Tente utilizar a busca abaixo"
+msgstr "No se encontró nada en este lugar. Intente usar la búsqueda a continuación"
+
+msgid "Navegação de comentários"
+msgstr "Navegación de comentarios"
+
+msgid "Comentários mais antigos"
+msgstr "Comentarios más antiguos"
+
+msgid "Comentários mais recentes"
+msgstr "Comentarios más recientes"
+
+msgid "Comentários estão fechados."
+msgstr "Los comentarios están cerrados."
+
+msgid "Deixe uma resposta"
+msgstr "Deja una respuesta"
+
+msgid "Deixe uma resposta para %s"
+msgstr "Deja una respuesta para %s"
+
+msgid "Cancelar resposta"
+msgstr "Cancelar respuesta"
+
+msgid "Postar Comentário"
+msgstr "Publicar comentario"
+
+msgid "Mensagem"
+msgstr "Mensaje"
+
+msgid "LOGIN"
+msgstr "INICIAR SESIÓN"
+
+msgid "Resultados da pesquisa para: %s"
+msgstr "Resultados de la búsqueda para: %s"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Postado em %s"
+msgstr "Publicado en %s"
+
+msgid "por %s"
+msgstr "por %s"
+
+msgid "autor da postagem"
+msgstr "autor de la publicación"
+
+msgid "Deixe um comentário<span class=\"screen-reader-text\"> em %s</span>"
+msgstr "Deja un comentario<span class=\"screen-reader-text\"> en %s</span>"
+
+msgid "Postado em %1$s"
+msgstr "Publicado en %1$s"
+
+msgid "Marcado %1$s"
+msgstr "Etiquetado %1$s"
+
+msgid "Editar %s"
+msgstr "Editar %s"
+
+msgid "Editar"
+msgstr "Editar"
+
+msgid "%s <span class=\"says\">diz:</span>"
+msgstr "%s <span class=\"says\">dice:</span>"
+
+msgid "%1$s em %2$s', '1: data, 2: hora"
+msgstr "%1$s en %2$s', '1: fecha, 2: hora"
+
+msgid "<span style=\"margin-left: 5px;\" class=\"fa-solid fa-pen-to-square\"></span> Editar"
+msgstr "<span style=\"margin-left: 5px;\" class=\"fa-solid fa-pen-to-square\"></span> Editar"
+
+msgid "Seu comentário está aguardando moderação."
+msgstr "Tu comentario está esperando moderación."
+
+msgid "Pular para o conteúdo"
+msgstr "Saltar al contenido"
+
+msgid "Pesquisar"
+msgstr "Buscar"
+
+msgid "Pesquisar..."
+msgstr "Buscar..."
+
+msgid "Pesquisar por:"
+msgstr "Buscar:"
+
+msgid "Cancelar Inscrição"
+msgstr "Darse de baja"
+
+msgid "Favoritar"
+msgstr "Favorito"
+
+msgid "Desfavoritar"
+msgstr "No favorito"
+
+msgid "Participantes"
+msgstr "Participantes"

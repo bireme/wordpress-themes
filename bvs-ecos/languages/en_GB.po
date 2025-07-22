@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BVS ECOS\n"
+"POT-Creation-Date: 2024-09-02 00:10-0300\n"
+"PO-Revision-Date: 2024-09-02 01:18-0300\n"
+"Last-Translator: \n"
+"Language-Team: www.guilhermealves.dev\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+msgid "Portal Nacional de Economia e Desenvolvimento em Saúde"
+msgstr "National Portal of Health Economics and Development"
+
+msgid "Plataforma colaborativa dedicada a promover o intercâmbio de conhecimento, experiências e inovação em políticas de saúde pública."
+msgstr "Collaborative platform dedicated to promoting the exchange of knowledge, experiences, and innovation in public health policies."
+
+msgid "Conecte-se à Rede Ecos"
+msgstr "Connect to the Ecos Network"
+
+msgid "Icone Mapa NES"
+msgstr "NES Map Icon"
+
+msgid "Mapa NES"
+msgstr "NES Map"
+
+msgid "Núcleos de Economia da Saúde da Rede Ecos"
+msgstr "Health Economics Centers of the Ecos Network"
+
+msgid "Icone Membros"
+msgstr "Members Icon"
+
+msgid "Membros"
+msgstr "Members"
+
+msgid "Conheça o perfil de quem faz a Rede Ecos"
+msgstr "Meet the profiles of the people who make up the Ecos Network"
+
+msgid "Icone Fóruns Temáticos"
+msgstr "Thematic Forums Icon"
+
+msgid "Fóruns Temáticos"
+msgstr "Thematic Forums"
+
+msgid "Temas relevantes sobre Economia da Saúde"
+msgstr "Relevant topics on Health Economics"
+
+msgid "Icone Podcasts e Webcasts"
+msgstr "Podcasts and Webcasts Icon"
+
+msgid "Podcasts e Webcasts"
+msgstr "Podcasts and Webcasts"
+
+msgid "Temas apresentados de forma envolvente"
+msgstr "Topics presented in an engaging way"
+
+msgid "Seu navegador não suporta a tag de vídeo."
+msgstr "Your browser does not support the video tag."
+
+msgid "Video by Google DeepMind"
+msgstr "Video by Google DeepMind"
+
+msgid "Pesquisa na BVS Ecos"
+msgstr "Search on BVS Ecos"
+
+msgid "Busca em bases de dados especializadas em economia da saúde"
+msgstr "Search in specialized health economics databases"
+
+msgid "O que você está procurando hoje?"
+msgstr "What are you looking for today?"
+
+msgid "Todas as Bases de dados"
+msgstr "All Databases"
+
+msgid "Rede Ecos"
+msgstr "Ecos Network"
+
+msgid "Pesquisa Avançada"
+msgstr "Advanced Search"
+
+msgid "Acesso e Uso da Informação em Economia da Saúde"
+msgstr "Access and Use of Information in Health Economics"
+
+msgid "Notícias"
+msgstr "News"
+
+msgid "Mantenha-se atualizado com as notícias de economia da saúde"
+msgstr "Stay updated with health economics news"
+
+msgid "Veja mais notícias"
+msgstr "See more news"
+
+msgid "Atualize a sua agenda"
+msgstr "Update your schedule"
+
+msgid "Cursos e Capacitações"
+msgstr "Courses and Training"
+
+msgid "Próximos Eventos"
+msgstr "Upcoming Events"
+
+msgid "Veja todos os cursos"
+msgstr "See all courses"
+
+msgid "Veja todos os eventos"
+msgstr "See all events"
+
+msgid "Imagem Conecte-se à Rede Ecos"
+msgstr "Image Connect to the Ecos Network"
+
+msgid "Junte-se a nós e participe do debate essencial sobre a formulação de políticas públicas em saúde."
+msgstr "Join us and participate in the essential debate on public health policy formulation."
+
+msgid "Para ser um membro ativo da Rede Ecos, envie seus dados para análise do Comitê Gestor."
+msgstr "To be an active member of the Ecos Network, submit your details for analysis by the Management Committee."
+
+msgid "Preencha a declaração de interesse"
+msgstr "Fill out the statement of interest"
+
+msgid "Rede Nacional de Economia da Saúde"
+msgstr "National Health Economics Network"
+
+msgid "BVS Ecos"
+msgstr "BVS Ecos"
+
+msgid "Biblioteca Virtual em Economia da Saúde"
+msgstr "Virtual Health Economics Library"
+
+msgid "Departamento de Economia e Desenvolvimento em Saúde"
+msgstr "Department of Health Economics and Development"
+
+msgid "Secretaria de Ciência, Tecnologia e Inovação e do Complexo Econômico-Industrial da Saúde - Ministério da Saúde - Brasil"
+msgstr "Secretariat of Science, Technology and Innovation and the Health Economic-Industrial Complex - Ministry of Health - Brazil"
+
+msgid "Esplanada dos Ministérios - Bloco \"G\" - Sobreloja - CEP: 70.058-900"
+msgstr "Esplanade of Ministries - Block \"G\" - Mezzanine - ZIP: 70.058-900"
+
+msgid "Fones:"
+msgstr "Phones:"
+
+msgid "Uma iniciativa do"
+msgstr "An initiative of"
+
+msgid "Ministério da Saúde"
+msgstr "Ministry of Health"
+
+msgid "e"
+msgstr "and"
+
+msgid "BIREME/OPAS/OMS"
+msgstr "BIREME/OPAS/OMS"
+
+msgid "Termos e Condições de uso"
+msgstr "Terms and Conditions of Use"
+
+msgid "Políticas de Privacidade"
+msgstr "Privacy Policies"
+
+msgid "Você pode se interessar:"
+msgstr "You might be interested in:"
+
+msgid "Receba os informes da Rede Ecos via e-mail"
+msgstr "Receive Ecos Network updates via email"
+
+msgid "Inscreva-se"
+msgstr "Subscribe"
+
+msgid "Newsletter"
+msgstr "Newsletter"
+
+msgid "Nome"
+msgstr "Name"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Inscrever-se"
+msgstr "Subscribe"
+
+msgid "Fórum Rede Ecos"
+msgstr "Ecos Network Forum"
+
+msgid "Página não encontrada"
+msgstr "Page not found"
+
+msgid "Nada foi encontrado neste local. Tente utilizar a busca abaixo"
+msgstr "Nothing was found at this location. Try using the search below"
+
+msgid "Navegação de comentários"
+msgstr "Comment navigation"
+
+msgid "Comentários mais antigos"
+msgstr "Older comments"
+
+msgid "Comentários mais recentes"
+msgstr "Newer comments"
+
+msgid "Comentários estão fechados."
+msgstr "Comments are closed."
+
+msgid "Deixe uma resposta"
+msgstr "Leave a reply"
+
+msgid "Deixe uma resposta para %s"
+msgstr "Leave a reply to %s"
+
+msgid "Cancelar resposta"
+msgstr "Cancel reply"
+
+msgid "Postar Comentário"
+msgstr "Post Comment"
+
+msgid "Mensagem"
+msgstr "Message"
+
+msgid "LOGIN"
+msgstr "LOGIN"
+
+msgid "Resultados da pesquisa para: %s"
+msgstr "Search results for: %s"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Postado em %s"
+msgstr "Posted on %s"
+
+msgid "por %s"
+msgstr "by %s"
+
+msgid "autor da postagem"
+msgstr "post author"
+
+msgid "Deixe um comentário<span class=\"screen-reader-text\"> em %s</span>"
+msgstr "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+
+msgid "Postado em %1$s"
+msgstr "Posted on %1$s"
+
+msgid "Marcado %1$s"
+msgstr "Tagged %1$s"
+
+msgid "Editar %s"
+msgstr "Edit %s"
+
+msgid "Editar"
+msgstr "Edit"
+
+msgid "%s <span class=\"says\">diz:</span>"
+msgstr "%s <span class=\"says\">says:</span>"
+
+msgid "%1$s em %2$s', '1: data, 2: hora"
+msgstr "%1$s at %2$s', '1: date, 2: time"
+
+msgid "<span style=\"margin-left: 5px;\" class=\"fa-solid fa-pen-to-square\"></span> Editar"
+msgstr "<span style=\"margin-left: 5px;\" class=\"fa-solid fa-pen-to-square\"></span> Edit"
+
+msgid "Seu comentário está aguardando moderação."
+msgstr "Your comment is awaiting moderation."
+
+msgid "Pular para o conteúdo"
+msgstr "Skip to content"
+
+msgid "Pesquisar"
+msgstr "Search"
+
+msgid "Pesquisar..."
+msgstr "Search..."
+
+msgid "Pesquisar por:"
+msgstr "Search for:"
+
+msgid "Cancelar Inscrição"
+msgstr "Unsubscribe"
+
+msgid "Favoritar"
+msgstr "Favorite"
+
+msgid "Desfavoritar"
+msgstr "Unfavorite"
+
+msgid "Participantes"
+msgstr "Participants"
