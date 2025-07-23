@@ -86,30 +86,40 @@ jQuery('#contraste').on( "click", function(){
 	jQuery('body').toggleClass('bodyBlack');
 });
 /*Busca por voz*/
-window.addEventListener('DOMContentLoaded', function() {
-	var speakBtn = document.querySelector('#speakBtn');
-    // testa se o navegador suporta o reconhecimento de voz
-    if (window.SpeechRecognition || window.webkitSpeechRecognition) {
-        // captura a voz
-        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-        var recognition = new SpeechRecognition();
-        // inicia reconhecimento
-        speakBtn.addEventListener('click', function(e) {
-        	recognition.start();
-        }, false);
-        // resultado do reconhecimento
-        recognition.addEventListener('result', function(e) {
-        	// console.log(e);
-        	var result = e.results[0][0].transcript;
-        	// console.log(result);
-        	document.getElementById("fieldSearch").value = result;
-            // jQuery("#pesquisa").val(result);
-             // $("#mainForm").submit();
-             document.getElementById("mainForm").submit();
-             alert('teste');
-        }, false);
-    } else {
-    	// alert('Este navegador não suporta esta funcionalidade ainda!');
-    	jQuery('#speakBtn').css('display','none');
-    }
-}, false);
+const micBtn = document.getElementById("speakBtn");
+const input = document.getElementById("q");
+const status = document.getElementById("status");
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (!SpeechRecognition) {
+	micBtn.disabled = true;
+	status.textContent = "Seu navegador não suporta reconhecimento de voz.";
+} else {
+	const recognition = new SpeechRecognition();
+	recognition.lang = "pt-BR";
+	recognition.interimResults = false;
+	recognition.continuous = false;
+
+	micBtn.addEventListener("click", () => {
+		recognition.start();
+		micBtn.classList.add("listening");
+		status.textContent = "Ouvindo...";
+	});
+
+	recognition.addEventListener("result", (e) => {
+		const transcript = e.results[0][0].transcript;
+		input.value = transcript;
+		status.textContent = `Você disse: "${transcript}"`;
+	});
+
+	recognition.addEventListener("end", () => {
+		micBtn.classList.remove("listening");
+		status.textContent = "Parado.";
+	});
+
+	recognition.addEventListener("error", (e) => {
+		status.textContent = "Erro: " + e.error;
+		micBtn.classList.remove("listening");
+	});
+}
