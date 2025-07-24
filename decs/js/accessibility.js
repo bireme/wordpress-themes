@@ -87,7 +87,7 @@ jQuery('#contraste').on( "click", function(){
 });
 /*Busca por voz*/
 const micBtn = document.getElementById("speakBtn");
-const input = document.getElementById("q");
+const input = document.getElementById("fieldSearch");
 const status = document.getElementById("status");
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
