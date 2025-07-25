@@ -8,28 +8,29 @@
 <style>
 	#tvContainer{
 		width: 1900;
-		height: 940px;
+		height: 1080px;
 		margin: auto;
 		overflow: hidden;
 	}
 	#tvMain{
-		height:850px; 
+		height:980px; 
 		overflow:hidden;
 		position: relative;
+		background: red;
 	}
 	#tvTitle{
 		height: 100px;
 		margin-bottom: 10px;
 	}
 	#tvNews{
-		height:860px; 
+		height:980px; 
 		position: relative;
 		background: #075bba;
 		color: #fff;
 		padding: 0 10px;
 	}
 	#tvNewsNext{
-		height: 780px;
+		height: 920px;
 		padding: 10px;
 		overflow:hidden;
 	}
@@ -87,6 +88,7 @@
 		margin-right: 5px;
 	}
 	#teste{
+		display: none;
 		position: absolute;
 		width: 100%;
 		height: 100%;
