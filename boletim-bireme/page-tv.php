@@ -1,19 +1,19 @@
 <?php
 /*	Template Name: TV*/
 ?>
-<meta http-equiv="refresh" content="800">
+<meta http-equiv="refresh" content="300">
 <?php wp_head(); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
 	#tvContainer{
-		width: 1260;
-		height: 710px;
+		width: 1900;
+		height: 940px;
 		margin: auto;
 		overflow: hidden;
 	}
 	#tvMain{
-		height:660px; 
+		height:850px; 
 		overflow:hidden;
 		position: relative;
 	}
@@ -22,14 +22,14 @@
 		margin-bottom: 10px;
 	}
 	#tvNews{
-		height:660px; 
+		height:860px; 
 		position: relative;
 		background: #075bba;
 		color: #fff;
 		padding: 0 10px;
 	}
 	#tvNewsNext{
-		height: 540px;
+		height: 780px;
 		padding: 10px;
 		overflow:hidden;
 	}
@@ -55,7 +55,7 @@
 	.carousel-caption{
 		width: 100%!important;
 		left: 0;
-		bottom: 0;
+		bottom: 0px;
 		right: 0;
 		background: linear-gradient(
 			to bottom,
@@ -63,19 +63,20 @@
 			rgba(7, 91, 186, .6) 20%,
 			rgba(7, 91, 186, 1) 100%
 		);
-		height: 150px;
+
 		text-align: left;
 	}
 	.carousel-caption h5{
-		font-size: 3rem;
-		padding-left: 50px;
+		font-size: 3.5rem;
+		padding: 0 50px;
 		text-shadow: 2px 2px 2px #000;
 		font-weight: bold;
 	}
 	.carousel-caption p{
-		font-size: 1.5rem;
-		padding-left: 50px;
+		font-size: 2.5rem;
+		padding: 0 50px;
 		text-shadow: 2px 2px 2px #000;
+		margin-bottom: 100px;
 	}
 	#tvFooterHora{
 		text-align: center;
@@ -107,7 +108,7 @@
 <div id="tvContainer">
 	<div class="row" style="position: relative">
 		<div id="tvTitle">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv.png" alt="" class="img-fluid"> 
+			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv.jpg" alt="" class="img-fluid"> 
 			<span class="float-right">
 				<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
 			</span>
