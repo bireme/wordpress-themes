@@ -88,7 +88,6 @@
 		margin-right: 5px;
 	}
 	#teste{
-		display: none;
 		position: absolute;
 		width: 100%;
 		height: 100%;
