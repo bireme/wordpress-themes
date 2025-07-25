@@ -1,11 +1,15 @@
 <?php
 /*	Template Name: TV*/
 ?>
-<meta http-equiv="refresh" content="300">
+<meta http-equiv="refresh" content="4000">
 <?php wp_head(); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
 	#tvContainer{
 		width: 1900;
 		height: 1080px;
@@ -16,7 +20,6 @@
 		height:980px; 
 		overflow:hidden;
 		position: relative;
-		background: red;
 	}
 	#tvTitle{
 		height: 100px;
@@ -30,9 +33,10 @@
 		padding: 0 10px;
 	}
 	#tvNewsNext{
-		height: 920px;
+		height: 910px;
 		padding: 10px;
 		overflow:hidden;
+		box-sizing: border-box;
 	}
 	#tvNewsNext h2{
 		font-size: 30px; /*font-size: 60px;*/
@@ -44,7 +48,7 @@
 		margin: auto;
 		padding: 12px 0;
 		border-bottom: 1px solid #19bfff;
-		font-size: 20px;
+		font-size: 2.5rem;
 		margin-bottom: 10px;
 	}
 	.tvNewsLoop:nth-last-child(1){
@@ -64,24 +68,23 @@
 			rgba(7, 91, 186, .6) 20%,
 			rgba(7, 91, 186, 1) 100%
 		);
-
 		text-align: left;
 	}
 	.carousel-caption h5{
-		font-size: 3.5rem;
+		font-size: 5rem;
 		padding: 0 50px;
 		text-shadow: 2px 2px 2px #000;
 		font-weight: bold;
 	}
 	.carousel-caption p{
-		font-size: 2.5rem;
+		font-size: 3rem;
 		padding: 0 50px;
 		text-shadow: 2px 2px 2px #000;
 		margin-bottom: 100px;
 	}
 	#tvFooterHora{
 		text-align: center;
-		font-size: 2.5rem;
+		font-size: 3rem;
 		background: #19bfff;
 		font-weight: bold;
 		border-radius:20px;
