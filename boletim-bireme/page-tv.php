@@ -1,7 +1,7 @@
 <?php
 /*	Template Name: TV*/
 ?>
-<meta http-equiv="refresh" content="3600">
+<meta http-equiv="refresh" content="800">
 <?php wp_head(); ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -85,9 +85,25 @@
 		border-radius:20px;
 		margin-right: 5px;
 	}
+	#teste{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 11111;
+		display: flex;
+      	justify-content: center;
+      	align-items: center;
+		font-size: 20rem;
+		font-weight: bold;
+		opacity: .8;
+		color: #fff;
+	}
+	#teste div{
+		rotate: -25deg;
+	}
 </style>
 
-
+<div id="teste"><div>TESTE</div></div>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
 		<div id="tvTitle">
