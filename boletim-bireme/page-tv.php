@@ -17,7 +17,7 @@
 		overflow: hidden;
 	}
 	#tvMain{
-		height:980px; 
+		height:970px; 
 		overflow:hidden;
 		position: relative;
 	}
