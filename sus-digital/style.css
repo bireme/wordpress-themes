@@ -1,0 +1,11 @@
+/*
+ Theme Name: SUS Digital
+ Theme URI: https://susdigital.org.br
+ Description: Tema SUS Digital é um tema filho do Twenty Twenty-Five
+ Author: OPAS / BIREME
+ Template: twentytwentyfive
+ Version: 1.0
+*/
+
+/* Importa o CSS do tema pai */
+@import url("../twentytwentyfive/style.css");
