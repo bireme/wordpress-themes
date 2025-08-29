@@ -25,3 +25,22 @@ function action_init()
 {
     register_nav_menu('main-nav', 'Main Menu (top)');
 }
+// shows the menus in the REST API
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'menus/v1', '/(?P<location>[a-zA-Z0-9_-]+)', array(
+        'methods'  => 'GET',
+        'callback' => 'get_menu_by_location',
+    ));
+});
+ 
+function get_menu_by_location( $request ) {
+    $location = $request['location'];
+    $locations = get_nav_menu_locations();
+ 
+    if ( ! isset( $locations[$location] ) ) {
+        return new WP_Error( 'no_menu', 'No menu registered at this location', array( 'status' => 404 ) );
+    }
+ 
+    $menu = wp_get_nav_menu_items( $locations[$location] );
+    return rest_ensure_response( $menu );
+}
