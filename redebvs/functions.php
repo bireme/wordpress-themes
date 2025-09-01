@@ -96,4 +96,31 @@ function portal_breadcrumb() { ?>
 		</div>
 <?php }
 
+
+// Hotjar no tema filho (insere dentro de <head> via wp_head)
+function redbvs_add_hotjar_tag() {
+  // Evita carregar no admin e, se quiser, para administradores logados
+  if ( is_admin() ) return;
+  if ( current_user_can('manage_options') ) return;
+
+  // OPCIONAL: desabilitar em ambiente de desenvolvimento
+  // if ( defined('WP_ENV') && WP_ENV !== 'production' ) return;
+
+  ?>
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid: SEU_ID_AQUI, hjsv: 6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  <?php
+}
+add_action('wp_head', 'redbvs_add_hotjar_tag', 20);
+
+
 ?>
