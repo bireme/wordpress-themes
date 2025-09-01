@@ -44,6 +44,17 @@ $suffix = ( !defined( 'POLYLANG_VERSION' ) ) ? '_' . $current_language : '';
         <link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/inc/css/feedback.css" rel="stylesheet">
 		<!-- CSS do Tema -->
 		<link href="<?php echo get_bloginfo( 'stylesheet_directory' );?>/style.css" rel="stylesheet">
+		<!-- Hotjar Tracking Code for LILACS -->
+		<script>
+		    (function(h,o,t,j,a,r){
+		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+		        h._hjSettings={hjid:6506797,hjsv:6};
+		        a=o.getElementsByTagName('head')[0];
+		        r=o.createElement('script');r.async=1;
+		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+		        a.appendChild(r);
+		    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
 	</head>
 	<body <?php body_class('bg-white site_'.$site_lang); ?>>
     <?php get_template_part (  'topAccessibility'); ?>
