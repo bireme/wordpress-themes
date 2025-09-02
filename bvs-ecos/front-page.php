@@ -187,7 +187,8 @@ $lang = get_current_language();
         $new_query = new WP_Query( array(
             'posts_per_page' => 3,
             'post_type'      => 'post',
-            'paged'          => 1
+            'paged'          => 1,
+            'category_name'  => 'noticias',
         ) );
                 
         while( $new_query->have_posts() ){
