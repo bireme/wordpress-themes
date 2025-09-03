@@ -204,31 +204,42 @@
 	}
 });
 
-// Troca URL em loop: pt -> en -> es -> pt
-const DELAY = 300000;
-const LANGS = [
-  { code: "pt", suffix: "-br" },
-  { code: "en", suffix: "-en" },
-  { code: "es", suffix: "-es" },
-];
+// Troca URL em loop: es (/tv) -> pt (/pt/tv-es) -> en (/en/tv-en) -> es...
+const DELAY = 300000; // 10 min
 
 setTimeout(() => {
   const { origin, pathname, search, hash } = location;
-  const m = pathname.match(/^(.*?)(?:\/(pt|en|es))?\/([^/]+)\/?$/);
+
+  // casa: [base][/pt|/en]/[slug]
+  const m = pathname.match(/^(.*?)(?:\/(pt|en))?\/([^/]+)\/?$/);
   if (!m) return;
+
   const base = m[1].endsWith("/") ? m[1] : m[1] + "/";
-  const lang = m[2] || null; // pode não existir
+  const lang = m[2] || null;         // null => es
   const slug = m[3];
-  const suffixAlt = LANGS.map(l => l.suffix.replace("-", "\\-")).join("|");
-  const baseSlug = slug.replace(new RegExp(`(?:${suffixAlt})$`), "");
-  const currentIdx = lang
-    ? LANGS.findIndex(l => l.code === lang)
-    : -1;
-  const nextIdx = currentIdx === -1 ? 0 : (currentIdx + 1) % LANGS.length;
-  const next = LANGS[nextIdx];
-  const target = `${base}${next.code}/${baseSlug}${next.suffix}/`;
-  location.href = origin + target + search + hash;
+
+  // remove sufixos conhecidos (-es, -en) para obter o "baseSlug"
+  const baseSlug = slug.replace(/(?:-es|-en)$/i, "");
+
+  // ordem do ciclo: es (root) -> pt -> en -> es...
+  const currentIdx = lang === "pt" ? 1 : lang === "en" ? 2 : 0;
+  const nextIdx = (currentIdx + 1) % 3;
+
+  let targetPath;
+  if (nextIdx === 0) {
+    // es: sem segmento e sem sufixo
+    targetPath = `${base}${baseSlug}`;
+  } else if (nextIdx === 1) {
+    // pt: /pt/<slug>-es
+    targetPath = `${base}pt/${baseSlug}-es`;
+  } else {
+    // en: /en/<slug>-en
+    targetPath = `${base}en/${baseSlug}-en`;
+  }
+
+  location.href = origin + targetPath + search + hash;
 }, DELAY);
+
 
  
 </script>
