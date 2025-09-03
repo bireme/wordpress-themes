@@ -205,7 +205,7 @@
 });
 
 // Troca URL em loop: pt -> en -> es -> pt
-const DELAY = 600000;
+const DELAY = 300000;
 const LANGS = [
   { code: "pt", suffix: "-br" },
   { code: "en", suffix: "-en" },
