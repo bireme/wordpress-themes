@@ -204,24 +204,32 @@
 	}
 });
 
-// Troca URL
-  const DELAY = 500000, L1="pt", L2="en", S1="-br", S2="-en";
-  setTimeout(()=> {
-    const {origin, pathname, search, hash} = location;
-    const m = pathname.match(/^(.*?)(?:\/(pt|en))?\/([^/]+)\/?$/);
-    if (!m) return;
-    const base = m[1].endsWith("/") ? m[1] : m[1]+"/";
-    const lang = m[2], slug = m[3];
-    const baseSlug = slug.replace(new RegExp(S1+"$"),"").replace(new RegExp(S2+"$"),"");
-    let target = null;
+// Troca URL em loop: pt -> en -> es -> pt
+const DELAY = 600000;
+const LANGS = [
+  { code: "pt", suffix: "-br" },
+  { code: "en", suffix: "-en" },
+  { code: "es", suffix: "-es" },
+];
 
-    if (!lang)                      target = `${base}${L1}/${baseSlug}${S1}/`;
-    else if (lang === L1)           target = `${base}${L2}/${baseSlug}${S2}/`;
-    else if (lang === L2 && !slug.endsWith(S2))
-                                   target = `${base}${L2}/${baseSlug}${S2}/`;
+setTimeout(() => {
+  const { origin, pathname, search, hash } = location;
+  const m = pathname.match(/^(.*?)(?:\/(pt|en|es))?\/([^/]+)\/?$/);
+  if (!m) return;
+  const base = m[1].endsWith("/") ? m[1] : m[1] + "/";
+  const lang = m[2] || null; // pode não existir
+  const slug = m[3];
+  const suffixAlt = LANGS.map(l => l.suffix.replace("-", "\\-")).join("|");
+  const baseSlug = slug.replace(new RegExp(`(?:${suffixAlt})$`), "");
+  const currentIdx = lang
+    ? LANGS.findIndex(l => l.code === lang)
+    : -1;
+  const nextIdx = currentIdx === -1 ? 0 : (currentIdx + 1) % LANGS.length;
+  const next = LANGS[nextIdx];
+  const target = `${base}${next.code}/${baseSlug}${next.suffix}/`;
+  location.href = origin + target + search + hash;
+}, DELAY);
 
-    if (target) location.href = origin + target + search + hash;
-  }, DELAY);
  
 </script>
 <?php wp_footer(); ?>
