@@ -26,7 +26,7 @@
 		margin-bottom: 10px;
 	}
 	#tvNews{
-		height:980px; 
+		height:967px; 
 		position: relative;
 		background: #075bba;
 		color: #fff;
@@ -39,15 +39,17 @@
 		box-sizing: border-box;
 	}
 	#tvNewsNext h2{
-		font-size: 30px; /*font-size: 60px;*/
-		padding-bottom: 7px; /* padding-bottom: 20px;*/
-		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
+		font-size: 3.5rem;
+		padding-bottom: 7px; 
+		border-bottom: 3px solid #fff;
+		font-weight: bold;
+		text-align: center;
 	}
 	.tvNewsLoop{
 		width: 100%;
 		margin: auto;
 		padding: 12px 0;
-		border-bottom: 1px solid #19bfff;
+		border-bottom: 1px solid #fff;
 		font-size: 2.5rem;
 		margin-bottom: 10px;
 	}
@@ -107,15 +109,12 @@
 		rotate: -25deg;
 	}
 </style>
-
+<?php $lang = pll_current_language(); ?>
 <div id="teste"><div>TESTE</div></div>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
 		<div id="tvTitle">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv.jpg" alt="" class="img-fluid"> 
-			<span class="float-right">
-				<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
-			</span>
+			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv-<?php echo $lang; ?>.jpg" alt="" class="img-fluid"> 
 		</div>
 		<div class="col-9" id="tvMain">
 
@@ -126,7 +125,7 @@
 					$posts = new WP_Query([
 						'post_type' => 'post',
 						'posts_per_page' => '-1',
-						'lang' => 'all'
+						'lang' => $lang
 					]);
 					while($posts->have_posts()) : $posts->the_post();
 						$image_tv = get_field('image_tv'); 
@@ -151,12 +150,12 @@
 		</div>
 		<div class="col-3" id="tvNews">
 			<div id="tvNewsNext">
-				<h2>Próximas Notícias</h2>
+				<h2><?php pll_e('Upcoming News'); ?></h2>
 				<?php 
 				$posts = new WP_Query([
 					'post_type' => 'post',
 					'posts_per_page' => '-1',
-					'lang' => 'all'
+					'lang' => $lang
 				]);
 				$i = 0;
 				while($posts->have_posts()) : $posts->the_post();
@@ -204,5 +203,25 @@
 		}
 	}
 });
+
+// Troca URL
+  const DELAY = 500000, L1="pt", L2="en", S1="-br", S2="-en";
+  setTimeout(()=> {
+    const {origin, pathname, search, hash} = location;
+    const m = pathname.match(/^(.*?)(?:\/(pt|en))?\/([^/]+)\/?$/);
+    if (!m) return;
+    const base = m[1].endsWith("/") ? m[1] : m[1]+"/";
+    const lang = m[2], slug = m[3];
+    const baseSlug = slug.replace(new RegExp(S1+"$"),"").replace(new RegExp(S2+"$"),"");
+    let target = null;
+
+    if (!lang)                      target = `${base}${L1}/${baseSlug}${S1}/`;
+    else if (lang === L1)           target = `${base}${L2}/${baseSlug}${S2}/`;
+    else if (lang === L2 && !slug.endsWith(S2))
+                                   target = `${base}${L2}/${baseSlug}${S2}/`;
+
+    if (target) location.href = origin + target + search + hash;
+  }, DELAY);
+ 
 </script>
 <?php wp_footer(); ?>
