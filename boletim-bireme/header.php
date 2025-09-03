@@ -13,7 +13,18 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	
+	<!-- Open Graph -->
+	<meta property="og:title" content="<?php the_title(); ?>" />
+	<meta property="og:description" content="<?php the_excerpt(); ?>" />
+	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-share.jpg" />
+	<meta property="og:url" content="https://boletin.bireme.org/" />
+	<meta property="og:type" content="website" />
+
+	<!-- Twitter Cards (opcional, mas recomendado) -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="<?php the_title(); ?>" />
+	<meta name="twitter:description" content="<?php the_excerpt(); ?>" />
+	<meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-share.jpg" />
 
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
