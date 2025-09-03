@@ -430,3 +430,7 @@ add_filter( 'post_class', 'themes_remove_hentry' );
 
 //Add new size thumbnail
 add_image_size('tv',1440,980,true);
+//Polylang
+add_action('init', function() {
+    pll_register_string('News', 'Upcoming News', 'Defaults'); 
+});
