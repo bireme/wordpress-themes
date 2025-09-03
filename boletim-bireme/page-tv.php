@@ -204,8 +204,8 @@
 	}
 });
 
-// Troca URL em loop: es (/tv) -> pt (/pt/tv-es) -> en (/en/tv-en) -> es...
-const DELAY = 300000; // 10 min
+// Troca URL em loop: /tv -> /pt/tv-pt -> /en/tv-en -> /tv...
+const DELAY = 600000; // 10 min
 
 setTimeout(() => {
   const { origin, pathname, search, hash } = location;
@@ -215,30 +215,32 @@ setTimeout(() => {
   if (!m) return;
 
   const base = m[1].endsWith("/") ? m[1] : m[1] + "/";
-  const lang = m[2] || null;         // null => es
+  const lang = m[2] || null;         // null => es (/tv)
   const slug = m[3];
 
-  // remove sufixos conhecidos (-es, -en) para obter o "baseSlug"
-  const baseSlug = slug.replace(/(?:-es|-en)$/i, "");
+  // remove sufixos conhecidos (-pt, -en) para obter o "baseSlug"
+  const baseSlug = slug.replace(/(?:-pt|-en)$/i, "");
 
-  // ordem do ciclo: es (root) -> pt -> en -> es...
+  // ordem do ciclo: es (/tv) -> pt (/pt/tv-pt) -> en (/en/tv-en) -> es (/tv)
   const currentIdx = lang === "pt" ? 1 : lang === "en" ? 2 : 0;
   const nextIdx = (currentIdx + 1) % 3;
 
   let targetPath;
   if (nextIdx === 0) {
-    // es: sem segmento e sem sufixo
+    // es: apenas /tv
     targetPath = `${base}${baseSlug}`;
   } else if (nextIdx === 1) {
-    // pt: /pt/<slug>-es
-    targetPath = `${base}pt/${baseSlug}-es`;
+    // pt: /pt/tv-pt
+    targetPath = `${base}pt/${baseSlug}-pt`;
   } else {
-    // en: /en/<slug>-en
+    // en: /en/tv-en
     targetPath = `${base}en/${baseSlug}-en`;
   }
 
   location.href = origin + targetPath + search + hash;
 }, DELAY);
+
+
 
 
  
