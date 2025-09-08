@@ -5,7 +5,7 @@ add_action( 'wp_enqueue_scripts', function() {
         get_template_directory_uri() . '/style.css'
     );
 });
-
+ 
 if ( function_exists('get_field') ) {
     add_action('rest_api_init', function () {
       register_rest_route('acf/v3', '/options', [
@@ -14,7 +14,7 @@ if ( function_exists('get_field') ) {
         'permission_callback' => '__return_true',
     ]);
   });
-
+ 
     function get_acf_options() {
       return get_fields('option');
   }
@@ -25,14 +25,43 @@ function action_init()
 {
     register_nav_menu('main-nav', 'Main Menu (top)');
 }
-// shows the menus in the REST API
+ 
+ 
+/**
+* Expose WordPress menus in REST API with nested structure.
+* Drop into functions.php or a custom plugin.
+*/
+ 
 add_action( 'rest_api_init', function () {
+    register_rest_route( 'menus/v1', '/all', array(
+        'methods'  => 'GET',
+        'callback' => 'get_all_menus',
+    ));
+ 
     register_rest_route( 'menus/v1', '/(?P<location>[a-zA-Z0-9_-]+)', array(
         'methods'  => 'GET',
         'callback' => 'get_menu_by_location',
     ));
 });
  
+/**
+* Return all menus with nested items
+*/
+function get_all_menus() {
+    $locations = get_nav_menu_locations();
+    $menus = [];
+ 
+    foreach ( $locations as $location => $menu_id ) {
+        $menu_items = wp_get_nav_menu_items( $menu_id );
+        $menus[$location] = build_menu_tree( $menu_items );
+    }
+ 
+    return rest_ensure_response( $menus );
+}
+ 
+/**
+* Return single menu by location
+*/
 function get_menu_by_location( $request ) {
     $location = $request['location'];
     $locations = get_nav_menu_locations();
@@ -41,6 +70,36 @@ function get_menu_by_location( $request ) {
         return new WP_Error( 'no_menu', 'No menu registered at this location', array( 'status' => 404 ) );
     }
  
-    $menu = wp_get_nav_menu_items( $locations[$location] );
-    return rest_ensure_response( $menu );
+    $menu_items = wp_get_nav_menu_items( $locations[$location] );
+    return rest_ensure_response( build_menu_tree( $menu_items ) );
+}
+ 
+/**
+* Build hierarchical tree from flat menu items
+*/
+function build_menu_tree( $menu_items ) {
+    $tree = [];
+    $lookup = [];
+ 
+    // Index by ID
+    foreach ( $menu_items as $item ) {
+        $lookup[$item->ID] = [
+            'id'     => $item->ID,
+            'title'  => $item->title,
+            'url'    => $item->url,
+            'parent' => $item->menu_item_parent,
+            'children' => []
+        ];
+    }
+ 
+    // Build hierarchy
+    foreach ( $lookup as $id => &$node ) {
+        if ( $node['parent'] && isset( $lookup[$node['parent']] ) ) {
+            $lookup[$node['parent']]['children'][] =& $node;
+        } else {
+            $tree[] =& $node;
+        }
+    }
+ 
+    return $tree;
 }
