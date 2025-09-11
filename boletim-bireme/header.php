@@ -24,7 +24,7 @@
 	<!-- Twitter  -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="<?php the_title(); ?>" />
-	<meta name="twitter:description" content="<?php the_excerpt(); ?>" />
+	<meta name="twitter:description" content="<?php echo esc_attr( get_the_excerpt() ); ?>" />
 	<meta name="twitter:image" content="<?php bloginfo('template_directory'); ?>/assets/images/thumb-share.jpg" />
 
 
