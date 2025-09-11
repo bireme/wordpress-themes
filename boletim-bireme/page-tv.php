@@ -94,24 +94,6 @@
 		margin-right: 5px;
 		position: relative;
 	}
-	#teste{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		z-index: 11111;
-		display: flex;
-      	justify-content: center;
-      	align-items: center;
-		font-size: 20rem;
-		font-weight: bold;
-		opacity: .8;
-		color: #fff;
-	}
-	#teste div{
-		rotate: -25deg;
-		text-shadow: 5px 5px 20px #000;
-		z-index: 9999;
-	}
 	#qrcode{
 		float: left;
 		position: absolute;
@@ -123,7 +105,6 @@
 	}
 </style>
 <?php $lang = pll_current_language(); ?>
-<div id="teste"><div>TESTE</div></div>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
 		<div id="tvTitle">
