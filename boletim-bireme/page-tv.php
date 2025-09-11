@@ -33,10 +33,11 @@
 		padding: 0 10px;
 	}
 	#tvNewsNext{
-		height: 910px;
+		height: 820px;
 		padding: 10px;
 		overflow:hidden;
 		box-sizing: border-box;
+		margin-bottom: 80px;
 	}
 	#tvNewsNext h2{
 		font-size: 3.5rem;
@@ -91,6 +92,7 @@
 		font-weight: bold;
 		border-radius:20px;
 		margin-right: 5px;
+		position: relative;
 	}
 	#teste{
 		position: absolute;
@@ -107,6 +109,17 @@
 	}
 	#teste div{
 		rotate: -25deg;
+		text-shadow: 5px 5px 20px #000;
+		z-index: 9999;
+	}
+	#qrcode{
+		float: left;
+		position: absolute;
+		bottom: 22px;
+		z-index: 10;
+	}
+	#qrcode img{
+		width: 120px;
 	}
 </style>
 <?php $lang = pll_current_language(); ?>
@@ -172,6 +185,9 @@
 			</div>
 
 			<div id="tvFooter">
+				<div id="qrcode">
+					<img src="<?php bloginfo('template_directory'); ?>/assets/images/qrcode.svg" alt="" class="img-fluid">
+				</div>
 				<div id="tvFooterHora"></div>
 			</div>
 		</div>
@@ -239,7 +255,6 @@ setTimeout(() => {
 
   location.href = origin + targetPath + search + hash;
 }, DELAY);
-
 
 
 
