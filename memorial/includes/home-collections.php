@@ -6,9 +6,9 @@
         <a href="#" class="card overlay-card big text-white h-100">
           <img src="<?php bloginfo('template_directory'); ?>/img/banner1.jpg" class="card-img" alt="Título">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
-            <p class="eyebrow mb-1">Título</p>
+            <p class="eyebrow mb-1">Fala Parente</p>
             <h5 class="mb-0">
-              Lorem ipsum dolor sit amet consectetur adipisicing, elit. Animi, ea sed porro temporibus hic.
+              Um relato de força em tempos de pandemia
             </h5>
           </div>
         </a>
