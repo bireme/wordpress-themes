@@ -107,7 +107,7 @@ function build_menu_tree( $menu_items ) {
             'title'        => $item->title,
             'url'          => $item->url,
             'parent'       => (int) $item->menu_item_parent,
-            'description'  => $description,                     // ✅ here it is
+            'description'  => $description,
             'target'       => isset($item->target) ? $item->target : '',
             'rel'          => isset($item->xfn) ? $item->xfn : '',
             'attr_title'   => isset($item->attr_title) ? $item->attr_title : '',
@@ -128,6 +128,6 @@ function build_menu_tree( $menu_items ) {
             $tree[] =& $node;
         }
     }
-    
+
     return $tree;
 }
