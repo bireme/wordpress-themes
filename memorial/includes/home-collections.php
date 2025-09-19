@@ -3,7 +3,7 @@
     <div class="row g-3 align-items-stretch">
       <!-- COLUNA ESQUERDA (card grande) -->
       <div class="col-lg-7">
-        <a href="#" class="card overlay-card big text-white h-100">
+        <a href="https://memorialpandemia.teste.bvs.br/tainacan/fala-parente/um-relato-de-forca-em-tempos-de-pandemia/" class="card overlay-card big text-white h-100">
           <img src="<?php bloginfo('template_directory'); ?>/img/banner1.jpg" class="card-img" alt="Título">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
             <p class="eyebrow mb-1">Fala Parente</p>
