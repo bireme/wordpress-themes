@@ -1,0 +1,201 @@
+/**/
+h1, h2, h3, h4, h5, h6{
+	font-family: "Roboto", sans-serif;;
+}
+.title{
+	font-weight: bold;
+}
+#hero{
+	padding-top: 20px;
+	padding-bottom: 80px;
+	background: #1E3A5F;
+	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
+}
+#header{
+	padding: 20px 0;
+	background: #1E3A5F;
+	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
+}
+#nav{
+	margin-top: 24px;
+}
+/* bootstrap 
+#nav .navbar-nav>li>a{
+	color: #fff;
+	font-size: 1.5rem;
+	margin-top: 24px;
+	margin-left: 20px;
+}
+#nav .navbar-nav>li>a:hover{
+	color: #999;
+*/
+}
+.bg-body-tertiary{
+	background: none!important;
+}
+#hero-form{
+	color: #fff;
+	margin-top: 5rem;
+	width: 70%;
+}
+#footer{
+	padding: 50px;
+	background: #1E3A5F;
+	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
+	color: #fff;
+}
+#footer-brand{
+	width: 250px;
+}
+#footer a{
+	color: #fff;
+	text-decoration: none;
+}
+#footer a:hover{
+	color: #999;
+}
+.card{
+	margin: 0 20px 0 0 ;
+}
+.card-img-top{
+	border: 1px solid #ddd;
+}
+.card-body{
+	background: #f2f2f2;
+}
+.slick-dots li button:before{
+	font-size: 15px!important;
+}
+.home-products i{
+	font-size: 30px;
+	line-height: 0;
+}
+#profiles{
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(130, 83, 186, 0.20) 100%);
+	padding: 50px 0;
+}
+.profile-card {
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+.profile-card img {
+	transition: transform 0.4s ease;
+}
+.profile-card:hover img {
+	transform: scale(1.1);
+}
+.overlay-content {
+	background: linear-gradient(0deg,rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 0.19) 50%);
+	opacity: 1;
+	transition: opacity 0.4s ease;
+	text-align: center;
+	padding: 10px;
+}
+.profile-card:hover .overlay-content {
+	transition: all 0.5s ease;
+	background: linear-gradient(0deg,rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 0.19) 100%);
+	opacity: 1;
+}
+.slick-dots{
+	bottom: -40px!important;
+}
+#home-recent-documents .card{
+	border-radius: 8px;
+}
+#home-recent-documents .card-body{
+	background: linear-gradient(180deg, rgba(252, 252, 252, 1) 0%, rgba(194, 249, 195, 1) 100%);
+	height: 300px;
+	border-radius: 8px;
+}
+.home-products .card-body{
+	height: 200px;
+	position: relative;
+}
+.home-products .card-body a{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+#home-memeorial{
+	background: #f2f2f2;
+}
+#memorial{
+	background: #1E3A5F;
+	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
+	color: #fff;
+	border-radius: 16px;
+}
+#memorial-img{
+	border-radius: 16px 0 0 16px;
+	margin-left: -12px;
+	align-items-center
+}
+#memorial a{
+	color: #f2f2f2;
+	text-decoration: none;
+}
+#memorial a:hover{
+	color: #999;
+}
+
+
+#header-title{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin-bottom: 50px;
+	padding: 80px 0!important;
+	color: #fff;
+	background-color: #000;
+}
+/*breadcrumb*/
+.breadcrumb span{
+	margin: 0 5px
+}
+.breadcrumb span:first-child{
+	margin-left: 0px;
+}
+
+/* ---- estilos da seção ---- */
+#home-hero>.container{
+	margin-top:-80px ;
+	border-radius: 16px;
+	background: #e5e5e5;
+	box-shadow: 0px 10px 10px #ddd;
+	padding: 20px 0px 20px 20px;
+}
+.colecoes .overlay-card{
+	border: 0;
+	overflow: hidden;
+	min-height: 240px;  
+	padding:;               /* altura base (mobile) */
+}
+.colecoes .overlay-card.big{         /* card grande à esquerda */
+	min-height: 520px;
+}
+.colecoes .overlay-card .card-img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;                  /* cobre o card inteiro */
+	transform: scale(1.02);
+}
+.colecoes .overlay-card .card-img-overlay{
+	background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%);
+}
+.colecoes .eyebrow{
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+.card-img-overlay{
+
+	padding: 30px;
+}
+#home-hero a:hover{
+	filter:brightness(1.2);
+}
+/* melhora as proporções em telas grandes */
+@media (min-width: 992px){
+	.colecoes .overlay-card{ min-height: 250px; }
+	.colecoes .overlay-card.big{ min-height: 540px; }
+}
