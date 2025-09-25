@@ -162,7 +162,6 @@ h1, h2, h3, h4, h5, h6{
 	margin-top:-80px ;
 	border-radius: 16px;
 	background: #e5e5e5;
-	box-shadow: 0px 10px 10px #ddd;
 	padding: 20px 0px 20px 20px;
 }
 .colecoes .overlay-card{
@@ -198,4 +197,23 @@ h1, h2, h3, h4, h5, h6{
 @media (min-width: 992px){
 	.colecoes .overlay-card{ min-height: 250px; }
 	.colecoes .overlay-card.big{ min-height: 540px; }
+}
+
+/*bootstrap*/
+/* Botões primários padrão do WordPress */
+.wp-block-button__link,
+.btn,
+a.button,
+a.btn {
+  background-color: #1E3A5F !important;
+  border-color: #1E3A5F !important;
+  color: #ffffff !important;
+}
+
+/* Efeito ao passar o mouse */
+.wp-block-button__link:hover,
+.btn:hover,
+a.btn:hover {
+  background-color: #162C47 !important; /* tom mais escuro */
+  border-color: #162C47 !important;
 }

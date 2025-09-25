@@ -6,9 +6,8 @@
 			</div>
 			<div class="col-md-6 d-flex flex-column justify-content-center">
 				<h2 class="title">O Memorial</h2>
-				<p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Alias expedita iste debitis suscipit accusamus, nobis, repellat itaque id delectus rerum velit obcaecati explicabo voluptatem? Ullam doloremque nam inventore dicta perferendis!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Delectus placeat mollitia dolor nemo aut, odio suscipit eius labore dicta eaque quidem quibusdam dolore repellendus fugit voluptatem similique eligendi minus iusto?</p>
-				<a href=""><b>Clique aqui e conheça mais sobre o museu </b></a>
+				<p>O Memorial Digital da Pandemia de Covid-19 é uma iniciativa do Centro Cultural do Ministério da Saúde (CCMS) para preservar e dar acesso às memórias da pandemia no Brasil. Desde 11 de março de 2020, quando a Organização Mundial da Saúde decretou estado de pandemia por conta da propagação do Novo Coronavírus, pessoas em todo o mundo começaram a registrar as suas experiências de vida durante esse evento tão assustador e incerto. No Brasil não foi diferente: cidadãs e cidadãos brasileiros vêm registrando continuamente as suas memórias da pandemia. Preservar esses registros é fazer justiça a todas e todos que sofreram durante esse evento, dando continuidade à luta de muitas pessoas para que se construa uma memória e uma história da pandemia no Brasil baseada na ética, no respeito e na cidadania.  <br><br>
+				<a href="https://memorialpandemia.teste.bvs.br/o-memorial/"><b>Clique aqui e conheça mais sobre o museu </b></a>
 			</div>
 		</div>
 	</div>
