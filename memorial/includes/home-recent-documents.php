@@ -1,7 +1,7 @@
 <section id="home-recent-documents" class="pt-5 pb-5">
 	<div class="container">
-		<h2 class="title text-center">Documentos Recentes</h2>
-		<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis fugit voluptatibus aliquid corrupti maiores corporis velit est, nulla dolore harum, labore doloremque consequatur perspiciatis, vitae dolorem! Odit modi, veritatis unde?</p>
+		<h2 class="title text-center">Acervo em Destaque</h2>
+		<p class="text-center">Acesse conteúdos cuidadosamente organizados e disponibilizados em diferentes formatos, que vão desde relatórios e artigos até materiais visuais, todos acompanhados de um resumo explicativo e objetivo para tornar sua leitura muito mais simples, ágil e acessível.</p>
 
 		<div class="home-products mt-5">
 		<div class="card">
