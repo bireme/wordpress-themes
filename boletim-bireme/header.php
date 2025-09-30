@@ -9,13 +9,32 @@
  */
 ?><!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
+<?php $lang = pll_current_language(); ?>
+<?php 
+switch ( $lang ) {
+	case 'pt':
+		$msgTitle = 'Veja o último boletim BIREME';
+		$msgDescription ="A BIREME/OPAS/OMS conta com o Boletim BIREME como canal de comunicação para os seus usuários.";
+		break;
+	case 'es':
+		$msgTitle = 'La BIREME/OPS/OMS cuenta con el Boletín BIREME como canal de comunicación para sus usuarios.';
+		$msgDescription ="";
+		break;
+	case 'en':
+	default:
+		$msgTitle = 'BIREME/PAHO/WHO has the BIREME Bulletin as a communication channel for its users.';
+		$msgDescription ="";
+		break;
+}
+?>
+
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- Open Graph -->
-	<meta property="og:title" content="<?php the_title(); ?>" />
-	<meta property="og:description" content="<?php echo esc_attr( get_the_excerpt() ); ?>" />
+	<meta property="og:title" content="<?php echo esc_html( $msgTitle ); ?>" />
+	<meta property="og:description" content="<?php echo esc_html( $msgDescription ); ?>" />
 	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-share.jpg" />
 
 	<meta property="og:url" content="https://boletin.bireme.org/" />
@@ -23,8 +42,8 @@
 
 	<!-- Twitter  -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="<?php the_title(); ?>" />
-	<meta name="twitter:description" content="<?php echo esc_attr( get_the_excerpt() ); ?>" />
+	<meta name="twitter:title" content="<?php echo esc_html( $msgTitle ); ?>" />
+	<meta name="twitter:description" content="<?php echo esc_html( $msgDescription ); ?>" />
 	<meta name="twitter:image" content="<?php bloginfo('template_directory'); ?>/assets/images/thumb-share.jpg" />
 
 
