@@ -70,6 +70,13 @@ h1, h2, h3, h4, h5, h6{
 	font-size: 30px;
 	line-height: 0;
 }
+#home-products{
+	background: url("../img/back-bvs.jpg");
+	background-attachment: fixed;
+	background-size: 100%;
+	color: #fff;
+	padding: 80px 0;
+}
 #profiles{
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(130, 83, 186, 0.20) 100%);
 	padding: 50px 0;
@@ -216,4 +223,24 @@ a.btn {
 a.btn:hover {
   background-color: #162C47 !important; /* tom mais escuro */
   border-color: #162C47 !important;
+}
+
+@media (max-width: 992px){
+	#hero-form{
+		width: 100%;
+	}
+}
+
+#product-brand img{
+	border: 1px solid #ddd;
+	background: #f2f2f2;
+	width: 150px;
+	border-radius: 16px;
+	padding: 10px;
+	margin: 5px 5px 0 0;
+}
+#home-find small{
+	padding: 10px 0;
+	font-size: 14px;
+	text-align: center;
 }

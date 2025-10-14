@@ -39,8 +39,8 @@ jQuery('.home-profiles').slick({
   dots: true,
   infinite: false,
   speed: 300,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 2,
+  slidesToScroll: 2,
   responsive: [
     {
       breakpoint: 1024,
@@ -75,10 +75,6 @@ jQuery(function() {
     e.preventDefault();
 
     let termo = jQuery("#termoBusca").val().trim();
-    if (!termo) {
-      alert("Digite um termo de busca.");
-      return;
-    }
 
     let tipo = jQuery("input[name='inlineRadioOptions']:checked").val();
     let url = "";
