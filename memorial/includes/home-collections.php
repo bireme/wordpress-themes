@@ -3,7 +3,7 @@
     <div class="row g-3 align-items-stretch">
       <!-- COLUNA ESQUERDA (card grande) -->
       <div class="col-lg-7">
-        <a href="https://memorialpandemia.teste.bvs.br/tainacan/fala-parente/" class="card overlay-card big text-white h-100">
+        <a href="https://memorialpandemia.teste.bvs.br/colecoes/fala-parente/" class="card overlay-card big text-white h-100">
           <img src="<?php bloginfo('template_directory'); ?>/img/banner1.jpg" class="card-img" alt="Título">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
             <p class="eyebrow mb-1">Fala Parente</p>
@@ -16,7 +16,7 @@
 
       <!-- COLUNA DIREITA (dois cards) -->
       <div class="col-lg-5 d-flex flex-column gap-3">
-        <a href="https://memorialpandemia.teste.bvs.br/tainacan/fala-parente/" class="card overlay-card text-white flex-fill">
+        <a href="https://memorialpandemia.teste.bvs.br/colecoes/cartografia-das-memorias/" class="card overlay-card text-white flex-fill">
           <img src="<?php bloginfo('template_directory'); ?>/img/banner2.jpg" class="card-img" alt="Título 1">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
             <p class="eyebrow mb-1">Cartografia das memórias</p>
@@ -26,7 +26,7 @@
           </div>
         </a>
 
-        <a href="https://memorialpandemia.teste.bvs.br/tainacan/fala-parente/" class="card overlay-card text-white flex-fill">
+        <a href="https://memorialpandemia.teste.bvs.br/colecoes/diarios-de-emergencia-covid19/" class="card overlay-card text-white flex-fill">
           <img src="<?php bloginfo('template_directory'); ?>/img/banner3.jpg" class="card-img" alt="Título 2">
           <div class="card-img-overlay d-flex flex-column justify-content-end">
             <p class="eyebrow mb-1">Diários de emergência Covid19</p>
