@@ -26,15 +26,19 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 11v1a7 7 0 0 1-14 0v-1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 21v-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
 
-          <button type="submit" class="lilacs-search__btn" aria-label="Buscar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
+           <button type="submit" class="lilacs-search__btn" aria-label="Buscar">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lupa.png" alt="Ícone de lupa para busca">
+           </button>
         </div>
 
         <div class="lilacs-search__actions">
-          <a href="#busca-avancada" class="btn-pill">Busca avançada</a>
-          <a href="#decs" class="btn-pill">Busca com DeCS / MeSH</a>
+            <div class="lilacs-search_cts">
+                <a href="#busca-avancada" class="btn-pill">Busca avançada</a>
+                <a href="#decs" class="btn-pill">Busca com DeCS / MeSH</a>
+            </div>
+             <div class="lilacs-help">
           <a href="#como-pesquisar" class="btn-pill">Como pesquisar</a>
+</div>
         </div>
       </form>
     </div>
