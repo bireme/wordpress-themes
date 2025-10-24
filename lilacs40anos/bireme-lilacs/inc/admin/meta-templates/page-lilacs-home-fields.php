@@ -246,18 +246,19 @@ if (!is_array($dep_items)) $dep_items = [];
     ?>
 
     <div class="bireme-tabs">
-      <div class="bireme-tabs__nav">
-        <a href="#bireme-tab-1" class="is-active">Dobra 1 — Banner</a>
-        <a href="#bireme-tab-2">Dobra 2 — CTA</a>
-        <a href="#bireme-tab-3">Dobra 3 — Extras</a>
-        <a href="#bireme-tab-4">Dobra 4 — Acessos rápidos</a>
-        <a href="#bireme-tab-5">Dobra 5 — Revistas indexadas</a>
-        <a href="#bireme-tab-6">Dobra 6 — Banner (slides)</a>
-        <a href="#bireme-tab-7">Dobra 7 — Publicações recentes</a>
-        <a href="#bireme-tab-8">Dobra 8 — Dados e indicadores</a>
-        <a href="#bireme-tab-9">Dobra 9 — Depoimentos</a>
+<div class="bireme-tabs__nav">
+  <a href="#bireme-tab-1" class="is-active">Dobra 1 — Banner</a>
+  <a href="#bireme-tab-2rx">Dobra 2 — Raio-X da LILACS</a>
+  <a href="#bireme-tab-2">Dobra 3 — CTA</a>
+  <a href="#bireme-tab-3">Dobra 4 — Extras</a>
+  <a href="#bireme-tab-4">Dobra 5 — Acessos rápidos</a>
+  <a href="#bireme-tab-5">Dobra 6 — Revistas indexadas</a>
+  <a href="#bireme-tab-6">Dobra 7 — Banner (slides)</a>
+  <a href="#bireme-tab-7">Dobra 8 — Publicações recentes</a>
+  <a href="#bireme-tab-8">Dobra 9 — Dados e indicadores</a>
+  <a href="#bireme-tab-9">Dobra 10 — Depoimentos</a>
+</div>
 
-      </div>
 
      <!-- Dobra 1 — Banner -->
 <div class="bireme-tab is-active" id="bireme-tab-1">
@@ -284,6 +285,144 @@ if (!is_array($dep_items)) $dep_items = [];
     </div>
   </div>
 </div>
+
+<!-- Dobra 2 — Raio-X da LILACS -->
+<div class="bireme-tab" id="bireme-tab-2rx">
+  <?php
+  // Metas atuais
+  $rx_title   = get_post_meta($post->ID, '_bireme_rx_title', true);
+  $rx_left_h  = get_post_meta($post->ID, '_bireme_rx_left_title', true);
+  $rx_left_p  = get_post_meta($post->ID, '_bireme_rx_left_text',  true);
+  $rx_mid_num = get_post_meta($post->ID, '_bireme_rx_center_number', true);
+  $rx_mid_lab = get_post_meta($post->ID, '_bireme_rx_center_label',  true);
+  $rx_right_h = get_post_meta($post->ID, '_bireme_rx_right_title', true);
+  $rx_right_p = get_post_meta($post->ID, '_bireme_rx_right_text',  true);
+
+  $rx_chart1  = get_post_meta($post->ID, '_bireme_rx_chart1', true);
+  $rx_chart2  = get_post_meta($post->ID, '_bireme_rx_chart2', true);
+  if(!is_array($rx_chart1)) $rx_chart1 = [];
+  if(!is_array($rx_chart2)) $rx_chart2 = [];
+  ?>
+
+  <div class="bireme-field">
+    <label for="bireme_rx_title">Título da seção</label>
+    <input type="text" id="bireme_rx_title" name="bireme_rx_title" class="widefat"
+           value="<?php echo esc_attr($rx_title ?: 'Raio-X da LILACS'); ?>">
+  </div>
+
+  <div class="bireme-two-col">
+    <div class="bireme-field">
+      <label for="bireme_rx_left_title">Bloco esquerdo — Título</label>
+      <input type="text" id="bireme_rx_left_title" name="bireme_rx_left_title" class="widefat"
+             value="<?php echo esc_attr($rx_left_h ?: 'LILACS'); ?>">
+      <label style="margin-top:6px" for="bireme_rx_left_text">Bloco esquerdo — Texto</label>
+      <textarea id="bireme_rx_left_text" name="bireme_rx_left_text" class="widefat" rows="3"><?php
+        echo esc_textarea($rx_left_p ?: 'A ciência em saúde com identidade latino-americana.'); ?></textarea>
+    </div>
+
+    <div class="bireme-field">
+      <label for="bireme_rx_right_title">Bloco direito — Título</label>
+      <input type="text" id="bireme_rx_right_title" name="bireme_rx_right_title" class="widefat"
+             value="<?php echo esc_attr($rx_right_h ?: 'LILACS Plus'); ?>">
+      <label style="margin-top:6px" for="bireme_rx_right_text">Bloco direito — Texto</label>
+      <textarea id="bireme_rx_right_text" name="bireme_rx_right_text" class="widefat" rows="3"><?php
+        echo esc_textarea($rx_right_p ?: 'A ciência latino-americana no cenário global.'); ?></textarea>
+    </div>
+  </div>
+
+  <div class="bireme-two-col">
+    <div class="bireme-field">
+      <label>Número central</label>
+      <input type="text" name="bireme_rx_center_number" class="widefat"
+             value="<?php echo esc_attr($rx_mid_num ?: '40'); ?>">
+      <label style="margin-top:6px">Rótulo do número</label>
+      <input type="text" name="bireme_rx_center_label" class="widefat"
+             value="<?php echo esc_attr($rx_mid_lab ?: 'anos'); ?>">
+    </div>
+  </div>
+
+  <hr>
+
+  <h3 style="margin-top:10px">Gráfico 1 (donut azul)</h3>
+  <p class="bireme-hint">Edite os segmentos (rótulo, valor numérico e cor). Você pode adicionar quantos precisar.</p>
+  <div class="bireme-repeater" data-repeater>
+    <div class="bireme-repeater__head">
+      <strong>Segmentos</strong>
+      <button type="button" class="button button-small" data-repeater-add>+ Adicionar</button>
+    </div>
+    <div class="bireme-repeater__rows">
+      <?php
+      $rows = !empty($rx_chart1) ? $rx_chart1 : [
+        ['label'=>'A','value'=>1,'color'=>'#8fbdd4'],
+        ['label'=>'B','value'=>2,'color'=>'#799db3'],
+        ['label'=>'C','value'=>4,'color'=>'#3073a0'],
+        ['label'=>'D','value'=>7,'color'=>'#085696'],
+        ['label'=>'E','value'=>10,'color'=>'#00205b'],
+      ];
+      foreach($rows as $r){
+        $lab = esc_attr($r['label'] ?? '');
+        $val = esc_attr($r['value'] ?? '');
+        $col = esc_attr($r['color'] ?? '#085696');
+        echo '
+        <div class="bireme-repeater__row" style="flex-wrap:wrap">
+          <input type="text" name="bireme_rx_chart1[label][]" value="'.$lab.'" placeholder="Rótulo" style="min-width:220px">
+          <input type="text" name="bireme_rx_chart1[value][]" value="'.$val.'" placeholder="Valor" style="width:140px">
+          <input type="text" name="bireme_rx_chart1[color][]" value="'.$col.'" placeholder="#RRGGBB" style="width:140px">
+          <button type="button" class="button button-link-delete" data-repeater-del>Remover</button>
+        </div>';
+      }
+      ?>
+    </div>
+    <div data-repeater-proto style="display:none">
+      <div class="bireme-repeater__row" style="flex-wrap:wrap">
+        <input type="text" name="bireme_rx_chart1[label][]" value="" placeholder="Rótulo">
+        <input type="text" name="bireme_rx_chart1[value][]" value="" placeholder="Valor">
+        <input type="text" name="bireme_rx_chart1[color][]" value="#085696" placeholder="#RRGGBB">
+        <button type="button" class="button button-link-delete" data-repeater-del>Remover</button>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:18px">Gráfico 2 (donut laranja)</h3>
+  <div class="bireme-repeater" data-repeater>
+    <div class="bireme-repeater__head">
+      <strong>Segmentos</strong>
+      <button type="button" class="button button-small" data-repeater-add>+ Adicionar</button>
+    </div>
+    <div class="bireme-repeater__rows">
+      <?php
+      $rows = !empty($rx_chart2) ? $rx_chart2 : [
+        ['label'=>'Registros','value'=>10,'color'=>'#6c2207'],
+        ['label'=>'Textos Completos','value'=>7,'color'=>'#bf4611'],
+        ['label'=>'Revistas','value'=>4,'color'=>'#f96a1e'],
+        ['label'=>'Países','value'=>2,'color'=>'#edaa8d'],
+        ['label'=>'Idiomas','value'=>1,'color'=>'#ffbaa0'],
+      ];
+      foreach($rows as $r){
+        $lab = esc_attr($r['label'] ?? '');
+        $val = esc_attr($r['value'] ?? '');
+        $col = esc_attr($r['color'] ?? '#f96a1e');
+        echo '
+        <div class="bireme-repeater__row" style="flex-wrap:wrap">
+          <input type="text" name="bireme_rx_chart2[label][]" value="'.$lab.'" placeholder="Rótulo" style="min-width:220px">
+          <input type="text" name="bireme_rx_chart2[value][]" value="'.$val.'" placeholder="Valor" style="width:140px">
+          <input type="text" name="bireme_rx_chart2[color][]" value="'.$col.'" placeholder="#RRGGBB" style="width:140px">
+          <button type="button" class="button button-link-delete" data-repeater-del>Remover</button>
+        </div>';
+      }
+      ?>
+    </div>
+    <div data-repeater-proto style="display:none">
+      <div class="bireme-repeater__row" style="flex-wrap:wrap">
+        <input type="text" name="bireme_rx_chart2[label][]" value="" placeholder="Rótulo">
+        <input type="text" name="bireme_rx_chart2[value][]" value="" placeholder="Valor">
+        <input type="text" name="bireme_rx_chart2[color][]" value="#f96a1e" placeholder="#RRGGBB">
+        <button type="button" class="button button-link-delete" data-repeater-del>Remover</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- Dobra 2 — CTA -->
 <div class="bireme-tab" id="bireme-tab-2">
@@ -966,6 +1105,56 @@ add_action('save_post_page', function($post_id){
       $items[] = ['avatar'=>$id, 'name'=>$name, 'role'=>$role, 'text'=>$text];
     }
     update_post_meta($post_id, '_bireme_dep_items', $items);
+
+
+    // === Raio-X da LILACS ===
+update_post_meta($post_id, '_bireme_rx_title',          sanitize_text_field($_POST['bireme_rx_title'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_left_title',     sanitize_text_field($_POST['bireme_rx_left_title'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_left_text',      sanitize_text_field($_POST['bireme_rx_left_text'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_center_number',  sanitize_text_field($_POST['bireme_rx_center_number'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_center_label',   sanitize_text_field($_POST['bireme_rx_center_label'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_right_title',    sanitize_text_field($_POST['bireme_rx_right_title'] ?? ''));
+update_post_meta($post_id, '_bireme_rx_right_text',     sanitize_text_field($_POST['bireme_rx_right_text'] ?? ''));
+
+// Normaliza cores (#RRGGBB)
+$norm_hex = function($c){
+  $c = trim((string)$c);
+  if ($c === '') return '';
+  if ($c[0] !== '#') $c = '#'.$c;
+  if (preg_match('/^#[0-9a-fA-F]{6}$/',$c)) return strtoupper($c);
+  return '#000000';
+};
+
+// Chart 1
+$c1_lab = (array)($_POST['bireme_rx_chart1']['label'] ?? []);
+$c1_val = (array)($_POST['bireme_rx_chart1']['value'] ?? []);
+$c1_col = (array)($_POST['bireme_rx_chart1']['color'] ?? []);
+$items1 = [];
+$max = max(count($c1_lab), count($c1_val), count($c1_col));
+for($i=0;$i<$max;$i++){
+  $lab = sanitize_text_field($c1_lab[$i] ?? '');
+  $val = floatval($c1_val[$i] ?? 0);
+  $col = $norm_hex($c1_col[$i] ?? '');
+  if($lab==='') continue;
+  $items1[] = ['label'=>$lab,'value'=>$val,'color'=>$col];
+}
+update_post_meta($post_id, '_bireme_rx_chart1', $items1);
+
+// Chart 2
+$c2_lab = (array)($_POST['bireme_rx_chart2']['label'] ?? []);
+$c2_val = (array)($_POST['bireme_rx_chart2']['value'] ?? []);
+$c2_col = (array)($_POST['bireme_rx_chart2']['color'] ?? []);
+$items2 = [];
+$max = max(count($c2_lab), count($c2_val), count($c2_col));
+for($i=0;$i<$max;$i++){
+  $lab = sanitize_text_field($c2_lab[$i] ?? '');
+  $val = floatval($c2_val[$i] ?? 0);
+  $col = $norm_hex($c2_col[$i] ?? '');
+  if($lab==='') continue;
+  $items2[] = ['label'=>$lab,'value'=>$val,'color'=>$col];
+}
+update_post_meta($post_id, '_bireme_rx_chart2', $items2);
+
 
 
 
