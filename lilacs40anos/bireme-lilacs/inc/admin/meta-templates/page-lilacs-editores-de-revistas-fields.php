@@ -1,295 +1,252 @@
 <?php
-/*
-Template Name: Editores de revistas
-Template Post Type: page
-*/
+if (!defined('ABSPATH')) exit;
 
-get_header(); // Inclui o cabeçalho do tema WordPress?>
+/** Helper robusto para ler o template atual no admin */
+if (!function_exists('lilacs_get_current_template_slug')) {
+  function lilacs_get_current_template_slug($post){
+    // 1) Se o usuário acabou de escolher no dropdown (antes de salvar)
+    if (!empty($_POST['_wp_page_template'])) {
+      return sanitize_text_field( wp_unslash($_POST['_wp_page_template']) );
+    }
+    // 2) API própria do WP (funciona na maioria dos casos)
+    $slug = get_page_template_slug($post);
+    if ($slug) return $slug;
 
-<section class="acesso-rapido-section">
-    <div class="container">
-        <h2 class="section-title">Acesso rápido</h2>
-        <div class="links-grid">
-            
-            <!-- Card 1: Status da sua revista na LILACS -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Status da sua revista na LILACS</h3>
-                    <p>Verifique se seu periódico já está indexado na LILACS:</p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+    // 3) Meta cru (fallback)
+    $meta = get_post_meta($post->ID, '_wp_page_template', true);
+    return $meta ? $meta : '';
+  }
+}
 
-            <!-- Card 2: LILACS-Express -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">LILACS-Express</h3>
-                    <p><!-- Sem descrição visível no Figma --></p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+/** Slugs aceitos para o template (raiz ou em /templates) */
+if (!function_exists('lilacs_is_editores_template')) {
+  function lilacs_is_editores_template($slug){
+    $valid = array(
+      'page-lilacs-editores.php',
+      'templates/page-lilacs-editores.php',
+    );
+    return in_array($slug, $valid, true);
+  }
+}
 
-            <!-- Card 3: Indexe seu periódico -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Indexe seu periódico</h3>
-                    <p>Garanta que todos os artigos da sua revista estejam rapidamente indexados na LILACS!</p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+/** Enqueue media (tudo ok) */
+add_action('admin_enqueue_scripts', function($hook){
+  if ($hook !== 'post.php' && $hook !== 'post-new.php') return;
+  wp_enqueue_media();
+});
 
-            <!-- Card 4: Processo de Avaliação e Seleção de Periódicos LILACS Brasil -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Processo de Avaliação e Seleção de Periódicos LILACS Brasil</h3>
-                    <p><!-- Sem descrição visível no Figma --></p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+/** editores template detection */
+if (!function_exists('lilacs_is_editores_template')) {
+  function lilacs_is_editores_template($slug){
+    $valid = array(
+      'page-lilacs-editores.php',
+      'templates/page-lilacs-editores.php',
+    );
+    return in_array($slug, $valid, true);
+  }
+}
 
-            <!-- Card 5: Atualização cadastral -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Atualização cadastral</h3>
-                    <p>Mantenha seu cadastro atualizado!</p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+/** Add metabox for editores template */
+add_action('add_meta_boxes', function($post_type, $post){
+  if ($post_type !== 'page' || ! $post) return;
 
-            <!-- Card 6: Reavaliação de permanência na coleção -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Reavaliação de permanência na coleção</h3>
-                    <p><!-- Sem descrição visível no Figma --></p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
+  // Only add metabox when editing the editores template page
+  $tpl = '';
+  // Try to detect current template selection in admin
+  if (!empty($_POST['_wp_page_template'])) {
+    $tpl = sanitize_text_field( wp_unslash($_POST['_wp_page_template']) );
+  } else {
+    $tpl = get_page_template_slug($post);
+    if (!$tpl) $tpl = get_post_meta($post->ID, '_wp_page_template', true) ?: '';
+  }
+  if ( ! lilacs_is_editores_template($tpl) ) return;
 
-            <!-- Card 7: Processos anteriores -->
-            <a href="#" class="acesso-link">
-                <div class="link-icon">
-                    <!-- Ícone será inserido posteriormente pelo usuário -->
-                </div>
-                <div class="link-content">
-                    <h3 class="link-title">Processos anteriores</h3>
-                    <p><!-- Sem descrição visível no Figma --></p>
-                </div>
-                <div class="link-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 18 16 12 8 6"></polyline></svg>
-                </div>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-<!-- Seção de Cursos de Comunicação Científica -->
-<section class="course-section">
-    <div class="container">
-        <div class="course-header">
-            <h2>Cursos de Comunicação Científica em Ciências da Saúde</h2>
-        </div>
-
-        <div class="course-content">
-            <div class="course-image-container">
-                <img src="https://via.placeholder.com/200x250?text=Curso+Comunicacao+Cientifica" alt="Cursos de Comunicação Científica em Ciências da Saúde">
-            </div>
-
-            <div class="course-info">
-                <h3>Curso de Comunicação Científica em Ciências da Saúde</h3>
-                <p>Curso de nível básico e outro avançado em Comunicação Científica para pesquisadores, profissionais da saúde, editores científicos e alunos de graduação e pós-graduação em ciências da saúde.</p>
-
-                <div class="course-buttons">
-                    <a href="#" class="btn">Curso de nível Básico</a>
-                    <a href="#" class="btn">Curso de nível Avançado</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Seção de Publicações (Carrossel) -->
-<section class="publications-section">
-    <div class="publications-header">
-        <p>Conheça publicações sobre temas importantes da comunicação científica para editores científicos e equipes editoriais</p>
-    </div>
-
-    <div class="carousel-container">
-        <div class="carousel-wrapper" id="carouselWrapper">
-            <!-- Card 1 -->
-            <div class="carousel-item">
-                <div class="carousel-item-image">
-                    <img src="https://via.placeholder.com/280x200?text=Acesso+Aberto" alt="Acesso Aberto">
-                </div>
-                <div class="carousel-item-content">
-                    <h3 class="carousel-item-title">Acesso Aberto</h3>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="carousel-item">
-                <div class="carousel-item-image">
-                    <img src="https://via.placeholder.com/280x200?text=Avaliacao+por+Pares" alt="Avaliação por pares">
-                </div>
-                <div class="carousel-item-content">
-                    <h3 class="carousel-item-title">Avaliação por pares</h3>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="carousel-item">
-                <div class="carousel-item-image">
-                    <img src="https://via.placeholder.com/280x200?text=Politicas+Editoriais" alt="Políticas editoriais">
-                </div>
-                <div class="carousel-item-content">
-                    <h3 class="carousel-item-title">Políticas editoriais</h3>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="carousel-item">
-                <div class="carousel-item-image">
-                    <img src="https://via.placeholder.com/280x200?text=Preprints" alt="Preprints">
-                </div>
-                <div class="carousel-item-content">
-                    <h3 class="carousel-item-title">Preprints</h3>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="carousel-item">
-                <div class="carousel-item-image">
-                    <img src="https://via.placeholder.com/280x200?text=Inteligencia+Artificial" alt="Inteligência artificial na Publicação">
-                </div>
-                <div class="carousel-item-content">
-                    <h3 class="carousel-item-title">Inteligência artificial na Publicação</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="carousel-nav">
-        <button class="carousel-btn" id="prevBtn" >‹</button>
-        <button class="carousel-btn" id="nextBtn" >›</button>
-    </div>
-</section>
+  add_meta_box(
+    'bireme_lilacs_editores_box',
+    __('LILACS – editores (Categorias & Tópicos)', 'bireme'),
+    'bireme_lilacs_editores_render_metabox',
+    'page',
+    'normal',
+    'high'
+  );
+}, 10, 2);
 
 
-<!-- Seção de Dois Cards: Representatividade e Blogs -->
-<section class="two-cards-section">
-    <div class="cards-grid">
-        <!-- Card 1: Representatividade -->
-        <div class="card card-representatividade">
-            <div class="card-image-container">
-                <img src="https://via.placeholder.com/250x200?text=Representatividade" alt="Representatividade de periódicos científicos">
-            </div>
-            <div class="card-content">
-                <h2 class="card-title">Representatividade de periódicos científicos em ciências da saúde em bases de dados</h2>
-                <p class="card-description">Planilha Excel armazenada em Google Docs contendo a situação de indexação de periódicos científicos em saúde e áreas correlatas da América Latina, Portugal e Espanha nas bases de dados LILACS, SciELO, MEDLINE, Web of Science, Journal Citation Reports e Scopus. É possível fazer download, e selecionar os periódicos por país e base de indexação, utilizando mais de um filtro simultaneamente.</p>
-                <a href="#" class="card-button">Acesse aqui</a>
-            </div>
-        </div>
+/** Render metabox: small JS-driven repeater that stores JSON into a hidden input */
+function bireme_lilacs_editores_render_metabox($post){
+  // Current value (array)
+  $groups = get_post_meta($post->ID, 'lilacs_indicator_groups', true);
+  if (!is_array($groups)) $groups = array();
 
-        <!-- Card 2: Blogs -->
-        <div class="card card-blogs">
-            <h2 class="blogs-title">Blogs sobre Comunicação Científica</h2>
-            <p class="blogs-description">Os blogs de comunicação científica trazem o que há de mais inovador e atual nos debates da comunidade científica em todo o mundo. Permitem comparar diferentes aspectos e posicionamentos sobre práticas inovadoras na publicação científica, expondo prós e contras, para que os distintos atores envolvidos tomem decisões informadas e se mantenham a par das últimas tendências sobre o tema. Relacionamos os blogs mais relevantes internacionalmente para que você participe do debate, já que muitos deles permitem comentários dos leitores.</p>
-            <div class="blogs-tags">
-                <a href="#" class="blog-tag">The Scholarly Kitchen</a>
-                <a href="#" class="blog-tag">LSE Impact Blog</a>
-                <a href="#" class="blog-tag">JISC News</a>
-                <a href="#" class="blog-tag">Leiden Madtrics</a>
-                <a href="#" class="blog-tag">Operas Hypotheses</a>
-                <a href="#" class="blog-tag">The conversation</a>
-                <a href="#" class="blog-tag">Europe of Knowledge</a>
-                <a href="#" class="blog-tag">SciELO em perspectiva</a>
-                <a href="#" class="blog-tag">Ithaka SR</a>
-                <a href="#" class="blog-tag">Editage insights</a>
-                <a href="#" class="blog-tag">Digital Science blog</a>
-                <a href="#" class="blog-tag">Research Trends</a>
-            </div>
-        </div>
-    </div>
-</section>
+  // nonce for this metabox
+  wp_nonce_field('bireme_lilacs_editores_save', 'bireme_lilacs_editores_nonce');
 
-<!-- Seção de Normas e Diretrizes em Comunicação Científica -->
-<section class="guidelines-section">
-    <div class="guidelines-container">
-        <h2 class="guidelines-title">Normas e diretrizes em comunicação científica</h2>
-        <div class="guidelines-logos">
-            <!-- Logo 1 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 1">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+1" alt="Logo 1">
-                </a>
-            </div>
-            
-            <!-- Logo 2 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 2">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+2" alt="Logo 2">
-                </a>
-            </div>
-            
-            <!-- Logo 3 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 3">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+3" alt="Logo 3">
-                </a>
-            </div>
-            
-            <!-- Logo 4 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 4">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+4" alt="Logo 4">
-                </a>
-            </div>
-            
-            <!-- Logo 5 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 5">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+5" alt="Logo 5">
-                </a>
-            </div>
-            
-            <!-- Logo 6 -->
-            <div class="guidelines-logo">
-                <a href="#" title="Logo 6">
-                    <img src="https://via.placeholder.com/120x60?text=Logo+6" alt="Logo 6">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+  // Hidden JSON field that will be saved
+  ?>
+  <div id="bireme-editores-metabox">
+    <p class="description">Organize categorias e tópicos para a página de editores. Use os botões para adicionar/remover. Este conteúdo será salvo no meta key <code>lilacs_indicator_groups</code>.</p>
+    <div id="bireme-editores-ui"></div>
+    <input type="hidden" id="lilacs_indicator_groups_json" name="lilacs_indicator_groups_json" value="<?php echo esc_attr( wp_json_encode($groups) ); ?>">
+    <p style="margin-top:.5rem">
+      <button type="button" class="button" id="bireme-add-group">+ Adicionar categoria</button>
+      <button type="button" class="button" id="bireme-reset-groups">Resetar (apagar todos)</button>
+    </p>
+  </div>
 
-<?php get_footer(); // Inclui o rodapé do tema WordPress ?>
+  <style>
+    #bireme-editores-ui .group{border:1px solid #ddd;padding:10px;margin:10px 0;border-radius:6px;background:#fff}
+    #bireme-editores-ui .group .group-head{display:flex;gap:8px;align-items:center}
+    #bireme-editores-ui .topic{border:1px dashed #e1e1e1;padding:8px;margin:6px 0;border-radius:4px}
+    #bireme-editores-ui .small-btn{font-size:12px;padding:3px 6px}
+  </style>
+
+  <script>
+  (function(){
+    const container = document.getElementById('bireme-editores-ui');
+    const jsonField = document.getElementById('lilacs_indicator_groups_json');
+    let groups = [];
+
+    try{ groups = JSON.parse(jsonField.value || '[]'); }catch(e){ groups = []; }
+
+    function render(){
+      container.innerHTML = '';
+      groups.forEach((g, gi)=>{
+        const groupEl = document.createElement('div'); groupEl.className='group';
+        const head = document.createElement('div'); head.className='group-head';
+        const titleInput = document.createElement('input'); titleInput.type='text'; titleInput.placeholder='Título da categoria'; titleInput.style.flex='1'; titleInput.value = g.category || '';
+        const remGroup = document.createElement('button'); remGroup.type='button'; remGroup.className='button small-btn'; remGroup.textContent='Remover categoria';
+        remGroup.addEventListener('click', ()=>{ groups.splice(gi,1); render(); });
+        head.appendChild(titleInput); head.appendChild(remGroup);
+
+        const topicsEl = document.createElement('div'); topicsEl.className='topics';
+        (g.topics||[]).forEach((t, ti)=>{
+          const tEl = document.createElement('div'); tEl.className='topic';
+          const tTitle = document.createElement('input'); tTitle.type='text'; tTitle.placeholder='Título do tópico'; tTitle.style.width='100%'; tTitle.value = t.title || '';
+          const tContent = document.createElement('textarea'); tContent.placeholder='Conteúdo (HTML permitido)'; tContent.style.width='100%'; tContent.rows=3; tContent.value = t.content || '';
+          const remTopic = document.createElement('button'); remTopic.type='button'; remTopic.className='button small-btn'; remTopic.textContent='Remover tópico';
+          remTopic.addEventListener('click', ()=>{ (groups[gi].topics||[]).splice(ti,1); render(); });
+          tEl.appendChild(tTitle); tEl.appendChild(document.createElement('br'));
+          tEl.appendChild(tContent); tEl.appendChild(document.createElement('br'));
+          tEl.appendChild(remTopic);
+          topicsEl.appendChild(tEl);
+
+          // bind changes
+          tTitle.addEventListener('input', ()=> groups[gi].topics[ti].title = tTitle.value );
+          tContent.addEventListener('input', ()=> groups[gi].topics[ti].content = tContent.value );
+        });
+
+        const addTopic = document.createElement('button'); addTopic.type='button'; addTopic.className='button small-btn'; addTopic.textContent='+ Adicionar tópico';
+        addTopic.addEventListener('click', ()=>{ groups[gi].topics = groups[gi].topics || []; groups[gi].topics.push({title:'',content:''}); render(); });
+
+        groupEl.appendChild(head);
+        groupEl.appendChild(topicsEl);
+        groupEl.appendChild(addTopic);
+        container.appendChild(groupEl);
+
+        // bind title input after append so gi stays stable across rerenders
+        titleInput.addEventListener('input', ()=> groups[gi].category = titleInput.value );
+      });
+
+      // update hidden field
+      jsonField.value = JSON.stringify(groups);
+    }
+
+    document.getElementById('bireme-add-group').addEventListener('click', ()=>{ groups.push({category:'',topics:[]}); render(); });
+    document.getElementById('bireme-reset-groups').addEventListener('click', ()=>{ if(confirm('Apagar todas as categorias e tópicos?')){ groups = []; render(); } });
+
+    // Intercept WP form submit to ensure hidden field has latest value
+    const form = document.getElementById('post');
+    if(form){ form.addEventListener('submit', ()=>{ jsonField.value = JSON.stringify(groups); }); }
+
+    // initial render
+    render();
+  })();
+  </script>
+  <?php
+}
+
+/** Save handler for editores metabox */
+add_action('save_post_page', function($post_id){
+  // Check nonce
+  if ( empty($_POST['bireme_lilacs_editores_nonce']) ||
+       ! wp_verify_nonce($_POST['bireme_lilacs_editores_nonce'], 'bireme_lilacs_editores_save') ) {
+    return;
+  }
+  // Autosave, permissions
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+  if (!current_user_can('edit_post', $post_id)) return;
+
+  // Only save when template is editores
+  $tpl = get_page_template_slug($post_id);
+  if (!$tpl) $tpl = get_post_meta($post_id, '_wp_page_template', true) ?: '';
+  if (! lilacs_is_editores_template($tpl)) return;
+
+  $json = isset($_POST['lilacs_indicator_groups_json']) ? wp_unslash($_POST['lilacs_indicator_groups_json']) : '';
+  if (!$json) {
+    // empty -> delete meta
+    delete_post_meta($post_id, 'lilacs_indicator_groups');
+    return;
+  }
+
+  $data = json_decode($json, true);
+  if (!is_array($data)) return;
+
+  // sanitize structure: categories -> topics[] {title, content}
+  $out = array();
+  foreach($data as $g){
+    $cat = isset($g['category']) ? sanitize_text_field($g['category']) : '';
+    $topics_in = isset($g['topics']) && is_array($g['topics']) ? $g['topics'] : array();
+    $topics_out = array();
+    foreach($topics_in as $t){
+      $tt = isset($t['title']) ? sanitize_text_field($t['title']) : '';
+      // allow basic HTML in content
+      $tc = isset($t['content']) ? wp_kses_post($t['content']) : '';
+      if ($tt === '' && $tc === '') continue; // skip empty
+      $topics_out[] = array('title' => $tt, 'content' => $tc);
+    }
+    // If both empty, skip group
+    if ($cat === '' && empty($topics_out)) continue;
+    $out[] = array('category' => $cat, 'topics' => $topics_out);
+  }
+
+  update_post_meta($post_id, 'lilacs_indicator_groups', $out);
+}, 10, 1);
+
+/** Adiciona o metabox só quando o template correto estiver ativo */
+add_action('add_meta_boxes', function($post_type, $post){
+  if ($post_type !== 'page' || ! $post) return;
+
+
+  add_meta_box(
+    'bireme_lilacs_editores_box',
+    __('LILACS – editores (Banner)', 'bireme'),
+    'bireme_lilacs_editores_render_metabox',
+    'page',
+    'normal',
+    'high'
+  );
+}, 10, 2);
+
+/** Salvamento (somente se o template da página for o esperado) */
+add_action('save_post_page', function($post_id){
+  if (!isset($_POST[BIREME_LILACS_CP_FIELDS_NONCE]) ||
+      !wp_verify_nonce($_POST[BIREME_LILACS_CP_FIELDS_NONCE], BIREME_LILACS_CP_FIELDS_ACTION)) return;
+
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+  if (!current_user_can('edit_post', $post_id)) return;
+
+  $tpl = get_page_template_slug($post_id);
+  if (!$tpl) {
+    // fallback se get_page_template_slug retornar vazio
+    $tpl = get_post_meta($post_id, '_wp_page_template', true);
+  }
+  if ( ! lilacs_is_editores_template($tpl) ) return;
+
+  $title  = isset($_POST['lilacs_cp_banner_title']) ? sanitize_text_field( wp_unslash($_POST['lilacs_cp_banner_title']) ) : '';
+  $desc   = isset($_POST['lilacs_cp_banner_desc'])  ? wp_kses_post( wp_unslash($_POST['lilacs_cp_banner_desc']) ) : '';
+  $img_id = isset($_POST['lilacs_cp_banner_img_id']) ? (int) $_POST['lilacs_cp_banner_img_id'] : 0;
+
+  update_post_meta($post_id, BIREME_LILACS_CP_META_TITLE,  $title);
+  update_post_meta($post_id, BIREME_LILACS_CP_META_DESC,   $desc);
+  update_post_meta($post_id, BIREME_LILACS_CP_META_IMG_ID, $img_id);
+}, 10, 1);
