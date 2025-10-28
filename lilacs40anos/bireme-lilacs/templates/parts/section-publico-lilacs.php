@@ -159,7 +159,24 @@ position: relative;
                 $items = array_filter( array_map( 'trim', preg_split("/\r\n|\n|\r/", $items_raw ) ) );
             }
         }
-        $items = array_values( array_filter( array_map( 'trim', (array) $items ), function( $v ){ return $v !== ''; } ) );
+    // Normaliza itens aceitando tanto strings quanto arrays ['label'=>..,'url'=>..]
+    $normalized = array();
+    foreach ((array) $items as $it) {
+      if (is_array($it)) {
+        // suporta ['label'=>...,'url'=>...] ou [0=>'label',1=>'url']
+        $label = isset($it['label']) ? $it['label'] : (isset($it[0]) ? $it[0] : '');
+        $url = isset($it['url']) ? $it['url'] : (isset($it[1]) ? $it[1] : '');
+        $label = trim((string) $label);
+        $url = trim((string) $url);
+        if ($label !== '') {
+          $normalized[] = array('label' => $label, 'url' => $url);
+        }
+      } else {
+        $s = trim((string) $it);
+        if ($s !== '') $normalized[] = $s;
+      }
+    }
+    $items = array_values($normalized);
 
         // monta HTML do ícone: prefere attachment (id), senão tenta meta antiga icon_svg
         $icon_html = '';
@@ -272,7 +289,20 @@ position: relative;
                 foreach ( $items as $idx => $li ) :
                   $cls = ( $idx === $lastIndex ) ? 'is-last' : '';
               ?>
-                <li class="<?php echo esc_attr( $cls ); ?>"><?php echo esc_html( $li ); ?></li>
+        <?php
+        // Suporta tanto string quanto ['label'=>..,'url'=>..]
+        if ( is_array( $li ) ) {
+          $label = isset( $li['label'] ) ? $li['label'] : (isset($li[0]) ? $li[0] : '');
+          $url   = isset( $li['url'] ) ? $li['url'] : (isset($li[1]) ? $li[1] : '');
+          if ( $url ) {
+            echo '<li class="' . esc_attr( $cls ) . '"><a href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a></li>';
+          } else {
+            echo '<li class="' . esc_attr( $cls ) . '">' . esc_html( $label ) . '</li>';
+          }
+        } else {
+          echo '<li class="' . esc_attr( $cls ) . '">' . esc_html( $li ) . '</li>';
+        }
+        ?>
               <?php endforeach; ?>
             </ul>
           <?php endif; ?>

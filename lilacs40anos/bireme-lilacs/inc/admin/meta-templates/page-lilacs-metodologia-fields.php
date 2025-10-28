@@ -436,7 +436,3 @@ foreach ($__guides_keys as $g) {
 
 
 }, 10, 1);
-
-
-
-
