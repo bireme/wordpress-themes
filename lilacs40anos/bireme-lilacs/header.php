@@ -481,9 +481,14 @@ display: block;
   display: flex;
   gap: 8px;
 }
+  .lang-switcher{
+        display: flex
+;
+  }
 
 .lang-switcher li {
   margin: 0;
+  list-style:none;
 }
 
 .lang-switcher a {
