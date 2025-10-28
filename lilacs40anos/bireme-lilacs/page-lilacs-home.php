@@ -3,9 +3,9 @@
 
 get_header(); // Mantém compatibilidade com o tema (se quiser sempre usar header do plugin, substitua)
 
-// INCLUDE CORRETO dos campos (use caminho do plugin, não do tema)
-$plugin_dir = plugin_dir_path( __FILE__ ); // se esse arquivo estiver na raiz do plugin
-$meta_fields = $plugin_dir . 'inc/admin/meta-templates/page-lilacs-home-fields.php';
+// INCLUDE CORRETO dos campos (use caminho do TEMA, não do plugin)
+$theme_dir = trailingslashit( get_stylesheet_directory() ); // para child theme use get_stylesheet_directory(); para sempre usar o pai, use get_template_directory()
+$meta_fields = $theme_dir . 'inc/admin/meta-templates/page-lilacs-home-fields.php';
 if ( file_exists( $meta_fields ) ) {
     include $meta_fields;
 }
@@ -14,8 +14,8 @@ if ( file_exists( $meta_fields ) ) {
 ?>
 <main>
     <?php
-    // Inclui template de conteúdo do plugin (use caminho do plugin também)
-      $tpl = $plugin_dir . 'templates/home-page.php';
+    // Inclui template de conteúdo do tema
+    $tpl = $theme_dir . 'templates/home-page.php';
     if ( file_exists( $tpl ) ) {
         include $tpl;
     } else {
