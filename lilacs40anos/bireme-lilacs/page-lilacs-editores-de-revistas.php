@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Editores de revistas Lilacs
+Template Name: Lilacs Editores
 Template Post Type: page
 */
 
