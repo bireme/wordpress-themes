@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Lilacs Editores
+Template Name: Editores de revistas
 Template Post Type: page
 */
 
@@ -20,11 +20,7 @@ $after_banner_text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
 
 
 
-get_header(); 
-
-  get_template_part('templates/parts/section', 'banner-como-pesquisar');
-
-// Inclui o cabeçalho do tema WordPress?>
+get_header(); // Inclui o cabeçalho do tema WordPress?>
 
 
 
@@ -1039,6 +1035,23 @@ get_header();
 </style>
 
 
+
+
+<!-- BANNER DE DESTAQUE LILACS - INÍCIO -->
+<div class="lilacs-banner">
+    
+    <div class="lilacs-banner-content">
+        <div class="text-column">
+            <h1><?php echo $titulo; ?></h1>
+            <p><?php echo $texto; ?></p>
+        </div>
+        <div class="image-column">
+            <!-- O usuário deve garantir que a imagem esteja no local correto -->
+            <img src="<?php echo $imagem_url; ?>" alt="Mulher sorrindo com laptop, representando Editores de Revistas">
+        </div>
+    </div>
+</div>
+<!-- BANNER DE DESTAQUE LILACS - FIM -->
 
 	    <!-- SEÇÃO DE TEXTO ABAIXO DO BANNER -->
     <section class="manus-after-banner-section">

@@ -10,11 +10,50 @@ if (!function_exists('bvs_slug')){
   }
 }
 
+/** Configurações dos campos de administração */
+$selected_categories = get_post_meta(get_the_ID(), '_lilacs_cp_faq_selected_categories', true);
+$display_order = get_post_meta(get_the_ID(), '_lilacs_cp_faq_display_order', true) ?: 'name_asc';
+$show_empty_categories = get_post_meta(get_the_ID(), '_lilacs_cp_faq_show_empty_categories', true);
+
 /** Terms (categorias de FAQ) */
-$terms = get_terms([
+$terms_args = [
   'taxonomy'   => 'ufaq-category',
-  'hide_empty' => false,
-]);
+  'hide_empty' => !$show_empty_categories,
+];
+
+// Se categorias específicas foram selecionadas, filtrar apenas essas
+if (!empty($selected_categories) && is_array($selected_categories)) {
+  $terms_args['include'] = $selected_categories;
+}
+
+// Definir ordenação baseada na configuração
+switch ($display_order) {
+  case 'name_desc':
+    $terms_args['orderby'] = 'name';
+    $terms_args['order'] = 'DESC';
+    break;
+  case 'id_asc':
+    $terms_args['orderby'] = 'term_id';
+    $terms_args['order'] = 'ASC';
+    break;
+  case 'id_desc':
+    $terms_args['orderby'] = 'term_id';
+    $terms_args['order'] = 'DESC';
+    break;
+  case 'count_desc':
+    $terms_args['orderby'] = 'count';
+    $terms_args['order'] = 'DESC';
+    break;
+  case 'count_asc':
+    $terms_args['orderby'] = 'count';
+    $terms_args['order'] = 'ASC';
+    break;
+  default: // name_asc
+    $terms_args['orderby'] = 'name';
+    $terms_args['order'] = 'ASC';
+}
+
+$terms = get_terms($terms_args);
 $terms = is_array($terms) ? $terms : [];
 
 /** Pré-calcula IDs estáveis para categorias e posts */
