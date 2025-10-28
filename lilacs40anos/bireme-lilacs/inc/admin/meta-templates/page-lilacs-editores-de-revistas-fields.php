@@ -250,3 +250,4 @@ add_action('save_post_page', function($post_id){
   update_post_meta($post_id, BIREME_LILACS_CP_META_DESC,   $desc);
   update_post_meta($post_id, BIREME_LILACS_CP_META_IMG_ID, $img_id);
 }, 10, 1);
+ 
