@@ -200,7 +200,7 @@ add_action('save_post_page', function($post_id){
     foreach($topics_in as $t){
       $tt = isset($t['title']) ? sanitize_text_field($t['title']) : '';
       // allow basic HTML in content
-      $tc = isset($t['content']) ? wp_kses_post($t['content']) : '';
+      $tc_raw = isset($t['content']) ? wp_unslash($t['content']) : '';  if ( current_user_can('unfiltered_html') ) {   // Admin/Editor com permissão: salva cru, sem remover <script>   $tc = $tc_raw; } else {   // Outros perfis: libera um whitelist que inclui <script>   $allowed = wp_kses_allowed_html('post');    // Permitir <script> com atributos comuns   $allowed['script'] = array(     'type'        => true,     'src'         => true,     'async'       => true,     'defer'       => true,     'id'          => true,     'crossorigin' => true,     'integrity'   => true,   );    // Complementos úteis para seu caso   $allowed['div']['id']    = true;   $allowed['div']['class'] = true;   $allowed['div']['style'] = true;    $allowed['object'] = array(     'type'   => true,     'data'   => true,     'width'  => true,     'height' => true,     'style'  => true,     'id'     => true,     'class'  => true,   );   $allowed['param'] = array(     'name'  => true,     'value' => true,   );    $tc = wp_kses( $tc_raw, $allowed ); }
       if ($tt === '' && $tc === '') continue; // skip empty
       $topics_out[] = array('title' => $tt, 'content' => $tc);
     }
