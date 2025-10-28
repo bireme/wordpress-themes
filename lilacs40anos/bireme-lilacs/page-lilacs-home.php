@@ -3,7 +3,7 @@
 
 get_header(); // Mantém compatibilidade com o tema (se quiser sempre usar header do plugin, substitua)
 
-// INCLUDE CORRETO dos campos (use caminho do TEMA, não do plugin)
+// INCLUDE CORRETO dos campos
 $theme_dir = trailingslashit( get_stylesheet_directory() ); // para child theme use get_stylesheet_directory(); para sempre usar o pai, use get_template_directory()
 $meta_fields = $theme_dir . 'inc/admin/meta-templates/page-lilacs-home-fields.php';
 if ( file_exists( $meta_fields ) ) {
