@@ -88,7 +88,7 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
 
         /* ===== Gráficos ===== */
         #raiox-lilacs .rx-chart{     height: 650px;
-    min-width: 600px;
+    min-width: 298px;
     overflow: hidden;
     display: flex
 ;

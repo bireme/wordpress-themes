@@ -1,6 +1,19 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
+
+
+const BIREME_LILACS_CP_FIELDS_NONCE   = 'bireme_lilacs_cp_fields_nonce';
+const BIREME_LILACS_CP_FIELDS_ACTION  = 'bireme_lilacs_cp_fields_action';
+
+const BIREME_LILACS_CP_META_TITLE     = '_lilacs_cp_banner_title';
+const BIREME_LILACS_CP_META_DESC      = '_lilacs_cp_banner_desc';
+const BIREME_LILACS_CP_META_IMG_ID    = '_lilacs_cp_banner_img_id';
+
+const BIREME_LILACS_CP_META_FAQ_ITEMS   = '_lilacs_cp_faq_items';
+const BIREME_LILACS_CP_META_FAQ_UPDATED = '_lilacs_cp_faq_updated_at';
+
+
 /** Helper robusto para ler o template atual no admin */
 if (!function_exists('lilacs_get_current_template_slug')) {
   function lilacs_get_current_template_slug($post){
@@ -80,6 +93,84 @@ function bireme_lilacs_indicadores_render_metabox($post){
 
   // nonce for this metabox
   wp_nonce_field('bireme_lilacs_indicadores_save', 'bireme_lilacs_indicadores_nonce');
+  // also render the Banner fields (title / desc / image) so admin can edit them here
+  // (uses the same meta keys/constants as other CP templates)
+  wp_nonce_field(BIREME_LILACS_CP_FIELDS_ACTION, BIREME_LILACS_CP_FIELDS_NONCE);
+
+  $banner_title  = get_post_meta($post->ID, BIREME_LILACS_CP_META_TITLE,  true);
+  $banner_desc   = get_post_meta($post->ID, BIREME_LILACS_CP_META_DESC,   true);
+  $banner_img_id = (int) get_post_meta($post->ID, BIREME_LILACS_CP_META_IMG_ID, true);
+  $banner_img    = $banner_img_id ? wp_get_attachment_image_url($banner_img_id, 'medium_large') : '';
+
+  // Banner UI (simple, same fields as page-lilacs-como-pesquisar-fields.php)
+  ?>
+  <div class="lilacs-banner-fields" style="margin-bottom:18px;padding:10px;border:1px solid #e5e7eb;background:#fff;border-radius:6px">
+    <h4 style="margin-top:0"><?php _e('Banner principal', 'bireme'); ?></h4>
+    <div style="margin:8px 0">
+      <label for="lilacs_cp_banner_title" style="display:block;font-weight:600;margin-bottom:6px"><?php _e('Título do banner', 'bireme'); ?></label>
+      <input type="text" id="lilacs_cp_banner_title" name="lilacs_cp_banner_title" value="<?php echo esc_attr($banner_title); ?>" style="width:100%" placeholder="<?php esc_attr_e('Ex.: Título do banner', 'bireme'); ?>">
+      <p class="lilacs-help" style="color:#666;margin:4px 0 0;font-size:12px"><?php _e('Se vazio, utiliza o título da página.', 'bireme'); ?></p>
+    </div>
+
+    <div style="margin:8px 0">
+      <label for="lilacs_cp_banner_desc" style="display:block;font-weight:600;margin-bottom:6px"><?php _e('Descrição do banner', 'bireme'); ?></label>
+      <textarea id="lilacs_cp_banner_desc" name="lilacs_cp_banner_desc" placeholder="<?php esc_attr_e('Ex.: Descrição do banner', 'bireme'); ?>" style="width:100%;min-height:80px"><?php echo esc_textarea($banner_desc); ?></textarea>
+    </div>
+
+    <div style="margin:8px 0">
+      <label style="display:block;font-weight:600;margin-bottom:6px"><?php _e('Imagem do banner', 'bireme'); ?></label>
+      <div class="img-picker" data-img-picker style="display:flex;gap:12px;align-items:flex-start">
+        <div class="preview">
+          <?php if ($banner_img): ?>
+            <img src="<?php echo esc_url($banner_img); ?>" alt="" style="max-width:220px;display:block;border-radius:6px">
+          <?php else: ?>
+            <img src="<?php echo esc_url(includes_url('images/media/default.png')); ?>" alt="" style="max-width:220px;opacity:.4;display:block;border-radius:6px">
+          <?php endif; ?>
+        </div>
+        <div class="actions">
+          <input type="hidden" id="lilacs_cp_banner_img_id" name="lilacs_cp_banner_img_id" value="<?php echo esc_attr($banner_img_id); ?>">
+          <button type="button" class="button button-primary" data-img-select><?php _e('Selecionar imagem', 'bireme'); ?></button>
+          <button type="button" class="button" data-img-remove><?php _e('Remover', 'bireme'); ?></button>
+          <p class="lilacs-help" style="color:#666;margin:6px 0 0;font-size:12px"><?php _e('Recomendado: imagem horizontal grande (ex.: 1600×600+).', 'bireme'); ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    // Media picker for this metabox (uses wp.media)
+    var frame;
+    document.addEventListener('click', function(e){
+      var target = e.target || e.srcElement;
+      if (target && target.getAttribute && target.getAttribute('data-img-select') !== null) {
+        e.preventDefault();
+        var picker = target.closest('[data-img-picker]');
+        var hid = picker.querySelector('input[type=hidden]');
+        if (!frame) {
+          frame = wp.media({ title: '<?php echo esc_js(__('Selecionar imagem', 'bireme')); ?>', button: { text: '<?php echo esc_js(__('Usar esta imagem', 'bireme')); ?>' }, multiple:false });
+          frame.on('select', function(){
+            var att = frame.state().get('selection').first().toJSON();
+            hid.value = att.id;
+            var img = picker.querySelector('img');
+            img.src = (att.sizes && att.sizes.medium_large) ? att.sizes.medium_large.url : att.url;
+            img.style.opacity = 1;
+          });
+        }
+        frame.open();
+      }
+      if (target && target.getAttribute && target.getAttribute('data-img-remove') !== null) {
+        e.preventDefault();
+        var picker = target.closest('[data-img-picker]');
+        picker.querySelector('input[type=hidden]').value = '';
+        var img = picker.querySelector('img');
+        img.src = '<?php echo esc_js(includes_url('images/media/default.png')); ?>';
+        img.style.opacity = .4;
+      }
+    });
+  })();
+  </script>
+  <?php
 
   // Hidden JSON field that will be saved
   ?>
@@ -198,9 +289,52 @@ add_action('save_post_page', function($post_id){
     $topics_in = isset($g['topics']) && is_array($g['topics']) ? $g['topics'] : array();
     $topics_out = array();
     foreach($topics_in as $t){
-      $tt = isset($t['title']) ? sanitize_text_field($t['title']) : '';
-      // allow basic HTML in content
-      $tc = isset($t['content']) ? wp_kses_post($t['content']) : '';
+        $tt = isset($t['title']) ? sanitize_text_field($t['title']) : '';
+        // allow basic HTML in content
+        $tc_raw = isset($t['content']) ? wp_unslash($t['content']) : '';
+        if ( current_user_can('unfiltered_html') ) {
+          // Admin/Editor com permissão: salva cru, sem remover <script>
+          $tc = $tc_raw;
+        } else {
+          // Outros perfis: libera um whitelist que inclui <script>
+          $allowed = wp_kses_allowed_html('post');
+
+          // Permitir <script> com atributos comuns
+          $allowed['script'] = array(
+            'type'        => true,
+            'src'         => true,
+            'async'       => true,
+            'defer'       => true,
+            'id'          => true,
+            'crossorigin' => true,
+            'integrity'   => true,
+          );
+
+          // Complementos úteis para seu caso
+          if ( ! isset($allowed['div']) || ! is_array($allowed['div']) ) {
+            $allowed['div'] = array();
+          }
+          $allowed['div']['id']    = true;
+          $allowed['div']['class'] = true;
+          $allowed['div']['style'] = true;
+
+          $allowed['object'] = array(
+            'type'   => true,
+            'data'   => true,
+            'width'  => true,
+            'height' => true,
+            'style'  => true,
+            'id'     => true,
+            'class'  => true,
+          );
+
+          $allowed['param'] = array(
+            'name'  => true,
+            'value' => true,
+          );
+
+          $tc = wp_kses( $tc_raw, $allowed );
+        }
       if ($tt === '' && $tc === '') continue; // skip empty
       $topics_out[] = array('title' => $tt, 'content' => $tc);
     }

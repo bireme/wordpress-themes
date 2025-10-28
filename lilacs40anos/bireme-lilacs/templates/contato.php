@@ -101,8 +101,8 @@ $btn2_url  = get_post_meta(get_the_ID(), '_lilacs_faq_btn2_url',  true) ?: '#';
     <?php echo wpautop( wp_kses_post($faq_box_desc) ); ?>
   </div>
   <div class="faq-buttons">
-    <button class="lilacs"><a href="<?=$btn1_url?>"><?=$btn1_text?></a></button>
-    <button class="revistas"><a href="<?=$btn2_url?>"><?=$btn2_text?></a></button>
+    <button class="lilacs"><a target="_blank" style="color:#fff !Important; text-decoration:none !Important;" href="<?=$btn1_url?>"><?=$btn1_text?></a></button>
+    <button class="revistas"><a target="_blank" style="color:#fff !Important; text-decoration:none !Important;" href="<?=$btn2_url?>"><?=$btn2_text?></a></button>
   </div>
 </div>
 </div>
