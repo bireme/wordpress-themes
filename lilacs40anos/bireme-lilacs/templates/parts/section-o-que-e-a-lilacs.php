@@ -151,6 +151,103 @@
     font-weight: 400;
 }
 
+/* Seção: Missão, Visão e Valores (estilização dedicada) */
+.missao-visao-valores {
+    background: linear-gradient(180deg, rgba(0,61,122,0.04), rgba(0,61,122,0.01));
+    border-radius: 10px;
+    padding: 36px 28px;
+    margin: 40px 0;
+    color: #033a6a;
+    box-shadow: 0 6px 20px rgba(3,61,122,0.04);
+    border: 1px solid rgba(0,61,122,0.06);
+}
+
+.missao-visao-valores h2 {
+    font-size: 1.8rem;
+    color: #003d7a;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.mv-values {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.mv-item {
+    flex: 1 1 300px;
+    background: #ffffff;
+    padding: 20px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(3,61,122,0.04);
+    border: 1px solid rgba(3,61,122,0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.mv-item + .mv-item {
+    /* keep spacing visually consistent when items wrap */
+}
+
+.mv-item h3 {
+    color: #005b96;
+    font-size: 1.05rem;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.mv-item p {
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mv-item ul {
+    padding-left: 1rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.mv-item ul li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.mv-item strong {
+    color: #003d7a;
+}
+
+/* Decorative left accent bar */
+.mv-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, #003d7a, #005b96);
+    border-radius: 6px 0 0 6px;
+}
+
+/* Ajustes responsivos específicos para a seção MV */
+@media (max-width: 768px) {
+    .missao-visao-valores {
+        padding: 26px 18px;
+    }
+    .mv-values {
+        flex-direction: column;
+        gap: 14px;
+    }
+    .mv-item {
+        flex: 1 1 auto;
+        padding: 16px;
+    }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .lilacs-intro h1 {
@@ -336,6 +433,19 @@ $bg_oque = $post_id ? get_post_meta( $post_id, '_lilacs_bg_oque', true ) : '';
 if ( $bg_oque ) {
 	$section_style .= ' background-color:' . esc_attr( $bg_oque ) . ';';
 }
+
+// --- NOVO: texto editável da Missão (prefere meta '_lilacs_intro_missao', fallback para '_lilacs_missao') ---
+$missao_text = '';
+if ( $post_id ) {
+    // prefer the new field added in the page editor metabox
+    $missao_text = get_post_meta( $post_id, '_lilacs_intro_missao', true );
+    // fallback to older key if present
+    if ( ! $missao_text ) {
+        $missao_text = get_post_meta( $post_id, '_lilacs_missao', true );
+    }
+}
+$default_missao = 'Promover a visibilidade, acesso, difusão, uso e preservação da melhor informação, evidência e conhecimento científico e técnico em Ciências da Saúde publicada nos países da América Latina e Caribe para contribuir com a informação fidedigna para suporte à pesquisa e à decisão clínica e administrativa, bem como para promoção da saúde pública humana.';
+if ( ! $missao_text ) $missao_text = $default_missao;
 ?>
 <div class="lilacs-wordcloud">
     <div class="container">
@@ -361,6 +471,21 @@ if ( $bg_oque ) {
             </div>
             <?php endforeach; ?>
         </section>
+        
+        <!--  MISSÃO VISÃO E VALORES -->
+
+        <div class="missao-visao-valores" style="<?php echo esc_attr( $section_style ); ?>">
+            <h2>Missão</h2>
+            <div class="mv-values">
+                <div class="mv-item">
+                    <h3>Missão</h3>
+                    <?php echo wp_kses_post( wpautop( $missao_text ) ); ?>
+                </div>
+          
+        </div>
+            </div>
+        
+        
         <!-- Seção: Revistas Indexadas -->
         <section class="indexed-journals" style="<?php echo esc_attr( $section_style ); ?>">
             <h2>Revistas Indexadas na LILACS</h2>

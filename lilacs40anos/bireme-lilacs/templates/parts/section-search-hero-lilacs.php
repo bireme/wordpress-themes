@@ -8,13 +8,31 @@
       <h1 class="lilacs-hero__title"><?=$camposBanner['title'];?></h1>
       <p class="lilacs-hero__subtitle"><?=$camposBanner['desc'];?></p>
 
-      <form class="lilacs-search" role="search" method="get" action="<?php echo esc_url( home_url('/') ); ?>">
+      <form class="lilacs-search" role="search" method="get" action="https://pesquisa.bvsalud.org/portal/">
         <label class="screen-reader-text" for="lilacs-search-input">Pesquisar</label>
+        <input type="hidden" name="home_url" value="http://lilacs.bvsalud.org">
+
+        <?php
+        // Campo de idioma dinâmico para o formulário de busca (compatível com Polylang)
+        $pll_lang = function_exists('pll_current_language') ? pll_current_language() : '';
+        // Mapear variações possíveis para códigos esperados pelo sistema de busca
+        $lang_map = [
+          'pt' => 'pt', 'pt-br' => 'pt', 'pt_br' => 'pt',
+          'en' => 'en', 'en-us' => 'en', 'en_us' => 'en',
+          'es' => 'es', 'es-es' => 'es', 'es_es' => 'es'
+        ];
+        $lang_field = 'es'; // fallback padrão
+        if ($pll_lang) {
+          $pll_key = strtolower($pll_lang);
+          $lang_field = isset($lang_map[$pll_key]) ? $lang_map[$pll_key] : substr($pll_key, 0, 2);
+        }
+        ?>
+        <input type="hidden" name="lang" value="<?php echo esc_attr($lang_field); ?>">
 
         <div class="lilacs-search__row">
           <input id="lilacs-search-input"
                  class="lilacs-search__input"
-                 name="s"
+                 name="q"
                  type="search"
                  placeholder="Insira sua pesquisa aqui"
                  aria-label="Pesquisar"
@@ -31,15 +49,20 @@
            </button>
         </div>
 
-        <div class="lilacs-search__actions">
-            <div class="lilacs-search_cts">
-                <a href="#busca-avancada" class="btn-pill">Busca avançada</a>
-                <a href="#decs" class="btn-pill">Busca com DeCS / MeSH</a>
-            </div>
-             <div class="lilacs-help">
-          <a href="#como-pesquisar" class="btn-pill">Como pesquisar</a>
+    <div class="lilacs-search__actions">
+      <div class="lilacs-search_cts">
+        <?php
+          $l1 = $camposBanner['links'][0] ?? ['text'=>'Busca avançada','url'=>'#busca-avancada'];
+          $l2 = $camposBanner['links'][1] ?? ['text'=>'Busca com DeCS / MeSH','url'=>'#decs'];
+        ?>
+        <a href="<?php echo esc_url($l1['url']); ?>" class="btn-pill"><?php echo esc_html($l1['text']); ?></a>
+        <a href="<?php echo esc_url($l2['url']); ?>" class="btn-pill"><?php echo esc_html($l2['text']); ?></a>
+      </div>
+       <div class="lilacs-help">
+      <?php $l3 = $camposBanner['links'][2] ?? ['text'=>'Como pesquisar','url'=>'#como-pesquisar']; ?>
+      <a href="<?php echo esc_url($l3['url']); ?>" class="btn-pill"><?php echo esc_html($l3['text']); ?></a>
 </div>
-        </div>
+    </div>
       </form>
     </div>
   </div>

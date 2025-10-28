@@ -10,29 +10,49 @@ function bireme_lilacs_home_matches_template($post_id){
 }
 
 /** === REGISTRO DA METABOX (apenas quando o template bate) === */
-add_action('add_meta_boxes', function(){
-    $post_id = 0;
-    if (!empty($_GET['post'])) $post_id = (int) $_GET['post'];
-    if (!$post_id || !bireme_lilacs_home_matches_template($post_id)) return;
+/**
+ * Registra o metabox — usa o objeto $post quando disponível para ser
+ * compatível com o Editor Clássico e com Gutenberg.
+ */
+function bireme_lilacs_home_add_meta_box( $post_type, $post ){
+  $post_id = 0;
+  if (!empty($post) && !empty($post->ID)) {
+    $post_id = (int) $post->ID;
+  } elseif (!empty($_GET['post'])) {
+    $post_id = (int) $_GET['post'];
+  } elseif (!empty($_POST['post_ID'])) {
+    $post_id = (int) $_POST['post_ID'];
+  }
 
-    add_meta_box(
-        'bireme_lilacs_home_tabs',
-        'LILACS Home – Campos por Dobra',
-        'bireme_lilacs_home_metabox_tabs_render',
-        'page',
-        'normal',
-        'high'
-    );
-});
+  if (!$post_id || !bireme_lilacs_home_matches_template($post_id)) return;
+
+  add_meta_box(
+    'bireme_lilacs_home_tabs',
+    'LILACS Home – Campos por Dobra',
+    'bireme_lilacs_home_metabox_tabs_render',
+    'page',
+    'normal',
+    'high'
+  );
+}
+add_action('add_meta_boxes', 'bireme_lilacs_home_add_meta_box', 10, 2);
 
 /** === CSS/JS das abas (carrega somente quando necessário) === */
 add_action('admin_enqueue_scripts', function($hook){
-    if (!in_array($hook, ['post.php','post-new.php'], true)) return;
+  if (!in_array($hook, ['post.php','post-new.php'], true)) return;
 
-    $post_id = 0;
-    if (!empty($_GET['post'])) $post_id = (int) $_GET['post'];
+  // Tenta obter o post via objeto global quando disponível (mais confiável)
+  $post_id = 0;
+  global $post;
+  if (!empty($post) && !empty($post->ID)) {
+    $post_id = (int) $post->ID;
+  } elseif (!empty($_GET['post'])) {
+    $post_id = (int) $_GET['post'];
+  } elseif (!empty($_POST['post_ID'])) {
+    $post_id = (int) $_POST['post_ID'];
+  }
 
-    if ($post_id && bireme_lilacs_home_matches_template($post_id)) {
+  if ($post_id && bireme_lilacs_home_matches_template($post_id)) {
         wp_enqueue_media();
              // CSS leve
        // CSS leve (NOWDOC evita interpolação)
@@ -61,6 +81,10 @@ $css = <<<'CSS'
 .bireme-card-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:10px}
 .bireme-card{border:1px solid #e6e6e6;border-radius:8px;padding:12px}
 .bireme-card h4{margin:0 0 8px}
+.bireme-source-toggle{margin:12px 0;padding:10px;background:#f9f9f9;border-radius:6px}
+.bireme-source-toggle label{display:block;margin:6px 0}
+.bireme-manual-fields,.bireme-rss-fields{margin-top:12px}
+.bireme-rss-test{margin-top:8px}
 CSS;
 
 wp_register_style('bireme_lilacs_tabs_css', false);
@@ -133,6 +157,62 @@ $js = <<<'JS'
     $row.find('input[name="bireme_slider_items[id][]"]').val('0');
     $row.find('.bireme-slide-preview').html('<em>Sem imagem.</em>');
   });
+
+  // Toggle para RSS/Manual
+  $(document).on('change', 'input[name="bireme_rc_source_type"]', function(){
+    var type = $(this).val();
+    if(type === 'rss') {
+      $('.bireme-rss-fields').show();
+      $('.bireme-manual-fields').hide();
+    } else {
+      $('.bireme-rss-fields').hide();
+      $('.bireme-manual-fields').show();
+    }
+  });
+
+  // Inicializar toggle na carga
+  $(document).ready(function(){
+    var type = $('input[name="bireme_rc_source_type"]:checked').val();
+    if(type === 'rss') {
+      $('.bireme-rss-fields').show();
+      $('.bireme-manual-fields').hide();
+    } else {
+      $('.bireme-rss-fields').hide();
+      $('.bireme-manual-fields').show();
+    }
+  });
+
+  // Testar RSS
+  $(document).on('click', '.bireme-test-rss', function(e){
+    e.preventDefault();
+    var url = $('input[name="bireme_rc_rss_url"]').val();
+    if(!url) {
+      alert('Insira uma URL RSS primeiro.');
+      return;
+    }
+    
+    var $btn = $(this);
+    var $result = $('.bireme-rss-test-result');
+    
+    $btn.prop('disabled', true).text('Testando...');
+    $result.html('<em>Testando conexão RSS...</em>');
+    
+    $.post(ajaxurl, {
+      action: 'bireme_test_rss',
+      rss_url: url,
+      nonce: '<?php echo wp_create_nonce("bireme_test_rss"); ?>'
+    }, function(response) {
+      $btn.prop('disabled', false).text('Testar RSS');
+      if(response.success) {
+        $result.html('<strong style="color:green;">✓ RSS válido!</strong><br>' + response.data.items + ' itens encontrados.<br><small>Primeiro item: ' + response.data.first_title + '</small>');
+      } else {
+        $result.html('<strong style="color:red;">✗ Erro:</strong> ' + response.data);
+      }
+    }).fail(function(){
+      $btn.prop('disabled', false).text('Testar RSS');
+      $result.html('<strong style="color:red;">✗ Erro de conexão</strong>');
+    });
+  });
 })(jQuery);
 JS;
 
@@ -160,6 +240,13 @@ function bireme_lilacs_home_metabox_tabs_render($post){
     $hero_desc  = get_post_meta($post->ID, '_bireme_hero_desc',  true);
     $hero_img   = (int) get_post_meta($post->ID, '_bireme_hero_img_id', true);
     $hero_url   = $hero_img ? wp_get_attachment_image_url($hero_img, 'large') : '';
+  // Links do hero (novos): texto e URL para os 3 botões/âncoras
+  $hero_link1_text = get_post_meta($post->ID, '_bireme_hero_link1_text', true);
+  $hero_link1_url  = get_post_meta($post->ID, '_bireme_hero_link1_url', true);
+  $hero_link2_text = get_post_meta($post->ID, '_bireme_hero_link2_text', true);
+  $hero_link2_url  = get_post_meta($post->ID, '_bireme_hero_link2_url', true);
+  $hero_link3_text = get_post_meta($post->ID, '_bireme_hero_link3_text', true);
+  $hero_link3_url  = get_post_meta($post->ID, '_bireme_hero_link3_url', true);
 
     $cta_sub    = get_post_meta($post->ID, '_bireme_cta_subtitle', true);
     $cta_txt    = get_post_meta($post->ID, '_bireme_cta_button_text', true);
@@ -216,6 +303,11 @@ function bireme_lilacs_home_metabox_tabs_render($post){
     $rc_sub   = get_post_meta($post->ID, '_bireme_rc_sub', true);
     $rc_items = get_post_meta($post->ID, '_bireme_rc_items', true);
     if (!is_array($rc_items)) $rc_items = [];
+    
+    // Campos RSS
+    $rc_source_type = get_post_meta($post->ID, '_bireme_rc_source_type', true) ?: 'manual';
+    $rc_rss_url = get_post_meta($post->ID, '_bireme_rc_rss_url', true);
+    $rc_rss_limit = get_post_meta($post->ID, '_bireme_rc_rss_limit', true) ?: 5;
 
 
 // Dobra 8 — Dados e Indicadores (4 caixas fixas)
@@ -285,6 +377,25 @@ if (!is_array($dep_items)) $dep_items = [];
     </div>
   </div>
 </div>
+
+  <!-- Novos campos: personalizar textos e links rápidos do hero -->
+  <div class="bireme-field" style="margin-top:12px">
+    <label>Links rápidos (texto e URL)</label>
+    <div style="display:grid;gap:8px;margin-top:6px">
+      <div class="bireme-two-col">
+        <input type="text" name="bireme_hero_link1_text" class="widefat" placeholder="Texto do link 1" value="<?php echo esc_attr($hero_link1_text); ?>">
+        <input type="text" name="bireme_hero_link1_url"  class="widefat" placeholder="URL do link 1 (ex: #busca-avancada ou https://...)" value="<?php echo esc_attr($hero_link1_url); ?>">
+      </div>
+      <div class="bireme-two-col">
+        <input type="text" name="bireme_hero_link2_text" class="widefat" placeholder="Texto do link 2" value="<?php echo esc_attr($hero_link2_text); ?>">
+        <input type="text" name="bireme_hero_link2_url"  class="widefat" placeholder="URL do link 2 (ex: #decs or https://...)" value="<?php echo esc_attr($hero_link2_url); ?>">
+      </div>
+      <div class="bireme-two-col">
+        <input type="text" name="bireme_hero_link3_text" class="widefat" placeholder="Texto do link 3" value="<?php echo esc_attr($hero_link3_text); ?>">
+        <input type="text" name="bireme_hero_link3_url"  class="widefat" placeholder="URL do link 3 (ex: #como-pesquisar or https://...)" value="<?php echo esc_attr($hero_link3_url); ?>">
+      </div>
+    </div>
+  </div>
 
 <!-- Dobra 2 — Raio-X da LILACS -->
 <div class="bireme-tab" id="bireme-tab-2rx">
@@ -437,7 +548,8 @@ if (!is_array($dep_items)) $dep_items = [];
     </div>
     <div class="bireme-field">
       <label for="bireme_cta_button_url">URL do botão</label>
-      <input type="url" id="bireme_cta_button_url" name="bireme_cta_button_url" class="widefat" value="<?php echo esc_attr($cta_url); ?>">
+      <!-- trocar para text para evitar validação HTML5 bloqueando o submit no Classic Editor -->
+      <input type="text" id="bireme_cta_button_url" name="bireme_cta_button_url" class="widefat" value="<?php echo esc_attr($cta_url); ?>">
     </div>
   </div>
   <div class="bireme-field">
@@ -502,7 +614,7 @@ if (!is_array($dep_items)) $dep_items = [];
                 <label for="bireme_aud_1_more_text">Link — texto</label>
                 <input type="text" id="bireme_aud_1_more_text" name="bireme_aud_1_more_text" class="widefat" value="<?php echo esc_attr($aud1_more_t ?: 'Outras informações'); ?>">
                 <label for="bireme_aud_1_more_url" style="margin-top:8px">Link — URL</label>
-                <input type="url" id="bireme_aud_1_more_url" name="bireme_aud_1_more_url" class="widefat" value="<?php echo esc_attr($aud1_more_u); ?>">
+                <input type="text" id="bireme_aud_1_more_url" name="bireme_aud_1_more_url" class="widefat" value="<?php echo esc_attr($aud1_more_u); ?>">
               </div>
             </div>
 
@@ -564,7 +676,7 @@ if (!is_array($dep_items)) $dep_items = [];
                 <label for="bireme_aud_2_more_text">Link — texto</label>
                 <input type="text" id="bireme_aud_2_more_text" name="bireme_aud_2_more_text" class="widefat" value="<?php echo esc_attr($aud2_more_t ?: 'Outras informações'); ?>">
                 <label for="bireme_aud_2_more_url" style="margin-top:8px">Link — URL</label>
-                <input type="url" id="bireme_aud_2_more_url" name="bireme_aud_2_more_url" class="widefat" value="<?php echo esc_attr($aud2_more_u); ?>">
+                <input type="text" id="bireme_aud_2_more_url" name="bireme_aud_2_more_url" class="widefat" value="<?php echo esc_attr($aud2_more_u); ?>">
               </div>
             </div>
 
@@ -624,7 +736,7 @@ if (!is_array($dep_items)) $dep_items = [];
                 <label for="bireme_aud_3_more_text">Link — texto</label>
                 <input type="text" id="bireme_aud_3_more_text" name="bireme_aud_3_more_text" class="widefat" value="<?php echo esc_attr($aud3_more_t ?: 'Outras informações'); ?>">
                 <label for="bireme_aud_3_more_url" style="margin-top:8px">Link — URL</label>
-                <input type="url" id="bireme_aud_3_more_url" name="bireme_aud_3_more_url" class="widefat" value="<?php echo esc_attr($aud3_more_u); ?>">
+                <input type="text" id="bireme_aud_3_more_url" name="bireme_aud_3_more_url" class="widefat" value="<?php echo esc_attr($aud3_more_u); ?>">
               </div>
             </div>
 
@@ -681,11 +793,11 @@ if (!is_array($dep_items)) $dep_items = [];
       <div class="bireme-repeater__rows">
         <?php
         $rows = !empty($jr_items) ? $jr_items : [
-          ['label'=>'Total Geral','total'=>'934','url'=>'#','accent'=>0],
-          ['label'=>'Argentina','total'=>'128','url'=>'#','accent'=>0],
-          ['label'=>'Bolívia','total'=>'14','url'=>'#','accent'=>0],
-          ['label'=>'Brasil','total'=>'316','url'=>'#','accent'=>0],
-          ['label'=>'Ver mais','total'=>'','url'=>'#','accent'=>1],
+          ['label'=>'Total Geral','total'=>'934','url'=>'','accent'=>0],
+          ['label'=>'Argentina','total'=>'128','url'=>'','accent'=>0],
+          ['label'=>'Bolívia','total'=>'14','url'=>'','accent'=>0],
+          ['label'=>'Brasil','total'=>'316','url'=>'','accent'=>0],
+          ['label'=>'Ver mais','total'=>'','url'=>'','accent'=>1],
         ];
         foreach($rows as $r){
           $label  = esc_attr($r['label'] ?? '');
@@ -696,7 +808,7 @@ if (!is_array($dep_items)) $dep_items = [];
           <div class="bireme-repeater__row" style="flex-wrap:wrap">
             <input type="text" name="bireme_jr_items[label][]" value="'.$label.'" placeholder="Rótulo (ex.: Brasil)" style="min-width:220px">
             <input type="text" name="bireme_jr_items[total][]" value="'.$total.'" placeholder="Total (ex.: 316)" style="width:140px">
-            <input type="url" name="bireme_jr_items[url][]" value="'.$url.'" placeholder="URL" style="min-width:260px;flex:1">
+            <input type="text" name="bireme_jr_items[url][]" value="'.$url.'" placeholder="URL" style="min-width:260px;flex:1">
             <label style="display:flex;align-items:center;gap:6px">
               <input type="checkbox" name="bireme_jr_items[accent][]" value="1" '.$accent.'>
               Destaque (laranja)
@@ -712,7 +824,7 @@ if (!is_array($dep_items)) $dep_items = [];
         <div class="bireme-repeater__row" style="flex-wrap:wrap">
           <input type="text" name="bireme_jr_items[label][]" value="" placeholder="Rótulo">
           <input type="text" name="bireme_jr_items[total][]" value="" placeholder="Total">
-          <input type="url"  name="bireme_jr_items[url][]"   value="" placeholder="URL" style="min-width:260px;flex:1">
+          <input type="text"  name="bireme_jr_items[url][]"   value="" placeholder="URL" style="min-width:260px;flex:1">
           <label style="display:flex;align-items:center;gap:6px">
             <input type="checkbox" name="bireme_jr_items[accent][]" value="1">
             Destaque (laranja)
@@ -761,7 +873,7 @@ if (!is_array($dep_items)) $dep_items = [];
               <button type="button" class="button link-delete bireme-clear">Remover imagem</button>
             </div>
             <label>URL (opcional)</label>
-            <input type="url" name="bireme_slider_items[url][]" class="widefat" value="<?php echo $url; ?>" placeholder="https://...">
+            <input type="text" name="bireme_slider_items[url][]" class="widefat" value="<?php echo esc_attr($url); ?>" placeholder="https://...">
             <label style="margin-top:6px">ALT (opcional)</label>
             <input type="text" name="bireme_slider_items[alt][]" class="widefat" value="<?php echo $alt; ?>" placeholder="Texto alternativo da imagem">
           </div>
@@ -781,7 +893,7 @@ if (!is_array($dep_items)) $dep_items = [];
             <button type="button" class="button link-delete bireme-clear">Remover imagem</button>
           </div>
           <label>URL (opcional)</label>
-          <input type="url" name="bireme_slider_items[url][]" class="widefat" value="">
+          <input type="text" name="bireme_slider_items[url][]" class="widefat" value="">
           <label style="margin-top:6px">ALT (opcional)</label>
           <input type="text" name="bireme_slider_items[alt][]" class="widefat" value="">
         </div>
@@ -805,40 +917,79 @@ if (!is_array($dep_items)) $dep_items = [];
       echo esc_textarea($rc_sub ?: 'Acompanhe os conteúdos disponibilizados continuamente pela LILACS, refletindo a produção científica da América Latina e Caribe.'); ?></textarea>
   </div>
 
-  <div class="bireme-field">
-    <label>Itens (repetidor de publicações)</label>
-    <div class="bireme-repeater" data-repeater>
-      <div class="bireme-repeater__head">
-        <strong>Título + URL</strong>
-        <button class="button button-small" data-repeater-add type="button">+ Adicionar item</button>
-      </div>
+  <!-- Seletor de fonte -->
+  <div class="bireme-source-toggle">
+    <strong>Fonte dos dados:</strong>
+    <label>
+      <input type="radio" name="bireme_rc_source_type" value="manual" <?php checked($rc_source_type, 'manual'); ?>>
+      Inserção manual (lista personalizada)
+    </label>
+    <label>
+      <input type="radio" name="bireme_rc_source_type" value="rss" <?php checked($rc_source_type, 'rss'); ?>>
+      RSS Feed automático
+    </label>
+  </div>
 
-      <div class="bireme-repeater__rows">
-        <?php
-        $rows = !empty($rc_items) ? $rc_items : [
-          ['title'=>'O processo de desinstitucionalização...', 'url'=>'#'],
-          ['title'=>'Impact of the armed conflict on victims...', 'url'=>'#'],
-          ['title'=>'Methemoglobinemia secundária...', 'url'=>'#'],
-        ];
-        foreach($rows as $r){
-          $t = esc_attr($r['title'] ?? '');
-          $u = esc_url($r['url'] ?? '');
-          echo '
+  <!-- Campos RSS -->
+  <div class="bireme-rss-fields" style="display:none;">
+    <div class="bireme-field">
+      <label for="bireme_rc_rss_url">URL do RSS Feed</label>
+      <input type="url" id="bireme_rc_rss_url" name="bireme_rc_rss_url" class="widefat"
+             value="<?php echo esc_attr($rc_rss_url); ?>"
+             placeholder="https://pesquisa.bvsalud.org/portal/...">
+      <p class="description">Cole aqui a URL do feed RSS que contém as publicações da LILACS.</p>
+    </div>
+    
+    <div class="bireme-field">
+      <label for="bireme_rc_rss_limit">Número máximo de itens</label>
+      <input type="number" id="bireme_rc_rss_limit" name="bireme_rc_rss_limit" 
+             value="<?php echo esc_attr($rc_rss_limit); ?>" min="1" max="20" style="width:80px;">
+      <p class="description">Quantos itens do RSS exibir (máximo 20).</p>
+    </div>
+
+    <div class="bireme-rss-test">
+      <button type="button" class="button bireme-test-rss">Testar RSS</button>
+      <div class="bireme-rss-test-result" style="margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- Campos manuais -->
+  <div class="bireme-manual-fields">
+    <div class="bireme-field">
+      <label>Itens (repetidor de publicações)</label>
+      <div class="bireme-repeater" data-repeater>
+        <div class="bireme-repeater__head">
+          <strong>Título + URL</strong>
+          <button class="button button-small" data-repeater-add type="button">+ Adicionar item</button>
+        </div>
+
+        <div class="bireme-repeater__rows">
+          <?php
+          $rows = !empty($rc_items) ? $rc_items : [
+            ['title'=>'O processo de desinstitucionalização...', 'url'=>''],
+            ['title'=>'Impact of the armed conflict on victims...', 'url'=>''],
+            ['title'=>'Methemoglobinemia secundária...', 'url'=>''],
+          ];
+          foreach($rows as $r){
+            $t = esc_attr($r['title'] ?? '');
+            $u = esc_url($r['url'] ?? '');
+            echo '
+            <div class="bireme-repeater__row" style="flex-wrap:wrap">
+              <input type="text" name="bireme_rc_items[title][]" value="'.$t.'" placeholder="Título da publicação" style="flex:1; min-width:280px">
+              <input type="text"  name="bireme_rc_items[url][]"   value="'.$u.'" placeholder="URL" style="flex:1; min-width:260px">
+              <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
+            </div>';
+          }
+          ?>
+        </div>
+
+        <!-- Protótipo oculto -->
+        <div data-repeater-proto style="display:none">
           <div class="bireme-repeater__row" style="flex-wrap:wrap">
-            <input type="text" name="bireme_rc_items[title][]" value="'.$t.'" placeholder="Título da publicação" style="flex:1; min-width:280px">
-            <input type="url"  name="bireme_rc_items[url][]"   value="'.$u.'" placeholder="URL" style="flex:1; min-width:260px">
+            <input type="text" name="bireme_rc_items[title][]" value="" placeholder="Título da publicação" style="flex:1; min-width:280px">
+            <input type="text"  name="bireme_rc_items[url][]"   value="" placeholder="URL" style="flex:1; min-width:260px">
             <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
-          </div>';
-        }
-        ?>
-      </div>
-
-      <!-- Protótipo oculto -->
-      <div data-repeater-proto style="display:none">
-        <div class="bireme-repeater__row" style="flex-wrap:wrap">
-          <input type="text" name="bireme_rc_items[title][]" value="" placeholder="Título da publicação" style="flex:1; min-width:280px">
-          <input type="url"  name="bireme_rc_items[url][]"   value="" placeholder="URL" style="flex:1; min-width:260px">
-          <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
+          </div>
         </div>
       </div>
     </div>
@@ -866,9 +1017,9 @@ if (!is_array($dep_items)) $dep_items = [];
                     value="<?php echo esc_attr($di_btn_txt ?: 'Ver todos'); ?>">
             </div>
             <div class="bireme-field">
-              <label for="bireme_di_btn_url">Botão — URL</label>
-              <input type="url" id="bireme_di_btn_url" name="bireme_di_btn_url" class="widefat"
-                    value="<?php echo esc_attr($di_btn_url); ?>">
+      <label for="bireme_di_btn_url">Botão — URL</label>
+      <input type="text" id="bireme_di_btn_url" name="bireme_di_btn_url" class="widefat"
+        value="<?php echo esc_attr($di_btn_url); ?>">
             </div>
           </div>
         <div class="bireme-card-grid" style="grid-template-columns:1fr; gap:20px">
@@ -882,9 +1033,9 @@ if (!is_array($dep_items)) $dep_items = [];
                         value="<?php echo esc_attr($di[$i]['title']); ?>">
                 </div>
                 <div class="bireme-field">
-                  <label for="bireme_di_<?php echo $i; ?>_url">URL da caixa</label>
-                  <input type="url" id="bireme_di_<?php echo $i; ?>_url" name="bireme_di_<?php echo $i; ?>_url" class="widefat"
-                        value="<?php echo esc_attr($di[$i]['url']); ?>">
+      <label for="bireme_di_<?php echo $i; ?>_url">URL da caixa</label>
+      <input type="text" id="bireme_di_<?php echo $i; ?>_url" name="bireme_di_<?php echo $i; ?>_url" class="widefat"
+        value="<?php echo esc_attr($di[$i]['url']); ?>">
                 </div>
               </div>
 
@@ -1061,6 +1212,14 @@ add_action('save_post_page', function($post_id){
     update_post_meta($post_id, '_bireme_aud_3_items',      $aud3_items);
     update_post_meta($post_id, '_bireme_aud_3_more_text',  sanitize_text_field($_POST['bireme_aud_3_more_text'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_3_more_url',   esc_url_raw($_POST['bireme_aud_3_more_url'] ?? ''));
+
+  // Hero quick links (novo)
+  update_post_meta($post_id, '_bireme_hero_link1_text', sanitize_text_field($_POST['bireme_hero_link1_text'] ?? ''));
+  update_post_meta($post_id, '_bireme_hero_link1_url',  esc_url_raw($_POST['bireme_hero_link1_url'] ?? ''));
+  update_post_meta($post_id, '_bireme_hero_link2_text', sanitize_text_field($_POST['bireme_hero_link2_text'] ?? ''));
+  update_post_meta($post_id, '_bireme_hero_link2_url',  esc_url_raw($_POST['bireme_hero_link2_url'] ?? ''));
+  update_post_meta($post_id, '_bireme_hero_link3_text', sanitize_text_field($_POST['bireme_hero_link3_text'] ?? ''));
+  update_post_meta($post_id, '_bireme_hero_link3_url',  esc_url_raw($_POST['bireme_hero_link3_url'] ?? ''));
     
     
     // Dobra 5 — Revistas indexadas
@@ -1180,6 +1339,11 @@ update_post_meta($post_id, '_bireme_jr_items', $items);
 update_post_meta($post_id, '_bireme_rc_title', sanitize_text_field($_POST['bireme_rc_title'] ?? ''));
 update_post_meta($post_id, '_bireme_rc_sub',   sanitize_text_field($_POST['bireme_rc_sub'] ?? ''));
 
+// Campos RSS
+update_post_meta($post_id, '_bireme_rc_source_type', sanitize_text_field($_POST['bireme_rc_source_type'] ?? 'manual'));
+update_post_meta($post_id, '_bireme_rc_rss_url', esc_url_raw($_POST['bireme_rc_rss_url'] ?? ''));
+update_post_meta($post_id, '_bireme_rc_rss_limit', max(1, min(20, (int)($_POST['bireme_rc_rss_limit'] ?? 5))));
+
 $tt = (array)($_POST['bireme_rc_items']['title'] ?? []);
 $uu = (array)($_POST['bireme_rc_items']['url']   ?? []);
 $items = [];
@@ -1212,12 +1376,25 @@ for($i=1;$i<=4;$i++){
 if (!function_exists('bireme_get_lilacs_hero_meta')){
     function bireme_get_lilacs_hero_meta($post_id){
         $img_id  = (int) get_post_meta($post_id, '_bireme_hero_img_id', true);
-        return [
-            'title'   => get_post_meta($post_id, '_bireme_hero_title', true),
-            'desc'    => get_post_meta($post_id, '_bireme_hero_desc',  true),
-            'img_id'  => $img_id,
-            'img_url' => $img_id ? wp_get_attachment_image_url($img_id, 'full') : '',
-        ];
+    // Links rápidos do hero (se não definidos, mantém valores sensatos)
+    $l1t = get_post_meta($post_id, '_bireme_hero_link1_text', true);
+    $l1u = get_post_meta($post_id, '_bireme_hero_link1_url', true);
+    $l2t = get_post_meta($post_id, '_bireme_hero_link2_text', true);
+    $l2u = get_post_meta($post_id, '_bireme_hero_link2_url', true);
+    $l3t = get_post_meta($post_id, '_bireme_hero_link3_text', true);
+    $l3u = get_post_meta($post_id, '_bireme_hero_link3_url', true);
+
+    return [
+      'title'   => get_post_meta($post_id, '_bireme_hero_title', true),
+      'desc'    => get_post_meta($post_id, '_bireme_hero_desc',  true),
+      'img_id'  => $img_id,
+      'img_url' => $img_id ? wp_get_attachment_image_url($img_id, 'full') : '',
+      'links'   => [
+        [ 'text' => $l1t ?: 'Busca avançada', 'url' => $l1u ?: '#busca-avancada' ],
+        [ 'text' => $l2t ?: 'Busca com DeCS / MeSH', 'url' => $l2u ?: '#decs' ],
+        [ 'text' => $l3t ?: 'Como pesquisar', 'url' => $l3u ?: '#como-pesquisar' ],
+      ],
+    ];
     }
 }
 if (!function_exists('bireme_get_lilacs_cta_meta')){
@@ -1284,11 +1461,24 @@ if (!function_exists('bireme_get_lilacs_slider_meta')){
 }
 if (!function_exists('bireme_get_lilacs_recent_meta')){
   function bireme_get_lilacs_recent_meta($post_id){
+    $source_type = get_post_meta($post_id, '_bireme_rc_source_type', true) ?: 'manual';
+    $items = [];
+    
+    if ($source_type === 'rss') {
+      $rss_url = get_post_meta($post_id, '_bireme_rc_rss_url', true);
+      $rss_limit = (int) get_post_meta($post_id, '_bireme_rc_rss_limit', true) ?: 5;
+      
+      if ($rss_url) {
+        $items = bireme_fetch_rss_items($rss_url, $rss_limit);
+      }
+    } else {
+      $items = get_post_meta($post_id, '_bireme_rc_items', true);
+      if(!is_array($items)) $items = [];
+    }
+    
     $title = get_post_meta($post_id, '_bireme_rc_title', true);
     $sub   = get_post_meta($post_id, '_bireme_rc_sub', true);
-    $items = get_post_meta($post_id, '_bireme_rc_items', true);
-    if(!is_array($items)) $items = [];
-    return ['title'=>$title, 'subtitle'=>$sub, 'items'=>$items];
+    return ['title'=>$title, 'subtitle'=>$sub, 'items'=>$items, 'source_type'=>$source_type];
   }
 }
 if (!function_exists('bireme_get_lilacs_di_meta')){
@@ -1324,4 +1514,98 @@ if (!function_exists('bireme_get_lilacs_dep_meta')){
     }
     return ['title'=>$title, 'items'=>$items];
   }
+}
+
+/** === FUNÇÕES RSS === */
+if (!function_exists('bireme_fetch_rss_items')){
+  function bireme_fetch_rss_items($rss_url, $limit = 5) {
+    // Cache por 30 minutos
+    $cache_key = 'bireme_rss_' . md5($rss_url . $limit);
+    $cached = get_transient($cache_key);
+    if ($cached !== false) {
+      return $cached;
+    }
+
+    $items = [];
+    
+    // Usar SimplePie (incluído no WordPress)
+    $rss = fetch_feed($rss_url);
+    
+    if (is_wp_error($rss)) {
+      error_log('BIREME RSS Error: ' . $rss->get_error_message());
+      return [];
+    }
+
+    $maxitems = $rss->get_item_quantity($limit);
+    $rss_items = $rss->get_items(0, $maxitems);
+
+    foreach ($rss_items as $item) {
+      $title = $item->get_title();
+      $link = $item->get_link();
+      $author = $item->get_author();
+      $description = $item->get_description();
+      
+      // Extrair dados específicos do formato LILACS
+      $source = '';
+      if ($description) {
+        // Tentar extrair source do CDATA
+        if (preg_match('/Source:\s*<!\[CDATA\[\s*(.+?)\s*\]\]>/', $description, $matches)) {
+          $source = trim($matches[1]);
+        }
+      }
+      
+      $items[] = [
+        'title' => $title ?: 'Sem título',
+        'url' => $link ?: '',
+        'author' => $author ? $author->get_name() : '',
+        'source' => $source,
+        'description' => wp_trim_words(strip_tags($description), 30)
+      ];
+    }
+
+    // Cache por 30 minutos
+    set_transient($cache_key, $items, 30 * MINUTE_IN_SECONDS);
+    
+    return $items;
+  }
+}
+
+// AJAX para testar RSS
+add_action('wp_ajax_bireme_test_rss', 'bireme_test_rss_callback');
+function bireme_test_rss_callback() {
+  // Verificar nonce
+  if (!wp_verify_nonce($_POST['nonce'] ?? '', 'bireme_test_rss')) {
+    wp_die('Nonce inválido');
+  }
+
+  if (!current_user_can('edit_posts')) {
+    wp_die('Permissões insuficientes');
+  }
+
+  $rss_url = sanitize_url($_POST['rss_url'] ?? '');
+  
+  if (empty($rss_url)) {
+    wp_send_json_error('URL não fornecida');
+  }
+
+  // Testar o RSS
+  $rss = fetch_feed($rss_url);
+  
+  if (is_wp_error($rss)) {
+    wp_send_json_error($rss->get_error_message());
+  }
+
+  $maxitems = $rss->get_item_quantity(5);
+  $rss_items = $rss->get_items(0, $maxitems);
+  
+  if (empty($rss_items)) {
+    wp_send_json_error('Nenhum item encontrado no RSS');
+  }
+
+  $first_item = $rss_items[0];
+  
+  wp_send_json_success([
+    'items' => count($rss_items),
+    'first_title' => $first_item->get_title()
+  ]);
 }

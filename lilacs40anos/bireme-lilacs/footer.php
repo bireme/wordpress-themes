@@ -18,7 +18,7 @@
 
         <div class="lf-logos-row">
 
-          <a class="lf-logo-opas" href="#" aria-label="OPAS/OMS">
+          <a class="lf-logo-opas logo-opas-bireme" href="#" aria-label="OPAS/OMS">
 
             <img src="https://springgreen-raven-258256.hostingersite.com/wp-content/uploads/2025/10/opas__bireme.png" alt="OPAS / OMS">
 

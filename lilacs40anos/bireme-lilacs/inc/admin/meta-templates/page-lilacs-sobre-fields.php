@@ -107,6 +107,8 @@ function lilacs_render_sobre_metabox( $post ) {
 	$intro_p1    = get_post_meta( $post->ID, '_lilacs_intro_p1', true );
 	$intro_p2    = get_post_meta( $post->ID, '_lilacs_intro_p2', true );
 	$intro_p3    = get_post_meta( $post->ID, '_lilacs_intro_p3', true );
+	// novo campo: Missão (campo de texto)
+	$intro_missao = get_post_meta( $post->ID, '_lilacs_intro_missao', true );
 
 	// --- NOVO: metas para NUVENS (indexed) ---
 	$indexed_title = get_post_meta( $post->ID, '_lilacs_indexed_title', true );
@@ -233,6 +235,11 @@ function lilacs_render_sobre_metabox( $post ) {
 			<label for="lilacs_intro_title">Título (seção "O que é")</label>
 			<input id="lilacs_intro_title" name="lilacs_intro_title" class="lilacs-input" type="text" value="<?php echo esc_attr( $intro_title ); ?>">
 		</div>
+
+		<div class="lilacs-row">
+			<label for="lilacs_intro_missao">Missão</label>
+			<input id="lilacs_intro_missao" name="lilacs_intro_missao" class="lilacs-input" type="text" value="<?php echo esc_attr( $intro_missao ); ?>">
+		</div>
 		<div class="lilacs-row">
 			<label for="lilacs_intro_p1">Parágrafo 1</label>
 			<textarea id="lilacs_intro_p1" name="lilacs_intro_p1" rows="3" class="lilacs-textarea"><?php echo esc_textarea( $intro_p1 ); ?></textarea>
@@ -323,7 +330,7 @@ function lilacs_render_sobre_metabox( $post ) {
 						<label for="lilacs_voice_<?php echo $v; ?>_text" style="margin-top:6px">Texto #<?php echo $v; ?></label>
 						<textarea id="lilacs_voice_<?php echo $v; ?>_text" name="lilacs_voice_<?php echo $v; ?>_text" rows="3" class="lilacs-textarea"><?php echo esc_textarea( $voices[$v]['text'] ); ?></textarea>
 						<label for="lilacs_voice_<?php echo $v; ?>_avatar" style="margin-top:6px">Avatar URL #<?php echo $v; ?></label>
-						<input id="lilacs_voice_<?php echo $v; ?>_avatar" name="lilacs_voice_<?php echo $v; ?>_avatar" class="lilacs-input" type="url" value="<?php echo esc_attr( $voices[$v]['avatar'] ); ?>">
+						<input id="lilacs_voice_<?php echo $v; ?>_avatar" name="lilacs_voice_<?php echo $v; ?>_avatar" class="lilacs-input" type="text" value="<?php echo esc_attr( $voices[$v]['avatar'] ); ?>">
 					</div>
 				<?php endfor; ?>
 			</div>
@@ -449,7 +456,7 @@ $boxes = []; for($b=1;$b<=3;$b++){
         <label for="lilacs_quick_<?php echo $i; ?>_title">Título #<?php echo $i; ?></label>
         <input class="lilacs-input" id="lilacs_quick_<?php echo $i; ?>_title" name="lilacs_quick_<?php echo $i; ?>_title" type="text" value="<?php echo esc_attr($quick[$i]['title']); ?>">
         <label for="lilacs_quick_<?php echo $i; ?>_url" style="margin-top:6px">URL #<?php echo $i; ?></label>
-        <input class="lilacs-input" id="lilacs_quick_<?php echo $i; ?>_url" name="lilacs_quick_<?php echo $i; ?>_url" type="url" value="<?php echo esc_attr($quick[$i]['url']); ?>">
+	<input class="lilacs-input" id="lilacs_quick_<?php echo $i; ?>_url" name="lilacs_quick_<?php echo $i; ?>_url" type="text" value="<?php echo esc_attr($quick[$i]['url']); ?>">
         <label for="lilacs_quick_<?php echo $i; ?>_icon" style="margin-top:6px">Ícone (opcional)</label>
         <input class="lilacs-input" id="lilacs_quick_<?php echo $i; ?>_icon" name="lilacs_quick_<?php echo $i; ?>_icon" type="text" placeholder="dashicons-arrow-right-alt2 ou SVG simples" value="<?php echo esc_attr($quick[$i]['icon']); ?>">
       </div>
@@ -478,7 +485,7 @@ $boxes = []; for($b=1;$b<=3;$b++){
     <textarea class="lilacs-textarea" name="lilacs_banner_<?php echo $s; ?>_desc" rows="2"><?php echo esc_textarea($slides[$s]['desc']); ?></textarea>
     <div style="display:flex;gap:8px;margin-top:6px">
       <input class="lilacs-input" style="flex:1" name="lilacs_banner_<?php echo $s; ?>_btn_txt" type="text" placeholder="Texto do botão" value="<?php echo esc_attr($slides[$s]['btn_txt']); ?>">
-      <input class="lilacs-input" style="flex:2" name="lilacs_banner_<?php echo $s; ?>_btn_url" type="url"  placeholder="URL do botão" value="<?php echo esc_attr($slides[$s]['btn_url']); ?>">
+	<input class="lilacs-input" style="flex:2" name="lilacs_banner_<?php echo $s; ?>_btn_url" type="text"  placeholder="URL do botão" value="<?php echo esc_attr($slides[$s]['btn_url']); ?>">
     </div>
   </div>
   <?php endfor; ?>
@@ -502,7 +509,7 @@ $boxes = []; for($b=1;$b<=3;$b++){
       <label style="margin-top:6px">Título</label>
       <input class="lilacs-input" name="lilacs_box_<?php echo $b; ?>_title" type="text" value="<?php echo esc_attr($boxes[$b]['title']); ?>">
       <label style="margin-top:6px">URL</label>
-      <input class="lilacs-input" name="lilacs_box_<?php echo $b; ?>_url" type="url" value="<?php echo esc_attr($boxes[$b]['url']); ?>">
+	<input class="lilacs-input" name="lilacs_box_<?php echo $b; ?>_url" type="text" value="<?php echo esc_attr($boxes[$b]['url']); ?>">
     </div>
     <?php endfor; ?>
   </div>
@@ -628,6 +635,10 @@ add_action( 'save_post', function( $post_id ) {
 	}
 	if ( isset( $_POST['lilacs_intro_p3'] ) ) {
 		update_post_meta( $post_id, '_lilacs_intro_p3', wp_kses_post( wp_unslash( $_POST['lilacs_intro_p3'] ) ) );
+	}
+	// salvar Missão
+	if ( isset( $_POST['lilacs_intro_missao'] ) ) {
+		update_post_meta( $post_id, '_lilacs_intro_missao', sanitize_text_field( wp_unslash( $_POST['lilacs_intro_missao'] ) ) );
 	}
 
 	// --- NOVO: salvar campos NUVENS (indexed) ---

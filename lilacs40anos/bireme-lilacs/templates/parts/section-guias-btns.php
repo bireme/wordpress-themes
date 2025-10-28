@@ -29,6 +29,7 @@
     .guides-faq-wrapper{grid-template-columns:1fr;gap:20px}
     .guides-grid{grid-template-columns:1fr}
     .guide-btn-large{grid-column:1}
+    .guides-column{width:100%}
   }
 </style>
 

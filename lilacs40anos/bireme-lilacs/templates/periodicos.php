@@ -273,11 +273,13 @@
   </div>
 <script>
 (function(){
-  // ===== Endpoints e constantes =====
-  const API_URL     = "https://springgreen-raven-258256.hostingersite.com/wp-json/test/v1/bvs?V=3asdsad";
-  const JOURNAL_URL = (id) => `https://springgreen-raven-258256.hostingersite.com/wp-json/test/v1/bvs/journal/${id}`;
-  const SEARCH_URL  = (ta, start=0, rows=1000) =>
-    `https://springgreen-raven-258256.hostingersite.com/wp-json/test/v1/bvs/journals/search?thematic_area=${encodeURIComponent(ta)}&start=${start}&rows=${rows}`;
+  // ===== Endpoints e constantes (dinâmicos) =====
+  // Usamos get_rest_url() no PHP para gerar a base correta do site atual.
+  const API_URL = <?php echo json_encode( untrailingslashit( get_rest_url(null, 'test/v1/bvs') ) ); ?>;
+  const JOURNAL_BASE = <?php echo json_encode( untrailingslashit( get_rest_url(null, 'test/v1/bvs/journal') ) ); ?>;
+  const JOURNAL_URL = (id) => `${JOURNAL_BASE}/${id}`;
+  const SEARCH_BASE = <?php echo json_encode( untrailingslashit( get_rest_url(null, 'test/v1/bvs/journals/search') ) ); ?>;
+  const SEARCH_URL  = (ta, start=0, rows=1000) => `${SEARCH_BASE}?thematic_area=${encodeURIComponent(ta)}&start=${start}&rows=${rows}`;
   const FETCH_ROWS  = 1000; // paginação da API de busca por Assunto
   const LANG = "pt-br";
   const PER_PAGE = 50;

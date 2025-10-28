@@ -35,7 +35,31 @@ foreach ($groups as $gi => $g){
     #bvs-page *{box-sizing:border-box; font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
 
     .bvs-wrap{max-width:1360px; margin:0 auto; display:grid; grid-template-columns:320px 1fr; gap:22px;}
-    @media (max-width:980px){ .bvs-wrap{grid-template-columns:1fr;} }
+    /* Mobile: stack sidebar above content (sidebar first) */
+    @media (max-width:980px){
+      .bvs-wrap{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+      }
+      .bvs-side{
+        order: -1; /* ensure sidebar is rendered above content */
+        width:100%;
+        max-width:100%;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        padding:12px;
+        border-radius:8px;
+      }
+      .bvs-main{
+        order: 0;
+        width:100%;
+      }
+      .bvs-wrap.is-collapsed{ /* don't collapse into narrow side on mobile */
+        grid-template-columns: 1fr;
+      }
+      .side-toggle{ right: 10px; top: 8px; }
+    }
 
     /* Sidebar */
     .bvs-side{background: var(--panel);

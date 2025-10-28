@@ -11,8 +11,8 @@ $colorsOrange = ['#6c2207','#FFBC80','#FF9E4D','#085697','#B34F00'];
 if (empty($rx['chart1'])) {
   $rx['chart1'] = [
     ['label'=>'+1.130 milhão registros',   'value'=>10],
-    ['label'=>'+707 mil textos completos', 'value'=>15],
-    ['label'=>'+2600 revistas',            'value'=>25],
+    ['label'=>'+707 mil textos completos', 'value'=>25],
+    ['label'=>'+2600 revistas',            'value'=>15],
     ['label'=>'30 países',                 'value'=>20],
     ['label'=>'9 idiomas',                 'value'=>30],
   ];
@@ -46,7 +46,6 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
             background-position: center;
         }
         #raiox-lilacs .raiox-lilacs__overlay{
-             background: url(https://springgreen-raven-258256.hostingersite.com/wp-content/uploads/2025/10/1c0fe26d-1874-4f70-a5f2-c02dd2c26f8f-removebg-preview.png);
             background-size: contain;
             background-position: center;
            animation: mover-fundo 40s linear infinite;
@@ -71,8 +70,10 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
             gap: 24px;
             align-items: end;
         }
-        #chart-orange canvas, #chart-blue canvas{ margin-top: -31px !important; }
-        #chart-blue{ transform: rotate(33deg); }
+    #chart-orange canvas, #chart-blue canvas{ margin-top: -31px !important; }
+    /* quando usarmos imagens em vez de gráficos, garanta que não sejam rotacionadas */
+    #chart-blue, #chart-orange { transform: none !important; }
+    .rx-chart img { width: 100%; height: auto; display: block;max-width: 478px;}
         /* ===== Sidebars ===== */
         #raiox-lilacs .rx-side{ align-self: stretch; display:flex; flex-direction:column; justify-content:flex-end; padding-bottom:8px; }
         .rx-card{ padding-left:0; padding-right:0; border-radius:12px; text-align:right; }
@@ -86,7 +87,14 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
         #raiox-lilacs .rx-badge{ margin-top:10px; font:400 18px/1 "Poppins"; color:#a3470a; padding:8px 0; display:inline-block; position:static; }
 
         /* ===== Gráficos ===== */
-        #raiox-lilacs .rx-chart{ height:650px; min-width:600px; overflow:hidden; }
+        #raiox-lilacs .rx-chart{     height: 650px;
+    min-width: 600px;
+    overflow: hidden;
+    display: flex
+;
+    align-content: center;
+    justify-content: center;
+    align-items: center; }
         .registros{ top:7vw; left:28vw; position:absolute; z-index:999; color:#fff; font-family:'Noto Sans'; }
         .registros h4{ font-size:60px; line-height:1; font-weight:100; margin:0; margin-left:-30px; }
         .registros span{ font-size:22px; line-height:1; width:100%; display:flex; text-align:center; font-weight:100; }
@@ -114,11 +122,25 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
         .idiomas_plus h4{ margin:0; line-height:1; font-size:45px; font-weight:100; }
         @media (max-width:1200px){ #raiox-lilacs .rx-wrap{ grid-template-columns:200px 1fr 1fr 200px; } }
         @media (max-width:980px){
-          #raiox-lilacs .rx-wrap{ grid-template-columns:1fr; gap:18px; }
+          #raiox-lilacs .rx-wrap{ grid-template-columns:1fr; gap:18px;        display: flex
+; flex-direction: column; flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;}
           #raiox-lilacs .rx-side{order:1} #raiox-lilacs #chart-blue{order:2} #raiox-lilacs #chart-orange{order:3}
           #raiox-lilacs .rx-side.right{order:4} #raiox-lilacs .rx-chart{height:420px}
+            .rx-chart img{max-width:315px;}
+            #raiox-lilacs .rx-card h3,#raiox-lilacs .rx-card p,#raiox-lilacs .rx-badge,.rx-40-anos{
+                padding-left:10px !important;
+                padding-right:10px !important;
+            }
+            #raiox-lilacs .rx-title{
+                text-align: center;
+            }
+       
+            
         }
-        @media (max-width:640px){ #raiox-lilacs .rx-chart{height:360px} }
+        @media (max-width:640px){ #raiox-lilacs .rx-chart{height:360px}   #raiox-lilacs .rx-chart{  min-width: auto; }  }
     </style>
 
     <h2 class="rx-title">Raio-X da LILACS</h2>
@@ -131,7 +153,7 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
                 <h3>LILACS</h3>
                 <p>A ciência em saúde com identidade</br> latino-americana.</p>
             </div>
-            <div class="blocos_texto_grafico">
+            <div class="blocos_texto_grafico" style="display:none;">
                 <div class="registros"><h4>+1.130</h4><span>milhão</span><span>registros</span></div>
                 <div class="textos_completos"><h4>+707 mil</h4><span>textos completos</span></div>
                 <div class="idiomas"><h4>9</h4><span>Idiomas</span></div>
@@ -140,11 +162,15 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
             </div>
         </aside>
 
-        <!-- Gráfico ESQUERDO (tons de azul) -->
-        <div id="chart-blue" class="rx-chart" role="img" aria-label="Gráfico LILACS (Azul)"></div>
+        <!-- Gráfico ESQUERDO (imagem LILACS) -->
+        <div id="chart-blue" class="rx-chart" role="img" aria-label="Imagem LILACS (Azul)">
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/lilacs.png' ); ?>" alt="LILACS" />
+        </div>
 
-        <!-- Gráfico DIREITO (tons de laranja) -->
-        <div id="chart-orange" class="rx-chart" role="img" aria-label="Gráfico LILACS Plus (Laranja)"></div>
+        <!-- Gráfico DIREITO (imagem LILACS Plus) -->
+        <div id="chart-orange" class="rx-chart" role="img" aria-label="Imagem LILACS Plus (Laranja)">
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/lilacsplus.png' ); ?>" alt="LILACS Plus" />
+        </div>
 
         <!-- Coluna DIREITA (LILACS Plus) -->
         <aside class="rx-side right" aria-label="Resumo LILACS Plus">
@@ -152,7 +178,7 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
                 <span class="rx-badge"><span>34</span> bases de dados</span>
                 <h3>LILACS Plus</h3>
                 <p>A ciência latino-americana</br> no cenário global.</p>
-                <div class="blocos_texto_grafico">
+                <div class="blocos_texto_grafico" style="display:none;" > 
                     <div class="registros_plus"><h4>+2.800</h4><span>milhões</span><span>registros</span></div>
                     <div class="textos_completos_plus"><h4>+1.500</h4><span>milhão</span><span>textos completos</span></div>
                     <div class="revistas_plus"><h4>+21.000</h4><span>revistas</span></div>
@@ -163,44 +189,6 @@ $jsOrange = array_map(fn($i)=> ['name'=>(string)$i['label'],'value'=>(float)$i['
         </aside>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-    <script>
-        // ===== Dados vindos do painel (NENHUMA outra mudança visual) =====
-        const dataBlue   = <?php echo wp_json_encode($jsBlue); ?>;
-        const dataOrange = <?php echo wp_json_encode($jsOrange); ?>;
-
-        // Paletas (iguais)
-        const colorsBlue   = ['#8FBDD4','#7A9DB3','#3174A2','#085697','#00205C'];
-        const colorsOrange = ['#6c2207','#FFBC80','#FF9E4D','#085697','#B34F00'];
-
-        function createNightingaleChart(roseType, elId, palette, seriesData) {
-            const options = {
-                backgroundColor: 'transparent',
-                tooltip: { trigger: 'item', formatter: ({ name, value, percent }) => `${name}<br/>Valor: ${value} (${percent}%)` },
-                series: [{
-                    name: 'LILACS',
-                    type: 'pie',
-                    radius: ['8%', '92%'],  // mantém o mesmo raio do seu template
-                    roseType,
-                    minAngle: 3,
-                    avoidLabelOverlap: true,
-                    stillShowZeroSum: false,
-                    itemStyle: { borderRadius: 0, borderWidth: 0, shadowBlur: 18, shadowColor: 'rgba(0,0,0,0.18)' },
-                    label: { show: false }, labelLine: { show: false },
-                    data: (seriesData||[]).map((it,i)=>({
-                        ...it,
-                        itemStyle:{ color: palette[i % palette.length] }
-                    }))
-                }]
-            };
-            const chart = echarts.init(document.getElementById(elId));
-            chart.setOption(options);
-            window.addEventListener('resize', ()=>chart.resize());
-        }
-
-        // Renderiza sem alterar layout
-        createNightingaleChart('area', 'chart-blue',   colorsBlue,   dataBlue);
-        createNightingaleChart('area', 'chart-orange', colorsOrange, dataOrange);
-    </script>
+    <!-- substituído: os gráficos foram trocados por imagens estáticas -->
     </div>
 </section>

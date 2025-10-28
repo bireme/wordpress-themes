@@ -1,51 +1,205 @@
 <?php
-wp_enqueue_style(
-    'bireme-style',
-    get_stylesheet_uri(),
-    array(),
-    '1.47312312.9' 
-);
+if (!defined('ABSPATH')) exit;
 
-require_once get_template_directory() . '/inc/admin/meta-loader.php';
-
-
-// --- Theme setup básico ---
-add_action('after_setup_theme', function() {
-    // Title tag handled by WP
-    add_theme_support('title-tag');
-
-    // Suporte a logo customizável
+// Registra suporte a menus
+function bireme_lilacs_setup() {
+    // Suporte a logo personalizado
     add_theme_support('custom-logo', array(
-        'height'      => 60,
-        'width'       => 240,
+        'height'      => 100,
+        'width'       => 400,
         'flex-width'  => true,
         'flex-height' => true,
     ));
 
-    // Outros supports úteis
+    // Suporte a título dinâmico
+    add_theme_support('title-tag');
+
+    // Suporte a imagens destacadas
     add_theme_support('post-thumbnails');
-    add_theme_support('html5', array('search-form','comment-form','gallery','caption'));
 
-    // Registrar localização de menu
+    // Registra menus de navegação
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'bireme-lilacs'),
+        'primary' => __('Menu Principal', 'bireme-lilacs'),
     ));
-});
+}
+add_action('after_setup_theme', 'bireme_lilacs_setup');
 
+// Enfileira scripts e estilos
+function bireme_lilacs_scripts() {
+       wp_enqueue_style(
+        'bireme-lilacs-style',
+        get_stylesheet_uri(),
+        array(),
+        '1.44.3' // altera a cada modificação
+    );
 
-add_action('wp_enqueue_scripts', function(){
-  wp_enqueue_script('theme-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.0', true);
+    
+    // Scripts do tema
+    if (file_exists(get_template_directory() . '/assets/js/header.js')) {
+        wp_enqueue_script('bireme-lilacs-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.1.0', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'bireme_lilacs_scripts');
 
-  // Slick Carousel CSS
-  wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/css/slick.min.css' );
-  wp_enqueue_style( 'slick-theme-css', get_template_directory_uri() . '/assets/css/slick-theme.min.css' ); // Opcional, se quiser o tema padrão do slick
+// Suporte ao Polylang - registra menus por idioma
+function bireme_lilacs_polylang_menus() {
+    if (function_exists('pll_the_languages')) {
+        $languages = pll_the_languages(array('raw' => 1));
+        
+        if ($languages) {
+            $menu_locations = array();
+            foreach ($languages as $lang) {
+                $menu_locations['primary_' . $lang['slug']] = sprintf(__('Menu Principal - %s', 'bireme-lilacs'), $lang['name']);
+            }
+            
+            // Registra os menus específicos por idioma
+            register_nav_menus($menu_locations);
+        }
+    }
+}
+add_action('after_setup_theme', 'bireme_lilacs_polylang_menus', 20);
 
-  // Slick Carousel JS
-  wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '1.8.1', true );
+// Função para obter o menu correto baseado no idioma atual
+function bireme_lilacs_get_menu_location() {
+    if (function_exists('pll_current_language')) {
+        $current_lang = pll_current_language();
+        $menu_location = 'primary_' . $current_lang;
+        
+        // Verifica se existe um menu para o idioma atual
+        $locations = get_nav_menu_locations();
+        if (isset($locations[$menu_location]) && $locations[$menu_location]) {
+            return $menu_location;
+        }
+    }
+    
+    // Fallback para o menu principal padrão
+    return 'primary';
+}
 
-  // Seu script para inicializar o carrossel
-  wp_enqueue_script( 'lilacs-carousel-init', get_template_directory_uri() . '/assets/js/carousel-init.js', array('jquery', 'slick-js'), '1.0', true );
-});
+// Adiciona classes CSS específicas por idioma no body
+function bireme_lilacs_body_classes($classes) {
+    if (function_exists('pll_current_language')) {
+        $current_lang = pll_current_language();
+        $classes[] = 'lang-' . $current_lang;
+    }
+    return $classes;
+}
+add_filter('body_class', 'bireme_lilacs_body_classes');
+
+// Filtro para modificar URLs no switcher de idiomas
+function bireme_lilacs_language_switcher_urls($url, $lang) {
+    // Permite personalização das URLs se necessário
+    return $url;
+}
+
+// Hook específico para quando o Polylang estiver ativo
+function bireme_lilacs_polylang_init() {
+    if (function_exists('pll_register_string')) {
+        // Registra strings para tradução
+        pll_register_string('bireme-lilacs', 'Conteúdo Principal', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Pesquisa', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Rodapé', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Alto Contraste', 'Accessibility');
+        pll_register_string('bireme-lilacs', 'Abrir menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Fechar menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Abrir submenu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'LILACS', 'Site Name');
+    }
+}
+add_action('init', 'bireme_lilacs_polylang_init');
+
+// Função para debug dos logos (apenas para admins)
+function bireme_lilacs_debug_logo_info() {
+    if (!current_user_can('manage_options')) return;
+    
+    $current_lang = function_exists('pll_current_language') ? pll_current_language() : 'pt';
+    $logo_url = bireme_lilacs_get_logo();
+    $logo_path = str_replace(get_template_directory_uri(), get_template_directory(), $logo_url);
+    
+    echo '<!-- Logo Debug Info:';
+    echo ' Current Lang: ' . $current_lang;
+    echo ' | Logo URL: ' . $logo_url;
+    echo ' | File Exists: ' . (file_exists($logo_path) ? 'Yes' : 'No');
+    echo ' -->';
+}
+add_action('wp_head', 'bireme_lilacs_debug_logo_info');
+
+// Função helper para traduzir strings
+function bireme_lilacs_translate($string, $context = 'General') {
+    if (function_exists('pll__')) {
+        return pll__($string);
+    }
+    return __($string, 'bireme-lilacs');
+}
+
+// Função para obter o logo baseado no idioma atual
+function bireme_lilacs_get_logo() {
+    $current_lang = 'pt'; // fallback para português
+    
+    if (function_exists('pll_current_language')) {
+        $current_lang = pll_current_language();
+    }
+    
+    // Mapear idiomas para os códigos corretos
+    $lang_map = array(
+        'pt' => 'pt',
+        'pt-br' => 'pt',
+        'en' => 'en',
+        'en-us' => 'en',
+        'es' => 'es',
+        'es-es' => 'es'
+    );
+    
+    $logo_lang = isset($lang_map[$current_lang]) ? $lang_map[$current_lang] : 'pt';
+    
+    // Caminho do logo específico do idioma
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-color.jpg';
+    $logo_file = get_template_directory() . $logo_path;
+    
+    // Verifica se o arquivo existe
+    if (file_exists($logo_file)) {
+        return get_template_directory_uri() . $logo_path;
+    }
+    
+    // Fallback: tenta o logo em português
+    $fallback_path = '/assets/images/logos/pt/logo-color.jpg';
+    $fallback_file = get_template_directory() . $fallback_path;
+    
+    if (file_exists($fallback_file)) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+    
+    // Fallback final: logo padrão antigo
+    $default_logo = get_template_directory() . '/assets/images/logo-lilacs.png';
+    if (file_exists($default_logo)) {
+        return get_template_directory_uri() . '/assets/images/logo-lilacs.png';
+    }
+    
+    // Se nenhum logo for encontrado, retorna uma URL vazia
+    return '';
+}
+
+// Adiciona suporte a campos personalizados traduzíveis
+function bireme_lilacs_polylang_metaboxes() {
+    if (function_exists('pll_is_translated_post_type')) {
+        // Adiciona suporte para tradução de campos personalizados se necessário
+    }
+}
+add_action('init', 'bireme_lilacs_polylang_metaboxes');
+
+// Carrega o loader de metaboxes específicos do template no admin
+if (is_admin()) {
+    // Preferir child theme (get_stylesheet_directory) se existir, senão usar parent (get_template_directory)
+    $admin_loader = trailingslashit(get_stylesheet_directory()) . 'inc/admin/meta-loader.php';
+    if (!file_exists($admin_loader)) {
+        $admin_loader = trailingslashit(get_template_directory()) . 'inc/admin/meta-loader.php';
+    }
+    if (file_exists($admin_loader)) {
+        require_once $admin_loader;
+    }
+}
+
 
 
 
