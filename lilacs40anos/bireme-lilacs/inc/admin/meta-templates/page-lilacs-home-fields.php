@@ -9,6 +9,7 @@ function bireme_lilacs_home_matches_template($post_id){
     return get_page_template_slug($post_id) === BIREME_LILACS_HOME_SLUG;
 }
 
+
 /** === REGISTRO DA METABOX (apenas quando o template bate) === */
 /**
  * Registra o metabox — usa o objeto $post quando disponível para ser
