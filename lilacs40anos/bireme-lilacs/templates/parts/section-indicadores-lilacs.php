@@ -223,7 +223,8 @@ foreach ($groups as $gi => $g){
             ?>
             <article class="topic-block" id="<?php echo esc_attr($tid); ?>" data-topic-of="<?php echo esc_attr($gid); ?>">
   <h5 class="topic-title"><?php echo esc_html($ttitle); ?></h5>
-  <div class="topic-content"><?php echo apply_filters('the_content', $tcontent); ?></div>
+ <div class="topic-content"><?php echo $tcontent; ?></div>
+
 </article>
 
             <?php endforeach; ?>
