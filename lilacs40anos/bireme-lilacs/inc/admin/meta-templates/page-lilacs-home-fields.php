@@ -9,6 +9,7 @@ function bireme_lilacs_home_matches_template($post_id){
     return get_page_template_slug($post_id) === BIREME_LILACS_HOME_SLUG;
 }
 
+
 /** === REGISTRO DA METABOX (apenas quando o template bate) === */
 /**
  * Registra o metabox — usa o objeto $post quando disponível para ser
@@ -264,7 +265,10 @@ function bireme_lilacs_home_metabox_tabs_render($post){
     $aud1_title  = get_post_meta($post->ID, '_bireme_aud_1_title', true);
     $aud1_icon   = (int) get_post_meta($post->ID, '_bireme_aud_1_icon_id', true);
     $aud1_icon_url = $aud1_icon ? wp_get_attachment_image_url($aud1_icon, 'medium') : '';
-    $aud1_items  = get_post_meta($post->ID, '_bireme_aud_1_items', true); if(!is_array($aud1_items)) $aud1_items=[];
+  $aud1_items  = get_post_meta($post->ID, '_bireme_aud_1_items', true);
+  if(!is_array($aud1_items)) $aud1_items = [];
+  // Normaliza versões antigas (lista de strings) para array de ['label'=>..., 'url'=> '']
+  $aud1_items = array_map(function($it){ if (is_array($it)) return $it; return ['label'=>$it, 'url'=>'']; }, $aud1_items);
     $aud1_more_t = get_post_meta($post->ID, '_bireme_aud_1_more_text', true);
     $aud1_more_u = get_post_meta($post->ID, '_bireme_aud_1_more_url',  true);
 
@@ -273,7 +277,9 @@ function bireme_lilacs_home_metabox_tabs_render($post){
     $aud2_title  = get_post_meta($post->ID, '_bireme_aud_2_title', true);
     $aud2_icon   = (int) get_post_meta($post->ID, '_bireme_aud_2_icon_id', true);
     $aud2_icon_url = $aud2_icon ? wp_get_attachment_image_url($aud2_icon, 'medium') : '';
-    $aud2_items  = get_post_meta($post->ID, '_bireme_aud_2_items', true); if(!is_array($aud2_items)) $aud2_items=[];
+  $aud2_items  = get_post_meta($post->ID, '_bireme_aud_2_items', true);
+  if(!is_array($aud2_items)) $aud2_items = [];
+  $aud2_items = array_map(function($it){ if (is_array($it)) return $it; return ['label'=>$it, 'url'=>'']; }, $aud2_items);
     $aud2_more_t = get_post_meta($post->ID, '_bireme_aud_2_more_text', true);
     $aud2_more_u = get_post_meta($post->ID, '_bireme_aud_2_more_url',  true);
 
@@ -282,7 +288,9 @@ function bireme_lilacs_home_metabox_tabs_render($post){
     $aud3_title  = get_post_meta($post->ID, '_bireme_aud_3_title', true);
     $aud3_icon   = (int) get_post_meta($post->ID, '_bireme_aud_3_icon_id', true);
     $aud3_icon_url = $aud3_icon ? wp_get_attachment_image_url($aud3_icon, 'medium') : '';
-    $aud3_items  = get_post_meta($post->ID, '_bireme_aud_3_items', true); if(!is_array($aud3_items)) $aud3_items=[];
+  $aud3_items  = get_post_meta($post->ID, '_bireme_aud_3_items', true);
+  if(!is_array($aud3_items)) $aud3_items = [];
+  $aud3_items = array_map(function($it){ if (is_array($it)) return $it; return ['label'=>$it, 'url'=>'']; }, $aud3_items);
     $aud3_more_t = get_post_meta($post->ID, '_bireme_aud_3_more_text', true);
     $aud3_more_u = get_post_meta($post->ID, '_bireme_aud_3_more_url',  true);
     
@@ -629,9 +637,12 @@ if (!is_array($dep_items)) $dep_items = [];
                 <div class="bireme-repeater__rows">
                   <?php
                   $rows = !empty($aud1_items) ? $aud1_items : [''];
-                  foreach($rows as $val){
+                  foreach($rows as $r){
+                      $lab = esc_attr($r['label'] ?? '');
+                      $url = esc_attr($r['url'] ?? '');
                       echo '<div class="bireme-repeater__row">
-                              <input type="text" name="bireme_aud_1_items[]" value="'.esc_attr($val).'" placeholder="Ex.: Pesquise na LILACS">
+                              <input type="text" name="bireme_aud_1_items[label][]" value="'.$lab.'" placeholder="Ex.: Pesquise na LILACS" style="flex:1; min-width:220px">
+                              <input type="text" name="bireme_aud_1_items[url][]"   value="'.$url.'" placeholder="URL (opcional)" style="width:260px">
                               <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                             </div>';
                   }
@@ -640,7 +651,8 @@ if (!is_array($dep_items)) $dep_items = [];
                 <!-- protótipo oculto -->
                 <div data-repeater-proto style="display:none">
                   <div class="bireme-repeater__row">
-                    <input type="text" name="bireme_aud_1_items[]" value="">
+                    <input type="text" name="bireme_aud_1_items[label][]" value="" placeholder="Ex.: Pesquise na LILACS" style="flex:1; min-width:220px">
+                    <input type="text" name="bireme_aud_1_items[url][]"   value="" placeholder="URL (opcional)" style="width:260px">
                     <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                   </div>
                 </div>
@@ -690,9 +702,12 @@ if (!is_array($dep_items)) $dep_items = [];
                 <div class="bireme-repeater__rows">
                   <?php
                   $rows = !empty($aud2_items) ? $aud2_items : [''];
-                  foreach($rows as $val){
+                  foreach($rows as $r){
+                      $lab = esc_attr($r['label'] ?? '');
+                      $url = esc_attr($r['url'] ?? '');
                       echo '<div class="bireme-repeater__row">
-                              <input type="text" name="bireme_aud_2_items[]" value="'.esc_attr($val).'" placeholder="Ex.: Indexe sua revista">
+                              <input type="text" name="bireme_aud_2_items[label][]" value="'.$lab.'" placeholder="Ex.: Indexe sua revista" style="flex:1; min-width:220px">
+                              <input type="text" name="bireme_aud_2_items[url][]"   value="'.$url.'" placeholder="URL (opcional)" style="width:260px">
                               <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                             </div>';
                   }
@@ -700,7 +715,8 @@ if (!is_array($dep_items)) $dep_items = [];
                 </div>
                 <div data-repeater-proto style="display:none">
                   <div class="bireme-repeater__row">
-                    <input type="text" name="bireme_aud_2_items[]" value="">
+                    <input type="text" name="bireme_aud_2_items[label][]" value="" placeholder="Ex.: Indexe sua revista" style="flex:1; min-width:220px">
+                    <input type="text" name="bireme_aud_2_items[url][]"   value="" placeholder="URL (opcional)" style="width:260px">
                     <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                   </div>
                 </div>
@@ -750,9 +766,12 @@ if (!is_array($dep_items)) $dep_items = [];
                 <div class="bireme-repeater__rows">
                   <?php
                   $rows = !empty($aud3_items) ? $aud3_items : [''];
-                  foreach($rows as $val){
+                  foreach($rows as $r){
+                      $lab = esc_attr($r['label'] ?? '');
+                      $url = esc_attr($r['url'] ?? '');
                       echo '<div class="bireme-repeater__row">
-                              <input type="text" name="bireme_aud_3_items[]" value="'.esc_attr($val).'" placeholder="Ex.: Quero me tornar um Centro Cooperante">
+                              <input type="text" name="bireme_aud_3_items[label][]" value="'.$lab.'" placeholder="Ex.: Quero me tornar um Centro Cooperante" style="flex:1; min-width:220px">
+                              <input type="text" name="bireme_aud_3_items[url][]"   value="'.$url.'" placeholder="URL (opcional)" style="width:260px">
                               <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                             </div>';
                   }
@@ -760,7 +779,8 @@ if (!is_array($dep_items)) $dep_items = [];
                 </div>
                 <div data-repeater-proto style="display:none">
                   <div class="bireme-repeater__row">
-                    <input type="text" name="bireme_aud_3_items[]" value="">
+                    <input type="text" name="bireme_aud_3_items[label][]" value="" placeholder="Ex.: Quero me tornar um Centro Cooperante" style="flex:1; min-width:220px">
+                    <input type="text" name="bireme_aud_3_items[url][]"   value="" placeholder="URL (opcional)" style="width:260px">
                     <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
                   </div>
                 </div>
@@ -1190,8 +1210,18 @@ add_action('save_post_page', function($post_id){
     update_post_meta($post_id, '_bireme_aud_1_kicker',     sanitize_text_field($_POST['bireme_aud_1_kicker'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_1_title',      sanitize_text_field($_POST['bireme_aud_1_title'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_1_icon_id',    (int) ($_POST['bireme_aud_1_icon_id'] ?? 0));
-    $aud1_items = array_map('sanitize_text_field', array_filter((array)($_POST['bireme_aud_1_items'] ?? ['']), function($v){ return $v !== ''; }));
-    update_post_meta($post_id, '_bireme_aud_1_items',      $aud1_items);
+  // Card 1 — aceita label + url (paralelos)
+  $aud1_labels = (array)($_POST['bireme_aud_1_items']['label'] ?? []);
+  $aud1_urls   = (array)($_POST['bireme_aud_1_items']['url']   ?? []);
+  $aud1_items = [];
+  $max = max(count($aud1_labels), count($aud1_urls));
+  for($i=0;$i<$max;$i++){
+    $label = sanitize_text_field($aud1_labels[$i] ?? '');
+    $url   = esc_url_raw($aud1_urls[$i] ?? '');
+    if ($label === '') continue;
+    $aud1_items[] = ['label'=>$label, 'url'=>$url];
+  }
+  update_post_meta($post_id, '_bireme_aud_1_items', $aud1_items);
     update_post_meta($post_id, '_bireme_aud_1_more_text',  sanitize_text_field($_POST['bireme_aud_1_more_text'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_1_more_url',   esc_url_raw($_POST['bireme_aud_1_more_url'] ?? ''));
     
@@ -1199,8 +1229,18 @@ add_action('save_post_page', function($post_id){
     update_post_meta($post_id, '_bireme_aud_2_kicker',     sanitize_text_field($_POST['bireme_aud_2_kicker'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_2_title',      sanitize_text_field($_POST['bireme_aud_2_title'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_2_icon_id',    (int) ($_POST['bireme_aud_2_icon_id'] ?? 0));
-    $aud2_items = array_map('sanitize_text_field', array_filter((array)($_POST['bireme_aud_2_items'] ?? ['']), function($v){ return $v !== ''; }));
-    update_post_meta($post_id, '_bireme_aud_2_items',      $aud2_items);
+  // Card 2 — aceita label + url (paralelos)
+  $aud2_labels = (array)($_POST['bireme_aud_2_items']['label'] ?? []);
+  $aud2_urls   = (array)($_POST['bireme_aud_2_items']['url']   ?? []);
+  $aud2_items = [];
+  $max = max(count($aud2_labels), count($aud2_urls));
+  for($i=0;$i<$max;$i++){
+    $label = sanitize_text_field($aud2_labels[$i] ?? '');
+    $url   = esc_url_raw($aud2_urls[$i] ?? '');
+    if ($label === '') continue;
+    $aud2_items[] = ['label'=>$label, 'url'=>$url];
+  }
+  update_post_meta($post_id, '_bireme_aud_2_items', $aud2_items);
     update_post_meta($post_id, '_bireme_aud_2_more_text',  sanitize_text_field($_POST['bireme_aud_2_more_text'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_2_more_url',   esc_url_raw($_POST['bireme_aud_2_more_url'] ?? ''));
     
@@ -1208,8 +1248,18 @@ add_action('save_post_page', function($post_id){
     update_post_meta($post_id, '_bireme_aud_3_kicker',     sanitize_text_field($_POST['bireme_aud_3_kicker'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_3_title',      sanitize_text_field($_POST['bireme_aud_3_title'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_3_icon_id',    (int) ($_POST['bireme_aud_3_icon_id'] ?? 0));
-    $aud3_items = array_map('sanitize_text_field', array_filter((array)($_POST['bireme_aud_3_items'] ?? ['']), function($v){ return $v !== ''; }));
-    update_post_meta($post_id, '_bireme_aud_3_items',      $aud3_items);
+  // Card 3 — aceita label + url (paralelos)
+  $aud3_labels = (array)($_POST['bireme_aud_3_items']['label'] ?? []);
+  $aud3_urls   = (array)($_POST['bireme_aud_3_items']['url']   ?? []);
+  $aud3_items = [];
+  $max = max(count($aud3_labels), count($aud3_urls));
+  for($i=0;$i<$max;$i++){
+    $label = sanitize_text_field($aud3_labels[$i] ?? '');
+    $url   = esc_url_raw($aud3_urls[$i] ?? '');
+    if ($label === '') continue;
+    $aud3_items[] = ['label'=>$label, 'url'=>$url];
+  }
+  update_post_meta($post_id, '_bireme_aud_3_items', $aud3_items);
     update_post_meta($post_id, '_bireme_aud_3_more_text',  sanitize_text_field($_POST['bireme_aud_3_more_text'] ?? ''));
     update_post_meta($post_id, '_bireme_aud_3_more_url',   esc_url_raw($_POST['bireme_aud_3_more_url'] ?? ''));
 
@@ -1422,7 +1472,10 @@ if (!function_exists('bireme_get_lilacs_audiences_meta')){
                 'title'     => $mk("_bireme_aud_{$i}_title"),
                 'icon_id'   => $icon_id,
                 'icon_url'  => $icon_id ? wp_get_attachment_image_url($icon_id, 'medium') : '',
-                'items'     => $mk_arr("_bireme_aud_{$i}_items"),
+                // Normaliza items: suporta formato antigo (strings) e novo (['label','url'])
+                'items'     => array_map(function($it){ return is_array($it) ? ($it['label'] ?? '') : (string)$it; }, $mk_arr("_bireme_aud_{$i}_items")),
+                // items_linked preserva label+url quando disponível (novo formato)
+                'items_linked' => array_map(function($it){ if(is_array($it)) return ['label'=>($it['label'] ?? ''),'url'=>($it['url'] ?? '')]; return ['label'=>$it,'url'=>'']; }, $mk_arr("_bireme_aud_{$i}_items")),
                 'more_text' => $mk("_bireme_aud_{$i}_more_text"),
                 'more_url'  => $mk("_bireme_aud_{$i}_more_url"),
             ];
