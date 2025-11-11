@@ -17,9 +17,17 @@ $__faq_cats = is_array($__faq_cats) ? array_map('intval', $__faq_cats) : [];
     .faq-side{background:#fff;border-radius:10px;padding:16px;position:relative;border-right:1px solid #00205c17;}
     .faq-side h2{font-size:28px;font-weight:800;margin:0 0 16px;color:#0A2C5C}
 
-    .faq-search{position:relative;margin-bottom:18px;}
+    .faq-search{position:relative;margin-bottom:10px;}
     .faq-search input{width:100%;height:40px;border:1px solid var(--line);background:#F1F1F1;border-radius:10px;padding:0 44px 0 14px;font-size:14px;outline:none;}
     .faq-search span{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:#406296;}
+
+    /* bloco de destaques (fica ENTRE busca e categorias) */
+    .faq-featured {border-bottom:1px solid #EFF2F6; margin:8px 0 10px 0; padding-bottom:6px;}
+    .faq-featured .label{font-size:15px;margin:6px 0 8px 0;color:#0A2C5C;font-weight:700;}
+    .faq-featured .faq-item {display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 8px;border-radius:6px;transition:background .2s;}
+    .faq-featured .faq-item + .faq-item{border-top:1px solid #EFF2F6;}
+    .faq-featured .faq-item:hover {background:#f6f8fc;}
+    .faq-featured .star{color:#f5b301;}
 
     /* categorias */
     .faq-item{padding:16px 14px;border-top:1px solid #EFF2F6;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
@@ -46,12 +54,8 @@ $__faq_cats = is_array($__faq_cats) ? array_map('intval', $__faq_cats) : [];
     #faq-contato.is-collapsed .faq-side{padding:8px 6px;}
     #faq-contato.is-collapsed .faq-side > *:not(.faq-toggle){display:none;}
     #faq-contato.is-collapsed .faq-toggle{right:6px;top:6px;}
-    .img-faq{width: 60%;
-    float: left;}
-    .faq-content-text{
-        width: 40%;
-    float: left;
-    }
+    .img-faq{width: 60%; float: left;}
+    .faq-content-text{ width: 40%; float: left; }
 
     @media(max-width:980px){
       .faq-toggle{display:none!important;}
@@ -74,6 +78,10 @@ $__faq_cats = is_array($__faq_cats) ? array_map('intval', $__faq_cats) : [];
       </span>
     </div>
 
+    <!-- DESTACADAS: ficam abaixo do filtro e acima das categorias -->
+    <div id="faq-featured"></div>
+
+    <!-- Categorias (respeita ordem definida no painel) -->
     <div id="faq-cats"></div>
   </aside>
 
@@ -89,13 +97,10 @@ $btn2_url  = get_post_meta(get_the_ID(), '_lilacs_faq_btn2_url',  true) ?: '#';
 
 ?>
 <div class="faq-content" id="faq-detail">
-
   <h3><?php echo esc_html($faq_box_title); ?></h3>
-
   <div class="img-faq">
     <img src="<?php echo esc_url($faq_box_img); ?>" alt="">
    </div>
-
  <div class="faq-content-text">
   <div class="faq-body">
     <?php echo wpautop( wp_kses_post($faq_box_desc) ); ?>
@@ -124,9 +129,22 @@ $btn2_url  = get_post_meta(get_the_ID(), '_lilacs_faq_btn2_url',  true) ?: '#';
     const REST_BASE = '<?php echo esc_url_raw( get_rest_url() ); ?>'.replace(/\/+$/,'');
     const SELECTED  = <?php echo wp_json_encode($__faq_cats); ?>;
     const $catsWrap = document.getElementById('faq-cats');
+    const $featuredWrap = document.getElementById('faq-featured');
     const $search   = document.getElementById('faq-search');
     const $detail   = document.getElementById('faq-detail');
     const chevron   = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 10l4 4 4-4" stroke="#0b2144" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    /* PEGAR DO META CORRETO:
+       No backend salvamos com a constante BIREME_LILACS_FAQ_FEATURED = '_lilacs_faq_featured_ids'
+       Mantemos um fallback para versões antigas '_lilacs_faq_featured'
+    */
+    const FEATURED = <?php
+      $featured = get_post_meta(get_the_ID(), '_lilacs_faq_featured_ids', true);
+      if (!is_array($featured) || empty($featured)) {
+        $featured = get_post_meta(get_the_ID(), '_lilacs_faq_featured', true); // fallback legado
+      }
+      echo wp_json_encode(is_array($featured) ? array_map('intval', $featured) : []);
+    ?>;
 
     function el(tag, cls, html){const n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n;}
 
@@ -173,11 +191,76 @@ $btn2_url  = get_post_meta(get_the_ID(), '_lilacs_faq_btn2_url',  true) ?: '#';
       return {hdr,body};
     }
 
+    // Carrega perguntas em destaque (sem toggle), posicionadas ENTRE busca e categorias.
+    async function loadFeatured(){
+      if(!Array.isArray(FEATURED) || !FEATURED.length){ 
+        $featuredWrap.innerHTML = '';
+        return;
+      }
+      const ids = FEATURED.map(n=>parseInt(n,10)).filter(n=>Number.isInteger(n) && n>0);
+      if(!ids.length){ $featuredWrap.innerHTML=''; return; }
+
+      try{
+        // Tenta via include com ordem preservada
+        let url = REST_BASE+'/wp/v2/ufaq?include='+ids.join(',')+'&orderby=include&per_page='+Math.max(100, ids.length)+'&_fields=id,title,content';
+        let r = await fetch(url);
+        let posts = await r.json();
+
+        // Fallback: busca 1 a 1 se necessário
+        if(!Array.isArray(posts) || !posts.length){
+          posts = await Promise.all(ids.map(async(id)=>{
+            try{
+              const resp = await fetch(REST_BASE+'/wp/v2/ufaq/'+id+'?_fields=id,title,content');
+              if(!resp.ok) return null;
+              return await resp.json();
+            }catch(_){ return null; }
+          }));
+          posts = posts.filter(Boolean);
+        }else{
+          posts.sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id));
+        }
+
+        if(!posts.length){ $featuredWrap.innerHTML=''; return; }
+
+        const wrap = document.createElement('div');
+        wrap.className = 'faq-featured';
+
+        const label = document.createElement('div');
+        label.className = 'label';
+        label.textContent = 'Perguntas em destaque';
+        $featuredWrap.innerHTML = '';
+        wrap.appendChild(label);
+
+        posts.forEach(p=>{
+          const item = document.createElement('div');
+          item.className = 'faq-item';
+          item.innerHTML = `
+            <span>${p.title?.rendered || ''}</span>
+            <span class="star" aria-label="destaque" title="Destaque">&#9733;</span>
+          `;
+          item.addEventListener('click',()=>{
+            if(p.content?.rendered){ showPost(p); }
+            else {
+              fetch(REST_BASE+'/wp/v2/ufaq/'+p.id)
+                .then(r=>r.json()).then(full=>showPost(full))
+                .catch(console.error);
+            }
+          });
+          wrap.appendChild(item);
+        });
+        $featuredWrap.appendChild(wrap);
+      }catch(e){
+        console.error('Erro ao carregar destaques',e);
+        $featuredWrap.innerHTML = '';
+      }
+    }
+
     async function loadCategories(){
       try{
         let url=REST_BASE+'/wp/v2/ufaq-category?per_page=100&hide_empty=false';
         if(Array.isArray(SELECTED)&&SELECTED.length)url+='&include='+SELECTED.join(',');
         const r=await fetch(url);let terms=await r.json();if(!Array.isArray(terms))terms=[];
+        // mantém a ordem definida no painel
         if(SELECTED.length)terms.sort((a,b)=>SELECTED.indexOf(a.id)-SELECTED.indexOf(b.id));
         $catsWrap.innerHTML='';if(!terms.length){$catsWrap.innerHTML='<div style="color:#6b7a90;font-size:13px;">Nenhuma categoria configurada.</div>';return;}
         terms.forEach(t=>{const{hdr,body}=renderCategory(t);$catsWrap.appendChild(hdr);$catsWrap.appendChild(body);});
@@ -202,12 +285,15 @@ $btn2_url  = get_post_meta(get_the_ID(), '_lilacs_faq_btn2_url',  true) ?: '#';
           if(!match)match=any;
           if(term&&body.style.display==='none'&&any){body.style.display='block';hdr.setAttribute('aria-expanded','true');}
         }else if(term&&!body?.dataset.loaded){hdr.click();}
-        hdr.style.display=match?'none'===''?'' : '':'none'; // mantem visível se combinar
-        if(!match)hdr.style.display='none';
+        hdr.style.display=match?'':'none';
       });
+      // (intencional) destaques não são filtrados para manter o layout referência.
     }
 
     $search&&$search.addEventListener('input',e=>applyFilter(e.target.value));
+
+    // carga inicial (destaques entre busca e categorias)
+    loadFeatured();
     loadCategories();
   })();
   </script>
