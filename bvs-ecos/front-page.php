@@ -149,7 +149,7 @@ $lang = get_current_language();
     <div class="container">
         <div class="section-3-content">
             <div class="row">
-                <div class="text-content col-lg-6">
+                <div class="text-content col-lg-7">
                     <h2><?php echo $section_3_title; ?></h2>
                     <p class="lead"><?php echo $section_3_subtitle; ?></p>
                     <p><?php echo $section_3_description; ?></p>
@@ -158,9 +158,8 @@ $lang = get_current_language();
                     </a>
                 </div>
 
-
             <?php if(!empty($section_3_img_src)){ ?>
-                <div class="image-content col-lg-6">
+                <div class="image-content col-lg-5">
                     <a href="<?php echo $section_3_img_link; ?>">
                         <img src="<?php echo $section_3_img_src; ?>" alt="<?php echo $section_3_title; ?>" class="img-fluid" />
                     </a>
@@ -169,8 +168,8 @@ $lang = get_current_language();
                         <?php echo $section_3_button_text; ?> <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-            <?php } ?>
             </div>
+            <?php } ?>
             
         </div>
     </div>
