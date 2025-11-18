@@ -7,7 +7,7 @@
     <div class='container page_network'>
         <div class='row'>
             <div class="top_sidebar">
-                <?php dynamic_sidebar( top_sidebar ); ?>
+                <?php dynamic_sidebar( 'top_sidebar' ); ?>
             </div>  
         </div>
 		<div class='content content_page'>
