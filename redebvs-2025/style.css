@@ -1,0 +1,515 @@
+/*
+Theme Name: REDE BVS
+Theme URI: https://2wp.com.br/
+Author: 2wp
+Author URI: https://2wp.com.br/
+Description: Tema básico REDE BVS com dobras e ACF Flexible para Home.
+Version: 1.41332.33
+Text Domain: rede-bvs
+*/
+
+/* ------------------------ */
+/* BASE                     */
+/* ------------------------ */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #111827;
+    background: #ffffff;
+}
+p{
+    color:#28367D;
+}
+h2{
+    font-size:32px;
+}
+.home-a-rede-col-left h1{
+    font-size:45px !important;
+    
+}
+.home-a-rede-desc{
+    font-size:24px;
+    color:#28367D;
+    font-weight: 500;
+}
+
+/* ------------------------ */
+/* BARRA SUPERIOR (SKIP + ACESSIBILIDADE) */
+/* ------------------------ */
+
+.bvs-topbar {
+    background: #f5f5f5;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 11px;
+    color: #555;
+}
+
+.bvs-topbar-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bvs-skip-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.bvs-skip-links a {
+    text-decoration: none;
+    color: #555;
+}
+
+.bvs-skip-links a:hover {
+    text-decoration: underline;
+}
+
+.bvs-accessibility {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.bvs-accessibility span {
+    font-size: 11px;
+}
+
+/* ------------------------ */
+/* HEADER PRINCIPAL         */
+/* ------------------------ */
+
+.bvs-header-main {
+    background: #ffffff;
+}
+
+/* HEADER SUPERIOR (logo + título + idiomas) */
+.bvs-header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px 16px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+}
+
+/* MARCA (logo + texto) */
+.bvs-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.bvs-brand-logo img {
+max-height: 152px;
+    width: auto;
+    height: 89px;
+}
+
+.bvs-brand-title {
+    font-size: 20px;
+    color: #003c71;
+    font-weight: 600;
+}
+
+/* IDIOMAS */
+.bvs-lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top:-85px;
+}
+
+.bvs-lang-switcher .bvs-lang {
+    border: none;
+    background: none;
+    padding: 3px 6px;
+    cursor: pointer;
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.bvs-lang-switcher .is-active {
+    background: #e5e5e5;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* ------------------------ */
+/* MENU CENTRALIZADO        */
+/* ------------------------ */
+
+.bvs-main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* CENTRALIZA tudo */
+    background: #ffffff;
+    padding-bottom: 6px;
+    border-bottom: 3px solid #c8cdd2a8;
+}
+
+.bvs-main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+
+.bvs-main-menu > li > a {
+    display: inline-block;
+    padding: 10px 4px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #003366;
+    font-weight: 500;
+}
+
+.bvs-main-menu > li > a:hover,
+.bvs-main-menu > li.current-menu-item > a,
+.bvs-main-menu > li.current_page_item > a {
+    color: #0050a0;
+    text-decoration: underline;
+}
+
+/* ------------------------ */
+/* HOME DOBRAS (hero, atalhos, notícias, sobre, reuniões) */
+/* ------------------------ */
+
+.bvs-hero {
+    background: #f2f6fb;
+    padding: 40px 0 32px;
+    border-bottom: 1px solid #e3e8f0;
+}
+
+.bvs-hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.bvs-hero-texto h1 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    color: #003c71;
+}
+
+.bvs-hero-texto p {
+    font-size: 16px;
+    max-width: 640px;
+    margin: 0 0 16px;
+    color: #333;
+}
+
+.bvs-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 4px;
+    background: #0050a0;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.bvs-btn:hover {
+    background: #003c71;
+}
+
+/* ATALHOS & BLOCOS */
+
+.bvs-home-atalhos,
+.home-sobre,
+.home-reunioes {
+    padding: 32px 0;
+}
+
+.bvs-home-atalhos-inner,
+.home-sobre-inner,
+.home-reunioes-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.bvs-home-atalhos-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.bvs-atalho-card {
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.bvs-atalho-card h2 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: #003366;
+}
+
+.bvs-atalho-card p {
+    font-size: 14px;
+    margin: 0 0 12px;
+    color: #555;
+}
+
+.bvs-atalho-link {
+    font-size: 13px;
+    text-decoration: none;
+    color: #0050a0;
+    font-weight: 500;
+}
+
+/* SOBRE */
+
+.home-sobre {
+    background: #ffffff;
+}
+
+.home-sobre-inner {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.home-sobre-imagem img {
+    height: auto;
+    border-radius: 4px;
+}
+
+.home-sobre-texto h2 {
+    font-size: 32px;
+    margin: 0 0 8px;
+    color: #003366;
+}
+
+.home-sobre-texto p {
+    font-size: 15px;
+    color: #444;
+}
+
+/* REUNIÕES / NOTÍCIAS */
+
+.bvs-home-noticias,
+.home-reunioes {
+    background: #f7f9fc;
+}
+
+.bvs-home-noticias-inner,
+.home-reunioes-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.bvs-home-noticias-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.bvs-home-noticias-header h2 {
+    font-size: 20px;
+    margin: 0;
+    color: #003366;
+}
+
+.bvs-home-noticias-ver-todas {
+    font-size: 13px;
+    text-decoration: none;
+    color: #0050a0;
+}
+
+.bvs-home-noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.bvs-home-noticia-card {
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    padding: 14px;
+}
+
+.bvs-home-noticia-card h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+.bvs-home-noticia-card h3 a {
+    text-decoration: none;
+    color: #003366;
+}
+
+.bvs-home-noticia-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.bvs-home-noticia-data {
+    font-size: 12px;
+    color: #777;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.bvs-home-noticia-excerpt {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+}
+
+/* ------------------------ */
+/* RESPONSIVO               */
+/* ------------------------ */
+
+@media (max-width: 768px) {
+
+    .bvs-topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .bvs-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .bvs-main-menu {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .bvs-lang-switcher {
+        margin-top: 6px;
+    }
+
+    .home-sobre-inner {
+        flex-direction: column;
+    }
+}
+
+
+/* BVS – Breadcrumb */
+.bvs-breadcrumb {
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+.bvs-breadcrumb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.bvs-breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #555;
+}
+
+.bvs-breadcrumb-item--root .bvs-breadcrumb-link,
+.bvs-breadcrumb-item--root .bvs-breadcrumb-label {
+    background: #f3f4f8;
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
+.bvs-breadcrumb-link {
+    color: #233a8b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bvs-breadcrumb-link:hover {
+    text-decoration: underline;
+}
+
+.bvs-breadcrumb-label[aria-current="page"] {
+    font-weight: 500;
+}
+
+.bvs-breadcrumb-sep {
+    margin: 0 2px;
+    color: #999;
+}
+
+/* BVS – Breadcrumb */
+.bvs-breadcrumb {
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+.bvs-breadcrumb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.bvs-breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #555;
+}
+
+.bvs-breadcrumb-item--root .bvs-breadcrumb-link,
+.bvs-breadcrumb-item--root .bvs-breadcrumb-label {
+    background: #f3f4f8;
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
+.bvs-breadcrumb-link {
+    color: #233a8b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.bvs-breadcrumb-link:hover {
+    text-decoration: underline;
+}
+
+.bvs-breadcrumb-label[aria-current="page"] {
+    font-weight: 500;
+}
+
+.bvs-breadcrumb-sep {
+    margin: 0 2px;
+    color: #999;
+}
+
+
