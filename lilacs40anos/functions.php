@@ -30,7 +30,7 @@ function bireme_lilacs_scripts() {
         'bireme-lilacs-style',
         get_stylesheet_uri(),
         array(),
-        '1.44.3' // altera a cada modificação
+        '1.923.3' // altera a cada modificação
     );
 
     
@@ -454,3 +454,11 @@ add_action('rest_api_init', function () {
         ],
     ]);
 });
+
+
+/**
+ * Helper para carregar dobras de layout em /dobras
+ */
+function lilacs_bvs_dobra( $slug, $args = array() ) {
+    get_template_part( 'templates/dobras-acf/' . $slug, null, $args );
+}

@@ -348,15 +348,14 @@ if (!is_array($dep_items)) $dep_items = [];
     <div class="bireme-tabs">
 <div class="bireme-tabs__nav">
   <a href="#bireme-tab-1" class="is-active">Dobra 1 — Banner</a>
-  <a href="#bireme-tab-2rx">Dobra 2 — Raio-X da LILACS</a>
-  <a href="#bireme-tab-2">Dobra 3 — CTA</a>
-  <a href="#bireme-tab-3">Dobra 4 — Extras</a>
-  <a href="#bireme-tab-4">Dobra 5 — Acessos rápidos</a>
-  <a href="#bireme-tab-5">Dobra 6 — Revistas indexadas</a>
-  <a href="#bireme-tab-6">Dobra 7 — Banner (slides)</a>
-  <a href="#bireme-tab-7">Dobra 8 — Publicações recentes</a>
-  <a href="#bireme-tab-8">Dobra 9 — Dados e indicadores</a>
-  <a href="#bireme-tab-9">Dobra 10 — Depoimentos</a>
+  <a href="#bireme-tab-2">CTA</a>
+  <a href="#bireme-tab-3">Extras</a>
+  <a href="#bireme-tab-4">Acessos rápidos</a>
+  <a href="#bireme-tab-5">Revistas indexadas</a>
+  <a href="#bireme-tab-6">Banner (slides)</a>
+  <a href="#bireme-tab-7">Publicações recentes</a>
+  <a href="#bireme-tab-8">Dados e indicadores</a>
+  <a href="#bireme-tab-9">Depoimentos</a>
 </div>
 
 
