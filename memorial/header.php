@@ -23,8 +23,8 @@
 				</div>
 			</div>
 			<div id="hero-form">
-				<h1 class="title">Faça sua busca no Memorial Digital da Pandemia de Covid-19.</h1>
-				<p>Uma ampla coleção de documentos, registros oficiais, relatos pessoais e materiais de pesquisa sobre a pandemia de Covid-19 está disponível para consulta pública em nosso memorial digital.</p>
+				<h1 class="title">Memorial Digital da Pandemia de Covid-19 <br>Preservando memórias, honrando vidas, valorizando histórias.</h1>
+				<p>Cada documento preservado no Memorial é um testemunho da experiência brasileira na pandemia de Covid-19 — um legado de memória e história que nos convida a refletir e a exercer a cidadania na luta por direitos.</p>
 				<form id="buscaForm" class="row">
 					<div class="col-7">
 						<input type="text" class="form-control" id="termoBusca" placeholder="Pesquisar">
