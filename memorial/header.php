@@ -10,6 +10,7 @@
 	<?php wp_head(); ?>
 </head>
 <body>
+	<?php wp_body_open(); ?>
 	<header id="hero">
 		<div class="container">
 			<div class="row">
@@ -27,7 +28,7 @@
 				<p>Cada documento preservado no Memorial é um testemunho da experiência brasileira na pandemia de Covid-19 — um legado de memória e história que nos convida a refletir e a exercer a cidadania na luta por direitos.</p>
 				<form id="buscaForm" class="row">
 					<div class="col-7">
-						<input type="text" class="form-control" id="termoBusca" placeholder="Pesquisar">
+						<input type="text" class="form-control" id="fieldSearch" placeholder="Pesquisar">
 					</div>
 					<div class="col-auto">
 						<button type="submit" class="btn btn-primary mb-3">Pesquisar</button>
