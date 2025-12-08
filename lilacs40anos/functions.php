@@ -132,53 +132,145 @@ function bireme_lilacs_translate($string, $context = 'General') {
     }
     return __($string, 'bireme-lilacs');
 }
+/**
+ * Retorna o código de idioma normalizado (pt, en, es)
+ */
+function bireme_lilacs_get_lang_slug() {
+    $current_lang = 'pt';
 
-// Função para obter o logo baseado no idioma atual
-function bireme_lilacs_get_logo() {
-    $current_lang = 'pt'; // fallback para português
-    
-    if (function_exists('pll_current_language')) {
+    if ( function_exists('pll_current_language') ) {
+        // slug do Polylang (pt, en, es, pt-br, en-us...)
         $current_lang = pll_current_language();
     }
-    
-    // Mapear idiomas para os códigos corretos
+
     $lang_map = array(
-        'pt' => 'pt',
+        'pt'    => 'pt',
         'pt-br' => 'pt',
-        'en' => 'en',
+        'en'    => 'en',
         'en-us' => 'en',
-        'es' => 'es',
-        'es-es' => 'es'
+        'es'    => 'es',
+        'es-es' => 'es',
     );
-    
-    $logo_lang = isset($lang_map[$current_lang]) ? $lang_map[$current_lang] : 'pt';
-    
-    // Caminho do logo específico do idioma
+
+    return isset($lang_map[$current_lang]) ? $lang_map[$current_lang] : 'pt';
+}
+
+/**
+ * Logo LILACS por idioma (já existia – só usei o helper acima)
+ */
+function bireme_lilacs_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
     $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-color.jpg';
     $logo_file = get_template_directory() . $logo_path;
-    
-    // Verifica se o arquivo existe
-    if (file_exists($logo_file)) {
+
+    if ( file_exists($logo_file) ) {
         return get_template_directory_uri() . $logo_path;
     }
-    
-    // Fallback: tenta o logo em português
+
+    // Fallback PT
     $fallback_path = '/assets/images/logos/pt/logo-color.jpg';
     $fallback_file = get_template_directory() . $fallback_path;
-    
-    if (file_exists($fallback_file)) {
+
+    if ( file_exists($fallback_file) ) {
         return get_template_directory_uri() . $fallback_path;
     }
-    
-    // Fallback final: logo padrão antigo
+
+    // Fallback final
     $default_logo = get_template_directory() . '/assets/images/logo-lilacs.png';
-    if (file_exists($default_logo)) {
+    if ( file_exists($default_logo) ) {
         return get_template_directory_uri() . '/assets/images/logo-lilacs.png';
     }
-    
-    // Se nenhum logo for encontrado, retorna uma URL vazia
+
     return '';
 }
+
+/**
+ * Logo BVS por idioma
+ * Estrutura esperada:
+ * /assets/images/logos/{lang}/logo-bvs.svg
+ * Ex: /assets/images/logos/pt/logo-bvs.svg
+ */
+function bireme_bvs_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-bvs.svg';
+    $logo_file = get_template_directory() . $logo_path;
+
+    if ( file_exists($logo_file) ) {
+        return get_template_directory_uri() . $logo_path;
+    }
+
+    // Fallback PT
+    $fallback_path = '/assets/images/logos/pt/logo-bvs.svg';
+    $fallback_file = get_template_directory() . $fallback_path;
+
+    if ( file_exists($fallback_file) ) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+
+    // Fallback antigo
+    $legacy = get_template_directory() . '/assets/images/logo-bvs.svg';
+    if ( file_exists($legacy) ) {
+        return get_template_directory_uri() . '/assets/images/logo-bvs.svg';
+    }
+
+    return '';
+}
+
+/**
+ * Logo da REDE BVS por idioma
+ * Estrutura sugerida:
+ * /assets/images/logos/{lang}/logo-rede.svg
+ */
+function bireme_rede_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-rede.svg';
+    $logo_file = get_template_directory() . $logo_path;
+
+    if ( file_exists($logo_file) ) {
+        return get_template_directory_uri() . $logo_path;
+    }
+
+    // Fallback PT
+    $fallback_path = '/assets/images/logos/pt/logo-rede.svg';
+    $fallback_file = get_template_directory() . $fallback_path;
+
+    if ( file_exists($fallback_file) ) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+
+    return '';
+}
+
+/**
+ * URL da REDE por idioma
+ */
+function bireme_rede_get_url() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    switch ( $logo_lang ) {
+        case 'es':
+            return 'https://bvsalud.org/es/ ';
+        case 'en':
+            return 'https://bvsalud.org/en/';
+        case 'pt':
+        default:
+            return 'https://bvsalud.org/';
+    }
+}
+
+/**
+ * Home URL no idioma atual (Polylang) com fallback
+ */
+function bireme_get_lang_home_url() {
+    if ( function_exists('pll_home_url') ) {
+        return pll_home_url();
+    }
+    return home_url('/');
+}
+
 
 // Adiciona suporte a campos personalizados traduzíveis
 function bireme_lilacs_polylang_metaboxes() {
@@ -462,3 +554,159 @@ add_action('rest_api_init', function () {
 function lilacs_bvs_dobra( $slug, $args = array() ) {
     get_template_part( 'templates/dobras-acf/' . $slug, null, $args );
 }
+
+
+add_action('rest_api_init', function () {
+    register_rest_route('debug/v1', '/bvs', [
+        'methods'  => 'GET',
+        'callback' => function () {
+            $url = get_rest_url(null, 'test/v1/bvs');
+            $response = wp_remote_get($url);
+
+            echo "<pre>";
+            print_r(json_decode(wp_remote_retrieve_body($response), true));
+            echo "</pre>";
+            die();
+        }
+    ]);
+});
+
+
+// Shortcode: Caixa de busca com estilo CTA moderno LILACS
+add_shortcode('lilacs_busca_capacitacao', function() {
+
+    $valor = isset($_GET['s']) ? esc_attr($_GET['s']) : '';
+
+    ob_start();
+    ?>
+
+    <div class="lilacs-cta-search-wrapper">
+        <form class="lilacs-cta-search-form" method="get" action="">
+            
+            <div class="lilacs-cta-search-label">
+                Pesquise capacitações anteriores:
+            </div>
+
+            <div class="lilacs-cta-search-box">
+                
+                <input 
+                    type="text"
+                    id="busca-capacitacao"
+                    name="s"
+                    class="lilacs-cta-input"
+                    placeholder="Digite um tema, título ou palavra-chave..."
+                    value="<?php echo $valor; ?>"
+                >
+
+                <button type="submit" class="lilacs-cta-button">
+                    🔍 Buscar
+                </button>
+            </div>
+
+            <input type="hidden" name="post_type" value="capacitacao">
+
+        </form>
+    </div>
+
+<style>
+/* ----------------------------- */
+/* WRAPPER PRINCIPAL             */
+/* ----------------------------- */
+.lilacs-cta-search-wrapper {
+    max-width: 1180px;
+    margin: 40px auto 60px;
+    padding: 0 16px;
+}
+
+/* ----------------------------- */
+/* TÍTULO / LABEL                */
+/* ----------------------------- */
+.lilacs-cta-search-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b2c68;
+    margin-bottom: 12px;
+}
+
+/* ----------------------------- */
+/* CONTAINER DO INPUT + BOTÃO    */
+/* ----------------------------- */
+.lilacs-cta-search-box {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 6px;
+    border: 1px solid rgba(11, 44, 104, 0.20);
+    box-shadow: 0 10px 30px rgba(11, 44, 104, 0.15);
+    overflow: hidden;
+}
+
+/* ----------------------------- */
+/* INPUT                         */
+/* ----------------------------- */
+.lilacs-cta-input {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    padding: 14px 18px;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    color: #0b2c68;
+}
+
+.lilacs-cta-input::placeholder {
+    color: #6b7a90;
+}
+
+/* ----------------------------- */
+/* BOTÃO                         */
+/* ----------------------------- */
+.lilacs-cta-button {
+    background: linear-gradient(90deg, #0b2c68, #0a6ad8);
+    color: #fff;
+    border: none;
+    padding: 14px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.lilacs-cta-button:hover {
+    background: linear-gradient(90deg, #0a6ad8, #0b2c68);
+    box-shadow: 0 8px 22px rgba(10, 106, 216, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ----------------------------- */
+/* RESPONSIVO                    */
+/* ----------------------------- */
+@media (max-width: 700px) {
+
+    .lilacs-cta-search-box {
+        flex-direction: column;
+        padding: 12px;
+        border-radius: 20px;
+        gap: 12px;
+    }
+
+    .lilacs-cta-input {
+        width: 100%;
+        border-radius: 12px;
+        padding: 14px;
+    }
+
+    .lilacs-cta-button {
+        width: 100%;
+        border-radius: 12px;
+    }
+}
+</style>
+
+    <?php
+    return ob_get_clean();
+});
+

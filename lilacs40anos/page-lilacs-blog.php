@@ -1,8 +1,8 @@
 <?php
-/*
-Template Name: LILACS Capacitação 
-Description: Modelo genérico de página Capacitação geral 
-*/
+/**
+ * Template Name:LILACS Blog noticias   
+ * Description: Modelo genérico de blog
+ */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 

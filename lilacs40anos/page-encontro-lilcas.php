@@ -1,7 +1,7 @@
 <?php
 /*
-Template Name: LILACS Capacitação 
-Description: Modelo genérico de página Capacitação geral 
+Template Name: LILACS Encontros
+Description: Modelo genérico de página de encontro
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

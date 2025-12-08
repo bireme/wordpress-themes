@@ -15,16 +15,35 @@ $descricao      = get_sub_field( 'descricao_banner' );
 $texto_barra    = get_sub_field( 'texto_complementar_descricao_banner' );
 $posicaoHigh    = get_sub_field('posicao_do_highlight');
 
+$overlay = get_sub_field('desativar_overlay');
+$cor_titulo = get_sub_field('cor_da_fonte_do_titulo');
+$cor_desc = get_sub_field('cor_da_fonte_da_descricao');
+
 // ID único para permitir background diferente por dobra
 $section_id = 'lilacs-centro-banner-' . get_the_ID() . '-' . get_row_index();
 
 $bg_style = '';
-if ( $fundo_banner ) {
+if ( $fundo_banner && $overlay == "nao") {
     $bg_style = sprintf(
         "background-image: linear-gradient(90deg, rgba(0,0,0,0.80) 0%%, rgba(0,0,0,0.70) 45%%, rgba(0,0,0,0.40) 60%%, rgba(0,0,0,0.10) 100%%), url('%s');",
         esc_url( $fundo_banner )
     );
+}else{
+    $bg_style = sprintf(
+        "background-image: url('%s');",
+        esc_url( $fundo_banner )
+    );
 }
+
+if(!$cor_titulo){
+    $cor_titulo = '#f97316';
+}
+
+if(!$cor_desc){
+    $cor_desc = '#e5e7eb';
+}
+
+
 ?>
 
 <style>
@@ -38,6 +57,7 @@ if ( $fundo_banner ) {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    
     color: #f9fafb;
 }
 
@@ -55,19 +75,24 @@ if ( $fundo_banner ) {
 #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-copy {
     max-width: 760px;
 }
+p,span,a,div{
+    font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
 #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-title {
     font-size: 45px;
+        font-family: "Poppins";
     line-height: 1.25;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #f97316; /* laranja do título */
+    color: <?=$cor_titulo; ?>; /* laranja do título */
     margin-bottom: 16px;
 }
 
 @media (min-width: 960px) {
     #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-title {
+            font-family: "Poppins";
         font-size: 45px;
     }
 }
@@ -75,7 +100,7 @@ if ( $fundo_banner ) {
 #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-desc {
     font-size: 20px;
     line-height: 1.7;
-    color: #e5e7eb;
+    color: <?=$cor_desc?>;
     margin-bottom: 20px;
 }
 
