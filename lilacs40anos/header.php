@@ -1,13 +1,35 @@
 <?php
 if (!defined('ABSPATH')) exit;
-?><!doctype html>
+?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <?php if ( ! function_exists( '_wp_render_title_tag' ) ) : ?>
+    <title><?php wp_title( '|', true, 'right' ); ?></title>
+  <?php endif; ?>
+
+  <meta name="description" content="<?php echo esc_attr( get_bloginfo('description') ); ?>">
+
+  <!-- Open Graph básico -->
+  <meta property="og:locale" content="<?php echo esc_attr( get_locale() ); ?>">
+  <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo('name') ); ?>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>">
+
+  <!-- Canonical simples  -->
+  <?php if ( function_exists( 'wp_get_canonical_url' ) ) : ?>
+    <link rel="canonical" href="<?php echo esc_url( wp_get_canonical_url() ); ?>">
+  <?php endif; ?>
+
   <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
+
+<?php wp_body_open(); ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -512,7 +534,7 @@ display: block;
 
 /* ====== TOPBAR STYLES ====== */
 .topbar {
-  background: #f8f9fa;
+  background: #fff !important;
   border-bottom: 1px solid #e9ecef;
   font-size: 0.875rem;
 }
@@ -635,26 +657,78 @@ display: block;
   }
 }
 
+.logo-rede img {
+  max-height: 76px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo-rede img {
+    max-height: 50px;
+  }
+}
+
+
 </style>
 <header class="site-header" role="banner">
-  <!-- TOPBAR: acessibilidade / idiomas -->
-  <div class="topbar">
-    <div class="container topbar__inner">
-      <div class="topbar__left">
-        <nav class="top-links" aria-label="Links rápidos">
-          <a href="#site-content"><?php echo bireme_lilacs_translate('Conteúdo Principal', 'Navigation'); ?></a>
-          <a href="#menu"><?php echo bireme_lilacs_translate('Menu', 'Navigation'); ?></a>
-          <a href="#search"><?php echo bireme_lilacs_translate('Pesquisa', 'Navigation'); ?></a>
-          <a href="#footer"><?php echo bireme_lilacs_translate('Rodapé', 'Navigation'); ?></a>
-        </nav>
+
+  <!-- AREA DE LOGOS -->
+  <div class="brandbar">
+    <div class="container brandbar__inner">
+      <div class="brand-left">
+        <?php
+        $current_lang_slug = bireme_lilacs_get_lang_slug();
+        $home_lang_url     = bireme_get_lang_home_url();
+        
+        
+         // Logo da REDE BVS por idioma
+        $rede_logo = bireme_rede_get_logo();
+        $rede_url  = bireme_rede_get_url();
+
+        // Logo BVS por idioma
+        $bvs_logo = bireme_bvs_get_logo();
+        ?>
+        <?php if ( $bvs_logo ) : ?>
+          <a class="logo-bvs lang-<?php echo esc_attr( $current_lang_slug ); ?>" href="<?php echo esc_url( $rede_url ); ?>">
+            <img src="<?php echo esc_attr( $bvs_logo ); ?>" alt="BVS Biblioteca Virtual" />
+          </a>
+        <?php endif; ?>
+
+        <?php
+        // LILACS (logo principal) - usa logo específico por idioma
+        $lilacs_logo = bireme_lilacs_get_logo();
+        // Nome do site baseado no idioma
+        if ( function_exists('pll__') ) {
+          $site_name = pll__('LILACS');
+          if ( empty($site_name) ) {
+              $site_name = get_bloginfo('name');
+          }
+        } else {
+          $site_name = get_bloginfo('name');
+        }
+        ?>
+        <?php if ( $lilacs_logo ) : ?>
+          <!-- LILACS levando para a home no idioma atual -->
+          <a class="logo-lilacs lang-<?php echo esc_attr($current_lang_slug); ?>" href="<?php echo esc_url( $home_lang_url ); ?>">
+            <img src="<?php echo esc_attr($lilacs_logo); ?>" alt="<?php echo esc_attr($site_name); ?>" />
+          </a>
+        <?php endif; ?>
       </div>
 
+      <div class="brand-center">
+        <!-- espaço caso queira algum selo/texto no centro -->
+      </div>
+
+      <div class="brand-right">
+          
+          <!-- TOPBAR: acessibilidade / idiomas -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+     
+
       <div class="topbar__right">
-        <div class="accessibility">
-          <button class="text-resize" data-action="increase">+A</button>
-          <button class="text-resize" data-action="decrease">-A</button>
-          <button class="toggle-contrast" title="<?php echo bireme_lilacs_translate('Alto Contraste', 'Accessibility'); ?>"><?php echo bireme_lilacs_translate('Alto Contraste', 'Accessibility'); ?></button>
-        </div>
+       
 
         <div class="lang-switcher" aria-label="Idiomas">
           <?php 
@@ -678,46 +752,22 @@ display: block;
       </div>
     </div>
   </div>
-
-  <!-- AREA DE LOGOS -->
-  <div class="brandbar">
-    <div class="container brandbar__inner">
-      <div class="brand-left">
+          
         <?php
-        // Logo BVS - se você tem um logo secundário, troque pelo ACF ou URL fixa
-        // Exemplo com imagem estática no tema:
-        $bvs_logo = get_template_directory_uri() . '/assets/images/logo-bvs.svg';
-        ?>
-        <a class="logo-bvs" href="<?php echo esc_url( home_url('/') ); ?>">
-          <img src="<?php echo esc_attr($bvs_logo); ?>" alt="BVS Biblioteca Virtual" />
-        </a>
-        
-         <?php
-        // LILACS (logo principal) - usa logo específico por idioma
-        $lilacs_logo = bireme_lilacs_get_logo();
-        $current_lang = function_exists('pll_current_language') ? pll_current_language() : 'pt';
-        
-        // Nome do site baseado no idioma
-      //  $site_name = bloginfo('name');
-        if (function_exists('pll__')) {
-          // Se tiver strings traduzidas específicas para o nome do site
-          $site_name = pll__('LILACS') ?: bloginfo('name');
-        }
-        ?>
-        <a class="logo-lilacs lang-<?php echo esc_attr($current_lang); ?>" href="<?php echo esc_url( home_url('/') ); ?>">
-          <img src="<?php echo esc_attr($lilacs_logo); ?>" alt="<?php echo esc_attr($site_name); ?>" />
-        </a>
-      </div>
+        // Logo da REDE BVS por idioma
+        $rede_logo = bireme_rede_get_logo();
+        $rede_url  = bireme_rede_get_url();
 
-      <div class="brand-center">
-       
-      </div>
-
-      <div class="brand-right">
-        <!-- espaço para ícones/ações (opcional) -->
+        ?>
+        <?php if ( $rede_logo ) : ?>
+          <a class="logo-rede lang-<?php echo esc_attr($current_lang_slug); ?>" href="<?php echo esc_url($rede_url); ?>" target="_blank" rel="noopener">
+            <img src="<?php echo esc_attr($rede_logo); ?>" alt="Rede BVS" />
+          </a>
+        <?php endif; ?>
       </div>
     </div>
   </div>
+
 
   <!-- NAV -->
   <div class="navwrap">
