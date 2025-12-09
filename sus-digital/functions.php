@@ -84,6 +84,39 @@ add_action( 'rest_api_init', function () {
     }
 } );
 
+// ------------------------------
+// REST API: DeCS Terms
+// ------------------------------
+add_action('rest_api_init', function () {
+    // Termos de decs_term
+    register_rest_field('project', 'decs_term_terms', [
+        'get_callback' => function ($object) {
+            if (empty($object['decs_term'])) {
+                return [];
+            }
+
+            $terms = get_terms([
+                'taxonomy'   => 'decs_term',
+                'include'    => $object['decs_term'],
+                'hide_empty' => false,
+            ]);
+
+            if (is_wp_error($terms) || empty($terms)) {
+                return [];
+            }
+
+            return array_map(function ($term) {
+                return [
+                    'id'   => $term->term_id,
+                    'name' => $term->name,
+                    'slug' => $term->slug,
+                ];
+            }, $terms);
+        },
+        'schema' => null,
+    ]);
+});
+
 
 // ------------------------------
 // Função: todos os menus do site atual
