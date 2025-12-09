@@ -86,6 +86,8 @@ add_action( 'rest_api_init', function () {
 
 // ------------------------------
 // REST API: DeCS Terms
+// GET /wp-json/wp/v2/project/{id}/decs_term_terms
+// Retorna os termos de decs_term associados ao projeto
 // ------------------------------
 add_action('rest_api_init', function () {
     // Termos de decs_term
