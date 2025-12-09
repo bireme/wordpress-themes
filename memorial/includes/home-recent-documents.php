@@ -1,4 +1,4 @@
-<section id="home-recent-documents" class="pt-5 pb-5">
+<section id="home-recent-documents" class="pt-5 pb-5 d-none">
 	<div class="container">
 		<h2 class="title text-center">Acervo em Destaque</h2>
 		<p class="text-center">Acesse conteúdos cuidadosamente organizados e disponibilizados em diferentes formatos, que vão desde relatórios e artigos até materiais visuais, todos acompanhados de um resumo explicativo e objetivo para tornar sua leitura muito mais simples, ágil e acessível.</p>
