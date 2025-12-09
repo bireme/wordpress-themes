@@ -157,11 +157,9 @@ $lang = get_current_language();
                         <?php echo $section_3_button_text; ?> <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
-            </div>
 
             <?php if(!empty($section_3_img_src)){ ?>
-            <div class="row">
-                <div class="image-content col-12 col-md-12 col-lg-12">
+                <div class="image-content col-lg-5">
                     <a href="<?php echo $section_3_img_link; ?>">
                         <img src="<?php echo $section_3_img_src; ?>" alt="<?php echo $section_3_title; ?>" class="img-fluid" />
                     </a>
@@ -187,7 +185,8 @@ $lang = get_current_language();
         $new_query = new WP_Query( array(
             'posts_per_page' => 3,
             'post_type'      => 'post',
-            'paged'          => 1
+            'paged'          => 1,
+            'category_name'  => 'noticias',
         ) );
                 
         while( $new_query->have_posts() ){

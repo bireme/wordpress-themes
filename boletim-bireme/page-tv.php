@@ -26,28 +26,31 @@
 		margin-bottom: 10px;
 	}
 	#tvNews{
-		height:980px; 
+		height:967px; 
 		position: relative;
 		background: #075bba;
 		color: #fff;
 		padding: 0 10px;
 	}
 	#tvNewsNext{
-		height: 910px;
+		height: 820px;
 		padding: 10px;
 		overflow:hidden;
 		box-sizing: border-box;
+		margin-bottom: 80px;
 	}
 	#tvNewsNext h2{
-		font-size: 30px; /*font-size: 60px;*/
-		padding-bottom: 7px; /* padding-bottom: 20px;*/
-		border-bottom: 2px solid #ddd; /*border-bottom: 5px solid #ddd;*/
+		font-size: 3.5rem;
+		padding-bottom: 7px; 
+		border-bottom: 3px solid #fff;
+		font-weight: bold;
+		text-align: center;
 	}
 	.tvNewsLoop{
 		width: 100%;
 		margin: auto;
 		padding: 12px 0;
-		border-bottom: 1px solid #19bfff;
+		border-bottom: 1px solid #fff;
 		font-size: 2.5rem;
 		margin-bottom: 10px;
 	}
@@ -89,33 +92,23 @@
 		font-weight: bold;
 		border-radius:20px;
 		margin-right: 5px;
+		position: relative;
 	}
-	#teste{
+	#qrcode{
+		float: left;
 		position: absolute;
-		width: 100%;
-		height: 100%;
-		z-index: 11111;
-		display: flex;
-      	justify-content: center;
-      	align-items: center;
-		font-size: 20rem;
-		font-weight: bold;
-		opacity: .8;
-		color: #fff;
+		bottom: 22px;
+		z-index: 10;
 	}
-	#teste div{
-		rotate: -25deg;
+	#qrcode img{
+		width: 120px;
 	}
 </style>
-
-<div id="teste"><div>TESTE</div></div>
+<?php $lang = pll_current_language(); ?>
 <div id="tvContainer">
 	<div class="row" style="position: relative">
 		<div id="tvTitle">
-			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv.jpg" alt="" class="img-fluid"> 
-			<span class="float-right">
-				<ul class="list-unstyled"><?php dynamic_sidebar('Clima') ?></ul>
-			</span>
+			<img src="<?php bloginfo('template_directory'); ?>/assets/images/header-tv-<?php echo $lang; ?>.jpg" alt="" class="img-fluid"> 
 		</div>
 		<div class="col-9" id="tvMain">
 
@@ -126,7 +119,7 @@
 					$posts = new WP_Query([
 						'post_type' => 'post',
 						'posts_per_page' => '-1',
-						'lang' => 'all'
+						'lang' => $lang
 					]);
 					while($posts->have_posts()) : $posts->the_post();
 						$image_tv = get_field('image_tv'); 
@@ -151,12 +144,12 @@
 		</div>
 		<div class="col-3" id="tvNews">
 			<div id="tvNewsNext">
-				<h2>Próximas Notícias</h2>
+				<h2><?php pll_e('Upcoming News'); ?></h2>
 				<?php 
 				$posts = new WP_Query([
 					'post_type' => 'post',
 					'posts_per_page' => '-1',
-					'lang' => 'all'
+					'lang' => $lang
 				]);
 				$i = 0;
 				while($posts->have_posts()) : $posts->the_post();
@@ -173,6 +166,9 @@
 			</div>
 
 			<div id="tvFooter">
+				<div id="qrcode">
+					<img src="<?php bloginfo('template_directory'); ?>/assets/images/qrcode.svg" alt="" class="img-fluid">
+				</div>
 				<div id="tvFooterHora"></div>
 			</div>
 		</div>
@@ -204,5 +200,45 @@
 		}
 	}
 });
+
+// Troca URL em loop: /tv -> /pt/tv-pt -> /en/tv-en -> /tv...
+const DELAY = 600000; // 10 min
+
+setTimeout(() => {
+  const { origin, pathname, search, hash } = location;
+
+  // casa: [base][/pt|/en]/[slug]
+  const m = pathname.match(/^(.*?)(?:\/(pt|en))?\/([^/]+)\/?$/);
+  if (!m) return;
+
+  const base = m[1].endsWith("/") ? m[1] : m[1] + "/";
+  const lang = m[2] || null;         // null => es (/tv)
+  const slug = m[3];
+
+  // remove sufixos conhecidos (-pt, -en) para obter o "baseSlug"
+  const baseSlug = slug.replace(/(?:-pt|-en)$/i, "");
+
+  // ordem do ciclo: es (/tv) -> pt (/pt/tv-pt) -> en (/en/tv-en) -> es (/tv)
+  const currentIdx = lang === "pt" ? 1 : lang === "en" ? 2 : 0;
+  const nextIdx = (currentIdx + 1) % 3;
+
+  let targetPath;
+  if (nextIdx === 0) {
+    // es: apenas /tv
+    targetPath = `${base}${baseSlug}`;
+  } else if (nextIdx === 1) {
+    // pt: /pt/tv-pt
+    targetPath = `${base}pt/${baseSlug}-pt`;
+  } else {
+    // en: /en/tv-en
+    targetPath = `${base}en/${baseSlug}-en`;
+  }
+
+  location.href = origin + targetPath + search + hash;
+}, DELAY);
+
+
+
+ 
 </script>
 <?php wp_footer(); ?>

@@ -1,0 +1,13 @@
+/wp-admin/
+/wp-includes/
+wp-config.php
+.env
+*.log
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+vendor/
