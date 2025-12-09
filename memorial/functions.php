@@ -32,6 +32,14 @@ function action_init()
 {
 	register_nav_menu('main-nav', 'Main Menu (top)');
 }
+//RSS Produção
+function http_request_local( $args, $url ) {
+   if ( preg_match('/xml|rss|feed/', $url) ){
+      $args['reject_unsafe_urls'] = false;
+   }
+   return $args;
+}
+add_filter( 'http_request_args', 'http_request_local', 5, 2 );
 // Widget
 register_sidebar([
 	'name'			=> 'Footer 1',

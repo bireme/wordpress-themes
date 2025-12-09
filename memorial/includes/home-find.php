@@ -11,7 +11,7 @@
 				<div class="home-profiles">
 					<div class="col-md-4">
 						<div class="card text-white profile-card">
-							<a href="">
+							<a href="https://memorialpandemia.teste.bvs.br/colecoes-memorias/acesse-o-memorial-do-seu-jeito/">
 								<img src="<?php bloginfo('template_directory'); ?>/img/profiles-1.jpg" class="card-img" alt="Estudantes">
 								<div class="card-img-overlay d-flex align-items-end justify-content-center overlay-content">
 									<h5 class="card-title">Ações educativas</h5>
