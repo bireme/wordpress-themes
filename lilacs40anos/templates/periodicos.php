@@ -28,12 +28,30 @@
 
     /* botão de colapsar */
     .bvs-toggle{
-      position: absolute; right: -32px; top: -25px;
-      width: 32px; height: 32px; border-radius: 0px;
-      background:#F1F1F1;
-      border: 1px solid var(--line); cursor:pointer;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 1px 2px rgba(10,20,40,.05); color:var(--muted); font-size:16px;
+margin: 0 auto;
+    align-self: center;
+    height: 25px;
+    width: 25px !important;
+    border-radius: 999px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 17px;
+    color: #111827;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.2s ease;
+    z-index: 999;
+    align-content: center;
+    margin-left: -13px;
+        position: absolute;
+    right: -13px;
+    top: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0 !important;
     }
     .bvs-toggle:hover{background:#f6f8fc}
 
@@ -63,7 +81,7 @@
     #bvs-page.is-collapsed .bvs-wrap{grid-template-columns:44px 1fr;}
     #bvs-page.is-collapsed .bvs-side{padding:8px 6px}
     #bvs-page.is-collapsed .bvs-side > *:not(.bvs-toggle){display:none}
-    #bvs-page.is-collapsed .bvs-toggle{right:6px; top:6px}
+    #bvs-page.is-collapsed .bvs-toggle{right:-12px; top:6px}
 
     /* ícone vira “abrir” quando colapsado */
     #bvs-page.is-collapsed .bvs-toggle[data-dir="left"]::after{content:"›";}
@@ -220,6 +238,73 @@
     .bvs-group .body{max-height:60vh; overflow:auto; padding-right:4px;}
     .bvs-sep{height:1px; background:var(--line); margin:12px 0;}
 
+.bvs-title-toggle{
+  display:flex;
+  justify-content:flex-start;   /* alinhado à esquerda */
+  align-items:center;
+  padding:4px 8px 8px;
+}
+
+/* container do switch */
+.bvs-switch{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* esconde o checkbox padrão */
+.bvs-switch input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+/* trilho */
+.bvs-slider{
+  position:relative;
+  width:40px;
+  height:20px;
+  background:#d4dbe8;
+  border-radius:999px;
+  transition:background .2s ease;
+}
+
+/* bolinha */
+.bvs-slider::before{
+  content:"";
+  position:absolute;
+  top:2px;
+  left:2px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+  transition:transform .2s ease;
+}
+
+/* estado checked */
+.bvs-switch input:checked + .bvs-slider{
+  background:var(--accent-2);
+}
+
+.bvs-switch input:checked + .bvs-slider::before{
+  transform:translateX(20px);
+}
+
+.bvs-switch-label{
+  font-size:13px;
+}
+
+#bvs-total{
+    background: #f96a1e;
+    color: #fff;
+}
+
+
   </style>
 
   <div class="bvs-top">
@@ -229,10 +314,8 @@
   <div class="bvs-wrap">
     <!-- Sidebar -->
     <aside class="bvs-side" id="bvs-filters">
-      <button id="bvs-toggle" class="bvs-toggle" aria-expanded="true" aria-controls="bvs-filters" title="Encolher filtros">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/toogle.png' ); ?>" alt="Toggle">
-      </button>
-
+     
+            
       <!-- BUSCA agora só na coluna esquerda -->
       <div class="bvs-search" style="margin:10px 0 12px;">
         <input id="bvs-q" type="search" placeholder="Pesquise por título, ISSN ou códigos" aria-label="Pesquisar">
@@ -261,11 +344,45 @@
         </div>
         <div class="body" id="bvs-thematics" role="list"></div>
       </div>
+ <button id="bvs-toggle" class="bvs-toggle" aria-expanded="true" aria-controls="bvs-filters" title="Encolher filtros">
+         ‹
+      </button>
 
     </aside>
+    
 
     <!-- Main table -->
     <main class="bvs-main">
+        
+        <main class="bvs-main">
+
+
+<div class="bvs-title-toggle">
+  <label class="bvs-switch">
+    <input type="checkbox" id="bvs-title-mode">
+    <span class="bvs-slider"></span>
+    <span class="bvs-switch-label">Mostrar título completo</span>
+  </label>
+</div>
+
+
+  <table class="bvs-table" aria-describedby="bvs-summary">
+    <thead class="bvs-thead">
+      <tr>
+        <th class="bvs-col-idx">#</th>
+        <th class="bvs-col-title">Título completo</th>
+        <th class="bvs-col-issn">ISSN</th>
+        <th class="bvs-col-code">Código do Editor</th>
+        <th class="bvs-col-code">Código do CC</th>
+      </tr>
+    </thead>
+    <tbody id="bvs-tbody" class="bvs-tbody"></tbody>
+  </table>
+  <div id="bvs-pager" class="bvs-pager" aria-label="Paginação"></div>
+</main>
+
+
+
       <table class="bvs-table" aria-describedby="bvs-summary">
         <thead class="bvs-thead">
           <tr>
@@ -294,20 +411,29 @@
     const LANG = "pt-br";
     const PER_PAGE = 50;
 
+// idioma da interface do Portal de Revistas (pt, es, en)
+const PORTAL_LANG =
+  LANG.startsWith('pt') ? 'pt' :
+  LANG.startsWith('es') ? 'es' :
+  'en';
+  
+  
     // ===== Estado =====
-    const S = {
-      docs: [],
-      countriesFacet: [],
-      search: "",
-      countryRaw: null,
-      page: 1,
-      thematicFacet: [],
-      thematicSel: null,
-      assuntoOpen: true,
-      masterCount: null,        // total de "Todos" (dataset sem filtro de Assunto)
-      initialCountryLabel: null,// label vinda pela URL
-      hasInitialCountryParam: false // indica se veio parâmetro de país na URL
-    };
+const S = {
+  docs: [],
+  countriesFacet: [],
+  search: "",
+  countryRaw: null,
+  page: 1,
+  thematicFacet: [],
+  thematicSel: null,
+  assuntoOpen: true,
+  masterCount: null,
+  initialCountryLabel: null,
+  hasInitialCountryParam: false,
+  showFullTitle: false        // <<< NOVO: false = usar título curto
+};
+
 
     // ===== Captura de país inicial via URL (?p=Brasil ou ?pais=Brasil) =====
     (function(){
@@ -333,6 +459,15 @@
     const $totalCount  = document.getElementById("bvs-total-count");
     const $updated     = document.getElementById("bvs-updated");
     const $q           = document.getElementById("bvs-q");
+    
+    const $titleMode = document.getElementById("bvs-title-mode");
+if ($titleMode) {
+  $titleMode.addEventListener("change", (e)=>{
+    S.showFullTitle = e.target.checked;
+    renderTable();   // só precisa redesenhar a tabela
+  });
+}
+
 
     // ===== Helpers =====
     function labelFromMulti(str, lang=LANG){
@@ -347,7 +482,11 @@
     const fmtDate = (yyyymmdd)=> yyyymmdd && String(yyyymmdd).length===8
       ? `${yyyymmdd.slice(6,8)}/${yyyymmdd.slice(4,6)}/${yyyymmdd.slice(0,4)}` : "—";
     const getFirstISSN = a => Array.isArray(a)&&a.length ? a[0] : "—";
-    const byTitle = (a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'});
+    //const byTitle = (a,b)=> a.title.localeCompare(b.title,'pt',{sensitivity:'base'});
+    
+    const getSortTitle = (x) => (x.title_full || x.title || "");
+    const byTitle = (a,b)=> getSortTitle(a).localeCompare(getSortTitle(b),'pt',{sensitivity:'base'});
+
 
     // ====== DETALHES (2ª API) ======
     const detailCache = new Map();
@@ -376,31 +515,57 @@
       return p;
     }
 
-    async function hydrateVisibleCodes(pageDocs){
-      const limit = 8;
-      const tasks = [];
-      for(const d of pageDocs){
-        const id = getDetailIdFromDoc(d);
-        if(!id || detailCache.has(id)) continue;
-        tasks.push(()=>fetchDetailOnce(id).then((codes)=>{
-          d.editor_code = codes.editor_code;
-          d.cc_code = codes.cc_code;
-          const row = document.querySelector(`tr[data-row-id="${d.id}"]`);
-          if(row){
-            row.querySelector('[data-cell="editor"]').textContent = d.editor_code;
-            row.querySelector('[data-cell="cc"]').textContent     = d.cc_code;
-          }
-        }));
-      }
-      let i=0;
-      const run = async()=>{
-        while(i<tasks.length){
-          const batch = tasks.slice(i, i+=limit).map(fn=>fn());
-          await Promise.all(batch);
+async function hydrateVisibleCodes(pageDocs){
+  const limit = 8;
+  const tasks = [];
+
+  for (const d of pageDocs) {
+    const id = getDetailIdFromDoc(d);
+    if (!id || detailCache.has(id)) continue;
+
+    tasks.push(() =>
+      fetchDetailOnce(id).then((codes) => {
+        d.editor_code = codes.editor_code;
+        d.cc_code     = codes.cc_code;
+
+        const row = document.querySelector(`tr[data-row-id="${d.id}"]`);
+        if (!row) return;
+
+        // editor: apenas texto simples
+        const editorCell = row.querySelector('[data-cell="editor"]');
+        if (editorCell) {
+          editorCell.textContent = d.editor_code || "—";
         }
-      };
-      return run();
+
+        // CC: precisa manter/reescrever o LINK
+        const ccCell = row.querySelector('[data-cell="cc"]');
+        if (ccCell) {
+          const ccCode = d.cc_code || "—";
+
+          if (ccCode && ccCode !== "—") {
+            ccCell.innerHTML =
+              `<a href="https://lilacs.bvsalud.org/centers?lang=${PORTAL_LANG}&q=${encodeURIComponent(ccCode)}"
+                  target="_blank" rel="noopener"
+                  style="color: var(--accent); text-decoration: none;">
+                 ${ccCode}
+               </a>`;
+          } else {
+            ccCell.textContent = "—";
+          }
+        }
+      })
+    );
+  }
+
+  let i = 0;
+  const run = async () => {
+    while (i < tasks.length) {
+      const batch = tasks.slice(i, (i += limit)).map((fn) => fn());
+      await Promise.all(batch);
     }
+  };
+  return run();
+}
 
     // ===== Sidebar: País =====
     function renderCountries(){
@@ -495,18 +660,21 @@
       if (S.search) {
         const q = S.search.toLowerCase();
         list = list.filter(d => {
-          const title  = d.title?.toLowerCase()  || "";
-          const editor = d.editor_code?.toLowerCase() || "";
-          const cc     = d.cc_code?.toLowerCase()     || "";
-          const issnStr = Array.isArray(d.issn)
-            ? d.issn.join(" ").toLowerCase()
-            : "";
-          return (
-            title.includes(q) ||
-            editor.includes(q) ||
-            cc.includes(q) ||
-            issnStr.includes(q) // <<< permite buscar por ISSN
-          );
+         const titleFull  = (d.title_full  || d.title || "").toLowerCase();
+const titleShort = (d.title_short || "").toLowerCase();
+const editor     = d.editor_code?.toLowerCase() || "";
+const cc         = d.cc_code?.toLowerCase()     || "";
+const issnStr = Array.isArray(d.issn)
+  ? d.issn.join(" ").toLowerCase()
+  : "";
+return (
+  titleFull.includes(q)  ||
+  titleShort.includes(q) ||
+  editor.includes(q)     ||
+  cc.includes(q)         ||
+  issnStr.includes(q)
+);
+
         });
       }
       return list;
@@ -524,22 +692,47 @@
       $tbody.innerHTML = "";
       const frag = document.createDocumentFragment();
 
-      pageDocs.forEach((d, idx)=>{
-        const detailId  = getDetailIdFromDoc(d);
-        const cached    = detailId && detailCache.get(detailId);
-        const editorCode= (d.editor_code || cached?.editor_code) ?? "…";
-        const ccCode    = (d.cc_code     || cached?.cc_code)     ?? "…";
-        const primaryLink = Array.isArray(d.link)&&d.link.length ? d.link[0] : null;
+     pageDocs.forEach((d, idx)=>{
+  const detailId  = getDetailIdFromDoc(d);
+  const cached    = detailId && detailCache.get(detailId);
+  const editorCode= (d.editor_code || cached?.editor_code) ?? "…";
+  const ccCode    = (d.cc_code     || cached?.cc_code)     ?? "…";
 
-        const tr = document.createElement("tr");
-        tr.setAttribute("data-row-id", d.id);
-        tr.innerHTML = `
-          <td class="bvs-col-idx">${start+idx+1}</td>
-          <td class="bvs-col-title">${primaryLink ? `<a href="${primaryLink}" target="_blank" rel="noopener">${d.title}</a>` : d.title}</td>
-          <td class="bvs-col-issn">${getFirstISSN(d.issn)}</td>
-          <td class="bvs-col-code" data-cell="editor">${editorCode}</td>
-          <td class="bvs-col-code" data-cell="cc">${ccCode}</td>
-        `;
+const issnVal = getFirstISSN(d.issn);
+
+const primaryLink = (issnVal && issnVal !== "—")
+  ? `https://portal.revistas.bvs.br/${PORTAL_LANG}/journals/?lang=${PORTAL_LANG}&q=${encodeURIComponent(issnVal)}`
+  : null;
+
+const displayTitle = S.showFullTitle ? d.title_full : d.title_short;
+
+const tr = document.createElement("tr");
+tr.setAttribute("data-row-id", d.id);
+tr.innerHTML = `
+  <td class="bvs-col-idx">${start+idx+1}</td>
+
+  <td class="bvs-col-title">
+    ${primaryLink
+      ? `<a href="${primaryLink}" target="_blank" rel="noopener">${displayTitle}</a>`
+      : displayTitle}
+  </td>
+
+  <td class="bvs-col-issn">${issnVal}</td>
+
+  <td class="bvs-col-code" data-cell="editor">${editorCode}</td>
+
+  <td class="bvs-col-code" data-cell="cc">
+    ${ccCode && ccCode !== "—"
+      ? `<a href="https://lilacs.bvsalud.org/centers?lang=${PORTAL_LANG}&q=${encodeURIComponent(ccCode)}"
+            target="_blank" rel="noopener"
+            style="color: var(--accent); text-decoration: none;">
+           ${ccCode}
+         </a>`
+      : "—"}
+  </td>
+`;
+
+
         frag.appendChild(tr);
       });
 
@@ -568,7 +761,7 @@
       }
       $pager.appendChild(makeBtn("›", S.page===pages, ()=>{S.page++; renderTable();}));
 
-      document.getElementById("bvs-total-count").textContent = String(filteredDocs().length || S.docs.length);
+      //document.getElementById("bvs-total-count").textContent = String(filteredDocs().length || S.docs.length);
     }
 
     function renderAll(){
@@ -616,19 +809,36 @@
         .map(([raw,count])=>({ raw, count, label: labelFromMulti(raw) }))
         .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
 
-      S.docs = allDocs.map(d=>({
-        id: d.id,
-        django_id: d.django_id,
-        title: d.title || "—",
-        issn: d.issn || [],
-        link: d.link || [],
-        country_raw: d.country || "",
-        country: labelFromMulti(d.country || ""),
-        updated_date: d.updated_date || d.created_date || "",
-        thematic_area: Array.isArray(d.thematic_area) ? d.thematic_area : (d.thematic_area ? [d.thematic_area] : []),
-        editor_code: undefined,
-        cc_code: undefined
-      })).sort(byTitle);
+S.docs = allDocs.map(d=>{
+  const fullTitle = d.title || "—";
+  let shortTitle = "";
+
+  if (Array.isArray(d.shortened_title) && d.shortened_title.length) {
+    shortTitle = d.shortened_title[0];           // vem assim no print_r
+  }
+
+  if (!shortTitle) {
+    shortTitle = fullTitle;                      // fallback
+  }
+
+  return {
+    id: d.id,
+    django_id: d.django_id,
+    title_full: fullTitle,
+    title_short: shortTitle,
+    // por compatibilidade, 'title' fica como o que usamos para sort antigo
+    title: fullTitle,
+    issn: d.issn || [],
+    link: d.link || [],
+    country_raw: d.country || "",
+    country: labelFromMulti(d.country || ""),
+    updated_date: d.updated_date || d.created_date || "",
+    thematic_area: Array.isArray(d.thematic_area) ? d.thematic_area : (d.thematic_area ? [d.thematic_area] : []),
+    editor_code: undefined,
+    cc_code: undefined
+  };
+}).sort(byTitle);
+
 
       // >>> APLICAÇÃO DO FILTRO INICIAL POR PAÍS (label) VINDO DA URL <<<
       if (S.initialCountryLabel && !S.countryRaw) {
@@ -730,3 +940,4 @@
   })();
   </script>
 </section>
+

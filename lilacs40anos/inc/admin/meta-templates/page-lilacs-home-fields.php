@@ -159,6 +159,31 @@ $js = <<<'JS'
     $row.find('.bireme-slide-preview').html('<em>Sem imagem.</em>');
   });
 
+  // [NOVO] Picker de imagem por linha para "Revistas indexadas"
+  $(document).on('click', '.bireme-jr-pick', function(e){
+    e.preventDefault();
+    var $row = $(this).closest('.bireme-repeater__row');
+    var $input = $row.find('input[name="bireme_jr_items[image][]"]');
+    var $preview = $row.find('.bireme-jr-img-prev');
+
+    var frame = wp.media({ title:'Selecionar imagem da revista', button:{text:'Usar esta imagem'}, library:{type:'image'}, multiple:false });
+    frame.on('select', function(){
+      var att = frame.state().get('selection').first().toJSON();
+      $input.val(att.id);
+      var size = att.sizes && (att.sizes.thumbnail || att.sizes.medium || att.sizes.full);
+      var url  = (size && size.url) ? size.url : att.url;
+      $preview.html('<img src="'+url+'" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:4px">');
+    });
+    frame.open();
+  });
+
+  $(document).on('click', '.bireme-jr-clear', function(e){
+    e.preventDefault();
+    var $row = $(this).closest('.bireme-repeater__row');
+    $row.find('input[name="bireme_jr_items[image][]"]').val('0');
+    $row.find('.bireme-jr-img-prev').html('<em>Sem imagem.</em>');
+  });
+
   // Toggle para RSS/Manual
   $(document).on('change', 'input[name="bireme_rc_source_type"]', function(){
     var type = $(this).val();
@@ -806,23 +831,29 @@ if (!is_array($dep_items)) $dep_items = [];
     <label>Itens (repetidor de pílulas)</label>
     <div class="bireme-repeater" data-repeater>
       <div class="bireme-repeater__head">
-        <strong>País / Total / Link / Destaque</strong>
+        <strong>País / Total / Link / Destaque / Imagem</strong>
         <button class="button button-small" data-repeater-add type="button">+ Adicionar item</button>
       </div>
       <div class="bireme-repeater__rows">
         <?php
         $rows = !empty($jr_items) ? $jr_items : [
-          ['label'=>'Total Geral','total'=>'934','url'=>'','accent'=>0],
-          ['label'=>'Argentina','total'=>'128','url'=>'','accent'=>0],
-          ['label'=>'Bolívia','total'=>'14','url'=>'','accent'=>0],
-          ['label'=>'Brasil','total'=>'316','url'=>'','accent'=>0],
-          ['label'=>'Ver mais','total'=>'','url'=>'','accent'=>1],
+          ['label'=>'Total Geral','total'=>'934','url'=>'','accent'=>0,'image_id'=>0],
+          ['label'=>'Argentina','total'=>'128','url'=>'','accent'=>0,'image_id'=>0],
+          ['label'=>'Bolívia','total'=>'14','url'=>'','accent'=>0,'image_id'=>0],
+          ['label'=>'Brasil','total'=>'316','url'=>'','accent'=>0,'image_id'=>0],
+          ['label'=>'Ver mais','total'=>'','url'=>'','accent'=>1,'image_id'=>0],
         ];
         foreach($rows as $r){
-          $label  = esc_attr($r['label'] ?? '');
-          $total  = esc_attr($r['total'] ?? '');
-          $url    = esc_url($r['url'] ?? '');
-          $accent = !empty($r['accent']) ? 'checked' : '';
+          $label   = esc_attr($r['label'] ?? '');
+          $total   = esc_attr($r['total'] ?? '');
+          $url     = esc_url($r['url'] ?? '');
+          $accent  = !empty($r['accent']) ? 'checked' : '';
+          $img_id  = (int)($r['image_id'] ?? 0);
+          $img_url = $img_id ? wp_get_attachment_image_url($img_id, 'thumbnail') : '';
+          $img_html = $img_url
+            ? '<img src="'.esc_url($img_url).'" alt="" style="width:64px;height:64px;object-fit:cover;border-radius:4px">'
+            : '<em>Sem imagem.</em>';
+
           echo '
           <div class="bireme-repeater__row" style="flex-wrap:wrap">
             <input type="text" name="bireme_jr_items[label][]" value="'.$label.'" placeholder="Rótulo (ex.: Brasil)" style="min-width:220px">
@@ -832,6 +863,14 @@ if (!is_array($dep_items)) $dep_items = [];
               <input type="checkbox" name="bireme_jr_items[accent][]" value="1" '.$accent.'>
               Destaque (laranja)
             </label>
+            <div class="bireme-jr-image" style="display:flex;align-items:center;gap:8px;margin-top:6px">
+              <div class="bireme-preview bireme-jr-img-prev" style="max-width:72px">'.$img_html.'</div>
+              <div>
+                <input type="hidden" name="bireme_jr_items[image][]" value="'.$img_id.'">
+                <button class="button bireme-jr-pick" type="button">Selecionar imagem</button>
+                <button class="button link-delete bireme-jr-clear" type="button">Remover imagem</button>
+              </div>
+            </div>
             <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
           </div>';
         }
@@ -848,11 +887,19 @@ if (!is_array($dep_items)) $dep_items = [];
             <input type="checkbox" name="bireme_jr_items[accent][]" value="1">
             Destaque (laranja)
           </label>
+          <div class="bireme-jr-image" style="display:flex;align-items:center;gap:8px;margin-top:6px">
+            <div class="bireme-preview bireme-jr-img-prev" style="max-width:72px"><em>Sem imagem.</em></div>
+            <div>
+              <input type="hidden" name="bireme_jr_items[image][]" value="0">
+              <button class="button bireme-jr-pick" type="button">Selecionar imagem</button>
+              <button class="button link-delete bireme-jr-clear" type="button">Remover imagem</button>
+            </div>
+          </div>
           <button class="button button-link-delete" data-repeater-del type="button">Remover</button>
         </div>
       </div>
     </div>
-    <p class="bireme-hint">Marque “Destaque” para gerar a pílula laranja (ex.: “Ver mais”).</p>
+    <p class="bireme-hint">Marque “Destaque” para gerar a pílula laranja (ex.: “Ver mais”). Cada item pode ter uma imagem associada.</p>
   </div>
 </div>
 
@@ -1371,16 +1418,24 @@ $lab = (array)($_POST['bireme_jr_items']['label']  ?? []);
 $tot = (array)($_POST['bireme_jr_items']['total']  ?? []);
 $url = (array)($_POST['bireme_jr_items']['url']    ?? []);
 $acc = (array)($_POST['bireme_jr_items']['accent'] ?? []);
+$img = (array)($_POST['bireme_jr_items']['image']  ?? []);
 
 $items = [];
-$max = max(count($lab), count($tot), count($url));
+$max = max(count($lab), count($tot), count($url), count($img));
 for($i=0;$i<$max;$i++){
     $label  = sanitize_text_field($lab[$i] ?? '');
     $total  = sanitize_text_field($tot[$i] ?? '');
     $link   = esc_url_raw($url[$i] ?? '');
     $accent = !empty($acc[$i]) ? 1 : 0;
+    $image_id = (int)($img[$i] ?? 0);
     if($label==='') continue; // ignora vazios
-    $items[] = ['label'=>$label,'total'=>$total,'url'=>$link,'accent'=>$accent];
+    $items[] = [
+      'label'    => $label,
+      'total'    => $total,
+      'url'      => $link,
+      'accent'   => $accent,
+      'image_id' => $image_id,
+    ];
 }
 update_post_meta($post_id, '_bireme_jr_items', $items);
 
@@ -1492,6 +1547,11 @@ if(!function_exists('bireme_get_lilacs_journals_meta')){
     $sub   = get_post_meta($post_id, '_bireme_jr_sub', true);
     $items = get_post_meta($post_id, '_bireme_jr_items', true);
     if(!is_array($items)) $items = [];
+    foreach($items as &$it){
+      $img_id = (int)($it['image_id'] ?? 0);
+      $it['image_id']  = $img_id;
+      $it['image_url'] = $img_id ? wp_get_attachment_image_url($img_id, 'thumbnail') : '';
+    }
     return [
       'title'   => $title,
       'subtitle'=> $sub,
