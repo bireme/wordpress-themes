@@ -86,9 +86,18 @@ h1, h2, h3, h4, h5, h6{
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
+	border: 0;
+	border-radius: 16px!important;
+}
+.profile-card a{
+	color: #fff;
+}
+.profile-card a:hover{
+	color: #ddd;
 }
 .profile-card img {
 	transition: transform 0.4s ease;
+	border-radius: 16px;
 }
 .profile-card:hover img {
 	transform: scale(1.1);
@@ -170,6 +179,7 @@ h1, h2, h3, h4, h5, h6{
 	margin-top:-80px ;
 	border-radius: 16px;
 	background: #e5e5e5;
+	background: linear-gradient(180deg,rgba(229, 229, 229, 1) 0%, rgba(255, 255, 255, 1) 84%);
 	padding: 20px 0px 20px 20px;
 }
 .colecoes .overlay-card{
@@ -213,17 +223,17 @@ h1, h2, h3, h4, h5, h6{
 .btn,
 a.button,
 a.btn {
-  background-color: #1E3A5F !important;
-  border-color: #1E3A5F !important;
-  color: #ffffff !important;
+	background-color: #1E3A5F !important;
+	border-color: #1E3A5F !important;
+	color: #ffffff !important;
 }
 
 /* Efeito ao passar o mouse */
 .wp-block-button__link:hover,
 .btn:hover,
 a.btn:hover {
-  background-color: #162C47 !important; /* tom mais escuro */
-  border-color: #162C47 !important;
+	background-color: #162C47 !important; /* tom mais escuro */
+	border-color: #162C47 !important;
 }
 
 @media (max-width: 992px){

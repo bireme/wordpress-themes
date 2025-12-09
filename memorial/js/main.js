@@ -38,6 +38,8 @@ jQuery('.home-products').slick({
 jQuery('.home-profiles').slick({
   dots: true,
   infinite: false,
+  arrows: false,
+  autoplay: true,
   speed: 300,
   slidesToShow: 3,
   slidesToScroll: 3,
