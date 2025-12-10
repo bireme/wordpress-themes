@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $aba_titulo   = get_sub_field( 'titulo' );
 $mapa_embed   = get_sub_field( 'mapa' );
 $sobre_a_rede = get_sub_field( 'sobre_a_rede' );
+$bandeira = get_sub_field('bandeira_do_pais');
 ?>
 
 <style>
@@ -57,6 +58,7 @@ $sobre_a_rede = get_sub_field( 'sobre_a_rede' );
     font-weight: 700;
     color: #002c71;
     margin: 0;
+    margin-top:-7px;
 }
 
 .pais-a-rede-aba-titulo{
@@ -105,6 +107,20 @@ $sobre_a_rede = get_sub_field( 'sobre_a_rede' );
         border-radius: 18px;
     }
 }
+
+.logo-pais img{
+    max-width: 35px !important;
+    min-width: 35px !important;
+    height: 35px;
+    width: 35px;
+}
+.header-a-rede-sobre{
+        display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
 </style>
 
 <section class="pais-a-rede-section">
@@ -122,8 +138,17 @@ $sobre_a_rede = get_sub_field( 'sobre_a_rede' );
 
         <!-- Conteúdo à direita -->
         <div class="pais-a-rede-content">
+            <div class="header-a-rede-sobre">
+            <?php
+            if($bandeira) : ?>
+                <div class="logo-pais">
+                    <img src="<?=$bandeira?>">
+                </div>
+            <?php    
+            endif; 
+            ?>
             <h1 class="pais-a-rede-titulo-pais"><?php the_title(); ?></h1>
-
+            </div>
             <?php if ( $aba_titulo ) : ?>
                 <div class="pais-a-rede-aba-titulo">
                     <?php echo esc_html( $aba_titulo ); ?>
