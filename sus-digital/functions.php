@@ -85,70 +85,41 @@ add_action( 'rest_api_init', function () {
 } );
 
 // ------------------------------
-// Filtros da REST API para taxonomias em CPTs
-// - br_region: apenas para project
-// - program: para project, event, stories, testimonials
+// REST API: filtro por campo ACF "br_region" no CPT "project"
+// GET /wp-json/wp/v2/project?br_region=Nordeste
 // ------------------------------
+add_filter( 'rest_project_query', 'susdigital_rest_filter_project_by_br_region_meta', 10, 2 );
 
-/**
- * Filtro específico para br_region em /wp/v2/project
- * Suporta ?br_region=...
- */
-add_filter( 'rest_project_query', 'susdigital_rest_add_br_region_filter', 10, 2 );
+function susdigital_rest_filter_project_by_br_region_meta( $args, $request ) {
+    // Lê o parâmetro da URL: ?br_region=...
+    $param = $request->get_param( 'br_region' );
 
-function susdigital_rest_add_br_region_filter( $args, $request ) {
-    $br_region = $request->get_param( 'br_region' );
-
-    if ( empty( $br_region ) ) {
+    // Se não vier parâmetro, não mexe na query
+    if ( empty( $param ) ) {
         return $args;
     }
 
-    $tax_query = isset( $args['tax_query'] ) ? $args['tax_query'] : [];
+    // Garante que já exista (ou não) um meta_query
+    $meta_query = isset( $args['meta_query'] ) ? (array) $args['meta_query'] : [];
 
-    $tax_query[] = [
-        'taxonomy' => 'br_region',
-        // Se você passar o slug (ex.: nordeste), use 'slug'.
-        // Se quiser passar o nome (ex.: Nordeste), mude para 'name'.
-        'field'    => 'slug',
-        'terms'    => $br_region,
+    /**
+     * Aqui assumimos que:
+     * - o "Field Name" no ACF é exatamente "br_region"
+     * - o valor salvo é algo como "Nordeste" (ou o slug/nome que você definiu)
+     *
+     * Se o campo for um select simples / texto, '=' resolve.
+     * Se for checkbox ou select múltiplo, talvez seja melhor usar 'LIKE'.
+     */
+    $meta_query[] = [
+        'key'     => 'br_region',   // nome do campo ACF
+        'value'   => $param,
+        'compare' => '='            // troque para 'LIKE' se for campo múltiplo
     ];
 
-    $args['tax_query'] = $tax_query;
+    $args['meta_query'] = $meta_query;
 
     return $args;
 }
-
-/**
- * Filtro genérico para program em vários CPTs
- * Suporta ?program=35 ou ?program=meu-slug
- */
-function susdigital_rest_add_program_filter( $args, $request ) {
-    $program = $request->get_param( 'program' );
-
-    if ( empty( $program ) ) {
-        return $args;
-    }
-
-    $tax_query = isset( $args['tax_query'] ) ? $args['tax_query'] : [];
-
-    $tax_query[] = [
-        'taxonomy' => 'program',
-        // Se vier número (?program=35), trata como ID de termo.
-        // Se vier texto (?program=telessaude), trata como slug.
-        'field'    => is_numeric( $program ) ? 'term_id' : 'slug',
-        'terms'    => $program,
-    ];
-
-    $args['tax_query'] = $tax_query;
-
-    return $args;
-}
-
-// Aplica filtro de program a cada CPT relevante
-add_filter( 'rest_project_query',      'susdigital_rest_add_program_filter', 10, 2 );
-add_filter( 'rest_event_query',        'susdigital_rest_add_program_filter', 10, 2 );
-add_filter( 'rest_stories_query',      'susdigital_rest_add_program_filter', 10, 2 );
-add_filter( 'rest_testimonials_query', 'susdigital_rest_add_program_filter', 10, 2 );
 
 
 // ------------------------------
