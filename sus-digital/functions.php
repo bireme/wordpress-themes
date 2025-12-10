@@ -85,6 +85,73 @@ add_action( 'rest_api_init', function () {
 } );
 
 // ------------------------------
+// Filtros da REST API para taxonomias em CPTs
+// - br_region: apenas para project
+// - program: para project, event, stories, testimonials
+// ------------------------------
+
+/**
+ * Filtro específico para br_region em /wp/v2/project
+ * Suporta ?br_region=...
+ */
+add_filter( 'rest_project_query', 'susdigital_rest_add_br_region_filter', 10, 2 );
+
+function susdigital_rest_add_br_region_filter( $args, $request ) {
+    $br_region = $request->get_param( 'br_region' );
+
+    if ( empty( $br_region ) ) {
+        return $args;
+    }
+
+    $tax_query = isset( $args['tax_query'] ) ? $args['tax_query'] : [];
+
+    $tax_query[] = [
+        'taxonomy' => 'br_region',
+        // Se você passar o slug (ex.: nordeste), use 'slug'.
+        // Se quiser passar o nome (ex.: Nordeste), mude para 'name'.
+        'field'    => 'slug',
+        'terms'    => $br_region,
+    ];
+
+    $args['tax_query'] = $tax_query;
+
+    return $args;
+}
+
+/**
+ * Filtro genérico para program em vários CPTs
+ * Suporta ?program=35 ou ?program=meu-slug
+ */
+function susdigital_rest_add_program_filter( $args, $request ) {
+    $program = $request->get_param( 'program' );
+
+    if ( empty( $program ) ) {
+        return $args;
+    }
+
+    $tax_query = isset( $args['tax_query'] ) ? $args['tax_query'] : [];
+
+    $tax_query[] = [
+        'taxonomy' => 'program',
+        // Se vier número (?program=35), trata como ID de termo.
+        // Se vier texto (?program=telessaude), trata como slug.
+        'field'    => is_numeric( $program ) ? 'term_id' : 'slug',
+        'terms'    => $program,
+    ];
+
+    $args['tax_query'] = $tax_query;
+
+    return $args;
+}
+
+// Aplica filtro de program a cada CPT relevante
+add_filter( 'rest_project_query',      'susdigital_rest_add_program_filter', 10, 2 );
+add_filter( 'rest_event_query',        'susdigital_rest_add_program_filter', 10, 2 );
+add_filter( 'rest_stories_query',      'susdigital_rest_add_program_filter', 10, 2 );
+add_filter( 'rest_testimonials_query', 'susdigital_rest_add_program_filter', 10, 2 );
+
+
+// ------------------------------
 // REST API: DeCS Terms
 // GET /wp-json/wp/v2/project/{id}/decs_term_terms
 // Retorna os termos de decs_term associados ao projeto
