@@ -16,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $bvs_titulo   = get_sub_field( 'titulo' );
 $nacional_rep = get_sub_field( 'nacional' );
 $tematicas_rep = get_sub_field( 'tematicas' );
+$cor_destaque_fonte = get_sub_field( 'cor_destaque_da_fonte' );
+$cor_destaque = get_sub_field( 'cor_destaque_fundo_do_pais' );
+
 ?>
 
 <style>
@@ -66,6 +69,10 @@ $tematicas_rep = get_sub_field( 'tematicas' );
     font-weight: 700;
     color: #111827;
     margin-bottom: 6px;
+}
+.pais-a-rede-aba-titulo,.pais-bvs-header,.pais-produtos-header,.rede-acao-header,.pais-redes-assoc-header,.pais-saude-ams-header,.pais-produtos-header{
+    background:<?=$cor_destaque;?>  !important;
+    color:<?=$cor_destaque_fonte;?>  !important;
 }
 
 /* pílulas */
@@ -118,6 +125,7 @@ $tematicas_rep = get_sub_field( 'tematicas' );
     <div class="pais-bvs-box">
 
         <div class="pais-bvs-header">
+
             <?php echo esc_html( $bvs_titulo ?: __( 'BVS no país', 'bvs' ) ); ?>
         </div>
 

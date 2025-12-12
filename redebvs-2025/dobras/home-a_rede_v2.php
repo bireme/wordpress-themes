@@ -66,13 +66,14 @@ if ( ! empty( $bg_image ) ) {
 /* DOBRA A REDE (layout 'a_rede') */
 
 .home-a-rede-hero {
-        background-position: center;
-    background-size: contain;
 	position: relative;
 	padding: 0px 0;
 	background-color: <?= esc_attr( $cor_de_fundo ); ?>;
 	background-repeat: no-repeat;
-    min-height: 75vh;
+	background-position: right center;
+	background-size: contain;
+	    background-size: contain;
+    min-height: 61vh;
     display: flex;
 }
 
@@ -175,10 +176,10 @@ if ( ! empty( $bg_image ) ) {
 	background: #28367D !important;   
 }
 .bvs-search-target-label {
-	color: <?= esc_attr( $cor_do_titulo ); ?> !important;
+	color: <?= esc_attr( $cor_do_titulo ); ?>;
 }
 .bvs-search-target {
-	color: <?= esc_attr( $cor_do_titulo ) ; ?> !important;
+	color: <?= esc_attr( $cor_do_titulo ); ?>;
 	border:1px solid #28367D !important
 }
 
@@ -208,7 +209,7 @@ if ( ! empty( $bg_image ) ) {
 
 /* Cartões de países */
 .home-a-rede-country-card {
-    background: #28367dcf;
+    background: #dfe5f7;
     border-radius: 10px 60px 10px 10px;
     margin-right: 20px;
     padding: 20px 26px;
@@ -235,7 +236,6 @@ if ( ! empty( $bg_image ) ) {
 	gap: 6px;
 	margin-bottom: 3px;
 	white-space: nowrap;
-	color:#fff;
 }
 
 .home-a-rede-country-card li::before {
@@ -246,7 +246,7 @@ if ( ! empty( $bg_image ) ) {
 
 /* links de países */
 .home-a-rede-country-card a {
-	color: #fff;
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -311,16 +311,6 @@ if ( ! empty( $bg_image ) ) {
 /* esconder a versão do card que está na coluna esquerda (se quiser manter só na direita) */
 .home-a-rede-col-left .home-a-rede-networks-wrapper {
 	display: none;
-}
-.home-a-rede-hero {
-	position: relative; /* já tem, mas reforçando que é importante */
-	overflow: hidden;   /* garante que o overlay não “vaze” pra fora */
-}
-
-/* Conteúdo acima do overlay */
-.home-a-rede-inner {
-	position: relative;
-	z-index: 1;
 }
 
 /* ----------------- RESPONSIVO ----------------- */
