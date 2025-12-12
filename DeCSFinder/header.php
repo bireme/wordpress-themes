@@ -10,6 +10,7 @@
 </head>
 <?php $lang = pll_current_language(); ?>
 <body>
+	<?php wp_body_open(); ?>
 	<header id="header">
 		<div class="container">
 			<div class="row" style="position:relative;">
