@@ -41,7 +41,7 @@ if ($jr && (!empty($jr['items']))) :
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: 90px;
+    min-height: 75px;
     background: #ffffff;
     color: #085695;
     border-radius: 10px;
@@ -80,7 +80,7 @@ if ($jr && (!empty($jr['items']))) :
     /* badge do total, acima de tudo */
     #lilacs-journals .jr-total-badge{
 position: absolute;
-    top: 8px;
+    bottom: 8px;
     right: 7px;
     display: inline-flex;
     align-items: center;
@@ -111,16 +111,16 @@ position: absolute;
     width: 26px;
     height: 26px;
     border-radius: 999px;
-    background: #085695;
+    background: transparent;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: #085695;
     justify-content: center;
     }
     #lilacs-journals .jr-arrow svg{
       width:14px;
       height:14px;
-      stroke:#fff;
+      stroke:#085695;
     }
 
     /* pílula laranja (destaque) */
@@ -171,11 +171,7 @@ position: absolute;
         if($label==='') continue;
       ?>
         <a class="jr-pill <?php echo $accent ? 'is-accent' : ''; ?>" href="<?php echo $url; ?>">
-          <?php if($total !== ''): ?>
-            <span class="jr-total-badge">
-              <strong><?php echo esc_html($total); ?></strong>
-            </span>
-          <?php endif; ?>
+  
 
           <div class="jr-pill-main">
             <?php if($img_url): ?>
@@ -187,6 +183,13 @@ position: absolute;
               <h4><?php echo esc_html($label); ?></h4>
             </div>
           </div>
+          
+          
+                  <?php if($total !== ''): ?>
+            <span class="jr-total-badge">
+              <strong><?php echo esc_html($total); ?></strong>
+            </span>
+          <?php endif; ?>
 
           <span class="jr-arrow" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">

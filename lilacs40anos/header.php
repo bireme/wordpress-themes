@@ -1,6 +1,7 @@
 <?php
 if (!defined('ABSPATH')) exit;
-?>
+?><!doctype html>
+<html <?php language_attributes(); ?>>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -28,8 +29,6 @@ if (!defined('ABSPATH')) exit;
 </head>
 
 <body <?php body_class(); ?>>
-
-<?php wp_body_open(); ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -535,7 +534,7 @@ display: block;
 /* ====== TOPBAR STYLES ====== */
 .topbar {
   background: #fff !important;
-  border-bottom: 1px solid #e9ecef;
+  border: none !important;
   font-size: 0.875rem;
 }
 
@@ -639,8 +638,8 @@ display: block;
 }
 
 @media (max-width: 768px) {
-  .brand-left {
-    flex-direction: column;
+  .brandbar__inner {
+    flex-direction: column-reverse;
     gap: 12px;
   }
   
@@ -662,6 +661,13 @@ display: block;
   width: auto;
   object-fit: contain;
 }
+
+.brand-right {
+    display: block !important;
+    flex: 0 0 30px !important;
+}
+
+
 
 @media (max-width: 768px) {
   .logo-rede img {
