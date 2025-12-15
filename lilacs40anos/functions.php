@@ -710,3 +710,255 @@ add_shortcode('lilacs_busca_capacitacao', function() {
     return ob_get_clean();
 });
 
+/**
+ * Painel do Footer (LILACS) por idioma (Polylang)
+ * - Logos por idioma
+ * - Textos por idioma
+ * - Seleção de menus por “bloco” (Home, Sobre, Rede, Revistas, Indicadores, Contato)
+ * - Guilherme 2WP
+ */
+
+if (!defined('ABSPATH')) exit;
+
+function lilacs_footer_get_langs() {
+    if (function_exists('pll_languages_list')) {
+        $langs = pll_languages_list(['fields' => 'slug']);
+        return !empty($langs) ? $langs : ['default'];
+    }
+    return ['default'];
+}
+
+function lilacs_footer_option_name($lang) {
+    return 'lilacs_footer_options_' . sanitize_key($lang);
+}
+
+function lilacs_footer_get_options($lang = null) {
+    if ($lang === null) {
+        $lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'default';
+        if (!$lang) $lang = 'default';
+    }
+    $opts = get_option(lilacs_footer_option_name($lang), []);
+    return is_array($opts) ? $opts : [];
+}
+
+function lilacs_footer_opt($key, $default = '', $lang = null) {
+    $opts = lilacs_footer_get_options($lang);
+    return isset($opts[$key]) && $opts[$key] !== '' ? $opts[$key] : $default;
+}
+
+/**
+ * Admin page
+ */
+add_action('admin_menu', function () {
+    add_theme_page(
+        'Footer (LILACS)',
+        'Footer (LILACS)',
+        'manage_options',
+        'lilacs-footer-settings',
+        'lilacs_footer_settings_page_render'
+    );
+});
+
+add_action('admin_init', function () {
+    foreach (lilacs_footer_get_langs() as $lang) {
+        register_setting(
+            'lilacs_footer_settings_group_' . $lang,
+            lilacs_footer_option_name($lang),
+            [
+                'type' => 'array',
+                'sanitize_callback' => 'lilacs_footer_sanitize_options',
+                'default' => [],
+            ]
+        );
+    }
+});
+
+function lilacs_footer_sanitize_options($input) {
+    $out = [];
+    $fields_textarea = ['intro_text'];
+    $fields_text = [
+        'copyright_text',
+        'logo_lilacs_url',
+        'logo_opas_bireme_url',
+        'powered_by_image_url',
+    ];
+
+    // textareas (permite HTML básico)
+    foreach ($fields_textarea as $f) {
+        if (isset($input[$f])) {
+            $out[$f] = wp_kses_post($input[$f]);
+        }
+    }
+
+    // textos simples / urls
+    foreach ($fields_text as $f) {
+        if (isset($input[$f])) {
+            $val = $input[$f];
+            if (str_contains($f, '_url')) $val = esc_url_raw($val);
+            else $val = sanitize_text_field($val);
+            $out[$f] = $val;
+        }
+    }
+
+    // blocos -> menu IDs + títulos
+    $blocks = lilacs_footer_blocks_schema();
+    foreach ($blocks as $block_key => $block_label) {
+        $title_key = 'block_title_' . $block_key;
+        $menu_key  = 'block_menu_' . $block_key;
+
+        if (isset($input[$title_key])) {
+            $out[$title_key] = sanitize_text_field($input[$title_key]);
+        }
+        if (isset($input[$menu_key])) {
+            $out[$menu_key] = absint($input[$menu_key]);
+        }
+    }
+
+    return $out;
+}
+
+function lilacs_footer_blocks_schema() {
+    // Seus “H3” atuais viram blocos configuráveis:
+    return [
+        'home'       => 'Bloco: Home',
+        'sobre'      => 'Bloco: Sobre',
+        'rede'       => 'Bloco: Rede LILACS',
+        'revistas'   => 'Bloco: Revistas',
+        'indicadores'=> 'Bloco: Indicadores',
+        'contato'    => 'Bloco: Contato',
+    ];
+}
+
+function lilacs_footer_settings_page_render() {
+    if (!current_user_can('manage_options')) return;
+
+    $langs = lilacs_footer_get_langs();
+    $current_lang = isset($_GET['lilacs_lang']) ? sanitize_key($_GET['lilacs_lang']) : $langs[0];
+    if (!in_array($current_lang, $langs, true)) $current_lang = $langs[0];
+
+    $option_name = lilacs_footer_option_name($current_lang);
+    $opts = get_option($option_name, []);
+
+    $menus = wp_get_nav_menus();
+    $blocks = lilacs_footer_blocks_schema();
+    ?>
+    <div class="wrap">
+        <h1>Footer (LILACS)</h1>
+
+        <?php if (function_exists('pll_languages_list')): ?>
+            <p><strong>Idioma:</strong>
+                <?php foreach ($langs as $slug): ?>
+                    <?php
+                    $url = add_query_arg(['page' => 'lilacs-footer-settings', 'lilacs_lang' => $slug], admin_url('themes.php'));
+                    ?>
+                    <a class="button <?php echo $slug === $current_lang ? 'button-primary' : ''; ?>" href="<?php echo esc_url($url); ?>">
+                        <?php echo esc_html(strtoupper($slug)); ?>
+                    </a>
+                <?php endforeach; ?>
+            </p>
+        <?php endif; ?>
+
+        <form method="post" action="options.php">
+            <?php
+                settings_fields('lilacs_footer_settings_group_' . $current_lang);
+            ?>
+
+            <h2 class="title">Logos</h2>
+            <table class="form-table" role="presentation">
+                <tr>
+                    <th scope="row">Logo LILACS (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[logo_lilacs_url]" value="<?php echo esc_attr($opts['logo_lilacs_url'] ?? ''); ?>" class="regular-text" />
+                        <p class="description">Cole a URL da imagem (você pode pegar da Biblioteca de Mídia).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Logo OPAS/BIREME (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[logo_opas_bireme_url]" value="<?php echo esc_attr($opts['logo_opas_bireme_url'] ?? ''); ?>" class="regular-text" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Imagem “Powered by” (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[powered_by_image_url]" value="<?php echo esc_attr($opts['powered_by_image_url'] ?? ''); ?>" class="regular-text" />
+                    </td>
+                </tr>
+            </table>
+
+            <h2 class="title">Textos</h2>
+            <table class="form-table" role="presentation">
+                <tr>
+                    <th scope="row">Texto introdutório</th>
+                    <td>
+                        <textarea name="<?php echo esc_attr($option_name); ?>[intro_text]" rows="6" class="large-text"><?php echo esc_textarea($opts['intro_text'] ?? ''); ?></textarea>
+                        <p class="description">Aceita HTML básico (negrito, links, etc.).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Copyright</th>
+                    <td>
+                        <input type="text" name="<?php echo esc_attr($option_name); ?>[copyright_text]" value="<?php echo esc_attr($opts['copyright_text'] ?? ''); ?>" class="regular-text" />
+                        <p class="description">Ex: © Todos os direitos reservados</p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr/>
+
+            <h2 class="title">Menus por bloco (colunas)</h2>
+            <p class="description">Crie menus em <strong>Aparência → Menus</strong> e selecione abaixo qual aparece em cada bloco deste idioma.</p>
+
+            <table class="form-table" role="presentation">
+                <?php foreach ($blocks as $key => $label): ?>
+                    <?php
+                        $title_key = 'block_title_' . $key;
+                        $menu_key  = 'block_menu_' . $key;
+                        $title_val = $opts[$title_key] ?? '';
+                        $menu_val  = (int)($opts[$menu_key] ?? 0);
+                    ?>
+                    <tr>
+                        <th scope="row"><?php echo esc_html($label); ?></th>
+                        <td>
+                            <p style="margin:0 0 8px;">
+                                <label><strong>Título (H3)</strong></label><br/>
+                                <input type="text" name="<?php echo esc_attr($option_name); ?>[<?php echo esc_attr($title_key); ?>]" value="<?php echo esc_attr($title_val); ?>" class="regular-text" />
+                            </p>
+
+                            <p style="margin:0;">
+                                <label><strong>Menu</strong></label><br/>
+                                <select name="<?php echo esc_attr($option_name); ?>[<?php echo esc_attr($menu_key); ?>]">
+                                    <option value="0">— Nenhum —</option>
+                                    <?php foreach ($menus as $m): ?>
+                                        <option value="<?php echo (int)$m->term_id; ?>" <?php selected($menu_val, (int)$m->term_id); ?>>
+                                            <?php echo esc_html($m->name); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </p>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+
+            <?php submit_button('Salvar Footer'); ?>
+        </form>
+    </div>
+    <?php
+}
+
+/**
+ * Walker pra aplicar classes iguais:
+ * - UL raiz: lf-list
+ * - Submenu: lf-list lf-list--sub
+ */
+class Lilacs_Footer_Menu_Walker extends Walker_Nav_Menu {
+    public function start_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $class = ($depth === 0) ? 'lf-list lf-list--sub' : 'lf-list lf-list--sub';
+        $output .= "\n{$indent}<ul class=\"" . esc_attr($class) . "\">\n";
+    }
+}
+
+
+
