@@ -1,216 +1,205 @@
 <?php
 /**
- * Dobra: Sessões Anteriores (Capacitação)
+ * Dobra: Sessões Anteriores (Capacitação) — NOVA (somente busca externa)
  * Slug: pagina-sessoes_anteriores
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Repeater do ACF
-$sessoes = get_sub_field( 'escolha_abaixo_as_paginas_das_sessoes_anteriores' );
-$titulo = get_sub_field( 'titulo' );
-if ( ! $sessoes ) {
-	return;
-}
+$titulo  = get_sub_field( 'titulo' );
+$prefill = isset($_GET['q']) ? sanitize_text_field( wp_unslash($_GET['q']) ) : '';
+$action  = 'https://lilacs.teste.bvsalud.org/oer';
 ?>
-<section id="cap-sessoes-anteriores" aria-label="<?php esc_attr_e( 'Sessões anteriores', 'lilacs' ); ?>">
-	<style>
-		#cap-sessoes-anteriores {
-			background: #fff;
-			padding: 40px 0 60px;
-		}
-		#cap-sessoes-anteriores * {
-			box-sizing: border-box;
-			font-family: "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-		}
-		#cap-sessoes-anteriores .cap-sessoes-inner {
-			max-width: 1180px;
-			margin: 0 auto;
-			padding: 0 16px;
-		}
-		#cap-sessoes-anteriores .cap-sessoes-search {
-			margin-bottom: 24px;
-		}
-		#cap-sessoes-anteriores .cap-sessoes-search-input {
-			width: 100%;
-			max-width: 480px;
-			padding: 10px 14px;
-			border-radius: 999px;
-			border: 1px solid #c5cee0;
-			font-size: 14px;
-			color: #163b72;
-			outline: none;
-			background: #f7f9fc;
-			box-shadow: 0 0 0 0 rgba(51, 102, 204, 0.15);
-			transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
-		}
-		#cap-sessoes-anteriores .cap-sessoes-search-input:focus {
-			border-color: #3366cc;
-			box-shadow: 0 0 0 3px rgba(51, 102, 204, 0.18);
-			background: #fff;
-		}
+<section id="cap-sessoes-anteriores" aria-label="<?php echo esc_attr__( 'Sessões anteriores', 'lilacs' ); ?>">
+  <style>
+    #cap-sessoes-anteriores{
+      background:#fff;
+      padding:44px 0 64px;
+    }
+    #cap-sessoes-anteriores *{
+      box-sizing:border-box;
+      font-family:"Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
 
-		#cap-sessoes-anteriores .cap-sessoes-list {
-			display: flex;
-			flex-direction: column;
-			gap: 8px;
-		}
+    /* 🔥 padding removido aqui */
+    #cap-sessoes-anteriores .cap-inner{
+      max-width:1180px;
+      margin:0 auto;
+    }
 
-		#cap-sessoes-anteriores .cap-sessao-item {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 16px;
-			text-decoration: none;
-			background: #f3f5fb;
-			border-radius: 6px;
-			padding: 14px 20px;
-			border: 1px solid transparent;
-			color: #163b72;
-			transition: background .15s ease, box-shadow .15s ease, border-color .15s ease, transform .1s ease;
-		}
-		#cap-sessoes-anteriores .cap-sessao-item:hover {
-			background: #e7ecf9;
-			border-color: #cfd8f3;
-			box-shadow: 0 3px 8px rgba(12, 49, 116, 0.12);
-			transform: translateY(-1px);
-		}
-		#cap-sessoes-anteriores .cap-sessao-text {
-			flex: 1 1 auto;
-			min-width: 0;
-		}
-		#cap-sessoes-anteriores .cap-sessao-title {
-			margin: 0 0 4px;
-			font-size: 16px;
-			font-weight: 700;
-			color: #163b72;
-		}
-		#cap-sessoes-anteriores .cap-sessao-sub {
-			margin: 0;
-			font-size: 13px;
-			color: #4f5b75;
-		}
+    #cap-sessoes-anteriores .cap-head{
+      margin-bottom:18px;
+    }
+    #cap-sessoes-anteriores .cap-title{
+      margin:0 0 8px;
+      font-size:22px;
+      line-height:1.2;
+      font-weight:800;
+      color:#163b72;
+      letter-spacing:-0.01em;
+    }
+    #cap-sessoes-anteriores .cap-subtitle{
+      margin:0;
+      font-size:14px;
+      line-height:1.45;
+      color:#4f5b75;
+      max-width:72ch;
+    }
 
-		#cap-sessoes-anteriores .cap-sessao-arrow {
-			flex: 0 0 auto;
-			width: 24px;
-			height: 24px;
-			border-radius: 999px;
-			border: 1px solid #c5cee0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 14px;
-			color: #163b72;
-			background: #fff;
-		}
+    #cap-sessoes-anteriores .cap-card{
+      background:#f7f9fc;
+      border:1px solid #d8e2f3;
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 10px 24px rgba(12,49,116,.06);
+    }
 
-		#cap-sessoes-anteriores .cap-sessoes-empty {
-			margin-top: 16px;
-			font-size: 14px;
-			color: #6b7a90;
-		}
+    #cap-sessoes-anteriores .cap-form{
+      display:flex;
+      gap:10px;
+      align-items:stretch;
+      flex-wrap:wrap;
+    }
+    #cap-sessoes-anteriores .cap-field{
+      flex:1 1 420px;
+      min-width:260px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid #c5cee0;
+      background:#fff;
+      transition:border-color .15s ease, box-shadow .15s ease, transform .1s ease;
+    }
+    #cap-sessoes-anteriores .cap-field:focus-within{
+      border-color:#3366cc;
+      box-shadow:0 0 0 3px rgba(51,102,204,.18);
+      transform:translateY(-1px);
+    }
+    #cap-sessoes-anteriores .cap-icon{
+      width:18px;height:18px;
+      color:#163b72;
+      opacity:.9;
+    }
+    #cap-sessoes-anteriores .cap-input{
+      width:100%;
+      border:0;
+      outline:none;
+      font-size:14px;
+      color:#163b72;
+      background:transparent;
+    }
 
-		@media (max-width: 768px) {
-			#cap-sessoes-anteriores {
-				padding: 28px 0 40px;
-			}
-			#cap-sessoes-anteriores .cap-sessao-item {
-				padding: 12px 14px;
-			}
-			#cap-sessoes-anteriores .cap-sessao-title {
-				font-size: 15px;
-			}
-			#cap-sessoes-anteriores .cap-sessao-sub {
-				font-size: 12px;
-			}
-		}
-	</style>
+    #cap-sessoes-anteriores .cap-actions{
+      flex:0 0 auto;
+      display:flex;
+    }
+    #cap-sessoes-anteriores .cap-btn{
+      appearance:none;
+      border:1px solid #3366cc;
+      background:#3366cc;
+      color:#fff;
+      border-radius:999px;
+      padding:12px 18px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:.15s;
+      box-shadow:0 10px 18px rgba(51,102,204,.18);
+    }
+    #cap-sessoes-anteriores .cap-btn:hover{
+      background:#2a57ad;
+      border-color:#2a57ad;
+      transform:translateY(-1px);
+    }
+    #cap-sessoes-anteriores .cap-btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      box-shadow:none;
+      transform:none;
+    }
 
-	<div class="cap-sessoes-inner">
-        <h2><?=$titulo;?></h2>
-		<div class="cap-sessoes-search">
-			<label class="screen-reader-text" for="cap-sessoes-search-input">
-				<?php esc_html_e( 'Buscar sessões anteriores', 'lilacs' ); ?>
-			</label>
-			<input
-				type="search"
-				id="cap-sessoes-search-input"
-				class="cap-sessoes-search-input"
-				placeholder="<?php echo esc_attr__( 'Buscar por título…', 'lilacs' ); ?>"
-				autocomplete="off"
-			/>
-		</div>
+    #cap-sessoes-anteriores .cap-hint{
+      margin:12px 4px 0;
+      font-size:12.5px;
+      color:#6b7a90;
+    }
 
-		<div class="cap-sessoes-list">
-			<?php foreach ( $sessoes as $linha ) :
-				$sessao_obj = isset( $linha['sessao_'] ) ? $linha['sessao_'] : null;
-				if ( ! $sessao_obj ) {
-					continue;
-				}
+    @media (max-width:640px){
+      #cap-sessoes-anteriores{ padding:30px 0 42px; }
+      #cap-sessoes-anteriores .cap-title{ font-size:20px; }
+      #cap-sessoes-anteriores .cap-card{ padding:14px; }
+      #cap-sessoes-anteriores .cap-btn{ width:100%; justify-content:center; }
+    }
 
-				$sessao_id    = is_object( $sessao_obj ) ? $sessao_obj->ID : (int) $sessao_obj;
-				$title        = get_the_title( $sessao_id );
-				$excerpt      = get_the_excerpt( $sessao_id );
-				$permalink    = get_permalink( $sessao_id );
+    .sr-only{
+      position:absolute!important;
+      width:1px;height:1px;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  </style>
 
-				// Texto completo para busca (título + resumo).
-				$search_blob = mb_strtolower( wp_strip_all_tags( $title . ' ' . $excerpt ) );
-				?>
-				<a
-					href="<?php echo esc_url( $permalink ); ?>"
-					class="cap-sessao-item"
-					data-search="<?php echo esc_attr( $search_blob ); ?>"
-				>
-					<div class="cap-sessao-text">
-						<h3 class="cap-sessao-title"><?php echo esc_html( $title ); ?></h3>
+  <div class="cap-inner">
+    <div class="cap-head">
+      <h2 class="cap-title">
+        <?php echo esc_html( $titulo ?: __( 'Sessões anteriores', 'lilacs' ) ); ?>
+      </h2>
+      <p class="cap-subtitle">
+        <?php echo esc_html__( 'Busque sessões anteriores e você será direcionado para a página de resultados.', 'lilacs' ); ?>
+      </p>
+    </div>
 
-						<?php if ( $excerpt ) : ?>
-							<p class="cap-sessao-sub">
-								<?php echo esc_html( $excerpt ); ?>
-							</p>
-						<?php endif; ?>
-					</div>
+    <div class="cap-card">
+<form class="cap-form" action="<?php echo esc_url($action); ?>" method="get">
+  <label class="sr-only" for="cap-sessoes-q">
+    <?php esc_html_e( 'Buscar sessões anteriores', 'lilacs' ); ?>
+  </label>
 
-					<span class="cap-sessao-arrow" aria-hidden="true">›</span>
-				</a>
-			<?php endforeach; ?>
+  <div class="cap-field">
+    <input
+      id="cap-sessoes-q"
+      class="cap-input"
+      type="search"
+      name="q"
+      value="<?php echo esc_attr($prefill); ?>"
+      placeholder="<?php esc_attr_e( 'Ex.: 2025, editoras, indexação…', 'lilacs' ); ?>"
+      autocomplete="off"
+    />
+  </div>
 
-			<p class="cap-sessoes-empty" style="display:none;">
-				<?php esc_html_e( 'Nenhuma sessão encontrada para este termo.', 'lilacs' ); ?>
-			</p>
-		</div>
-	</div>
+  <div class="cap-actions">
+    <button type="submit" class="cap-btn" id="cap-sessoes-submit">
+      <?php esc_html_e( 'Pesquisar', 'lilacs' ); ?> →
+    </button>
+  </div>
+</form>
 
-	<script>
-		(function() {
-			var wrapper = document.getElementById('cap-sessoes-anteriores');
-			if (!wrapper) return;
 
-			var input  = wrapper.querySelector('#cap-sessoes-search-input');
-			var items  = wrapper.querySelectorAll('.cap-sessao-item');
-			var empty  = wrapper.querySelector('.cap-sessoes-empty');
+      <p class="cap-hint">
+        <?php esc_html_e( 'A busca será aberta em uma nova página de resultados.', 'lilacs' ); ?>
+      </p>
+    </div>
+  </div>
 
-			if (!input || !items.length) return;
+  <script>
+    (function(){
+      var input = document.getElementById('cap-sessoes-q');
+      var btn   = document.getElementById('cap-sessoes-submit');
+      if(!input || !btn) return;
 
-			input.addEventListener('input', function() {
-				var q = (this.value || '').toLowerCase().trim();
-				var visibleCount = 0;
-
-				items.forEach(function(item) {
-					var haystack = (item.getAttribute('data-search') || '').toLowerCase();
-					var show = !q || haystack.indexOf(q) !== -1;
-
-					item.style.display = show ? '' : 'none';
-					if (show) visibleCount++;
-				});
-
-				if (empty) {
-					empty.style.display = (q && visibleCount === 0) ? '' : 'none';
-				}
-			});
-		})();
-	</script>
+      function sync(){
+        btn.disabled = input.value.trim().length === 0;
+      }
+      sync();
+      input.addEventListener('input', sync);
+    })();
+  </script>
 </section>
