@@ -34,6 +34,35 @@ if ( !empty($imagem) && !empty($imagem['url']) ) {
     .home-sobre{
         margin-top:10px;
     }
+
+    /* ===== Ajustes necessários ===== */
+    .home-sobre-inner::after{
+        content:"";
+        display:block;
+        clear:both;
+    }
+
+    /* Mantém formatação do WYSIWYG (listas, links, strong etc.) */
+    .home-sobre-texto *{
+        max-width: 100%;
+        word-break: break-word;
+    }
+
+    /* ===== Responsivo: imagem 100% acima, texto 100% abaixo ===== */
+    @media (max-width: 768px){
+        .home-sobre-imagem,
+        .home-sobre-texto{
+            float: none;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .home-sobre-imagem img{
+            margin-top: 0;
+            min-height: 0;
+            height: auto;
+        }
+    }
 </style>
 
 <section class="home-sobre">
@@ -52,7 +81,12 @@ if ( !empty($imagem) && !empty($imagem['url']) ) {
             <?php endif; ?>
 
             <?php if ($descricao): ?>
-                <p><?php echo esc_html($descricao); ?></p>
+                <div class="home-sobre-descricao">
+                    <?php
+                    // Renderiza HTML do WYSIWYG com sanitização padrão do WP
+                    echo wp_kses_post( wpautop( $descricao ) );
+                    ?>
+                </div>
             <?php endif; ?>
         </div>
 

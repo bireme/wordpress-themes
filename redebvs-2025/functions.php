@@ -291,7 +291,7 @@ function bvs_busca_repositorio_shortcode( $atts = [] ) {
 
         <form class="bvs-search-form" onsubmit="return false;">
             <div class="bvs-search-input-wrap">
-                <input type="text"
+                <input id="bvs-search-input" type="text"
                        class="bvs-search-input"
                        placeholder="Pesquisar"
                        autocomplete="off">

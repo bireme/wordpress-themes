@@ -19,24 +19,22 @@ get_header();
                 while ( have_posts() ) :
                     the_post();
 
-                    // Breadcrumb (Home / Categoria / Post)
-                    $home_label = 'Rede BVS';
-                    $home_url   = home_url( '/' );
+                    // Breadcrumb fixo: Rede BVS > noticias da rede > titulo atual
+                    $home_label   = 'Rede BVS';
+                    $home_url     = home_url( '/' );
+                    $news_label   = 'noticias da rede';
+                    $news_url     = home_url( '/noticias-da-rede/' );
 
-                    $primary_cat = '';
-                    if ( get_post_type() === 'post' ) {
-                        $cats = get_the_category();
-                        if ( ! empty( $cats ) ) {
-                            $primary_cat = $cats[0]->name;
-                        }
-                    }
-
-                    // Banner (usa a thumb; se não tiver, usa imagem padrão)
+                    // Featured image (para exibir acima do conteúdo)
+                    $featured_img_url = '';
+                    $featured_img_alt = '';
                     if ( has_post_thumbnail() ) {
-                        $hero_bg = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-                    } else {
-                        // fallback que você definiu
-                        $hero_bg = get_template_directory_uri() . '/assets/dafult-posts.png';
+                        $thumb_id = get_post_thumbnail_id( get_the_ID() );
+                        $featured_img_url = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                        $featured_img_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+                        if ( $featured_img_alt === '' ) {
+                            $featured_img_alt = get_the_title();
+                        }
                     }
             ?>
 
@@ -50,20 +48,19 @@ get_header();
 
                         <span class="bvs-breadcrumb-sep">&gt;</span>
 
-                        <?php if ( $primary_cat ) : ?>
-                            <span class="bvs-breadcrumb-current">
-                                <?php echo esc_html( $primary_cat ); ?>
-                            </span>
-                        <?php else : ?>
-                            <span class="bvs-breadcrumb-current">
-                                <?php the_title(); ?>
-                            </span>
-                        <?php endif; ?>
+                        <a href="<?php echo esc_url( $news_url ); ?>" class="bvs-breadcrumb-link">
+                            <?php echo esc_html( $news_label ); ?>
+                        </a>
+
+                        <span class="bvs-breadcrumb-sep">&gt;</span>
+
+                        <span class="bvs-breadcrumb-current">
+                            <?php the_title(); ?>
+                        </span>
                     </div>
 
                     <div class="bvs-single-hero-banner">
-                        <div class="bvs-single-hero-bg"
-                             style="background-image:url('<?php echo esc_url( $hero_bg ); ?>');">
+                        <div class="bvs-single-hero-bg bvs-single-hero-bg--solid">
                             <div class="bvs-single-hero-gradient"></div>
                             <div class="bvs-single-hero-content">
                                 <h1 class="bvs-single-title"><?php the_title(); ?></h1>
@@ -73,24 +70,47 @@ get_header();
 
                 </div>
 
-                <!-- META EM BADGES -->
-                <div class="bvs-single-meta-badges">
-                    <span class="bvs-badge bvs-badge-date">
-                        <?php echo get_the_date(); ?>
-                    </span>
+                <?php
+                // Categorias do post (para badges)
+                $cats = [];
+                if ( get_post_type() === 'post' ) {
+                    $cats = get_the_category();
+                }
+                ?>
 
-                    <?php
-                    if ( ! empty( $cats ) ) :
-                        foreach ( $cats as $cat ) :
-                            ?>
-                            <span class="bvs-badge bvs-badge-cat">
-                                <?php echo esc_html( $cat->name ); ?>
-                            </span>
-                            <?php
-                        endforeach;
-                    endif;
-                    ?>
+                <!-- META: TAGS À ESQUERDA + DATA À DIREITA -->
+                <div class="bvs-single-meta-row">
+
+                    <div class="bvs-single-meta-left">
+                        <?php
+                        if ( ! empty( $cats ) ) :
+                            foreach ( $cats as $cat ) :
+                                ?>
+                                <span class="bvs-badge bvs-badge-cat">
+                                    <?php echo esc_html( $cat->name ); ?>
+                                </span>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+
+                    <div class="bvs-single-meta-right">
+                        <span class="bvs-badge bvs-badge-date">
+                            <?php echo esc_html( get_the_date() ); ?>
+                        </span>
+                    </div>
+
                 </div>
+
+                <!-- IMAGEM DESTACADA (ACIMA DO TEXTO) -->
+                <?php if ( $featured_img_url ) : ?>
+                    <figure class="bvs-single-featured">
+                        <img src="<?php echo esc_url( $featured_img_url ); ?>"
+                             alt="<?php echo esc_attr( $featured_img_alt ); ?>"
+                             loading="lazy" />
+                    </figure>
+                <?php endif; ?>
 
                 <!-- CONTEÚDO -->
                 <article id="post-<?php the_ID(); ?>" <?php post_class( 'bvs-single-article' ); ?>>
@@ -152,9 +172,7 @@ get_header();
 </main>
 
 <style>
-    .bvs-single-wrapper {
-        padding: 0;
-    }
+    .bvs-single-wrapper { padding: 0; }
 
     .bvs-single-inner {
         max-width: 1180px;
@@ -166,6 +184,7 @@ get_header();
     .bvs-breadcrumb {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 8px;
         margin-bottom: 16px;
         font-size: 14px;
@@ -181,9 +200,14 @@ get_header();
         font-weight: 500;
     }
 
-    .bvs-breadcrumb-sep {
-        color: #999;
+    .bvs-breadcrumb-link {
+        color: #555;
+        font-weight: 500;
+        text-decoration: none;
     }
+    .bvs-breadcrumb-link:hover { text-decoration: underline; }
+
+    .bvs-breadcrumb-sep { color: #999; }
 
     .bvs-breadcrumb-current {
         color: #555;
@@ -204,10 +228,14 @@ get_header();
         background-position: center;
     }
 
+    /* Fundo fixo */
+    .bvs-single-hero-bg--solid { background: #2A377E; }
+
     .bvs-single-hero-gradient {
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.15));
+        background: linear-gradient(90deg, rgba(0,0,0,0.18), rgba(0,0,0,0.06));
+        pointer-events: none;
     }
 
     .bvs-single-hero-content {
@@ -225,13 +253,28 @@ get_header();
         margin: 0;
     }
 
-    /* META BADGES */
-    .bvs-single-meta-badges {
+    /* META ROW: TAGS ESQUERDA + DATA DIREITA */
+    .bvs-single-meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 16px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+    }
+
+    .bvs-single-meta-left {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-top: 16px;
-        margin-bottom: 24px;
+        min-width: 0;
+    }
+
+    .bvs-single-meta-right {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
     }
 
     .bvs-badge {
@@ -243,6 +286,7 @@ get_header();
         font-weight: 500;
         border: 1px solid transparent;
         background: #f3f4f6;
+        white-space: nowrap;
     }
 
     .bvs-badge-date {
@@ -262,15 +306,29 @@ get_header();
         margin-bottom: 4px;
     }
 
+    /* IMAGEM DESTACADA */
+    .bvs-single-featured {
+        margin: 0 0 22px 0;
+        border-radius: 12px 60px 12px 12px;
+        overflow: hidden;
+        background: #f3f4f6;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    .bvs-single-featured img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
     /* CONTEÚDO */
     .bvs-single-content {
         font-size: 16px;
         line-height: 1.7;
     }
 
-    .bvs-single-content p {
-        margin-bottom: 16px;
-    }
+    .bvs-single-content p { margin-bottom: 16px; }
 
     .bvs-single-content h2,
     .bvs-single-content h3,
@@ -328,22 +386,18 @@ get_header();
         font-size: 14px;
     }
 
-    .bvs-single-nav a {
-        text-decoration: none;
-    }
+    .bvs-single-nav a { text-decoration: none; }
 
     @media (max-width: 768px) {
-        .bvs-single-hero-bg {
-            height: 180px;
-        }
-        .bvs-single-hero-content {
-            padding: 16px 20px;
-        }
-        .bvs-single-title {
-            font-size: 22px;
+        .bvs-single-hero-bg { height: 180px; }
+        .bvs-single-hero-content { padding: 16px 20px; }
+        .bvs-single-title { font-size: 22px; }
+
+        .bvs-single-featured {
+            border-radius: 12px 36px 12px 12px;
         }
 
-        /* No mobile, remove os floats para não quebrar o layout */
+        /* No mobile, remove floats */
         .bvs-single-content .alignleft,
         .bvs-single-content .alignright {
             float: none;

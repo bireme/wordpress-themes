@@ -45,13 +45,13 @@ if ( have_rows('paises_e_links') ) {
 // Quebra a lista de países em duas colunas para os dois "blocos" da direita
 $col1 = array();
 $col2 = array();
-foreach ( $paises_links as $index => $item ) {
-	if ( $index % 2 === 0 ) {
-		$col1[] = $item;
-	} else {
-		$col2[] = $item;
-	}
-}
+
+// LÓGICA (sequencial): primeiro enche a col1, depois a col2 (sem zig-zag)
+$total = count($paises_links);
+$half  = (int) ceil($total / 2);
+
+$col1 = array_slice($paises_links, 0, $half);
+$col2 = array_slice($paises_links, $half);
 
 $bg_style = '';
 if ( ! empty( $bg_image ) ) {
@@ -323,9 +323,12 @@ if ( ! empty( $bg_image ) ) {
 	z-index: 1;
 }
 
-/* ----------------- RESPONSIVO ----------------- */
+/* ----------------- RESPONSIVO (MOBILE) ----------------- */
 
 @media (max-width: 900px) {
+
+	/* Fade no fundo da sessão toda (apenas mobile) */
+
 	.home-a-rede-inner {
 		grid-template-columns: 1fr;
 		gap: 24px;
@@ -360,9 +363,52 @@ if ( ! empty( $bg_image ) ) {
 		border-radius: 32px;
 	}
 
+	/* Respiro real: não encosta nas bordas do mobile */
+	.home-a-rede-col-right {
+		padding: 0 12px;
+		box-sizing: border-box;
+	}
+
+	/* Caixas de países NÃO podem “colar” nas bordas (e evita parecer 100% colado) */
+	.home-a-rede-country-card {
+		margin-right: 0;
+		margin-left: 0;
+		margin-top: 0;
+		margin-bottom: 12px;
+		width: calc(100% - 16px);
+		max-width: calc(100% - 16px);
+		margin-inline: 8px;
+		box-sizing: border-box;
+	}
+
+	/* ===== Corrige overflow horizontal do input de busca no mobile ===== */
+	.home-a-rede-search-block {
+		max-width: 100%;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
 	.home-a-rede-search-form {
-		grid-template-columns: 1fr auto;
-		grid-template-rows: auto auto;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		grid-template-columns: minmax(0, 1fr) auto;
+		overflow: hidden;
+	}
+
+	.home-a-rede-search-input {
+		min-width: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.home-a-rede-search-submit {
+		white-space: nowrap;
+	}
+
+	.home-a-rede-search-form * {
+		max-width: 100%;
+		box-sizing: border-box;
 	}
 
 	.home-a-rede-search-mic {
@@ -402,7 +448,96 @@ if ( ! empty( $bg_image ) ) {
 		font-size: 11px;
 		padding: 6px 10px;
 	}
+
+	/* Um pouco mais de respiro nas laterais em telas bem pequenas */
+	.home-a-rede-col-right {
+		padding: 0 14px;
+	}
+
+	.home-a-rede-country-card {
+		width: calc(100% - 20px);
+		max-width: calc(100% - 20px);
+		margin-inline: 10px;
+	}
 }
+
+/* ================= AJUSTE DEFINITIVO MOBILE (ANTI OVERFLOW) ================= */
+@media (max-width: 900px) {
+
+  /* trava qualquer estouro horizontal */
+  .home-a-rede-hero,
+  .home-a-rede-inner {
+    overflow-x: hidden;
+  }
+
+  /* container mobile com respiro REAL */
+  .home-a-rede-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  /* garante que nada dentro passe de 100vw */
+  .home-a-rede-inner * {
+    max-width: 100%;
+    box-sizing: border-box;
+    max-width: 86vw;
+  }
+
+  /* ===== BUSCA (corrige estouro do input) ===== */
+  .home-a-rede-search-block {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home-a-rede-search-form {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: minmax(0, 1fr) auto;
+    overflow: hidden;
+  }
+
+  .home-a-rede-search-input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* ===== COLUNA DIREITA ===== */
+  .home-a-rede-col-right {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* wrapper cria o respiro, NÃO o card */
+  .home-a-rede-country-layout {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* cards agora respeitam o padding */
+  .home-a-rede-country-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 12px 0;
+    border-radius: 28px;
+    max-width: 86vw;
+  }
+
+  /* evita texto longo empurrar largura */
+  .home-a-rede-country-card li {
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* telas muito pequenas */
+@media (max-width: 600px) {
+  .home-a-rede-country-layout {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 </style>
 
 <section class="home-a-rede-hero" <?php echo $bg_style; ?>>

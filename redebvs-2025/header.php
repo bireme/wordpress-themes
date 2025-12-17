@@ -1,5 +1,54 @@
 <?php 
 if (!defined('ABSPATH')) exit;
+
+/**
+ * IDIOMAS (Polylang) - mantém classes/estilos do seu header:
+ * - Idioma ativo: <button class="bvs-lang is-active">
+ * - Idioma não-ativo: <a class="bvs-lang" href="...">
+ */
+if ( ! function_exists('bvs_lang_switcher_markup') ) {
+    function bvs_lang_switcher_markup( $extra_class = '' ) {
+
+        // Fallback caso Polylang não exista (não quebra layout)
+        if ( ! function_exists('pll_the_languages') ) {
+            ?>
+            <div class="bvs-lang-switcher <?php echo esc_attr($extra_class); ?>">
+                <button type="button" class="bvs-lang is-active">Português</button>
+                <a href="#" class="bvs-lang">English</a>
+                <a href="#" class="bvs-lang">Español</a>
+            </div>
+            <?php
+            return;
+        }
+
+        $langs = pll_the_languages([
+            'raw'           => 1,
+            'hide_if_empty' => 0,
+            'hide_current'  => 0,
+        ]);
+
+        if ( empty($langs) || !is_array($langs) ) return;
+
+        ?>
+        <div class="bvs-lang-switcher <?php echo esc_attr($extra_class); ?>">
+            <?php foreach ( $langs as $lang ) :
+                $name   = !empty($lang['name']) ? $lang['name'] : strtoupper((string)($lang['slug'] ?? ''));
+                $slug   = (string)($lang['slug'] ?? '');
+                $url    = !empty($lang['url']) ? $lang['url'] : home_url('/');
+                $active = !empty($lang['current_lang']);
+            ?>
+                <?php if ( $active ) : ?>
+                    <button type="button" class="bvs-lang is-active"><?php echo esc_html($name); ?></button>
+                <?php else : ?>
+                    <a href="<?php echo esc_url($url); ?>" class="bvs-lang" hreflang="<?php echo esc_attr($slug); ?>" lang="<?php echo esc_attr($slug); ?>">
+                        <?php echo esc_html($name); ?>
+                    </a>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+        <?php
+    }
+}
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -8,7 +57,8 @@ if (!defined('ABSPATH')) exit;
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    
+    <?php wp_body_open(); ?>
+
     <style>
 /* ---------------------------------- */
 /* HEADER MOBILE / OFFCANVAS          */
@@ -18,27 +68,44 @@ if (!defined('ABSPATH')) exit;
 .bvs-mobile-toggle {
     display: none;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
     border: 1px solid #cbd5e1;
     background: #ffffff;
-    padding: 6px 10px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     border-radius: 999px;
     cursor: pointer;
-    font-size: 13px;
     color: #003366;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
 }
 
-.bvs-mobile-toggle-bar {
-    width: 16px;
+/* Ícone do toggle */
+.bvs-mobile-toggle-icon {
+    position: relative;
+    width: 18px;
+    height: 12px;
+    display: block;
+}
+.bvs-mobile-toggle-icon::before,
+.bvs-mobile-toggle-icon::after,
+.bvs-mobile-toggle-icon span {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
     height: 2px;
     border-radius: 999px;
     background: #003366;
-    display: block;
 }
-
-.bvs-mobile-toggle-label {
-    margin-left: 2px;
+@media (max-width: 900px) {
+  .home-a-rede-hero {
+    background-image: none !important;
+  }
 }
+.bvs-mobile-toggle-icon::before { top: 0; }
+.bvs-mobile-toggle-icon span { top: 50%; transform: translateY(-50%); }
+.bvs-mobile-toggle-icon::after { bottom: 0; }
 
 /* Container offcanvas + overlay */
 .bvs-mobile-offcanvas {
@@ -63,11 +130,11 @@ if (!defined('ABSPATH')) exit;
     position: absolute;
     top: 0;
     right: 0;
-    width: 82%;
-    max-width: 320px;
+    width: 86%;
+    max-width: 340px;
     height: 100%;
     background: #ffffff;
-    box-shadow: -4px 0 16px rgba(15, 23, 42, 0.25);
+    box-shadow: -6px 0 22px rgba(15, 23, 42, 0.28);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     display: flex;
@@ -79,14 +146,8 @@ if (!defined('ABSPATH')) exit;
     pointer-events: auto;
     opacity: 1;
 }
-
-.bvs-mobile-offcanvas.is-open::before {
-    opacity: 1;
-}
-
-.bvs-mobile-offcanvas.is-open .bvs-mobile-offcanvas-panel {
-    transform: translateX(0);
-}
+.bvs-mobile-offcanvas.is-open::before { opacity: 1; }
+.bvs-mobile-offcanvas.is-open .bvs-mobile-offcanvas-panel { transform: translateX(0); }
 
 .bvs-mobile-offcanvas-header {
     display: flex;
@@ -105,11 +166,18 @@ if (!defined('ABSPATH')) exit;
 .bvs-mobile-close {
     border: none;
     background: transparent;
-    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    font-size: 28px;
     line-height: 1;
     cursor: pointer;
     color: #111827;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
+.bvs-mobile-close:hover { background: #f1f5f9; }
 
 .bvs-mobile-offcanvas-body {
     padding: 12px 16px 24px;
@@ -122,6 +190,21 @@ if (!defined('ABSPATH')) exit;
     margin-bottom: 16px;
 }
 
+/* NOVO: Idiomas no topo (fora do offcanvas) - só no mobile */
+.bvs-lang-switcher--mobile-top {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .bvs-lang-switcher--mobile-top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 6px;
+        padding: 8px 16px 0;
+    }
+}
+
 /* Menu mobile */
 .bvs-mobile-menu {
     list-style: none;
@@ -129,16 +212,27 @@ if (!defined('ABSPATH')) exit;
     padding: 0;
 }
 
+.bvs-mobile-menu > li {
+    position: relative; /* necessário para o botão do submenu ficar alinhado */
+}
+
 .bvs-mobile-menu > li > a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #e5e7eb;
     text-decoration: none;
     font-size: 16px;
     color: #003366;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+/* AJUSTE UX MOBILE: itens com submenu não ficam "tortos" */
+/* Como o botão é inserido como irmão do <a>, posicionamos o botão absoluto e damos espaço no link */
+.bvs-mobile-menu li.menu-item-has-children > a {
+    justify-content: flex-start; /* evita espaçamento estranho */
+    padding-right: 56px;         /* espaço para o botão de toggle */
 }
 
 .bvs-mobile-menu > li:last-child > a {
@@ -148,15 +242,24 @@ if (!defined('ABSPATH')) exit;
 /* Botão de toggle de submenu */
 .bvs-submenu-toggle {
     border: none;
-    background: transparent;
+    background: #f8fafc;
     margin-left: 8px;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+/* posiciona o toggle perfeitamente à direita e centralizado na linha do item */
+.bvs-mobile-menu li.menu-item-has-children > .bvs-submenu-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
 }
 
 .bvs-submenu-toggle-icon {
@@ -197,8 +300,8 @@ if (!defined('ABSPATH')) exit;
 /* Submenu em lista recolhível */
 .bvs-mobile-menu li.menu-item-has-children > ul.sub-menu {
     list-style: none;
-    margin: 0 0 6px;
-    padding: 0 0 6px 12px;
+    margin: 0 0 10px;
+    padding: 8px 0 10px 12px;
     max-height: 0;
     overflow: hidden;
     border-left: 1px solid #e5e7eb;
@@ -206,35 +309,27 @@ if (!defined('ABSPATH')) exit;
 }
 
 .bvs-mobile-menu li.menu-item-has-children.is-open > ul.sub-menu {
-    max-height: 500px; /* suficiente para alguns níveis */
+    max-height: 600px;
 }
 
 .bvs-mobile-menu li.menu-item-has-children > ul.sub-menu > li > a {
     display: block;
-    padding: 6px 0;
+    padding: 8px 0;
     font-size: 14px;
     color: #1e293b;
     border-bottom: none;
+    text-decoration: none;
 }
 
 /* Bloqueia scroll do body quando menu está aberto */
-.bvs-mobile-menu-open {
-    overflow: hidden;
-}
+.bvs-mobile-menu-open { overflow: hidden; }
 
 /* ---------------------------------- */
 /* AJUSTES GERAIS PARA MOBILE         */
 /* ---------------------------------- */
-
 @media (max-width: 768px) {
 
-    .bvs-topbar-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-
-    /* Header em linha: logo + título + botão */
+    /* Header em linha: logo à esquerda + toggle à direita */
     .bvs-header-inner {
         max-width: 1180px;
         margin: 0 auto;
@@ -242,46 +337,52 @@ if (!defined('ABSPATH')) exit;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-direction: row;
         gap: 12px;
     }
 
     .bvs-brand {
+        display: flex;
+        align-items: center;
         gap: 10px;
+        min-width: 0;
+        flex: 1;
     }
 
     .bvs-brand-logo img {
-        height: 64px;
+        height: 56px;
         max-height: none;
     }
 
     .bvs-brand-title {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    /* Esconde idiomas desktop e mostra mobile */
-    .bvs-lang-switcher--desktop {
-        display: none;
-    }
+    /* Esconde idiomas desktop e mostra mobile (mas agora fora do canvas, no topo) */
+    .bvs-lang-switcher--desktop { display: none; }
 
     .bvs-lang-switcher--mobile {
-        display: flex;
+        display: none; /* fica oculto dentro do offcanvas */
         align-items: center;
         gap: 6px;
     }
 
+    /* Toggle sempre na direita */
     .bvs-mobile-toggle {
-        display: flex;
+        display: inline-flex;
+        margin-left: 10px;
+        flex: 0 0 auto;
     }
 
     /* Esconde menu desktop no mobile */
-    .bvs-main-nav {
-        display: none;
-    }
+    .bvs-main-nav { display: none; }
 
     /* Conteúdos não relacionados ao header continuam como estavam */
-    .home-sobre-inner {
-        flex-direction: column;
-    }
+    .home-sobre-inner { flex-direction: column; }
 }
 
 /* ---------------------------------- */
@@ -289,14 +390,12 @@ if (!defined('ABSPATH')) exit;
 /* ---------------------------------- */
 
 /* Apenas garante que os itens tenham contexto para o dropdown */
-.bvs-main-menu > li {
-    position: relative;
-}
+.bvs-main-menu > li { position: relative; }
 
 /* Setinha nos itens que têm filhos */
 .bvs-main-menu > li.menu-item-has-children > a {
     position: relative;
-    padding-right: 18px; /* espaço pra seta */
+    padding-right: 18px;
 }
 
 .bvs-main-menu > li.menu-item-has-children > a::after {
@@ -340,7 +439,7 @@ if (!defined('ABSPATH')) exit;
     z-index: 20;
 }
 
-/* Exibe submenu ao passar mouse no pai (UX clássico de navbar) */
+/* Exibe submenu ao passar mouse no pai */
 .bvs-main-menu > li:hover > .sub-menu,
 .bvs-main-menu > li:focus-within > .sub-menu {
     opacity: 1;
@@ -366,14 +465,10 @@ if (!defined('ABSPATH')) exit;
     color: #003366;
 }
 
-/* Submenu de segundo nível (cascata para a direita) */
-.bvs-main-menu .sub-menu li.menu-item-has-children {
-    position: relative;
-}
+/* Submenu de segundo nível */
+.bvs-main-menu .sub-menu li.menu-item-has-children { position: relative; }
 
-.bvs-main-menu .sub-menu li.menu-item-has-children > a {
-    padding-right: 20px;
-}
+.bvs-main-menu .sub-menu li.menu-item-has-children > a { padding-right: 20px; }
 
 .bvs-main-menu .sub-menu li.menu-item-has-children > a::after {
     content: "";
@@ -418,27 +513,10 @@ if (!defined('ABSPATH')) exit;
 
 <header id="topo-site" class="bvs-site-header">
 
-    <!-- BARRA SUPERIOR -->
-    <div class="bvs-topbar">
-        <div class="bvs-topbar-inner">
+    <!-- BARRA DE ACESSIBILIDADE REMOVIDA COMPLETAMENTE -->
 
-            <ul class="bvs-skip-links">
-                <li><a href="#conteudo-principal">Conteúdo Principal</a></li>
-                <li><a href="#menu-principal">Menu</a></li>
-                <li><a href="#busca">Pesquisa</a></li>
-                <li><a href="#rodape">Rodapé</a></li>
-            </ul>
-
-            <div class="bvs-accessibility">
-                <span>A-</span>
-                <span>A</span>
-                <span>A+</span>
-                <span>|</span>
-                <span>Alto Contraste</span>
-            </div>
-
-        </div>
-    </div>
+    <!-- NOVO: IDIOMAS MOBILE NO TOPO (FORA DO OFFCANVAS) -->
+    <?php bvs_lang_switcher_markup('bvs-lang-switcher--mobile-top'); ?>
 
     <!-- HEADER PRINCIPAL -->
     <div class="bvs-header-main">
@@ -461,13 +539,9 @@ if (!defined('ABSPATH')) exit;
             </div>
 
             <!-- IDIOMAS – VERSÃO DESKTOP -->
-            <div class="bvs-lang-switcher bvs-lang-switcher--desktop">
-                <button type="button" class="bvs-lang is-active">Português</button>
-                <a href="#" class="bvs-lang">English</a>
-                <a href="#" class="bvs-lang">Español</a>
-            </div>
+            <?php bvs_lang_switcher_markup('bvs-lang-switcher--desktop'); ?>
 
-            <!-- BOTÃO MOBILE (HAMBÚRGUER) -->
+            <!-- BOTÃO MOBILE (TOGGLE NA DIREITA) -->
             <button 
                 class="bvs-mobile-toggle" 
                 type="button" 
@@ -475,10 +549,7 @@ if (!defined('ABSPATH')) exit;
                 aria-controls="bvs-mobile-nav"
                 aria-expanded="false"
             >
-                <span class="bvs-mobile-toggle-bar"></span>
-                <span class="bvs-mobile-toggle-bar"></span>
-                <span class="bvs-mobile-toggle-bar"></span>
-                <span class="bvs-mobile-toggle-label">Menu</span>
+                <span class="bvs-mobile-toggle-icon"><span></span></span>
             </button>
 
         </div>
@@ -487,31 +558,29 @@ if (!defined('ABSPATH')) exit;
         <nav class="bvs-main-nav" id="menu-principal">
             
             <?php
-    // Define o location do menu conforme o idioma atual do Polylang
-    $menu_location = 'primary'; // padrão (português)
+            // Define o location do menu conforme o idioma atual do Polylang
+            $menu_location = 'primary'; // padrão (português)
 
-    if ( function_exists( 'pll_current_language' ) ) {
-        $lang = pll_current_language( 'slug' ); // ex: 'pt', 'en', 'es'
+            if ( function_exists( 'pll_current_language' ) ) {
+                $lang = pll_current_language( 'slug' ); // ex: 'pt', 'en', 'es'
 
-        if ( $lang === 'en' ) {
-            $menu_location = 'primary_en';
-        } elseif ( $lang === 'es' ) {
-            $menu_location = 'primary_es';
-        } else {
-            $menu_location = 'primary'; // pt / default
-        }
-    }
-?>
-
+                if ( $lang === 'en' ) {
+                    $menu_location = 'primary_en';
+                } elseif ( $lang === 'es' ) {
+                    $menu_location = 'primary_es';
+                } else {
+                    $menu_location = 'primary'; // pt / default
+                }
+            }
+            ?>
 
             <?php
-wp_nav_menu([
-    'theme_location' => $menu_location,
-    'container'      => false,
-    'menu_class'     => 'bvs-main-menu',
-    'fallback_cb'    => false,
-]);
-
+            wp_nav_menu([
+                'theme_location' => $menu_location,
+                'container'      => false,
+                'menu_class'     => 'bvs-main-menu',
+                'fallback_cb'    => false,
+            ]);
             ?>
         </nav>
 
@@ -538,22 +607,17 @@ wp_nav_menu([
 
             <div class="bvs-mobile-offcanvas-body">
 
-                <!-- IDIOMAS – VERSÃO MOBILE -->
-                <div class="bvs-lang-switcher bvs-lang-switcher--mobile">
-                    <button type="button" class="bvs-lang is-active">Português</button>
-                    <a href="#" class="bvs-lang">English</a>
-                    <a href="#" class="bvs-lang">Español</a>
-                </div>
+                <!-- IDIOMAS – VERSÃO MOBILE (OCULTO / NÃO USADO AGORA) -->
+                <?php bvs_lang_switcher_markup('bvs-lang-switcher--mobile'); ?>
 
                 <nav class="bvs-mobile-menu-wrap" aria-label="Menu principal">
                     <?php
-          wp_nav_menu([
-    'theme_location' => $menu_location,
-    'container'      => false,
-    'menu_class'     => 'bvs-mobile-menu',
-    'fallback_cb'    => false,
-]);
-
+                    wp_nav_menu([
+                        'theme_location' => $menu_location,
+                        'container'      => false,
+                        'menu_class'     => 'bvs-mobile-menu',
+                        'fallback_cb'    => false,
+                    ]);
                     ?>
                 </nav>
             </div>
@@ -638,9 +702,8 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
-        // Evita que o clique no link feche/abra de forma estranha
+        // Se quiser que o link apenas abra o submenu quando ainda estiver fechado
         link.addEventListener('click', function (e) {
-            // se quiser que o link apenas abra o submenu quando ainda estiver fechado:
             if (!li.classList.contains('is-open')) {
                 e.preventDefault();
                 li.classList.add('is-open');
