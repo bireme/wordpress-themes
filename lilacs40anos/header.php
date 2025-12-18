@@ -677,6 +677,7 @@ display: block;
 
 
 </style>
+ <?php wp_body_open(); ?>
 <header class="site-header" role="banner">
 
   <!-- AREA DE LOGOS -->
@@ -826,7 +827,7 @@ wp_nav_menu([
 </div>
 
 <div id="site-content" class="site-content">
-    <?php wp_body_open(); ?>
+   
 
 <style>
     .submenu-open {
