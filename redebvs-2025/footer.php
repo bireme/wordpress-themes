@@ -66,20 +66,21 @@
                 .bvs-footer-description p{
                     color:#fff !important;
                 }
+
                 /* Linha divisória entre topo e colunas */
                 .bvs-footer-divider {
                     border-top: 1px solid #fff;
                     margin-top: 24px;
                 }
 
-                /* Colunas de menus */
+                /* Colunas de menus (dinâmico por pais com filhos) */
                 .bvs-footer-menus {
                     padding: 24px 0 28px;
                 }
 
                 .bvs-footer-menus-row {
                     display: grid;
-                    grid-template-columns: repeat(5, minmax(0, 1fr));
+                    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                     gap: 32px;
                 }
 
@@ -108,11 +109,6 @@
                     color: #ffffff;
                 }
 
-                /* Coluna de Contato – pode ter menos itens */
-                .bvs-footer-menu-column--contato .bvs-footer-menu-column-title {
-                    margin-bottom: 10px;
-                }
-
                 /* Barra "Powered by" */
                 .bvs-footer-powered-wrap {
                     padding: 0;
@@ -125,17 +121,6 @@
                     color: #d0e1ff;
                     margin-top: 15px;
                     margin-bottom: 15px;
-                }
-
-                .bvs-footer-powered span {
-                    display: inline-block;
-                    margin-left: 6px;
-                    padding: 4px 16px;
-                    border: 1px solid #ffffff;
-                    font-size: 13px;
-                    font-weight: 600;
-                    letter-spacing: 0.08em;
-                    text-transform: uppercase;
                 }
 
                 /* Barra de créditos inferior */
@@ -157,17 +142,9 @@
                     .bvs-footer-logo-box {
                         max-width: 260px;
                     }
-
-                    .bvs-footer-menus-row {
-                        grid-template-columns: repeat(2, minmax(0, 1fr));
-                    }
                 }
 
                 @media (max-width: 600px) {
-                    .bvs-footer-menus-row {
-                        grid-template-columns: 1fr;
-                    }
-
                     .bvs-footer {
                         font-size: 12px;
                     }
@@ -178,6 +155,46 @@
             // pega texto + logo dinamicamente por idioma
             $bvs_footer_text = function_exists( 'rede_bvs_get_footer_text' ) ? rede_bvs_get_footer_text() : '';
             $bvs_footer_logo = function_exists( 'rede_bvs_get_footer_logo_url' ) ? rede_bvs_get_footer_logo_url() : '';
+
+            // 1 menu footer por idioma
+            $footer_menu_id  = function_exists('rede_bvs_get_footer_menu_id_current') ? rede_bvs_get_footer_menu_id_current() : 0;
+
+            // monta colunas: "pais com filhos"
+            $footer_columns = array(); // [parent_id => ['title' => '', 'children' => [item, item...]]]
+
+            if ( $footer_menu_id ) {
+                $items = wp_get_nav_menu_items( $footer_menu_id );
+
+                if ( ! empty($items) && ! is_wp_error($items) ) {
+                    $by_id = array();
+                    foreach ($items as $it) {
+                        $by_id[(int)$it->ID] = $it;
+                    }
+
+                    // índice de filhos por parent
+                    $children_map = array();
+                    foreach ($items as $it) {
+                        $parent_id = (int) $it->menu_item_parent;
+                        if ( $parent_id > 0 ) {
+                            if ( ! isset($children_map[$parent_id]) ) $children_map[$parent_id] = array();
+                            $children_map[$parent_id][] = $it;
+                        }
+                    }
+
+                    // colunas = apenas TOP-LEVEL que tem filhos
+                    foreach ($items as $it) {
+                        $parent_id = (int) $it->ID;
+                        $is_top    = ((int)$it->menu_item_parent === 0);
+
+                        if ( $is_top && ! empty($children_map[$parent_id]) ) {
+                            $footer_columns[$parent_id] = array(
+                                'title'    => $it->title,
+                                'children' => $children_map[$parent_id],
+                            );
+                        }
+                    }
+                }
+            }
             ?>
 
             <div class="bvs-footer-top">
@@ -185,20 +202,20 @@
                     <div class="bvs-footer-top-row">
                         <div class="bvs-footer-logo-box">
                             <?php if ( ! empty( $bvs_footer_logo ) ) : ?>
-                                <img 
-                                    src="<?php echo esc_url( $bvs_footer_logo ); ?>" 
+                                <img
+                                    src="<?php echo esc_url( $bvs_footer_logo ); ?>"
                                     alt="<?php esc_attr_e( 'Portal da Rede BVS', 'rede-bvs' ); ?>"
                                 >
                             <?php else : ?>
                                 Portal da Rede BVS
                             <?php endif; ?>
                         </div>
+
                         <div class="bvs-footer-description">
                             <?php
                             if ( ! empty( $bvs_footer_text ) ) {
                                 echo wp_kses_post( wpautop( $bvs_footer_text ) );
                             } else {
-                                // fallback (mesmo texto padrão)
                                 echo wp_kses_post( wpautop( 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.' ) );
                             }
                             ?>
@@ -208,106 +225,41 @@
                 </div>
             </div>
 
-            <div class="bvs-footer-menus">
-                <div class="bvs-footer-inner">
-                    <div class="bvs-footer-menus-row">
+            <?php if ( ! empty($footer_columns) ) : ?>
+                <div class="bvs-footer-menus">
+                    <div class="bvs-footer-inner">
+                        <div class="bvs-footer-menus-row">
 
-                        <div class="bvs-footer-menu-column">
-                            <div class="bvs-footer-menu-column-title">A Rede BVS</div>
-                            <?php
-                            $menu_rede_bvs = function_exists( 'rede_bvs_get_footer_menu_id' )
-                                ? rede_bvs_get_footer_menu_id( 'col_rede_bvs' )
-                                : 0;
+                            <?php foreach ( $footer_columns as $col ) : ?>
+                                <div class="bvs-footer-menu-column">
+                                    <div class="bvs-footer-menu-column-title">
+                                        <?php echo esc_html( $col['title'] ); ?>
+                                    </div>
 
-                            wp_nav_menu( array(
-                                'menu'        => $menu_rede_bvs,
-                                'menu_class'  => 'bvs-footer-menu-list',
-                                'container'   => false,
-                                'fallback_cb' => false,
-                                'depth'       => 1,
-                            ) );
-                            ?>
+                                    <ul class="bvs-footer-menu-list">
+                                        <?php foreach ( $col['children'] as $child ) : ?>
+                                            <li>
+                                                <a href="<?php echo esc_url( $child->url ); ?>">
+                                                    <?php echo esc_html( $child->title ); ?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endforeach; ?>
+
                         </div>
-
-                        <div class="bvs-footer-menu-column">
-                            <div class="bvs-footer-menu-column-title">Produtos</div>
-                            <?php
-                            $menu_produtos = function_exists( 'rede_bvs_get_footer_menu_id' )
-                                ? rede_bvs_get_footer_menu_id( 'col_produtos' )
-                                : 0;
-
-                            wp_nav_menu( array(
-                                'menu'        => $menu_produtos,
-                                'menu_class'  => 'bvs-footer-menu-list',
-                                'container'   => false,
-                                'fallback_cb' => false,
-                                'depth'       => 1,
-                            ) );
-                            ?>
-                        </div>
-
-                        <div class="bvs-footer-menu-column">
-                            <div class="bvs-footer-menu-column-title">Serviços</div>
-                            <?php
-                            $menu_servicos = function_exists( 'rede_bvs_get_footer_menu_id' )
-                                ? rede_bvs_get_footer_menu_id( 'col_servicos' )
-                                : 0;
-
-                            wp_nav_menu( array(
-                                'menu'        => $menu_servicos,
-                                'menu_class'  => 'bvs-footer-menu-list',
-                                'container'   => false,
-                                'fallback_cb' => false,
-                                'depth'       => 1,
-                            ) );
-                            ?>
-                        </div>
-
-                        <div class="bvs-footer-menu-column">
-                            <div class="bvs-footer-menu-column-title">Modelo BVS</div>
-                            <?php
-                            $menu_modelo = function_exists( 'rede_bvs_get_footer_menu_id' )
-                                ? rede_bvs_get_footer_menu_id( 'col_modelo' )
-                                : 0;
-
-                            wp_nav_menu( array(
-                                'menu'        => $menu_modelo,
-                                'menu_class'  => 'bvs-footer-menu-list',
-                                'container'   => false,
-                                'fallback_cb' => false,
-                                'depth'       => 1,
-                            ) );
-                            ?>
-                        </div>
-
-                        <div class="bvs-footer-menu-column bvs-footer-menu-column--contato">
-                            <div class="bvs-footer-menu-column-title">Contato</div>
-                            <?php
-                            $menu_contato = function_exists( 'rede_bvs_get_footer_menu_id' )
-                                ? rede_bvs_get_footer_menu_id( 'col_contato' )
-                                : 0;
-
-                            wp_nav_menu( array(
-                                'menu'        => $menu_contato,
-                                'menu_class'  => 'bvs-footer-menu-list',
-                                'container'   => false,
-                                'fallback_cb' => false,
-                                'depth'       => 1,
-                            ) );
-                            ?>
-                        </div>
-
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
 
             <div class="bvs-footer-powered-wrap">
                 <div class="bvs-footer-inner" style="border-top: 1px solid #fff;">
                     <div class="bvs-footer-powered">
-                      <img 
+                        <img
                             src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/powered.png' ); ?>"
                             alt="<?php esc_attr_e('Portal da Rede BVS', 'rede-bvs'); ?>"
-                      >
+                        >
                     </div>
                 </div>
             </div>
