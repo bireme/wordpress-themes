@@ -13,7 +13,7 @@ define('BVS_RSS_USER', 'admin-tst');
 define('BVS_RSS_PASS', 'bireme123');
 
 // Limites / cache
-$rss_limit        = 6;
+$rss_limit        = 3;
 $rss_cache_secs   = 0 * MINUTE_IN_SECONDS;
 
 /**

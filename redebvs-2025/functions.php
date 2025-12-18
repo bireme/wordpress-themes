@@ -376,345 +376,262 @@ function bvs_busca_repositorio_shortcode( $atts = [] ) {
     return ob_get_clean();
 }
 
-
 /**
- * Registra submenu em Aparência para configurar menus + texto + imagem do rodapé
+ * Registra submenu em Aparência para configurar:
+ * - 1 menu de rodapé por idioma (ptbr/en/es)
+ * - texto do rodapé por idioma
+ * - imagem/logo por idioma
+ * - copyright por idioma
  */
-add_action( 'admin_menu', 'rede_bvs_register_footer_menus_page' );
-function rede_bvs_register_footer_menus_page() {
-    add_theme_page(
-        __( 'Menus do Rodapé BVS', 'rede-bvs' ),
-        __( 'Menus do Rodapé BVS', 'rede-bvs' ),
-        'manage_options',
-        'rede-bvs-footer-menus',
-        'rede_bvs_footer_menus_page_callback'
-    );
+add_action( 'admin_menu', 'rede_bvs_register_footer_settings_page' );
+function rede_bvs_register_footer_settings_page() {
+	add_theme_page(
+		__( 'Rodapé BVS', 'rede-bvs' ),
+		__( 'Rodapé BVS', 'rede-bvs' ),
+		'manage_options',
+		'rede-bvs-footer-settings',
+		'rede_bvs_footer_settings_page_callback'
+	);
 }
 
 /**
  * Idiomas fixos: ptbr, en, es
  */
 function rede_bvs_get_footer_languages_fixed() {
-    return array(
-        'ptbr' => array(
-            'slug'  => 'ptbr',
-            'label' => 'Português (Brasil)',
-        ),
-        'en'   => array(
-            'slug'  => 'en',
-            'label' => 'English',
-        ),
-        'es'   => array(
-            'slug'  => 'es',
-            'label' => 'Español',
-        ),
-    );
+	return array(
+		'ptbr' => array('slug' => 'ptbr', 'label' => 'Português (Brasil)'),
+		'en'   => array('slug' => 'en',   'label' => 'English'),
+		'es'   => array('slug' => 'es',   'label' => 'Español'),
+	);
 }
 
 /**
- * Página de configuração dos menus + texto + imagem do rodapé
+ * Página de configuração do rodapé
  */
-function rede_bvs_footer_menus_page_callback() {
-    if ( ! current_user_can( 'manage_options' ) ) {
-        return;
-    }
+function rede_bvs_footer_settings_page_callback() {
+	if ( ! current_user_can( 'manage_options' ) ) return;
 
-    // ---------- SALVAR ----------
-    if (
-        isset( $_POST['rede_bvs_footer_menus_nonce'] ) &&
-        wp_verify_nonce( $_POST['rede_bvs_footer_menus_nonce'], 'rede_bvs_footer_menus_save' )
-    ) {
-        $raw       = isset( $_POST['rede_bvs_footer_menus'] ) ? (array) $_POST['rede_bvs_footer_menus'] : array();
-        $sanitized = array();
+	$option_key = 'rede_bvs_footer_settings';
 
-        $menu_keys = array(
-            'col_rede_bvs',
-            'col_produtos',
-            'col_servicos',
-            'col_modelo',
-            'col_contato',
-        );
+	// ---------- SALVAR ----------
+	if (
+		isset( $_POST['rede_bvs_footer_settings_nonce'] ) &&
+		wp_verify_nonce( $_POST['rede_bvs_footer_settings_nonce'], 'rede_bvs_footer_settings_save' )
+	) {
+		$raw       = isset( $_POST['rede_bvs_footer_settings'] ) ? (array) $_POST['rede_bvs_footer_settings'] : array();
+		$sanitized = array();
 
-        foreach ( $raw as $lang_slug => $cols ) {
-            // esperamos: ptbr, en, es
-            $lang_slug = sanitize_key( $lang_slug );
+		foreach ( $raw as $lang_slug => $data ) {
+			$lang_slug = sanitize_key( $lang_slug );
+			if ( ! is_array( $data ) ) continue;
 
-            if ( ! is_array( $cols ) ) {
-                continue;
-            }
+			$sanitized[ $lang_slug ] = array(
+				'footer_menu'   => isset($data['footer_menu']) ? (int) $data['footer_menu'] : 0,
+				'footer_text'   => isset($data['footer_text']) ? wp_kses_post( $data['footer_text'] ) : '',
+				'footer_logo'   => isset($data['footer_logo']) ? esc_url_raw( $data['footer_logo'] ) : '',
+				'footer_copy'   => isset($data['footer_copy']) ? wp_kses_post( $data['footer_copy'] ) : '',
+			);
+		}
 
-            if ( ! isset( $sanitized[ $lang_slug ] ) ) {
-                $sanitized[ $lang_slug ] = array();
-            }
+		update_option( $option_key, $sanitized );
 
-            foreach ( $cols as $key => $value ) {
+		echo '<div class="notice notice-success is-dismissible"><p>'
+			. esc_html__( 'Configurações salvas com sucesso.', 'rede-bvs' )
+			. '</p></div>';
+	}
 
-                // Menus
-                if ( in_array( $key, $menu_keys, true ) ) {
-                    $sanitized[ $lang_slug ][ $key ] = (int) $value;
-                    continue;
-                }
+	// ---------- FORM ----------
+	$saved     = get_option( $option_key, array() );
+	$languages = rede_bvs_get_footer_languages_fixed();
+	$menus     = wp_get_nav_menus();
+	?>
+	<div class="wrap">
+		<h1><?php esc_html_e( 'Rodapé BVS', 'rede-bvs' ); ?></h1>
+		<p><?php esc_html_e( 'Escolha 1 menu de rodapé por idioma. Cada item PAI que tiver submenu vira uma coluna no rodapé.', 'rede-bvs' ); ?></p>
 
-                // Texto do rodapé
-                if ( $key === 'footer_text' ) {
-                    $sanitized[ $lang_slug ]['footer_text'] = wp_kses_post( $value );
-                    continue;
-                }
+		<form method="post" action="">
+			<?php wp_nonce_field( 'rede_bvs_footer_settings_save', 'rede_bvs_footer_settings_nonce' ); ?>
 
-                // Imagem / logo (URL)
-                if ( $key === 'footer_logo' ) {
-                    $sanitized[ $lang_slug ]['footer_logo'] = esc_url_raw( $value );
-                    continue;
-                }
-            }
-        }
+			<table class="form-table">
+				<tbody>
+				<?php foreach ( $languages as $lang_slug => $lang_data ) :
 
-        update_option( 'rede_bvs_footer_menus', $sanitized );
+					$lang_saved  = isset( $saved[ $lang_slug ] ) ? (array) $saved[ $lang_slug ] : array();
+					$footer_text = isset( $lang_saved['footer_text'] ) ? $lang_saved['footer_text'] : '';
+					$footer_logo = isset( $lang_saved['footer_logo'] ) ? $lang_saved['footer_logo'] : '';
+					$footer_menu = isset( $lang_saved['footer_menu'] ) ? (int) $lang_saved['footer_menu'] : 0;
+					$footer_copy = isset( $lang_saved['footer_copy'] ) ? $lang_saved['footer_copy'] : '';
+					?>
+					<tr>
+						<th colspan="2">
+							<h2 style="margin-bottom:0;"><?php echo esc_html( $lang_data['label'] ); ?></h2>
+							<p style="margin-top:4px; color:#555;">
+								<?php printf(
+									esc_html__( 'Configurações para o idioma (chave): %s', 'rede-bvs' ),
+									esc_html( $lang_slug )
+								); ?>
+							</p>
+							<hr>
+						</th>
+					</tr>
 
-        echo '<div class="notice notice-success is-dismissible"><p>'
-            . esc_html__( 'Configurações salvas com sucesso.', 'rede-bvs' )
-            . '</p></div>';
-    }
+					<!-- Menu do rodapé -->
+					<tr>
+						<th scope="row">
+							<label><?php esc_html_e( 'Menu do rodapé', 'rede-bvs' ); ?></label>
+						</th>
+						<td>
+							<select name="rede_bvs_footer_settings[<?php echo esc_attr( $lang_slug ); ?>][footer_menu]">
+								<option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
+								<?php foreach ( $menus as $menu ) : ?>
+									<option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $footer_menu, $menu->term_id ); ?>>
+										<?php echo esc_html( $menu->name ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+							<p class="description">
+								<?php esc_html_e( 'Estruture o menu assim: Itens PAI = títulos de coluna; Itens FILHO = links da coluna.', 'rede-bvs' ); ?>
+							</p>
+						</td>
+					</tr>
 
-    // ---------- FORM ----------
-    $saved     = get_option( 'rede_bvs_footer_menus', array() );
-    $languages = rede_bvs_get_footer_languages_fixed();
-    $menus     = wp_get_nav_menus();
-    ?>
-    <div class="wrap">
-        <h1><?php esc_html_e( 'Menus do Rodapé BVS', 'rede-bvs' ); ?></h1>
-        <p><?php esc_html_e( 'Defina, para cada idioma (ptbr, en, es), os menus das colunas do rodapé, o texto do rodapé e a imagem/box à esquerda.', 'rede-bvs' ); ?></p>
+					<!-- Texto do rodapé -->
+					<tr>
+						<th scope="row">
+							<label for="footer-text-<?php echo esc_attr( $lang_slug ); ?>">
+								<?php esc_html_e( 'Texto do rodapé (parágrafo)', 'rede-bvs' ); ?>
+							</label>
+						</th>
+						<td>
+							<textarea
+								id="footer-text-<?php echo esc_attr( $lang_slug ); ?>"
+								name="rede_bvs_footer_settings[<?php echo esc_attr( $lang_slug ); ?>][footer_text]"
+								rows="4"
+								class="large-text"
+							><?php echo esc_textarea( $footer_text ); ?></textarea>
+						</td>
+					</tr>
 
-        <form method="post" action="">
-            <?php wp_nonce_field( 'rede_bvs_footer_menus_save', 'rede_bvs_footer_menus_nonce' ); ?>
+					<!-- Imagem / box à esquerda -->
+					<tr>
+						<th scope="row">
+							<label for="footer-logo-<?php echo esc_attr( $lang_slug ); ?>">
+								<?php esc_html_e( 'Imagem da caixa à esquerda (URL)', 'rede-bvs' ); ?>
+							</label>
+						</th>
+						<td>
+							<input
+								type="text"
+								id="footer-logo-<?php echo esc_attr( $lang_slug ); ?>"
+								name="rede_bvs_footer_settings[<?php echo esc_attr( $lang_slug ); ?>][footer_logo]"
+								value="<?php echo esc_attr( $footer_logo ); ?>"
+								class="regular-text"
+							/>
+							<p class="description">
+								<?php esc_html_e( 'Se vazio, aparece o texto padrão "Portal da Rede BVS".', 'rede-bvs' ); ?>
+							</p>
+						</td>
+					</tr>
 
-            <table class="form-table">
-                <tbody>
-                <?php foreach ( $languages as $lang_slug => $lang_data ) :
+					<!-- Copyright -->
+					<tr>
+						<th scope="row">
+							<label for="footer-copy-<?php echo esc_attr( $lang_slug ); ?>">
+								<?php esc_html_e( 'Texto inferior (copyright)', 'rede-bvs' ); ?>
+							</label>
+						</th>
+						<td>
+							<textarea
+								id="footer-copy-<?php echo esc_attr( $lang_slug ); ?>"
+								name="rede_bvs_footer_settings[<?php echo esc_attr( $lang_slug ); ?>][footer_copy]"
+								rows="2"
+								class="large-text"
+							><?php echo esc_textarea( $footer_copy ); ?></textarea>
+							<p class="description">
+								<?php esc_html_e( 'Ex.: © Todos os direitos são reservados', 'rede-bvs' ); ?>
+							</p>
+						</td>
+					</tr>
 
-                    $lang_saved = isset( $saved[ $lang_slug ] ) ? (array) $saved[ $lang_slug ] : array();
+				<?php endforeach; ?>
+				</tbody>
+			</table>
 
-                    $col_rede_bvs = isset( $lang_saved['col_rede_bvs'] ) ? (int) $lang_saved['col_rede_bvs'] : 0;
-                    $col_produtos = isset( $lang_saved['col_produtos'] ) ? (int) $lang_saved['col_produtos'] : 0;
-                    $col_servicos = isset( $lang_saved['col_servicos'] ) ? (int) $lang_saved['col_servicos'] : 0;
-                    $col_modelo   = isset( $lang_saved['col_modelo'] )   ? (int) $lang_saved['col_modelo']   : 0;
-                    $col_contato  = isset( $lang_saved['col_contato'] )  ? (int) $lang_saved['col_contato']  : 0;
-
-                    $footer_text = isset( $lang_saved['footer_text'] ) ? $lang_saved['footer_text'] : '';
-                    $footer_logo = isset( $lang_saved['footer_logo'] ) ? $lang_saved['footer_logo'] : '';
-                    ?>
-                    <tr>
-                        <th colspan="2">
-                            <h2 style="margin-bottom:0;"><?php echo esc_html( $lang_data['label'] ); ?></h2>
-                            <p style="margin-top:4px; color:#555;">
-                                <?php printf(
-                                    esc_html__( 'Configurações para o idioma (chave): %s', 'rede-bvs' ),
-                                    esc_html( $lang_slug )
-                                ); ?>
-                            </p>
-                            <hr>
-                        </th>
-                    </tr>
-
-                    <!-- Texto do rodapé -->
-                    <tr>
-                        <th scope="row">
-                            <label for="footer-text-<?php echo esc_attr( $lang_slug ); ?>">
-                                <?php esc_html_e( 'Texto do rodapé (parágrafo)', 'rede-bvs' ); ?>
-                            </label>
-                        </th>
-                        <td>
-                            <textarea
-                                id="footer-text-<?php echo esc_attr( $lang_slug ); ?>"
-                                name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][footer_text]"
-                                rows="4"
-                                class="large-text"
-                            ><?php echo esc_textarea( $footer_text ); ?></textarea>
-                            <p class="description">
-                                <?php esc_html_e( 'Texto que aparece ao lado direito da caixa, abaixo do box/imagem.', 'rede-bvs' ); ?>
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Imagem / box à esquerda -->
-                    <tr>
-                        <th scope="row">
-                            <label for="footer-logo-<?php echo esc_attr( $lang_slug ); ?>">
-                                <?php esc_html_e( 'Imagem da caixa à esquerda (URL)', 'rede-bvs' ); ?>
-                            </label>
-                        </th>
-                        <td>
-                            <input
-                                type="text"
-                                id="footer-logo-<?php echo esc_attr( $lang_slug ); ?>"
-                                name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][footer_logo]"
-                                value="<?php echo esc_attr( $footer_logo ); ?>"
-                                class="regular-text"
-                            />
-                            <p class="description">
-                                <?php esc_html_e( 'Cole a URL da imagem (da biblioteca de mídia, por exemplo). Se vazio, aparece o texto padrão "Portal da Rede BVS".', 'rede-bvs' ); ?>
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Coluna: A Rede BVS -->
-                    <tr>
-                        <th scope="row">
-                            <label><?php esc_html_e( 'Coluna "A Rede BVS"', 'rede-bvs' ); ?></label>
-                        </th>
-                        <td>
-                            <select name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][col_rede_bvs]">
-                                <option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
-                                <?php foreach ( $menus as $menu ) : ?>
-                                    <option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $col_rede_bvs, $menu->term_id ); ?>>
-                                        <?php echo esc_html( $menu->name ); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <!-- Coluna: Produtos -->
-                    <tr>
-                        <th scope="row">
-                            <label><?php esc_html_e( 'Coluna "Produtos"', 'rede-bvs' ); ?></label>
-                        </th>
-                        <td>
-                            <select name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][col_produtos]">
-                                <option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
-                                <?php foreach ( $menus as $menu ) : ?>
-                                    <option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $col_produtos, $menu->term_id ); ?>>
-                                        <?php echo esc_html( $menu->name ); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <!-- Coluna: Serviços -->
-                    <tr>
-                        <th scope="row">
-                            <label><?php esc_html_e( 'Coluna "Serviços"', 'rede-bvs' ); ?></label>
-                        </th>
-                        <td>
-                            <select name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][col_servicos]">
-                                <option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
-                                <?php foreach ( $menus as $menu ) : ?>
-                                    <option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $col_servicos, $menu->term_id ); ?>>
-                                        <?php echo esc_html( $menu->name ); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <!-- Coluna: Modelo BVS -->
-                    <tr>
-                        <th scope="row">
-                            <label><?php esc_html_e( 'Coluna "Modelo BVS"', 'rede-bvs' ); ?></label>
-                        </th>
-                        <td>
-                            <select name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][col_modelo]">
-                                <option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
-                                <?php foreach ( $menus as $menu ) : ?>
-                                    <option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $col_modelo, $menu->term_id ); ?>>
-                                        <?php echo esc_html( $menu->name ); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-
-                    <!-- Coluna: Contato -->
-                    <tr>
-                        <th scope="row">
-                            <label><?php esc_html_e( 'Coluna "Contato"', 'rede-bvs' ); ?></label>
-                        </th>
-                        <td>
-                            <select name="rede_bvs_footer_menus[<?php echo esc_attr( $lang_slug ); ?>][col_contato]">
-                                <option value="0"><?php esc_html_e( '— Selecione um menu —', 'rede-bvs' ); ?></option>
-                                <?php foreach ( $menus as $menu ) : ?>
-                                    <option value="<?php echo esc_attr( $menu->term_id ); ?>" <?php selected( $col_contato, $menu->term_id ); ?>>
-                                        <?php echo esc_html( $menu->name ); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <?php submit_button( __( 'Salvar alterações', 'rede-bvs' ) ); ?>
-        </form>
-    </div>
-    <?php
+			<?php submit_button( __( 'Salvar alterações', 'rede-bvs' ) ); ?>
+		</form>
+	</div>
+	<?php
 }
 
 /**
  * Mapeia o idioma atual (Polylang) para a chave fixa ptbr/en/es
  */
 function rede_bvs_footer_get_current_lang_key() {
-    $default = 'ptbr';
+	$default = 'ptbr';
 
-    if ( function_exists( 'pll_current_language' ) ) {
-        $pll = pll_current_language( 'slug' ); // ex: pt, en, es, pt-br, es-mx etc.
+	if ( function_exists( 'pll_current_language' ) ) {
+		$pll = pll_current_language( 'slug' );
 
-        if ( strpos( $pll, 'pt' ) === 0 ) {
-            return 'ptbr';
-        }
-        if ( strpos( $pll, 'en' ) === 0 ) {
-            return 'en';
-        }
-        if ( strpos( $pll, 'es' ) === 0 ) {
-            return 'es';
-        }
-    }
+		if ( strpos( $pll, 'pt' ) === 0 ) return 'ptbr';
+		if ( strpos( $pll, 'en' ) === 0 ) return 'en';
+		if ( strpos( $pll, 'es' ) === 0 ) return 'es';
+	}
 
-    return $default;
+	return $default;
 }
 
 /**
- * Helper: ID do menu por coluna / idioma atual
+ * Helper: ID do menu de rodapé por idioma atual
  */
-function rede_bvs_get_footer_menu_id( $column_key ) {
-    $options    = get_option( 'rede_bvs_footer_menus', array() );
-    $column_key = sanitize_key( $column_key );
-    $lang_key   = rede_bvs_footer_get_current_lang_key();
+function rede_bvs_get_footer_menu_id_current() {
+	$options  = get_option( 'rede_bvs_footer_settings', array() );
+	$lang_key = rede_bvs_footer_get_current_lang_key();
 
-    if ( isset( $options[ $lang_key ][ $column_key ] ) && $options[ $lang_key ][ $column_key ] ) {
-        return (int) $options[ $lang_key ][ $column_key ];
-    }
-
-    return 0;
+	if ( ! empty( $options[ $lang_key ]['footer_menu'] ) ) {
+		return (int) $options[ $lang_key ]['footer_menu'];
+	}
+	return 0;
 }
 
 /**
  * Helper: texto do rodapé por idioma atual
  */
 function rede_bvs_get_footer_text() {
-    $options  = get_option( 'rede_bvs_footer_menus', array() );
-    $lang_key = rede_bvs_footer_get_current_lang_key();
+	$options  = get_option( 'rede_bvs_footer_settings', array() );
+	$lang_key = rede_bvs_footer_get_current_lang_key();
 
-    if ( ! empty( $options[ $lang_key ]['footer_text'] ) ) {
-        return $options[ $lang_key ]['footer_text'];
-    }
+	if ( ! empty( $options[ $lang_key ]['footer_text'] ) ) {
+		return $options[ $lang_key ]['footer_text'];
+	}
 
-    // fallback hardcoded
-    return 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.';
+	return 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.';
 }
 
 /**
  * Helper: URL da imagem à esquerda (box) por idioma atual
  */
 function rede_bvs_get_footer_logo_url() {
-    $options  = get_option( 'rede_bvs_footer_menus', array() );
-    $lang_key = rede_bvs_footer_get_current_lang_key();
+	$options  = get_option( 'rede_bvs_footer_settings', array() );
+	$lang_key = rede_bvs_footer_get_current_lang_key();
 
-    if ( ! empty( $options[ $lang_key ]['footer_logo'] ) ) {
-        return $options[ $lang_key ]['footer_logo'];
-    }
-
-    return '';
+	if ( ! empty( $options[ $lang_key ]['footer_logo'] ) ) {
+		return $options[ $lang_key ]['footer_logo'];
+	}
+	return '';
 }
+
+/**
+ * Helper: copyright por idioma atual
+ */
+function rede_bvs_get_footer_copyright() {
+	$options  = get_option( 'rede_bvs_footer_settings', array() );
+	$lang_key = rede_bvs_footer_get_current_lang_key();
+
+	if ( ! empty( $options[ $lang_key ]['footer_copy'] ) ) {
+		return $options[ $lang_key ]['footer_copy'];
+	}
+
+	// fallback
+	return '© Todos os direitos são reservados';
+}
+//fim

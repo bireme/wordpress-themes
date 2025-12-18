@@ -18,7 +18,7 @@ if ( $selecionados ) {
 // Senão, pega últimos eventos do CPT
 } else {
     $q = new WP_Query([
-        'post_type'      => 'acontece-na-rede',
+        'post_type'      => 'post',
         'posts_per_page' => 5,
     ]);
     if ( $q->have_posts() ) {
@@ -75,7 +75,7 @@ if ( $selecionados ) {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 260px;
+    min-height: 135px;
 }
 
 /* imagem com canto superior bem arredondado */
@@ -92,7 +92,7 @@ if ( $selecionados ) {
 }
 
 .home-acontece-card-body h3 {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.4;
     margin: 0 0 6px;
     color: #233a8b;
@@ -101,6 +101,8 @@ if ( $selecionados ) {
 .home-acontece-card-body h3 a {
     text-decoration: none;
     color: inherit;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .home-acontece-card-body h3 a:hover {
