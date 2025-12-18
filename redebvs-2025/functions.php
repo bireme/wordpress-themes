@@ -381,6 +381,7 @@ function bvs_busca_repositorio_shortcode( $atts = [] ) {
  * - 1 menu de rodapé por idioma (ptbr/en/es)
  * - texto do rodapé por idioma
  * - imagem/logo por idioma
+ * - copyright por idioma
  */
 add_action( 'admin_menu', 'rede_bvs_register_footer_settings_page' );
 function rede_bvs_register_footer_settings_page() {
@@ -425,9 +426,10 @@ function rede_bvs_footer_settings_page_callback() {
 			if ( ! is_array( $data ) ) continue;
 
 			$sanitized[ $lang_slug ] = array(
-				'footer_menu' => isset($data['footer_menu']) ? (int) $data['footer_menu'] : 0,
-				'footer_text' => isset($data['footer_text']) ? wp_kses_post( $data['footer_text'] ) : '',
-				'footer_logo' => isset($data['footer_logo']) ? esc_url_raw( $data['footer_logo'] ) : '',
+				'footer_menu'   => isset($data['footer_menu']) ? (int) $data['footer_menu'] : 0,
+				'footer_text'   => isset($data['footer_text']) ? wp_kses_post( $data['footer_text'] ) : '',
+				'footer_logo'   => isset($data['footer_logo']) ? esc_url_raw( $data['footer_logo'] ) : '',
+				'footer_copy'   => isset($data['footer_copy']) ? wp_kses_post( $data['footer_copy'] ) : '',
 			);
 		}
 
@@ -458,6 +460,7 @@ function rede_bvs_footer_settings_page_callback() {
 					$footer_text = isset( $lang_saved['footer_text'] ) ? $lang_saved['footer_text'] : '';
 					$footer_logo = isset( $lang_saved['footer_logo'] ) ? $lang_saved['footer_logo'] : '';
 					$footer_menu = isset( $lang_saved['footer_menu'] ) ? (int) $lang_saved['footer_menu'] : 0;
+					$footer_copy = isset( $lang_saved['footer_copy'] ) ? $lang_saved['footer_copy'] : '';
 					?>
 					<tr>
 						<th colspan="2">
@@ -530,6 +533,26 @@ function rede_bvs_footer_settings_page_callback() {
 						</td>
 					</tr>
 
+					<!-- Copyright -->
+					<tr>
+						<th scope="row">
+							<label for="footer-copy-<?php echo esc_attr( $lang_slug ); ?>">
+								<?php esc_html_e( 'Texto inferior (copyright)', 'rede-bvs' ); ?>
+							</label>
+						</th>
+						<td>
+							<textarea
+								id="footer-copy-<?php echo esc_attr( $lang_slug ); ?>"
+								name="rede_bvs_footer_settings[<?php echo esc_attr( $lang_slug ); ?>][footer_copy]"
+								rows="2"
+								class="large-text"
+							><?php echo esc_textarea( $footer_copy ); ?></textarea>
+							<p class="description">
+								<?php esc_html_e( 'Ex.: © Todos os direitos são reservados', 'rede-bvs' ); ?>
+							</p>
+						</td>
+					</tr>
+
 				<?php endforeach; ?>
 				</tbody>
 			</table>
@@ -547,7 +570,7 @@ function rede_bvs_footer_get_current_lang_key() {
 	$default = 'ptbr';
 
 	if ( function_exists( 'pll_current_language' ) ) {
-		$pll = pll_current_language( 'slug' ); // ex: pt, en, es, pt-br, es-mx etc.
+		$pll = pll_current_language( 'slug' );
 
 		if ( strpos( $pll, 'pt' ) === 0 ) return 'ptbr';
 		if ( strpos( $pll, 'en' ) === 0 ) return 'en';
@@ -567,7 +590,6 @@ function rede_bvs_get_footer_menu_id_current() {
 	if ( ! empty( $options[ $lang_key ]['footer_menu'] ) ) {
 		return (int) $options[ $lang_key ]['footer_menu'];
 	}
-
 	return 0;
 }
 
@@ -595,6 +617,21 @@ function rede_bvs_get_footer_logo_url() {
 	if ( ! empty( $options[ $lang_key ]['footer_logo'] ) ) {
 		return $options[ $lang_key ]['footer_logo'];
 	}
-
 	return '';
 }
+
+/**
+ * Helper: copyright por idioma atual
+ */
+function rede_bvs_get_footer_copyright() {
+	$options  = get_option( 'rede_bvs_footer_settings', array() );
+	$lang_key = rede_bvs_footer_get_current_lang_key();
+
+	if ( ! empty( $options[ $lang_key ]['footer_copy'] ) ) {
+		return $options[ $lang_key ]['footer_copy'];
+	}
+
+	// fallback
+	return '© Todos os direitos são reservados';
+}
+//fim
