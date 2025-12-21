@@ -4,7 +4,7 @@
 			<?php 
 			$posts = new WP_Query([
 				'post_type' => 'post',
-				'posts_per_page' => '3'
+				'posts_per_page' => '4'
 			]);
 			while($posts->have_posts()) : $posts->the_post();?>
 				<article class="col">
