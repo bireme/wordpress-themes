@@ -137,6 +137,11 @@ h1, h2, h3, h4, h5, h6{
 #home-memeorial{
 	background: #f2f2f2;
 }
+#home-news{
+}
+#home-news a{
+	text-decoration: none;
+}
 #memorial{
 	background: #1E3A5F;
 	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
@@ -155,8 +160,6 @@ h1, h2, h3, h4, h5, h6{
 #memorial a:hover{
 	color: #999;
 }
-
-
 #header-title{
 	background-size: cover;
 	background-repeat: no-repeat;

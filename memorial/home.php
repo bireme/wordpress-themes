@@ -4,7 +4,10 @@
 <?php get_template_part('includes/home-recent-documents') ?>
 <?php get_template_part('includes/home-find') ?>
 <?php get_template_part('includes/home-products') ?>
+<?php get_template_part('includes/home-news') ?>
 <?php get_template_part('includes/home-memorial') ?>
+
+
 
 
 
