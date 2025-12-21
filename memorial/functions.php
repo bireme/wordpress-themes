@@ -32,6 +32,11 @@ function action_init()
 {
 	register_nav_menu('main-nav', 'Main Menu (top)');
 }
+//Excerpt
+add_filter('excerpt_length', 'custom_excerpt_length');
+function custom_excerpt_length($length) {
+    return 20;
+}
 //RSS Produção
 function http_request_local( $args, $url ) {
    if ( preg_match('/xml|rss|feed/', $url) ){
