@@ -12,7 +12,7 @@
 						<a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
 							<?php 
 							if (has_post_thumbnail()) {
-								the_post_thumbnail('medium', ['class' => 'card-img-top img-fluid']);
+								the_post_thumbnail('medium', ['class' => 'card-img-top card-img-fixed']);
 							} else { ?>
 								<img src="<?php bloginfo('template_directory')?>/img/blog-default.jpg" class="card-img-top" alt="">
 							<?php } ?>
