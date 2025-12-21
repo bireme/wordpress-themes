@@ -60,9 +60,6 @@ h1, h2, h3, h4, h5, h6{
 .card-img-top{
 	border: 1px solid #ddd;
 }
-.card-body{
-	background: #f2f2f2;
-}
 .slick-dots li button:before{
 	font-size: 15px!important;
 }
