@@ -1,5 +1,6 @@
 <section id="home-news" class="pt-5 pb-5">
 	<div class="container">
+		<h2 class="title mb-4">Destaque e Notícias</h2>
 		<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
 			<?php 
 			$posts = new WP_Query([
