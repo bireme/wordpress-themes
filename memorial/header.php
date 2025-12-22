@@ -13,7 +13,7 @@
 	<?php wp_body_open(); ?>
 	<header id="hero">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="header-home">
 				<div class="col-md-3">
 					<a href="<?php bloginfo('siteurl'); ?>" class="navbar-brand">
 						<img src="<?php bloginfo('template_directory'); ?>/img/brand.png" alt="" id="logo" class="img-fluid">
@@ -25,7 +25,7 @@
 			</div>
 			<div id="hero-form">
 				<h1 class="title">Memorial Digital da Pandemia de Covid-19 <br>Preservando memórias, honrando vidas, valorizando histórias.</h1>
-				<p>Cada documento preservado no Memorial é um testemunho da experiência brasileira na pandemia de Covid-19 — um legado de memória e história que nos convida a refletir e a exercer a cidadania na luta por direitos.</p>
+				<p>Cada documento preservado no Memorial é um testemunho da experiência brasileira na pandemia de Covid-19 — um legado de memória e história que nos convida a refletir e a exercer a cidadania na luta por direitos</p>
 				<form id="buscaForm" class="row">
 					<div class="col-7">
 						<input type="text" class="form-control" id="fieldSearch" placeholder="Pesquisar">

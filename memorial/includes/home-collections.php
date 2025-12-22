@@ -37,6 +37,6 @@
         </a>
       </div>
     </div>
-    <div class="mt-3 text-center me-5"><a href="https://memorialpandemia.teste.bvs.br/tainacan/tainacan-colecoes/" class="btn btn-primary">Ver todas</a></div>
+    <div class="mt-3 text-center me-5"><a href="https://memorialpandemia.teste.bvs.br/colecoes/" class="btn btn-primary">Ver todas</a></div>
   </div>
 </section>

@@ -16,19 +16,11 @@ h1, h2, h3, h4, h5, h6{
 	background: #1E3A5F;
 	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
 }
+#header-home{
+	border-bottom: 1px solid #4e9a51;;
+}
 #nav{
 	margin-top: 24px;
-}
-/* bootstrap 
-#nav .navbar-nav>li>a{
-	color: #fff;
-	font-size: 1.5rem;
-	margin-top: 24px;
-	margin-left: 20px;
-}
-#nav .navbar-nav>li>a:hover{
-	color: #999;
-*/
 }
 .bg-body-tertiary{
 	background: none!important;
@@ -140,6 +132,7 @@ h1, h2, h3, h4, h5, h6{
 	background: #f2f2f2;
 }
 #home-news{
+	
 }
 #home-news a{
 	text-decoration: none;
