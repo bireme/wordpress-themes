@@ -41,8 +41,8 @@ jQuery('.home-profiles').slick({
   arrows: false,
   autoplay: true,
   speed: 300,
-  slidesToShow: 3,
-  slidesToScroll: 3,
+  slidesToShow: 4,
+  slidesToScroll: 4,
   responsive: [
     {
       breakpoint: 1024,
