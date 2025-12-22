@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Dobra: Banner Centro Cooperantes
  * Slug esperado: pagina-banner
@@ -28,7 +28,7 @@ if ( $fundo_banner && $overlay == "nao") {
         "background-image: linear-gradient(90deg, rgba(0,0,0,0.80) 0%%, rgba(0,0,0,0.70) 45%%, rgba(0,0,0,0.40) 60%%, rgba(0,0,0,0.10) 100%%), url('%s');",
         esc_url( $fundo_banner )
     );
-}else{
+} else {
     $bg_style = sprintf(
         "background-image: url('%s');",
         esc_url( $fundo_banner )
@@ -38,15 +38,50 @@ if ( $fundo_banner && $overlay == "nao") {
 if(!$cor_titulo){
     $cor_titulo = '#f97316';
 }
-
 if(!$cor_desc){
     $cor_desc = '#e5e7eb';
 }
 
-
+// Breadcrumb (Home / Página atual) — estilo igual referência
+$current_title = get_the_title();
+$home_label    = 'Home';
+$home_url      = home_url('/');
 ?>
 
 <style>
+/* --------------------------------------------------------- */
+/* Breadcrumb (igual referência: simples, topo, "Home / X")   */
+/* --------------------------------------------------------- */
+.lilacs-centro-breadcrumb{
+    background:#ffffff;
+    border-bottom: 1px solid rgba(15,23,42,0.10);
+}
+.lilacs-centro-breadcrumb .lilacs-centro-breadcrumb-inner{
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display:flex;
+    align-items:center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+}
+.lilacs-centro-breadcrumb a,
+.lilacs-centro-breadcrumb span{
+    color:#1d4ed8; /* azul padrão referência */
+    text-decoration:none;
+    font-weight: 500;
+}
+.lilacs-centro-breadcrumb a:hover{
+    text-decoration: underline;
+}
+.lilacs-centro-breadcrumb .sep{
+    color:#1d4ed8;
+    opacity:.9;
+}
+
 /* --------------------------------------------------------- */
 /* Banner – Centros Cooperantes LILACS                       */
 /* --------------------------------------------------------- */
@@ -57,7 +92,6 @@ if(!$cor_desc){
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    
     color: #f9fafb;
 }
 
@@ -81,18 +115,18 @@ p,span,a,div{
 
 #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-title {
     font-size: 45px;
-        font-family: "Poppins";
+    font-family: "Poppins";
     line-height: 1.25;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: <?=$cor_titulo; ?>; /* laranja do título */
+    color: <?=$cor_titulo; ?>;
     margin-bottom: 16px;
 }
 
 @media (min-width: 960px) {
     #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-title {
-            font-family: "Poppins";
+        font-family: "Poppins";
         font-size: 45px;
     }
 }
@@ -138,7 +172,7 @@ p,span,a,div{
     justify-content: center;
 }
 
-/* “Nós” conectados em volta – simulando o layout da referência */
+/* “Nós” conectados em volta */
 #<?php echo esc_attr( $section_id ); ?> .lilacs-centro-banner-node {
     position: absolute;
     width: 32px;
@@ -194,6 +228,15 @@ p,span,a,div{
 }
 </style>
 
+<!-- Breadcrumb navegável (Home / Página atual) -->
+<nav class="lilacs-centro-breadcrumb" aria-label="Breadcrumb">
+  <div class="lilacs-centro-breadcrumb-inner">
+    <a href="<?php echo esc_url($home_url); ?>"><?php echo esc_html($home_label); ?></a>
+    <span class="sep">/</span>
+    <span><?php echo esc_html($current_title); ?></span>
+  </div>
+</nav>
+
 <section id="<?php echo esc_attr( $section_id ); ?>" class="lilacs-centro-banner" style="<?php echo esc_attr( $bg_style ); ?>">
     <div class="lilacs-centro-banner-inner">
 
@@ -204,13 +247,13 @@ p,span,a,div{
                 </h1>
             <?php endif; ?>
             
-                      <?php if ( $posicaoHigh == "titulo") : ?>
-                    <?php if ( $texto_barra ) : ?>
-                        <div class="lilacs-centro-banner-highlight">
-                            <?php echo esc_html( $texto_barra ); ?>
-                        </div>
-                    <?php endif; ?>
-             <?php endif; ?>
+            <?php if ( $posicaoHigh == "titulo") : ?>
+                <?php if ( $texto_barra ) : ?>
+                    <div class="lilacs-centro-banner-highlight">
+                        <?php echo esc_html( $texto_barra ); ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
 
             <?php if ( $descricao ) : ?>
                 <div class="lilacs-centro-banner-desc">
@@ -219,19 +262,15 @@ p,span,a,div{
             <?php endif; ?>
 
             <?php if ( $posicaoHigh == "descricao") : ?>
-                    <?php if ( $texto_barra ) : ?>
-                        <div class="lilacs-centro-banner-highlight">
-                            <?php echo esc_html( $texto_barra ); ?>
-                        </div>
-                    <?php endif; ?>
-             <?php endif; ?>
-            
-            
+                <?php if ( $texto_barra ) : ?>
+                    <div class="lilacs-centro-banner-highlight">
+                        <?php echo esc_html( $texto_barra ); ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
 
-        <div class="lilacs-centro-banner-visual" aria-hidden="true">
-      
-        </div>
+        <div class="lilacs-centro-banner-visual" aria-hidden="true"></div>
 
     </div>
 </section>

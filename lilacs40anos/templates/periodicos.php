@@ -383,18 +383,6 @@ margin: 0 auto;
 
 
 
-      <table class="bvs-table" aria-describedby="bvs-summary">
-        <thead class="bvs-thead">
-          <tr>
-            <th class="bvs-col-idx">#</th>
-            <th class="bvs-col-title">Título completo</th>
-            <th class="bvs-col-issn">ISSN</th>
-            <th class="bvs-col-code">Código do Editor</th>
-            <th class="bvs-col-code">Código do CC</th>
-          </tr>
-        </thead>
-        <tbody id="bvs-tbody" class="bvs-tbody"></tbody>
-      </table>
       <div id="bvs-pager" class="bvs-pager" aria-label="Paginação"></div>
     </main>
   </div>
@@ -409,7 +397,7 @@ margin: 0 auto;
     const SEARCH_URL  = (ta, start=0, rows=1000) => `${SEARCH_BASE}?thematic_area=${encodeURIComponent(ta)}&start=${start}&rows=${rows}`;
     const FETCH_ROWS  = 1000; // paginação da API de busca por Assunto
     const LANG = "pt-br";
-    const PER_PAGE = 50;
+    const PER_PAGE = 50; // mantido por compatibilidade (não usado no render sem paginação)
 
 // idioma da interface do Portal de Revistas (pt, es, en)
 const PORTAL_LANG =
@@ -424,7 +412,7 @@ const S = {
   countriesFacet: [],
   search: "",
   countryRaw: null,
-  page: 1,
+  page: 1,                 // mantido por compatibilidade (não usado no render sem paginação)
   thematicFacet: [],
   thematicSel: null,
   assuntoOpen: true,
@@ -680,14 +668,16 @@ return (
       return list;
     }
 
-    // ===== Tabela + Paginação =====
+    // ===== Tabela (SEM paginação, mas mantendo estrutura do código) =====
     async function renderTable(){
       const list = filteredDocs();
-      const total = list.length;
-      const pages = Math.max(1, Math.ceil(total / PER_PAGE));
+
+      // ---- REMOVIDO: paginação da tabela (agora renderiza tudo) ----
+      const total = list.length; // mantido por compatibilidade
+      const pages = 1;           // mantido por compatibilidade
       if(S.page>pages) S.page = pages;
-      const start = (S.page-1)*PER_PAGE;
-      const pageDocs = list.slice(start, start+PER_PAGE);
+      const start = 0;
+      const pageDocs = list;     // tudo
 
       $tbody.innerHTML = "";
       const frag = document.createDocumentFragment();
@@ -738,28 +728,12 @@ tr.innerHTML = `
 
       $tbody.appendChild(frag);
 
+      // ainda hidrata códigos, agora para todos os itens filtrados
       hydrateVisibleCodes(pageDocs);
 
+      // ---- REMOVIDO: UI e lógica de paginação (mantendo o elemento) ----
+      // mantém o #bvs-pager no DOM, porém vazio e sem botões
       $pager.innerHTML = "";
-      const makeBtn=(label, disabled, onClick, isCurrent=false)=>{
-        const b=document.createElement("button");
-        b.textContent=label; if(disabled) b.disabled=true; if(isCurrent) b.classList.add("current");
-        if(onClick) b.addEventListener("click", onClick); return b;
-      };
-      $pager.appendChild(makeBtn("‹", S.page===1, ()=>{S.page--; renderTable();}));
-      const addPage=p=> $pager.appendChild(makeBtn(String(p), false, ()=>{S.page=p; renderTable();}, S.page===p));
-      const dots=()=>{const s=document.createElement("span"); s.textContent="…"; s.style.padding="0 6px"; $pager.appendChild(s);};
-
-      if(pages<=7){
-        for(let p=1;p<=pages;p++) addPage(p);
-      } else {
-        addPage(1); if(S.page>3) dots();
-        const a=Math.max(2,S.page-1), b=Math.min(pages-1,S.page+1);
-        for(let p=a;p<=b;p++) addPage(p);
-        if(S.page<pages-2) dots();
-        addPage(pages);
-      }
-      $pager.appendChild(makeBtn("›", S.page===pages, ()=>{S.page++; renderTable();}));
 
       //document.getElementById("bvs-total-count").textContent = String(filteredDocs().length || S.docs.length);
     }
@@ -832,6 +806,8 @@ S.docs = allDocs.map(d=>{
     link: d.link || [],
     country_raw: d.country || "",
     country: labelFromMulti(d.country || ""),
+    // >>> DE ONDE VEM A DATA:
+    // vem do payload da API (campo updated_date), e se não existir cai no created_date
     updated_date: d.updated_date || d.created_date || "",
     thematic_area: Array.isArray(d.thematic_area) ? d.thematic_area : (d.thematic_area ? [d.thematic_area] : []),
     editor_code: undefined,
@@ -858,6 +834,7 @@ S.docs = allDocs.map(d=>{
         .map(([key,count])=>({key, count, label:key}))
         .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
 
+      // >>> "Última atualização" exibida vem do MAIOR updated_date (ou created_date) dos docs
       const maxDate = S.docs.reduce((acc,d)=> Math.max(acc, Number(d.updated_date||0)), 0);
       $updated.textContent = maxDate ? fmtDate(String(maxDate)) : "—";
 
@@ -940,4 +917,3 @@ S.docs = allDocs.map(d=>{
   })();
   </script>
 </section>
-

@@ -1,7 +1,41 @@
 <section id="lilacs-audiences" aria-label="Acesso rápido por público">
+    
+    
+    <?php 
+        $post_id = get_queried_object_id() ?: get_the_ID();
+    
+    $titulo  = get_post_meta( $post_id, "_bireme_aud_title", true );  ?>
+    
+    
+<header class="aud-header">
+  <h2 class="aud-section-title"><?=$titulo?></h2>
+</header>
 
 
   <style>
+  /* ===== Título da seção ===== */
+#lilacs-audiences .aud-header{
+  max-width: 1280px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+#lilacs-audiences .aud-section-title{
+    font-family: 'Noto Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 880px){
+  #lilacs-audiences .aud-section-title{
+    font-size: 30px;
+  }
+}
+
     /* ===== Fundo e container ===== */
     #lilacs-audiences{
       position: relative;
@@ -132,10 +166,12 @@ position: relative;
       #lilacs-audiences .aud-wrap{ grid-template-columns: 1fr; }
     }
   </style>
-
+    
   <div class="aud-wrap">
+
+
     <?php
-    $post_id = get_queried_object_id() ?: get_the_ID();
+
 
     // Tenta ler os cards dinâmicos do painel (meta _bireme_aud_{i}_*)
     $cards = array();
