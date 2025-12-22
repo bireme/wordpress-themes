@@ -228,15 +228,6 @@ p,span,a,div{
 }
 </style>
 
-<!-- Breadcrumb navegável (Home / Página atual) -->
-<nav class="lilacs-centro-breadcrumb" aria-label="Breadcrumb">
-  <div class="lilacs-centro-breadcrumb-inner">
-    <a href="<?php echo esc_url($home_url); ?>"><?php echo esc_html($home_label); ?></a>
-    <span class="sep">/</span>
-    <span><?php echo esc_html($current_title); ?></span>
-  </div>
-</nav>
-
 <section id="<?php echo esc_attr( $section_id ); ?>" class="lilacs-centro-banner" style="<?php echo esc_attr( $bg_style ); ?>">
     <div class="lilacs-centro-banner-inner">
 
