@@ -181,7 +181,7 @@ $depo_items        = l40_get_repeater('depoimentos');
       </div>
     </section>
 
-    <!-- GALERIA DE FOTOS -->
+    <!-- GALERIA DE FOTOS (AGORA: BANNER ÚNICO SLIDE 100%) -->
     <section id="galeria" class="l40-gallery" aria-label="Galeria de fotos dos eventos LILACS 40 anos">
       <div class="container">
         <div class="l40-gallery__header">
@@ -191,23 +191,49 @@ $depo_items        = l40_get_repeater('depoimentos');
           <?php endif; ?>
         </div>
 
-        <div class="l40-gallery__grid">
-          <?php
-          if (!empty($gallery_items)) :
-            foreach ($gallery_items as $g) :
-              $img = isset($g['image']) ? $g['image'] : '';
-              $lnk = isset($g['link']) ? $g['link'] : '';
-              $alt = isset($g['alt']) ? $g['alt'] : '';
+        <?php
+          // normaliza lista (com fallback)
+          $slides = [];
+          if (!empty($gallery_items)) {
+            foreach ($gallery_items as $g) {
+              $img = isset($g['image']) ? trim((string)$g['image']) : '';
               if (empty($img)) continue;
-              $href = !empty($lnk) ? $lnk : $img;
-          ?>
-              <a class="l40-gallery__item" href="<?php echo l40_esc_url($href); ?>" target="_blank" rel="noopener">
-                <img src="<?php echo l40_esc_url($img); ?>" alt="<?php echo l40_esc_attr($alt); ?>" loading="lazy">
+              $slides[] = [
+                'img' => $img,
+                'link' => isset($g['link']) ? trim((string)$g['link']) : '',
+                'alt' => isset($g['alt']) ? trim((string)$g['alt']) : '',
+              ];
+            }
+          }
+          if (empty($slides)) {
+            $slides[] = [
+              'img' => 'https://via.placeholder.com/1600x700',
+              'link' => 'https://via.placeholder.com/1600x700',
+              'alt' => 'Evento LILACS 40 anos - foto'
+            ];
+          }
+        ?>
+
+        <div class="l40-banner" data-l40-banner>
+          <div class="l40-banner__track" data-l40-banner-track>
+            <?php foreach ($slides as $idx => $s) :
+              $href = !empty($s['link']) ? $s['link'] : $s['img'];
+            ?>
+              <a class="l40-banner__slide" href="<?php echo l40_esc_url($href); ?>" target="_blank" rel="noopener" aria-label="<?php echo l40_esc_attr(($s['alt'] ?: 'Foto do evento') . ' (abre em nova aba)'); ?>">
+                <img src="<?php echo l40_esc_url($s['img']); ?>" alt="<?php echo l40_esc_attr($s['alt']); ?>" loading="<?php echo ($idx === 0) ? 'eager' : 'lazy'; ?>">
               </a>
-          <?php endforeach; else : ?>
-            <a class="l40-gallery__item" href="https://via.placeholder.com/1600x1000" target="_blank" rel="noopener">
-              <img src="https://via.placeholder.com/900x650" alt="Evento LILACS 40 anos - foto" loading="lazy">
-            </a>
+            <?php endforeach; ?>
+          </div>
+
+          <?php if (count($slides) > 1) : ?>
+            <button class="l40-banner__nav l40-banner__prev" type="button" aria-label="Foto anterior" data-l40-banner-prev></button>
+            <button class="l40-banner__nav l40-banner__next" type="button" aria-label="Próxima foto" data-l40-banner-next></button>
+
+            <div class="l40-banner__dots" role="tablist" aria-label="Navegação da galeria">
+              <?php for ($i=0; $i<count($slides); $i++) : ?>
+                <button type="button" class="l40-banner__dot <?php echo ($i===0) ? 'is-active' : ''; ?>" aria-label="Ir para foto <?php echo (int)($i+1); ?>" data-l40-banner-dot="<?php echo (int)$i; ?>"></button>
+              <?php endfor; ?>
+            </div>
           <?php endif; ?>
         </div>
 
@@ -235,7 +261,7 @@ $depo_items        = l40_get_repeater('depoimentos');
               $ev_date  = isset($ev['date_text']) ? $ev['date_text'] : '';
               $ev_time  = isset($ev['time_text']) ? $ev['time_text'] : '';
               $ev_place = isset($ev['place_text']) ? $ev['place_text'] : '';
-              $ev_desc = $ev['descricao'];
+              $ev_desc  = isset($ev['descricao']) ? $ev['descricao'] : '';
 
               $ev_btn_l = isset($ev['btn_label']) ? $ev['btn_label'] : '';
               $ev_btn_u = isset($ev['btn_url']) ? $ev['btn_url'] : '';
@@ -273,9 +299,10 @@ $depo_items        = l40_get_repeater('depoimentos');
                     <?php endif; ?>
 
                     <div class="l40-acc-content">
-                          <?php if (!empty($ev_desc)) : ?>
-                                <?= $ev_desc;?>
-                              <?php endif; ?>
+                      <?php if (!empty($ev_desc)) : ?>
+                        <?php echo wp_kses_post($ev_desc); ?>
+                      <?php endif; ?>
+
                       <ul class="event-info">
                         <?php if (!empty($ev_date)) : ?>
                           <li><strong>Data:</strong> <?php echo l40_esc_text($ev_date); ?></li>
@@ -326,63 +353,61 @@ $depo_items        = l40_get_repeater('depoimentos');
     </section>
 
     <!-- DEPOIMENTOS (NOVA SECTION) -->
-  <!-- DEPOIMENTOS (NOVA SECTION) -->
-<?php if (!empty($depo_title) || !empty($depo_intro) || !empty($depo_items)) : ?>
-  <section id="depoimentos" class="l40-depo-section" aria-label="Depoimentos">
-    <div class="container">
+    <?php if (!empty($depo_title) || !empty($depo_intro) || !empty($depo_items)) : ?>
+      <section id="depoimentos" class="l40-depo-section" aria-label="Depoimentos">
+        <div class="container">
 
-      <header class="l40-depo-header">
-        <?php if (!empty($depo_title)) : ?>
-          <h2 class="l40-depo-title"><?php echo l40_esc_text($depo_title); ?></h2>
-        <?php endif; ?>
+          <header class="l40-depo-header">
+            <?php if (!empty($depo_title)) : ?>
+              <h2 class="l40-depo-title"><?php echo l40_esc_text($depo_title); ?></h2>
+            <?php endif; ?>
 
-        <?php if (!empty($depo_intro)) : ?>
-          <p class="l40-depo-intro"><?php echo wp_kses_post(wpautop($depo_intro)); ?></p>
-        <?php endif; ?>
-      </header>
+            <?php if (!empty($depo_intro)) : ?>
+              <p class="l40-depo-intro"><?php echo wp_kses_post(wpautop($depo_intro)); ?></p>
+            <?php endif; ?>
+          </header>
 
-      <?php if (!empty($depo_items)) : ?>
-        <div class="l40-depo-grid">
-          <?php foreach ($depo_items as $d) :
-            $name  = isset($d['nome_depoimento']) ? trim((string)$d['nome_depoimento']) : '';
-            $photo = isset($d['foto_depoimento']) ? trim((string)$d['foto_depoimento']) : '';
-            $text  = isset($d['texto_depoimento']) ? trim((string)$d['texto_depoimento']) : '';
+          <?php if (!empty($depo_items)) : ?>
+            <div class="l40-depo-grid">
+              <?php foreach ($depo_items as $d) :
+                $name  = isset($d['nome_depoimento']) ? trim((string)$d['nome_depoimento']) : '';
+                $photo = isset($d['foto_depoimento']) ? trim((string)$d['foto_depoimento']) : '';
+                $text  = isset($d['texto_depoimento']) ? trim((string)$d['texto_depoimento']) : '';
 
-            // Só ignora se estiver tudo vazio
-            if (empty($name) && empty($text)) continue;
-          ?>
-            <article class="l40-depo-card">
-              <div class="l40-depo-card__head <?php echo empty($photo) ? 'is-no-photo' : ''; ?>">
+                // Só ignora se estiver tudo vazio
+                if (empty($name) && empty($text)) continue;
+              ?>
+                <article class="l40-depo-card">
+                  <div class="l40-depo-card__head <?php echo empty($photo) ? 'is-no-photo' : ''; ?>">
 
-                <?php if (!empty($photo)) : ?>
-                  <img class="l40-depo-avatar"
-                       src="<?php echo l40_esc_url($photo); ?>"
-                       alt="<?php echo l40_esc_attr($name); ?>"
-                       loading="lazy">
-                <?php endif; ?>
+                    <?php if (!empty($photo)) : ?>
+                      <img class="l40-depo-avatar"
+                           src="<?php echo l40_esc_url($photo); ?>"
+                           alt="<?php echo l40_esc_attr($name); ?>"
+                           loading="lazy">
+                    <?php endif; ?>
 
-                <?php if (!empty($name)) : ?>
-                  <strong class="l40-depo-name"><?php echo l40_esc_text($name); ?></strong>
-                <?php endif; ?>
+                    <?php if (!empty($name)) : ?>
+                      <strong class="l40-depo-name"><?php echo l40_esc_text($name); ?></strong>
+                    <?php endif; ?>
 
-              </div>
+                  </div>
 
-              <?php if (!empty($text)) : ?>
-                <div class="l40-depo-text"><?php echo wp_kses_post(wpautop($text)); ?></div>
-              <?php endif; ?>
-            </article>
-          <?php endforeach; ?>
+                  <?php if (!empty($text)) : ?>
+                    <div class="l40-depo-text"><?php echo wp_kses_post(wpautop($text)); ?></div>
+                  <?php endif; ?>
+                </article>
+              <?php endforeach; ?>
+            </div>
+
+            <div class="l40-depo-footer">
+              <a class="l40-depo-btn" href="/depoimentos-lilacs/">Ver todos os depoimentos</a>
+            </div>
+          <?php endif; ?>
+
         </div>
-
-        <div class="l40-depo-footer">
-          <a class="l40-depo-btn" href="/depoimentos-lilacs/">Ver todos os depoimentos</a>
-        </div>
-      <?php endif; ?>
-
-    </div>
-  </section>
-<?php endif; ?>
-
+      </section>
+    <?php endif; ?>
 
   </main>
 
@@ -520,6 +545,7 @@ $depo_items        = l40_get_repeater('depoimentos');
 
 /* =========================
    GALERIA (LILACS 40)
+   (mantida a seção, mas agora é banner único slide 100%)
 ========================= */
 .l40-gallery{
   padding: 44px 0;
@@ -547,68 +573,6 @@ $depo_items        = l40_get_repeater('depoimentos');
   max-width: 70ch;
 }
 
-.l40-gallery__grid{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
-}
-
-.l40-gallery__item{
-  position: relative;
-  display: block;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(12,67,128,.10);
-  box-shadow: 0 12px 28px rgba(2, 23, 55, 0.08);
-  transform: translateZ(0);
-  min-height: 170px;
-}
-
-.l40-gallery__item:nth-child(1){ grid-column: span 6; }
-.l40-gallery__item:nth-child(2){ grid-column: span 3; }
-.l40-gallery__item:nth-child(3){ grid-column: span 3; }
-.l40-gallery__item:nth-child(4){ grid-column: span 4; }
-.l40-gallery__item:nth-child(5){ grid-column: span 4; }
-.l40-gallery__item:nth-child(6){ grid-column: span 4; }
-
-.l40-gallery__item img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: scale(1.02);
-  transition: transform .22s ease, filter .22s ease;
-}
-
-.l40-gallery__item::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(180deg, rgba(12,67,128,0) 45%, rgba(12,67,128,.22));
-  opacity: .9;
-  pointer-events:none;
-}
-
-.l40-gallery__item::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius: 14px;
-  box-shadow: inset 0 0 0 1px rgba(226,88,44,.0);
-  transition: box-shadow .22s ease;
-  pointer-events:none;
-}
-
-.l40-gallery__item:hover img{
-  transform: scale(1.07);
-  filter: saturate(1.05);
-}
-
-.l40-gallery__item:hover::before{
-  box-shadow: inset 0 0 0 2px rgba(226,88,44,.55);
-}
-
 .l40-gallery__footer{
   display:flex;
   justify-content:flex-end;
@@ -616,21 +580,124 @@ $depo_items        = l40_get_repeater('depoimentos');
 }
 
 .l40-gallery__cta{
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 16px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 400;
-    color: #fff;
-    background: linear-gradient(90deg, var(--primary), #0b3a70);
-    box-shadow: 0 12px 22px rgba(12, 67, 128, .18);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 400;
+  color: #fff;
+  background: linear-gradient(90deg, var(--primary), #0b3a70);
+  box-shadow: 0 12px 22px rgba(12, 67, 128, .18);
 }
-
 .l40-gallery__cta:hover{
   filter: brightness(.98);
   transform: translateY(-1px);
+}
+
+/* Banner slider 100% */
+.l40-banner{
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(12,67,128,.10);
+  box-shadow: 0 16px 40px rgba(2, 23, 55, 0.10);
+  background: #e9eef5;
+}
+
+.l40-banner__track{
+  display: flex;
+  width: 100%;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+
+.l40-banner__slide{
+  flex: 0 0 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+  min-height: 360px;
+  background: #e9eef5;
+}
+
+.l40-banner__slide img{
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+/* overlay leve, igual vibe anterior */
+.l40-banner__slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(12,67,128,0) 45%, rgba(12,67,128,.22));
+  pointer-events:none;
+}
+
+/* setas */
+.l40-banner__nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(12,67,128,.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 12px 22px rgba(0,0,0,.18);
+}
+.l40-banner__nav:hover{ filter: brightness(1.05); }
+.l40-banner__prev{ left: 12px; }
+.l40-banner__next{ right: 12px; }
+
+.l40-banner__nav::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(135deg);
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+.l40-banner__next::before{
+  transform: rotate(-45deg);
+}
+
+/* dots */
+.l40-banner__dots{
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  z-index: 2;
+}
+.l40-banner__dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.65);
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+}
+.l40-banner__dot.is-active{
+  background: rgba(255,255,255,.95);
 }
 
 @media (max-width: 980px){
@@ -638,19 +705,21 @@ $depo_items        = l40_get_repeater('depoimentos');
     flex-direction: column;
     align-items: flex-start;
   }
-  .l40-gallery__item:nth-child(1){ grid-column: span 12; }
-  .l40-gallery__item:nth-child(2),
-  .l40-gallery__item:nth-child(3),
-  .l40-gallery__item:nth-child(4),
-  .l40-gallery__item:nth-child(5),
-  .l40-gallery__item:nth-child(6){ grid-column: span 6; }
+  .l40-banner__slide,
+  .l40-banner__slide img{
+    min-height: 320px;
+  }
 }
 
 @media (max-width: 640px){
   .l40-gallery{ padding: 34px 0; }
-  .l40-gallery__item{ grid-column: span 12 !important; min-height: 200px; }
   .l40-gallery__footer{ justify-content: stretch; }
   .l40-gallery__cta{ width: 100%; justify-content: center; }
+  .l40-banner__nav{ display:none; } /* mobile: navega por swipe + dots */
+  .l40-banner__slide,
+  .l40-banner__slide img{
+    min-height: 260px;
+  }
 }
 
 /* =========================
@@ -804,7 +873,6 @@ $depo_items        = l40_get_repeater('depoimentos');
   border-radius: 30px;
   text-decoration: none;
   font-weight: 800;
-  
 }
 
 .btn-primary { background: var(--secondary); color: #fff; }
@@ -972,6 +1040,122 @@ h2 { font-size: 1.8rem; margin-bottom: 16px; }
 </style>
 
 <script>
+/* =========================
+   Slider (Galeria -> Banner único 100%)
+========================= */
+(function(){
+  var root = document.querySelector('[data-l40-banner]');
+  if (!root) return;
+
+  var track = root.querySelector('[data-l40-banner-track]');
+  if (!track) return;
+
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.l40-banner__slide'));
+  if (slides.length <= 1) return;
+
+  var btnPrev = root.querySelector('[data-l40-banner-prev]');
+  var btnNext = root.querySelector('[data-l40-banner-next]');
+  var dots = Array.prototype.slice.call(root.querySelectorAll('[data-l40-banner-dot]'));
+
+  var index = 0;
+  var startX = 0;
+  var currentX = 0;
+  var isDown = false;
+  var autoTimer = null;
+
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+  function setActiveDot(i){
+    dots.forEach(function(d, di){
+      if (di === i) d.classList.add('is-active');
+      else d.classList.remove('is-active');
+    });
+  }
+
+  function goTo(i){
+    index = clamp(i, 0, slides.length - 1);
+    track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    setActiveDot(index);
+  }
+
+  function next(){ goTo(index + 1 >= slides.length ? 0 : index + 1); }
+  function prev(){ goTo(index - 1 < 0 ? slides.length - 1 : index - 1); }
+
+  if (btnNext) btnNext.addEventListener('click', function(){ stopAuto(); next(); startAuto(); });
+  if (btnPrev) btnPrev.addEventListener('click', function(){ stopAuto(); prev(); startAuto(); });
+
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      var i = parseInt(dot.getAttribute('data-l40-banner-dot') || '0', 10);
+      stopAuto();
+      goTo(i);
+      startAuto();
+    });
+  });
+
+  // Swipe (touch + mouse)
+  function onDown(x){
+    isDown = true;
+    startX = x;
+    currentX = x;
+    track.style.transition = 'none';
+    stopAuto();
+  }
+  function onMove(x){
+    if (!isDown) return;
+    currentX = x;
+
+    var dx = currentX - startX;
+    var pct = (dx / Math.max(1, root.clientWidth)) * 100;
+    track.style.transform = 'translateX(' + (-(index * 100) + pct) + '%)';
+  }
+  function onUp(){
+    if (!isDown) return;
+    isDown = false;
+    track.style.transition = '';
+
+    var dx = currentX - startX;
+    var threshold = root.clientWidth * 0.18;
+
+    if (dx > threshold) prev();
+    else if (dx < -threshold) next();
+    else goTo(index);
+
+    startAuto();
+  }
+
+  root.addEventListener('touchstart', function(e){
+    if (!e.touches || !e.touches[0]) return;
+    onDown(e.touches[0].clientX);
+  }, {passive:true});
+  root.addEventListener('touchmove', function(e){
+    if (!e.touches || !e.touches[0]) return;
+    onMove(e.touches[0].clientX);
+  }, {passive:true});
+  root.addEventListener('touchend', onUp);
+
+  root.addEventListener('mousedown', function(e){ onDown(e.clientX); });
+  window.addEventListener('mousemove', function(e){ onMove(e.clientX); });
+  window.addEventListener('mouseup', onUp);
+
+  // Auto-play (leve)
+  function startAuto(){
+    // 6s
+    autoTimer = window.setInterval(function(){ next(); }, 6000);
+  }
+  function stopAuto(){
+    if (autoTimer) window.clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  // Init
+  goTo(0);
+  startAuto();
+})();
+
+/* =========================
+   Accordion (Agenda) - mantém seu comportamento
+========================= */
 (function(){
   var root = document.querySelector('[data-l40-accordion]');
   if (!root) return;
