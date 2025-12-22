@@ -27,6 +27,7 @@ if (!defined('ABSPATH')) exit;
 
   <?php wp_head(); ?>
 </head>
+<?php wp_body_open(); ?>
 
 <body <?php body_class(); ?>>
 
@@ -826,7 +827,7 @@ wp_nav_menu([
 </div>
 
 <div id="site-content" class="site-content">
-    <?php wp_body_open(); ?>
+ 
 
 <style>
     .submenu-open {
