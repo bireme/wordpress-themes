@@ -138,7 +138,6 @@
                         flex-direction: column;
                         align-items: stretch;
                     }
-
                     .bvs-footer-logo-box {
                         max-width: 260px;
                     }
@@ -152,9 +151,10 @@
             </style>
 
             <?php
-            // pega texto + logo dinamicamente por idioma
+            // pega texto + logo + copyright dinamicamente por idioma
             $bvs_footer_text = function_exists( 'rede_bvs_get_footer_text' ) ? rede_bvs_get_footer_text() : '';
             $bvs_footer_logo = function_exists( 'rede_bvs_get_footer_logo_url' ) ? rede_bvs_get_footer_logo_url() : '';
+            $bvs_footer_copy = function_exists( 'rede_bvs_get_footer_copyright' ) ? rede_bvs_get_footer_copyright() : '© Todos os direitos são reservados';
 
             // 1 menu footer por idioma
             $footer_menu_id  = function_exists('rede_bvs_get_footer_menu_id_current') ? rede_bvs_get_footer_menu_id_current() : 0;
@@ -166,12 +166,6 @@
                 $items = wp_get_nav_menu_items( $footer_menu_id );
 
                 if ( ! empty($items) && ! is_wp_error($items) ) {
-                    $by_id = array();
-                    foreach ($items as $it) {
-                        $by_id[(int)$it->ID] = $it;
-                    }
-
-                    // índice de filhos por parent
                     $children_map = array();
                     foreach ($items as $it) {
                         $parent_id = (int) $it->menu_item_parent;
@@ -181,15 +175,18 @@
                         }
                     }
 
-                    // colunas = apenas TOP-LEVEL que tem filhos
+                    // colunas = TODO TOP-LEVEL (com filhos OU sozinho)
                     foreach ($items as $it) {
-                        $parent_id = (int) $it->ID;
-                        $is_top    = ((int)$it->menu_item_parent === 0);
+                        $id     = (int) $it->ID;
+                        $is_top = ((int)$it->menu_item_parent === 0);
 
-                        if ( $is_top && ! empty($children_map[$parent_id]) ) {
-                            $footer_columns[$parent_id] = array(
+                        if ( $is_top ) {
+                            $has_children = ! empty($children_map[$id]);
+
+                            $footer_columns[$id] = array(
                                 'title'    => $it->title,
-                                'children' => $children_map[$parent_id],
+                                'url'      => $it->url,
+                                'children' => $has_children ? $children_map[$id] : array(),
                             );
                         }
                     }
@@ -237,13 +234,21 @@
                                     </div>
 
                                     <ul class="bvs-footer-menu-list">
-                                        <?php foreach ( $col['children'] as $child ) : ?>
+                                        <?php if ( ! empty( $col['children'] ) ) : ?>
+                                            <?php foreach ( $col['children'] as $child ) : ?>
+                                                <li>
+                                                    <a href="<?php echo esc_url( $child->url ); ?>">
+                                                        <?php echo esc_html( $child->title ); ?>
+                                                    </a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        <?php else : ?>
                                             <li>
-                                                <a href="<?php echo esc_url( $child->url ); ?>">
-                                                    <?php echo esc_html( $child->title ); ?>
+                                                <a href="<?php echo esc_url( $col['url'] ); ?>">
+                                                    <?php echo esc_html( $col['title'] ); ?>
                                                 </a>
                                             </li>
-                                        <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </ul>
                                 </div>
                             <?php endforeach; ?>
@@ -265,7 +270,7 @@
             </div>
 
             <div class="bvs-footer-bottom">
-                © Todos os direitos são reservados
+                <?php echo wp_kses_post( $bvs_footer_copy ); ?>
             </div>
         </footer>
 

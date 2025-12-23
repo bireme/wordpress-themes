@@ -634,4 +634,3 @@ function rede_bvs_get_footer_copyright() {
 	// fallback
 	return '© Todos os direitos são reservados';
 }
-//fim
