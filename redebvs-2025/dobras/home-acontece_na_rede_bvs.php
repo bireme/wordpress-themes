@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $titulo       = get_sub_field('titulo');
 $descricao    = get_sub_field('descricao');
 $selecionados = get_sub_field('escolha_quais_eventos_exibir');
+$linkGeral = get_sub_field('link_para_ver_todos');
 
 $eventos = [];
 
@@ -229,7 +230,7 @@ if ( $selecionados ) {
 
         <div class="home-acontece-footer">
             <a class="home-acontece-ver-todos"
-               href="<?php echo esc_url( get_post_type_archive_link( 'acontece-na-rede' ) ); ?>">
+               href="<?php echo esc_url($linkGeral); ?>">
                 Ver todos
             </a>
         </div>

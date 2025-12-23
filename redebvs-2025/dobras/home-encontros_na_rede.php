@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Campos ACF
 $titulo     = get_sub_field( 'titulo' );
 $descricao  = get_sub_field( 'descricao' );
+$linkGeral = get_sub_field('link_para_ver_todos');
 
 // Campo post_object (nome pode estar vazio no ACF, então tentamos as duas formas)
 $encontros_selecionados = get_sub_field( 'encontros' );
@@ -233,7 +234,7 @@ if ( $encontros_selecionados ) {
     </div>
 
     <div class="home-encontros-footer">
-        <a class="home-encontros-ver-todos" href="<?php echo esc_url( get_post_type_archive_link( 'encontro-da-rede' ) ); ?>">
+        <a class="home-encontros-ver-todos" href="<?php echo esc_url( $linkGeral); ?>">
             Ver todos
         </a>
     </div>

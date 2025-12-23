@@ -8,6 +8,7 @@ $rss_url    = get_sub_field('url_do_rss');
 $modo       = get_sub_field('modo_'); // checkbox (array ou string)
 $modo_array = is_array($modo) ? $modo : ( $modo ? array($modo) : array() );
 $is_manual  = in_array('Manual', $modo_array, true);
+$linkGeral = get_sub_field('link_para_ver_todos');
 
 define('BVS_RSS_USER', 'admin-tst');
 define('BVS_RSS_PASS', 'bireme123');
@@ -279,7 +280,7 @@ background: #ffffff;
             </div>
 
             <div class="home-reunioes-footer">
-                <a href="<?php echo esc_url(get_field('link_para_ver_todos')); ?>" class="home-reunioes-ver-todos">
+                <a href="<?php echo esc_url($linkGeral); ?>" class="home-reunioes-ver-todos">
                     Ver todos
                 </a>
             </div>
@@ -325,7 +326,7 @@ $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_bv
                 </div>
 
                 <div class="home-reunioes-footer">
-                    <a href="<?php echo esc_url($rss_url); ?>" target="_blank" class="home-reunioes-ver-todos">
+                    <a href="<?php echo esc_url($linkGeral); ?>" target="_blank" class="home-reunioes-ver-todos">
                         Ver todos
                     </a>
                 </div>
