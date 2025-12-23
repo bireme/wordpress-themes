@@ -613,7 +613,7 @@ if (!is_array($dep_items)) $dep_items = [];
       <div class="bireme-tab" id="bireme-tab-4">
         <div class="bireme-field">
           <label for="bireme_aud_title">Título da seção</label>
-          <input type="text" id="bireme_aud_title" name="bireme_aud_title" class="widefat" value="<?php echo esc_attr($aud_title ?: 'Acesso rápido'); ?>">
+          <input type="text" id="bireme_aud_title" name="bireme_aud_title" class="widefat" value="<?php echo esc_attr($aud_title ?: ''); ?>">
           <p class="bireme-hint">Ex.: “Acesso rápido” ou “Para quem é a LILACS”.</p>
         </div>
 
@@ -624,11 +624,11 @@ if (!is_array($dep_items)) $dep_items = [];
             <div class="bireme-two-col">
               <div class="bireme-field">
                 <label for="bireme_aud_1_kicker">Kicker (linha de topo)</label>
-                <input type="text" id="bireme_aud_1_kicker" name="bireme_aud_1_kicker" class="widefat" value="<?php echo esc_attr($aud1_kicker ?: 'Para você'); ?>">
+                <input type="text" id="bireme_aud_1_kicker" name="bireme_aud_1_kicker" class="widefat" value="<?php echo esc_attr($aud1_kicker ?: ''); ?>">
               </div>
               <div class="bireme-field">
                 <label for="bireme_aud_1_title">Título do card</label>
-                <input type="text" id="bireme_aud_1_title" name="bireme_aud_1_title" class="widefat" value="<?php echo esc_attr($aud1_title ?: 'Usuário'); ?>">
+                <input type="text" id="bireme_aud_1_title" name="bireme_aud_1_title" class="widefat" value="<?php echo esc_attr($aud1_title ?: ''); ?>">
               </div>
             </div>
 
