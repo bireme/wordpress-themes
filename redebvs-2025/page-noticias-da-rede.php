@@ -348,9 +348,12 @@ $noticias_query = new WP_Query( array(
                         
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                        <div class="bvs-post-meta">
-                            <?php echo get_the_date(); ?> · <?php the_author(); ?>
-                        </div>
+               <?php if ( get_post_type() === 'post' ) : ?>
+  <div class="bvs-post-meta">
+    <?php echo get_the_date(); ?>
+  </div>
+<?php endif; ?>
+
 
                         <div class="bvs-post-cats">
                             <?php the_category(' '); ?>

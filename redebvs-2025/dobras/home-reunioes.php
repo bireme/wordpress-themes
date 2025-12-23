@@ -279,7 +279,7 @@ background: #ffffff;
             </div>
 
             <div class="home-reunioes-footer">
-                <a href="<?php echo esc_url($rss_url); ?>" class="home-reunioes-ver-todos">
+                <a href="<?php echo esc_url(get_field('link_para_ver_todos')); ?>" class="home-reunioes-ver-todos">
                     Ver todos
                 </a>
             </div>

@@ -82,17 +82,19 @@ get_header();
                 <div class="bvs-single-meta-row">
 
                     <div class="bvs-single-meta-left">
-                        <?php
-                        if ( ! empty( $cats ) ) :
-                            foreach ( $cats as $cat ) :
-                                ?>
-                                <span class="bvs-badge bvs-badge-cat">
-                                    <?php echo esc_html( $cat->name ); ?>
-                                </span>
-                                <?php
-                            endforeach;
-                        endif;
-                        ?>
+                      <?php
+if ( ! empty( $cats ) ) :
+    foreach ( $cats as $cat ) :
+        $cat_link = get_category_link( $cat->term_id );
+        ?>
+        <a class="bvs-badge bvs-badge-cat"
+           href="<?php echo esc_url( $cat_link ); ?>">
+            <?php echo esc_html( $cat->name ); ?>
+        </a>
+        <?php
+    endforeach;
+endif;
+?>
                     </div>
 
                     <div class="bvs-single-meta-right">
@@ -316,10 +318,11 @@ get_header();
     }
 
     .bvs-single-featured img {
-        width: 100%;
-        height: auto;
-        display: block;
-        object-fit: cover;
+     width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 150px;
     }
 
     /* CONTEÚDO */
@@ -358,6 +361,10 @@ get_header();
         float: right;
         margin: 0 0 1em 1.5em;
     }
+    
+    .bvs-badge { text-decoration: none; }
+.bvs-badge:hover { filter: brightness(0.98); }
+
 
     .bvs-single-content .aligncenter {
         display: block;
