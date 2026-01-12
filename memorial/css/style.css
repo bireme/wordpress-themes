@@ -67,6 +67,9 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 	padding: 80px 0;
 }
+#home-products a{
+	color: #fff;
+}
 #profiles{
 	background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, rgba(130, 83, 186, 0.20) 100%);
 	padding: 50px 0;
@@ -239,7 +242,6 @@ a.btn:hover {
 		width: 100%;
 	}
 }
-
 #product-brand img{
 	border: 1px solid #ddd;
 	background: #f2f2f2;
@@ -252,4 +254,19 @@ a.btn:hover {
 	padding: 10px 0;
 	font-size: 14px;
 	text-align: center;
+}
+.post-wp li{
+	border: 1px solid #ddd;
+	border-radius: 16px;
+	box-sizing: border-box;
+	padding: 15px 5px;
+}
+.post-wp img{
+	border-radius: 16px;
+}
+.post-wp .wp-block-latest-posts__post-title,
+.post-wp .wp-block-latest-posts__post-excerpt{
+	width: 80%;
+	margin: 10px 20px;
+	display: block;
 }
