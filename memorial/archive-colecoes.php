@@ -20,7 +20,7 @@ $paged = (get_query_var('paged')) ? (int) get_query_var('paged') : 1;
 $args = [
     'post_type'      => 'colecoes',
     'post_status'    => 'publish',
-    'posts_per_page' => 12,
+    'posts_per_page' => -1,
     'paged'          => $paged,
     'meta_query'     => [
         'relation' => 'OR',
@@ -75,10 +75,8 @@ $query = new WP_Query($args);
                 }
 
             ?>
-
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card h-100 shadow-sm">
-
                         <?php if (!empty($thumb)) : ?>
                             <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
                                 <img
@@ -90,46 +88,27 @@ $query = new WP_Query($args);
                                 />
                             </a>
                         <?php endif; ?>
-
                         <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <?php if ($is_featured) : ?>
-                                    <span class="badge bg-primary">Destaque</span>
-                                <?php else : ?>
-                                    <span></span>
-                                <?php endif; ?>
-
-                                <?php if ($is_featured && $order_featured !== '') : ?>
-                                    <span class="text-muted small">Ordem: <?php echo esc_html($order_featured); ?></span>
-                                <?php endif; ?>
-                            </div>
-
                             <h2 class="h5 card-title">
                                 <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
                                     <?php the_title(); ?>
                                 </a>
                             </h2>
-
                             <?php if (!empty($excerpt)) : ?>
                                 <p class="card-text text-muted">
                                     <?php echo esc_html($excerpt); ?>
                                 </p>
                             <?php endif; ?>
-
                             <div class="mt-auto">
                                 <a href="<?php echo esc_url($link); ?>" class="btn btn-outline-primary w-100">
                                     Ver coleção
                                 </a>
                             </div>
                         </div>
-
                     </article>
                 </div>
-
             <?php endwhile; ?>
-
         </div>
-
         <!-- Paginação -->
         <div class="mt-5">
             <?php
@@ -145,18 +124,12 @@ $query = new WP_Query($args);
             }
             ?>
         </div>
-
     <?php else : ?>
-
         <div class="alert alert-info">
             Nenhuma coleção cadastrada ainda.
         </div>
-
     <?php endif; ?>
-
 </main>
-
-<?php
-wp_reset_postdata();
-
+<?php wp_reset_postdata();
 get_footer();
+?>

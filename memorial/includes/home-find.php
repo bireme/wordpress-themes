@@ -3,9 +3,7 @@
 		<h2 class="title text-center mb-5">Acesse o Memorial do seu jeito</h2>
 		<div class="row">
 			<div class="col-md-12">
-				<p>O acervo destaca aspectos da pandemia de Covid-19 que muitas vezes passam despercebidos, trazendo à luz temas como desigualdade, racismo, violência de gênero e violações de direitos. A riqueza de documentos e relatos torna esse arquivo essencial para que a história da pandemia continue sendo contada no futuro, da pesquisa acadêmica aos livros didáticos e à sala de aula.</p>
-				<p>Nesta seção vamos apresentar propostas educativas inspiradas nos objetivos do Memorial e em seu acervo, pensadas para estudantes e professores de diferentes níveis de ensino.</p>
-				<p>Quer conversar a respeito? <br> Nosso email é: <a href="">educativomemorial@email.com</a></p>
+				<p>Explore coleções e exposições virtuais, ações educativas, saiba como pesquisar, conheça sobre preservação digital e saiba como fazer parte dessa memória coletiva.</p>
 			</div>
 			<div class="col-md-12" id="home-find">
 				<div class="home-profiles">
