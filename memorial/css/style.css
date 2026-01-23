@@ -299,6 +299,13 @@ a.btn:hover {
 ..wp-block-details{
 	border-bottom: 2px solid #4e9a51;
 }
+blockquote{
+	padding: 30px 30px 10px 30px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 16px 0;
+    margin-bottom: 30px;
+}
 /***********************home nova*/
 #nav-home{
 	margin-top: 24px;
