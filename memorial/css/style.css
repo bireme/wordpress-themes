@@ -5,6 +5,10 @@ h1, h2, h3, h4, h5, h6{
 a{
 	text-decoration: none;
 }
+.btn{
+	border-radius: 9999px;
+	padding: 6px 20px;
+}
 .title{
 	font-weight: bold;
 }
@@ -289,11 +293,9 @@ a.btn:hover {
 .title{
 	margin-bottom: 30px;
 }
-
-#memorial-img{
+.img-up{
 	margin-top:-30px!important;
 }
-
 /***********************home nova*/
 #nav-home{
 	margin-top: 24px;
@@ -385,6 +387,3 @@ a.btn:hover {
 	background: #000!important;
 }
 }*/	
-
-
-
