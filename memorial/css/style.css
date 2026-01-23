@@ -296,7 +296,7 @@ a.btn:hover {
 .img-up{
 	margin-top:-30px!important;
 }
-..wp-block-details{
+.wp-block-details{
 	border-bottom: 2px solid #4e9a51;
 }
 blockquote{
@@ -305,7 +305,7 @@ blockquote{
     border: 1px solid #ddd;
     border-radius: 16px 0;
     margin-bottom: 30px;
-    background: #a0f7cb;
+    background: #d5fad6;
 }
 /***********************home nova*/
 #nav-home{
