@@ -24,7 +24,7 @@ a{
 	background: linear-gradient(45deg, rgba(30, 58, 95, 1) 0%, rgba(78, 154, 81, 1) 100%);
 }
 #header-home{
-	border-bottom: 1px solid #4e9a51;;
+	border-bottom: 1px solid #4e9a51;
 }
 #nav{
 	margin-top: 24px;
@@ -295,6 +295,9 @@ a.btn:hover {
 }
 .img-up{
 	margin-top:-30px!important;
+}
+..wp-block-details{
+	border-bottom: 2px solid #4e9a51;
 }
 /***********************home nova*/
 #nav-home{
