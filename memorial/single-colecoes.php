@@ -50,6 +50,11 @@ if (have_posts()) :
 								class="img-fluid rounded"
 								loading="lazy"
 								/>
+								<?php if (!empty($tainacan_url)) : ?>
+									<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary">
+										Ver todos
+									</a>
+								<?php endif; ?>
 							</div>
 						<?php endif; ?>
 					</div>
