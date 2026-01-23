@@ -25,7 +25,7 @@
 			</div>
 			<div class="row mt-5">
 				<div class="col-md-12">
-					<?php echo do_shortcode('[wpcode id="380"]'); ?>
+					<?php echo do_shortcode('[wpcode id="704"]'); ?>
 				</div>
 				<div class="col-md-4 offset-md-2 d-none" id="header-social">
 					<p>Preservando memórias, <br>
