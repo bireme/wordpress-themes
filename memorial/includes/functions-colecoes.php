@@ -124,7 +124,7 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
             id="memorial_tainacan_collection_url"
             name="memorial_tainacan_collection_url"
             value="<?php echo esc_attr($url_colecao); ?>"
-            placeholder="https://memorialpandemia.teste.bvs.br/tainacan/fala-parente/"
+            placeholder="https://teste.memorialdigitalcovid19.org.br/tainacan/fala-parente/"
         />
         <div class="memorial-metabox-help">
             Usado para o botão “Ver todos” (leva para a listagem completa no Tainacan).
@@ -237,7 +237,7 @@ function memorial_colecoes_save_metabox_tainacan(int $post_id): void
 }
 
 // 3) INTEGRAÇÃO TAINACAN (API) - FILTRO CERTO POR COLEÇÃO
-define('MEMORIAL_TAINACAN_BASE_URL', 'https://memorialpandemia.teste.bvs.br/tainacan');
+define('MEMORIAL_TAINACAN_BASE_URL', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
 
 define('MEMORIAL_TAINACAN_HTTP_TIMEOUT', 15);
 define('MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION', 6 * HOUR_IN_SECONDS);
@@ -329,48 +329,78 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
     $cache_key = 'memorial_tainacan_collection_id_' . md5($collection_slug);
     $cached = get_transient($cache_key);
     if ($cached !== false) {
-        return is_numeric($cached) ? (int) $cached : null;
+        return ($cached === 'null') ? null : (int) $cached;
     }
 
-    // Busca lista de coleções e encontra manualmente o slug
+    // Helper local para extrair ID do retorno (array ou items[])
+    $extract_id = function($json) use ($collection_slug): ?int {
+        $list = [];
+
+        if (is_array($json) && isset($json['items']) && is_array($json['items'])) {
+            $list = $json['items'];
+        } elseif (is_array($json)) {
+            $list = $json;
+        }
+
+        foreach ($list as $col) {
+            if (!is_array($col)) continue;
+
+            $col_slug = $col['slug'] ?? ($col['name'] ?? '');
+            $col_slug = sanitize_title((string) $col_slug);
+
+            if ($col_slug === $collection_slug) {
+                $id = $col['id'] ?? ($col['ID'] ?? null);
+                return (is_numeric($id) ? (int) $id : null);
+            }
+        }
+
+        // Se veio somente 1 resultado sem slug (casos raros)
+        if (isset($list[0]) && is_array($list[0]) && count($list) === 1) {
+            $id = $list[0]['id'] ?? ($list[0]['ID'] ?? null);
+            return (is_numeric($id) ? (int) $id : null);
+        }
+
+        return null;
+    };
+
+    /**
+     * Tentativa 1 (preferida): filtrar por slug
+     * (muitos ambientes permitem isso mesmo quando a listagem geral é bloqueada)
+     */
+    $url = memorial_tainacan_api_url('tainacan/v2/collections', [
+        'slug' => $collection_slug,
+        'perpage' => 1,
+    ]);
+
+    $resp = memorial_tainacan_http_get_json_with_headers($url);
+    if (!is_wp_error($resp)) {
+        $id = $extract_id($resp['json']);
+        if (!empty($id)) {
+            set_transient($cache_key, (string) $id, MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
+            return (int) $id;
+        }
+    }
+
+    /**
+     * Tentativa 2: buscar lista maior e bater manualmente
+     */
     $url = memorial_tainacan_api_url('tainacan/v2/collections', [
         'perpage' => 100,
     ]);
 
     $resp = memorial_tainacan_http_get_json_with_headers($url);
-    if (is_wp_error($resp)) {
-        set_transient($cache_key, 'null', 10 * MINUTE_IN_SECONDS);
-        return null;
-    }
-
-    $json = $resp['json'];
-
-    $collections = [];
-    if (isset($json['items']) && is_array($json['items'])) {
-        $collections = $json['items'];
-    } elseif (is_array($json)) {
-        $collections = $json;
-    }
-
-    foreach ($collections as $col) {
-        if (!is_array($col)) continue;
-
-        $col_slug = $col['slug'] ?? ($col['name'] ?? null);
-        $col_slug = is_string($col_slug) ? sanitize_title($col_slug) : '';
-
-        if ($col_slug === $collection_slug) {
-            $id = $col['id'] ?? ($col['ID'] ?? null);
-
-            if (!empty($id) && is_numeric($id)) {
-                set_transient($cache_key, (int) $id, MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
-                return (int) $id;
-            }
+    if (!is_wp_error($resp)) {
+        $id = $extract_id($resp['json']);
+        if (!empty($id)) {
+            set_transient($cache_key, (string) $id, MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
+            return (int) $id;
         }
     }
 
     set_transient($cache_key, 'null', 10 * MINUTE_IN_SECONDS);
     return null;
 }
+
 
 /**
  * Buscar itens da coleção (filtro 100% correto usando collection_id)
