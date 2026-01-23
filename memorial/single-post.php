@@ -18,10 +18,10 @@
 			<hr class="border">	
 		<div class="row">
 			<div class="col-12 col-md-4">
-				<?php previous_post_link( '%link' ); ?>  
+				<?php previous_post_link( '&larr; %link' ); ?>  
 			</div>
 			<div class="col-12 offset-md-4 col-md-4 text-end">
-				<?php next_post_link( '%link'); ?> 
+				<?php next_post_link( '%link &rarr;'); ?>
 			</div>
 		</div>
 	</div>

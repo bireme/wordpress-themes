@@ -46,7 +46,7 @@ if (have_posts()) :
 								loading="lazy"
 								/>
 								<?php if (!empty($tainacan_url)) : ?>
-									<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary mt-5">Ver itens desta coleção</a>
+									<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary mt-3">Ver itens desta coleção</a>
 								<?php endif; ?>
 							</div>
 						<?php endif; ?>
