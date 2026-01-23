@@ -27,6 +27,7 @@ add_action('init', function () {
 add_action('init', 'action_init');
 function action_init(){
     register_nav_menu('main-nav', 'Main Menu (top)');
+    register_nav_menu('main-nav-home', 'Main Menu (Home)');
 }
 
 //Excerpt length
@@ -63,6 +64,13 @@ register_sidebar([
     'name'          => 'Footer 3',
     'id'            => 'footer3',
     'description'   => 'Footer 3',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>'
+]);
+register_sidebar([
+    'name'          => 'Nova Home',
+    'id'            => 'nova-home',
+    'description'   => 'Nova Home',
     'before_title'  => '<h5>',
     'after_title'   => '</h5>'
 ]);

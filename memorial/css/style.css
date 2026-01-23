@@ -2,6 +2,9 @@
 h1, h2, h3, h4, h5, h6{
 	font-family: "Roboto", sans-serif;;
 }
+a{
+	text-decoration: none;
+}
 .title{
 	font-weight: bold;
 }
@@ -270,3 +273,118 @@ a.btn:hover {
 	margin: 10px 20px;
 	display: block;
 }
+#home-news a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;
+	font-size: 20px;
+}
+#home-news a:hover{
+	color: #666;	
+}
+.wp-block-latest-posts__read-more{
+	display: none;
+}
+
+.title{
+	margin-bottom: 30px;
+}
+
+#memorial-img{
+	margin-top:-30px!important;
+}
+
+/***********************home nova*/
+#nav-home{
+	margin-top: 24px;
+}
+#header-home{
+	border: 0;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+#intro{
+	font-size: 22px;
+	margin-bottom: 30px;
+}
+#header-social{
+	font-size: 18px;
+	text-align: center;
+}
+#header-social img{
+	width: 36px;
+	margin: 10px 5px;
+	transition: all .3s ease;
+}
+#header-social img:hover{
+	width: 30px;
+	margin: 10px 8px;
+}
+.texto-destaque h2{
+	border-bottom: 2px solid #000;
+}
+.descricao-home a{
+	color: #000;
+	font-size: 20px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.descricao-home a:hover{
+	color: #666;
+	font-size: 20px;
+}
+#bts-home{
+
+}
+#footer-home{
+	background: #000;
+	color: #fff;
+	padding: 50px;
+	margin-top:80px;
+}
+#footer-home a{
+	color: #fff;
+}
+#footer-home-social{
+	color: #fff;
+	font-size:30px;
+	text-align: center;
+}
+#footer-home-social img{
+	width: 35px;
+	margin:0 10px;
+}
+
+#footer-home-social img{
+	width: 36px;
+	margin: 10px 5px;
+	transition: all .3s ease;
+}
+#footer-home-social img:hover{
+	width: 30px;
+	margin: 10px 8px;
+}
+
+#accessibilityTutorial{
+	text-align: left;
+}
+
+.wp-block-accordion-heading__toggle-title{
+	flex: none;
+}
+/*
+.wp-block-button__link, .btn, a.button, a.btn{
+	color: #000!important;
+	background: #fff;
+}
+.wp-block-button__link{
+	background: #fff!important;
+}
+.wp-block-button__link:hover{
+	color: #fff!important;
+	background: #000!important;
+}
+}*/	
+
+
+
