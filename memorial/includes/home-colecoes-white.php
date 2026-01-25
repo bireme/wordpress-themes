@@ -23,13 +23,8 @@ if ($q->have_posts()) : ?>
 						<?php endif; ?>
 					</a>
 				</div>
-				<h3 class="colecao-title"><?php the_title(); ?></h3>
-				<div class="colecao-excerpt">
-					<?php echo wp_kses_post(get_the_excerpt()); ?>
-				</div>
-
-				<a class="btn btn-primary" href="<?php the_permalink(); ?>">
-					Ver detalhes
+				<a  href="<?php the_permalink(); ?>">
+					<h3 class="colecao-title"><?php the_title(); ?></h3>
 				</a>
 			</article>
 		<?php endwhile; ?>
@@ -41,36 +36,24 @@ wp_reset_postdata();
 <style>
 	.colecao-card {
 		padding: 16px;
-		border: 1px solid #e6e6e6;
-		border-radius: 12px;
 		background: #fff;
 		height: 100%;
 		margin: 0 10px;
 	}
-
 	.colecao-title {
-		margin: 10px 0;
+		margin-top: 10px;
 		font-size: 24px;
 	}
-
+	.colecao-card a{
+		color: #000;
+	}
+	.colecao-card a:hover{
+		color: #999;
+	}
 	.colecao-thumb img {
 		display: block;
 		width: 100%;
 		height: auto;
-		border-radius: 10px;
-	}
-
-	.colecao-excerpt {
-		margin: 10px 0;
-		font-size: 18px;
-		line-height: 1.4;
-	}
-
-	.colecao-link {
-		display: inline-block;
-		margin-top: 12px;
-		text-decoration: none;
-		font-weight: 600;
 	}
 
 </style>
