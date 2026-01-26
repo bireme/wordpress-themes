@@ -16,7 +16,7 @@ jQuery(function ($) {
   });
 });
 
-//Pesquisa
+//Pesquisa IAHx
 jQuery(function ($) {
   $("#buscaForm").on("submit", function (e) {
     e.preventDefault();
