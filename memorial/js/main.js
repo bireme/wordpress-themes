@@ -1,4 +1,4 @@
-//Carrossel
+//Carrossel Coleções
 jQuery(function ($) {
   $('.colecoes-slider').slick({
     slidesToShow: 2,
