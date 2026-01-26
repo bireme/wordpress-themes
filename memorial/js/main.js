@@ -1,4 +1,4 @@
-//Carrossel Coleções
+//Carrossel Coleções Tainacan
 jQuery(function ($) {
   $('.colecoes-slider').slick({
     slidesToShow: 2,
