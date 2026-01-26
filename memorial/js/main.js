@@ -1,4 +1,31 @@
 jQuery(function ($) {
+  $("#buscaForm").on("submit", function (e) {
+    e.preventDefault();
+    const termo = $("#fieldSearch").val().trim();
+    const tipo = $("input[name='inlineRadioOptions']:checked").val();
+
+    let url = "";
+
+    // Coleções / Documento no Tainacan
+    if (tipo === "colecao") {
+      url = "https://teste.memorialdigitalcovid19.org.br/tainacan/?s=" + encodeURIComponent(termo);
+    }
+    // Produção científica e técnica na BVS
+    else if (tipo === "documento") {
+      url =
+        "https://pesquisa.bvsalud.org/memorialcovid/?output=site&lang=pt&q=" +
+        encodeURIComponent(termo) +
+        "&search_form_submit=";
+    }
+
+    // Se quiser impedir busca vazia, descomente:
+    // if (!termo) return;
+
+    window.location.href = url;
+  });
+});
+
+jQuery(function ($) {
   $('.colecoes-slider').slick({
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -12,26 +39,5 @@ jQuery(function ($) {
         settings: { slidesToShow: 1 }
       }
     ]
-  });
-});
-
-
-
-jQuery(function() {
-  jQuery("#buscaForm").on("submit", function(e) {
-    e.preventDefault();
-
-    let termo = jQuery("#termoBusca").val().trim();
-
-    let tipo = jQuery("input[name='inlineRadioOptions']:checked").val();
-    let url = "";
-
-    if (tipo === "colecao") {
-      url = "https://memorialpandemia.teste.bvs.br/tainacan/?s=" + encodeURIComponent(termo);
-    } else if (tipo === "documento") {
-      url = "https://pesquisa.bvsalud.org/portal/?output=site&lang=pt&q=" + encodeURIComponent(termo) + "&search_form_submit=";
-    }
-
-    window.location.href = url;
   });
 });
