@@ -43,5 +43,3 @@ jQuery(function ($) {
     window.location.href = url;
   });
 });
-
-alert("teste 16h46")
