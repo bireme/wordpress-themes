@@ -421,6 +421,9 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
 /* Submenu base (dropdown) */
 .bvs-main-menu .sub-menu {
     position: absolute;
+    max-height: 300px !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
     top: 100%;
     left: 50%;
     transform: translate(-50%, 10px);

@@ -188,6 +188,7 @@ body{
     padding: 20px;
     border-radius: 14px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    margin-bottom:10px;
 }
 
 .bvs-sidebar-title{
@@ -316,9 +317,12 @@ include('dobras/resultado-banner.php');
                         
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                        <div class="bvs-post-meta">
-                            <?php echo get_the_date(); ?> · <?php the_author(); ?>
-                        </div>
+                        <?php if(get_post_type() != "produtos"){ ?>
+                         <div class="bvs-post-meta">
+                                  <?php echo get_the_date(); ?> · <?php the_author(); ?>
+                         </div>
+                        <?php  }  ?>
+
 
                         <div class="bvs-post-cats">
                             <?php the_category(' '); ?>
@@ -355,22 +359,41 @@ include('dobras/resultado-banner.php');
     </section>
 
     <!-- Sidebar -->
-    <aside class="bvs-sidebar">
-        <div class="bvs-sidebar-box">
-            <h3 class="bvs-sidebar-title"><?php esc_html_e( 'Categorias', 'bvs' ); ?></h3>
-            <ul>
-                <?php 
-                wp_list_categories( array(
-                    'title_li'   => '',
-                    'orderby'    => 'name',
-                    'order'      => 'ASC',
-                    'hide_empty' => 0, // MOSTRA CATEGORIAS MESMO SEM POSTS
-                    'number'     => 15
-                ) ); 
-                ?>
-            </ul>
-        </div>
-    </aside>
+   <!-- Sidebar -->
+<aside class="bvs-sidebar">
+
+    <!-- Categorias -->
+    <div class="bvs-sidebar-box">
+        <h3 class="bvs-sidebar-title"><?php esc_html_e( 'Categorias', 'bvs' ); ?></h3>
+        <ul>
+            <?php 
+            wp_list_categories( array(
+                'title_li'   => '',
+                'orderby'    => 'name',
+                'order'      => 'ASC',
+                'hide_empty' => 0, // MOSTRA CATEGORIAS MESMO SEM POSTS
+                'number'     => 15
+            ) ); 
+            ?>
+        </ul>
+    </div>
+
+    <!-- Filtro por Ano -->
+    <div class="bvs-sidebar-box">
+        <h3 class="bvs-sidebar-title"><?php esc_html_e( 'Arquivos por Ano', 'bvs' ); ?></h3>
+        <ul>
+            <?php
+            wp_get_archives( array(
+                'type'            => 'yearly',
+                'limit'           => 10, // quantidade de anos
+                'show_post_count' => true
+            ) );
+            ?>
+        </ul>
+    </div>
+
+</aside>
+
 
 </main>
 

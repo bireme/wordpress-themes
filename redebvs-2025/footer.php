@@ -79,15 +79,18 @@
                 }
 
                 .bvs-footer-menus-row {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                    display: flex;
                     gap: 32px;
+                }
+                .bvs-footer-menu-column{
+                    min-width: 15.9%;
                 }
 
                 .bvs-footer-menu-column-title {
                     font-size: 18px;
                     font-weight: 600;
                     margin-bottom: 6px;
+                    width:auto;
                 }
 
                 .bvs-footer-menu-list {
