@@ -340,7 +340,7 @@ blockquote{
 	margin: 10px 8px;
 }
 .texto-destaque h2{
-	border-bottom: 2px solid #000;
+	text-decoration: underline;
 }
 .descricao-home a{
 	color: #000;
