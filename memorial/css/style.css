@@ -307,6 +307,9 @@ blockquote{
     margin-bottom: 30px;
     background: #d5fad6;
 }
+#news a:hover{
+	opacity: 0.8;
+}
 /***********************home nova*/
 #nav-home{
 	margin-top: 24px;

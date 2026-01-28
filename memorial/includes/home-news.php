@@ -9,7 +9,7 @@ $posts_home = new WP_Query([
 if ( $posts_home->have_posts() ) : ?>
 	<section class="mt-5 mb-5 container">
 		<div class="d-flex align-items-center justify-content-between mb-3">
-			<h2 >Últimos posts</h2>
+			<h2 >Notícias</h2>
 
 			<?php
 			// Ajuste aqui o destino do "Ver todas"
@@ -20,7 +20,7 @@ if ( $posts_home->have_posts() ) : ?>
 			?>
 		</div>
 
-		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="news">
 			<?php while ( $posts_home->have_posts() ) : $posts_home->the_post(); ?>
 				<article class="col">
 					<div class="card h-100">
