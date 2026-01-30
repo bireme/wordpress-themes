@@ -381,22 +381,41 @@ body{
 
 
     <!-- Sidebar -->
-    <aside class="bvs-sidebar">
-        <div class="bvs-sidebar-box">
-            <h3 class="bvs-sidebar-title">Categorias</h3>
-            <ul>
-                <?php 
-                wp_list_categories( array(
-                    'title_li'   => '',
-                    'orderby'    => 'name',
-                    'order'      => 'ASC',
-                    'hide_empty' => 0,
-                    'number'     => 15,
-                ) ); 
-                ?>
-            </ul>
-        </div>
-    </aside>
+    <!-- Sidebar -->
+<aside class="bvs-sidebar">
+
+    <!-- Categorias -->
+    <div class="bvs-sidebar-box">
+        <h3 class="bvs-sidebar-title"><?php esc_html_e( 'Categorias', 'bvs' ); ?></h3>
+        <ul>
+            <?php 
+            wp_list_categories( array(
+                'title_li'   => '',
+                'orderby'    => 'name',
+                'order'      => 'ASC',
+                'hide_empty' => 0, // MOSTRA CATEGORIAS MESMO SEM POSTS
+                'number'     => 15
+            ) ); 
+            ?>
+        </ul>
+    </div>
+
+    <!-- Filtro por Ano -->
+    <div class="bvs-sidebar-box">
+        <h3 class="bvs-sidebar-title"><?php esc_html_e( 'Arquivos por Ano', 'bvs' ); ?></h3>
+        <ul>
+            <?php
+            wp_get_archives( array(
+                'type'            => 'yearly',
+                'limit'           => 10, // quantidade de anos
+                'show_post_count' => true
+            ) );
+            ?>
+        </ul>
+    </div>
+
+</aside>
+
 
 </main>
 

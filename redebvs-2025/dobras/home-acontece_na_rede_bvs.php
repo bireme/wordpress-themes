@@ -84,7 +84,7 @@ if ( $selecionados ) {
     display: block;
     width: 100%;
     height: 160px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 28px 28px 0 0;
 }
 
