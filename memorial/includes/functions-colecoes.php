@@ -1,10 +1,45 @@
-<?php 
-//CPT "Coleções" + MetaBox + Integração Tainacan + Debug
+<?php
+/**
+ * Memorial - CPT Coleções + MetaBox + Integração Tainacan + Debug
+ */
+
 if (!defined('ABSPATH')) {
     exit;
 }
 
-//1) CPT: COLEÇÕES
+
+/**
+ * ============================================================
+ * 0) CONFIG / CONSTANTES (protege contra inclusão dupla)
+ * ============================================================
+ */
+
+if (!defined('MEMORIAL_TAINACAN_BASE_URL')) {
+    // SEM barra no final
+    define('MEMORIAL_TAINACAN_BASE_URL', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
+}
+
+if (!defined('MEMORIAL_TAINACAN_HTTP_TIMEOUT')) {
+    define('MEMORIAL_TAINACAN_HTTP_TIMEOUT', 15);
+}
+
+if (!defined('MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION')) {
+    define('MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION', 6 * HOUR_IN_SECONDS);
+}
+
+if (!defined('MEMORIAL_TAINACAN_CACHE_TTL_ITEMS')) {
+    define('MEMORIAL_TAINACAN_CACHE_TTL_ITEMS', 10 * MINUTE_IN_SECONDS);
+}
+
+if (!defined('MEMORIAL_TAINACAN_CACHE_TTL_NULL')) {
+    define('MEMORIAL_TAINACAN_CACHE_TTL_NULL', 10 * MINUTE_IN_SECONDS);
+}
+
+/**
+ * ============================================================
+ * 1) CPT: COLEÇÕES
+ * ============================================================
+ */
 add_action('init', 'memorial_register_cpt_colecoes');
 
 function memorial_register_cpt_colecoes(): void
@@ -38,21 +73,17 @@ function memorial_register_cpt_colecoes(): void
         'show_in_menu'       => true,
         'menu_position'      => 20,
         'menu_icon'          => 'dashicons-portfolio',
-        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions'],
-
+        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes'],
         'rewrite'            => [
             'slug'       => 'colecoes',
             'with_front' => false,
         ],
-
         'has_archive'        => true,
         'hierarchical'       => false,
         'show_in_rest'       => true,
-
         'publicly_queryable' => true,
         'exclude_from_search'=> false,
         'query_var'          => true,
-
         'capability_type'    => 'post',
         'map_meta_cap'       => true,
     ];
@@ -60,8 +91,13 @@ function memorial_register_cpt_colecoes(): void
     register_post_type('colecoes', $args);
 }
 
-//2) META BOX: CONFIGURAÇÕES DO TAINACAN
+/**
+ * ============================================================
+ * 2) META BOX: CONFIGURAÇÕES DO TAINACAN
+ * ============================================================
+ */
 add_action('add_meta_boxes_colecoes', 'memorial_colecoes_add_metabox_tainacan');
+
 function memorial_colecoes_add_metabox_tainacan(): void
 {
     add_meta_box(
@@ -124,7 +160,7 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
             id="memorial_tainacan_collection_url"
             name="memorial_tainacan_collection_url"
             value="<?php echo esc_attr($url_colecao); ?>"
-            placeholder="https://teste.memorialdigitalcovid19.org.br/tainacan/fala-parente/"
+            placeholder="<?php echo esc_attr(rtrim(MEMORIAL_TAINACAN_BASE_URL, '/') . '/fala-parente/'); ?>"
         />
         <div class="memorial-metabox-help">
             Usado para o botão “Ver todos” (leva para a listagem completa no Tainacan).
@@ -236,12 +272,11 @@ function memorial_colecoes_save_metabox_tainacan(int $post_id): void
     update_post_meta($post_id, '_memorial_itens_por_pagina', $perpage);
 }
 
-// 3) INTEGRAÇÃO TAINACAN (API) - FILTRO CERTO POR COLEÇÃO
-define('MEMORIAL_TAINACAN_BASE_URL', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
-
-define('MEMORIAL_TAINACAN_HTTP_TIMEOUT', 15);
-define('MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION', 6 * HOUR_IN_SECONDS);
-define('MEMORIAL_TAINACAN_CACHE_TTL_ITEMS', 10 * MINUTE_IN_SECONDS);
+/**
+ * ============================================================
+ * 3) HELPERS API
+ * ============================================================
+ */
 
 function memorial_tainacan_api_url(string $path, array $query = []): string
 {
@@ -255,14 +290,11 @@ function memorial_tainacan_api_url(string $path, array $query = []): string
     return $url;
 }
 
-/**
- * GET JSON com headers (User-Agent para evitar bloqueios)
- */
 function memorial_tainacan_http_get_json_with_headers(string $url, array $args = [])
 {
     $defaults = [
         'timeout' => MEMORIAL_TAINACAN_HTTP_TIMEOUT,
-        'redirection' => 3,
+        'redirection' => 5,
         'sslverify' => true,
         'headers' => [
             'Accept' => 'application/json',
@@ -289,7 +321,7 @@ function memorial_tainacan_http_get_json_with_headers(string $url, array $args =
             [
                 'url' => $url,
                 'code' => $code,
-                'body_excerpt' => mb_substr(wp_strip_all_tags($body), 0, 500),
+                'body_excerpt' => mb_substr(wp_strip_all_tags($body), 0, 800),
             ]
         );
     }
@@ -302,7 +334,7 @@ function memorial_tainacan_http_get_json_with_headers(string $url, array $args =
             [
                 'url' => $url,
                 'error' => json_last_error_msg(),
-                'body_excerpt' => mb_substr($body, 0, 500),
+                'body_excerpt' => mb_substr((string) $body, 0, 800),
             ]
         );
     }
@@ -316,9 +348,11 @@ function memorial_tainacan_http_get_json_with_headers(string $url, array $args =
 }
 
 /**
- * Resolver o ID da coleção pelo slug
- * - Aqui está o ponto que garante o filtro correto.
+ * ============================================================
+ * 4) RESOLVER COLLECTION_ID PELO SLUG (robusto)
+ * ============================================================
  */
+
 function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?int
 {
     $collection_slug = sanitize_title($collection_slug);
@@ -332,7 +366,6 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
         return ($cached === 'null') ? null : (int) $cached;
     }
 
-    // Helper local para extrair ID do retorno (array ou items[])
     $extract_id = function($json) use ($collection_slug): ?int {
         $list = [];
 
@@ -350,23 +383,19 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
 
             if ($col_slug === $collection_slug) {
                 $id = $col['id'] ?? ($col['ID'] ?? null);
-                return (is_numeric($id) ? (int) $id : null);
+                return is_numeric($id) ? (int) $id : null;
             }
         }
 
-        // Se veio somente 1 resultado sem slug (casos raros)
         if (isset($list[0]) && is_array($list[0]) && count($list) === 1) {
             $id = $list[0]['id'] ?? ($list[0]['ID'] ?? null);
-            return (is_numeric($id) ? (int) $id : null);
+            return is_numeric($id) ? (int) $id : null;
         }
 
         return null;
     };
 
-    /**
-     * Tentativa 1 (preferida): filtrar por slug
-     * (muitos ambientes permitem isso mesmo quando a listagem geral é bloqueada)
-     */
+    // Tentativa 1: /collections?slug=... (preferida)
     $url = memorial_tainacan_api_url('tainacan/v2/collections', [
         'slug' => $collection_slug,
         'perpage' => 1,
@@ -381,9 +410,7 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
         }
     }
 
-    /**
-     * Tentativa 2: buscar lista maior e bater manualmente
-     */
+    // Tentativa 2: lista maior
     $url = memorial_tainacan_api_url('tainacan/v2/collections', [
         'perpage' => 100,
     ]);
@@ -397,14 +424,16 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
         }
     }
 
-    set_transient($cache_key, 'null', 10 * MINUTE_IN_SECONDS);
+    set_transient($cache_key, 'null', MEMORIAL_TAINACAN_CACHE_TTL_NULL);
     return null;
 }
 
-
 /**
- * Buscar itens da coleção (filtro 100% correto usando collection_id)
+ * ============================================================
+ * 5) ITENS DA COLEÇÃO (endpoint correto)
+ * ============================================================
  */
+
 function memorial_tainacan_get_collection_items(string $collection_slug, int $page = 1, int $perpage = 6, array $options = []): array
 {
     $collection_slug = sanitize_title($collection_slug);
@@ -430,7 +459,7 @@ function memorial_tainacan_get_collection_items(string $collection_slug, int $pa
             'total' => null,
             'page' => $page,
             'perpage' => $perpage,
-            'error' => 'Não foi possível resolver o ID da coleção pelo slug. Verifique se o slug está correto no metabox.',
+            'error' => 'Não foi possível resolver o ID da coleção pelo slug. Verifique se o slug está correto no metabox ou se a API /collections está acessível.',
         ];
         set_transient($cache_key, $result, 2 * MINUTE_IN_SECONDS);
         return $result;
@@ -444,7 +473,6 @@ function memorial_tainacan_get_collection_items(string $collection_slug, int $pa
         'fetch_only' => $fetch_only,
     ];
 
-    // Aqui é o endpoint correto (filtra de verdade)
     $url = memorial_tainacan_api_url('tainacan/v2/collection/' . (int) $collection_id . '/items', $query);
 
     $resp = memorial_tainacan_http_get_json_with_headers($url);
@@ -455,6 +483,7 @@ function memorial_tainacan_get_collection_items(string $collection_slug, int $pa
             'page' => $page,
             'perpage' => $perpage,
             'error' => $resp->get_error_message(),
+            'debug' => $resp->get_error_data(),
         ];
         set_transient($cache_key, $result, 2 * MINUTE_IN_SECONDS);
         return $result;
@@ -487,8 +516,11 @@ function memorial_tainacan_get_collection_items(string $collection_slug, int $pa
 }
 
 /**
- * Normalizar item para card
+ * ============================================================
+ * 6) NORMALIZAR ITEM PARA CARD
+ * ============================================================
  */
+
 function memorial_tainacan_normalize_item_to_card(array $item): array
 {
     $title = $item['title'] ?? ($item['name'] ?? '');
@@ -525,22 +557,53 @@ function memorial_tainacan_normalize_item_to_card(array $item): array
     ];
 }
 
-// DEBUG: Shortcode
+/**
+ * ============================================================
+ * 7) DEBUG (shortcode)
+ * ============================================================
+ *
+ * Uso: [memorial_debug_tainacan slug="fala-parente"]
+ */
 add_shortcode('memorial_debug_tainacan', function ($atts) {
-    $atts = shortcode_atts([
-        'slug' => '',
-    ], $atts);
+    $atts = shortcode_atts(['slug' => ''], $atts);
 
     $slug = sanitize_title($atts['slug']);
     if ($slug === '') {
         return '<pre>Informe slug: [memorial_debug_tainacan slug="fala-parente"]</pre>';
     }
 
-    $resp  = memorial_tainacan_get_collection_items($slug, 1, 6);
-
     $out = [];
+    $out[] = 'Base: ' . rtrim(MEMORIAL_TAINACAN_BASE_URL, '/');
     $out[] = 'Slug: ' . $slug;
-    $out[] = 'Erro: ' . ($resp['error'] ?? 'nenhum');
+
+    // Teste collections por slug
+    $test_url = memorial_tainacan_api_url('tainacan/v2/collections', [
+        'slug' => $slug,
+        'perpage' => 1,
+    ]);
+    $out[] = 'Collections URL: ' . $test_url;
+
+    $test = memorial_tainacan_http_get_json_with_headers($test_url);
+    if (is_wp_error($test)) {
+        $out[] = 'Collections ERROR: ' . $test->get_error_message();
+        $data = $test->get_error_data();
+        if (is_array($data)) {
+            $out[] = 'HTTP code: ' . ($data['code'] ?? '');
+            $out[] = 'Body excerpt: ' . ($data['body_excerpt'] ?? '');
+        }
+        return '<pre>' . esc_html(implode("\n", $out)) . '</pre>';
+    }
+
+    $json_preview = wp_json_encode($test['json']);
+    $out[] = 'Collections OK (HTTP ' . ($test['code'] ?? '') . ')';
+    $out[] = 'Collections JSON preview: ' . mb_substr($json_preview, 0, 500) . '...';
+
+    // Agora tenta resolver ID e itens
+    $collection_id = memorial_tainacan_get_collection_id_by_slug($slug);
+    $out[] = 'Resolved collection_id: ' . (is_null($collection_id) ? 'null' : (string) $collection_id);
+
+    $resp = memorial_tainacan_get_collection_items($slug, 1, 6);
+    $out[] = 'Items error: ' . ($resp['error'] ?? 'nenhum');
     $out[] = 'Itens: ' . count($resp['items'] ?? []);
 
     if (!empty($resp['items']) && is_array($resp['items'])) {
@@ -553,6 +616,67 @@ add_shortcode('memorial_debug_tainacan', function ($atts) {
             $i++;
             if ($i >= 3) break;
         }
+    }
+
+    return '<pre>' . esc_html(implode("\n", $out)) . '</pre>';
+});
+
+/**
+ * ============================================================
+ * 8) (OPCIONAL) Limpar cache via URL (somente admin)
+ * ============================================================
+ * Acesse: /?memorial_flush_tainacan_cache=1
+ * Remova este bloco se não quiser essa सुविधा.
+ */
+add_action('init', function () {
+    if (!is_user_logged_in() || !current_user_can('manage_options')) {
+        return;
+    }
+    if (!isset($_GET['memorial_flush_tainacan_cache'])) {
+        return;
+    }
+
+    global $wpdb;
+    $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '_transient_memorial_tainacan_%' OR option_name LIKE '_transient_timeout_memorial_tainacan_%'");
+
+    // Redireciona para limpar a querystring
+    wp_safe_redirect(remove_query_arg('memorial_flush_tainacan_cache'));
+    exit;
+});
+
+
+add_shortcode('memorial_debug_item_keys', function ($atts) {
+    $atts = shortcode_atts([
+        'slug' => '',
+    ], $atts);
+
+    $slug = sanitize_title($atts['slug']);
+    if ($slug === '') {
+        return '<pre>Use: [memorial_debug_item_keys slug="fala-parente"]</pre>';
+    }
+
+    // tenta buscar itens do jeito que seu sistema já faz
+    if (!function_exists('memorial_tainacan_get_collection_items')) {
+        return '<pre>Função memorial_tainacan_get_collection_items não existe.</pre>';
+    }
+
+    $resp = memorial_tainacan_get_collection_items($slug, 1, 6);
+
+    $out = [];
+    $out[] = 'Slug: ' . $slug;
+    $out[] = 'Erro: ' . ($resp['error'] ?? 'nenhum');
+    $out[] = 'Qtd itens: ' . count($resp['items'] ?? []);
+
+    if (!empty($resp['items'][0]) && is_array($resp['items'][0])) {
+        $first = $resp['items'][0];
+        $out[] = '';
+        $out[] = 'Chaves do 1º item:';
+        $out[] = implode(', ', array_keys($first));
+
+        $out[] = '';
+        $out[] = 'Preview 1º item (cortado):';
+        $json = wp_json_encode($first, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        $out[] = mb_substr($json, 0, 1500) . '...';
     }
 
     return '<pre>' . esc_html(implode("\n", $out)) . '</pre>';
