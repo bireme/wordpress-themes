@@ -325,6 +325,12 @@ blockquote{
 	padding: 20px 0;
 	margin-bottom: 20px;
 }
+.title-white .breadcrumb a{
+	color: #999
+}
+.title-white .breadcrumb a:hover{
+	color: #ddd
+}
 #intro{
 	font-size: 22px;
 	margin-bottom: 30px;
