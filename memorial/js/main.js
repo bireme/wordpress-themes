@@ -1,22 +1,3 @@
-//Carrossel Coleções Tainacan
-jQuery(function ($) {
-  $('.colecoes-slider').slick({
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    infinite: false,
-    adaptiveHeight: true,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  });
-});
-
-//Pesquisa IAHx
 jQuery(function ($) {
   $("#buscaForm").on("submit", function (e) {
     e.preventDefault();
@@ -41,5 +22,25 @@ jQuery(function ($) {
     // if (!termo) return;
 
     window.location.href = url;
+  });
+});
+
+
+
+
+jQuery(function ($) {
+  $('.colecoes-slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    dots: true,
+    infinite: false,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: { slidesToShow: 1 }
+      }
+    ]
   });
 });
