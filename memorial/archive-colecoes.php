@@ -100,7 +100,7 @@ $query = new WP_Query($args);
                                 </p>
                             <?php endif; ?>
                             <div class="mt-auto">
-                                <a href="<?php echo esc_url($link); ?>" class="btn btn-outline-primary w-100">
+                                <a href="<?php echo esc_url($link); ?>" class="btn btn-outline-primary">
                                     Ver coleção
                                 </a>
                             </div>
