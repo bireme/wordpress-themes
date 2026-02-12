@@ -366,67 +366,66 @@ function memorial_tainacan_get_collection_id_by_slug(string $collection_slug): ?
         return ($cached === 'null') ? null : (int) $cached;
     }
 
-    $extract_id = function($json) use ($collection_slug): ?int {
-        $list = [];
-
-        if (is_array($json) && isset($json['items']) && is_array($json['items'])) {
-            $list = $json['items'];
-        } elseif (is_array($json)) {
-            $list = $json;
-        }
-
-        foreach ($list as $col) {
-            if (!is_array($col)) continue;
-
-            $col_slug = $col['slug'] ?? ($col['name'] ?? '');
-            $col_slug = sanitize_title((string) $col_slug);
-
-            if ($col_slug === $collection_slug) {
-                $id = $col['id'] ?? ($col['ID'] ?? null);
-                return is_numeric($id) ? (int) $id : null;
-            }
-        }
-
-        if (isset($list[0]) && is_array($list[0]) && count($list) === 1) {
-            $id = $list[0]['id'] ?? ($list[0]['ID'] ?? null);
-            return is_numeric($id) ? (int) $id : null;
-        }
-
-        return null;
-    };
-
-    // Tentativa 1: /collections?slug=... (preferida)
-    $url = memorial_tainacan_api_url('tainacan/v2/collections', [
-        'slug' => $collection_slug,
-        'perpage' => 1,
-    ]);
-
-    $resp = memorial_tainacan_http_get_json_with_headers($url);
-    if (!is_wp_error($resp)) {
-        $id = $extract_id($resp['json']);
-        if (!empty($id)) {
-            set_transient($cache_key, (string) $id, MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
-            return (int) $id;
-        }
-    }
-
-    // Tentativa 2: lista maior
+    // 1) Busca a lista de coleções (não confia em ?slug= porque pode ser ignorado pelo endpoint)
     $url = memorial_tainacan_api_url('tainacan/v2/collections', [
         'perpage' => 100,
+        'paged'   => 1,
+        // opcional: alguns ambientes aceitam "search"
+        // 'search'  => $collection_slug,
     ]);
 
     $resp = memorial_tainacan_http_get_json_with_headers($url);
-    if (!is_wp_error($resp)) {
-        $id = $extract_id($resp['json']);
-        if (!empty($id)) {
-            set_transient($cache_key, (string) $id, MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
-            return (int) $id;
+
+    if (is_wp_error($resp)) {
+        // cache curto pra evitar martelar a API quando está fora
+        set_transient($cache_key, 'null', 2 * MINUTE_IN_SECONDS);
+        return null;
+    }
+
+    $json = $resp['json'];
+
+    // 2) Normaliza "lista de coleções" a partir de formatos comuns
+    $collections = [];
+
+    if (is_array($json)) {
+        if (isset($json['items']) && is_array($json['items'])) {
+            $collections = $json['items'];
+        } elseif (isset($json['collections']) && is_array($json['collections'])) {
+            $collections = $json['collections'];
+        } elseif (array_is_list($json)) {
+            // lista pura
+            $collections = $json;
         }
     }
 
+    if (empty($collections) || !is_array($collections)) {
+        // Não veio no formato esperado -> não "chuta"
+        set_transient($cache_key, 'null', 2 * MINUTE_IN_SECONDS);
+        return null;
+    }
+
+    // 3) Procura o slug EXATO; não usa name como fallback
+    foreach ($collections as $col) {
+        if (!is_array($col)) continue;
+
+        // slug pode vir em lugares diferentes dependendo da versão/serialização
+        $col_slug_raw = $col['slug'] ?? $col['collection_slug'] ?? null;
+        $col_slug = sanitize_title((string) $col_slug_raw);
+
+        if ($col_slug !== '' && $col_slug === $collection_slug) {
+            $id = $col['id'] ?? $col['ID'] ?? null;
+            if (is_numeric($id)) {
+                set_transient($cache_key, (string) ((int) $id), MEMORIAL_TAINACAN_CACHE_TTL_COLLECTION);
+                return (int) $id;
+            }
+        }
+    }
+
+    // 4) Não achou: cacheia null
     set_transient($cache_key, 'null', MEMORIAL_TAINACAN_CACHE_TTL_NULL);
     return null;
 }
+
 
 /**
  * ============================================================
