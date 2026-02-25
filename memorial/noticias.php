@@ -5,7 +5,7 @@
 		<div class="breadcrumb mt-3">
 			<?php if ( function_exists('bcn_display') ) { bcn_display(); } ?>
 		</div>
-		<h1 class="title mb-5">Notícias</h1>
+		<h1 class="title mb-5"><?php the_title(); ?></h1>
 		<?php
 		$posts = new WP_Query([
 			'post_type'      => 'post',
