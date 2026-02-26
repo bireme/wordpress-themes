@@ -41,7 +41,6 @@ if (have_posts()) :
 			<div class="breadcrumb mt-3">
 				<?php if (function_exists('bcn_display')) { bcn_display(); } ?>
 			</div>
-			aaa
 			<header class="mb-4">
 				<div class="row">
 					<h1 class="mb-3"><?php the_title(); ?></h1>
@@ -64,15 +63,6 @@ if (have_posts()) :
 									Ver itens desta coleção
 								</a>
 							<?php endif; ?>
-
-							<?php if (current_user_can('manage_options')) : ?>
-								<div class="small text-muted mt-2">
-									<strong>Debug:</strong><br>
-									slug: <?php echo esc_html($tainacan_slug ?: '(vazio)'); ?><br>
-									pg: <?php echo esc_html((string) $page); ?> / perpage: <?php echo esc_html((string) $perpage); ?>
-								</div>
-							<?php endif; ?>
-
 						</div>
 					</div>
 				</div>
