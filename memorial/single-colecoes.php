@@ -59,7 +59,7 @@ if (have_posts()) :
 								/>
 							<?php endif; ?>
 							<?php if (!empty($tainacan_url)) : ?>
-								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary mt-3 w-100">
+								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary mt-3">
 									Ver itens desta coleção
 								</a>
 							<?php endif; ?>
