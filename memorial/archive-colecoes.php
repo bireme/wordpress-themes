@@ -57,7 +57,7 @@ $query = new WP_Query($args);
     </header>
 
     <?php if ($query->have_posts()) : ?>
-        <div class="row g-4">
+        <div class="row g-4" id="colecoes">
 
             <?php while ($query->have_posts()) : $query->the_post();
 
