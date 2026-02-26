@@ -48,9 +48,9 @@ if (count($hero_posts) === 3) :
     $small2 = $hero_posts[2];
 ?>
 
-<section id="home-hero" class="colecoes py-4">
+<section class="colecoes py-4">
   <div class="container">
-    <div class="row g-3 align-items-stretch">
+    <div class="row g-3 align-items-stretch" id="home-hero">
 
       <!-- COLUNA ESQUERDA (card grande) -->
       <div class="col-lg-7">
