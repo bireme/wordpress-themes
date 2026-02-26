@@ -10,7 +10,10 @@ a{
 	padding: 6px 20px;
 }
 .title{
-	font-weight: bold;
+	font-weight: bold; 
+}
+.img-rounded{
+	border-radius: 16px;
 }
 #hero{
 	padding-top: 20px;
