@@ -68,7 +68,7 @@ if (have_posts()) :
 				<?php endif; ?>
 
 				<?php if (!empty($items) && is_array($items)) : ?>
-				<div class="row g-4">
+				<div class="row g-4" id="colecoes">
 					<?php foreach ($items as $item) :
 						if (!function_exists('memorial_tainacan_normalize_item_to_card')) {
 							continue;
