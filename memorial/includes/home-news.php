@@ -80,7 +80,7 @@ if ( $posts_home->have_posts() ) : ?>
 		<?php endwhile; ?>
 
 	</div>
-	<div class="mt-3 text-center me-5">
+	<div class="mt-3 text-center me-5 mt-5">
 		<a href="<?php echo esc_url( $blog_url ); ?>/noticias" class="btn btn-primary">
 			Ver todas
 		</a>
