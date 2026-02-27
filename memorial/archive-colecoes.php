@@ -1,8 +1,8 @@
 <?php
 /**
- * Template: Archive Coleções
- * CPT: colecoes
- */
+* Template: Archive Coleções
+* CPT: colecoes
+*/
 
 if (!defined('ABSPATH')) {
     exit;
@@ -35,10 +35,10 @@ $args = [
     ],
     'meta_key'       => '_memorial_destaque_home',
     'orderby'        => [
-        'meta_value_num' => 'DESC', // 1 vem antes de 0
-        'meta_value'     => 'DESC',
-        'date'           => 'DESC',
-    ],
+'meta_value_num' => 'DESC', // 1 vem antes de 0
+'meta_value'     => 'DESC',
+'date'           => 'DESC',
+],
 ];
 
 $query = new WP_Query($args);
@@ -47,88 +47,96 @@ $query = new WP_Query($args);
 
 <main class="container">
     <div class="breadcrumb mt-3">
-     <?php if (function_exists('bcn_display')) { bcn_display(); } ?>
- </div>
- <header class="mb-4">
-    <h1 class="mb-2"><?php post_type_archive_title(); ?></h1>
-    <p class="text-muted mb-0">
-        Conheça as coleções do Memorial. Selecione uma coleção para ver o release editorial e os itens do acervo no Tainacan.
-    </p>
-</header>
-
-<?php if ($query->have_posts()) : ?>
-    <div class="row g-4" id="colecoes">
-
-        <?php while ($query->have_posts()) : $query->the_post();
-
-            $post_id = get_the_ID();
-
-            $is_featured = get_post_meta($post_id, '_memorial_destaque_home', true) === '1';
-            $order_featured = get_post_meta($post_id, '_memorial_ordem_destaque', true);
-
-            $thumb = get_the_post_thumbnail_url($post_id, 'large');
-            $link  = get_permalink($post_id);
-
-            $excerpt = get_the_excerpt();
-            if (empty($excerpt)) {
-                $excerpt = wp_trim_words(wp_strip_all_tags(get_the_content()), 20, '…');
-            }
-
-            ?>
-            <div class="col-12 col-md-6 col-lg-4">
-                <article class="card h-100 shadow-sm">
-                    <?php if (!empty($thumb)) : ?>
-                        <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
-                            <img
-                            src="<?php echo esc_url($thumb); ?>"
-                            class="card-img-top"
-                            alt="<?php echo esc_attr(get_the_title()); ?>"
-                            loading="lazy"
-                            style="object-fit: cover; height: 220px;"
-                            />
-                        </a>
-                    <?php endif; ?>
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="h5 card-title">
-                            <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
-                                <?php the_title(); ?>
-                            </a>
-                        </h2>
-                        <?php if (!empty($excerpt)) : ?>
-                            <p class="card-text text-muted">
-                                <?php echo esc_html($excerpt); ?>
-                            </p>
-                        <?php endif; ?>
-                        <div class="mt-auto">
-                            <a href="<?php echo esc_url($link); ?>">
-                                <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
-                            </a>
-                        </div>
-                    </div>
-                </article>
+        <?php if (function_exists('bcn_display')) { bcn_display(); } ?>
+    </div>
+    <header class="mb-3">
+        <h1 class="mb-2"><?php post_type_archive_title(); ?></h1>
+        <p class="text-muted mb-0 d-none">
+            Conheça as coleções do Memorial. Selecione uma coleção para ver o release editorial e os itens do acervo no Tainacan.
+        </p>
+        <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
+            <div class="col-10">
+                <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="Pesquisar">
             </div>
-        <?php endwhile; ?>
-    </div>
-    <!-- Paginação -->
-    <div class="mt-5">
-        <?php
-        $pagination = paginate_links([
-            'total'   => $query->max_num_pages,
-            'current' => $paged,
-            'type'    => 'list',
-        ]);
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
+            </div>
+        </form>
+    </header>
 
-        if ($pagination) {
+    <?php if ($query->have_posts()) : ?>
+        <div class="row g-4" id="colecoes">
+
+            <?php while ($query->have_posts()) : $query->the_post();
+
+                $post_id = get_the_ID();
+
+                $is_featured = get_post_meta($post_id, '_memorial_destaque_home', true) === '1';
+                $order_featured = get_post_meta($post_id, '_memorial_ordem_destaque', true);
+
+                $thumb = get_the_post_thumbnail_url($post_id, 'large');
+                $link  = get_permalink($post_id);
+
+                $excerpt = get_the_excerpt();
+                if (empty($excerpt)) {
+                    $excerpt = wp_trim_words(wp_strip_all_tags(get_the_content()), 20, '…');
+                }
+
+                ?>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card h-100 shadow-sm">
+                        <?php if (!empty($thumb)) : ?>
+                            <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
+                                <img
+                                src="<?php echo esc_url($thumb); ?>"
+                                class="card-img-top"
+                                alt="<?php echo esc_attr(get_the_title()); ?>"
+                                loading="lazy"
+                                style="object-fit: cover; height: 220px;"
+                                />
+                            </a>
+                        <?php endif; ?>
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="h5 card-title">
+                                <a href="<?php echo esc_url($link); ?>" class="text-decoration-none">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h2>
+                            <?php if (!empty($excerpt)) : ?>
+                                <p class="card-text text-muted">
+                                    <?php echo esc_html($excerpt); ?>
+                                </p>
+                            <?php endif; ?>
+                            <div class="mt-auto">
+                                <a href="<?php echo esc_url($link); ?>">
+                                    <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            <?php endwhile; ?>
+        </div>
+        <!-- Paginação -->
+        <div class="mt-5">
+            <?php
+            $pagination = paginate_links([
+                'total'   => $query->max_num_pages,
+                'current' => $paged,
+                'type'    => 'list',
+            ]);
+
+            if ($pagination) {
                 // Adaptação leve para Bootstrap
-            echo '<nav class="d-flex justify-content-center">' . $pagination . '</nav>';
-        }
-        ?>
-    </div>
-<?php else : ?>
-    <div class="alert alert-info">
-        Nenhuma coleção cadastrada ainda.
-    </div>
-<?php endif; ?>
+                echo '<nav class="d-flex justify-content-center">' . $pagination . '</nav>';
+            }
+            ?>
+        </div>
+    <?php else : ?>
+        <div class="alert alert-info">
+            Nenhuma coleção cadastrada ainda.
+        </div>
+    <?php endif; ?>
 </main>
 <?php wp_reset_postdata();
 get_footer();

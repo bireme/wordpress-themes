@@ -8,7 +8,7 @@ jQuery(function ($) {
 
     // Coleções / Documento no Tainacan
     if (tipo === "colecao") {
-      url = "https://teste.memorialdigitalcovid19.org.br/tainacan/?s=" + encodeURIComponent(termo);
+      url = "https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes/?s=" + encodeURIComponent(termo);
     }
     // Produção científica e técnica na BVS
     else if (tipo === "documento") {
