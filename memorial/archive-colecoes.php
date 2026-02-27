@@ -61,6 +61,17 @@ $query = new WP_Query($args);
             <div class="col-2">
                 <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
             </div>
+            <div class="mt-2">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="colecao" checked>
+                    <label class="form-check-label" for="inlineRadio1">Coleções</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="documento">
+                    <label class="form-check-label" for="inlineRadio2">Produção científica e técnica</label>
+                </div>
+            </div>
         </form>
     </header>
 
