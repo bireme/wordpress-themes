@@ -7,7 +7,7 @@ $bg = $thumb ? $thumb : get_template_directory_uri() . '/img/header-memorial.jpg
 	<div class="container">
 		<h1 class="title"><?php  the_title(); ?></h1>
 		<div class="row">
-			<div class="col-8">
+			<div class="col-md-8">
 			<?php the_excerpt(); ?>	
 		</div>
 	</div>
