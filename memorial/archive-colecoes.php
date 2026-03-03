@@ -69,7 +69,7 @@ $query = new WP_Query($args);
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="documento">
-                    <label class="form-check-label" for="inlineRadio2">Produção científica e técnica</label>
+                    <label class="form-check-label" for="inlineRadio2">Produção técnico-científicas</label>
                 </div>
             </div>
         </form>
