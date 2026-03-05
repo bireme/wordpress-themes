@@ -175,7 +175,7 @@ a{
 	transform: scale(1.02);
 }
 .colecoes .overlay-card .card-img-overlay{
-	background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%);
+	background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.85) 100%);
 	transition: all .5s ease;
 }
 .colecoes .eyebrow{
