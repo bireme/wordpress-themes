@@ -10,6 +10,7 @@
 </head>
 <?php $lang = pll_current_language(); ?>
 <body>
+	<?php wp_body_open(); ?>
 	<header id="header">
 		<div class="container">
 			<div class="row" style="position:relative;">
@@ -30,7 +31,7 @@
 						<img src="<?php bloginfo('template_directory'); ?>/img/logo-<?php echo $lang; ?>.svg" id="" alt="Logo DeCS Finder">
 					</a>
 				</div>
-				<div class="col-md-8">
+				<div class="col-md-8" id="nav">
 					<?php 
 					wp_nav_menu( array(
 						'theme_location'    => 'main-nav',

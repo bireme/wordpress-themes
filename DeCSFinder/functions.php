@@ -33,3 +33,7 @@ register_sidebar([
   'before_title'  => '<h5>',
   'after_title'   => '</h5>'
 ]);
+// Polylang
+add_action('init', function() {
+	pll_register_string('Reserved', 'All rights are reserved', 'Default'); 
+});

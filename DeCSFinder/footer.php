@@ -14,9 +14,8 @@
 	</footer>
 	<div id="powered">
 		<div class="container">
-			<img src="<?php bloginfo('template_directory') ;?>/img/powered-pt.svg" alt="BIREME"><br>
+			<img src="<?php bloginfo('template_directory') ;?>/img/powered-<?php echo $lang; ?>.svg" alt="BIREME"><br>
 			<small>© <?php pll_e('All rights are reserved'); ?></small> <br>
-			<small><a href="">Termos e Condições de Uso</a> | <a href="">Política de Privacidade</a></small>
 		</div>
 	</div>
 	<?php wp_footer(); ?>

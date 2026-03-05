@@ -11,18 +11,18 @@
 </head>
 <body>
 	<?php wp_body_open(); ?>
-	<header id="hero">
+	<header id="header-home">
 		<div class="container">
-			<div class="row" id="header-home">
+			<div class="row">
 				<div class="col-md-3">
 					<a href="<?php bloginfo('siteurl'); ?>" class="navbar-brand">
-						<img src="<?php bloginfo('template_directory'); ?>/img/brand.png" alt="" id="logo" class="img-fluid">
+						<img src="<?php bloginfo('template_directory'); ?>/img/brand-home.png" alt="" id="logo" class="img-fluid">
 					</a>
 				</div>
 				<div class="col-md-9">
-					<?php get_template_part('includes/nav') ?>
+					<?php get_template_part('includes/nav-home') ?>
 				</div>
 			</div>
-			<?php echo do_shortcode('[wpcode id="635"]'); ?>
+			
 		</div>
 	</header>
