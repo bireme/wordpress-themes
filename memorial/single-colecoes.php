@@ -43,8 +43,7 @@ if (have_posts()) :
 			</div>
 			<header class="mb-4">
 				<div class="row">
-					<h1 class="mb-3"><?php the_title(); ?></h1>
-					<hr>
+					<h1 class="title"><?php the_title(); ?></h1>
 					<div class="col-md-8">
 						<?php the_content(); ?>
 					</div>

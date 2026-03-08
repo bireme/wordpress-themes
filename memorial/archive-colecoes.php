@@ -50,7 +50,7 @@ $query = new WP_Query($args);
         <?php if (function_exists('bcn_display')) { bcn_display(); } ?>
     </div>
     <header class="mb-3">
-        <h1 class="mb-2"><?php post_type_archive_title(); ?></h1>
+        <h1 class="title"><?php post_type_archive_title(); ?></h1>
         <p class="text-muted mb-0 d-none">
             Conheça as coleções do Memorial. Selecione uma coleção para ver o release editorial e os itens do acervo no Tainacan.
         </p>

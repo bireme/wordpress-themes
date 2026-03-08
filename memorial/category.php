@@ -5,7 +5,7 @@
 		<div class="breadcrumb mt-3">
 			<?php if ( function_exists('bcn_display') ) { bcn_display(); } ?>
 		</div>
-		<h1 class="title mb-5">Categoria: <?php single_cat_title(); ?></h1>
+		<h1 class="title">Categoria: <?php single_cat_title(); ?></h1>
 		<?php
 		$cat_atual    = get_queried_object();
 		$cat_atual_id = get_queried_object_id();

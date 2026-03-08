@@ -23,6 +23,5 @@
 					<?php get_template_part('includes/nav-home') ?>
 				</div>
 			</div>
-			
 		</div>
 	</header>
