@@ -45,7 +45,26 @@ if (have_posts()) :
 				<div class="row">
 					<h1 class="title"><?php the_title(); ?></h1>
 					<div class="col-md-8">
+						<?php
+						$sobre_a_colecao = function_exists('get_field') ? get_field('sobre_a_colecao', $post_id) : '';
+						$sobre_o_projeto = function_exists('get_field') ? get_field('sobre_o_projeto', $post_id) : '';
+						?>
+						<?php if (!empty($sobre_a_colecao)) : ?>
+							<h2 class="">Sobre a Coleção</h2>
+							<div class="mb-4">
+								<?php echo wp_kses_post($sobre_a_colecao); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (!empty($sobre_o_projeto)) : ?>
+							<h2 class="">Sobre o Projeto</h2>
+							<div class="mb-4">
+								<?php echo wp_kses_post($sobre_o_projeto); ?>
+							</div>
+						<?php endif; ?>
+
 						<?php the_content(); ?>
+
 					</div>
 					<div class="col-md-4">
 						<div class="mb-4 sticky-top">
