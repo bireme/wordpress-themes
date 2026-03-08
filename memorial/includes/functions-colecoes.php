@@ -116,8 +116,6 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
 
     $url_colecao      = get_post_meta($post->ID, '_memorial_tainacan_collection_url', true);
     $slug_colecao     = get_post_meta($post->ID, '_memorial_tainacan_collection_slug', true);
-    $destaque_home    = get_post_meta($post->ID, '_memorial_destaque_home', true);
-    $ordem_destaque   = get_post_meta($post->ID, '_memorial_ordem_destaque', true);
     $itens_por_pagina = get_post_meta($post->ID, '_memorial_itens_por_pagina', true);
 
     if ($itens_por_pagina === '') {
@@ -180,34 +178,6 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
 
         <div class="memorial-metabox-divider"></div>
 
-        <label for="memorial_destaque_home">Destaque na Home</label>
-        <label style="display:flex; align-items:center; gap:8px;">
-            <input
-                type="checkbox"
-                id="memorial_destaque_home"
-                name="memorial_destaque_home"
-                value="1"
-                <?php checked($destaque_home, '1'); ?>
-            />
-            Mostrar no carrossel/blocos da Home
-        </label>
-        <div class="memorial-metabox-help">
-            Marca as coleções que podem aparecer em destaques na Home.
-        </div>
-
-        <label for="memorial_ordem_destaque">Ordem do destaque</label>
-        <input
-            type="number"
-            id="memorial_ordem_destaque"
-            name="memorial_ordem_destaque"
-            value="<?php echo esc_attr($ordem_destaque); ?>"
-            min="0"
-            step="1"
-            placeholder="1"
-        />
-        <div class="memorial-metabox-help">
-            Menor número aparece primeiro (1, 2, 3...).
-        </div>
 
         <label for="memorial_itens_por_pagina">Itens no single (amostra)</label>
         <input
@@ -260,12 +230,6 @@ function memorial_colecoes_save_metabox_tainacan(int $post_id): void
             update_post_meta($post_id, '_memorial_tainacan_collection_slug', $slug);
         }
     }
-
-    $destaque = isset($_POST['memorial_destaque_home']) ? '1' : '0';
-    update_post_meta($post_id, '_memorial_destaque_home', $destaque);
-
-    $ordem = isset($_POST['memorial_ordem_destaque']) ? (int) $_POST['memorial_ordem_destaque'] : 0;
-    update_post_meta($post_id, '_memorial_ordem_destaque', $ordem);
 
     $perpage = isset($_POST['memorial_itens_por_pagina']) ? (int) $_POST['memorial_itens_por_pagina'] : 6;
     $perpage = max(1, min(24, $perpage));
