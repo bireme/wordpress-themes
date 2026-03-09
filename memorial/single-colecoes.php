@@ -64,14 +64,14 @@ if (have_posts()) :
 						<?php endif; ?>
 
 						<?php the_content(); ?>
-						<a href="<?php echo esc_url($tainacan_url); ?>" class="btn mb-3 p-3 btn-colecoes">
+						<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-colecoes btn-sm mb-3 p-3 mt-5">
 							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
 						</a>
 					</div>
 					<div class="col-md-4">
 						<div class="mb-4 sticky-top">
 							<?php if (!empty($tainacan_url)) : ?>
-								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success mb-3 p-3 w-100 btn-lg btn-colecoes">
+								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success btn-sm btn-colecoes mb-3 p-3 w-100">
 									<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
 								</a>
 							<?php endif; ?>

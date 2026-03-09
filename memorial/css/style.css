@@ -291,17 +291,21 @@ blockquote{
 	font-style:italic;
 	font-size:16px;
 	position: relative;
-  padding: 2rem 0 0 2rem;
+	padding: 2.3rem 0 0 2rem;
+	line-height: 1.3rem;
 }
 blockquote::before {
-  content: "“"; 
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 1;
-  font-family: none;
+	content: "“"; 
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	font-size: 4rem;
+	font-weight: bold;
+	line-height: 1;
+	font-family: none;
+}
+blockquote footer{
+	font-size: 13px;
 }
 /***********************home nova*/
 #nav-home{
