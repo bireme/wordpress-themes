@@ -1,30 +1,47 @@
 <?php
-/* Template Name: Lilacs HomePage */
+/*
+Template Name: LILACS HomePage2
+Description: Home com layout via ACF Flexible Content (campo "layout"), no mesmo padrão do template de Capacitação.
+*/
 
-get_header(); // Mantém compatibilidade com o tema (se quiser sempre usar header do plugin, substitua)
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-// INCLUDE CORRETO dos campos
-$theme_dir = trailingslashit( get_stylesheet_directory() ); // para child theme use get_stylesheet_directory(); para sempre usar o pai, use get_template_directory()
-$meta_fields = $theme_dir . 'inc/admin/meta-templates/page-lilacs-home-fields.php';
-if ( file_exists( $meta_fields ) ) {
-    include $meta_fields;
-}
-
-// Corpo do site (exemplo que você já tem)
+get_header();
 ?>
+
 <main>
-    <?php
-    // Inclui template de conteúdo do tema
-    $tpl = $theme_dir . 'templates/home-page.php';
-    if ( file_exists( $tpl ) ) {
-        include $tpl;
-    } else {
-        // fallback caso não exista
-        echo '<p>Template home-page não encontrado.</p>';
-    }
-    ?>
+
+  <!-- DOBRAS FLEXÍVEIS DA PÁGINA -->
+  <section class="lilacs-pagina-layout">
+    <div class="lilacs-pagina-layout-inner">
+      <?php
+      // Loop ACF Flexible Content: campo "layout"
+      if ( have_rows( 'layout' ) ) :
+
+        while ( have_rows( 'layout' ) ) : the_row();
+
+          // Ex: "bloco_texto", "imagem_com_texto", "faixa_chamada"
+          $layout = get_row_layout();
+
+          // prefixo próprio para este template
+          $slug = 'pagina-' . $layout;
+
+          // chama a função genérica de dobra
+          lilacs_bvs_dobra( $slug );
+
+        endwhile;
+
+      else :
+
+        echo '<div class="bvs-pagina-empty">';
+        echo '<p>Configure o layout desta página no ACF (campo "layout").</p>';
+        echo '</div>';
+
+      endif;
+      ?>
+    </div>
+  </section>
+
 </main>
 
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>
