@@ -585,3 +585,9 @@ blockquote footer{
 	width:25px;
 	margin-right: 20px;
 }
+#prod-home{
+	background: rgba(255, 255, 255, .2);
+	border-radius: 16px;
+	padding: 40px;
+	border: 1px solid #f2f2f250;
+}
