@@ -64,7 +64,9 @@ if (have_posts()) :
 						<?php endif; ?>
 
 						<?php the_content(); ?>
-
+						<a href="<?php echo esc_url($tainacan_url); ?>" class="btn mb-3 p-3 btn-colecoes">
+							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
+						</a>
 					</div>
 					<div class="col-md-4">
 						<div class="mb-4 sticky-top">
@@ -81,78 +83,90 @@ if (have_posts()) :
 								loading="lazy"
 								/>
 							<?php endif; ?>
-						</div>
-					</div>
-				</div>
-			</header>
-			<hr><br>
-			<section class="mb-5">
-				<div class="d-flex align-items-center justify-content-between mb-3">
-					<h2 class="h4 mb-0">Itens da coleção</h2>
-				</div>
-				<?php if (!empty($error)) : ?>
-					<div class="alert alert-warning">
-						<?php echo esc_html($error); ?>
-					</div>
-				<?php endif; ?>
-				<?php if (!empty($items) && is_array($items)) : ?>
-				<div class="row g-4" id="colecoes">
-					<?php foreach ($items as $item) :
-						if (!function_exists('memorial_tainacan_normalize_item_to_card')) {
-							continue;
-						}
-						$card = memorial_tainacan_normalize_item_to_card($item);
-						$card_title = $card['title'] ?? '';
-						$card_desc  = $card['description'] ?? '';
-						$card_thumb = $card['thumb'] ?? '';
-						$card_url   = $card['url'] ?? '';
-						if (empty($card_url)) {
-							continue;
-						}
-						?>
-						<div class="col-12 col-md-6 col-lg-4">
-							<article class="card h-100 shadow-sm">
 
-								<?php if (!empty($card_thumb)) : ?>
-									<a href="<?php echo esc_url($card_url); ?>" class="text-decoration-none">
-										<img
-										src="<?php echo esc_url($card_thumb); ?>"
-										class="card-img-top"
-										alt="<?php echo esc_attr($card_title); ?>"
-										loading="lazy"
-										style="object-fit: cover; height: 200px;"
-										/>
-									</a>
-								<?php endif; ?>
-								<div class="card-body d-flex flex-column">
-									<h3 class="h6 card-title">
-										<a href="<?php echo esc_url($card_url); ?>" class="text-decoration-none">
-											<?php echo esc_html($card_title); ?>
-										</a>
-									</h3>
-									<?php if (!empty($card_desc)) : ?>
-										<p class="card-text text-muted small">
-											<?php echo esc_html(wp_trim_words($card_desc, 18, '…')); ?>
-										</p>
-									<?php endif; ?>
-									<div class="mt-auto">
-										<a href="<?php echo esc_url($card_url); ?>">
-											<img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
-										</a>
-									</div>
-								</div>
-							</article>
-						</div>
-					<?php endforeach; ?>
+							<?php if( have_rows('citacoes') ): ?>
+							<?php while( have_rows('citacoes') ): the_row(); 
+								$frase = get_sub_field('frase');
+								$autor = get_sub_field('autor');
+								?>
+								<blockquote class="">
+									<p><?php echo esc_html($frase); ?></p>
+									<footer><?php echo esc_html($autor); ?></footer>
+								</blockquote>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
 				</div>
-			<?php else : ?>
-				<p class="text-muted">
-					Nenhum item disponível para exibição no momento.
-				</p>
+			</div>
+		</header>
+		<hr><br>
+		<section class="mb-5">
+			<div class="d-flex align-items-center justify-content-between mb-3">
+				<h2 class="h4 mb-0">Itens da coleção</h2>
+			</div>
+			<?php if (!empty($error)) : ?>
+				<div class="alert alert-warning">
+					<?php echo esc_html($error); ?>
+				</div>
 			<?php endif; ?>
-		</section>
-	</main>
-	<?php
+			<?php if (!empty($items) && is_array($items)) : ?>
+			<div class="row g-4" id="colecoes">
+				<?php foreach ($items as $item) :
+					if (!function_exists('memorial_tainacan_normalize_item_to_card')) {
+						continue;
+					}
+					$card = memorial_tainacan_normalize_item_to_card($item);
+					$card_title = $card['title'] ?? '';
+					$card_desc  = $card['description'] ?? '';
+					$card_thumb = $card['thumb'] ?? '';
+					$card_url   = $card['url'] ?? '';
+					if (empty($card_url)) {
+						continue;
+					}
+					?>
+					<div class="col-12 col-md-6 col-lg-4">
+						<article class="card h-100 shadow-sm">
+
+							<?php if (!empty($card_thumb)) : ?>
+								<a href="<?php echo esc_url($card_url); ?>" class="text-decoration-none">
+									<img
+									src="<?php echo esc_url($card_thumb); ?>"
+									class="card-img-top"
+									alt="<?php echo esc_attr($card_title); ?>"
+									loading="lazy"
+									style="object-fit: cover; height: 200px;"
+									/>
+								</a>
+							<?php endif; ?>
+							<div class="card-body d-flex flex-column">
+								<h3 class="h6 card-title">
+									<a href="<?php echo esc_url($card_url); ?>" class="text-decoration-none">
+										<?php echo esc_html($card_title); ?>
+									</a>
+								</h3>
+								<?php if (!empty($card_desc)) : ?>
+									<p class="card-text text-muted small">
+										<?php echo esc_html(wp_trim_words($card_desc, 18, '…')); ?>
+									</p>
+								<?php endif; ?>
+								<div class="mt-auto">
+									<a href="<?php echo esc_url($card_url); ?>">
+										<img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
+									</a>
+								</div>
+							</div>
+						</article>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		<?php else : ?>
+			<p class="text-muted">
+				Nenhum item disponível para exibição no momento.
+			</p>
+		<?php endif; ?>
+	</section>
+</main>
+<?php
 endwhile;
 endif;
 get_footer();
