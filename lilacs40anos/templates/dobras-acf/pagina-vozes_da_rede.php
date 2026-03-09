@@ -25,7 +25,7 @@ $total = count( $depoimentos );
 #<?php echo esc_attr( $uid ); ?> {
     width: 100%;
     padding: 60px 16px;
-    max-width: 97%;
+    max-width: 100%;
     <?php if ( $bg_image ) : ?>
     background-image: url('<?php echo esc_url( $bg_image ); ?>');
     background-size: cover;
@@ -48,8 +48,9 @@ $total = count( $depoimentos );
 }
 
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-title {
-    font-size: 30px;
+    font-size: 36px;
     font-weight: 700;
+    font-family: 'Noto Sans', sans-serif;   
     color: #0b2144;
 }
 
@@ -107,20 +108,23 @@ $total = count( $depoimentos );
 }
 
 #<?php echo esc_attr( $uid ); ?> .voz-name {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 4px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 #<?php echo esc_attr( $uid ); ?> .voz-role {
-    font-size: 14px;
+    font-size: 16px;
     opacity: 0.9;
+        font-family: 'Noto Sans', sans-serif;
 }
 
 /* texto do depoimento */
 #<?php echo esc_attr( $uid ); ?> .voz-text {
     font-size: 15px;
     line-height: 1.7;
+        font-family: 'Noto Sans', sans-serif;
 }
 
 /* Controles */
@@ -213,11 +217,14 @@ $total = count( $depoimentos );
                         <article class="voz-card">
                             <div class="voz-card-inner">
                                 <div class="voz-head">
-                                    <div class="voz-avatar">
                                         <?php if ( $foto ) : ?>
+
+                                    <div class="voz-avatar">
+                                   
                                             <img src="<?php echo $foto; ?>" alt="<?php echo esc_attr( $titulo ); ?>">
-                                        <?php endif; ?>
+                                    
                                     </div>
+                                        <?php endif; ?>
                                     <div>
                                         <?php if ( $titulo ) : ?>
                                             <div class="voz-name"><?php echo esc_html( $titulo ); ?></div>
