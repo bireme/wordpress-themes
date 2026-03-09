@@ -43,7 +43,7 @@ if (count($hero_posts) === 3) :
     <div class="container"  id="home-hero">
       <div class="row g-3 align-items-stretch" >
         <!-- COLUNA ESQUERDA (card grande) -->
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <a href="<?php echo esc_url($big['link']); ?>" class="card overlay-card big text-white h-100">
             <img src="<?php echo esc_url($big['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($big['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
@@ -55,7 +55,7 @@ if (count($hero_posts) === 3) :
           </a>
         </div>
         <!-- COLUNA DIREITA (dois cards) -->
-        <div class="col-lg-5 d-flex flex-column gap-3">
+        <div class="col-lg-4 d-flex flex-column gap-3">
           <a href="<?php echo esc_url($small1['link']); ?>" class="card overlay-card text-white flex-fill">
             <img src="<?php echo esc_url($small1['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($small1['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">

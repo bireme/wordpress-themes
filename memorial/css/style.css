@@ -21,6 +21,20 @@ a{
 .title{
 	font-weight: bold; 
 	margin-bottom: 30px;
+	position: relative;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.title::after {
+	content: "";
+	position: absolute;
+	border-radius: 2px;
+	left: 0;
+	bottom: -1px;
+	width: 150px;
+	height: 3px;
+	background-color: var(--color-secondary);
 }
 .img-rounded{
 	border-radius: 16px;
@@ -83,8 +97,8 @@ a{
 /*Home*/
 .card-session{
 	border: 0;
-    border-radius: 18px;
-    background: #fff;
+	border-radius: 18px;
+	background: #fff;
 }
 .card-default{
 	border-left:5px solid var(--color-secondary)!important;
@@ -175,7 +189,7 @@ a{
 	transform: scale(1.02);
 }
 .colecoes .overlay-card .card-img-overlay{
-	background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%);
+	background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.85) 100%);
 	transition: all .5s ease;
 }
 .colecoes .eyebrow{
@@ -202,7 +216,7 @@ a{
 .btn,
 a.button,
 a.btn {
-	background-color: var(--color-primary) !important;
+	background-color: var(--color-primary);
 	border-color: var(--color-primary) !important;
 	color: #ffffff !important;
 }
@@ -263,13 +277,35 @@ a.btn:hover {
 .wp-block-details{
 	border-bottom: 2px solid var(--color-secondary);
 }
-blockquote{
+/*blockquote{
 	padding: 30px 30px 10px 30px;
 	font-size: 18px;
 	border: 1px solid #ddd;
 	border-radius: 16px 0;
 	margin-bottom: 30px;
 	background: #d5fad6;
+}*/
+blockquote{
+	background:none;
+	border:0;
+	font-style:italic;
+	font-size:16px;
+	position: relative;
+	padding: 2.3rem 0 0 2rem;
+	line-height: 1.3rem;
+}
+blockquote::before {
+	content: "“"; 
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	font-size: 4rem;
+	font-weight: bold;
+	line-height: 1;
+	font-family: none;
+}
+blockquote footer{
+	font-size: 13px;
 }
 /***********************home nova*/
 #nav-home{
@@ -527,4 +563,25 @@ blockquote{
 	outline: 3px solid rgba(13,110,253,.35);
 	outline-offset: 3px;
 	border-radius: 10px;
+}
+
+.icon-contact img {
+	background: #f2f2f2 !important;
+	border: 1px solid #cecece;
+	display: inline;
+	border-radius: 8px;
+	width: 50px;
+	padding: 5px;
+}
+.btn-colecoes{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	background: red;
+}
+.btn-folder{
+	color: #fff;
+	width:25px;
+	margin-right: 20px;
 }
