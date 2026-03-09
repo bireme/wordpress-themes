@@ -68,6 +68,11 @@ if (have_posts()) :
 					</div>
 					<div class="col-md-4">
 						<div class="mb-4 sticky-top">
+							<?php if (!empty($tainacan_url)) : ?>
+								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success mb-3 p-3 w-100 btn-lg btn-colecoes">
+									<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
+								</a>
+							<?php endif; ?>
 							<?php if (!empty($banner_url)) : ?>
 								<img
 								src="<?php echo esc_url($banner_url); ?>"
@@ -75,11 +80,6 @@ if (have_posts()) :
 								class="img-fluid rounded"
 								loading="lazy"
 								/>
-							<?php endif; ?>
-							<?php if (!empty($tainacan_url)) : ?>
-								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-primary mt-3">
-									Ver itens desta coleção
-								</a>
 							<?php endif; ?>
 						</div>
 					</div>
