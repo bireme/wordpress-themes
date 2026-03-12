@@ -19,7 +19,7 @@ $query = new WP_Query([
     'post_status'         => 'publish',
     'posts_per_page'      => 10,
     'orderby'             => 'menu_order',
-    'order'               => 'ASC',
+    'orderby'             => 'rand',
     'ignore_sticky_posts' => true,
 ]);
 
