@@ -79,3 +79,4 @@ register_sidebar([
 ]);
 //custom post type
 require_once get_template_directory() . '/includes/functions-colecoes.php';
+require_once get_template_directory() . '/includes/functions-aspas.php';
