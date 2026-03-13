@@ -89,8 +89,13 @@ $uid = 'lilacs-boxlistas-' . wp_unique_id();
 											</div>
 										<?php endif; ?>
 									</li>
+
 								<?php endforeach; ?>
 							</ul>
+							<?php 
+								$saiba_mais_link = $box['link_saiba_mais'] ?? '';
+								$saiba_mais_texto = $box['texto_do_saiba_mais'] ?? 'saiba mais';
+							?>	<a class="saiba_mais_home" href="<?php echo $escu( $saiba_mais_link ); ?>"><?php echo $esc( $saiba_mais_texto ); ?></a>
 						<?php endif; ?>
 					</article>
 				<?php endforeach; ?>
@@ -137,7 +142,15 @@ $uid = 'lilacs-boxlistas-' . wp_unique_id();
 		gap: 24px;
 		align-items: stretch;
 	}
-
+	.saiba_mais_home{
+		text-align: right;
+    width: 100%;
+    display: block;
+    font-size: 24px;
+    text-decoration: none;
+    color: #f96a1e;
+    font-family: 'Noto Sans';
+	}
 	#<?php echo esc_attr( $uid ); ?> .lilacs-boxlistas__card{
 		background: #F3F3F3;
 		border-radius: 14px;
@@ -146,6 +159,7 @@ $uid = 'lilacs-boxlistas-' . wp_unique_id();
 		min-height: 335px;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-evenly;
 	}
 
 	#<?php echo esc_attr( $uid ); ?> .lilacs-boxlistas__card-head{
