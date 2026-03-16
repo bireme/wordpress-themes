@@ -6,7 +6,9 @@
             <?php if (function_exists('bcn_display')) { bcn_display(); } ?>
         </div>
         <h1 class="title"><?php  the_title(); ?></h1>
-       
+        <div class="mt-5 mb-5">    
+            <?php  the_content(); ?>
+        </div>
         <div class="row align-items-stretch prodct-layout">
             <!-- COLUNA ESQUERDA -->
             <div class="col-12 col-lg-4 order-2 order-lg-1">
@@ -74,7 +76,7 @@
                                         </div>
                                     <?php endif; ?>
                                     <?php if($link): ?>
-                                       <a href="<?php echo esc_url($link); ?>">
+                                     <a href="<?php echo esc_url($link); ?>">
                                         <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
                                     </a>
                                 <?php endif; ?>
@@ -83,9 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-5">    
-                <?php  the_content(); ?>
-            </div>
+            
         </div>
     </main>
     <?php get_footer(); ?>
