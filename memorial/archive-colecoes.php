@@ -56,7 +56,7 @@ $query = new WP_Query($args);
         </p>
         <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
             <div class="col-10">
-                <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="Pesquisar">
+                <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
             </div>
             <div class="col-2">
                 <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
@@ -69,7 +69,7 @@ $query = new WP_Query($args);
 
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="documento">
-                    <label class="form-check-label" for="inlineRadio2">Produção técnico-científicas</label>
+                    <label class="form-check-label" for="inlineRadio2">Publicações</label>
                 </div>
             </div>
         </form>
