@@ -53,24 +53,24 @@ if (! $query->have_posts()) {
                                 <?php echo esc_html($autor); ?>
                             </p>
                             <div class="mt-auto">
-                                <a href="<?php echo esc_url($url); ?>">
-                                    <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            <?php endwhile; ?>
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-8 offset-md-2 text-center">
-                
+                                <a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
+                                 Coleção:  <i><?php echo esc_html($colecao); ?></i>
+                             </a>
+                         </div>
+                     </div>
+                 </article>
+             </div>
+         <?php endwhile; ?>
+     </div>
+     <div class="row mt-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            
             O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.
         </p>
         <h4 class="text-center mt-5">
-            </div>
         </div>
     </div>
+</div>
 </section>
 
 <?php wp_reset_postdata(); ?>
