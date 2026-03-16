@@ -17,7 +17,7 @@ if (! empty($block['align'])) {
 $query = new WP_Query([
     'post_type'           => 'aspas',
     'post_status'         => 'publish',
-    'posts_per_page'      => 10,
+    'posts_per_page'      => 3,
     'orderby'             => 'menu_order',
     'orderby'             => 'rand',
     'ignore_sticky_posts' => true,
@@ -29,42 +29,51 @@ if (! $query->have_posts()) {
 ?>
 
 <section id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($classes); ?> pb-5">
-    <div class="container-aspas">
-        <div class="aspas-slider js-aspas-slider">
+    <div class="container pt-5">
+        <h2 class="title text-center">Vozes da Pandemia</h2>
+        <div class="row g-4" id="colecoes">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <?php
                 $autor = get_field('autor');
                 $url   = get_field('link_da_colecao');
                 ?>
-                <div class="aspas-slider__item">
-                    <article class="aspa-card">
-                        <blockquote class="aspa-card__content">
-                            <?php the_content(); ?>
-                        </blockquote>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card h-100 shadow-sm">
 
-                        <?php if ($autor) : ?>
-                            <cite>
+                        <div class="card-body d-flex flex-column text-center">
+                            <h2 class="h5 card-title">
+                                <a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
+                                    <?php the_title(); ?>
+                                    <hr>
+                                </a>
+                            </h2>
+
+                            <p class="card-text text-muted">
+                                <?php the_content(); ?>
                                 <?php echo esc_html($autor); ?>
-                            </cite>
-                        <?php endif; ?>
-
-                        <?php if ($url) : ?>
-                            <div class="mt-3">
-                                <a class="btn btn-primary" href="<?php echo esc_url($url); ?>">
-                                    Ver coleção
+                            </p>
+                            <div class="mt-auto">
+                                <a href="<?php echo esc_url($url); ?>">
+                                    <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
                                 </a>
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </article>
                 </div>
             <?php endwhile; ?>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-8 offset-md-2 text-center">
+                
+            O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.
+        </p>
+        <h4 class="text-center mt-5">
+            </div>
         </div>
     </div>
 </section>
 
 <?php wp_reset_postdata(); ?>
-
-
 
 
 <style>
