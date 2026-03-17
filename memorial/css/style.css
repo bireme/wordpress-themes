@@ -496,7 +496,7 @@ blockquote footer{
 #colecoes .card:hover{
 	transform: translateY(-6px);
 	box-shadow: 0 18px 45px rgba(0,0,0,.14);
-	background: #D5FAD6;
+	background: linear-gradient(to top, #D5FAD6, #FFFFFF);
 }
 #colecoes .card-img-top{
 	height: 220px !important; /* sobrescreve o inline */
