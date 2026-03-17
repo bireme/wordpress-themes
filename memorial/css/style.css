@@ -277,14 +277,6 @@ a.btn:hover {
 .wp-block-details{
 	border-bottom: 2px solid var(--color-secondary);
 }
-/*blockquote{
-	padding: 30px 30px 10px 30px;
-	font-size: 18px;
-	border: 1px solid #ddd;
-	border-radius: 16px 0;
-	margin-bottom: 30px;
-	background: #d5fad6;
-}*/
 blockquote{
 	background:none;
 	border:0;
@@ -565,7 +557,6 @@ blockquote footer{
 	outline-offset: 3px;
 	border-radius: 10px;
 }
-
 .icon-contact img {
 	background: #f2f2f2 !important;
 	border: 1px solid #cecece;
@@ -592,7 +583,12 @@ blockquote footer{
 	padding: 40px;
 	border: 1px solid #f2f2f250;
 }
-
+.card-img-top img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
 /***** Produção BIREME *****/
 #prodct-section {
 	position: relative;
