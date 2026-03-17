@@ -17,8 +17,7 @@ if (! empty($block['align'])) {
 $query = new WP_Query([
     'post_type'           => 'aspas',
     'post_status'         => 'publish',
-    'posts_per_page'      => 10,
-    'orderby'             => 'menu_order',
+    'posts_per_page'      => 3,
     'orderby'             => 'rand',
     'ignore_sticky_posts' => true,
 ]);
@@ -40,7 +39,9 @@ if (! $query->have_posts()) {
                 ?>
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="card h-100 shadow-sm">
-
+                        <a href="<?php echo esc_url($url); ?>" class="card-img-top d-block">
+                            <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid']); ?>
+                        </a>
                         <div class="card-body d-flex flex-column text-center">
                             <h2 class="h5 card-title">
                                 <a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
@@ -77,9 +78,6 @@ if (! $query->have_posts()) {
 </section>
 
 <?php wp_reset_postdata(); ?>
-
-
-
 
 <script>
     jQuery(function ($) {

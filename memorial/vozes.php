@@ -26,28 +26,30 @@ $query = new WP_Query([
 				$url   = get_field('link_da_colecao');
 				?>
 				<div class="col-12 col-md-6 col-lg-4">
-					<article class="card h-100 shadow-sm">
+                    <article class="card h-100 shadow-sm">
+                        <a href="<?php echo esc_url($url); ?>" class="card-img-top d-block">
+                            <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid']); ?>
+                        </a>
+                        <div class="card-body d-flex flex-column text-center">
+                            <h2 class="h5 card-title">
+                                <a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
+                                    <?php the_title(); ?>
+                                    <hr>
+                                </a>
+                            </h2>
 
-						<div class="card-body d-flex flex-column text-center">
-							<h2 class="h5 card-title">
-								<a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
-									<?php the_title(); ?>
-									<hr>
-								</a>
-							</h2>
-
-							<p class="card-text text-muted">
-								<?php the_content(); ?>
-								<?php echo esc_html($autor); ?>
-							</p>
-							<div class="mt-auto">
-								<a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
-									Coleção:  <i><?php echo esc_html($colecao); ?></i>
-								</a>
-							</div>
-						</div>
-					</article>
-				</div>
+                            <p class="card-text text-muted">
+                                <?php the_content(); ?>
+                                <?php echo esc_html($autor); ?>
+                            </p>
+                            <div class="mt-auto">
+                                <a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
+                                    Coleção:  <i><?php echo esc_html($colecao); ?></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
 			<?php endwhile; ?>
 		</div>
 	</div>
