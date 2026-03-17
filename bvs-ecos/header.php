@@ -33,13 +33,15 @@
 ?>
 
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Pular para o conteúdo', 'bvs-ecos' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Pular para o conteúdo', 'bvs-ecos' ); ?></a>
 
-	<header id="masthead" class="site-header navbar-static-top bg-menu <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
+    <header id="masthead" class="site-header navbar-static-top bg-menu <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container-fluid navbar-dark">
             <div class="container">
                 <div class="row secondary-menu">
-                    <div class="col-md-12">                        
+                    <div class="col-md-12">              
+                        <?php get_template_part('template-parts/language', 'switcher'); ?>    
+                    
                         <?php if( !is_user_logged_in() ){ 
                             $redirect = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         ?>
@@ -110,7 +112,7 @@
 
             </nav>
         </div>
-	</header><!-- #masthead -->
+    </header><!-- #masthead -->
     
     <?php if( !is_front_page() || (isset($_GET['newsletter']) && $_GET['newsletter'] == 'subscribed') ): ?>
 
@@ -133,8 +135,8 @@
         }
     ?>
 
-	<div id="content" class="site-content">
-		<div class="<?php echo $container_class; ?>">
-			<div class="row">
+    <div id="content" class="site-content">
+        <div class="<?php echo $container_class; ?>">
+            <div class="row">
 
     <?php endif; ?>
