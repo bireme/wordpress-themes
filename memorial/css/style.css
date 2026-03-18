@@ -69,6 +69,12 @@ a{
 	padding: 20px 0 10px 0;
 	margin-bottom: 20px;
 }
+.form-biblioteca{
+	background: rgba(0,0,0,.7);
+	border-radius: 16px;
+	padding: 20px 0 10px 0;
+	margin-bottom: 20px;
+}
 #buscaForm button{
 	margin-left: -15px;
 }
