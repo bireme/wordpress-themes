@@ -678,3 +678,15 @@ blockquote footer{
 		margin-bottom: 40px;
 	}
 }
+.biblioteca-cards img{
+	transition:all .5s ease;
+}
+.biblioteca-cards a{
+	color:#fff;
+}
+.biblioteca-cards a:hover{
+	color:#ddd;
+}
+.biblioteca-cards:hover img{
+	transform:scale(1.1)
+}
