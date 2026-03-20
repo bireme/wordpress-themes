@@ -30,7 +30,6 @@ add_action('init', function () {
 add_action('init', 'action_init');
 function action_init(){
     register_nav_menu('main-nav', 'Main Menu (top)');
-    register_nav_menu('main-nav-home', 'Main Menu (Home)');
 }
 
 //Excerpt length
