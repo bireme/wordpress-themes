@@ -22,7 +22,7 @@ if ($hero_query->have_posts()) {
       'title'   => get_the_title(),
       'link'    => get_permalink(),
       'excerpt' => get_the_excerpt(),
-      'thumb'   => get_the_post_thumbnail_url($post_id, 'large'),
+      'thumb'   => get_the_post_thumbnail_url($post_id, 'full'),
     ];
   }
 }
@@ -40,8 +40,12 @@ if (count($hero_posts) === 3) :
   $small2 = $hero_posts[2];
   ?>
   <section class="colecoes py-4" id="home-section-hero">
-    <div class="container"  id="home-hero">
-      <div class="row g-3 align-items-stretch" >
+    <div class="container border"  id="home-hero">
+      <div class="text-center">
+        <h3><b>Memórias, vozes e caminhos</b></h3>
+        <h5>Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19.</h5>
+      </div>
+      <div class="row g-3 mt-3 align-items-stretch" >
         <!-- COLUNA ESQUERDA (card grande) -->
         <div class="col-lg-8">
           <a href="<?php echo esc_url($big['link']); ?>" class="card overlay-card big text-white h-100">
@@ -83,4 +87,4 @@ if (count($hero_posts) === 3) :
       </a>
     </div>
   </section>
-<?php endif; ?>
+  <?php endif; ?>

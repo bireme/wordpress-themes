@@ -56,27 +56,6 @@ register_sidebar([
     'before_title'  => '<h5>',
     'after_title'   => '</h5>'
 ]);
-register_sidebar([
-    'name'          => 'Footer 2',
-    'id'            => 'footer2',
-    'description'   => 'Footer 2',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>'
-]);
-register_sidebar([
-    'name'          => 'Footer 3',
-    'id'            => 'footer3',
-    'description'   => 'Footer 3',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>'
-]);
-register_sidebar([
-    'name'          => 'Nova Home',
-    'id'            => 'nova-home',
-    'description'   => 'Nova Home',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>'
-]);
 //custom post type
 require_once get_template_directory() . '/includes/functions-colecoes.php';
 require_once get_template_directory() . '/includes/functions-aspas.php';
