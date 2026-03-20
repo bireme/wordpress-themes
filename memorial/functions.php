@@ -30,7 +30,7 @@ add_action('init', function () {
 add_action('init', 'action_init');
 function action_init(){
     register_nav_menu('main-nav', 'Main Menu (top)');
-    #register_nav_menu('Language', 'Language');
+    register_nav_menu('main-nav-home', 'Main Menu (Home)');
 }
 
 //Excerpt length
@@ -59,7 +59,6 @@ register_sidebar([
 //custom post type
 require_once get_template_directory() . '/includes/functions-colecoes.php';
 require_once get_template_directory() . '/includes/functions-aspas.php';
-require_once get_template_directory() . '/includes/functions-polylang.php';
 
 //Custom functions and shortcodes
 require_once get_template_directory() . '/includes/functions-shortcodes.php';
