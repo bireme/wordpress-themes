@@ -1,4 +1,4 @@
-		<?php $lang = pll_current_language(); ?>
+
 		<footer id="footer">
 			<div class="container">
 				<div class="row">
