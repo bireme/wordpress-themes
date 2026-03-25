@@ -193,6 +193,82 @@ add_action('rest_api_init', function () {
     ]);
 });
 
+// ------------------------------
+// Função: Recebe um post_type e retorna as taxonomias associadas + termos com contagem de posts publicados
+// GET /wp-json/susdigi/v1/filters?post_type=posts
+// GET /wp-json/susdigi/v1/filters?post_type=project
+// GET /wp-json/susdigi/v1/filters?post_type=stories
+// GET /wp-json/susdigi/v1/filters?post_type=event
+// GET /wp-json/susdigi/v1/filters?post_type=testimonials
+// ------------------------------
+add_action('rest_api_init', function () {
+  register_rest_route('susdigi/v1', '/filters', [
+    'methods'             => 'GET',
+    'callback'            => 'susdigi_get_filters',
+    'permission_callback' => '__return_true',
+    'args' => [
+      'post_type' => [
+        'required'          => true,
+        'sanitize_callback' => 'sanitize_key',
+      ],
+    ],
+  ]);
+});
+
+function susdigi_get_filters(WP_REST_Request $request) {
+  $post_type = $request->get_param('post_type');
+
+  // CPTs permitidos (segurança: whitelist)
+  $allowed_post_types = ['posts', 'event', 'project', 'stories', 'testimonials'];
+  if (!in_array($post_type, $allowed_post_types, true)) {
+    return new WP_Error(
+      'invalid_post_type',
+      'post_type não permitido.',
+      ['status' => 400]
+    );
+  }
+
+  // Taxonomias associadas ao CPT (dinâmico)
+  $taxonomies = get_object_taxonomies($post_type, 'objects');
+
+  $filters = [];
+
+  foreach ($taxonomies as $tax_slug => $tax_obj) {
+
+    // Busca os termos com contagem de posts publicados
+    $terms = get_terms([
+      'taxonomy'   => $tax_slug,
+      'hide_empty' => true,        // só mostra se tiver post publicado
+      'orderby'    => 'count',
+      'order'      => 'DESC',
+      'object_type' => [$post_type], // conta só posts deste CPT
+    ]);
+
+    if (is_wp_error($terms) || empty($terms)) {
+      continue;
+    }
+
+    $items = array_map(function ($term) {
+      return [
+        'id'    => $term->term_id,
+        'slug'  => $term->slug,
+        'name'  => $term->name,
+        'count' => (int) $term->count,
+      ];
+    }, $terms);
+
+    $filters[] = [
+      'taxonomy'    => $tax_slug,
+      'label'       => $tax_obj->label,
+      'items'       => $items,
+    ];
+  }
+
+  return rest_ensure_response([
+    'post_type' => $post_type,
+    'filters'   => $filters,
+  ]);
+}
 
 // ------------------------------
 // Função: todos os menus do site atual
