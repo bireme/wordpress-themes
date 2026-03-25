@@ -85,6 +85,42 @@ add_action( 'rest_api_init', function () {
 } );
 
 // ------------------------------
+// REST API: retorna todos os sites do multisite
+// GET /wp-json/susdigi/v1/sites
+// ------------------------------
+add_action('rest_api_init', function () {
+  register_rest_route('susdigi/v1', '/sites', [
+    'methods'             => 'GET',
+    'callback'            => 'susdigi_get_sites',
+    'permission_callback' => '__return_true', // ou adicionar autenticação
+  ]);
+});
+
+function susdigi_get_sites() {
+  $sites = get_sites([
+    'public'   => 1,
+    'archived' => 0,
+    'deleted'  => 0,
+    'fields'   => 'ids',
+  ]);
+
+  $data = [];
+  foreach ($sites as $site_id) {
+    $details = get_blog_details($site_id);
+    $data[] = [
+      'id'          => $site_id,
+      'slug'        => $details->path,
+      'name'        => $details->blogname,
+      'url'         => $details->siteurl,
+      'description' => $details->blogdescription,
+      'lang'        => get_blog_option($site_id, 'WPLANG', 'pt_BR'),
+    ];
+  }
+
+  return rest_ensure_response($data);
+}
+
+// ------------------------------
 // REST API: filtro por campo ACF "br_region" no CPT "project"
 // GET /wp-json/wp/v2/project?br_region=Nordeste
 // ------------------------------
