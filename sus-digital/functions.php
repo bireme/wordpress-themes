@@ -195,7 +195,7 @@ add_action('rest_api_init', function () {
 
 // ------------------------------
 // Função: Recebe um post_type e retorna as taxonomias associadas + termos com contagem de posts publicados
-// GET /wp-json/susdigi/v1/filters?post_type=posts
+// GET /wp-json/susdigi/v1/filters?post_type=post
 // GET /wp-json/susdigi/v1/filters?post_type=project
 // GET /wp-json/susdigi/v1/filters?post_type=stories
 // GET /wp-json/susdigi/v1/filters?post_type=event
@@ -219,7 +219,7 @@ function susdigi_get_filters(WP_REST_Request $request) {
   $post_type = $request->get_param('post_type');
 
   // CPTs permitidos (segurança: whitelist)
-  $allowed_post_types = ['posts', 'event', 'project', 'stories', 'testimonials'];
+  $allowed_post_types = ['post', 'event', 'project', 'stories', 'testimonials'];
   if (!in_array($post_type, $allowed_post_types, true)) {
     return new WP_Error(
       'invalid_post_type',
