@@ -14,9 +14,39 @@ if (!defined('ABSPATH')) {
  * ============================================================
  */
 
+
+// Admin option for Tainacan Base URL
+add_action('admin_menu', function () {
+    add_options_page(
+        'Memorial Tainacan',
+        'Memorial Tainacan',
+        'manage_options',
+        'memorial-tainacan-settings',
+        function () {
+            if (!current_user_can('manage_options')) return;
+            if (isset($_POST['memorial_tainacan_base_url']) && check_admin_referer('memorial_tainacan_save_base_url')) {
+                $url = esc_url_raw(rtrim((string)$_POST['memorial_tainacan_base_url'], '/'));
+                update_option('memorial_tainacan_base_url', $url);
+                echo '<div class="updated"><p>URL salva com sucesso.</p></div>';
+            }
+            $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'));
+            echo '<div class="wrap"><h1>Configuração do Tainacan (Memorial)</h1>';
+            echo '<form method="post">';
+            wp_nonce_field('memorial_tainacan_save_base_url');
+            echo '<table class="form-table"><tr><th><label for="memorial_tainacan_base_url">Base URL do Tainacan</label></th>';
+            echo '<td><input type="url" id="memorial_tainacan_base_url" name="memorial_tainacan_base_url" value="' . $current . '" style="width: 420px;" required></td></tr>';
+            echo '</table>';
+            echo '<p class="description">Exemplo: https://teste.memorialdigitalcovid19.org.br/tainacan (sem barra no final)</p>';
+            echo '<p><input type="submit" class="button-primary" value="Salvar"></p>';
+            echo '</form></div>';
+        }
+    );
+});
+
 if (!defined('MEMORIAL_TAINACAN_BASE_URL')) {
     // SEM barra no final
-    define('MEMORIAL_TAINACAN_BASE_URL', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
+    $base_url = get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
+    define('MEMORIAL_TAINACAN_BASE_URL', rtrim($base_url, '/'));
 }
 
 if (!defined('MEMORIAL_TAINACAN_HTTP_TIMEOUT')) {
