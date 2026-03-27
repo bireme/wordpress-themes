@@ -7,7 +7,7 @@ $bg = $thumb ? $thumb : get_template_directory_uri() . '/img/header-memorial.jpg
 <header id="header-title" class="pt-5 pb-5" style="background: linear-gradient(45deg, rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<?php echo $bg; ?>') center bottom no-repeat fixed; background-size: cover;">
 	<div class="container">
 		<h1 class="mb-3"><?php the_title(); ?></h1>
-		<form id="buscaForm" class="row form-biblioteca" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
+			<form id="buscaForm" class="row form-biblioteca" method="get" action="<?php echo esc_url(MEMORIAL_TAINACAN_BASE_URL . '/colecoes'); ?>">
 			<div class="col-10">
 				<input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
 			</div>
