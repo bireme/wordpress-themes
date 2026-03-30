@@ -75,7 +75,7 @@ if (! $query->have_posts()) {
                 $rendered    = apply_filters('the_content', $raw_content);
                 $clean       = wp_strip_all_tags($rendered);
                 $clean       = trim(preg_replace('/\s+/', ' ', $clean));
-                $text        = mb_strimwidth($clean, 0, 250, '...');
+                $text        = wp_trim_words($clean, 35, '...');
                 ?>
                 <div class="aspas-slide">
                     <article class="aspas-card">
