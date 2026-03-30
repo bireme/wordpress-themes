@@ -249,6 +249,12 @@ a.btn:hover {
 	margin: 5px 5px 0 0;
 }
 /* Aspas Card */
+.aspas-slider-wrap .slick-track{
+	display: flex !important;
+}
+.aspas-slider-wrap .slick-slide{
+	height: inherit !important;
+}
 .aspas-card{
 	background: #fff;
 	border-radius: 16px;
@@ -260,6 +266,10 @@ a.btn:hover {
 }
 .aspas-slide{
 	padding: 5px;
+	height: inherit !important;
+}
+.aspas-slide > .aspas-card{
+	height: 100%;
 }
 .aspas-card-img{
 	overflow: hidden;
