@@ -8,6 +8,14 @@ if (! isset($block) || empty($block)) {
     return;
 }
 
+// Verifica se o bloco está ativo no painel
+if (get_option('memorial_aspas_slider_ativo', '1') !== '1') {
+    if (is_admin()) {
+        echo '<p style="padding:20px;color:#c00;text-align:center;background:#fff3f3;border:1px solid #c00;border-radius:8px;">⚠ O bloco <strong>Aspas Slider</strong> está desativado nas configurações (Ajustes &gt; Memorial Tainacan).</p>';
+    }
+    return;
+}
+
 $block_id = 'aspas-slider-' . $block['id'];
 $classes  = 'block-aspas-slider';
 
@@ -21,6 +29,8 @@ if (! empty($block['align'])) {
 
 // Tenta ler as aspas selecionadas no campo do bloco
 $selected = function_exists('get_field') ? get_field('aspas_selecionadas') : null;
+$cor_aspas = function_exists('get_field') ? get_field('cor_aspas') : '';
+if (empty($cor_aspas)) $cor_aspas = '#4e9a51';
 
 if (! empty($selected) && is_array($selected)) {
     $post_ids = array_map(function ($p) {
@@ -60,11 +70,6 @@ if (! $query->have_posts()) {
                 $autor   = get_field('autor',get_the_ID());
                 $colecao =  get_field('colecao',get_the_ID());
                 $url     = get_field('link_da_colecao',get_the_ID());
-			
-
-
-                $cor_aspas = get_field('cor_aspas');
-                if (empty($cor_aspas)) $cor_aspas = '#4e9a51';
 
                 $raw_content = get_post_field('post_content', get_the_ID());
                 $rendered    = apply_filters('the_content', $raw_content);
