@@ -31,17 +31,24 @@ add_action('admin_menu', function () {
                     $bvs = esc_url_raw(rtrim((string)$_POST['memorial_bvs_base_url'], '/'));
                     update_option('memorial_bvs_base_url', $bvs);
                 }
-                echo '<div class="updated"><p>URL salva com sucesso.</p></div>';
+                $aspas_ativo = isset($_POST['memorial_aspas_slider_ativo']) ? '1' : '0';
+                update_option('memorial_aspas_slider_ativo', $aspas_ativo);
+                echo '<div class="updated"><p>Configurações salvas com sucesso.</p></div>';
             }
             $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'));
             $current_bvs = esc_attr(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'));
-            echo '<div class="wrap"><h1>Configuração do Tainacan (Memorial)</h1>';
+            $aspas_ativo = get_option('memorial_aspas_slider_ativo', '1');
+            echo '<div class="wrap"><h1>Configuração do Memorial</h1>';
             echo '<form method="post">';
             wp_nonce_field('memorial_tainacan_save_base_url');
-            echo '<table class="form-table"><tr><th><label for="memorial_tainacan_base_url">Base URL do Tainacan</label></th>';
+            echo '<table class="form-table">';
+            echo '<tr><th><label for="memorial_tainacan_base_url">Base URL do Tainacan</label></th>';
             echo '<td><input type="url" id="memorial_tainacan_base_url" name="memorial_tainacan_base_url" value="' . $current . '" style="width: 420px;" required></td></tr>';
             echo '<tr><th><label for="memorial_bvs_base_url">Base URL da BVS</label></th>';
             echo '<td><input type="url" id="memorial_bvs_base_url" name="memorial_bvs_base_url" value="' . $current_bvs . '" style="width: 420px;" required></td></tr>';
+            echo '<tr><th>Bloco Aspas Slider</th>';
+            echo '<td><label><input type="checkbox" name="memorial_aspas_slider_ativo" value="1"' . checked($aspas_ativo, '1', false) . '> Ativar bloco Aspas Slider no front-end</label>';
+            echo '<p class="description">Desmarque para desligar a exibição do bloco Aspas Slider em todo o site.</p></td></tr>';
             echo '</table>';
             echo '<p class="description">Exemplo Tainacan: https://teste.memorialdigitalcovid19.org.br/tainacan (sem barra no final)</p>';
             echo '<p class="description">Exemplo BVS: https://pesquisa.bvsalud.org/memorialcovid (sem barra no final)</p>';

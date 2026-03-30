@@ -8,6 +8,14 @@ if (! isset($block) || empty($block)) {
     return;
 }
 
+// Verifica se o bloco está ativo no painel
+if (get_option('memorial_aspas_slider_ativo', '1') !== '1') {
+    if (is_admin()) {
+        echo '<p style="padding:20px;color:#c00;text-align:center;background:#fff3f3;border:1px solid #c00;border-radius:8px;">⚠ O bloco <strong>Aspas Slider</strong> está desativado nas configurações (Ajustes &gt; Memorial Tainacan).</p>';
+    }
+    return;
+}
+
 $block_id = 'aspas-slider-' . $block['id'];
 $classes  = 'block-aspas-slider';
 
