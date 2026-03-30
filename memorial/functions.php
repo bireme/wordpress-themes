@@ -7,10 +7,17 @@ add_theme_support('post-thumbnails');
 add_action('wp_enqueue_scripts','style_top');
 function style_top(){
     wp_enqueue_style('bootstrap',get_stylesheet_directory_uri().'/css/bootstrap.min.css');
-    wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css');
+    wp_enqueue_style('style',get_stylesheet_directory_uri().'/css/style.css', [], filemtime(get_stylesheet_directory().'/css/style.css'));
     wp_enqueue_style('fontawesome',get_stylesheet_directory_uri().'/css/fontawesome/css/all.css');
     wp_enqueue_style('slick',get_stylesheet_directory_uri().'/css/slick.css');
     wp_enqueue_style('theme-slick',get_stylesheet_directory_uri().'/css/slick-theme.css');
+}
+
+// Load styles in Gutenberg editor
+add_action('enqueue_block_editor_assets', 'memorial_editor_styles');
+function memorial_editor_styles(){
+    wp_enqueue_style('bootstrap-editor', get_stylesheet_directory_uri().'/css/bootstrap.min.css');
+    wp_enqueue_style('style-editor', get_stylesheet_directory_uri().'/css/style.css', array('bootstrap-editor'));
 }
 //Add Scripts Footer
 add_action('wp_footer','scripts_footer');
@@ -19,6 +26,13 @@ function scripts_footer(){
     wp_enqueue_script('bootstrap', get_stylesheet_directory_uri().'/js/bootstrap.min.js', array('jquery'));
     wp_enqueue_script('slick',get_stylesheet_directory_uri().'/js/slick.min.js');
     wp_enqueue_script('main',get_stylesheet_directory_uri().'/js/main.js');
+
+    $tainacan_url = rtrim(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'), '/');
+    $bvs_url      = rtrim(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'), '/');
+    wp_localize_script('main', 'memorialURLs', [
+        'tainacan' => esc_url($tainacan_url),
+        'bvs'      => esc_url($bvs_url),
+    ]);
 }
 
 //Add excerpt to Pages

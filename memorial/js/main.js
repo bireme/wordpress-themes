@@ -5,17 +5,15 @@ jQuery(function ($) {
     const tipo = $("input[name='inlineRadioOptions']:checked").val();
 
     let url = "";
+    var urls = window.memorialURLs || {};
 
     // Coleções / Documento no Tainacan
     if (tipo === "colecao") {
-      url = "https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes/?s=" + encodeURIComponent(termo);
+      url = (urls.tainacan || '') + "/colecoes/?s=" + encodeURIComponent(termo);
     }
     // Produção científica e técnica na BVS
     else if (tipo === "documento") {
-      url =
-        "https://pesquisa.bvsalud.org/memorialcovid/?output=site&lang=pt&q=" +
-        encodeURIComponent(termo) +
-        "&search_form_submit=";
+      url = (urls.bvs || '') + "/?output=site&lang=pt&q=" + encodeURIComponent(termo) + "&search_form_submit=";
     }
 
     // Se quiser impedir busca vazia, descomente:

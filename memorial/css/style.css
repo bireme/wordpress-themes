@@ -248,6 +248,107 @@ a.btn:hover {
 	padding: 10px;
 	margin: 5px 5px 0 0;
 }
+/* Aspas Card */
+.aspas-card{
+	background: #fff;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 2px 12px rgba(0,0,0,.1);
+	display: flex;
+	flex-direction: column;
+	margin: 0 10px;
+}
+.aspas-slide{
+	padding: 5px;
+}
+.aspas-card-img{
+	overflow: hidden;
+	height: 260px;
+}
+.aspas-card-img img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.aspas-card-body{
+	padding: 0 24px 28px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	transition: background-color .3s ease;
+	position: relative;
+}
+.aspas-card:hover .aspas-card-body{
+	background-color: #E9FCEA;
+}
+.aspas-card-quote-icon{
+	margin-top: -30px;
+	margin-bottom: 12px;
+	position: relative;
+	z-index: 2;
+}
+.aspas-card-quote-icon svg{
+	width: 56px;
+	height: 44px;
+}
+.aspas-card-text{
+	font-style: italic;
+	font-size: 1.15rem;
+	line-height: 1.55;
+	color: #222;
+	margin-bottom: 18px;
+	flex: 1;
+}
+.aspas-card-quote-close{
+	display: inline;
+	vertical-align: baseline;
+	margin-left: 4px;
+}
+.aspas-card-quote-close svg{
+	width: 20px;
+	height: 16px;
+	vertical-align: -2px;
+}
+.aspas-card-author{
+	font-size: .9rem;
+	color: #444;
+	margin-bottom: 14px;
+	font-weight: 400;
+}
+.aspas-card-link{
+	display: inline-block;
+	background: var(--color-primary);
+	color: #fff!important;
+	font-size: .8rem;
+	padding: 8px 20px;
+	border-radius: 9999px;
+	text-decoration: none;
+	align-self: flex-start;
+	transition: background .3s ease;
+}
+.aspas-card-link--static{
+	cursor: default;
+}
+a.aspas-card-link:hover{
+	background: var(--color-primary-900);
+}
+/* Aspas Slider arrows */
+.block-aspas-slider .slick-prev,
+.block-aspas-slider .slick-next{
+	z-index: 3;
+	width: 40px;
+	height: 40px;
+}
+.block-aspas-slider .slick-prev{ left: -15px; }
+.block-aspas-slider .slick-next{ right: -15px; }
+.block-aspas-slider .slick-prev:before,
+.block-aspas-slider .slick-next:before{
+	color: var(--color-primary);
+	font-size: 28px;
+}
+.block-aspas-slider .slick-dots li button:before{
+	color: var(--color-primary);
+}
 #home-find small{
 	padding: 10px 0;
 	font-size: 14px;
