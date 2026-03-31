@@ -1,0 +1,77 @@
+.tainacan-collection-list--simple-search{
+    .dropdown {
+        #dropdownMenuSorting, #dropdownMenuViewMode {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            &:focus{
+                box-shadow: none;
+            }
+            &::after {
+                color: var(--tainacan-interface--link-color, #187181);
+            }
+        }
+        &.dropdown-sorting{
+            button{
+                padding-left: 0;
+            }
+        }
+        &.dropdown-viewMode {
+            @media only screen and (max-width: 576px) {
+                .show{
+                    transform: translate3d(-94px, 35px, 0px) !important;
+                    left: 0 !important;
+                }
+            }
+        }
+        .dropdown-menu {
+            font-size: 0.875rem;
+            border-radius: 0;
+            border: 1px solid #a5a5a5;
+            a {
+                &:hover{
+                    background-color: #f2f2f2;
+                }
+                &.active {
+                    background-color: #c1dae0;
+                }
+            }
+        }
+    }
+
+    a{
+        color: #898d8f;
+        &:hover{
+            color: #898d8f;
+        }
+        &.active {
+            color: #a5a5a5;
+            &:hover{
+                color: #a5a5a5;
+            }
+        }
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    #tainacan-collection-search {
+        input{
+            height: calc(2.25rem - 3px);
+            border-color: #a5a5a5 !important;
+            &:focus{
+                box-shadow: none;
+                border-right: none;
+            }
+            &::placeholder{
+                font-size: 0.75rem;
+                color: #898d8f;
+            }
+        }
+        button{
+            border-color: #a5a5a5 !important;
+            line-height: 0.5;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+}
