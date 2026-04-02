@@ -50,14 +50,14 @@ if (have_posts()) :
 						$sobre_o_projeto = function_exists('get_field') ? get_field('sobre_o_projeto', $post_id) : '';
 						?>
 						<?php if (!empty($sobre_a_colecao)) : ?>
-							<h2 class="">Sobre a Coleção</h2>
+							<h2 class="">Sobre a coleção</h2>
 							<div class="mb-4">
 								<?php echo wp_kses_post($sobre_a_colecao); ?>
 							</div>
 						<?php endif; ?>
 
 						<?php if (!empty($sobre_o_projeto)) : ?>
-							<h2 class="">Sobre o Projeto</h2>
+							<h2 class="">Sobre o projeto</h2>
 							<div class="mb-4">
 								<?php echo wp_kses_post($sobre_o_projeto); ?>
 							</div>
