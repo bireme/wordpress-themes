@@ -192,7 +192,9 @@ function memorial_aspas_slider_shortcode($atts)
                     <div class="aspas-slide">
                         <article class="aspas-card">
                             <div class="aspas-card-img">
-                                <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid w-100']); ?>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid w-100']); ?>
+                                </a>
                             </div>
                             <div class="aspas-card-body">
                                 <div class="aspas-card-quote-icon">
@@ -200,7 +202,7 @@ function memorial_aspas_slider_shortcode($atts)
                                         <path d="M0 38V22.8C0 18.7 0.72 14.9 2.16 11.4C3.68 7.82 5.92 4.4 8.88 1.16L16.08 5.92C13.84 8.38 12.08 10.84 10.8 13.3C9.6 15.68 8.96 18.14 8.88 20.68H19.2V38H0ZM28.8 38V22.8C28.8 18.7 29.52 14.9 30.96 11.4C32.48 7.82 34.72 4.4 37.68 1.16L44.88 5.92C42.64 8.38 40.88 10.84 39.6 13.3C38.4 15.68 37.76 18.14 37.68 20.68H48V38H28.8Z" fill="<?php echo esc_attr($cor_aspas); ?>"/>
                                     </svg>
                                 </div>
-                                <p class="aspas-card-text"><?php echo esc_html($text); ?><span class="aspas-card-quote-close"><svg width="20" height="16" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 0V15.2C48 19.3 47.28 23.1 45.84 26.6C44.32 30.18 42.08 33.6 39.12 36.84L31.92 32.08C34.16 29.62 35.92 27.16 37.2 24.7C38.4 22.32 39.04 19.86 39.12 17.32H28.8V0H48ZM19.2 0V15.2C19.2 19.3 18.48 23.1 17.04 26.6C15.52 30.18 13.28 33.6 10.32 36.84L3.12 32.08C5.36 29.62 7.12 27.16 8.4 24.7C9.6 22.32 10.24 19.86 10.32 17.32H0V0H19.2Z" fill="<?php echo esc_attr($cor_aspas); ?>"/></svg></span></p>
+                                <p class="aspas-card-text"><a href="<?php the_permalink(); ?>"><?php echo esc_html($text); ?></a><span class="aspas-card-quote-close"><svg width="20" height="16" viewBox="0 0 48 38" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 0V15.2C48 19.3 47.28 23.1 45.84 26.6C44.32 30.18 42.08 33.6 39.12 36.84L31.92 32.08C34.16 29.62 35.92 27.16 37.2 24.7C38.4 22.32 39.04 19.86 39.12 17.32H28.8V0H48ZM19.2 0V15.2C19.2 19.3 18.48 23.1 17.04 26.6C15.52 30.18 13.28 33.6 10.32 36.84L3.12 32.08C5.36 29.62 7.12 27.16 8.4 24.7C9.6 22.32 10.24 19.86 10.32 17.32H0V0H19.2Z" fill="<?php echo esc_attr($cor_aspas); ?>"/></svg></span></p>
                                 <?php if ($autor) : ?>
                                     <p class="aspas-card-author"><?php echo esc_html($autor); ?></p>
                                 <?php endif; ?>
