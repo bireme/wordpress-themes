@@ -22,18 +22,6 @@ $args = [
     'post_status'    => 'publish',
     'posts_per_page' => -1,
     'paged'          => $paged,
-    'meta_query'     => [
-        'relation' => 'OR',
-        [
-            'key'     => '_memorial_destaque_home',
-            'compare' => 'EXISTS',
-        ],
-        [
-            'key'     => '_memorial_destaque_home',
-            'compare' => 'NOT EXISTS',
-        ],
-    ],
-    'meta_key'       => '_memorial_destaque_home',
     'orderby'        => [
 'meta_value_num' => 'DESC', // 1 vem antes de 0
 'meta_value'     => 'DESC',
