@@ -9,7 +9,10 @@ jQuery(function ($) {
 
     // Coleções / Documento no Tainacan
     if (tipo === "colecao") {
-      url = (urls.tainacan || '') + "/colecoes/?s=" + encodeURIComponent(termo);
+      url = (urls.tainacan || '') + "/itens/?search=" + encodeURIComponent(termo);
+      if (urls.colecao_params) {
+        url += '&' + urls.colecao_params;
+      }
     }
     // Produção científica e técnica na BVS
     else if (tipo === "documento") {

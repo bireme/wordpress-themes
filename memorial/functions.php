@@ -29,9 +29,11 @@ function scripts_footer(){
 
     $tainacan_url = rtrim(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'), '/');
     $bvs_url      = rtrim(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'), '/');
+    $colecao_params = get_option('memorial_tainacan_colecao_params', 'perpage=12&order=ASC&orderby=date&fetch_only_meta=&paged=1&fetch_only=thumbnail%2Ccreation_date%2Ctitle%2Cdescription&view_mode=cards');
     wp_localize_script('main', 'memorialURLs', [
-        'tainacan' => esc_url($tainacan_url),
-        'bvs'      => esc_url($bvs_url),
+        'tainacan'        => esc_url($tainacan_url),
+        'bvs'             => esc_url($bvs_url),
+        'colecao_params'  => sanitize_text_field($colecao_params),
     ]);
 }
 

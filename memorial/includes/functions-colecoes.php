@@ -31,12 +31,17 @@ add_action('admin_menu', function () {
                     $bvs = esc_url_raw(rtrim((string)$_POST['memorial_bvs_base_url'], '/'));
                     update_option('memorial_bvs_base_url', $bvs);
                 }
+                if (isset($_POST['memorial_tainacan_colecao_params'])) {
+                    $params = sanitize_text_field(wp_unslash($_POST['memorial_tainacan_colecao_params']));
+                    update_option('memorial_tainacan_colecao_params', $params);
+                }
                 $aspas_ativo = isset($_POST['memorial_aspas_slider_ativo']) ? '1' : '0';
                 update_option('memorial_aspas_slider_ativo', $aspas_ativo);
                 echo '<div class="updated"><p>Configurações salvas com sucesso.</p></div>';
             }
             $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'));
             $current_bvs = esc_attr(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'));
+            $current_colecao_params = esc_attr(get_option('memorial_tainacan_colecao_params', 'perpage=12&order=ASC&orderby=date&fetch_only_meta=&paged=1&fetch_only=thumbnail%2Ccreation_date%2Ctitle%2Cdescription&view_mode=cards'));
             $aspas_ativo = get_option('memorial_aspas_slider_ativo', '1');
             echo '<div class="wrap"><h1>Configuração do Memorial</h1>';
             echo '<form method="post">';
@@ -46,6 +51,10 @@ add_action('admin_menu', function () {
             echo '<td><input type="url" id="memorial_tainacan_base_url" name="memorial_tainacan_base_url" value="' . $current . '" style="width: 420px;" required></td></tr>';
             echo '<tr><th><label for="memorial_bvs_base_url">Base URL da BVS</label></th>';
             echo '<td><input type="url" id="memorial_bvs_base_url" name="memorial_bvs_base_url" value="' . $current_bvs . '" style="width: 420px;" required></td></tr>';
+            echo '<tr><th><label for="memorial_tainacan_colecao_params">Parâmetros de busca Tainacan (Coleções)</label></th>';
+            echo '<td><input type="text" id="memorial_tainacan_colecao_params" name="memorial_tainacan_colecao_params" value="' . $current_colecao_params . '" style="width: 100%;">';
+            echo '<p class="description">Parâmetros adicionados após o termo buscado. Ex: perpage=12&amp;order=ASC&amp;orderby=date&amp;view_mode=cards</p>';
+            echo '<p class="description">URL resultante: <code>{Base URL}/itens/?search={termo}&amp;{parâmetros}</code></p></td></tr>';
             echo '<tr><th>Bloco Aspas Slider</th>';
             echo '<td><label><input type="checkbox" name="memorial_aspas_slider_ativo" value="1"' . checked($aspas_ativo, '1', false) . '> Ativar bloco Aspas Slider no front-end</label>';
             echo '<p class="description">Desmarque para desligar a exibição do bloco Aspas Slider em todo o site.</p></td></tr>';
