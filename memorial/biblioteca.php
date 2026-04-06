@@ -8,10 +8,10 @@ $bg = $thumb ? $thumb : get_template_directory_uri() . '/img/header-memorial.jpg
 	<div class="container">
 		<h1 class="mb-3"><?php the_title(); ?></h1>
 			<form id="buscaForm" class="row form-biblioteca" method="get" action="<?php echo esc_url(MEMORIAL_TAINACAN_BASE_URL . '/colecoes'); ?>">
-			<div class="col-10">
+			<div class="col-md-10">
 				<input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
 			</div>
-			<div class="col-2">
+			<div class="col-md-2">
 				<button type="submit" class="btn btn-primary w-100">Pesquisar</button>
 			</div>
 			<div class="mt-2">

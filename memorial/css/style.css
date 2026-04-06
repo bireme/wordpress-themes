@@ -806,6 +806,23 @@ blockquote footer{
 		margin-bottom: 40px;
 	}
 }
+@media (max-width: 768px) {
+	#buscaForm button{
+		margin: 5px auto;
+	}
+	.colecoes .eyebrow{
+		text-shadow:2px 2px 2px #000
+	}	
+	.card-img-overlay h5{
+		font-size:1rem
+	}
+	.colecoes .overlay-card .card-img{
+		height:250px;
+	}
+	.logo-sus img{
+		height:auto!important;
+	}
+}
 .biblioteca-cards img{
 	transition:all .5s ease;
 }
