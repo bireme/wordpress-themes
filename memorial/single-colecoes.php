@@ -61,18 +61,19 @@ if (have_posts()) :
 							<div class="mb-4">
 								<?php echo wp_kses_post($sobre_o_projeto); ?>
 							</div>
+						
 						<?php endif; ?>
 
 						<?php the_content(); ?>
 						<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-colecoes btn-sm mb-3 p-3 mt-5">
-							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
+							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder d-none d-md-block">Ver coleção completa
 						</a>
 					</div>
 					<div class="col-md-4">
 						<div class="mb-4 sticky-top">
 							<?php if (!empty($tainacan_url)) : ?>
 								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success btn-sm btn-colecoes mb-3 p-3 w-100">
-									<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
+									<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder  d-none d-md-block">Ver coleção completa
 								</a>
 							<?php endif; ?>
 							<?php if (!empty($banner_url)) : ?>
