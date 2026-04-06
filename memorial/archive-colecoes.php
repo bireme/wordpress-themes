@@ -30,7 +30,6 @@ $args = [
 ];
 
 $query = new WP_Query($args);
-
 ?>
 
 <main class="container">
