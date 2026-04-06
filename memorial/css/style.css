@@ -176,6 +176,16 @@ a{
 .breadcrumb span:first-child{
 	margin-left: 0px;
 }
+#home-section-hero .row {
+  height: 600px;
+  padding-bottom: 20px;
+}
+#home-section-hero .col-lg-4 {
+  height: 100%;
+}
+#home-section-hero .col-lg-4 a {
+  flex: 1;
+}
 #home-section-hero>.container{
 	margin-top:-80px ;
 	border-radius: 16px;
@@ -186,10 +196,9 @@ a{
 .colecoes .overlay-card{
 	border: 0;
 	overflow: hidden;
-	min-height: 240px;  
 }
-.colecoes .overlay-card.big{
-	min-height: 520px;
+.colecoes .overlay-card{
+  height: 100%;
 }
 .colecoes .overlay-card .card-img{
 	width: 100%;
@@ -782,6 +791,11 @@ blockquote footer{
 	object-fit: cover;
 }
 /* responsivo */
+@media (max-width: 1024px) {
+	#home-section-hero .row {
+		height: auto;
+	}
+}
 @media (max-width: 991px) {
 	#prodct-section .prodct-cards-stack {
 		min-height: auto;

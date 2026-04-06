@@ -44,7 +44,7 @@ if (have_posts()) :
 			<header class="mb-4">
 				<div class="row">
 					<h1 class="title"><?php the_title(); ?></h1>
-					<div class="col-md-8">
+					<div class="col-md-8  order-2 order-md-1">
 						<?php
 						$sobre_a_colecao = function_exists('get_field') ? get_field('sobre_a_colecao', $post_id) : '';
 						$sobre_o_projeto = function_exists('get_field') ? get_field('sobre_o_projeto', $post_id) : '';
@@ -69,10 +69,10 @@ if (have_posts()) :
 							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder d-none d-md-block">Ver coleção completa
 						</a>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 order-1 order-md-2">
 						<div class="mb-4 sticky-top">
 							<?php if (!empty($tainacan_url)) : ?>
-								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success btn-sm btn-colecoes mb-3 p-3 w-100">
+								<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success btn-sm btn-colecoes mb-3 p-3 w-100 d-none d-md-block">
 									<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder  d-none d-md-block">Ver coleção completa
 								</a>
 							<?php endif; ?>
