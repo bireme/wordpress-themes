@@ -33,7 +33,7 @@ if ( function_exists( 'get_field' ) ) {
 }
 
 // ------------------------------
-// Garante SUporte a menus no tema
+// Garante Suporte a menus no tema
 // ------------------------------
 //
 add_action( 'after_setup_theme', function () {
@@ -426,3 +426,23 @@ function build_menu_tree( $menu_items ) {
 
     return $tree;
 }
+
+// Garante que Posts e os CPTs tenham a taxonomia "programa" associada
+register_taxonomy('programa', ['post', 'event', 'stories', 'project', 'testimonials'], [
+  'label'        => 'Programas',
+  'show_in_rest' => true,   // <-- obrigatório para funcionar na REST API
+  'rest_base'    => 'programa', // <-- define o nome do parâmetro na URL
+  'hierarchical' => true,
+  'rewrite'      => ['slug' => 'programa'],
+]);
+
+// Ajusta a taxonomia "programa" para garantir que ela apareça na REST API e tenha o rest_base definido
+// GET /wp-json/wp/v2/posts?programa=nome-do-programa
+add_action('init', function () {
+  // Garante que a taxonomia aparece na REST e define o parâmetro de URL
+  if (taxonomy_exists('programa')) {
+    global $wp_taxonomies;
+    $wp_taxonomies['programa']->show_in_rest = true;
+    $wp_taxonomies['programa']->rest_base    = 'programa';
+  }
+}, 20); // priority 20 para rodar após o registro original
