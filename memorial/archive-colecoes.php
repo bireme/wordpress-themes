@@ -43,10 +43,10 @@ $query = new WP_Query($args);
             Conheça as coleções do Memorial. Selecione uma coleção para ver o release editorial e os itens do acervo no Tainacan.
         </p>
         <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
-            <div class="col-10">
+            <div class="col-md-10">
                 <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
             </div>
             <div class="mt-2">
