@@ -63,7 +63,7 @@ if ( ! function_exists('bvs_produto_preview_from_flexible') ) {
 // Inputs
 // ================================
 $paged  = max(1, (int) get_query_var('paged'));
-$search = isset($_GET['s']) ? sanitize_text_field( wp_unslash($_GET['s']) ) : '';
+$search = isset($_GET['busca']) ? sanitize_text_field( wp_unslash($_GET['busca']) ) : '';
 $sort   = isset($_GET['sort']) ? sanitize_text_field( wp_unslash($_GET['sort']) ) : 'recent';
 
 $orderby = 'date';
@@ -77,7 +77,7 @@ if ($sort === 'za') { $orderby = 'title'; $order = 'DESC'; }
 $q = new WP_Query([
   'post_type'      => 'produtos',
   'post_status'    => 'publish',
-  'posts_per_page' => 12,
+  'posts_per_page' => 60,
   'paged'          => $paged,
   's'              => $search,
   'orderby'        => $orderby,
@@ -171,6 +171,21 @@ $q = new WP_Query([
   line-height:1.55;
   color:var(--muted);
 }
+
+.bvs-pagination{
+  display:flex;justify-content:center;align-items:center;gap:6px;
+  margin-top:28px;font-family:var(--font);
+}
+.bvs-pagination a,.bvs-pagination span{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:36px;height:36px;padding:0 10px;
+  border:1px solid var(--border);border-radius:999px;
+  font-size:14px;text-decoration:none;color:var(--text);
+  transition:.15s;
+}
+.bvs-pagination a:hover{background:var(--focus);color:#fff;border-color:var(--focus)}
+.bvs-pagination .current{background:var(--focus);color:#fff;border-color:var(--focus)}
+.bvs-pagination .dots{border:0}
 </style>
 
 <div class="bvs-page">
@@ -181,7 +196,7 @@ $q = new WP_Query([
 
       <form class="bvs-controls" method="get">
         <div class="bvs-search">
-          <input type="search" name="s" placeholder="Buscar produto…" value="<?php echo esc_attr($search); ?>">
+          <input type="search" name="busca" placeholder="Buscar produto…" value="<?php echo esc_attr($search); ?>">
         </div>
 
         <select class="bvs-select" name="sort" onchange="this.form.submit()">
@@ -228,6 +243,32 @@ $q = new WP_Query([
           </article>
         <?php endwhile; wp_reset_postdata(); ?>
       </div>
+
+      <?php
+      $total_pages = $q->max_num_pages;
+      if ( $total_pages > 1 ) :
+        // preserva parâmetros de busca/sort na paginação
+        $pagination_args = array();
+        if ( $search ) $pagination_args['busca'] = $search;
+        if ( $sort && $sort !== 'recent' ) $pagination_args['sort'] = $sort;
+      ?>
+        <nav class="bvs-pagination" aria-label="Paginação">
+          <?php
+          echo paginate_links([
+            'base'      => get_pagenum_link(1) . '%_%',
+            'format'    => 'page/%#%/',
+            'current'   => $paged,
+            'total'     => $total_pages,
+            'prev_text' => '&larr;',
+            'next_text' => '&rarr;',
+            'add_args'  => $pagination_args,
+          ]);
+          ?>
+        </nav>
+      <?php endif; ?>
+
+    <?php else : ?>
+      <p style="text-align:center;margin-top:32px;color:var(--muted);">Nenhum produto encontrado.</p>
     <?php endif; ?>
 
   </div>
