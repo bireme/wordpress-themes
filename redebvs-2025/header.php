@@ -547,15 +547,29 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
             <div class="bvs-brand">
                 <div class="bvs-brand-logo">
                     <a href="<?php echo esc_url(home_url('/')); ?>">
+                        <?php
+                        $bvs_lang_slug = function_exists('pll_current_language') ? pll_current_language('slug') : 'pt';
+                        if ( ! in_array( $bvs_lang_slug, ['pt', 'en', 'es'], true ) ) {
+                            $bvs_lang_slug = 'pt';
+                        }
+                        $bvs_logo_url = 'http://logos.bireme.org/img/' . $bvs_lang_slug . '/bvs_color.svg';
+                        ?>
                         <img 
-                            src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/logo-bvs-pt.png' ); ?>"
+                            src="<?php echo esc_url( $bvs_logo_url ); ?>"
                             alt="<?php esc_attr_e('Portal da Rede BVS', 'rede-bvs'); ?>"
                         >
                     </a>
                 </div>
 
                 <div class="bvs-brand-title">
-                    Portal da Rede BVS
+                    <?php
+                    $bvs_titles = [
+                        'pt' => 'Portal da Rede BVS',
+                        'en' => 'VHL Network Portal',
+                        'es' => 'Portal de la Red BVS',
+                    ];
+                    echo esc_html( $bvs_titles[ $bvs_lang_slug ] ?? $bvs_titles['pt'] );
+                    ?>
                 </div>
             </div>
 
