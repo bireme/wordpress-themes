@@ -81,9 +81,11 @@
                 .bvs-footer-menus-row {
                     display: flex;
                     gap: 32px;
+                    flex-wrap: wrap;
                 }
                 .bvs-footer-menu-column{
                     min-width: 15.9%;
+                    flex: 1 1 auto;
                 }
 
                 .bvs-footer-menu-column-title {
@@ -144,11 +146,30 @@
                     .bvs-footer-logo-box {
                         max-width: 260px;
                     }
+                    .bvs-footer-menus-row {
+                        flex-wrap: wrap;
+                        gap: 24px 32px;
+                    }
+                    .bvs-footer-menu-column {
+                        min-width: calc(50% - 16px);
+                        flex: 0 0 calc(50% - 16px);
+                    }
                 }
 
                 @media (max-width: 600px) {
                     .bvs-footer {
                         font-size: 12px;
+                    }
+                    .bvs-footer-inner {
+                        padding: 0 16px;
+                    }
+                    .bvs-footer-menus-row {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                    .bvs-footer-menu-column {
+                        min-width: 100%;
+                        flex: 0 0 100%;
                     }
                 }
             </style>

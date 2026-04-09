@@ -27,6 +27,65 @@ function rede_bvs_theme_setup() {
 add_action( 'after_setup_theme', 'rede_bvs_theme_setup' );
 
 /**
+ * Registra strings fixas para tradução pelo Polylang
+ */
+function rede_bvs_register_polylang_strings() {
+    if ( ! function_exists( 'pll_register_string' ) ) return;
+
+    $group = 'Rede BVS';
+
+    // Busca
+    pll_register_string( 'search_placeholder',       'Pesquisar',         $group );
+    pll_register_string( 'search_label',             'Buscar',            $group );
+    pll_register_string( 'search_in_label',          'Buscar em:',        $group );
+    pll_register_string( 'search_repo_label',        'Repositório BVS',   $group );
+    pll_register_string( 'search_portal_label',      'Neste portal',      $group );
+
+    // Breadcrumb
+    pll_register_string( 'breadcrumb_aria',          'Você está aqui:',   $group );
+
+    // Footer fallbacks
+    pll_register_string( 'footer_default_text', 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.', $group );
+    pll_register_string( 'footer_default_copy', '© Todos os direitos são reservados', $group );
+
+    // Botões e labels comuns
+    pll_register_string( 'btn_ver_todos',            'Ver todos',                      $group );
+    pll_register_string( 'btn_ver_rss',              'Ver RSS',                        $group );
+    pll_register_string( 'label_link_externo',       'Link externo',                   $group );
+    pll_register_string( 'label_link_interno',       'Link interno',                   $group );
+    pll_register_string( 'label_redes_relacionadas', 'Redes relacionadas',             $group );
+    pll_register_string( 'label_tags',               'TAGS',                           $group );
+    pll_register_string( 'msg_nenhuma_noticia',      'Nenhuma notícia encontrada.',    $group );
+    pll_register_string( 'msg_em_breve_rss',         'Em breve: listagem das últimas reuniões via RSS.', $group );
+
+    // Breadcrumbs
+    pll_register_string( 'bc_rede_bvs',              'Rede BVS',                       $group );
+    pll_register_string( 'bc_a_rede_bvs',            'A Rede BVS',                     $group );
+    pll_register_string( 'bc_sobre_a_bvs',           'Sobre a BVS',                    $group );
+    pll_register_string( 'bc_resultado_pesquisa',    'Resultado de pesquisa',          $group );
+    pll_register_string( 'search_result_prefix',     'Resultado da busca para:',       $group );
+    pll_register_string( 'header_menu_label',        'Menu',                           $group );
+
+    // Paginação
+    pll_register_string( 'pagination_prev',           'Anterior',                       $group );
+    pll_register_string( 'pagination_next',           'Próximo',                        $group );
+
+    // Sidebar
+    pll_register_string( 'sidebar_categorias',        'Categorias',                     $group );
+}
+add_action( 'init', 'rede_bvs_register_polylang_strings' );
+
+/**
+ * Helper: retorna string traduzida pelo Polylang com fallback
+ */
+function rede_bvs_pll( $string ) {
+    if ( function_exists( 'pll__' ) ) {
+        return pll__( $string );
+    }
+    return $string;
+}
+
+/**
  * Enqueue de estilos
  */
 function rede_bvs_enqueue_assets() {
@@ -106,7 +165,7 @@ if ( ! function_exists( 'rede_bvs_breadcrumb' ) ) {
         }
 
         ?>
-        <nav class="bvs-breadcrumb" aria-label="Você está aqui:">
+        <nav class="bvs-breadcrumb" aria-label="<?php echo esc_attr( rede_bvs_pll( 'Você está aqui:' ) ); ?>">
             <ol class="bvs-breadcrumb-list">
                 <?php
                 $total = count( $items );
@@ -293,12 +352,12 @@ function bvs_busca_repositorio_shortcode( $atts = [] ) {
             <div class="bvs-search-input-wrap">
                 <input id="bvs-search-input" type="text"
                        class="bvs-search-input"
-                       placeholder="Pesquisar"
+                       placeholder="<?php echo esc_attr( rede_bvs_pll( 'Pesquisar' ) ); ?>"
                        autocomplete="off">
                 <button type="button" class="bvs-search-mic" aria-label="Busca por voz (não implementada)">
               
                 </button>
-                <button type="submit" class="bvs-search-submit" aria-label="Buscar">
+                <button type="submit" class="bvs-search-submit" aria-label="<?php echo esc_attr( rede_bvs_pll( 'Buscar' ) ); ?>">
                     <!-- Ícone de lupa -->
                       <img 
                             src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/Frame.png' ); ?>"
@@ -308,16 +367,16 @@ function bvs_busca_repositorio_shortcode( $atts = [] ) {
             </div>
 
             <div class="bvs-search-targets">
-                <span class="bvs-search-target-label">Buscar em:</span>
+                <span class="bvs-search-target-label"><?php echo esc_html( rede_bvs_pll( 'Buscar em:' ) ); ?></span>
                 <button type="button"
                         class="bvs-search-target is-active"
                         data-target="repositorio">
-                    Repositório BVS
+                    <?php echo esc_html( rede_bvs_pll( 'Repositório BVS' ) ); ?>
                 </button>
                 <button type="button"
                         class="bvs-search-target"
                         data-target="portal">
-                    Neste portal
+                    <?php echo esc_html( rede_bvs_pll( 'Neste portal' ) ); ?>
                 </button>
             </div>
         </form>
@@ -604,7 +663,7 @@ function rede_bvs_get_footer_text() {
 		return $options[ $lang_key ]['footer_text'];
 	}
 
-	return 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.';
+	return rede_bvs_pll( 'A BVS é um produto colaborativo, coordenado pela BIREME/OPAS/OMS. Como biblioteca, oferece acesso abrangente à informação científica e técnica em saúde. A BVS coleta, indexa e armazena citações de documentos publicados por diversas organizações. A inclusão de qualquer artigo, documento ou citação na coleção da BVS não implica endosso ou concordância da BIREME/OPAS/OMS com o seu conteúdo.' );
 }
 
 /**
@@ -632,5 +691,5 @@ function rede_bvs_get_footer_copyright() {
 	}
 
 	// fallback
-	return '© Todos os direitos são reservados';
+	return rede_bvs_pll( '© Todos os direitos são reservados' );
 }

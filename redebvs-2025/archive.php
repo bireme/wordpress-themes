@@ -281,7 +281,7 @@ body{
             <?php
             if ( function_exists( 'rede_bvs_breadcrumb' ) ) {
                 rede_bvs_breadcrumb( array(
-                    array( 'label' => 'Rede BVS', 'url' => get_permalink( 18 ) ),
+                    array( 'label' => rede_bvs_pll( 'Rede BVS' ), 'url' => get_permalink( 18 ) ),
                     array( 'label' => wp_strip_all_tags( $arquivo_titulo ) ),
                 ) );
             }
@@ -327,7 +327,7 @@ body{
 
                     <?php if ( $custom_link ) : ?>
                         <span class="bvs-post-badge <?php echo $is_external_custom ? 'bvs-post-badge--external' : 'bvs-post-badge--internal'; ?>">
-                            <?php echo $is_external_custom ? 'Link externo' : 'Link interno'; ?>
+                            <?php echo $is_external_custom ? esc_html( rede_bvs_pll( 'Link externo' ) ) : esc_html( rede_bvs_pll( 'Link interno' ) ); ?>
                         </span>
                     <?php endif; ?>
 
@@ -365,15 +365,15 @@ body{
             <div class="bvs-pagination">
                 <?php 
                 echo paginate_links( array(
-                    'prev_text' => '← Anterior',
-                    'next_text' => 'Próximo →',
+                    'prev_text' => '← ' . rede_bvs_pll( 'Anterior' ),
+                    'next_text' => rede_bvs_pll( 'Próximo' ) . ' →',
                 ) );
                 ?>
             </div>
 
         <?php else : ?>
 
-            <p>Nenhuma notícia encontrada.</p>
+            <p><?php echo esc_html( rede_bvs_pll( 'Nenhuma notícia encontrada.' ) ); ?></p>
 
         <?php endif; ?>
 

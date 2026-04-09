@@ -327,7 +327,7 @@ $noticias_query = new WP_Query( array(
 
                     <?php if ( $custom_link ) : ?>
                         <span class="bvs-post-badge <?php echo $is_external_custom ? 'bvs-post-badge--external' : 'bvs-post-badge--internal'; ?>">
-                            <?php echo $is_external_custom ? 'Link externo' : 'Link interno'; ?>
+                            <?php echo $is_external_custom ? esc_html( rede_bvs_pll( 'Link externo' ) ) : esc_html( rede_bvs_pll( 'Link interno' ) ); ?>
                         </span>
                     <?php endif; ?>
 
@@ -374,15 +374,15 @@ $noticias_query = new WP_Query( array(
                     'format'    => '?paged=%#%',
                     'current'   => max( 1, $paged ),
                     'total'     => $noticias_query->max_num_pages,
-                    'prev_text' => '← Anterior',
-                    'next_text' => 'Próximo →',
+                    'prev_text' => '← ' . rede_bvs_pll( 'Anterior' ),
+                    'next_text' => rede_bvs_pll( 'Próximo' ) . ' →',
                 ) );
                 ?>
             </div>
 
         <?php else : ?>
 
-            <p>Nenhuma notícia encontrada.</p>
+            <p><?php echo esc_html( rede_bvs_pll( 'Nenhuma notícia encontrada.' ) ); ?></p>
 
         <?php endif; wp_reset_postdata(); ?>
 
@@ -392,7 +392,7 @@ $noticias_query = new WP_Query( array(
     <!-- Sidebar -->
     <aside class="bvs-sidebar">
         <div class="bvs-sidebar-box">
-            <h3 class="bvs-sidebar-title">Categorias</h3>
+            <h3 class="bvs-sidebar-title"><?php echo esc_html( rede_bvs_pll( 'Categorias' ) ); ?></h3>
             <ul>
                 <?php 
                 wp_list_categories( array(

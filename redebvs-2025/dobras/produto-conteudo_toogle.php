@@ -111,7 +111,8 @@ if (empty($conteudos)) return;
 
 /* OPEN STATE */
 .toggle-item.active .toggle-content {
-    max-height: 800px;
+    max-height: 100000px;
+    overflow-y: auto;
 }
 
 .toggle-item.active .toggle-icon {
