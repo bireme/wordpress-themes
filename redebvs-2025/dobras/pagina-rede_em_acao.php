@@ -2,13 +2,51 @@
 /**
  * Dobra "Rede em ação" - flexible layout: rede_em_acao
  *
- * Campo:
- *  - escolha_os_eventos (post_object múltiplo) => CPT acontece-na-rede
+ * Campos ACF:
+ *  - titulo_do_bloco       (text)        – título personalizado da seção
+ *  - modo_de_listagem      (select)      – "Escolha manual" | "Via categorias"
+ *  - escolha_os_eventos    (post_object) – posts selecionados manualmente
+ *  - escolha_as_categorias (taxonomy)    – IDs de categorias para listagem automática
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$eventos = get_sub_field( 'escolha_os_eventos' );
+// Título do bloco (fallback para "A Rede em ação")
+$titulo_bloco = get_sub_field( 'titulo_do_bloco' );
+if ( empty( $titulo_bloco ) ) {
+    $titulo_bloco = 'A Rede em ação';
+}
+
+// Modo de listagem
+$modo = get_sub_field( 'modo_de_listagem' );
+
+$eventos = array();
+
+if ( $modo === 'Via categorias' ) {
+    // Busca automática por categorias selecionadas
+    $cat_ids = get_sub_field( 'escolha_as_categorias' );
+    if ( ! empty( $cat_ids ) ) {
+        $cat_query = new WP_Query( array(
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'posts_per_page' => 6,
+            'category__in'   => (array) $cat_ids,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+        ) );
+        if ( $cat_query->have_posts() ) {
+            $eventos = $cat_query->posts;
+        }
+        wp_reset_postdata();
+    }
+} else {
+    // Escolha manual
+    $manual = get_sub_field( 'escolha_os_eventos' );
+    if ( ! empty( $manual ) ) {
+        $eventos = $manual;
+    }
+}
+
 if ( empty( $eventos ) ) {
     return;
 }
@@ -164,7 +202,7 @@ display: inline-block;
     <div class="rede-acao-box">
 
         <div class="rede-acao-header">
-            <?php esc_html_e( 'A Rede em ação', 'bvs' ); ?>
+            <?php echo esc_html( $titulo_bloco ); ?>
         </div>
 
         <div class="rede-acao-body">
