@@ -68,6 +68,7 @@ position: absolute;
     font-size: 45px;
     margin: 0 0 6px;
     font-weight: 700;
+    max-width:95%;
 }
 
 .sobre-banner-text p {
