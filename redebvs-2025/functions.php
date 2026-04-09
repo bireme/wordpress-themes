@@ -27,6 +27,29 @@ function rede_bvs_theme_setup() {
 add_action( 'after_setup_theme', 'rede_bvs_theme_setup' );
 
 /**
+ * Garante que o CPT "voz-da-rede" tenha archive habilitado
+ * Usa o filtro register_post_type_args para modificar ANTES do registro
+ */
+function rede_bvs_fix_voz_da_rede_args( $args, $post_type ) {
+    if ( $post_type === 'voz-da-rede' ) {
+        $args['has_archive'] = true;
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'rede_bvs_fix_voz_da_rede_args', 10, 2 );
+
+/**
+ * Flush rewrite rules uma única vez
+ */
+function rede_bvs_flush_rewrite_once() {
+    if ( get_option( 'rede_bvs_flush_voz_archive' ) !== '3' ) {
+        flush_rewrite_rules();
+        update_option( 'rede_bvs_flush_voz_archive', '3' );
+    }
+}
+add_action( 'init', 'rede_bvs_flush_rewrite_once', 999 );
+
+/**
  * Registra strings fixas para tradução pelo Polylang
  */
 function rede_bvs_register_polylang_strings() {
@@ -72,6 +95,11 @@ function rede_bvs_register_polylang_strings() {
 
     // Sidebar
     pll_register_string( 'sidebar_categorias',        'Categorias',                     $group );
+
+    // Archive Vozes
+    pll_register_string( 'vozes_da_rede_titulo',      'Vozes da Rede',                  $group );
+    pll_register_string( 'vozes_todos_label',         'Todos',                          $group );
+    pll_register_string( 'vozes_nenhuma',             'Nenhuma voz encontrada.',        $group );
 }
 add_action( 'init', 'rede_bvs_register_polylang_strings' );
 
