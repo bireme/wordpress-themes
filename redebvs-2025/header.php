@@ -424,7 +424,7 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
     max-height: 300px !important;
     overflow-x: hidden;
     overflow-y: scroll;
-    top: 100%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, 10px);
     min-width: 220px;
@@ -438,13 +438,22 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+    transition: opacity 0.18s ease, transform 0.18s ease;
     z-index: 20;
 }
 
-/* Exibe submenu ao passar mouse no pai */
-.bvs-main-menu > li:hover > .sub-menu,
-.bvs-main-menu > li:focus-within > .sub-menu {
+/* Ponte invisível entre o item pai e o dropdown (evita fechar ao mover o mouse) */
+.bvs-main-menu > li > .sub-menu::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+}
+
+/* Exibe submenu (via classe JS) */
+.bvs-main-menu > li.submenu-open > .sub-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -492,9 +501,18 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
     transform: translate(8px, 0);
 }
 
-/* Exibe submenu de segundo nível */
-.bvs-main-menu .sub-menu li.menu-item-has-children:hover > .sub-menu,
-.bvs-main-menu .sub-menu li.menu-item-has-children:focus-within > .sub-menu {
+/* Ponte invisível lateral para submenus de 2º nível */
+.bvs-main-menu .sub-menu .sub-menu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    width: 18px;
+}
+
+/* Exibe submenu de segundo nível (via classe JS) */
+.bvs-main-menu .sub-menu li.submenu-open > .sub-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -557,29 +575,11 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
 
         </div>
 
-        <!-- MENU DESKTOP (INALTERADO) -->
+        <!-- MENU DESKTOP -->
         <nav class="bvs-main-nav" id="menu-principal">
-            
-            <?php
-            // Define o location do menu conforme o idioma atual do Polylang
-            $menu_location = 'primary'; // padrão (português)
-
-            if ( function_exists( 'pll_current_language' ) ) {
-                $lang = pll_current_language( 'slug' ); // ex: 'pt', 'en', 'es'
-
-                if ( $lang === 'en' ) {
-                    $menu_location = 'primary_en';
-                } elseif ( $lang === 'es' ) {
-                    $menu_location = 'primary_es';
-                } else {
-                    $menu_location = 'primary'; // pt / default
-                }
-            }
-            ?>
-
             <?php
             wp_nav_menu([
-                'theme_location' => $menu_location,
+                'theme_location' => 'primary',
                 'container'      => false,
                 'menu_class'     => 'bvs-main-menu',
                 'fallback_cb'    => false,
@@ -616,7 +616,7 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
                 <nav class="bvs-mobile-menu-wrap" aria-label="Menu principal">
                     <?php
                     wp_nav_menu([
-                        'theme_location' => $menu_location,
+                        'theme_location' => 'primary',
                         'container'      => false,
                         'menu_class'     => 'bvs-mobile-menu',
                         'fallback_cb'    => false,
@@ -629,6 +629,40 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
     </div>
 
 </header>
+
+<!-- SCRIPT DO MENU DESKTOP SUBMENU (delayed hover) -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var DELAY = 400; // ms antes de fechar o submenu
+    var menuItems = document.querySelectorAll('.bvs-main-menu li.menu-item-has-children');
+
+    menuItems.forEach(function (li) {
+        var timer = null;
+        var submenu = li.querySelector(':scope > .sub-menu');
+        if (!submenu) return;
+
+        function open() {
+            clearTimeout(timer);
+            li.classList.add('submenu-open');
+        }
+
+        function scheduleClose() {
+            timer = setTimeout(function () {
+                li.classList.remove('submenu-open');
+            }, DELAY);
+        }
+
+        li.addEventListener('mouseenter', open);
+        li.addEventListener('mouseleave', scheduleClose);
+        li.addEventListener('focusin', open);
+        li.addEventListener('focusout', scheduleClose);
+
+        // Manter aberto quando o mouse está no próprio submenu
+        submenu.addEventListener('mouseenter', open);
+        submenu.addEventListener('mouseleave', scheduleClose);
+    });
+});
+</script>
 
 <!-- SCRIPT DO MENU MOBILE / OFFCANVAS -->
 <script>
