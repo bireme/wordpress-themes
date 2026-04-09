@@ -150,7 +150,8 @@ margin-top: 6px;
     gap: 32px;
     border-radius: 18px;
     padding: 24px;
-    align-items: center;
+   
+    align-items: start;
 }
 
 .encontro-intro-thumb img{
