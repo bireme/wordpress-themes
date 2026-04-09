@@ -101,6 +101,16 @@ if ( empty( $vozes ) ) {
     padding: 24px;
 }
 
+.voz-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.voz-card-link:hover .voz-author strong {
+    color: #0056A0;
+}
+
 /* Header do card */
 .voz-header {
     display: flex;
@@ -139,6 +149,10 @@ if ( empty( $vozes ) ) {
     font-size: 13px;
     color: #444;
     line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Barra inferior */
@@ -218,6 +232,7 @@ if ( empty( $vozes ) ) {
                 ?>
                     <article class="voz-card">
                         <div class="voz-card-inner">
+                          <a class="voz-card-link" href="<?php echo esc_url( get_permalink( $id ) ); ?>">
 
                             <div class="voz-header">
                                 <div class="voz-avatar">
@@ -240,6 +255,7 @@ if ( empty( $vozes ) ) {
                                 <?php echo wp_kses_post( nl2br( $texto ) ); ?>
                             </div>
 
+                          </a>
                         </div>
                     </article>
                 <?php endforeach; ?>

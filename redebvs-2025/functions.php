@@ -100,6 +100,7 @@ function rede_bvs_register_polylang_strings() {
     pll_register_string( 'vozes_da_rede_titulo',      'Vozes da Rede',                  $group );
     pll_register_string( 'vozes_todos_label',         'Todos',                          $group );
     pll_register_string( 'vozes_nenhuma',             'Nenhuma voz encontrada.',        $group );
+    pll_register_string( 'vozes_mais_recentes',       'Mais recentes',                  $group );
 }
 add_action( 'init', 'rede_bvs_register_polylang_strings' );
 

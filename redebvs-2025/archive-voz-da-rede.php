@@ -341,7 +341,7 @@ if ( is_wp_error( $vozes_terms ) ) {
         </select>
 
         <select class="vozes-archive-select" name="sort" onchange="this.form.submit()">
-            <option value="recent" <?php selected( $sort, 'recent' ); ?>>Mais recentes</option>
+            <option value="recent" <?php selected( $sort, 'recent' ); ?>><?php echo esc_html( rede_bvs_pll( 'Mais recentes' ) ); ?></option>
             <option value="az" <?php selected( $sort, 'az' ); ?>>A &ndash; Z</option>
             <option value="za" <?php selected( $sort, 'za' ); ?>>Z &ndash; A</option>
         </select>
