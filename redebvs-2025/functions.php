@@ -65,6 +65,13 @@ function rede_bvs_register_polylang_strings() {
     pll_register_string( 'bc_resultado_pesquisa',    'Resultado de pesquisa',          $group );
     pll_register_string( 'search_result_prefix',     'Resultado da busca para:',       $group );
     pll_register_string( 'header_menu_label',        'Menu',                           $group );
+
+    // Paginação
+    pll_register_string( 'pagination_prev',           'Anterior',                       $group );
+    pll_register_string( 'pagination_next',           'Próximo',                        $group );
+
+    // Sidebar
+    pll_register_string( 'sidebar_categorias',        'Categorias',                     $group );
 }
 add_action( 'init', 'rede_bvs_register_polylang_strings' );
 

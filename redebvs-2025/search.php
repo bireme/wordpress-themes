@@ -344,8 +344,8 @@ include('dobras/resultado-banner.php');
                     'format'    => '?paged=%#%',
                     'current'   => max( 1, get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ),
                     'total'     => $wp_query->max_num_pages,
-                    'prev_text' => '← Anterior',
-                    'next_text' => 'Próximo →',
+                    'prev_text' => '← ' . rede_bvs_pll( 'Anterior' ),
+                    'next_text' => rede_bvs_pll( 'Próximo' ) . ' →',
                 ) );
                 ?>
             </div>
