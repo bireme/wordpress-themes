@@ -110,11 +110,11 @@ position: absolute;
             <?php
 rede_bvs_breadcrumb( array(
     array(
-        'label' => 'Rede BVS',
-        'url'   => get_permalink( 18 ), // id da página "A Rede BVS" ou outro link
+        'label' => rede_bvs_pll( 'Rede BVS' ),
+        'url'   => get_permalink( 18 ),
     ),
     array(
-        'label' => 'Resultado de pesquisa', // página atual, sem URL
+        'label' => rede_bvs_pll( 'Resultado de pesquisa' ),
     ),
 ) );
 
@@ -130,7 +130,7 @@ rede_bvs_breadcrumb( array(
      
                 <div class="sobre-banner-text">
               
-                        <h1>Resultado da busca para: <strong><?= $_GET['s'] ?></strong></h1>
+                        <h1><?php echo esc_html( rede_bvs_pll( 'Resultado da busca para:' ) ); ?> <strong><?php echo esc_html( get_search_query() ); ?></strong></h1>
            
 
                     

@@ -98,11 +98,11 @@ $descricao    = get_sub_field( 'descricao' );
             <?php
 rede_bvs_breadcrumb( array(
     array(
-        'label' => 'A Rede BVS',
-        'url'   => get_permalink( 18 ), // id da página "A Rede BVS" ou outro link
+        'label' => rede_bvs_pll( 'A Rede BVS' ),
+        'url'   => get_permalink( 18 ),
     ),
     array(
-        'label' => 'Sobre a BVS', // página atual, sem URL
+        'label' => rede_bvs_pll( 'Sobre a BVS' ),
     ),
 ) );
 ?>

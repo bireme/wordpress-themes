@@ -373,7 +373,7 @@ body{
 
         <?php else : ?>
 
-            <p>Nenhuma notícia encontrada.</p>
+            <p><?php echo esc_html( rede_bvs_pll( 'Nenhuma notícia encontrada.' ) ); ?></p>
 
         <?php endif; ?>
 

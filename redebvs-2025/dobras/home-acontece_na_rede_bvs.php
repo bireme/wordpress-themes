@@ -231,7 +231,7 @@ if ( $selecionados ) {
         <div class="home-acontece-footer">
             <a class="home-acontece-ver-todos"
                href="<?php echo esc_url($linkGeral); ?>">
-                Ver todos
+                <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
             </a>
         </div>
 

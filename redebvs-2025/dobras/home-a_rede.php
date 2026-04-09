@@ -563,7 +563,7 @@ if ( ! empty( $bg_image ) ) {
 			<?php if ( ! empty( $redes_items ) ) : ?>
 				<div class="home-a-rede-networks-wrapper">
 					<div class="home-a-rede-network-card">
-						<p class="home-a-rede-network-card-title">Redes relacionadas</p>
+						<p class="home-a-rede-network-card-title"><?php echo esc_html( rede_bvs_pll( 'Redes relacionadas' ) ); ?></p>
 						<div class="home-a-rede-network-badges">
 							<?php foreach ( $redes_items as $rede ) : 
 								$nome = esc_html( $rede['nome'] );
@@ -642,7 +642,7 @@ if ( ! empty( $bg_image ) ) {
 				<?php if ( ! empty( $redes_items ) ) : ?>
 					<div class="home-a-rede-networks-wrapper">
 						<div class="home-a-rede-network-card">
-							<p class="home-a-rede-network-card-title">Redes relacionadas</p>
+							<p class="home-a-rede-network-card-title"><?php echo esc_html( rede_bvs_pll( 'Redes relacionadas' ) ); ?></p>
 							<div class="home-a-rede-network-badges">
 								<?php foreach ( $redes_items as $rede ) : 
 									$nome = esc_html( $rede['nome'] );

@@ -281,7 +281,7 @@ background: #ffffff;
 
             <div class="home-reunioes-footer">
                 <a href="<?php echo esc_url($linkGeral); ?>" class="home-reunioes-ver-todos">
-                    Ver todos
+                    <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
                 </a>
             </div>
 
@@ -322,7 +322,7 @@ background: #ffffff;
 
                 <div class="home-reunioes-footer">
                     <a href="<?php echo esc_url($linkGeral); ?>" target="_blank" class="home-reunioes-ver-todos">
-                        Ver todos
+                        <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
                     </a>
                 </div>
 
@@ -331,10 +331,10 @@ background: #ffffff;
                 <!-- Se cair aqui, o RSS não foi lido/parseado -->
                 <?php if ( $rss_url ): ?>
                     <a href="<?php echo esc_url($rss_url); ?>" target="_blank" class="home-reunioes-ver-todos">
-                        Ver RSS
+                        <?php echo esc_html( rede_bvs_pll( 'Ver RSS' ) ); ?>
                     </a>
                 <?php else: ?>
-                    <p>Em breve: listagem das últimas reuniões via RSS.</p>
+                    <p><?php echo esc_html( rede_bvs_pll( 'Em breve: listagem das últimas reuniões via RSS.' ) ); ?></p>
                 <?php endif; ?>
 
             <?php endif; ?>

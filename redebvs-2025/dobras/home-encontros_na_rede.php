@@ -220,7 +220,7 @@ if ( $encontros_selecionados ) {
                                     <?php echo esc_html( $tags_line ); ?>
                                 </div>
                             <?php else : ?>
-                                <div class="encontro-card-tags">TAGS</div>
+                                <div class="encontro-card-tags"><?php echo esc_html( rede_bvs_pll( 'TAGS' ) ); ?></div>
                             <?php endif; ?>
                         </article>
                         <?php
@@ -235,7 +235,7 @@ if ( $encontros_selecionados ) {
 
     <div class="home-encontros-footer">
         <a class="home-encontros-ver-todos" href="<?php echo esc_url( $linkGeral); ?>">
-            Ver todos
+            <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
         </a>
     </div>
 </section>

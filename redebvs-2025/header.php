@@ -612,7 +612,7 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
         <div class="bvs-mobile-offcanvas-panel">
 
             <div class="bvs-mobile-offcanvas-header">
-                <span class="bvs-mobile-offcanvas-title">Menu</span>
+                <span class="bvs-mobile-offcanvas-title"><?php echo esc_html( rede_bvs_pll( 'Menu' ) ); ?></span>
                 <button 
                     type="button" 
                     class="bvs-mobile-close" 

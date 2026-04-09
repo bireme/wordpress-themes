@@ -296,7 +296,7 @@ include('dobras/resultado-banner.php');
 
                     <?php if ( $custom_link ) : ?>
                         <span class="bvs-post-badge <?php echo $is_external_custom ? 'bvs-post-badge--external' : 'bvs-post-badge--internal'; ?>">
-                            <?php echo $is_external_custom ? 'Link externo' : 'Link interno'; ?>
+                            <?php echo $is_external_custom ? esc_html( rede_bvs_pll( 'Link externo' ) ) : esc_html( rede_bvs_pll( 'Link interno' ) ); ?>
                         </span>
                     <?php endif; ?>
 
