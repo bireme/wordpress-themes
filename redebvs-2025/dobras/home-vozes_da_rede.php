@@ -2,14 +2,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Campos ACF da dobra
-$titulo = get_sub_field('titulo');
-
-// Tenta pegar posts selecionados em um campo (caso você dê nome depois)
-$posts_selecionados = get_sub_field('vozes_selecionadas');
-if ( ! $posts_selecionados ) {
-    // fallback para o campo sem nome (como está no seu grupo hoje)
-    $posts_selecionados = get_sub_field('');
-}
+$titulo                   = get_sub_field('titulo');
+$posts_selecionados       = get_sub_field('vozes_selecionadas');
+$texto_envio_relato       = get_sub_field('texto_para_envio_o_relato');
+$link_envio_relato        = get_sub_field('Link_para_envio_o_relato_copy');
+$botao_ver_todos          = get_sub_field('botao_ver_todos');
+$link_botao_ver_todos     = get_sub_field('link_botao_ver_todos');
 
 $vozes = [];
 
@@ -251,15 +249,25 @@ if ( empty( $vozes ) ) {
 
         </div>
 
+        <?php if ( $texto_envio_relato ) : ?>
         <div class="home-vozes-bottom-bar">
-            <span>Envie seu relato e venha fazer parte dessa história!</span>
+            <?php if ( $link_envio_relato ) : ?>
+                <a href="<?php echo esc_url( $link_envio_relato ); ?>" style="color:#fff;text-decoration:none;">
+                    <span><?php echo esc_html( $texto_envio_relato ); ?></span>
+                </a>
+            <?php else : ?>
+                <span><?php echo esc_html( $texto_envio_relato ); ?></span>
+            <?php endif; ?>
         </div>
+        <?php endif; ?>
 
+        <?php if ( $botao_ver_todos ) : ?>
         <div class="home-vozes-footer">
-            <a class="home-vozes-ver-todos" href="<?php echo esc_url( get_post_type_archive_link( 'voz-da-rede' ) ); ?>">
-                Ver todos
+            <a class="home-vozes-ver-todos" href="<?php echo esc_url( $link_botao_ver_todos ?: get_post_type_archive_link( 'voz-da-rede' ) ); ?>">
+                <?php echo esc_html( $botao_ver_todos ); ?>
             </a>
         </div>
+        <?php endif; ?>
 
     </div>
 </section>
