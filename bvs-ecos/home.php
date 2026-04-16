@@ -30,7 +30,7 @@ get_header(); ?>
 		</div>
 
 		<div class="row list-posts">
-			teste
+			<script>alert("teste")</script>
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
