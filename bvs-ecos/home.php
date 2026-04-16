@@ -30,10 +30,18 @@ get_header(); ?>
 		</div>
 
 		<div class="row list-posts">
-			<?php if (have_posts()):
+			<?php
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-				/* Start the Loop */
-				while (have_posts()): the_post();
+			$news_query = new WP_Query(array(
+				'post_type'      => 'post',
+				'paged'          => $paged,
+				'lang'           => 'pt',
+			));
+
+			if ($news_query->have_posts()) :
+
+				while ($news_query->have_posts()) : $news_query->the_post();
 
 					get_template_part('template-parts/items/item-25', 'news');
 
