@@ -9,7 +9,6 @@
  */
 
 ?>
-<h1>teste</h1>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="row grid-taxonomy-date">	

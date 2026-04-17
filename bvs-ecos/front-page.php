@@ -187,6 +187,7 @@ $lang = get_current_language();
             'post_type'      => 'post',
             'paged'          => 1,
             'category_name'  => 'noticias',
+            'lang'           => 'pt',
         ) );
                 
         while( $new_query->have_posts() ){
