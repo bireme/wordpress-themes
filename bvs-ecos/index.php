@@ -27,7 +27,7 @@ get_header(); ?>
 			<div class="entry-header">
 				<h1 class="title"><?php single_post_title(); ?></h1>
 			</div>
-
+			<h1>Index</h1>
 			<div class="row list-posts">
 				<script>alert("teste index agora");</script>
 				<?php if (have_posts()):

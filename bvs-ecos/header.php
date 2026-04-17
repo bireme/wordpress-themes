@@ -31,7 +31,6 @@
     }
 
 ?>
-<h1>Teste</h1>
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Pular para o conteúdo', 'bvs-ecos' ); ?></a>
 
