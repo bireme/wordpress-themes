@@ -28,7 +28,6 @@ get_header(); ?>
 		<div class="entry-header">
 			<h1 class="title"><?php _e("Notícias", "bvs-ecos"); ?></h1>
 		</div>
-<h1>Teste Home</h1>
 		<div class="row list-posts">
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
