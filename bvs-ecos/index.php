@@ -29,7 +29,7 @@ get_header(); ?>
 			</div>
 
 			<div class="row list-posts">
-				<script>alert("teste index");</script>
+				<script>alert("teste index agora");</script>
 				<?php if (have_posts()):
 
 					/* Start the Loop */
