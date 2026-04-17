@@ -427,22 +427,45 @@ function build_menu_tree( $menu_items ) {
     return $tree;
 }
 
-// Garante que Posts e os CPTs tenham a taxonomia "programa" associada
-register_taxonomy('programa', ['post', 'event', 'stories', 'project', 'testimonials'], [
-  'label'        => 'Programas',
-  'show_in_rest' => true,   // <-- obrigatório para funcionar na REST API
-  'rest_base'    => 'programa', // <-- define o nome do parâmetro na URL
-  'hierarchical' => true,
-  'rewrite'      => ['slug' => 'programa'],
-]);
 
-// Ajusta a taxonomia "programa" para garantir que ela apareça na REST API e tenha o rest_base definido
-// GET /wp-json/wp/v2/posts?programa=nome-do-programa
+// ------------------------------
+// Function: filter posts and CPTs by slug from the taxonomy Program 
+// GET  /wp-json/wp/v2/post?program_slug=telessaude
+// GET  /wp-json/wp/v2/event?program_slug=telessaude
+// GET  /wp-json/wp/v2/stories?program_slug=telessaude
+// GET  /wp-json/wp/v2/project?program_slug=telessaude
+// GET  /wp-json/wp/v2/testimonials?program_slug=telessaude
+// ------------------------------
+
 add_action('init', function () {
-  // Garante que a taxonomia aparece na REST e define o parâmetro de URL
-  if (taxonomy_exists('programa')) {
-    global $wp_taxonomies;
-    $wp_taxonomies['programa']->show_in_rest = true;
-    $wp_taxonomies['programa']->rest_base    = 'programa';
+  $post_types = ['post', 'event', 'stories', 'project', 'testimonials'];
+
+  foreach ($post_types as $pt) {
+    add_filter("rest_{$pt}_query", 'susdigi_filter_by_program_slug', 10, 2);
   }
-}, 20); // priority 20 para rodar após o registro original
+});
+
+function susdigi_filter_by_program_slug($args, $request) {
+  $slug = $request->get_param('program_slug');
+
+  if (empty($slug)) {
+    return $args;
+  }
+
+  $term = get_term_by('slug', sanitize_title($slug), 'program'); // <-- nome lógico
+
+  if (!$term || is_wp_error($term)) {
+    return $args;
+  }
+
+  $args['tax_query'] = [
+    [
+      'taxonomy' => 'program', // <-- nome lógico
+      'field'    => 'term_id',
+      'terms'    => $term->term_id,
+    ]
+  ];
+
+  return $args;
+}
+
