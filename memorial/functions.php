@@ -77,3 +77,9 @@ require_once get_template_directory() . '/includes/functions-aspas.php';
 
 //Custom functions and shortcodes
 require_once get_template_directory() . '/includes/functions-shortcodes.php';
+
+//polylang
+add_action('init', function() {
+    // thema
+    pll_register_string('Footer', 'Todos os direitos são reservados', 'Tema'); 
+});

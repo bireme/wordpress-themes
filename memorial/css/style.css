@@ -3,6 +3,7 @@
 	--color-primary: #1e3a5f;
 	--color-primary-900: #0e2038;
 	--color-secondary: #4e9a51;
+	--color-secondary-700: #2b5a2d;
 }
 h1, h2, h3, h4, h5, h6{
 	font-family: "Roboto", sans-serif;;
@@ -80,6 +81,30 @@ a{
 }
 #nav{
 	margin-top: 24px;
+}
+#lang{
+	float: right;
+	position: absolute;
+	right: 16px;
+}
+#lang ul li{
+	list-style: none;
+	display: inline-block;
+}
+#lang a{
+	background:var(--color-secondary-700);
+	border-radius: 4px;
+	color: #fff;
+	font-size: 12px;
+	padding: 5px;
+}
+#lang .current-lang a{
+	background:none;
+	color: #fff;
+}
+#lang a:hover{
+	background: #86b986;
+	text-decoration: none;
 }
 .bg-body-tertiary{
 	background: none!important;

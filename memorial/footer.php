@@ -9,7 +9,7 @@
 				<hr >
 				<div class="text-center">
 					<img src="<?php bloginfo('template_directory'); ?>/img/powered.svg" id="logo-poweredby" alt=""> <br>	
-					<div class="mt-3">© Todos os direitos são reservados</div>
+					<div class="mt-3"><small>© <?php pll_e('Todos os direitos são reservados'); ?></small></div>
 				</div>
 			</div>
 		</footer>

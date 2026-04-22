@@ -19,7 +19,8 @@
 						<img src="<?php bloginfo('template_directory'); ?>/img/brand.png" alt="" id="logo" class="img-fluid">
 					</a>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-9" style="position: relative;">
+					<?php get_template_part('includes/nav-lang') ?>
 					<?php get_template_part('includes/nav') ?>
 				</div>
 			</div>
