@@ -198,7 +198,7 @@ a{
 	padding-left: 30px;
 }
 .navFooter ul{
-	list-style: url(../img/arrowNext.svg);
+	list-style: url(../img/arrowNext.svg)!important;
 }
 .navFooter ul{
 	margin-bottom: 14px;
