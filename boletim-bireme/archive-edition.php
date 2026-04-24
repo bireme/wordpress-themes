@@ -17,11 +17,19 @@
  */
 
 global $wp_query;
-$args = array_merge( $wp_query->query_vars, array( 'orderby' => 'meta_value', 'meta_key' => 'date', 'posts_per_page' => '-1' ) );
-query_posts($args);
-$wp_query->is_search = false;
 
-get_header(); ?>
+$args = array_merge(
+	$wp_query->query_vars,
+	array(
+		'posts_per_page' => -1,
+		'orderby'        => 'meta_value',
+		'meta_key'       => 'date',
+		'order'          => 'DESC',
+	)
+);
+
+query_posts( $args );
+$wp_query->is_search = false; ?>
 
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
