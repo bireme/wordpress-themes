@@ -22,7 +22,7 @@ query_posts($args);
 $wp_query->is_search = false;
 
 get_header(); ?>
-
+<h1>teste</h1>
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
                 <?php if ( function_exists( 'bcn_display' ) ) bcn_display(); ?>
