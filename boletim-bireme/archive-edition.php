@@ -22,8 +22,8 @@ $args = array_merge(
 	$wp_query->query_vars,
 	array(
 		'posts_per_page' => -1,
-		'orderby'        => 'meta_value',
 		'meta_key'       => 'date',
+		'orderby'        => 'meta_value_num',
 		'order'          => 'DESC',
 	)
 );
