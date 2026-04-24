@@ -20,10 +20,16 @@ global $wp_query;
 
 $args = $wp_query->query_vars;
 
+$args['nopaging'] = true;
 $args['posts_per_page'] = -1;
+$args['posts_per_archive_page'] = -1;
+
 $args['meta_key'] = 'date';
 $args['orderby'] = 'meta_value';
 $args['order'] = 'DESC';
+
+unset( $args['paged'] );
+unset( $args['page'] );
 
 query_posts( $args );
 
