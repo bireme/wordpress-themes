@@ -18,17 +18,15 @@
 
 global $wp_query;
 
-$args = array_merge(
-	$wp_query->query_vars,
-	array(
-		'posts_per_page' => -1,
-		'meta_key'       => 'date',
-		'orderby'        => 'meta_value_num',
-		'order'          => 'DESC',
-	)
-);
+$args = $wp_query->query_vars;
+
+$args['posts_per_page'] = -1;
+$args['meta_key'] = 'date';
+$args['orderby'] = 'meta_value';
+$args['order'] = 'DESC';
 
 query_posts( $args );
+
 $wp_query->is_search = false;
 
 get_header(); ?>
