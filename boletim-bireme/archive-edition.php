@@ -17,7 +17,7 @@
  */
 
 global $wp_query;
-$args = array_merge( $wp_query->query_vars, array( 'orderby' => 'meta_value', 'meta_key' => 'date' ) );
+$args = array_merge( $wp_query->query_vars, array( 'orderby' => 'meta_value', 'meta_key' => 'date', 'posts_per_page' => '-1' ) );
 query_posts($args);
 $wp_query->is_search = false;
 
