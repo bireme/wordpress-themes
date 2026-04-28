@@ -9,7 +9,7 @@ $posts_home = new WP_Query([
 if ( $posts_home->have_posts() ) : ?>
 	<section class="mt-5 mb-5 container">
 		<div class="d-flex align-items-center justify-content-between mb-3">
-			<h2 class="title">Novidades</h2>
+			<h2 class="title"><?php pll_e('Novidades'); ?></h2>
 
 			<?php
 			// Ajuste aqui o destino do "Ver todas"

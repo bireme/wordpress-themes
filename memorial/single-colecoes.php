@@ -74,7 +74,7 @@ if (have_posts()) :
 
 						<?php the_content(); ?>
 						<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-colecoes btn-sm mb-3 p-3 mt-5">
-							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder d-none d-md-block">Ver coleção completa
+							<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder d-none d-md-block"><?php pll_e('Ver coleção completa'); ?>
 						</a>
 					</div>
 					<div class="col-md-4">
@@ -82,7 +82,7 @@ if (have_posts()) :
 							<?php if (!empty($tainacan_url)) : ?>
 								<div class="d-none d-md-block">
 									<a href="<?php echo esc_url($tainacan_url); ?>" class="btn btn-outline-success btn-sm btn-colecoes mb-3 p-3 w-100">
-										<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder">Ver coleção completa
+										<img src="<?php bloginfo('template_directory'); ?>/img/folder.svg" alt="Folder" class="btn-folder"><?php pll_e('Ver coleção completa'); ?>
 									</a>
 								</div>
 							<?php endif; ?>
@@ -113,7 +113,7 @@ if (have_posts()) :
 			<hr><br>
 			<section class="mb-5">
 				<div class="d-flex align-items-center justify-content-between mb-3">
-					<h2 class="h4 mb-0">Itens da coleção</h2>
+					<h2 class="h4 mb-0"><?php pll_e('Itens da coleção'); ?></h2>
 				</div>
 				<?php if (!empty($error)) : ?>
 					<div class="alert alert-warning">

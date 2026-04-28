@@ -42,8 +42,8 @@ if (count($hero_posts) === 3) :
   <section class="colecoes py-4" id="home-section-hero">
     <div class="container border"  id="home-hero">
       <div class="text-center">
-        <h3><b>Memórias e vozes</b></h3>
-        <h5>Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19</h5>
+        <h3><b><?php pll_e('Memórias e vozes'); ?></b></h3>
+        <h5><?php pll_e('Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19'); ?></h5>
       </div>
       <div class="row g-3 mt-3 align-items-stretch" >
         <!-- COLUNA ESQUERDA (card grande) -->

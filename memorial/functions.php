@@ -83,4 +83,13 @@ require_once get_template_directory() . '/includes/functions-shortcodes.php';
 add_action('init', function() {
     // thema
     pll_register_string('Footer', 'Todos os direitos são reservados', 'Tema'); 
+    pll_register_string('Search', 'Pesquisar', 'Tema');
+    pll_register_string('Learn more', 'Saiba mais', 'Tema');
+    pll_register_string('See all', 'Ver todas', 'Tema');
+    pll_register_string('Collections', 'Coleções', 'Tema');
+    pll_register_string('Publications', 'Publicações', 'Tema');
+
+    pll_register_string('News', 'Novidades', 'Home');
+    pll_register_string('Memories and voices', 'Memórias e vozes', 'Home');
+    pll_register_string('Browse through the collections and discover stories and experiences that marked the COVID-19 pandemic.', 'Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19', 'Home');
 });

@@ -12,17 +12,17 @@ $bg = $thumb ? $thumb : get_template_directory_uri() . '/img/header-memorial.jpg
 				<input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
 			</div>
 			<div class="col-md-2">
-				<button type="submit" class="btn btn-primary w-100">Pesquisar</button>
+				<button type="submit" class="btn btn-primary w-100"><?php pll_e('Pesquisar'); ?></button>
 			</div>
 			<div class="mt-2">
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="colecao">
-					<label class="form-check-label" for="inlineRadio1">Coleções</label>
+					<label class="form-check-label" for="inlineRadio1"><?php pll_e('Coleções'); ?></label>
 				</div>
 
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="documento" checked>
-					<label class="form-check-label" for="inlineRadio2">Publicações</label>
+					<label class="form-check-label" for="inlineRadio2"><?php pll_e('Publicações'); ?></label>
 				</div>
 			</div>
 		</form>

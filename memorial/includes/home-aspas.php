@@ -63,7 +63,7 @@ if (! $query->have_posts()) {
 
 <section id="<?php echo esc_attr($block_id); ?>" class="<?php echo esc_attr($classes); ?> pb-5">
     <div class="container pt-5">
-        <h2 class="title text-center">Vozes da Pandemia</h2>
+        <h2 class="title text-center"><?php pll_e('Vozes da Pandemia'); ?></h2>
         <div class="aspas-slider-wrap js-aspas-slider">
             <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <?php
@@ -116,7 +116,7 @@ if (! $query->have_posts()) {
                     O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.
                 </p>
                 <a href="<?php echo esc_url( $blog_url ); ?>/vozes-da-pandemia" class="btn btn-primary">
-                    Ver todas
+                    <?php pll_e('Ver todas'); ?>
                 </a>
             </div>
         </div>
