@@ -15,6 +15,9 @@ if ( empty( $atuacoes ) || ! is_array( $atuacoes ) ) {
     return;
 }
 
+$colunas = (int) get_sub_field( 'colunas_por_linha' );
+if ( $colunas < 1 || $colunas > 4 ) $colunas = 3;
+
 $section_id = 'lilacs-atuacao-centros-' . get_the_ID() . '-' . get_row_index();
 
 
@@ -65,7 +68,7 @@ $titulo_da_dobra = get_sub_field('titulo');
 
 @media (min-width: 1024px) {
     #<?php echo esc_attr( $section_id ); ?> .lilacs-atuacao-grid {
-        grid-template-columns: repeat(3, minmax(0,1fr));
+        grid-template-columns: repeat(<?php echo (int) $colunas; ?>, minmax(0,1fr));
     }
 }
 

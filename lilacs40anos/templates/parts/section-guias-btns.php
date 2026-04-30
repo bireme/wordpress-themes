@@ -1,6 +1,6 @@
 <style>
   .guides-faq-section{padding:40px 20px}
-  .guides-faq-wrapper{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:flex-start}
+  .guides-faq-wrapper{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:flex-start}
   .guides-column{width:770px;display:flex;flex-direction:column;gap:12px}
   .guides-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .guide-btn{display:flex;align-items:center;gap:12px;padding:20px 16px;background:#00205C;color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:18px;font-weight:600;transition:all .2s ease;text-align:left;text-decoration:none}

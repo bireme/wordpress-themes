@@ -1,0 +1,1013 @@
+[
+    {
+        "key": "group_692efe2d80c0c",
+        "title": "Centro coordenador",
+        "fields": [
+            {
+                "key": "field_692efe2d81459",
+                "label": "Layout",
+                "name": "layout",
+                "aria-label": "",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layouts": {
+                    "layout_692ed3628b128": {
+                        "key": "layout_692ed3628b128",
+                        "name": "banner",
+                        "label": "Banner",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692efe2d81ced",
+                                "label": "Titulo Banner",
+                                "name": "titulo_banner",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692efe2d81d25",
+                                "label": "Fundo Banner",
+                                "name": "fundo_banner",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0,
+                                "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_692efe2d81d5c",
+                                "label": "Descrição Banner",
+                                "name": "descricao_banner",
+                                "aria-label": "",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "rows": "",
+                                "placeholder": "",
+                                "new_lines": ""
+                            },
+                            {
+                                "key": "field_692efe2d81d93",
+                                "label": "Texto complementar descrição banner",
+                                "name": "texto_complementar_descricao_banner",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692efeb018198",
+                                "label": "Posição do highlight",
+                                "name": "posicao_do_highlight",
+                                "aria-label": "",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "titulo": "Abaixo do titulo",
+                                    "descricao": "Abaixo da descrição"
+                                },
+                                "default_value": "descricao",
+                                "return_format": "value",
+                                "multiple": 0,
+                                "allow_null": 0,
+                                "allow_in_bindings": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692ed567376ce": {
+                        "key": "layout_692ed567376ce",
+                        "name": "descricao_textual",
+                        "label": "Descrição textual",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692efe2d81dca",
+                                "label": "Texto",
+                                "name": "texto",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "allow_in_bindings": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692ed57b376d1": {
+                        "key": "layout_692ed57b376d1",
+                        "name": "atuacao_dos_centros",
+                        "label": "Atuação dos centros",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692f00b427da4",
+                                "label": "Titulo",
+                                "name": "titulo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692efe2d81e01",
+                                "label": "Atuação",
+                                "name": "atuacao",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692efe2d8486d",
+                                        "label": "Titulo",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_692efe2d81e01"
+                                    },
+                                    {
+                                        "key": "field_692efe2d848a4",
+                                        "label": "Icone\/imagem",
+                                        "name": "iconeimagem",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_692efe2d81e01"
+                                    },
+                                    {
+                                        "key": "field_692efe2d848dc",
+                                        "label": "Descrição",
+                                        "name": "descricao",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0,
+                                        "parent_repeater": "field_692efe2d81e01"
+                                    },
+                                    {
+                                        "key": "field_692efe2d84913",
+                                        "label": "Link",
+                                        "name": "link",
+                                        "aria-label": "",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "parent_repeater": "field_692efe2d81e01"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692ed5c98ca36": {
+                        "key": "layout_692ed5c98ca36",
+                        "name": "sua_instituicao_na_rede",
+                        "label": "Sua instituição na rede",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692efe2d81e3d",
+                                "label": "Cor do fundo da sessão",
+                                "name": "cor_do_fundo_da_sessao",
+                                "aria-label": "",
+                                "type": "color_picker",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "enable_opacity": 0,
+                                "return_format": "string",
+                                "allow_in_bindings": 0,
+                                "show_custom_palette": 0,
+                                "show_color_wheel": 1,
+                                "custom_palette_source": "",
+                                "palette_colors": ""
+                            },
+                            {
+                                "key": "field_692f13b4fa2a6",
+                                "label": "Cor do titulo",
+                                "name": "cor_do_titulo",
+                                "aria-label": "",
+                                "type": "color_picker",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "enable_opacity": 0,
+                                "return_format": "string",
+                                "allow_in_bindings": 0,
+                                "show_custom_palette": 0,
+                                "show_color_wheel": 1,
+                                "custom_palette_source": "",
+                                "palette_colors": ""
+                            },
+                            {
+                                "key": "field_692efe2d81e77",
+                                "label": "Titulo",
+                                "name": "titulo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692efe2d81eae",
+                                "label": "Campos",
+                                "name": "campos",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692efe2d8a147",
+                                        "label": "Titulo",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_692efe2d81eae"
+                                    },
+                                    {
+                                        "key": "field_692efe2d8a181",
+                                        "label": "Link",
+                                        "name": "link",
+                                        "aria-label": "",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "parent_repeater": "field_692efe2d81eae"
+                                    },
+                                    {
+                                        "key": "field_692efe2d8a1ba",
+                                        "label": "Icone\/imagem",
+                                        "name": "iconeimagem",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_692efe2d81eae"
+                                    },
+                                    {
+                                        "key": "field_692efe2d8a1f2",
+                                        "label": "Descrição curta",
+                                        "name": "descricao_curta",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "rows": "",
+                                        "placeholder": "",
+                                        "new_lines": "",
+                                        "parent_repeater": "field_692efe2d81eae"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692ed6d587b58": {
+                        "key": "layout_692ed6d587b58",
+                        "name": "faq",
+                        "label": "Faq",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692efe2d81ee5",
+                                "label": "Titulo do Faq",
+                                "name": "titulo_do_faq",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692f1f24d4905",
+                                "label": "Titulo primeiro conteudo",
+                                "name": "titulo_primeiro_conteudo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692f1f34d4906",
+                                "label": "Descrição primeiro conteudo",
+                                "name": "descricao_primeiro_conteudo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692f1f77d4907",
+                                "label": "Imagem primeiro conteudo",
+                                "name": "imagem_primeiro_conteudo",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0,
+                                "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_692efe2d81f1c",
+                                "label": "Escolha as perguntas em destaque",
+                                "name": "escolha_as_perguntas_em_destaque",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692efe2d8db39",
+                                        "label": "Pergunta destaque",
+                                        "name": "pergunta_destaque",
+                                        "aria-label": "",
+                                        "type": "post_object",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "post_type": [
+                                            "ufaq"
+                                        ],
+                                        "post_status": "",
+                                        "taxonomy": "",
+                                        "return_format": "object",
+                                        "multiple": 0,
+                                        "allow_null": 0,
+                                        "allow_in_bindings": 0,
+                                        "bidirectional": 0,
+                                        "ui": 1,
+                                        "bidirectional_target": [],
+                                        "parent_repeater": "field_692efe2d81f1c"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_692efe2d81f35",
+                                "label": "Escolha as categorias para listar as perguntas",
+                                "name": "escolha_as_categorias_para_listar_as_perguntas",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692efe2d8f27e",
+                                        "label": "Categoria",
+                                        "name": "categoria",
+                                        "aria-label": "",
+                                        "type": "taxonomy",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "taxonomy": "ufaq-category",
+                                        "add_term": 1,
+                                        "save_terms": 0,
+                                        "load_terms": 0,
+                                        "return_format": "id",
+                                        "field_type": "select",
+                                        "allow_null": 0,
+                                        "allow_in_bindings": 0,
+                                        "bidirectional": 0,
+                                        "multiple": 0,
+                                        "bidirectional_target": [],
+                                        "parent_repeater": "field_692efe2d81f35"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692eeb3eb7b97": {
+                        "key": "layout_692eeb3eb7b97",
+                        "name": "vozes_da_rede",
+                        "label": "Vozes da rede",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692efe2d81f6d",
+                                "label": "depoimentos",
+                                "name": "depoimentos",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692efe2d90e46",
+                                        "label": "Foto",
+                                        "name": "foto",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_692efe2d81f6d"
+                                    },
+                                    {
+                                        "key": "field_692efe2d90e7f",
+                                        "label": "Profissão",
+                                        "name": "profissao",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_692efe2d81f6d"
+                                    },
+                                    {
+                                        "key": "field_692efe2d90eb7",
+                                        "label": "Titulo",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_692efe2d81f6d"
+                                    },
+                                    {
+                                        "key": "field_692efe2d90ef0",
+                                        "label": "Depoimento",
+                                        "name": "depoimento",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "rows": "",
+                                        "placeholder": "",
+                                        "new_lines": "",
+                                        "parent_repeater": "field_692efe2d81f6d"
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_692efe2d81fa4",
+                                "label": "Imagem de fundo",
+                                "name": "imagem_de_fundo",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0,
+                                "preview_size": "medium"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_692f15b39f2e4": {
+                        "key": "layout_692f15b39f2e4",
+                        "name": "slide_de_logos",
+                        "label": "Slide de logos",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_692f15b89f2e6",
+                                "label": "Titulo da sessão",
+                                "name": "titulo_da_sessao",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_692f15c29f2e7",
+                                "label": "Descrição da sessão",
+                                "name": "descricao_da_sessao",
+                                "aria-label": "",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "rows": "",
+                                "placeholder": "",
+                                "new_lines": ""
+                            },
+                            {
+                                "key": "field_692f15d09f2e8",
+                                "label": "Logos",
+                                "name": "logos",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "layout": "table",
+                                "min": 0,
+                                "max": 0,
+                                "collapsed": "",
+                                "button_label": "Adicionar linha",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_692f15df9f2ea",
+                                        "label": "Logo",
+                                        "name": "logo",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "medium",
+                                        "parent_repeater": "field_692f15d09f2e8"
+                                    },
+                                    {
+                                        "key": "field_692f15e69f2eb",
+                                        "label": "Link do logo",
+                                        "name": "link_do_logo",
+                                        "aria-label": "",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "parent_repeater": "field_692f15d09f2e8"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                },
+                "min": "",
+                "max": "",
+                "button_label": "Adicionar linha"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-lilacs-coordenadores.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]

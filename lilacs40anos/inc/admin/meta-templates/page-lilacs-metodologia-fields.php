@@ -24,10 +24,11 @@ function bireme_lilacs_metodologia_metabox_cb($post){
   wp_nonce_field(BIREME_LILACS_CP_FIELDS_ACTION, BIREME_LILACS_CP_FIELDS_NONCE);
 
   // --- Banner
-  $banner_title  = get_post_meta($post->ID, '_metod_banner_title', true);
-  $banner_desc   = get_post_meta($post->ID, '_metod_banner_desc', true);
-  $banner_img_id = (int) get_post_meta($post->ID, '_metod_banner_img', true);
-  $banner_img    = $banner_img_id ? wp_get_attachment_image_url($banner_img_id, 'medium_large') : includes_url('images/media/default.png');
+  $banner_title    = get_post_meta($post->ID, '_metod_banner_title', true);
+  $banner_desc     = get_post_meta($post->ID, '_metod_banner_desc', true);
+  $banner_img_id   = (int) get_post_meta($post->ID, '_metod_banner_img', true);
+  $banner_img      = $banner_img_id ? wp_get_attachment_image_url($banner_img_id, 'medium_large') : includes_url('images/media/default.png');
+  $banner_cor_desc = get_post_meta($post->ID, '_metod_banner_cor_desc', true) ?: '#00205C';
 
   // --- Guia de Seleção
   $guia_title = get_post_meta($post->ID, '_metod_guia_title', true);
@@ -89,6 +90,11 @@ for ($i=1; $i<=8; $i++){
         <div class="field">
           <label>Descrição</label>
           <textarea name="metod_banner_desc"><?php echo esc_textarea($banner_desc); ?></textarea>
+        </div>
+        <div class="field">
+          <label>Cor da descrição</label>
+          <input type="color" name="metod_banner_cor_desc" value="<?php echo esc_attr($banner_cor_desc); ?>" style="width:80px;height:36px;padding:2px;cursor:pointer;">
+          <span style="margin-left:8px;font-size:12px;color:#666">Cor do texto da descrição do banner</span>
         </div>
         <div class="field">
           <label>Imagem</label>
@@ -348,8 +354,9 @@ add_action('save_post_page', function($post_id){
 
   $fields = [
     '_metod_banner_title' => 'metod_banner_title',
-    '_metod_banner_desc'  => 'metod_banner_desc',
-    '_metod_banner_img'   => 'metod_banner_img',
+    '_metod_banner_desc'     => 'metod_banner_desc',
+    '_metod_banner_img'      => 'metod_banner_img',
+    '_metod_banner_cor_desc' => 'metod_banner_cor_desc',
     '_metod_guia_title'   => 'metod_guia_title',
     '_metod_guia_desc'    => 'metod_guia_desc',
     '_metod_guia_btn'     => 'metod_guia_btn',
