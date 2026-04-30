@@ -1,0 +1,419 @@
+[
+    {
+        "key": "group_metod_layout_v1",
+        "title": "Metodologia",
+        "fields": [
+            {
+                "key": "field_metod_layout_v1",
+                "label": "Layout",
+                "name": "layout",
+                "aria-label": "",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "layouts": {
+
+                    "layout_metod_banner_v1": {
+                        "key": "layout_metod_banner_v1",
+                        "name": "banner_metodologia",
+                        "label": "Banner",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_metod_banner_titulo",
+                                "label": "Título",
+                                "name": "titulo_banner",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "",
+                                "placeholder": "Ex.: Metodologia LILACS",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_metod_banner_desc",
+                                "label": "Descrição",
+                                "name": "descricao_banner",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "",
+                                "placeholder": "Subtítulo ou descrição do banner",
+                                "new_lines": ""
+                            },
+                            {
+                                "key": "field_metod_banner_cor_desc",
+                                "label": "Cor da descrição",
+                                "name": "cor_descricao_banner",
+                                "type": "color_picker",
+                                "instructions": "Cor do texto da descrição do banner.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "default_value": "#00205C",
+                                "enable_opacity": 0,
+                                "return_format": "string"
+                            },
+                            {
+                                "key": "field_metod_banner_img",
+                                "label": "Imagem de fundo",
+                                "name": "imagem_banner",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "return_format": "url",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "preview_size": "medium"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+
+                    "layout_metod_guia_v1": {
+                        "key": "layout_metod_guia_v1",
+                        "name": "guia_selecao",
+                        "label": "Guia de Seleção + Critérios",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_metod_guia_titulo",
+                                "label": "Título do Guia",
+                                "name": "guia_titulo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "default_value": "Guia de seleção de documentos LILACS",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_metod_guia_desc",
+                                "label": "Descrição do Guia",
+                                "name": "guia_descricao",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "default_value": "6ª edição revisada e ampliada - janeiro de 2022",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_metod_guia_btn_texto",
+                                "label": "Texto do botão (Guia)",
+                                "name": "guia_btn_texto",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "default_value": "Ver guia",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_metod_guia_btn_link",
+                                "label": "Link do botão (Guia)",
+                                "name": "guia_btn_link",
+                                "type": "url",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "default_value": "",
+                                "placeholder": "https://"
+                            },
+                            {
+                                "key": "field_metod_crit_titulo",
+                                "label": "Título dos Critérios",
+                                "name": "criterios_titulo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "Critérios para seleção e permanência de periódicos na coleção LILACS",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_metod_crit_botoes",
+                                "label": "Botões dos Critérios",
+                                "name": "criterios_botoes",
+                                "type": "repeater",
+                                "instructions": "Adicione os botões de critérios (ex.: Âmbito regional, Coleção Brasil)",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "collapsed": "",
+                                "min": 0,
+                                "max": 5,
+                                "layout": "table",
+                                "button_label": "Adicionar botão",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_metod_crit_btn_texto",
+                                        "label": "Texto",
+                                        "name": "texto",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: Âmbito regional (2020)"
+                                    },
+                                    {
+                                        "key": "field_metod_crit_btn_link",
+                                        "label": "Link",
+                                        "name": "link",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "https://"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+
+                    "layout_metod_guiasfaq_v1": {
+                        "key": "layout_metod_guiasfaq_v1",
+                        "name": "guias_faq",
+                        "label": "Guias + FAQ",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_metod_guias_rep",
+                                "label": "Guias (botões da esquerda)",
+                                "name": "guias",
+                                "type": "repeater",
+                                "instructions": "Cada item vira um botão. Marque 'Largura total' para que o botão ocupe a linha inteira.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "60", "class": "", "id": "" },
+                                "collapsed": "field_metod_guia_rep_label",
+                                "min": 1,
+                                "max": 10,
+                                "layout": "block",
+                                "button_label": "Adicionar guia",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_metod_guia_rep_label",
+                                        "label": "Texto do botão",
+                                        "name": "label",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: Manual de gestão"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_link",
+                                        "label": "Link",
+                                        "name": "link",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "https://"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_icon",
+                                        "label": "Ícone (imagem)",
+                                        "name": "icone",
+                                        "type": "image",
+                                        "instructions": "PNG/SVG ~64px",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "preview_size": "thumbnail"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_grande",
+                                        "label": "Largura total (ocupa linha inteira)",
+                                        "name": "grande",
+                                        "type": "true_false",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "message": "",
+                                        "default_value": 0,
+                                        "ui": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_metod_faq_rep",
+                                "label": "FAQ (itens do painel direito)",
+                                "name": "faq",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "40", "class": "", "id": "" },
+                                "collapsed": "field_metod_faq_rep_titulo",
+                                "min": 0,
+                                "max": 8,
+                                "layout": "block",
+                                "button_label": "Adicionar item FAQ",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_metod_faq_rep_titulo",
+                                        "label": "Título",
+                                        "name": "titulo",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: FI-Admin"
+                                    },
+                                    {
+                                        "key": "field_metod_faq_rep_texto",
+                                        "label": "Texto",
+                                        "name": "texto",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "Texto da resposta..."
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+
+                    "layout_metod_padroes_v1": {
+                        "key": "layout_metod_padroes_v1",
+                        "name": "padroes_internacionais",
+                        "label": "Padrões Internacionais",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_metod_padroes_titulo",
+                                "label": "Título da seção",
+                                "name": "titulo",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "default_value": "Padrões internacionais que são a base da Metodologia LILACS",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_metod_padroes_logos",
+                                "label": "Logos",
+                                "name": "logos",
+                                "type": "repeater",
+                                "instructions": "Adicione até 8 logos de padrões internacionais.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "collapsed": "field_metod_padroes_logo_img",
+                                "min": 0,
+                                "max": 8,
+                                "layout": "table",
+                                "button_label": "Adicionar logo",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_metod_padroes_logo_img",
+                                        "label": "Imagem",
+                                        "name": "imagem",
+                                        "type": "image",
+                                        "instructions": "PNG/SVG, fundo transparente de preferência.",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "return_format": "url",
+                                        "library": "all",
+                                        "preview_size": "thumbnail"
+                                    },
+                                    {
+                                        "key": "field_metod_padroes_logo_alt",
+                                        "label": "Texto alternativo (alt)",
+                                        "name": "alt",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: DOI"
+                                    },
+                                    {
+                                        "key": "field_metod_padroes_logo_link",
+                                        "label": "Link (opcional)",
+                                        "name": "link",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "default_value": "",
+                                        "placeholder": "https://"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+
+                },
+                "min": "",
+                "max": "",
+                "button_label": "Adicionar dobra"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-lilacs-metodologia.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

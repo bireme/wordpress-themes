@@ -14,10 +14,12 @@ if ( empty( $campos ) || ! is_array( $campos ) ) {
     return;
 }
 
-$section_id = 'lilacs-sua-instituicao-' . get_the_ID() . '-' . get_row_index();
-$cor_de_fundo = get_sub_field('cor_do_fundo_da_sessao');
+$section_id      = 'lilacs-sua-instituicao-' . get_the_ID() . '-' . get_row_index();
+$cor_de_fundo    = get_sub_field('cor_do_fundo_da_sessao');
 $tituloPrincipal = get_sub_field('titulo');
-$cor_titulo = get_sub_field('cor_do_titulo');
+$cor_titulo      = get_sub_field('cor_do_titulo');
+$colunas         = (int) get_sub_field('colunas_por_linha');
+if ( $colunas < 1 || $colunas > 4 ) $colunas = 2;
 
 if(!$cor_titulo){
     $cor_titulo = "#0b2c68";
@@ -64,7 +66,7 @@ if(!$cor_titulo){
 
 @media (min-width: 900px) {
     #<?php echo esc_attr( $section_id ); ?> .lilacs-acesso-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(<?php echo (int) $colunas; ?>, minmax(0, 1fr));
     }
 }
 

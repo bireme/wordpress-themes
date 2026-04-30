@@ -1,17 +1,46 @@
 <?php
-/* Template Name: Lilacs Metodologia */
+/*
+Template Name: Lilacs Metodologia
+Description: Metodologia com layout via ACF Flexible Content (campo "layout"), no mesmo padrão da HomePage.
+*/
 
-get_header(); // Mantém compatibilidade com o tema (se quiser sempre usar header do plugin, substitua)
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-$theme_dir = trailingslashit( get_stylesheet_directory() ); // garante barra no final
-$tpl = $theme_dir . 'templates/metodologia.php';
-if ( file_exists( $tpl ) ) {
-    include $tpl;
-} else {
-    // debug rápido: caminho que está sendo verificado
-    echo '<p>Template não encontrado: ' . esc_html( $tpl ) . '</p>';
-}
-
-
-get_footer();
+get_header();
 ?>
+
+<main>
+
+  <!-- DOBRAS FLEXÍVEIS DA PÁGINA -->
+  <section class="lilacs-pagina-layout">
+    <div class="lilacs-pagina-layout-inner">
+      <?php
+      // Loop ACF Flexible Content: campo "layout"
+      if ( have_rows( 'layout' ) ) :
+
+        while ( have_rows( 'layout' ) ) : the_row();
+
+          $layout = get_row_layout();
+
+          // prefixo próprio para este template
+          $slug = 'pagina-' . $layout;
+
+          // chama a função genérica de dobra
+          lilacs_bvs_dobra( $slug );
+
+        endwhile;
+
+      else :
+
+        echo '<div class="bvs-pagina-empty">';
+        echo '<p>Configure o layout desta página no ACF (campo "layout").</p>';
+        echo '</div>';
+
+      endif;
+      ?>
+    </div>
+  </section>
+
+</main>
+
+<?php get_footer(); ?>

@@ -11,6 +11,7 @@
 }
 .padroes-inter-section .content-text h2{
   color:#00205C;font-size:24px;font-weight:600;line-height:1.4;margin:0;
+  font-family:'Noto Sans',sans-serif;
 }
 
 /* faixa de logos */
