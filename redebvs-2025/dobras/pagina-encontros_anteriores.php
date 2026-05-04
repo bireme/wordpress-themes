@@ -23,10 +23,7 @@ $posts_encontros = array_map( function ( $item ) {
 // Remove nulos
 $posts_encontros = array_filter( $posts_encontros );
 
-// Ordena por data DESC (mais recente primeiro)
-usort( $posts_encontros, function ( $a, $b ) {
-    return get_the_date( 'U', $b->ID ) <=> get_the_date( 'U', $a->ID );
-});
+// Mantem a ordem definida no campo ACF (sem reordenar)
 
 // Coleta anos disponíveis
 $anos = [];
@@ -37,6 +34,14 @@ foreach ( $posts_encontros as $p ) {
     }
 }
 krsort( $anos );
+
+// Divide em duas colunas mantendo sequencia: primeiro coluna esquerda, depois direita
+$total_encontros = count( $posts_encontros );
+$split_index     = (int) ceil( $total_encontros / 2 );
+$colunas_encontros = [
+    array_slice( $posts_encontros, 0, $split_index ),
+    array_slice( $posts_encontros, $split_index ),
+];
 
 $uid = uniqid( 'bvs-encontros-anteriores-' );
 ?>
@@ -71,59 +76,63 @@ $uid = uniqid( 'bvs-encontros-anteriores-' );
         </div>
 
         <div class="bvs-encontros-anteriores-grid">
-            <?php foreach ( $posts_encontros as $post_obj ) : ?>
-                <?php
-                $post_id = $post_obj->ID;
+            <?php foreach ( $colunas_encontros as $coluna ) : ?>
+                <div class="bvs-encontros-anteriores-column">
+                    <?php foreach ( $coluna as $post_obj ) : ?>
+                        <?php
+                        $post_id = $post_obj->ID;
 
-                $ano          = get_the_date( 'Y', $post_id );
-                $titulo       = get_the_title( $post_id );
-                $subtitulo    = get_the_excerpt( $post_id ); // pode ser ajustado futuramente para um campo próprio
-                $tipos        = get_field( 'tipo_de_encontro', $post_id ); // checkbox
-                $link_encontro = get_field( 'link_do_encontro', $post_id );
+                        $ano          = get_the_date( 'Y', $post_id );
+                        $titulo       = get_the_title( $post_id );
+                        $subtitulo    = get_the_excerpt( $post_id ); // pode ser ajustado futuramente para um campo proprio
+                        $tipos        = get_field( 'tipo_de_encontro', $post_id ); // checkbox
+                        $link_encontro = get_field( 'link_do_encontro', $post_id );
 
-                // Normaliza tipo
-                if ( is_array( $tipos ) ) {
-                    $tipo_label = implode( ' · ', array_map( 'esc_html', $tipos ) );
-                } elseif ( is_string( $tipos ) && $tipos !== '' ) {
-                    $tipo_label = esc_html( $tipos );
-                } else {
-                    $tipo_label = __( 'Online', 'rede-bvs' );
-                }
+                        // Normaliza tipo
+                        if ( is_array( $tipos ) ) {
+                            $tipo_label = implode( ' · ', array_map( 'esc_html', $tipos ) );
+                        } elseif ( is_string( $tipos ) && $tipos !== '' ) {
+                            $tipo_label = esc_html( $tipos );
+                        } else {
+                            $tipo_label = __( 'Online', 'rede-bvs' );
+                        }
 
-                // URL principal (link ACF, senão permalink)
-                $url = '';
-                $target = '';
-                if ( is_array( $link_encontro ) && ! empty( $link_encontro['url'] ) ) {
-                    $url = $link_encontro['url'];
-                    if ( ! empty( $link_encontro['target'] ) ) {
-                        $target = $link_encontro['target'];
-                    }
-                } else {
-                    $url = get_permalink( $post_id );
-                }
-                ?>
-                <a class="bvs-encontros-anteriores-item"
-                   href="<?php echo esc_url( $url ); ?>"
-                   data-year="<?php echo esc_attr( $ano ); ?>"
-                    <?php if ( $target ) : ?>
-                        target="<?php echo esc_attr( $target ); ?>"
-                    <?php endif; ?>
-                >
-                    <div class="bvs-encontros-anteriores-item-text">
-                        <span class="bvs-encontros-anteriores-item-title">
-                            <?php echo esc_html( $titulo ); ?>
-                        </span>
-                        <?php if ( $subtitulo ) : ?>
-                            <span class="bvs-encontros-anteriores-item-subtitle">
-                                <?php echo esc_html( $subtitulo ); ?>
+                        // URL principal (link ACF, senao permalink)
+                        $url = '';
+                        $target = '';
+                        if ( is_array( $link_encontro ) && ! empty( $link_encontro['url'] ) ) {
+                            $url = $link_encontro['url'];
+                            if ( ! empty( $link_encontro['target'] ) ) {
+                                $target = $link_encontro['target'];
+                            }
+                        } else {
+                            $url = get_permalink( $post_id );
+                        }
+                        ?>
+                        <a class="bvs-encontros-anteriores-item"
+                           href="<?php echo esc_url( $url ); ?>"
+                           data-year="<?php echo esc_attr( $ano ); ?>"
+                            <?php if ( $target ) : ?>
+                                target="<?php echo esc_attr( $target ); ?>"
+                            <?php endif; ?>
+                        >
+                            <div class="bvs-encontros-anteriores-item-text">
+                                <span class="bvs-encontros-anteriores-item-title">
+                                    <?php echo esc_html( $titulo ); ?>
+                                </span>
+                                <?php if ( $subtitulo ) : ?>
+                                    <span class="bvs-encontros-anteriores-item-subtitle">
+                                        <?php echo esc_html( $subtitulo ); ?>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+
+                            <span class="bvs-encontros-anteriores-item-tag">
+                                <?php echo esc_html( $tipo_label ); ?>
                             </span>
-                        <?php endif; ?>
-                    </div>
-
-                    <span class="bvs-encontros-anteriores-item-tag">
-                        <?php echo esc_html( $tipo_label ); ?>
-                    </span>
-                </a>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             <?php endforeach; ?>
         </div>
 
@@ -196,11 +205,17 @@ $uid = uniqid( 'bvs-encontros-anteriores-' );
     pointer-events: none;
 }
 
-/* Grid de itens (2 colunas no desktop) */
+/* Lista em 2 colunas com preenchimento sequencial (esquerda, depois direita) */
 .bvs-encontros-anteriores-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 24px;
+    gap: 24px;
+}
+
+.bvs-encontros-anteriores-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 /* Item */
