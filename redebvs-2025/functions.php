@@ -11,6 +11,9 @@ function rede_bvs_theme_setup() {
     // Suporte a título dinâmico
     add_theme_support( 'title-tag' );
 
+    // Imagem destacada em todos os tipos de post
+    add_theme_support( 'post-thumbnails' );
+
     // Logo personalizada
     add_theme_support( 'custom-logo', array(
         'height'      => 60,
