@@ -153,4 +153,188 @@ add_image_size('banners', 1200, 400, true);
 add_image_size('banners-mobile', 600, 300, true);
 add_image_size('mini-banners',576,240,true);
 add_image_size('tema',576,300,true);
+
+
+
+/*Estação BVS*/
+function criar_cpt_pontos_mapa() {
+    register_post_type('ponto_mapa', [
+        'labels' => [
+            'name' => 'Pontos do Mapa',
+            'singular_name' => 'Ponto do Mapa',
+            'add_new_item' => 'Adicionar novo ponto',
+            'edit_item' => 'Editar ponto',
+        ],
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'supports' => ['title'],
+        'has_archive' => false,
+        'show_in_rest' => true,
+    ]);
+}
+add_action('init', 'criar_cpt_pontos_mapa');
+
+function campos_ponto_mapa() {
+    add_meta_box(
+        'dados_ponto_mapa',
+        'Dados do ponto',
+        'html_campos_ponto_mapa',
+        'ponto_mapa',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'campos_ponto_mapa');
+
+function html_campos_ponto_mapa($post) {
+    $endereco = get_post_meta($post->ID, '_endereco', true);
+    $detalhes = get_post_meta($post->ID, '_detalhes', true);
+    $lat = get_post_meta($post->ID, '_lat', true);
+    $lng = get_post_meta($post->ID, '_lng', true);
+    ?>
+
+    <p>
+        <label>Endereço</label><br>
+        <input type="text" name="endereco" value="<?php echo esc_attr($endereco); ?>" style="width:100%;">
+    </p>
+    <p>
+        <label>Detalhes</label><br>
+        <?php
+        wp_editor(
+            $detalhes,
+            'detalhes',        array(
+                'textarea_name' => 'detalhes',
+                'textarea_rows' => 8,
+                'media_buttons' => false,
+                'teeny' => true
+            )
+        );
+        ?>
+    </p>
+
+    <p>
+        <label>Latitude</label><br>
+        <input type="text" name="lat" value="<?php echo esc_attr($lat); ?>" style="width:100%;">
+    </p>
+
+    <p>
+        <label>Longitude</label><br>
+        <input type="text" name="lng" value="<?php echo esc_attr($lng); ?>" style="width:100%;">
+    </p>
+
+    <?php
+}
+
+function salvar_campos_ponto_mapa($post_id) {
+    if (array_key_exists('endereco', $_POST)) {
+        update_post_meta($post_id, '_endereco', sanitize_text_field($_POST['endereco']));
+    }
+    if (array_key_exists('detalhes', $_POST)) {
+        update_post_meta($post_id, '_detalhes', wp_kses_post($_POST['detalhes']));
+    }
+
+    if (array_key_exists('lat', $_POST)) {
+        update_post_meta($post_id, '_lat', sanitize_text_field($_POST['lat']));
+    }
+
+    if (array_key_exists('lng', $_POST)) {
+        update_post_meta($post_id, '_lng', sanitize_text_field($_POST['lng']));
+    }
+}
+add_action('save_post_ponto_mapa', 'salvar_campos_ponto_mapa');
+
+
+function shortcode_mapa_pontos_interativo() {
+    $query = new WP_Query([
+        'post_type'      => 'ponto_mapa',
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'orderby'        => 'title',
+        'order'          => 'ASC',
+    ]);
+
+    $pontos = [];
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+
+            $lat = get_post_meta(get_the_ID(), '_lat', true);
+            $lng = get_post_meta(get_the_ID(), '_lng', true);
+            $endereco = get_post_meta(get_the_ID(), '_endereco', true);
+            $detalhes = get_post_meta(get_the_ID(), '_detalhes', true);
+
+            if ($lat && $lng) {
+                $pontos[] = [
+                    'titulo'   => get_the_title(),
+                    'endereco' => $endereco,
+                    'detalhes' => $detalhes,
+                    'lat'      => $lat,
+                    'lng'      => $lng,
+                ];
+            }
+        }
+    }
+
+    wp_reset_postdata();
+
+    wp_enqueue_style(
+        'leaflet-css',
+        'https://unpkg.com/leaflet/dist/leaflet.css'
+    );
+
+    wp_enqueue_script(
+        'leaflet-js',
+        'https://unpkg.com/leaflet/dist/leaflet.js',
+        [],
+        null,
+        true
+    );
+
+    wp_enqueue_script(
+        'mapa-pontos-js',
+        plugin_dir_url(__FILE__) . 'assets/js/mapa-pontos.js',
+        ['leaflet-js'],
+        null,
+        true
+    );
+
+    wp_localize_script('mapa-pontos-js', 'MAPA_PONTOS_DATA', [
+        'pontos' => $pontos,
+    ]);
+
+    ob_start();
+    ?>
+
+    <div class="mapa-pontos-container">
+        <div id="mapa-pontos"></div>
+
+        <div class="mapa-pontos-lista">
+            <h3>Pontos cadastrados</h3>
+
+            <?php if (!empty($pontos)) : ?>
+                <ul>
+                    <?php foreach ($pontos as $index => $ponto) : ?>
+                        <li 
+                        class="mapa-ponto-item"
+                        data-index="<?php echo esc_attr($index); ?>"
+                        >
+                        <strong><?php echo esc_html($ponto['titulo']); ?></strong>
+                        <span><?php echo esc_html($ponto['endereco']); ?></span>
+                        <span class="detalhes">
+                            <?php echo wpautop( wp_kses_post($ponto['detalhes']) ); ?>
+                        </span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else : ?>
+            <p>Nenhum ponto cadastrado.</p>
+        <?php endif; ?>
+    </div>
+</div>
+
+<?php
+return ob_get_clean();
+}
+add_shortcode('mapa_pontos', 'shortcode_mapa_pontos_interativo');
 ?>
