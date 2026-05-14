@@ -1,6 +1,106 @@
 <?php
   get_template_part('templates/parts/section', 'banner-como-pesquisar');
 
+  // ── lê textos i18n salvos no metabox ──────────────────────────────────────
+  $per_pid = get_the_ID();
+  $langs   = ['pt','es','en'];
+  $i18n_keys = ['banner_title','banner_desc','cluster_country','cluster_area','cluster_editor','cluster_cc',
+                'col_num','col_short_title','col_full_title','col_issn','col_editor_code','col_cc_code','toggle_full'];
+  $i18n_defaults = [
+    'pt' => [
+      'banner_title'     => 'Revistas indexadas na LILACS',
+      'banner_desc'      => 'Conheça todos os títulos e pesquise por país, área, editora e Centro Cooperante.',
+      'cluster_country'  => 'País',
+      'cluster_area'     => 'Área temática',
+      'cluster_editor'   => 'Editora',
+      'cluster_cc'       => 'Centro Cooperante',
+      'col_num'          => '#',
+      'col_short_title'  => 'Título abreviado',
+      'col_full_title'   => 'Título completo',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Código da Editora',
+      'col_cc_code'      => 'Código do Centro Cooperante',
+      'toggle_full'      => 'Mostrar título completo',
+    ],
+    'es' => [
+      'banner_title'     => 'Revistas indexadas en LILACS',
+      'banner_desc'      => 'Conozca todos los títulos y busque por país, área, editorial y Centro Cooperante.',
+      'cluster_country'  => 'País',
+      'cluster_area'     => 'Área temática',
+      'cluster_editor'   => 'Editorial',
+      'cluster_cc'       => 'Centro Cooperante',
+      'col_num'          => '#',
+      'col_short_title'  => 'Título abreviado',
+      'col_full_title'   => 'Título completo',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Código del Editorial',
+      'col_cc_code'      => 'Código del Centro Cooperante',
+      'toggle_full'      => 'Mostrar título completo',
+    ],
+    'en' => [
+      'banner_title'     => 'Journals indexed in LILACS',
+      'banner_desc'      => 'Discover all titles and search by country, subject area, publisher, and Cooperating Center.',
+      'cluster_country'  => 'Country',
+      'cluster_area'     => 'Subject area',
+      'cluster_editor'   => 'Publisher',
+      'cluster_cc'       => 'Cooperating Center',
+      'col_num'          => '#',
+      'col_short_title'  => 'Abbreviated title',
+      'col_full_title'   => 'Full title',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Publisher Code',
+      'col_cc_code'      => 'CC Code',
+      'toggle_full'      => 'Show full title',
+    ],
+  ];
+  $i18n = [];
+  foreach ($langs as $lang) {
+    $i18n[$lang] = [];
+    foreach ($i18n_keys as $k) {
+      $val = get_post_meta($per_pid, "_lilacs_per_i18n_{$lang}_{$k}", true);
+      $i18n[$lang][$k] = ($val !== '') ? $val : $i18n_defaults[$lang][$k];
+    }
+  }
+
+  // países (mapeamento raw da API → labels por idioma)
+  $country_labels = [
+    'Argentina'                              => ['pt'=>'Argentina',           'es'=>'Argentina',          'en'=>'Argentina'],
+    'Bolivia'                                => ['pt'=>'Bolívia',             'es'=>'Bolivia',            'en'=>'Bolivia'],
+    'Brasil'                                 => ['pt'=>'Brasil',              'es'=>'Brasil',             'en'=>'Brazil'],
+    'Chile'                                  => ['pt'=>'Chile',               'es'=>'Chile',              'en'=>'Chile'],
+    'Colombia'                               => ['pt'=>'Colômbia',            'es'=>'Colombia',           'en'=>'Colombia'],
+    'Costa Rica'                             => ['pt'=>'Costa Rica',          'es'=>'Costa Rica',         'en'=>'Costa Rica'],
+    'Cuba'                                   => ['pt'=>'Cuba',                'es'=>'Cuba',               'en'=>'Cuba'],
+    'Republica Dominicana'                   => ['pt'=>'República Dominicana','es'=>'República Dominicana','en'=>'Dominican Republic'],
+    'El Salvador'                            => ['pt'=>'El Salvador',         'es'=>'El Salvador',        'en'=>'El Salvador'],
+    'Ecuador'                                => ['pt'=>'Equador',             'es'=>'Ecuador',            'en'=>'Ecuador'],
+    'Estados Unidos'                         => ['pt'=>'Estados Unidos',      'es'=>'Estados Unidos',     'en'=>'United States'],
+    'United States'                          => ['pt'=>'Estados Unidos',      'es'=>'Estados Unidos',     'en'=>'United States'],
+    'Guatemala'                              => ['pt'=>'Guatemala',           'es'=>'Guatemala',          'en'=>'Guatemala'],
+    'Honduras'                               => ['pt'=>'Honduras',            'es'=>'Honduras',           'en'=>'Honduras'],
+    'Jamaica'                                => ['pt'=>'Jamaica',             'es'=>'Jamaica',            'en'=>'Jamaica'],
+    'Mexico'                                 => ['pt'=>'México',              'es'=>'México',             'en'=>'Mexico'],
+    'Panama'                                 => ['pt'=>'Panamá',              'es'=>'Panamá',             'en'=>'Panama'],
+    'Paraguay'                               => ['pt'=>'Paraguai',            'es'=>'Paraguay',           'en'=>'Paraguay'],
+    'Peru'                                   => ['pt'=>'Peru',                'es'=>'Perú',               'en'=>'Peru'],
+    'Puerto Rico'                            => ['pt'=>'Porto Rico',          'es'=>'Puerto Rico',        'en'=>'Puerto Rico'],
+    'Uruguay'                                => ['pt'=>'Uruguai',             'es'=>'Uruguay',            'en'=>'Uruguay'],
+    'Venezuela'                              => ['pt'=>'Venezuela',           'es'=>'Venezuela',          'en'=>'Venezuela'],
+  ];
+
+  // áreas temáticas
+  $thematic_labels = [
+    'Ciências Agrárias'     => ['pt'=>'Ciências Agrárias',   'es'=>'Ciencias Agrarias',       'en'=>'Agricultural Sciences'],
+    'Ciências Biológicas'   => ['pt'=>'Ciências Biológicas', 'es'=>'Ciencias Biológicas',     'en'=>'Biological Sciences'],
+    'Ciências da Saúde'     => ['pt'=>'Ciências da Saúde',   'es'=>'Ciencias de la Salud',    'en'=>'Health Sciences'],
+    'Ciências Humanas'      => ['pt'=>'Ciências Humanas',    'es'=>'Ciencias Humanas',        'en'=>'Human Sciences'],
+    'Ciências Sociais'      => ['pt'=>'Ciências Sociais',    'es'=>'Ciencias Sociales',       'en'=>'Social Sciences'],
+    'Enfermagem'            => ['pt'=>'Enfermagem',          'es'=>'Enfermería',              'en'=>'Nursing'],
+    'Psicologia'            => ['pt'=>'Psicologia',          'es'=>'Psicología',              'en'=>'Psychology'],
+    'Saúde Pública'         => ['pt'=>'Saúde Pública',       'es'=>'Salud Pública',           'en'=>'Public Health'],
+    'TMGL'                  => ['pt'=>'TMGL',                'es'=>'TMGL',                    'en'=>'TMGL'],
+    'Todos'                 => ['pt'=>'Todos',               'es'=>'Todos',                   'en'=>'All'],
+  ];
 ?>
 
 <section id="bvs-page" aria-label="Periódicos – BVS">
@@ -395,15 +495,87 @@ margin: 0 auto;
     const JOURNAL_URL = (id) => `${JOURNAL_BASE}/${id}`;
     const SEARCH_BASE = <?php echo json_encode( untrailingslashit( get_rest_url(null, 'test/v1/bvs/journals/search') ) ); ?>;
     const SEARCH_URL  = (ta, start=0, rows=1000) => `${SEARCH_BASE}?thematic_area=${encodeURIComponent(ta)}&start=${start}&rows=${rows}`;
-    const FETCH_ROWS  = 1000; // paginação da API de busca por Assunto
-    const LANG = "pt-br";
-    const PER_PAGE = 50; // mantido por compatibilidade (não usado no render sem paginação)
+    const FETCH_ROWS  = 1000;
+    const LANG = <?php
+      if ( function_exists('pll_current_language') ) {
+        echo json_encode( pll_current_language() ); // retorna 'pt', 'es' ou 'en'
+      } elseif ( defined('ICL_LANGUAGE_CODE') ) {
+        echo json_encode( ICL_LANGUAGE_CODE );       // WPML fallback
+      } else {
+        echo '"pt"';
+      }
+    ?>;
+    const PER_PAGE = 50;
+
+    // ===== i18n (vem do PHP) =====
+    const BVS_I18N = <?php echo json_encode($i18n, JSON_UNESCAPED_UNICODE); ?>;
+    const BVS_COUNTRY_LABELS = <?php echo json_encode($country_labels, JSON_UNESCAPED_UNICODE); ?>;
+    const BVS_THEMATIC_LABELS = <?php echo json_encode($thematic_labels, JSON_UNESCAPED_UNICODE); ?>;
+
+    // idioma de interface (pt-br → pt, es → es, en → en)
+    const UI_LANG =
+      LANG.startsWith('pt') ? 'pt' :
+      LANG.startsWith('es') ? 'es' :
+      'en';
+
+    const T = BVS_I18N[UI_LANG] || BVS_I18N['pt'];
+
+    // aplica textos estáticos da UI assim que o DOM tiver esses elementos
+    function applyStaticI18n(){
+      // colunas da tabela
+      const thCells = document.querySelectorAll('#bvs-page .bvs-thead th');
+      if (thCells.length >= 5) {
+        thCells[0].textContent = T.col_num;
+        thCells[1].textContent = T.col_short_title; // título exibido muda via toggle
+        thCells[2].textContent = T.col_issn;
+        thCells[3].textContent = T.col_editor_code;
+        thCells[4].textContent = T.col_cc_code;
+      }
+      // label do switch
+      const switchLabel = document.querySelector('.bvs-switch-label');
+      if (switchLabel) switchLabel.textContent = T.toggle_full;
+      // título do cluster País
+      const sideH3 = document.querySelector('.bvs-side h3');
+      if (sideH3) sideH3.textContent = T.cluster_country;
+      // título do cluster Área
+      const areaSpan = document.querySelector('#bvs-assunto-toggle > span:first-child');
+      if (areaSpan) areaSpan.textContent = T.cluster_area;
+    }
+
+    // traduz label de país usando o mapa
+    function translateCountry(raw) {
+      // raw vem como string multilingual separada por | do labelFromMulti
+      // mas também pode ser um nome de país simples
+      const map = BVS_COUNTRY_LABELS;
+      // tenta match direto (case-insensitive)
+      for (const key of Object.keys(map)) {
+        if (key.toLowerCase() === raw.toLowerCase()) return map[key][UI_LANG] || raw;
+      }
+      return raw;
+    }
+
+    // traduz área temática
+    function translateThematic(key) {
+      const map = BVS_THEMATIC_LABELS;
+      for (const k of Object.keys(map)) {
+        if (k.toLowerCase() === key.toLowerCase()) return map[k][UI_LANG] || key;
+      }
+      return key;
+    }
 
 // idioma da interface do Portal de Revistas (pt, es, en)
-const PORTAL_LANG =
-  LANG.startsWith('pt') ? 'pt' :
-  LANG.startsWith('es') ? 'es' :
-  'en';
+const PORTAL_LANG = UI_LANG;
+
+// monta URL do Diretório BVS (estrutura multilíngue)
+// PT: https://bvsalud.org/centros/?lang=pt&q=CODE
+// ES: https://bvsalud.org/es/centros?lang=es&q=CODE
+// EN: https://bvsalud.org/en/centros?lang=en&q=CODE
+const bvsDirectoryUrl = (ccCode) => {
+  const base = UI_LANG === 'pt'
+    ? `https://bvsalud.org/centros/?lang=pt&q=${encodeURIComponent(ccCode)}`
+    : `https://bvsalud.org/${UI_LANG}/centros?lang=${UI_LANG}&q=${encodeURIComponent(ccCode)}`;
+  return base;
+};
   
   
     // ===== Estado =====
@@ -532,7 +704,7 @@ async function hydrateVisibleCodes(pageDocs){
 
           if (ccCode && ccCode !== "—") {
             ccCell.innerHTML =
-              `<a href="https://lilacs.bvsalud.org/centers?lang=${PORTAL_LANG}&q=${encodeURIComponent(ccCode)}"
+              `<a href="${bvsDirectoryUrl(ccCode)}"
                   target="_blank" rel="noopener"
                   style="color: var(--accent); text-decoration: none;">
                  ${ccCode}
@@ -598,7 +770,7 @@ async function hydrateVisibleCodes(pageDocs){
       rowAll.className = "row" + (S.thematicSel==null ? " is-active" : "");
       rowAll.setAttribute("role","button"); rowAll.setAttribute("tabindex","0");
       const allCount = S.masterCount ?? S.docs.length;
-      rowAll.innerHTML = `<span class="name">Todos</span><span class="count">${allCount}</span>`;
+      rowAll.innerHTML = `<span class="name">${translateThematic('Todos')}</span><span class="count">${allCount}</span>`;
       rowAll.addEventListener("click", async ()=>{
         if(S.thematicSel!==null){
           S.thematicSel = null;
@@ -713,7 +885,7 @@ tr.innerHTML = `
 
   <td class="bvs-col-code" data-cell="cc">
     ${ccCode && ccCode !== "—"
-      ? `<a href="https://lilacs.bvsalud.org/centers?lang=${PORTAL_LANG}&q=${encodeURIComponent(ccCode)}"
+      ? `<a href="${bvsDirectoryUrl(ccCode)}"
             target="_blank" rel="noopener"
             style="color: var(--accent); text-decoration: none;">
            ${ccCode}
@@ -780,7 +952,7 @@ tr.innerHTML = `
 
       // facets e docs
       S.countriesFacet = facetCountries
-        .map(([raw,count])=>({ raw, count, label: labelFromMulti(raw) }))
+        .map(([raw,count])=>({ raw, count, label: translateCountry(labelFromMulti(raw)) }))
         .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
 
 S.docs = allDocs.map(d=>{
@@ -831,7 +1003,7 @@ S.docs = allDocs.map(d=>{
       const m = new Map();
       S.docs.forEach(d => (d.thematic_area||[]).forEach(t => m.set(t, (m.get(t)||0)+1)));
       S.thematicFacet = Array.from(m.entries())
-        .map(([key,count])=>({key, count, label:key}))
+        .map(([key,count])=>({key, count, label: translateThematic(key)}))
         .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
 
       // >>> "Última atualização" exibida vem do MAIOR updated_date (ou created_date) dos docs
@@ -903,6 +1075,9 @@ S.docs = allDocs.map(d=>{
 
       // dataset inicial (sem assunto)
       await loadData(null);
+
+      // aplica textos i18n estáticos
+      applyStaticI18n();
 
       // se veio parâmetro na URL (p ou pais), faz scroll até a tabela
       if (S.hasInitialCountryParam) {

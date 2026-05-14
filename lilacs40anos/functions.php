@@ -30,7 +30,7 @@ function bireme_lilacs_scripts() {
         'bireme-lilacs-style',
         get_stylesheet_uri(),
         array(),
-        '1.923.3' // altera a cada modificação
+        '1.3.3' // altera a cada modificação
     );
 
     

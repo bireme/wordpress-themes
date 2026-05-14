@@ -58,7 +58,14 @@ $esq_regs = $esq_svg['registros'] ?? '';
 $esq_idi = $esq_svg['idiomas'] ?? '';
 $esq_paises = $esq_svg['paises'] ?? '';
 $esq_rev = $esq_svg['revistas'] ?? '';
-$esq_txtc = $esq_svg['textos_completos'] ?? '';
+$esq_txtc        = $esq_svg['textos_completos'] ?? '';
+$esq_lbl_regs    = $esq_svg['label_registros'] ?? 'registros';
+$esq_lbl_idi     = $esq_svg['label_idiomas'] ?? 'idiomas';
+$esq_lbl_paises  = $esq_svg['label_paises'] ?? 'países';
+$esq_lbl_rev     = $esq_svg['label_revistas'] ?? 'revistas';
+$esq_lbl_txtc    = $esq_svg['label_textos_completos'] ?? 'textos completos';
+$esq_lbl_milhao  = $esq_svg['label_milhao'] ?? 'milhão';
+$esq_lbl_sufixo  = $esq['label_sufixo_numero'] ?? 'anos';
 
 // Direita
 $dir_num = $dir['texto_destaque_numero'] ?? '';
@@ -69,7 +76,15 @@ $dir_regs = $dir_svg['registros'] ?? '';
 $dir_idi = $dir_svg['idiomas'] ?? '';
 $dir_paises = $dir_svg['paises'] ?? '';
 $dir_rev = $dir_svg['revistas'] ?? '';
-$dir_txtc = $dir_svg['textos_completos'] ?? '';
+$dir_txtc              = $dir_svg['textos_completos'] ?? '';
+$dir_lbl_regs          = $dir_svg['label_registros'] ?? 'registros';
+$dir_lbl_idi           = $dir_svg['label_idiomas'] ?? 'idiomas';
+$dir_lbl_paises        = $dir_svg['label_paises'] ?? 'países';
+$dir_lbl_rev           = $dir_svg['label_revistas'] ?? 'revistas';
+$dir_lbl_txtc          = $dir_svg['label_textos_completos'] ?? 'textos completos';
+$dir_lbl_milhao_regs   = $dir_svg['label_milhao_registros'] ?? 'milhões';
+$dir_lbl_milhao_txtc   = $dir_svg['label_milhao_textos_completos'] ?? 'milhão';
+$dir_lbl_sufixo        = $dir['label_sufixo_numero'] ?? 'bases de dados';
 
 
 
@@ -93,7 +108,7 @@ function lilacs_svg_apply_tokens(string $svg, array $map): string
             <div class="lilacs-raio-x-footer-left">
                 <div class="lilacs-left-inner">
                     <div class="lilacs-raiox__foot lilacs-raiox__foot--left">
-                        <div class="lilacs-raiox__big"><?php echo $esc($esq_num); ?> <small style="font-size: 16px;font-weight: 400;color: #00205C;font-weight: 400;font-family: 'Noto Sans';">anos</small></div>
+                        <div class="lilacs-raiox__big"><?php echo $esc($esq_num); ?> <small style="font-size: 16px;font-weight: 400;color: #00205C;font-weight: 400;font-family: 'Noto Sans';"><?php echo $esc($esq_lbl_sufixo); ?></small></div>
                         <div class="lilacs-raiox__bigtitle"><?php echo $esc($esq_titpos); ?></div>
                         <div class="lilacs-raiox__desc"><?php echo nl2br($esc($esq_desc)); ?></div>
                     </div>
@@ -135,23 +150,23 @@ function lilacs_svg_apply_tokens(string $svg, array $map): string
 
   <g>
     <text class="st1" transform="translate(264.2 360.78)"><tspan x="0" y="0">{{PAISES}}</tspan></text>
-    <text class="st3" transform="translate(254.65 379.62)"><tspan x="0" y="0">países</tspan></text>
+    <text class="st3" transform="translate(254.65 379.62)"><tspan x="0" y="0">{{LABEL_PAISES}}</tspan></text>
   </g>
   <g>
     <text class="st1" transform="translate(305.03 247.9)"><tspan x="0" y="0">{{IDIOMAS}}</tspan></text>
-    <text class="st3" transform="translate(279.06 266.73)"><tspan x="0" y="0">idiomas</tspan></text>
+    <text class="st3" transform="translate(279.06 266.73)"><tspan x="0" y="0">{{LABEL_IDIOMAS}}</tspan></text>
   </g>
   <g>
     <text class="st1" transform="translate(87.21 368.9)"><tspan x="0" y="0">{{REVISTAS}}</tspan></text>
-    <text class="st2" transform="translate(115.51 388.65)"><tspan x="0" y="0">revistas</tspan></text>
+    <text class="st2" transform="translate(115.51 388.65)"><tspan x="0" y="0">{{LABEL_REVISTAS}}</tspan></text>
   </g>
   <g>
-    <text class="st0" transform="translate(203.21 90.18)"><tspan x="0" y="0">{{REGISTROS}}</tspan><tspan x="-22.59" y="32.37">milhão</tspan></text>
-    <text class="st2" transform="translate(188.87 148.8)"><tspan x="0" y="0">registros</tspan></text>
+    <text class="st0" transform="translate(203.21 90.18)"><tspan x="0" y="0">{{REGISTROS}}</tspan><tspan x="-22.59" y="32.37">{{LABEL_MILHAO}}</tspan></text>
+    <text class="st2" transform="translate(188.87 148.8)"><tspan x="0" y="0">{{LABEL_REGISTROS}}</tspan></text>
   </g>
   <g>
     <text class="st0" transform="translate(29.83 232.35)"><tspan x="0" y="0">{{TEXTOS_COMPLETOS}}</tspan></text>
-    <text class="st2" transform="translate(20.99 256.93)"><tspan x="0" y="0">textos completos</tspan></text>
+    <text class="st2" transform="translate(20.99 256.93)"><tspan x="0" y="0">{{LABEL_TEXTOS_COMPLETOS}}</tspan></text>
   </g>
 
   <!-- resto do SVG (paths/ícones) -->
@@ -197,11 +212,17 @@ SVG;
 
                         // 3) Mapa de replaces usando seus campos ACF já carregados
                         $svg_left = lilacs_svg_apply_tokens($svg_left_raw, [
-                            'PAISES' => $esq_paises,
-                            'IDIOMAS' => $esq_idi,
-                            'REVISTAS' => $esq_rev,
-                            'REGISTROS' => $esq_regs,
-                            'TEXTOS_COMPLETOS' => $esq_txtc,
+                            'PAISES'                  => $esq_paises,
+                            'IDIOMAS'                 => $esq_idi,
+                            'REVISTAS'                => $esq_rev,
+                            'REGISTROS'               => $esq_regs,
+                            'TEXTOS_COMPLETOS'        => $esq_txtc,
+                            'LABEL_REGISTROS'         => $esq_lbl_regs,
+                            'LABEL_IDIOMAS'           => $esq_lbl_idi,
+                            'LABEL_PAISES'            => $esq_lbl_paises,
+                            'LABEL_REVISTAS'          => $esq_lbl_rev,
+                            'LABEL_TEXTOS_COMPLETOS'  => $esq_lbl_txtc,
+                            'LABEL_MILHAO'            => $esq_lbl_milhao,
                         ]);
 
                         // 4) Echo final (onde você quer renderizar o SVG)
@@ -265,31 +286,31 @@ SVG;
 
   <g>
     <text class="st1" transform="translate(60.74 247.9)"><tspan x="0" y="0">{{IDIOMAS}}</tspan></text>
-    <text class="st3" transform="translate(45.59 266.73)"><tspan x="0" y="0">idiomas</tspan></text>
+    <text class="st3" transform="translate(45.59 266.73)"><tspan x="0" y="0">{{LABEL_IDIOMAS}}</tspan></text>
   </g>
 
   <g>
     <text class="st1" transform="translate(82.29 360.78)"><tspan x="0" y="0">{{PAISES}}</tspan></text>
-    <text class="st3" transform="translate(80.26 379.62)"><tspan x="0" y="0">países</tspan></text>
+    <text class="st3" transform="translate(80.26 379.62)"><tspan x="0" y="0">{{LABEL_PAISES}}</tspan></text>
   </g>
 
   <g>
     <text class="st1" transform="translate(195.25 368.9)"><tspan x="0" y="0">{{REVISTAS}}</tspan></text>
-    <text class="st2" transform="translate(214.16 388.65)"><tspan x="0" y="0">revistas</tspan></text>
+    <text class="st2" transform="translate(214.16 388.65)"><tspan x="0" y="0">{{LABEL_REVISTAS}}</tspan></text>
   </g>
 
   <g>
     <text class="st0" transform="translate(129.3 88.61)">
-      <tspan x="0" y="0">{{REGISTROS}}</tspan><tspan x="-20.14" y="32.37">milhões</tspan>
+      <tspan x="0" y="0">{{REGISTROS}}</tspan><tspan x="-20.14" y="32.37">{{LABEL_MILHAO_REGISTROS}}</tspan>
     </text>
-    <text class="st2" transform="translate(125.95 150.37)"><tspan x="0" y="0">registros</tspan></text>
+    <text class="st2" transform="translate(125.95 150.37)"><tspan x="0" y="0">{{LABEL_REGISTROS}}</tspan></text>
   </g>
 
   <g>
     <text class="st0" transform="translate(274.2 215.63)">
-      <tspan x="0" y="0">{{TEXTOS_COMPLETOS}}</tspan><tspan x="-17.75" y="32.37">milhão</tspan>
+      <tspan x="0" y="0">{{TEXTOS_COMPLETOS}}</tspan><tspan x="-17.75" y="32.37">{{LABEL_MILHAO_TEXTOS_COMPLETOS}}</tspan>
     </text>
-    <text class="st2" transform="translate(227.79 273.65)"><tspan x="0" y="0">textos completos</tspan></text>
+    <text class="st2" transform="translate(227.79 273.65)"><tspan x="0" y="0">{{LABEL_TEXTOS_COMPLETOS}}</tspan></text>
   </g>
 
   <!-- resto do SVG (ícones/paths) -->
@@ -335,11 +356,18 @@ SVG;
 
                         // 2) aplica os replaces (use as variáveis ACF que você já tem pro “lado direito”)
                         $svg_right = lilacs_svg_apply_tokens($svg_right_raw, [
-                            'PAISES' => $dir_paises,
-                            'IDIOMAS' => $dir_idi,
-                            'REVISTAS' => $dir_rev,
-                            'REGISTROS' => $dir_regs,
-                            'TEXTOS_COMPLETOS' => $dir_txtc,
+                            'PAISES'                         => $dir_paises,
+                            'IDIOMAS'                        => $dir_idi,
+                            'REVISTAS'                       => $dir_rev,
+                            'REGISTROS'                      => $dir_regs,
+                            'TEXTOS_COMPLETOS'               => $dir_txtc,
+                            'LABEL_REGISTROS'                => $dir_lbl_regs,
+                            'LABEL_IDIOMAS'                  => $dir_lbl_idi,
+                            'LABEL_PAISES'                   => $dir_lbl_paises,
+                            'LABEL_REVISTAS'                 => $dir_lbl_rev,
+                            'LABEL_TEXTOS_COMPLETOS'         => $dir_lbl_txtc,
+                            'LABEL_MILHAO_REGISTROS'         => $dir_lbl_milhao_regs,
+                            'LABEL_MILHAO_TEXTOS_COMPLETOS'  => $dir_lbl_milhao_txtc,
                         ]);
 
                         // 3) echo final
@@ -369,7 +397,7 @@ SVG;
             <div class="lilacs-raio-x-footer-right">
                    <div class="lilacs-right-inner">
                         <div class="lilacs-raiox__foot lilacs-raiox__foot--right">
-                            <div class="lilacs-raiox__big"><?php echo $esc($dir_num); ?> <small style="font-size: 16px;font-weight: 400;color:#6C2207;font-weight: 400;font-family: 'Noto Sans';">bases de dados</small></div>
+                            <div class="lilacs-raiox__big"><?php echo $esc($dir_num); ?> <small style="font-size: 16px;font-weight: 400;color:#6C2207;font-weight: 400;font-family: 'Noto Sans';"><?php echo $esc($dir_lbl_sufixo); ?></small></div>
                             <div class="lilacs-raiox__bigtitle"><?php echo $esc($dir_titpos); ?></div>
                             <div class="lilacs-raiox__desc"><?php echo nl2br($esc($dir_desc)); ?></div>
                         </div>

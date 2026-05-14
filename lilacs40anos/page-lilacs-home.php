@@ -23,8 +23,17 @@ get_header();
           // Ex: "bloco_texto", "imagem_com_texto", "faixa_chamada"
           $layout = get_row_layout();
 
+          // Título opcional acima da dobra
+          $titulo_dobra = get_sub_field( 'titulo_da_dobra' );
+
           // prefixo próprio para este template
           $slug = 'pagina-' . $layout;
+
+          if ( $titulo_dobra ) : ?>
+            <div class="lilacs-dobra-titulo-wrapper">
+              <h2 class="lilacs-dobra-titulo"><?php echo esc_html( $titulo_dobra ); ?></h2>
+            </div>
+          <?php endif;
 
           // chama a função genérica de dobra
           lilacs_bvs_dobra( $slug );

@@ -48,6 +48,28 @@ if ( empty( $cursos ) ) {
             flex-direction:column;
             height:100%;
         }
+        .lilacs-cursos-destaques__card--img{
+            padding:0;
+            overflow:hidden;
+        }
+        .lilacs-cursos-destaques__card--img .lilacs-cursos-destaques__card-body{
+            padding:24px 28px 32px;
+            display:flex;
+            flex-direction:column;
+            flex:1 1 auto;
+        }
+        .lilacs-cursos-destaques__card-img{
+            width:100%;
+            aspect-ratio:16/9;
+            overflow:hidden;
+            border-radius:16px 16px 0 0;
+        }
+        .lilacs-cursos-destaques__card-img img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+        }
         .lilacs-cursos-destaques__icon{
             width:56px;
             height:56px;
@@ -143,6 +165,7 @@ if ( empty( $cursos ) ) {
 
         <div class="lilacs-cursos-destaques__grid">
             <?php foreach ( $cursos as $curso ) :
+                $tipo       = isset( $curso['utilizando_imagem_ou_icone'] ) ? $curso['utilizando_imagem_ou_icone'] : 'icone';
                 $icone      = isset( $curso['icone_ou_imagem'] ) ? $curso['icone_ou_imagem'] : null;
                 $titulo     = isset( $curso['titulo'] ) ? $curso['titulo'] : '';
                 $descricao  = isset( $curso['descricao'] ) ? $curso['descricao'] : '';
@@ -150,19 +173,29 @@ if ( empty( $cursos ) ) {
                                 ? $curso['texto_do_botao']
                                 : __( 'Ver mais', 'bireme' );
                 $link       = isset( $curso['link'] ) ? $curso['link'] : '';
+                $card_class = ( $tipo === 'img' ) ? 'lilacs-cursos-destaques__card lilacs-cursos-destaques__card--img' : 'lilacs-cursos-destaques__card';
                 ?>
-                <article class="lilacs-cursos-destaques__card">
-                    <div class="lilacs-cursos-destaques__icon">
-                        <?php if ( $icone && ! empty( $icone['url'] ) ) : ?>
+                <article class="<?php echo esc_attr( $card_class ); ?>">
+
+                    <?php if ( $tipo === 'img' && $icone && ! empty( $icone['url'] ) ) : ?>
+                        <div class="lilacs-cursos-destaques__card-img">
                             <img src="<?php echo esc_url( $icone['url'] ); ?>"
                                  alt="<?php echo esc_attr( $icone['alt'] ?? $titulo ); ?>">
-                        <?php else : ?>
-                            <!-- Ícone padrão (marcador) -->
-                            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill="#ffffff" d="M7 4c-1.1 0-2 .9-2 2v13l7-4 7 4V6c0-1.1-.9-2-2-2H7z"/>
-                            </svg>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                        <div class="lilacs-cursos-destaques__card-body">
+                    <?php else : ?>
+                        <div class="lilacs-cursos-destaques__icon">
+                            <?php if ( $icone && ! empty( $icone['url'] ) ) : ?>
+                                <img src="<?php echo esc_url( $icone['url'] ); ?>"
+                                     alt="<?php echo esc_attr( $icone['alt'] ?? $titulo ); ?>">
+                            <?php else : ?>
+                                <!-- Ícone padrão (marcador) -->
+                                <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path fill="#ffffff" d="M7 4c-1.1 0-2 .9-2 2v13l7-4 7 4V6c0-1.1-.9-2-2-2H7z"/>
+                                </svg>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <?php if ( $titulo ) : ?>
                         <h3 class="lilacs-cursos-destaques__card-title">
@@ -192,6 +225,11 @@ if ( empty( $cursos ) ) {
                             </a>
                         </div>
                     <?php endif; ?>
+
+                    <?php if ( $tipo === 'img' && $icone && ! empty( $icone['url'] ) ) : ?>
+                        </div><?php // fecha .lilacs-cursos-destaques__card-body ?>
+                    <?php endif; ?>
+
                 </article>
             <?php endforeach; ?>
         </div>

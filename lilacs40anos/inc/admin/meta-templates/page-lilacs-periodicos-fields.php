@@ -46,7 +46,7 @@ add_action('add_meta_boxes', function ($post_type, $post) {
   );
 }, 10, 2);
 
-/** Renderiza o metabox (apenas banner) */
+/** Renderiza o metabox */
 function bireme_lilacs_periodicos_render_metabox($post){
   wp_nonce_field(BIREME_LILACS_CP_FIELDS_ACTION, BIREME_LILACS_CP_FIELDS_NONCE);
 
@@ -55,35 +55,106 @@ function bireme_lilacs_periodicos_render_metabox($post){
   $img_id = (int) get_post_meta($post->ID, BIREME_LILACS_CP_META_IMG_ID, true);
   $img    = $img_id ? wp_get_attachment_image_url($img_id, 'medium_large') : '';
 
+  // ── i18n defaults ──────────────────────────────────────────────────────────
+  $i18n_defaults = [
+    'pt' => [
+      'banner_title' => 'Revistas indexadas na LILACS',
+      'banner_desc'  => 'Conheça todos os títulos e pesquise por país, área, editora e Centro Cooperante.',
+      'cluster_country'  => 'País',
+      'cluster_area'     => 'Área temática',
+      'cluster_editor'   => 'Editora',
+      'cluster_cc'       => 'Centro Cooperante',
+      'col_num'          => '#',
+      'col_short_title'  => 'Título abreviado',
+      'col_full_title'   => 'Título completo',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Código da Editora',
+      'col_cc_code'      => 'Código do Centro Cooperante',
+      'toggle_full'      => 'Mostrar título completo',
+    ],
+    'es' => [
+      'banner_title' => 'Revistas indexadas en LILACS',
+      'banner_desc'  => 'Conozca todos los títulos y busque por país, área, editorial y Centro Cooperante.',
+      'cluster_country'  => 'País',
+      'cluster_area'     => 'Área temática',
+      'cluster_editor'   => 'Editorial',
+      'cluster_cc'       => 'Centro Cooperante',
+      'col_num'          => '#',
+      'col_short_title'  => 'Título abreviado',
+      'col_full_title'   => 'Título completo',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Código del Editorial',
+      'col_cc_code'      => 'Código del Centro Cooperante',
+      'toggle_full'      => 'Mostrar título completo',
+    ],
+    'en' => [
+      'banner_title' => 'Journals indexed in LILACS',
+      'banner_desc'  => 'Discover all titles and search by country, subject area, publisher, and Cooperating Center.',
+      'cluster_country'  => 'Country',
+      'cluster_area'     => 'Subject area',
+      'cluster_editor'   => 'Publisher',
+      'cluster_cc'       => 'Cooperating Center',
+      'col_num'          => '#',
+      'col_short_title'  => 'Abbreviated title',
+      'col_full_title'   => 'Full title',
+      'col_issn'         => 'ISSN',
+      'col_editor_code'  => 'Publisher Code',
+      'col_cc_code'      => 'CC Code',
+      'toggle_full'      => 'Show full title',
+    ],
+  ];
+
+  $i18n_keys = array_keys($i18n_defaults['pt']);
+  $langs     = ['pt','es','en'];
+
+  // lê valores salvos (preenchendo defaults se vazios)
+  $saved = [];
+  foreach ($langs as $lang) {
+    $saved[$lang] = [];
+    foreach ($i18n_keys as $k) {
+      $meta_key = "_lilacs_per_i18n_{$lang}_{$k}";
+      $val = get_post_meta($post->ID, $meta_key, true);
+      $saved[$lang][$k] = $val !== '' ? $val : $i18n_defaults[$lang][$k];
+    }
+  }
+
+  $lang_labels = ['pt' => 'Português (PT)', 'es' => 'Español (ES)', 'en' => 'English (EN)'];
+  $field_labels = [
+    'banner_title'     => 'Título do banner',
+    'banner_desc'      => 'Descrição do banner',
+    'cluster_country'  => 'Filtro: País',
+    'cluster_area'     => 'Filtro: Área temática',
+    'cluster_editor'   => 'Filtro: Editora',
+    'cluster_cc'       => 'Filtro: Centro Cooperante',
+    'col_num'          => 'Coluna: #',
+    'col_short_title'  => 'Coluna: Título abreviado',
+    'col_full_title'   => 'Coluna: Título completo',
+    'col_issn'         => 'Coluna: ISSN',
+    'col_editor_code'  => 'Coluna: Código da Editora',
+    'col_cc_code'      => 'Coluna: Código do Centro Cooperante',
+    'toggle_full'      => 'Botão: Mostrar título completo',
+  ];
   ?>
   <style>
     .lilacs-fields .field{margin:12px 0;}
     .lilacs-fields label{display:block;font-weight:600;margin-bottom:6px;}
     .lilacs-fields input[type=text]{width:100%;}
-    .lilacs-fields textarea{width:100%;min-height:110px;}
+    .lilacs-fields textarea{width:100%;min-height:80px;}
     .lilacs-help{color:#666;margin:4px 0 0;font-size:12px;}
     .img-picker{display:flex;gap:12px;align-items:flex-start;}
     .img-picker .preview img{max-width:220px;height:auto;border-radius:6px;display:block;background:#f3f4f6;}
     .img-picker .actions button{margin:0 6px 0 0;}
+    .lilacs-i18n-tabs{display:flex;gap:4px;margin:16px 0 0;}
+    .lilacs-i18n-tabs button{padding:6px 14px;border:1px solid #ccc;background:#f6f7f7;border-radius:4px 4px 0 0;cursor:pointer;font-size:13px;}
+    .lilacs-i18n-tabs button.active{background:#fff;border-bottom-color:#fff;font-weight:700;}
+    .lilacs-i18n-panel{border:1px solid #ccc;padding:14px;display:none;}
+    .lilacs-i18n-panel.active{display:block;}
+    .lilacs-i18n-panel .field{margin:8px 0;}
+    .lilacs-i18n-panel label{font-size:12px;font-weight:600;color:#444;display:block;margin-bottom:3px;}
   </style>
 
   <div class="lilacs-fields">
-    <div class="field">
-      <label for="lilacs_cp_banner_title"><?php _e('Título do banner', 'bireme'); ?></label>
-      <input type="text" id="lilacs_cp_banner_title" name="lilacs_cp_banner_title"
-             value="<?php echo esc_attr($title); ?>"
-             placeholder="<?php esc_attr_e('Ex.: Como pesquisar na LILACS?', 'bireme'); ?>">
-      <p class="lilacs-help"><?php _e('Se vazio, utiliza o título da página.', 'bireme'); ?></p>
-    </div>
-
-    <div class="field">
-      <label for="lilacs_cp_banner_desc"><?php _e('Descrição do banner', 'bireme'); ?></label>
-      <textarea id="lilacs_cp_banner_desc" name="lilacs_cp_banner_desc"
-        placeholder="<?php esc_attr_e('Ex.: Acesse artigos, periódicos científicos e documentos técnicos…', 'bireme'); ?>"><?php
-          echo esc_textarea($desc);
-      ?></textarea>
-    </div>
-
+    <!-- Imagem do banner (compartilhada) -->
     <div class="field">
       <label><?php _e('Imagem do banner', 'bireme'); ?></label>
       <div class="img-picker" data-img-picker>
@@ -102,11 +173,35 @@ function bireme_lilacs_periodicos_render_metabox($post){
         </div>
       </div>
     </div>
+
+    <!-- Abas de idioma -->
+    <div class="lilacs-i18n-tabs">
+      <?php foreach ($langs as $i => $lang): ?>
+        <button type="button" class="<?php echo $i===0?'active':''; ?>" data-tab="<?php echo esc_attr($lang); ?>"><?php echo esc_html($lang_labels[$lang]); ?></button>
+      <?php endforeach; ?>
+    </div>
+
+    <?php foreach ($langs as $i => $lang): ?>
+    <div class="lilacs-i18n-panel <?php echo $i===0?'active':''; ?>" id="lilacs-tab-<?php echo esc_attr($lang); ?>">
+      <?php foreach ($i18n_keys as $k): ?>
+        <?php $meta_key = "_lilacs_per_i18n_{$lang}_{$k}"; ?>
+        <div class="field">
+          <label><?php echo esc_html($field_labels[$k] ?? $k); ?></label>
+          <?php if ($k === 'banner_desc'): ?>
+            <textarea name="<?php echo esc_attr($meta_key); ?>"><?php echo esc_textarea($saved[$lang][$k]); ?></textarea>
+          <?php else: ?>
+            <input type="text" name="<?php echo esc_attr($meta_key); ?>" value="<?php echo esc_attr($saved[$lang][$k]); ?>">
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <?php endforeach; ?>
   </div>
 
   <script>
   (function($){
     try {
+      // ── Media picker ──────────────────────────────────────────────────────
       var frame;
       $(document).on('click','[data-img-select]', function(e){
         e.preventDefault();
@@ -137,6 +232,16 @@ function bireme_lilacs_periodicos_render_metabox($post){
         $picker.find('input[type=hidden]').val('');
         $picker.find('img').attr('src','<?php echo esc_js( includes_url('images/media/default.png') ); ?>').css('opacity',.4);
       });
+
+      // ── Language tabs ──────────────────────────────────────────────────────
+      $(document).on('click', '.lilacs-i18n-tabs button', function(){
+        var lang = $(this).data('tab');
+        $('.lilacs-i18n-tabs button').removeClass('active');
+        $(this).addClass('active');
+        $('.lilacs-i18n-panel').removeClass('active');
+        $('#lilacs-tab-' + lang).addClass('active');
+      });
+
     } catch(err) {
       console.error('Erro no script do metabox LILACS (periodicos):', err);
     }
@@ -146,7 +251,7 @@ function bireme_lilacs_periodicos_render_metabox($post){
   <?php
 }
 
-/** Salvamento (apenas quando o template é page-lilacs-periodicos.php) */
+/** Salvamento */
 add_action('save_post_page', function($post_id){
   if (!isset($_POST[BIREME_LILACS_CP_FIELDS_NONCE]) ||
       !wp_verify_nonce($_POST[BIREME_LILACS_CP_FIELDS_NONCE], BIREME_LILACS_CP_FIELDS_ACTION)) return;
@@ -157,12 +262,27 @@ add_action('save_post_page', function($post_id){
   $tpl = get_post_meta($post_id, '_wp_page_template', true);
   if ($tpl !== 'page-lilacs-periodicos.php') return;
 
-  $title  = isset($_POST['lilacs_cp_banner_title']) ? sanitize_text_field($_POST['lilacs_cp_banner_title']) : '';
-  $desc   = isset($_POST['lilacs_cp_banner_desc'])  ? wp_kses_post($_POST['lilacs_cp_banner_desc']) : '';
+  // Imagem (campo compartilhado)
   $img_id = isset($_POST['lilacs_cp_banner_img_id']) ? (int) $_POST['lilacs_cp_banner_img_id'] : 0;
-
-  update_post_meta($post_id, BIREME_LILACS_CP_META_TITLE,  $title);
-  update_post_meta($post_id, BIREME_LILACS_CP_META_DESC,   $desc);
   update_post_meta($post_id, BIREME_LILACS_CP_META_IMG_ID, $img_id);
+
+  // Campos i18n por idioma
+  $langs = ['pt','es','en'];
+  $text_fields = ['banner_title','cluster_country','cluster_area','cluster_editor','cluster_cc',
+                  'col_num','col_short_title','col_full_title','col_issn','col_editor_code','col_cc_code','toggle_full'];
+  $textarea_fields = ['banner_desc'];
+
+  foreach ($langs as $lang) {
+    foreach ($text_fields as $k) {
+      $meta_key = "_lilacs_per_i18n_{$lang}_{$k}";
+      $val = isset($_POST[$meta_key]) ? sanitize_text_field(wp_unslash($_POST[$meta_key])) : '';
+      update_post_meta($post_id, $meta_key, $val);
+    }
+    foreach ($textarea_fields as $k) {
+      $meta_key = "_lilacs_per_i18n_{$lang}_{$k}";
+      $val = isset($_POST[$meta_key]) ? sanitize_textarea_field(wp_unslash($_POST[$meta_key])) : '';
+      update_post_meta($post_id, $meta_key, $val);
+    }
+  }
 
 }, 10, 1);
