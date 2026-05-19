@@ -38,8 +38,52 @@ function bireme_lilacs_scripts() {
     if (file_exists(get_template_directory() . '/assets/js/header.js')) {
         wp_enqueue_script('bireme-lilacs-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.1.0', true);
     }
+
+    // Script da página Periódicos (carregado apenas quando necessário)
+    if (is_page_template('page-lilacs-periodicos.php')) {
+        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.0', true);
+    }
 }
 add_action('wp_enqueue_scripts', 'bireme_lilacs_scripts');
+
+// Adiciona preconnect de fontes e estilos globais no <head>
+function bireme_lilacs_head_extras() {
+    ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        #lilacs-indicadores-1 .lilacs-em-dados__card {
+            background: #082A53 !important;
+        }
+        a.saiba_mais_home {
+            font-size: 18px !important;
+        }
+        #lilacs-indicadores-3 .lilacs-em-dados__all-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 226px;
+            height: 49px;
+            padding: 0 58px;
+            border-radius: 999px;
+            background: #F97316;
+            color: #fff;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            box-shadow: none;
+        }
+        .pagina-banner_simples {
+            background-repeat: no-repeat !important;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'bireme_lilacs_head_extras', 1);
 
 // Suporte ao Polylang - registra menus por idioma
 function bireme_lilacs_polylang_menus() {

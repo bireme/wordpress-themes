@@ -9,8 +9,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Campos ACF dentro do Flexible
-$depoimentos = get_sub_field( 'depoimentos' );
-$bg_image    = get_sub_field( 'imagem_de_fundo' ); // nova imagem de fundo da sessão
+$depoimentos          = get_sub_field( 'depoimentos' );
+$bg_image             = get_sub_field( 'imagem_de_fundo' );
+$titulo_secao         = get_sub_field( 'titulo_secao' );
+$slides_por_vez       = (int) get_sub_field( 'slides_por_vez' );
+$btn_ativo            = get_sub_field( 'habilitar_botao_ver_todos' );
+$btn_texto            = get_sub_field( 'texto_botao_ver_todos' ) ?: __( 'Ver todos', 'rede-bvs' );
+$btn_link             = get_sub_field( 'link_botao_ver_todos' );
+if ( $slides_por_vez < 1 || $slides_por_vez > 3 ) {
+    $slides_por_vez = 2; // padrão
+}
 
 if ( ! $depoimentos || ! is_array( $depoimentos ) ) {
     return;
@@ -23,6 +31,7 @@ $total = count( $depoimentos );
 <style>
 /* SECTION - fundo 100% */
 #<?php echo esc_attr( $uid ); ?> {
+    --per-view: <?php echo esc_attr( $slides_por_vez ); ?>;
     width: 100%;
     padding: 60px 16px;
     max-width: 100%;
@@ -57,20 +66,25 @@ $total = count( $depoimentos );
 /* Slider */
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-slider {
     position: relative;
+    padding: 0 44px; /* espaço para os botões nav laterais */
 }
 
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-viewport {
     overflow: hidden;
+    width: 100%;
 }
 
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-track {
     display: flex;
+    flex-wrap: nowrap;
+    will-change: transform;
     transition: transform 0.4s ease;
 }
 
 /* Card */
 #<?php echo esc_attr( $uid ); ?> .voz-card {
     flex: 0 0 calc(100% / var(--per-view));
+    min-width: 0; /* evita overflow no flexbox */
     padding: 10px;
     box-sizing: border-box;
 }
@@ -158,13 +172,12 @@ $total = count( $depoimentos );
 }
 
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-nav.prev {
-    left: -10px;
+    left: 0;
     z-index: 999;
 }
 
 #<?php echo esc_attr( $uid ); ?> .vozes-rede-nav.next {
-    right: -10px;
-    
+    right: 0;
     z-index: 999;
 }
 
@@ -177,14 +190,11 @@ $total = count( $depoimentos );
 /* responsivo: em telas menores sempre 1 por vez */
 @media (max-width: 900px) {
     #<?php echo esc_attr( $uid ); ?> {
+        --per-view: 1;
         padding: 40px 12px;
     }
-
-    #<?php echo esc_attr( $uid ); ?> .vozes-rede-nav.prev {
-        left: 4px;
-    }
-    #<?php echo esc_attr( $uid ); ?> .vozes-rede-nav.next {
-        right: 4px;
+    #<?php echo esc_attr( $uid ); ?> .vozes-rede-slider {
+        padding: 0 40px;
     }
 }
 </style>
@@ -193,7 +203,7 @@ $total = count( $depoimentos );
     <div class="vozes-rede-inner">
         <div class="vozes-rede-header">
             <h2 class="vozes-rede-title">
-                <?php esc_html_e( 'Depoimentos', 'rede-bvs' ); ?>
+                <?php echo esc_html( $titulo_secao ?: __( 'Depoimentos', 'rede-bvs' ) ); ?>
             </h2>
         </div>
 
@@ -255,6 +265,17 @@ $total = count( $depoimentos );
                 </svg>
             </button>
         </div>
+
+        <?php if ( $btn_ativo && $btn_link ) : ?>
+        <div class="vozes-rede-footer" style="text-align:center;margin-top:32px;">
+            <a href="<?php echo esc_url( $btn_link ); ?>"
+               class="vozes-rede-btn-ver-todos"
+               style="display:inline-flex;align-items:center;justify-content:center;min-width:200px;height:48px;padding:0 40px;border-radius:999px;background:#F97316;color:#fff;font-family:'Noto Sans',sans-serif;font-size:16px;font-weight:700;text-decoration:none;">
+                <?php echo esc_html( $btn_texto ); ?>
+            </a>
+        </div>
+        <?php endif; ?>
+
     </div>
 </section>
 
@@ -274,9 +295,11 @@ $total = count( $depoimentos );
     let perView = 1;
     let index   = 0;
 
+    const perViewDesktop = <?php echo esc_js( $slides_por_vez ); ?>;
+
     function computePerView() {
         if (total === 1) return 1;
-        return window.innerWidth >= 900 ? 2 : 1;
+        return window.innerWidth >= 900 ? perViewDesktop : 1;
     }
 
     function updateSlider() {
