@@ -32,7 +32,7 @@ O sistema foi otimizado para o formato RSS do Portal BVS/LILACS:
 <rss version="2.0">
 <channel>
 <title>Portal Regional da BVS | (instance:"regional") AND ( db:("LILACS")) </title>
-<link>http://pesquisa.bvsalud.org/portal/...</link>
+<link>https://pesquisa.bvsalud.org/portal/...</link>
 <description>...</description>
 <item>
 <title><![CDATA[ Título da Publicação ]]></title>
