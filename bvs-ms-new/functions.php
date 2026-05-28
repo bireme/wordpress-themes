@@ -310,7 +310,7 @@ function shortcode_mapa_pontos_interativo() {
         <div id="mapa-pontos"></div>
 
         <div class="mapa-pontos-lista">
-            <h3>Pontos cadastrados</h3>
+            <h3>Estações Implementadas</h3>
 
             <?php if (!empty($pontos)) : ?>
                 <ul>
