@@ -94,6 +94,7 @@ add_action('init', function() {
     pll_register_string('Memories and voices', 'Memórias e vozes', 'Home');
     pll_register_string('Browse through the collections and discover stories and experiences that marked the COVID-19 pandemic.', 'Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19', 'Home');
 
+
     pll_register_string('View full collection', 'Ver coleção completa', 'Coleções');
     pll_register_string('Items from the collection', 'Itens da coleção', 'Coleções');
     pll_register_string('About the collection', 'Sobre a coleção', 'Coleções');
