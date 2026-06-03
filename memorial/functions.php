@@ -88,8 +88,20 @@ add_action('init', function() {
     pll_register_string('See all', 'Ver todas', 'Tema');
     pll_register_string('Collections', 'Coleções', 'Tema');
     pll_register_string('Publications', 'Publicações', 'Tema');
+    pll_register_string('Highlights', 'Destaques', 'Tema');
+    pll_register_string('News', 'Novidades', 'tema');
 
-    pll_register_string('News', 'Novidades', 'Home');
     pll_register_string('Memories and voices', 'Memórias e vozes', 'Home');
     pll_register_string('Browse through the collections and discover stories and experiences that marked the COVID-19 pandemic.', 'Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19', 'Home');
+
+    pll_register_string('View full collection', 'Ver coleção completa', 'Coleções');
+    pll_register_string('Items from the collection', 'Itens da coleção', 'Coleções');
+    pll_register_string('About the collection', 'Sobre a coleção', 'Coleções');
+    pll_register_string('About the project', 'Sobre o projeto', 'Coleções');
+    pll_register_string('No items available for viewing at this time.', 'Nenhum item disponível para exibição no momento.', 'Coleções');
+    pll_register_string(
+        'Pandemic Digital Memorial',
+        'O <strong>Memorial Digital da Pandemia de COVID-19</strong> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.',
+        'Home'
+    );
 });

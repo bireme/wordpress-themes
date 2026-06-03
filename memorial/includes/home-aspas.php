@@ -113,7 +113,7 @@ if (! $query->have_posts()) {
         <div class="row mt-5">
             <div class="col-md-8 offset-md-2 text-center">
                 <p>
-                    O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.
+                   <?php echo pll__('O <strong>Memorial Digital da Pandemia de COVID-19</strong> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.'); ?>
                 </p>
                 <a href="<?php echo esc_url( $blog_url ); ?>/vozes-da-pandemia" class="btn btn-primary">
                     <?php pll_e('Ver todas'); ?>
