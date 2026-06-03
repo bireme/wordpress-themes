@@ -106,6 +106,7 @@ add_action('init', function() {
     pll_register_string('Publications', 'Publicações', 'Tema');
     pll_register_string('Highlights', 'Destaques', 'Tema');
     pll_register_string('News', 'Novidades', 'tema');
+    pll_register_string('Voices of the Pandemic', 'Vozes da Pandemia', 'tema');
 
     pll_register_string('Memories and voices', 'Memórias e vozes', 'Home');
     pll_register_string('Browse through the collections and discover stories and experiences that marked the COVID-19 pandemic.', 'Navegue pelas coleções e conheça histórias e vivências que marcaram a pandemia de COVID-19', 'Home');
