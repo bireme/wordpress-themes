@@ -72,6 +72,29 @@ register_sidebar([
     'before_title'  => '<h5>',
     'after_title'   => '</h5>'
 ]);
+register_sidebar([
+    'name'          => 'Footer 1 PT',
+    'id'            => 'footer1_pt',
+    'description'   => 'Footer 1 Português',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+]);
+
+register_sidebar([
+    'name'          => 'Footer 1 EN',
+    'id'            => 'footer1_en',
+    'description'   => 'Footer 1 Inglês',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+]);
+
+register_sidebar([
+    'name'          => 'Footer 1 ES',
+    'id'            => 'footer1_es',
+    'description'   => 'Footer 1 Espanhol',
+    'before_title'  => '<h5>',
+    'after_title'   => '</h5>',
+]);
 //custom post type
 require_once get_template_directory() . '/includes/functions-colecoes.php';
 require_once get_template_directory() . '/includes/functions-aspas.php';

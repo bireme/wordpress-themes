@@ -9,7 +9,17 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
-<?php $lang = pll_current_language(); ?>
+<?php $lang = pll_current_language();
+$lang = pll_current_language();
+$ids = [
+	'pt' => 635,
+	'en' => 636,
+	'es' => 637,
+];
+if (isset($ids[$lang])) {
+	echo do_shortcode('[wpcode id="' . $ids[$lang] . '"]');
+}
+?>
 <body>
 	<?php wp_body_open(); ?>
 	<header id="hero">
@@ -25,6 +35,9 @@
 					<?php get_template_part('includes/nav') ?>
 				</div>
 			</div>
-			<?php echo do_shortcode('[wpcode id="635"]'); ?>
+			<?php 
+			$ids = ['pt' => 635, 'en' => 636, 'es' => 637];
+			echo do_shortcode('[wpcode id="' . ($ids[pll_current_language()] ?? 635) . '"]');
+			?>
 		</div>
 	</header>
