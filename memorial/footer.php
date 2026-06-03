@@ -7,11 +7,11 @@
 							<?php
 							$lang = function_exists('pll_current_language') ? pll_current_language() : 'pt';
 							if ($lang === 'pt') {
-								dynamic_sidebar('footer1_pt');
+								dynamic_sidebar('footer_pt');
 							} elseif ($lang === 'en') {
-								dynamic_sidebar('footer1_en');
+								dynamic_sidebar('footer_en');
 							} elseif ($lang === 'es') {
-								dynamic_sidebar('footer1_es');
+								dynamic_sidebar('footer_es');
 							}
 							?>
 						</ul>
