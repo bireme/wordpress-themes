@@ -83,7 +83,7 @@ if (count($hero_posts) === 3) :
     </div>
     <div class="mt-3 text-center">
       <a href="<?php echo esc_url(get_post_type_archive_link('colecoes')); ?>" class="btn btn-primary">
-        Ver todas
+        <?php pll_e('Ver todas'); ?>
       </a>
     </div>
   </section>

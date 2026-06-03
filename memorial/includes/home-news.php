@@ -82,7 +82,7 @@ if ( $posts_home->have_posts() ) : ?>
 	</div>
 	<div class="mt-3 text-center me-5 mt-5">
 		<a href="<?php echo esc_url( $blog_url ); ?>/novidades" class="btn btn-primary">
-			Ver todas
+			<?php pll_e('Ver todas'); ?>
 		</a>
 	</div>
 </section>
