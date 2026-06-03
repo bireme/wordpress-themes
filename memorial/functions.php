@@ -66,32 +66,25 @@ add_filter('http_request_args', 'http_request_local', 5, 2);
 
 //Widgets
 register_sidebar([
-    'name'          => 'Footer 1',
-    'id'            => 'footer1',
-    'description'   => 'Footer 1',
-    'before_title'  => '<h5>',
-    'after_title'   => '</h5>'
-]);
-register_sidebar([
-    'name'          => 'Footer 1 PT',
-    'id'            => 'footer1_pt',
-    'description'   => 'Footer 1 Português',
+    'name'          => 'Footer PT',
+    'id'            => 'footer_pt',
+    'description'   => 'Footer Português',
     'before_title'  => '<h5>',
     'after_title'   => '</h5>',
 ]);
 
 register_sidebar([
-    'name'          => 'Footer 1 EN',
-    'id'            => 'footer1_en',
-    'description'   => 'Footer 1 Inglês',
+    'name'          => 'Footer EN',
+    'id'            => 'footer_en',
+    'description'   => 'Footer Inglês',
     'before_title'  => '<h5>',
     'after_title'   => '</h5>',
 ]);
 
 register_sidebar([
-    'name'          => 'Footer 1 ES',
-    'id'            => 'footer1_es',
-    'description'   => 'Footer 1 Espanhol',
+    'name'          => 'Footer ES',
+    'id'            => 'footer_es',
+    'description'   => 'Footer Espanhol',
     'before_title'  => '<h5>',
     'after_title'   => '</h5>',
 ]);
