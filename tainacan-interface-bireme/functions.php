@@ -446,3 +446,14 @@ require get_template_directory() . '/functions/single-functions.php';
 require get_template_directory() . '/functions/archive-functions.php';
 require get_template_directory() . '/functions/class-tainacan-interface-collection-settings.php';
 require get_template_directory() . '/functions/breadcrumb.php';
+
+
+function permitir_wacz_upload($data, $file, $filename, $mimes) {
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if ($ext === 'wacz') {
+        $data['ext']  = 'wacz';
+        $data['type'] = 'application/zip';
+    }
+    return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'permitir_wacz_upload', 10, 4);
