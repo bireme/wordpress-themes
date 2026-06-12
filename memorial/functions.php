@@ -123,3 +123,16 @@ add_action('init', function() {
         'Home'
     );
 });
+
+function permitir_wacz_upload($data, $file, $filename, $mimes) {
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+    if ($ext === 'wacz') {
+        $data['ext']  = 'wacz';
+        $data['type'] = 'application/zip';
+    }
+
+    return $data;
+}
+
+add_filter('wp_check_filetype_and_ext', 'permitir_wacz_upload', 10, 4);
