@@ -17,6 +17,7 @@
 			<div class="row" id="header-home">
 				<div class="col-md-3">
 					<a href="<?php bloginfo('siteurl'); ?>/<?php echo $lang; ?>" class="navbar-brand">
+						<a href="<?php bloginfo('siteurl'); ?><?php echo ($lang == 'pt') ? '' : '/' . $lang; ?>" class="navbar-brand">
 						<img src="<?php bloginfo('template_directory'); ?>/img/brand-<?php echo $lang; ?>.png" alt="" id="logo" class="img-fluid">
 					</a>
 				</div>
