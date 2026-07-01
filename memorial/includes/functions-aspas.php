@@ -225,7 +225,7 @@ function memorial_aspas_slider_shortcode($atts)
             <div class="row mt-5">
                 <div class="col-md-8 offset-md-2 text-center">
                     <p>
-                        O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.
+                       <?php pll_e('O <b>Memorial Digital da Pandemia de COVID-19</b> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.'); ?>
                     </p>
                     <a href="<?php echo esc_url(home_url('/vozes-da-pandemia')); ?>" class="btn btn-primary">
                        <?php pll_e('Ver todas'); ?>
