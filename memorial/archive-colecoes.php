@@ -26,7 +26,7 @@ $args = [
     'meta_value_num' => 'DESC', // 1 vem antes de 0
     'meta_value'     => 'DESC',
     'date'           => 'DESC',
-    ],
+],
 ];
 
 $query = new WP_Query($args);
@@ -35,10 +35,21 @@ $query = new WP_Query($args);
 
 <main class="container">
     <div class="breadcrumb mt-3">
-        <?php if (function_exists('bcn_display')) { bcn_display(); } ?>
+        <span property="itemListElement" typeof="ListItem" data-fontsize="16">
+            <a property="item" typeof="WebPage" title="Go to COVID-19 Pandemic Digital Memorial." href="https://teste.memorialdigitalcovid19.org.br" class="home" data-fontsize="16">
+                <span property="name" data-fontsize="16">Início</span>
+            </a>
+            <meta property="position" content="1">
+        </span> &gt;
+        <span property="itemListElement" typeof="ListItem" data-fontsize="16">
+            <span property="name" class="archive post-colecoes-archive current-item" data-fontsize="16"><?php pll_e('Coleções'); ?></span>
+            <meta property="url" content="https://teste.memorialdigitalcovid19.org.br/en/colecoes/">
+            <meta property="position" content="2">
+        </span>
     </div>
+
     <header class="mb-3">
-        <h1 class="title"><?php post_type_archive_title(); ?></h1>
+        <h1 class="title"><?php pll_e('Coleções'); ?></h1>
         
         <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
             <div class="col-md-10">
