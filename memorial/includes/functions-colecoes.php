@@ -31,17 +31,12 @@ add_action('admin_menu', function () {
                     $bvs = esc_url_raw(rtrim((string)$_POST['memorial_bvs_base_url'], '/'));
                     update_option('memorial_bvs_base_url', $bvs);
                 }
-                if (isset($_POST['memorial_tainacan_colecao_params'])) {
-                    $params = sanitize_text_field(wp_unslash($_POST['memorial_tainacan_colecao_params']));
-                    update_option('memorial_tainacan_colecao_params', $params);
-                }
                 $aspas_ativo = isset($_POST['memorial_aspas_slider_ativo']) ? '1' : '0';
                 update_option('memorial_aspas_slider_ativo', $aspas_ativo);
                 echo '<div class="updated"><p>Configurações salvas com sucesso.</p></div>';
             }
             $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'));
             $current_bvs = esc_attr(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'));
-            $current_colecao_params = esc_attr(get_option('memorial_tainacan_colecao_params', 'perpage=12&order=ASC&orderby=date&fetch_only_meta=&paged=1&fetch_only=thumbnail%2Ccreation_date%2Ctitle%2Cdescription&view_mode=cards'));
             $aspas_ativo = get_option('memorial_aspas_slider_ativo', '1');
             echo '<div class="wrap"><h1>Configuração do Memorial</h1>';
             echo '<form method="post">';
@@ -51,10 +46,6 @@ add_action('admin_menu', function () {
             echo '<td><input type="url" id="memorial_tainacan_base_url" name="memorial_tainacan_base_url" value="' . $current . '" style="width: 420px;" required></td></tr>';
             echo '<tr><th><label for="memorial_bvs_base_url">Base URL da BVS</label></th>';
             echo '<td><input type="url" id="memorial_bvs_base_url" name="memorial_bvs_base_url" value="' . $current_bvs . '" style="width: 420px;" required></td></tr>';
-            echo '<tr><th><label for="memorial_tainacan_colecao_params">Parâmetros de busca Tainacan (Coleções)</label></th>';
-            echo '<td><input type="text" id="memorial_tainacan_colecao_params" name="memorial_tainacan_colecao_params" value="' . $current_colecao_params . '" style="width: 100%;">';
-            echo '<p class="description">Parâmetros adicionados após o termo buscado. Ex: perpage=12&amp;order=ASC&amp;orderby=date&amp;view_mode=cards</p>';
-            echo '<p class="description">URL resultante: <code>{Base URL}/itens/?search={termo}&amp;{parâmetros}</code></p></td></tr>';
             echo '<tr><th>Bloco Aspas Slider</th>';
             echo '<td><label><input type="checkbox" name="memorial_aspas_slider_ativo" value="1"' . checked($aspas_ativo, '1', false) . '> Ativar bloco Aspas Slider no front-end</label>';
             echo '<p class="description">Desmarque para desligar a exibição do bloco Aspas Slider em todo o site.</p></td></tr>';
@@ -99,47 +90,47 @@ add_action('init', 'memorial_register_cpt_colecoes');
 function memorial_register_cpt_colecoes(): void
 {
     $labels = [
-        'name'                  => 'Coleções',
-        'singular_name'         => 'Coleção',
-        'menu_name'             => 'Coleções',
-        'name_admin_bar'        => 'Coleção',
-        'add_new'               => 'Adicionar nova',
-        'add_new_item'          => 'Adicionar nova coleção',
-        'new_item'              => 'Nova coleção',
-        'edit_item'             => 'Editar coleção',
-        'view_item'             => 'Ver coleção',
-        'all_items'             => 'Todas as coleções',
-        'search_items'          => 'Pesquisar coleções',
-        'not_found'             => 'Nenhuma coleção encontrada.',
-        'not_found_in_trash'    => 'Nenhuma coleção encontrada na lixeira.',
-        'featured_image'        => 'Imagem destacada',
-        'set_featured_image'    => 'Definir imagem destacada',
-        'remove_featured_image' => 'Remover imagem destacada',
-        'use_featured_image'    => 'Usar como imagem destacada',
-        'archives'              => 'Arquivos de coleções',
-        'items_list'            => 'Lista de coleções',
+        'name'               => __('Coleções', 'memorial'),
+        'singular_name'      => __('Coleção', 'memorial'),
+        'menu_name'          => __('Coleções', 'memorial'),
+        'name_admin_bar'     => __('Coleção', 'memorial'),
+        'add_new'            => __('Adicionar nova', 'memorial'),
+        'add_new_item'       => __('Adicionar nova coleção', 'memorial'),
+        'new_item'           => __('Nova coleção', 'memorial'),
+        'edit_item'          => __('Editar coleção', 'memorial'),
+        'view_item'          => __('Ver coleção', 'memorial'),
+        'all_items'          => __('Todas as coleções', 'memorial'),
+        'search_items'       => __('Pesquisar coleções', 'memorial'),
+        'not_found'          => __('Nenhuma coleção encontrada.', 'memorial'),
+        'not_found_in_trash' => __('Nenhuma coleção encontrada na lixeira.', 'memorial'),
+        'featured_image'     => __('Imagem destacada', 'memorial'),
+        'archives'           => __('Coleções', 'memorial'),
+        'items_list'         => __('Lista de coleções', 'memorial'),
     ];
 
     $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'show_ui'            => true,
-        'show_in_menu'       => true,
-        'menu_position'      => 20,
-        'menu_icon'          => 'dashicons-portfolio',
-        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes'],
-        'rewrite'            => [
-            'slug'       => 'colecoes',
+        'labels' => $labels,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 20,
+        'menu_icon' => 'dashicons-portfolio',
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes'],
+
+        'rewrite' => [
+            'slug' => _x('colecoes', 'slug do CPT colecoes', 'memorial'),
             'with_front' => false,
         ],
-        'has_archive'        => true,
-        'hierarchical'       => false,
-        'show_in_rest'       => true,
+
+        'has_archive' => _x('colecoes', 'archive slug do CPT colecoes', 'memorial'),
+
+        'hierarchical' => false,
+        'show_in_rest' => true,
         'publicly_queryable' => true,
-        'exclude_from_search'=> false,
-        'query_var'          => true,
-        'capability_type'    => 'post',
-        'map_meta_cap'       => true,
+        'exclude_from_search' => false,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'map_meta_cap' => true,
     ];
 
     register_post_type('colecoes', $args);
@@ -175,7 +166,7 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
     if ($itens_por_pagina === '') {
         $itens_por_pagina = 6;
     }
-?>
+    ?>
     <style>
         .memorial-metabox-grid {
             display: grid;
@@ -208,11 +199,11 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
 
         <label for="memorial_tainacan_collection_url">URL da coleção no Tainacan</label>
         <input
-            type="url"
-            id="memorial_tainacan_collection_url"
-            name="memorial_tainacan_collection_url"
-            value="<?php echo esc_attr($url_colecao); ?>"
-            placeholder="<?php echo esc_attr(rtrim(MEMORIAL_TAINACAN_BASE_URL, '/') . '/fala-parente/'); ?>"
+        type="url"
+        id="memorial_tainacan_collection_url"
+        name="memorial_tainacan_collection_url"
+        value="<?php echo esc_attr($url_colecao); ?>"
+        placeholder="<?php echo esc_attr(rtrim(MEMORIAL_TAINACAN_BASE_URL, '/') . '/fala-parente/'); ?>"
         />
         <div class="memorial-metabox-help">
             Usado para o botão “Ver todos” (leva para a listagem completa no Tainacan).
@@ -220,11 +211,11 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
 
         <label for="memorial_tainacan_collection_slug">Slug da coleção no Tainacan</label>
         <input
-            type="text"
-            id="memorial_tainacan_collection_slug"
-            name="memorial_tainacan_collection_slug"
-            value="<?php echo esc_attr($slug_colecao); ?>"
-            placeholder="fala-parente"
+        type="text"
+        id="memorial_tainacan_collection_slug"
+        name="memorial_tainacan_collection_slug"
+        value="<?php echo esc_attr($slug_colecao); ?>"
+        placeholder="fala-parente"
         />
         <div class="memorial-metabox-help">
             Usado para consultas na API do Tainacan (normalmente é o slug da URL).
@@ -235,20 +226,20 @@ function memorial_colecoes_render_metabox_tainacan(WP_Post $post): void
 
         <label for="memorial_itens_por_pagina">Itens no single (amostra)</label>
         <input
-            type="number"
-            id="memorial_itens_por_pagina"
-            name="memorial_itens_por_pagina"
-            value="<?php echo esc_attr($itens_por_pagina); ?>"
-            min="1"
-            max="24"
-            step="1"
+        type="number"
+        id="memorial_itens_por_pagina"
+        name="memorial_itens_por_pagina"
+        value="<?php echo esc_attr($itens_por_pagina); ?>"
+        min="1"
+        max="24"
+        step="1"
         />
         <div class="memorial-metabox-help">
             Quantidade de itens do Tainacan para mostrar na página da coleção.
         </div>
 
     </div>
-<?php
+    <?php
 }
 
 add_action('save_post_colecoes', 'memorial_colecoes_save_metabox_tainacan');

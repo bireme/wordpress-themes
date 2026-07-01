@@ -23,10 +23,10 @@ $args = [
     'posts_per_page' => -1,
     'paged'          => $paged,
     'orderby'        => [
-'meta_value_num' => 'DESC', // 1 vem antes de 0
-'meta_value'     => 'DESC',
-'date'           => 'DESC',
-],
+    'meta_value_num' => 'DESC', // 1 vem antes de 0
+    'meta_value'     => 'DESC',
+    'date'           => 'DESC',
+    ],
 ];
 
 $query = new WP_Query($args);
@@ -39,9 +39,7 @@ $query = new WP_Query($args);
     </div>
     <header class="mb-3">
         <h1 class="title"><?php post_type_archive_title(); ?></h1>
-        <p class="text-muted mb-0 d-none">
-            Conheça as coleções do Memorial. Selecione uma coleção para ver o release editorial e os itens do acervo no Tainacan.
-        </p>
+        
         <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
             <div class="col-md-10">
                 <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
