@@ -119,7 +119,7 @@ add_action('init', function() {
     pll_register_string('No items available for viewing at this time.', 'Nenhum item disponível para exibição no momento.', 'Coleções');
     pll_register_string(
         'Pandemic Digital Memorial',
-        'O <strong>Memorial Digital da Pandemia de COVID-19</strong> reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história.',
+        'O Memorial Digital da Pandemia de COVID-19 reúne depoimentos de cidadãos, profissionais de saúde e familiares sobre suas experiências, memórias e vivências durante a pandemia, preservando histórias e reflexões sobre esse período marcante da história',
         'Home'
     );
 });

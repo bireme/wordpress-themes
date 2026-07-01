@@ -92,14 +92,13 @@ a{
 	display: inline-block;
 }
 #lang a{
-	background:var(--color-secondary-700);
 	border-radius: 4px;
 	color: #fff;
 	font-size: 12px;
 	padding: 5px;
 }
 #lang .current-lang a{
-	background:none;
+	background:var(--color-secondary-700);
 	color: #fff;
 }
 #lang a:hover{
