@@ -28,7 +28,6 @@
 			</div>
 			<?php 
 			$ids = ['pt' => 635, 'en' => 3043, 'es' => 3046];
-			/*$ids = ['pt' => 635, 'en' => 3043, 'es' => 3046];*/
 			echo do_shortcode('[wpcode id="' . ($ids[pll_current_language()] ?? 635) . '"]');
 			?>
 		</div>
