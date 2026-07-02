@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<?php
-			$ids = ['pt' => 635, 'en' => 3043, 'es' => 3046];
+			$ids = ['pt' => 635, 'en' => 3492, 'es' => 3493];
 
 			$lang = pll_current_language();
 			$id = $ids[$lang] ?? 635;
