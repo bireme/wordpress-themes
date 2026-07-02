@@ -26,10 +26,15 @@
 					<?php get_template_part('includes/nav') ?>
 				</div>
 			</div>
-			<?php 
+			<?php
 			$ids = ['pt' => 635, 'en' => 3043, 'es' => 3046];
-			#$ids = ['pt' => 635, 'en' => 3493, 'es' => 3492];
-			echo do_shortcode('[wpcode id="' . ($ids[pll_current_language()] ?? 635) . '"]');
+
+			$lang = pll_current_language();
+			$id = $ids[$lang] ?? 635;
+			$shortcode = '[wpcode id="' . $id . '"]';
+
+
+			echo do_shortcode($shortcode);
 			?>
 		</div>
 	</header>
