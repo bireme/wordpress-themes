@@ -18,26 +18,18 @@
 				<div class="col-md-3">
 					<a href="<?php bloginfo('siteurl'); ?>/<?php echo $lang; ?>" class="navbar-brand">
 						<a href="<?php bloginfo('siteurl'); ?><?php echo ($lang == 'pt') ? '' : '/' . $lang; ?>" class="navbar-brand">
-							<img src="<?php bloginfo('template_directory'); ?>/img/brand-<?php echo $lang; ?>.png" alt="" id="logo" class="img-fluid">
-						</a>
-					</div>
-					<div class="col-md-9" style="position: relative;">
-						<?php get_template_part('includes/nav-lang') ?>
-						<?php get_template_part('includes/nav') ?>
-					</div>
+						<img src="<?php bloginfo('template_directory'); ?>/img/brand-<?php echo $lang; ?>.png" alt="" id="logo" class="img-fluid">
+					</a>
 				</div>
-				<?php
-				$ids = [
-					'pt' => 635,
-					'en' => 3043,
-					'es' => 3046,
-				];
-
-				$lang = function_exists('pll_current_language')
-				? pll_current_language()
-				: 'pt';
-
-				echo do_shortcode('[wpcode id="' . ($ids[$lang] ?? 635) . '"]');
-				?>
+				<div class="col-md-9" style="position: relative;">
+					<?php get_template_part('includes/nav-lang') ?>
+					<?php get_template_part('includes/nav') ?>
+				</div>
 			</div>
-		</header>
+			<?php 
+			$ids = ['pt' => 635, 'en' => 3043, 'es' => 3046];
+			#$ids = ['pt' => 635, 'en' => 3493, 'es' => 3492];
+			echo do_shortcode('[wpcode id="' . ($ids[pll_current_language()] ?? 635) . '"]');
+			?>
+		</div>
+	</header>
