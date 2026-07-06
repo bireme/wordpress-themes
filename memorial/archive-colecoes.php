@@ -34,17 +34,15 @@ $query = new WP_Query($args);
 ?>
 
 <main class="container">
-    <div class="breadcrumb mt-3 d-none">
+    <div class="breadcrumb mt-3 ">
         <span property="itemListElement" typeof="ListItem" data-fontsize="16">
-            <a property="item" typeof="WebPage" title="Go to COVID-19 Pandemic Digital Memorial." href="https://teste.memorialdigitalcovid19.org.br" class="home" data-fontsize="16">
-                <span property="name" data-fontsize="16">Início</span>
+            <a property="item" typeof="WebPage" title="Go to COVID-19 Pandemic Digital Memorial." href="<?php bloginfo('siteurl'); ?>" class="home" data-fontsize="16">
+                <span property="name" data-fontsize="16">Home</span>
             </a>
             <meta property="position" content="1">
         </span> &gt;
         <span property="itemListElement" typeof="ListItem" data-fontsize="16">
             <span property="name" class="archive post-colecoes-archive current-item" data-fontsize="16"><?php pll_e('Coleções'); ?></span>
-            <meta property="url" content="https://teste.memorialdigitalcovid19.org.br/en/colecoes/">
-            <meta property="position" content="2">
         </span>
     </div>
 
