@@ -48,7 +48,7 @@ $query = new WP_Query($args);
         </span>
     </div>
 
-    <header class="mb-3">
+    <header class="mb-3 mt-5">
         <h1 class="title"><?php pll_e('Coleções'); ?></h1>
         
         <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
