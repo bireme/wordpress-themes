@@ -34,7 +34,7 @@ $query = new WP_Query($args);
 ?>
 
 <main class="container">
-    <div class="breadcrumb mt-3">
+    <div class="breadcrumb mt-3 d-none">
         <span property="itemListElement" typeof="ListItem" data-fontsize="16">
             <a property="item" typeof="WebPage" title="Go to COVID-19 Pandemic Digital Memorial." href="https://teste.memorialdigitalcovid19.org.br" class="home" data-fontsize="16">
                 <span property="name" data-fontsize="16">Início</span>
