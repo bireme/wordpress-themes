@@ -88,12 +88,14 @@ $dir_lbl_sufixo        = $dir['label_sufixo_numero'] ?? 'bases de dados';
 
 
 
-function lilacs_svg_apply_tokens(string $svg, array $map): string
-{
-    foreach ($map as $token => $value) {
-        $svg = str_replace('{{' . $token . '}}', esc_html((string) $value), $svg);
-    }
-    return $svg;
+if ( ! function_exists( 'lilacs_svg_apply_tokens' ) ) {
+  function lilacs_svg_apply_tokens(string $svg, array $map): string
+  {
+      foreach ($map as $token => $value) {
+          $svg = str_replace('{{' . $token . '}}', esc_html((string) $value), $svg);
+      }
+      return $svg;
+  }
 }
 ?>
 

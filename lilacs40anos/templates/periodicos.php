@@ -1,56 +1,64 @@
 <?php
-  get_template_part('templates/parts/section', 'banner-como-pesquisar');
-
   // ── lê textos i18n salvos no metabox ──────────────────────────────────────
   $per_pid = get_the_ID();
   $langs   = ['pt','es','en'];
   $i18n_keys = ['banner_title','banner_desc','cluster_country','cluster_area','cluster_editor','cluster_cc',
-                'col_num','col_short_title','col_full_title','col_issn','col_editor_code','col_cc_code','toggle_full'];
+                'col_num','col_short_title','col_full_title','col_issn','col_editor_code','col_cc_code','toggle_full',
+                'last_updated','search_placeholder','total_general'];
   $i18n_defaults = [
     'pt' => [
-      'banner_title'     => 'Revistas indexadas na LILACS',
-      'banner_desc'      => 'Conheça todos os títulos e pesquise por país, área, editora e Centro Cooperante.',
-      'cluster_country'  => 'País',
-      'cluster_area'     => 'Área temática',
-      'cluster_editor'   => 'Editora',
-      'cluster_cc'       => 'Centro Cooperante',
-      'col_num'          => '#',
-      'col_short_title'  => 'Título abreviado',
-      'col_full_title'   => 'Título completo',
-      'col_issn'         => 'ISSN',
-      'col_editor_code'  => 'Código da Editora',
-      'col_cc_code'      => 'Código do Centro Cooperante',
-      'toggle_full'      => 'Mostrar título completo',
+      'banner_title'      => 'Revistas indexadas na LILACS',
+      'banner_desc'       => 'Conheça todos os títulos e pesquise por país, área, editora e Centro Cooperante.',
+      'cluster_country'   => 'País',
+      'cluster_area'      => 'Áreas do conhecimento',
+      'cluster_editor'    => 'Editora',
+      'cluster_cc'        => 'Centro Cooperante',
+      'col_num'           => '#',
+      'col_short_title'   => 'Título abreviado',
+      'col_full_title'    => 'Título completo',
+      'col_issn'          => 'ISSN',
+      'col_editor_code'   => 'Código da Editora',
+      'col_cc_code'       => 'Código do Centro Cooperante',
+      'toggle_full'       => 'Mostrar título completo',
+      'last_updated'      => 'Última atualização',
+      'search_placeholder'=> 'Pesquise por título, ISSN ou código',
+      'total_general'     => 'Total geral',
     ],
     'es' => [
-      'banner_title'     => 'Revistas indexadas en LILACS',
-      'banner_desc'      => 'Conozca todos los títulos y busque por país, área, editorial y Centro Cooperante.',
-      'cluster_country'  => 'País',
-      'cluster_area'     => 'Área temática',
-      'cluster_editor'   => 'Editorial',
-      'cluster_cc'       => 'Centro Cooperante',
-      'col_num'          => '#',
-      'col_short_title'  => 'Título abreviado',
-      'col_full_title'   => 'Título completo',
-      'col_issn'         => 'ISSN',
-      'col_editor_code'  => 'Código del Editorial',
-      'col_cc_code'      => 'Código del Centro Cooperante',
-      'toggle_full'      => 'Mostrar título completo',
+      'banner_title'      => 'Revistas indexadas en LILACS',
+      'banner_desc'       => 'Conozca todos los títulos y busque por país, área, editorial y Centro Cooperante.',
+      'cluster_country'   => 'País',
+      'cluster_area'      => 'Áreas del conocimiento',
+      'cluster_editor'    => 'Editorial',
+      'cluster_cc'        => 'Centro Cooperante',
+      'col_num'           => '#',
+      'col_short_title'   => 'Título abreviado',
+      'col_full_title'    => 'Título completo',
+      'col_issn'          => 'ISSN',
+      'col_editor_code'   => 'Código del Editorial',
+      'col_cc_code'       => 'Código del Centro Cooperante',
+      'toggle_full'       => 'Mostrar título completo',
+      'last_updated'      => 'Última actualización',
+      'search_placeholder'=> 'Buscar por título, ISSN o código',
+      'total_general'     => 'Total general',
     ],
     'en' => [
-      'banner_title'     => 'Journals indexed in LILACS',
-      'banner_desc'      => 'Discover all titles and search by country, subject area, publisher, and Cooperating Center.',
-      'cluster_country'  => 'Country',
-      'cluster_area'     => 'Subject area',
-      'cluster_editor'   => 'Publisher',
-      'cluster_cc'       => 'Cooperating Center',
-      'col_num'          => '#',
-      'col_short_title'  => 'Abbreviated title',
-      'col_full_title'   => 'Full title',
-      'col_issn'         => 'ISSN',
-      'col_editor_code'  => 'Publisher Code',
-      'col_cc_code'      => 'CC Code',
-      'toggle_full'      => 'Show full title',
+      'banner_title'      => 'Journals indexed in LILACS',
+      'banner_desc'       => 'Discover all titles and search by country, subject area, publisher, and Cooperating Center.',
+      'cluster_country'   => 'Country',
+      'cluster_area'      => 'Subject Areas',
+      'cluster_editor'    => 'Publisher',
+      'cluster_cc'        => 'Cooperating Center',
+      'col_num'           => '#',
+      'col_short_title'   => 'Abbreviated title',
+      'col_full_title'    => 'Full title',
+      'col_issn'          => 'ISSN',
+      'col_editor_code'   => 'Publisher Code',
+      'col_cc_code'       => 'CC Code',
+      'toggle_full'       => 'Show full title',
+      'last_updated'      => 'Last updated',
+      'search_placeholder'=> 'Search by title, ISSN, or code',
+      'total_general'     => 'Grand total',
     ],
   ];
   $i18n = [];
@@ -61,6 +69,14 @@
       $i18n[$lang][$k] = ($val !== '') ? $val : $i18n_defaults[$lang][$k];
     }
   }
+
+  // Passa o título/desc do banner no idioma correto para o partial do banner
+  $current_lang_per = function_exists('pll_current_language') ? pll_current_language() : 'pt';
+  $current_lang_per = in_array($current_lang_per, $langs) ? $current_lang_per : 'pt';
+  $GLOBALS['_lilacs_per_banner_title'] = $i18n[$current_lang_per]['banner_title'];
+  $GLOBALS['_lilacs_per_banner_desc']  = $i18n[$current_lang_per]['banner_desc'];
+
+  get_template_part('templates/parts/section', 'banner-como-pesquisar');
 
   // países (mapeamento raw da API → labels por idioma)
   $country_labels = [
@@ -93,7 +109,7 @@
     'Ciências Agrárias'     => ['pt'=>'Ciências Agrárias',   'es'=>'Ciencias Agrarias',       'en'=>'Agricultural Sciences'],
     'Ciências Biológicas'   => ['pt'=>'Ciências Biológicas', 'es'=>'Ciencias Biológicas',     'en'=>'Biological Sciences'],
     'Ciências da Saúde'     => ['pt'=>'Ciências da Saúde',   'es'=>'Ciencias de la Salud',    'en'=>'Health Sciences'],
-    'Ciências Humanas'      => ['pt'=>'Ciências Humanas',    'es'=>'Ciencias Humanas',        'en'=>'Human Sciences'],
+    'Ciências Humanas'      => ['pt'=>'Ciências Humanas',    'es'=>'Ciencias Humanas',        'en'=>'Humanities'],
     'Ciências Sociais'      => ['pt'=>'Ciências Sociais',    'es'=>'Ciencias Sociales',       'en'=>'Social Sciences'],
     'Enfermagem'            => ['pt'=>'Enfermagem',          'es'=>'Enfermería',              'en'=>'Nursing'],
     'Psicologia'            => ['pt'=>'Psicologia',          'es'=>'Psicología',              'en'=>'Psychology'],
@@ -101,6 +117,28 @@
     'TMGL'                  => ['pt'=>'TMGL',                'es'=>'TMGL',                    'en'=>'TMGL'],
     'Todos'                 => ['pt'=>'Todos',               'es'=>'Todos',                   'en'=>'All'],
   ];
+
+  // Lookup normalizado: chave = valor exato que a API retorna (maiúsculo, sem acento)
+  // Garante a tradução mesmo sem String.normalize() no browser
+  $accent_map = [
+    'á'=>'a','à'=>'a','â'=>'a','ã'=>'a','ä'=>'a',
+    'é'=>'e','è'=>'e','ê'=>'e','ë'=>'e',
+    'í'=>'i','ì'=>'i','î'=>'i','ï'=>'i',
+    'ó'=>'o','ò'=>'o','ô'=>'o','õ'=>'o','ö'=>'o',
+    'ú'=>'u','ù'=>'u','û'=>'u','ü'=>'u',
+    'ç'=>'c','ñ'=>'n',
+    'Á'=>'A','À'=>'A','Â'=>'A','Ã'=>'A','Ä'=>'A',
+    'É'=>'E','È'=>'E','Ê'=>'E','Ë'=>'E',
+    'Í'=>'I','Ì'=>'I','Î'=>'I','Ï'=>'I',
+    'Ó'=>'O','Ò'=>'O','Ô'=>'O','Õ'=>'O','Ö'=>'O',
+    'Ú'=>'U','Ù'=>'U','Û'=>'U','Ü'=>'U',
+    'Ç'=>'C','Ñ'=>'N',
+  ];
+  $thematic_lookup = [];
+  foreach ($thematic_labels as $label_key => $translations) {
+    $normalized_key = strtoupper( strtr($label_key, $accent_map) );
+    $thematic_lookup[ $normalized_key ] = $translations;
+  }
 ?>
 
 <section id="bvs-page" aria-label="Periódicos – BVS">
@@ -229,7 +267,7 @@ margin: 0 auto;
 
     /* Sidebar (País) */
     .bvs-side{background:var(--panel); border-radius:14px; padding:16px; box-shadow:0 1px 2px rgba(10,20,40,.05)}
-    .bvs-side h3{margin:4px 0 12px; color:var(--text); font-size:22px; font-weight:800}
+    .bvs-side h3{margin:4px 0 12px; color:var(--text); font-size:16px; font-weight:800}
     .bvs-chip{
       display:flex; align-items:center; justify-content:space-between;
       background:#F1F1F1; border-radius:12px; padding:10px 12px; margin-bottom:8px; cursor:pointer; user-select:none;
@@ -408,7 +446,7 @@ margin: 0 auto;
   </style>
 
   <div class="bvs-top">
-    <div class="bvs-updated">Última atualização: <span id="bvs-updated">DD/MM/AAAA</span></div>
+    <div class="bvs-updated"><span id="bvs-updated-label">Última atualização</span>: <span id="bvs-updated">DD/MM/AAAA</span></div>
   </div>
 
   <div class="bvs-wrap">
@@ -427,7 +465,7 @@ margin: 0 auto;
       <h3>País</h3>
 
       <div id="bvs-total" class="bvs-chip" role="button" tabindex="0" aria-pressed="true">
-        <span>Total Geral</span><span class="badge" id="bvs-total-count">0</span>
+        <span id="bvs-total-label">Total geral</span><span class="badge" id="bvs-total-count">0</span>
       </div>
 
       <div id="bvs-countries" class="bvs-countries" role="list"></div>
@@ -493,9 +531,10 @@ margin: 0 auto;
     'journal_base'   => untrailingslashit( get_rest_url(null, 'test/v1/bvs/journal') ),
     'search_base'    => untrailingslashit( get_rest_url(null, 'test/v1/bvs/journals/search') ),
     'lang'           => function_exists('pll_current_language') ? pll_current_language() : ( defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : 'pt' ),
-    'i18n'           => $i18n,
-    'country_labels' => $country_labels,
-    'thematic_labels'=> $thematic_labels,
+    'i18n'            => $i18n,
+    'country_labels'  => $country_labels,
+    'thematic_labels' => $thematic_labels,
+    'thematic_lookup' => $thematic_lookup,
   ], JSON_UNESCAPED_UNICODE); ?>
   </script>
 </section>

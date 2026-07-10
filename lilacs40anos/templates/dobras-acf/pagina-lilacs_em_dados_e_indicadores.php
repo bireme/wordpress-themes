@@ -25,14 +25,16 @@ $uid = 'lilacs-indicadores-' . wp_unique_id();
 /**
  * Ícone fallback (SVG)
  */
-function lilacs_indicadores_fallback_svg() {
-	return '
+if ( ! function_exists( 'lilacs_indicadores_fallback_svg' ) ) {
+	function lilacs_indicadores_fallback_svg() {
+		return '
 	<svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 		<path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 		<path d="M7 16V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 		<path d="M12 16V6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 		<path d="M17 16v-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
 	</svg>';
+	}
 }
 ?>
 

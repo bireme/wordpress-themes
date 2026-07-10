@@ -1,7 +1,16 @@
 <?php
-$post_id      = get_the_ID();
-$banner_title = get_post_meta($post_id, '_lilacs_cp_banner_title', true);
-$banner_desc  = get_post_meta($post_id, '_lilacs_cp_banner_desc', true);
+$post_id = get_the_ID();
+
+// Textos i18n injetados pelo periodicos.php têm prioridade; fallback para meta genérico
+if ( ! empty( $GLOBALS['_lilacs_per_banner_title'] ) ) {
+  $banner_title = $GLOBALS['_lilacs_per_banner_title'];
+  $banner_desc  = $GLOBALS['_lilacs_per_banner_desc'] ?? '';
+  unset( $GLOBALS['_lilacs_per_banner_title'], $GLOBALS['_lilacs_per_banner_desc'] );
+} else {
+  $banner_title = get_post_meta($post_id, '_lilacs_cp_banner_title', true);
+  $banner_desc  = get_post_meta($post_id, '_lilacs_cp_banner_desc', true);
+}
+
 $banner_imgid = (int) get_post_meta($post_id, '_lilacs_cp_banner_img_id', true);
 $banner_img   = $banner_imgid ? wp_get_attachment_image_url($banner_imgid, 'full') : '';
 

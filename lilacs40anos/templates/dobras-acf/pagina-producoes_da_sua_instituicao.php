@@ -16,22 +16,22 @@ $repeater_key = 'Campos';
 /**
  * Fallback: cria um "badge" com 2 letras (ex: ai, af...)
  */
-function lilacs_badge_letters_from_title($text){
-  $text = trim( wp_strip_all_tags( (string)$text ) );
-  if ($text === '') return 'li';
+if ( ! function_exists( 'lilacs_badge_letters_from_title' ) ) {
+  function lilacs_badge_letters_from_title($text){
+    $text = trim( wp_strip_all_tags( (string)$text ) );
+    if ($text === '') return 'li';
 
-  // pega iniciais das 2 primeiras palavras, senão 2 primeiras letras
-  $parts = preg_split('/\s+/', $text);
-  if (count($parts) >= 2) {
-    $a = mb_substr($parts[0], 0, 1, 'UTF-8');
-    $b = mb_substr($parts[1], 0, 1, 'UTF-8');
-    $out = mb_strtolower($a.$b, 'UTF-8');
-  } else {
-    $out = mb_strtolower(mb_substr($text, 0, 2, 'UTF-8'), 'UTF-8');
+    $parts = preg_split('/\s+/', $text);
+    if (count($parts) >= 2) {
+      $a = mb_substr($parts[0], 0, 1, 'UTF-8');
+      $b = mb_substr($parts[1], 0, 1, 'UTF-8');
+      $out = mb_strtolower($a.$b, 'UTF-8');
+    } else {
+      $out = mb_strtolower(mb_substr($text, 0, 2, 'UTF-8'), 'UTF-8');
+    }
+    $out = preg_replace('/[^a-z0-9_]/i', '', $out);
+    return $out ?: 'li';
   }
-  // remove acentos/símbolos básicos (não crítico)
-  $out = preg_replace('/[^a-z0-9_]/i', '', $out);
-  return $out ?: 'li';
 }
 ?>
 

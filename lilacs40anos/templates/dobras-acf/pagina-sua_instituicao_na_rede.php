@@ -17,6 +17,7 @@ if ( empty( $campos ) || ! is_array( $campos ) ) {
 $section_id      = 'lilacs-sua-instituicao-' . get_the_ID() . '-' . get_row_index();
 $cor_de_fundo    = get_sub_field('cor_do_fundo_da_sessao');
 $tituloPrincipal = get_sub_field('titulo');
+$descricao       = get_sub_field('descricao');
 $cor_titulo      = get_sub_field('cor_do_titulo');
 $colunas         = (int) get_sub_field('colunas_por_linha');
 if ( $colunas < 1 || $colunas > 4 ) $colunas = 2;
@@ -55,6 +56,16 @@ if(!$cor_titulo){
     line-height: 1.3;
     font-weight: 700;
     color: <?=$cor_titulo?>;
+    margin-bottom: 8px;
+}
+
+#<?php echo esc_attr( $section_id ); ?> .lilacs-acesso-heading-desc {
+    font-size: 17px;
+    line-height: 1.6;
+    color: <?=$cor_titulo?>;
+    opacity: 0.82;
+    max-width: 760px;
+    margin: 0;
 }
 
 /* Grid – duas colunas de cartões horizontais */
@@ -162,7 +173,10 @@ if(!$cor_titulo){
     <div class="lilacs-acesso-inner">
 
         <div class="lilacs-acesso-heading">
-            <h2><?= $tituloPrincipal; ?></h2>
+            <h2><?php echo esc_html( $tituloPrincipal ); ?></h2>
+            <?php if ( $descricao ) : ?>
+                <p class="lilacs-acesso-heading-desc"><?php echo wp_kses_post( $descricao ); ?></p>
+            <?php endif; ?>
         </div>
 
         <div class="lilacs-acesso-grid">

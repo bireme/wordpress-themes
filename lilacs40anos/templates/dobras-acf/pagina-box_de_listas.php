@@ -144,12 +144,14 @@ $uid = 'lilacs-boxlistas-' . wp_unique_id();
 	}
 	.saiba_mais_home{
 		text-align: right;
-    width: 100%;
-    display: block;
-    font-size: 24px;
-    text-decoration: none;
-    color: #f96a1e;
-    font-family: 'Noto Sans';
+		width: 100%;
+		display: block;
+		font-size: 18px;
+		text-decoration: none;
+		color: #f96a1e;
+		font-family: 'Noto Sans';
+		margin-top: auto;
+		padding-top: 16px;
 	}
 	#<?php echo esc_attr( $uid ); ?> .lilacs-boxlistas__card{
 		background: #F3F3F3;
@@ -159,7 +161,7 @@ $uid = 'lilacs-boxlistas-' . wp_unique_id();
 		min-height: 335px;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-evenly;
+		justify-content: flex-start;
 	}
 
 	#<?php echo esc_attr( $uid ); ?> .lilacs-boxlistas__card-head{

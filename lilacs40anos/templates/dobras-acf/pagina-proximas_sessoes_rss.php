@@ -24,36 +24,40 @@ $max_cards     = 6;
 /**
  * Helpers
  */
-function lilacs_rss_ddmmyyyy_to_ts( $date_str ) {
-	if ( preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $date_str, $m) ) {
-		return strtotime("{$m[3]}-{$m[2]}-{$m[1]}");
+if ( ! function_exists( 'lilacs_rss_ddmmyyyy_to_ts' ) ) {
+	function lilacs_rss_ddmmyyyy_to_ts( $date_str ) {
+		if ( preg_match('/^(\d{2})\/(\d{2})\/(\d{4})$/', $date_str, $m) ) {
+			return strtotime("{$m[3]}-{$m[2]}-{$m[1]}");
+		}
+		return 0;
 	}
-	return 0;
 }
 
-function lilacs_rss_parse_desc( $desc ) {
-	$raw = trim( wp_strip_all_tags( (string)$desc ) );
+if ( ! function_exists( 'lilacs_rss_parse_desc' ) ) {
+	function lilacs_rss_parse_desc( $desc ) {
+		$raw = trim( wp_strip_all_tags( (string)$desc ) );
 
-	$out = [
-		'raw'      => $raw,
-		'start'    => '',
-		'end'      => '',
-		'place'    => '',
-		'start_ts' => 0,
-	];
+		$out = [
+			'raw'      => $raw,
+			'start'    => '',
+			'end'      => '',
+			'place'    => '',
+			'start_ts' => 0,
+		];
 
-	if ( preg_match('/(\d{2}\/\d{2}\/\d{4})\s*-\s*(\d{2}\/\d{2}\/\d{4})/', $raw, $m) ) {
-		$out['start']    = $m[1];
-		$out['end']      = $m[2];
-		$out['start_ts'] = lilacs_rss_ddmmyyyy_to_ts($m[1]);
+		if ( preg_match('/(\d{2}\/\d{2}\/\d{4})\s*-\s*(\d{2}\/\d{2}\/\d{4})/', $raw, $m) ) {
+			$out['start']    = $m[1];
+			$out['end']      = $m[2];
+			$out['start_ts'] = lilacs_rss_ddmmyyyy_to_ts($m[1]);
+		}
+
+		if ( strpos($raw, '.') !== false ) {
+			$parts = explode('.', $raw, 2);
+			$out['place'] = trim($parts[1]);
+		}
+
+		return $out;
 	}
-
-	if ( strpos($raw, '.') !== false ) {
-		$parts = explode('.', $raw, 2);
-		$out['place'] = trim($parts[1]);
-	}
-
-	return $out;
 }
 
 /**
