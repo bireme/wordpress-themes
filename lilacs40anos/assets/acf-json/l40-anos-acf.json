@@ -1,0 +1,185 @@
+[
+  {
+    "key": "group_l40_anos_lilacs",
+    "title": "LILACS 40 Anos",
+    "fields": [
+      {
+        "key": "field_l40_layout",
+        "label": "Layout",
+        "name": "layout",
+        "type": "flexible_content",
+        "instructions": "Adicione e ordene as seções da página 40 anos.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": { "width": "", "class": "", "id": "" },
+        "button_label": "Adicionar seção",
+        "min": "",
+        "max": "",
+        "layouts": {
+
+          "layout_l40_hero": {
+            "key": "layout_l40_hero",
+            "name": "l40_hero",
+            "label": "── HERO",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_hero_logo",        "label": "Logo 40 anos",              "name": "l40_hero_logo",        "type": "image",    "return_format": "url", "preview_size": "medium", "instructions": "Imagem do logo comemorativo." },
+              { "key": "field_l40_hero_h1",          "label": "Título principal (H1)",     "name": "l40_hero_h1",          "type": "text",     "default_value": "Ciência em saúde com identidade da América Latina e Caribe" },
+              { "key": "field_l40_hero_lead",        "label": "Texto introdutório",        "name": "l40_hero_lead",        "type": "textarea", "rows": 4 },
+              { "key": "field_l40_hero_cta_label",   "label": "Botão CTA – Texto",        "name": "l40_hero_cta_label",   "type": "text",     "default_value": "Ver agenda comemorativa" },
+              { "key": "field_l40_hero_cta_anchor",  "label": "Botão CTA – Link/âncora",  "name": "l40_hero_cta_anchor",  "type": "text",     "default_value": "#agenda" },
+              { "key": "field_l40_hero_image_right", "label": "Imagem direita (opcional)", "name": "l40_hero_image_right", "type": "image",    "return_format": "url", "preview_size": "medium" }
+            ]
+          },
+
+          "layout_l40_texto_institucional": {
+            "key": "layout_l40_texto_institucional",
+            "name": "l40_texto_institucional",
+            "label": "── TEXTO INSTITUCIONAL",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_inst_title", "label": "Título da seção", "name": "l40_inst_title", "type": "text", "default_value": "#LILACS40 anos! Ações de celebração do aniversário" },
+              {
+                "key": "field_l40_inst_paragraphs",
+                "label": "Parágrafos",
+                "name": "l40_inst_paragraphs",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Adicionar parágrafo",
+                "sub_fields": [
+                  { "key": "field_l40_inst_text", "label": "Texto", "name": "text", "type": "wysiwyg", "tabs": "all", "toolbar": "full", "media_upload": 0 }
+                ]
+              }
+            ]
+          },
+
+          "layout_l40_callout": {
+            "key": "layout_l40_callout",
+            "name": "l40_callout",
+            "label": "── CALLOUT (PARTICIPE)",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_callout_badge",      "label": "Badge",           "name": "l40_callout_badge",      "type": "text", "default_value": "Participe" },
+              { "key": "field_l40_callout_title",      "label": "Título",          "name": "l40_callout_title",      "type": "text", "default_value": "Você faz parte da nossa história" },
+              { "key": "field_l40_callout_text",       "label": "Texto",           "name": "l40_callout_text",       "type": "textarea", "rows": 3 },
+              { "key": "field_l40_callout_btn1_label", "label": "Botão 1 – Texto", "name": "l40_callout_btn1_label", "type": "text", "default_value": "Enviar depoimento" },
+              { "key": "field_l40_callout_btn1_url",   "label": "Botão 1 – Link",  "name": "l40_callout_btn1_url",   "type": "url",  "default_value": "#depoimentos" },
+              { "key": "field_l40_callout_btn2_label", "label": "Botão 2 – Texto", "name": "l40_callout_btn2_label", "type": "text", "default_value": "Ver como participar" },
+              { "key": "field_l40_callout_btn2_url",   "label": "Botão 2 – Link",  "name": "l40_callout_btn2_url",   "type": "url",  "default_value": "#acoes" }
+            ]
+          },
+
+          "layout_l40_galeria": {
+            "key": "layout_l40_galeria",
+            "name": "l40_galeria",
+            "label": "── GALERIA DE FOTOS",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_gallery_title",     "label": "Título",          "name": "l40_gallery_title",     "type": "text",     "default_value": "Galeria de fotos" },
+              { "key": "field_l40_gallery_subtitle",  "label": "Subtítulo",       "name": "l40_gallery_subtitle",  "type": "textarea", "rows": 2, "default_value": "Registros dos encontros e ações comemorativas dos 40 anos da LILACS." },
+              {
+                "key": "field_l40_gallery_items",
+                "label": "Fotos do slider",
+                "name": "l40_gallery_items",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Adicionar foto",
+                "sub_fields": [
+                  { "key": "field_l40_gal_image", "label": "Imagem",   "name": "image", "type": "image", "return_format": "url", "preview_size": "medium" },
+                  { "key": "field_l40_gal_link",  "label": "Link",     "name": "link",  "type": "url" },
+                  { "key": "field_l40_gal_alt",   "label": "Alt text", "name": "alt",   "type": "text" }
+                ]
+              },
+              { "key": "field_l40_gallery_cta_label", "label": "Botão CTA – Texto", "name": "l40_gallery_cta_label", "type": "text", "default_value": "Ver agenda de eventos" },
+              { "key": "field_l40_gallery_cta_url",   "label": "Botão CTA – Link",  "name": "l40_gallery_cta_url",   "type": "url",  "default_value": "#agenda" }
+            ]
+          },
+
+          "layout_l40_agenda": {
+            "key": "layout_l40_agenda",
+            "name": "l40_agenda",
+            "label": "── AGENDA DE EVENTOS",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_agenda_title", "label": "Título da agenda", "name": "l40_agenda_title", "type": "text", "default_value": "Agenda de eventos" },
+              {
+                "key": "field_l40_events",
+                "label": "Eventos",
+                "name": "l40_events",
+                "type": "repeater",
+                "layout": "block",
+                "button_label": "Adicionar evento",
+                "sub_fields": [
+                  { "key": "field_l40_ev_image",  "label": "Imagem do evento",     "name": "image",      "type": "image",  "return_format": "url", "preview_size": "medium" },
+                  { "key": "field_l40_ev_type",   "label": "Tipo",                 "name": "type",       "type": "select", "choices": { "presencial": "Presencial", "virtual": "Virtual" }, "default_value": "presencial", "return_format": "value" },
+                  { "key": "field_l40_ev_title",  "label": "Título do evento",     "name": "title",      "type": "text" },
+                  { "key": "field_l40_ev_date",   "label": "Data (texto livre)",   "name": "date_text",  "type": "text", "instructions": "Ex: 2 de novembro de 2025" },
+                  { "key": "field_l40_ev_time",   "label": "Horário",              "name": "time_text",  "type": "text", "instructions": "Ex: 14h às 17h" },
+                  { "key": "field_l40_ev_place",  "label": "Local / Formato",      "name": "place_text", "type": "text" },
+                  { "key": "field_l40_ev_desc",   "label": "Descrição (wysiwyg)",  "name": "descricao",  "type": "wysiwyg", "tabs": "all", "toolbar": "basic", "media_upload": 0 },
+                  { "key": "field_l40_ev_btn_l",  "label": "Botão – Texto",        "name": "btn_label",  "type": "text" },
+                  { "key": "field_l40_ev_btn_u",  "label": "Botão – Link",         "name": "btn_url",    "type": "url" }
+                ]
+              }
+            ]
+          },
+
+          "layout_l40_depoimentos": {
+            "key": "layout_l40_depoimentos",
+            "name": "l40_depoimentos",
+            "label": "── DEPOIMENTOS",
+            "display": "block",
+            "min": "",
+            "max": "",
+            "sub_fields": [
+              { "key": "field_l40_depo_title", "label": "Título",       "name": "l40_depo_title", "type": "text",     "default_value": "Depoimentos sobre a LILACS" },
+              { "key": "field_l40_depo_intro", "label": "Texto intro",  "name": "l40_depo_intro", "type": "textarea", "rows": 3 },
+              {
+                "key": "field_l40_depoimentos",
+                "label": "Depoimentos",
+                "name": "depoimentos",
+                "type": "repeater",
+                "layout": "row",
+                "button_label": "Adicionar depoimento",
+                "sub_fields": [
+                  { "key": "field_l40_depo_nome",  "label": "Nome",       "name": "nome_depoimento",  "type": "text" },
+                  { "key": "field_l40_depo_foto",  "label": "Foto",       "name": "foto_depoimento",  "type": "image", "return_format": "url", "preview_size": "thumbnail" },
+                  { "key": "field_l40_depo_texto", "label": "Depoimento", "name": "texto_depoimento", "type": "textarea", "rows": 4 }
+                ]
+              }
+            ]
+          }
+
+        }
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "page_template",
+          "operator": "==",
+          "value": "page-lilacs-40anos.php"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Campos da página comemorativa LILACS 40 Anos",
+    "show_in_rest": 0
+  }
+]

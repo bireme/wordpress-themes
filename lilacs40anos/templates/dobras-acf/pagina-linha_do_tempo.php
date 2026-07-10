@@ -30,40 +30,44 @@ if ( ! function_exists('lilacs_esc_url') ) {
  * Converte "d/m/Y" -> "Y-m-d" para datetime do <time>.
  * Se falhar, retorna string vazia.
  */
-function lilacs_date_dmy_to_ymd($dmy){
-  $dmy = trim((string)$dmy);
-  if ($dmy === '') return '';
-  $dt = DateTime::createFromFormat('d/m/Y', $dmy);
-  if (!$dt) return '';
-  return $dt->format('Y-m-d');
+if ( ! function_exists( 'lilacs_date_dmy_to_ymd' ) ) {
+  function lilacs_date_dmy_to_ymd($dmy){
+    $dmy = trim((string)$dmy);
+    if ($dmy === '') return '';
+    $dt = DateTime::createFromFormat('d/m/Y', $dmy);
+    if (!$dt) return '';
+    return $dt->format('Y-m-d');
+  }
 }
 
 /**
  * Detecta e retorna embed seguro para YouTube/Vimeo (quando for link).
  * Se não for vídeo, retorna ''.
  */
-function lilacs_timeline_get_video_iframe_src($url){
-  $url = trim((string)$url);
-  if ($url === '') return '';
+if ( ! function_exists( 'lilacs_timeline_get_video_iframe_src' ) ) {
+  function lilacs_timeline_get_video_iframe_src($url){
+    $url = trim((string)$url);
+    if ($url === '') return '';
 
-  // YouTube
-  if (preg_match('~(youtube\.com/watch\?v=|youtu\.be/)([A-Za-z0-9_-]{6,})~', $url, $m)) {
-    $id = $m[2];
-    return 'https://www.youtube.com/embed/' . rawurlencode($id);
+    // YouTube
+    if (preg_match('~(youtube\.com/watch\?v=|youtu\.be/)([A-Za-z0-9_-]{6,})~', $url, $m)) {
+      $id = $m[2];
+      return 'https://www.youtube.com/embed/' . rawurlencode($id);
+    }
+
+    // Vimeo
+    if (preg_match('~vimeo\.com/(\d+)~', $url, $m)) {
+      $id = $m[1];
+      return 'https://player.vimeo.com/video/' . rawurlencode($id);
+    }
+
+    // Caso já seja embed do YouTube/Vimeo (bem comum)
+    if (strpos($url, 'youtube.com/embed/') !== false || strpos($url, 'player.vimeo.com/video/') !== false) {
+      return $url;
+    }
+
+    return '';
   }
-
-  // Vimeo
-  if (preg_match('~vimeo\.com/(\d+)~', $url, $m)) {
-    $id = $m[1];
-    return 'https://player.vimeo.com/video/' . rawurlencode($id);
-  }
-
-  // Caso já seja embed do YouTube/Vimeo (bem comum)
-  if (strpos($url, 'youtube.com/embed/') !== false || strpos($url, 'player.vimeo.com/video/') !== false) {
-    return $url;
-  }
-
-  return '';
 }
 
 /**
@@ -74,29 +78,28 @@ function lilacs_timeline_get_video_iframe_src($url){
  *
  * Ajuste aqui caso você já tenha campos específicos para mídia no seu grupo ACF.
  */
-function lilacs_timeline_get_media_candidate(){
-  // tente campo mais comum (se existir)
-  $candidate = '';
+if ( ! function_exists( 'lilacs_timeline_get_media_candidate' ) ) {
+  function lilacs_timeline_get_media_candidate(){
+    $candidate = '';
 
-  if (function_exists('get_sub_field')) {
-    // Se você criar no ACF um campo "midia" (image ou url), já funciona.
-    $midia = get_sub_field('midia');
-    if (is_array($midia) && !empty($midia['url'])) $candidate = $midia['url'];
-    if (!$candidate && is_string($midia)) $candidate = $midia;
+    if (function_exists('get_sub_field')) {
+      $midia = get_sub_field('midia');
+      if (is_array($midia) && !empty($midia['url'])) $candidate = $midia['url'];
+      if (!$candidate && is_string($midia)) $candidate = $midia;
+
+      if (!$candidate) {
+        $midia_url = get_sub_field('midia_url');
+        if (is_string($midia_url) && $midia_url !== '') $candidate = $midia_url;
+      }
+    }
 
     if (!$candidate) {
-      $midia_url = get_sub_field('midia_url');
-      if (is_string($midia_url) && $midia_url !== '') $candidate = $midia_url;
+      $maybe = function_exists('get_sub_field') ? get_sub_field('link_saiba_mais_opcional') : '';
+      if (lilacs_timeline_get_video_iframe_src($maybe)) $candidate = $maybe;
     }
-  }
 
-  if (!$candidate) {
-    // fallback: se o "saiba mais" for um vídeo do youtube/vimeo, renderiza como vídeo
-    $maybe = function_exists('get_sub_field') ? get_sub_field('link_saiba_mais_opcional') : '';
-    if (lilacs_timeline_get_video_iframe_src($maybe)) $candidate = $maybe;
+    return $candidate;
   }
-
-  return $candidate;
 }
 
 $marcos = function_exists('get_sub_field') ? get_sub_field('marcos') : [];

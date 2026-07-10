@@ -15,9 +15,10 @@ function bvsPeriodicosInit(){
     const PER_PAGE     = 50;
 
     // ===== i18n (vem do PHP) =====
-    const BVS_I18N           = cfg.i18n;
+    const BVS_I18N            = cfg.i18n;
     const BVS_COUNTRY_LABELS  = cfg.country_labels;
     const BVS_THEMATIC_LABELS = cfg.thematic_labels;
+    const BVS_THEMATIC_LOOKUP = cfg.thematic_lookup || {};
 
     // idioma de interface (pt-br → pt, es → es, en → en)
     const UI_LANG =
@@ -43,20 +44,39 @@ function bvsPeriodicosInit(){
       if (sideH3) sideH3.textContent = T.cluster_country;
       const areaSpan = document.querySelector('#bvs-assunto-toggle > span:first-child');
       if (areaSpan) areaSpan.textContent = T.cluster_area;
+
+      const updatedLabel = document.getElementById('bvs-updated-label');
+      if (updatedLabel) updatedLabel.textContent = T.last_updated;
+      const searchInput = document.getElementById('bvs-q');
+      if (searchInput) searchInput.placeholder = T.search_placeholder;
+      const totalLabel = document.getElementById('bvs-total-label');
+      if (totalLabel) totalLabel.textContent = T.total_general;
+    }
+
+    function normalizeStr(s) {
+      return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
     }
 
     function translateCountry(raw) {
       const map = BVS_COUNTRY_LABELS;
+      const normRaw = normalizeStr(raw);
       for (const key of Object.keys(map)) {
-        if (key.toLowerCase() === raw.toLowerCase()) return map[key][UI_LANG] || raw;
+        if (normalizeStr(key) === normRaw) return map[key][UI_LANG] || raw;
       }
       return raw;
     }
 
     function translateThematic(key) {
+      // Tenta primeiro o lookup pré-computado pelo PHP (maiúsculo, sem acento)
+      const upperKey = String(key).toUpperCase().trim();
+      if (BVS_THEMATIC_LOOKUP[upperKey]) {
+        return BVS_THEMATIC_LOOKUP[upperKey][UI_LANG] || key;
+      }
+      // Fallback: comparação normalizada (NFD)
       const map = BVS_THEMATIC_LABELS;
+      const normKey = normalizeStr(key);
       for (const k of Object.keys(map)) {
-        if (k.toLowerCase() === key.toLowerCase()) return map[k][UI_LANG] || key;
+        if (normalizeStr(k) === normKey) return map[k][UI_LANG] || key;
       }
       return key;
     }
@@ -295,6 +315,7 @@ function bvsPeriodicosInit(){
       $assuntoToggle.addEventListener("click", ()=>{
         S.assuntoOpen = !S.assuntoOpen;
         renderAssunto();
+        fixLabels();
       });
     }
 
@@ -347,9 +368,18 @@ function bvsPeriodicosInit(){
 
         const displayTitle = S.showFullTitle ? d.title_full : d.title_short;
 
-        const primaryLink = (issnVal && issnVal !== "—")
-          ? `https://portal.revistas.bvs.br/${PORTAL_LANG}/journals/?lang=${PORTAL_LANG}&q=${encodeURIComponent(issnVal)}`
+        // Título abreviado → pesquisa BVS com prefixo ta:"..."
+        // Codifica a query inteira e converte %20 → + (padrão form-encoded do BVS)
+        const searchLink = d.title_short
+          ? `https://pesquisa.bvsalud.org/portal/?home_url=http%3A%2F%2Flilacs.bvsalud.org&lang=${PORTAL_LANG}&q=${encodeURIComponent('ta:"' + d.title_short + '"').replace(/%20/g, '+')}`
           : null;
+
+        // Título completo → site próprio da revista (primeiro link da API)
+        const homeLink = (Array.isArray(d.link) && d.link.length)
+          ? d.link[0]
+          : (typeof d.link === 'string' && d.link ? d.link : null);
+
+        const titleLink = S.showFullTitle ? homeLink : searchLink;
 
         const tr = document.createElement("tr");
         tr.setAttribute("data-row-id", d.id);
@@ -357,8 +387,8 @@ function bvsPeriodicosInit(){
   <td class="bvs-col-idx">${start+idx+1}</td>
 
   <td class="bvs-col-title">
-    ${primaryLink
-      ? `<a href="${primaryLink}" target="_blank" rel="noopener">${displayTitle}</a>`
+    ${titleLink
+      ? `<a href="${titleLink}" target="_blank" rel="noopener">${displayTitle}</a>`
       : displayTitle}
   </td>
 
@@ -388,9 +418,62 @@ function bvsPeriodicosInit(){
       $pager.innerHTML = "";
     }
 
+    // Mapa direto: chave = texto que a API/DOM pode mostrar (qualquer capitalização),
+    // valor = texto correto por idioma.
+    const LABEL_FIX = {
+      pt: {
+        'CIENCIAS AGRARIAS'    : 'Ciências Agrárias',
+        'CIENCIAS BIOLOGICAS'  : 'Ciências Biológicas',
+        'CIENCIAS DA SAUDE'    : 'Ciências da Saúde',
+        'CIENCIAS HUMANAS'     : 'Ciências Humanas',
+        'CIENCIAS SOCIAIS'     : 'Ciências Sociais',
+        'ENFERMAGEM'           : 'Enfermagem',
+        'PSICOLOGIA'           : 'Psicologia',
+        'SAUDE PUBLICA'        : 'Saúde Pública',
+        'TMGL'                 : 'TMGL',
+        'TODOS'                : 'Todos',
+      },
+      es: {
+        'CIENCIAS AGRARIAS'    : 'Ciencias Agrarias',
+        'CIENCIAS BIOLOGICAS'  : 'Ciencias Biológicas',
+        'CIENCIAS DA SAUDE'    : 'Ciencias de la Salud',
+        'CIENCIAS HUMANAS'     : 'Ciencias Humanas',
+        'CIENCIAS SOCIAIS'     : 'Ciencias Sociales',
+        'ENFERMAGEM'           : 'Enfermería',
+        'PSICOLOGIA'           : 'Psicología',
+        'SAUDE PUBLICA'        : 'Salud Pública',
+        'TMGL'                 : 'TMGL',
+        'TODOS'                : 'Todos',
+      },
+      en: {
+        'CIENCIAS AGRARIAS'    : 'Agricultural Sciences',
+        'CIENCIAS BIOLOGICAS'  : 'Biological Sciences',
+        'CIENCIAS DA SAUDE'    : 'Health Sciences',
+        'CIENCIAS HUMANAS'     : 'Humanities',
+        'CIENCIAS SOCIAIS'     : 'Social Sciences',
+        'ENFERMAGEM'           : 'Nursing',
+        'PSICOLOGIA'           : 'Psychology',
+        'SAUDE PUBLICA'        : 'Public Health',
+        'TMGL'                 : 'TMGL',
+        'TODOS'                : 'All',
+      },
+    };
+
+    function fixLabels() {
+      const fixes = LABEL_FIX[UI_LANG] || LABEL_FIX['pt'];
+      document.querySelectorAll('#bvs-thematics .name, #bvs-countries .name').forEach(el => {
+        const key = el.textContent.toUpperCase().trim()
+          .replace(/[ÁÀÂÃÄ]/g,'A').replace(/[ÉÈÊË]/g,'E')
+          .replace(/[ÍÌÎÏ]/g,'I').replace(/[ÓÒÔÕÖ]/g,'O')
+          .replace(/[ÚÙÛÜ]/g,'U').replace(/Ç/g,'C').replace(/Ñ/g,'N');
+        if (fixes[key]) el.textContent = fixes[key];
+      });
+    }
+
     function renderAll(){
       renderCountries();
       renderAssunto();
+      fixLabels();
       $totalChip.classList.toggle("is-active", !S.countryRaw && !S.thematicSel);
       renderTable();
     }
@@ -429,7 +512,7 @@ function bvsPeriodicosInit(){
 
       S.countriesFacet = facetCountries
         .map(([raw,count])=>({ raw, count, label: translateCountry(labelFromMulti(raw)) }))
-        .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
+        .sort((a,b)=> a.label.localeCompare(b.label, UI_LANG, {sensitivity:'base'}));
 
       S.docs = allDocs.map(d=>{
         const fullTitle = d.title || "—";
@@ -472,7 +555,7 @@ function bvsPeriodicosInit(){
       S.docs.forEach(d => (d.thematic_area||[]).forEach(t => m.set(t, (m.get(t)||0)+1)));
       S.thematicFacet = Array.from(m.entries())
         .map(([key,count])=>({key, count, label: translateThematic(key)}))
-        .sort((a,b)=> a.label.localeCompare(b.label,'pt',{sensitivity:'base'}));
+        .sort((a,b)=> a.label.localeCompare(b.label, UI_LANG, {sensitivity:'base'}));
 
       const maxDate = S.docs.reduce((acc,d)=> Math.max(acc, Number(d.updated_date||0)), 0);
       $updated.textContent = maxDate ? fmtDate(String(maxDate)) : "—";

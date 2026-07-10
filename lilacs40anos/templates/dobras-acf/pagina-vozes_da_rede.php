@@ -16,6 +16,8 @@ $slides_por_vez       = (int) get_sub_field( 'slides_por_vez' );
 $btn_ativo            = get_sub_field( 'habilitar_botao_ver_todos' );
 $btn_texto            = get_sub_field( 'texto_botao_ver_todos' ) ?: __( 'Ver todos', 'rede-bvs' );
 $btn_link             = get_sub_field( 'link_botao_ver_todos' );
+$rotacao_automatica   = get_sub_field( 'rotacao_automatica' ); // true/false (ACF true/false ou select sim/nao)
+$auto = ( $rotacao_automatica === true || $rotacao_automatica === '1' || $rotacao_automatica === 'sim' || $rotacao_automatica === 'yes' ) ? 1 : 0;
 if ( $slides_por_vez < 1 || $slides_por_vez > 3 ) {
     $slides_por_vez = 2; // padrão
 }
@@ -207,7 +209,9 @@ $total = count( $depoimentos );
             </h2>
         </div>
 
-        <div class="vozes-rede-slider" data-total="<?php echo esc_attr( $total ); ?>">
+        <div class="vozes-rede-slider"
+             data-total="<?php echo esc_attr( $total ); ?>"
+             data-auto="<?php echo esc_attr( $auto ); ?>">
             <button type="button"
                     class="vozes-rede-nav prev"
                     aria-label="<?php esc_attr_e( 'Depoimento anterior', 'rede-bvs' ); ?>">
@@ -281,19 +285,23 @@ $total = count( $depoimentos );
 
 <script>
 (function() {
-    const root  = document.getElementById('<?php echo esc_js( $uid ); ?>');
+    const root   = document.getElementById('<?php echo esc_js( $uid ); ?>');
     if (!root) return;
 
-    const track = root.querySelector('.vozes-rede-track');
-    const cards = track ? track.children : [];
-    const prev  = root.querySelector('.vozes-rede-nav.prev');
-    const next  = root.querySelector('.vozes-rede-nav.next');
-    const total = cards.length;
+    const slider = root.querySelector('.vozes-rede-slider');
+    const track  = root.querySelector('.vozes-rede-track');
+    const cards  = track ? track.children : [];
+    const prev   = root.querySelector('.vozes-rede-nav.prev');
+    const next   = root.querySelector('.vozes-rede-nav.next');
+    const total  = cards.length;
+    const autoPlay = slider && slider.dataset.auto === '1';
+    const AUTO_INTERVAL = 5000; // ms entre slides
 
     if (!track || !total) return;
 
-    let perView = 1;
-    let index   = 0;
+    let perView  = 1;
+    let index    = 0;
+    let autoTimer = null;
 
     const perViewDesktop = <?php echo esc_js( $slides_por_vez ); ?>;
 
@@ -321,26 +329,46 @@ $total = count( $depoimentos );
         }
     }
 
+    function goNext() {
+        const maxIndex = Math.max(0, total - perView);
+        index = index >= maxIndex ? 0 : index + 1; // volta ao início no fim
+        updateSlider();
+    }
+
+    function stopAuto() {
+        if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    function startAuto() {
+        if (!autoPlay) return;
+        stopAuto();
+        autoTimer = setInterval(goNext, AUTO_INTERVAL);
+    }
+
     if (prev) {
         prev.addEventListener('click', function() {
-            if (index > 0) {
-                index--;
-                updateSlider();
-            }
+            stopAuto();
+            if (index > 0) { index--; updateSlider(); }
+            startAuto(); // retoma após interação
         });
     }
 
     if (next) {
         next.addEventListener('click', function() {
-            const maxIndex = Math.max(0, total - perView);
-            if (index < maxIndex) {
-                index++;
-                updateSlider();
-            }
+            stopAuto();
+            goNext();
+            startAuto(); // retoma após interação
         });
     }
 
     window.addEventListener('resize', updateSlider);
     updateSlider();
+
+    // Pausa ao passar o mouse
+    if (autoPlay) {
+        root.addEventListener('mouseenter', stopAuto);
+        root.addEventListener('mouseleave', startAuto);
+        startAuto();
+    }
 })();
 </script>
