@@ -35,7 +35,7 @@ add_action('admin_menu', function () {
                 update_option('memorial_aspas_slider_ativo', $aspas_ativo);
                 echo '<div class="updated"><p>Configurações salvas com sucesso.</p></div>';
             }
-            $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan'));
+            $current = esc_attr(get_option('memorial_tainacan_base_url', 'https://memorialdigitalcovid19.org.br/tainacan'));
             $current_bvs = esc_attr(get_option('memorial_bvs_base_url', 'https://pesquisa.bvsalud.org/memorialcovid'));
             $aspas_ativo = get_option('memorial_aspas_slider_ativo', '1');
             echo '<div class="wrap"><h1>Configuração do Memorial</h1>';
@@ -50,7 +50,7 @@ add_action('admin_menu', function () {
             echo '<td><label><input type="checkbox" name="memorial_aspas_slider_ativo" value="1"' . checked($aspas_ativo, '1', false) . '> Ativar bloco Aspas Slider no front-end</label>';
             echo '<p class="description">Desmarque para desligar a exibição do bloco Aspas Slider em todo o site.</p></td></tr>';
             echo '</table>';
-            echo '<p class="description">Exemplo Tainacan: https://teste.memorialdigitalcovid19.org.br/tainacan (sem barra no final)</p>';
+            echo '<p class="description">Exemplo Tainacan: https://memorialdigitalcovid19.org.br/tainacan (sem barra no final)</p>';
             echo '<p class="description">Exemplo BVS: https://pesquisa.bvsalud.org/memorialcovid (sem barra no final)</p>';
             echo '<p><input type="submit" class="button-primary" value="Salvar"></p>';
             echo '</form></div>';
@@ -60,7 +60,7 @@ add_action('admin_menu', function () {
 
 if (!defined('MEMORIAL_TAINACAN_BASE_URL')) {
     // SEM barra no final
-    $base_url = get_option('memorial_tainacan_base_url', 'https://teste.memorialdigitalcovid19.org.br/tainacan');
+    $base_url = get_option('memorial_tainacan_base_url', 'https://memorialdigitalcovid19.org.br/tainacan');
     define('MEMORIAL_TAINACAN_BASE_URL', rtrim($base_url, '/'));
 }
 

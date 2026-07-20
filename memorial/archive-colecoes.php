@@ -49,7 +49,7 @@ $query = new WP_Query($args);
     <header class="mb-3 mt-5">
         <h1 class="title"><?php pll_e('Coleções'); ?></h1>
         
-        <form id="buscaForm" class="row form-colecoes" method="get" action="https://teste.memorialdigitalcovid19.org.br/tainacan/colecoes">
+        <form id="buscaForm" class="row form-colecoes" method="get" action="https://memorialdigitalcovid19.org.br/tainacan/colecoes">
             <div class="col-md-10">
                 <input type="text" class="form-control" id="fieldSearch" name="s" placeholder="">
             </div>
