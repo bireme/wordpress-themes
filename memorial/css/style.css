@@ -816,9 +816,21 @@ blockquote footer{
 }
 /* responsivo */
 @media (max-width: 1024px) {
+	#brand{
+		text-align: center;
+	}
 	#logo{
 		width: 350px;
 		margin: auto;
+	}
+	#nav{
+		margin: 10px;
+		text-align: center;
+	}
+	#lang{
+		float: none;
+		text-align: center;
+		position: static;
 	}
 	#home-section-hero .row {
 		height: auto;
@@ -833,6 +845,9 @@ blockquote footer{
 	}
 	.btn{
 		padding: auto!imporantx;
+	}
+	#mega-menu-wrap-main-nav #mega-menu-main-nav{
+		text-align: center;
 	}
 }
 @media (max-width: 991px) {

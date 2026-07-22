@@ -15,13 +15,13 @@
 	<header id="hero">
 		<div class="container">
 			<div class="row" id="header-home">
-				<div class="col-md-12 col-lg-3">
+				<div class="col-lg-3" id="brand">
 					<a href="<?php bloginfo('siteurl'); ?>/<?php echo $lang; ?>" class="navbar-brand">
 						<a href="<?php bloginfo('siteurl'); ?><?php echo ($lang == 'pt') ? '' : '/' . $lang; ?>" class="navbar-brand">
 						<img src="<?php bloginfo('template_directory'); ?>/img/brand-<?php echo $lang; ?>.png" alt="" id="logo" class="img-fluid">
 					</a>
 				</div>
-				<div class="col-md-12 col-lg-9" style="position: relative;">
+				<div class="col-lg-9" style="position: relative;">
 					<?php get_template_part('includes/nav-lang') ?>
 					<?php get_template_part('includes/nav') ?>
 				</div>
