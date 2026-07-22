@@ -64,7 +64,7 @@ if (count($hero_posts) === 3) :
             <img src="<?php echo esc_url($small1['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($small1['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
               <p class="eyebrow mb-1"><?php echo esc_html($small1['title']); ?></p>
-              <h6 class="mb-0 d-none">
+              <h6 class="mb-0 d-lg-none">
                 <?php echo esc_html($trim_text($small1['excerpt'], 18)); ?>
               </h6>
             </div>
@@ -73,7 +73,7 @@ if (count($hero_posts) === 3) :
             <img src="<?php echo esc_url($small2['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($small2['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
               <p class="eyebrow mb-1"><?php echo esc_html($small2['title']); ?></p>
-              <h6 class="mb-0 d-none">
+              <h6 class="mb-0 d-lg-none">
                 <?php echo esc_html($trim_text($small2['excerpt'], 18)); ?>
               </h6>
             </div>

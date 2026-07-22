@@ -724,7 +724,6 @@ blockquote footer{
 	align-items: center;
 	justify-content: center;
 	font-size: 18px;
-	background: red;
 }
 .btn-folder{
 	color: #fff;
@@ -817,8 +816,23 @@ blockquote footer{
 }
 /* responsivo */
 @media (max-width: 1024px) {
+	#logo{
+		width: 350px;
+		margin: auto;
+	}
 	#home-section-hero .row {
 		height: auto;
+	}
+	.btn-colecoes{
+		font-size: 14px;
+		font-size: 14px;
+		padding: 4px!important;
+	}
+	.btn-folder{
+		margin-right: 10px;
+	}
+	.btn{
+		padding: auto!imporantx;
 	}
 }
 @media (max-width: 991px) {
