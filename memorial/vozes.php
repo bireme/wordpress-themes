@@ -1,6 +1,6 @@
 <?php /* Template Name: Vozes da Pandemia */ ?>
 <?php get_header('interno'); ?>
-
+<?php $lang = pll_current_language(); ?>
 <?php 
 $query = new WP_Query([
 	'post_type'           => 'aspas',
@@ -12,7 +12,11 @@ $query = new WP_Query([
 <main id="main_container" class="mb-5">
 	<div class="container">
 		<div class="breadcrumb mt-3">
-			<?php if ( function_exists('bcn_display') ) { bcn_display(); } ?>
+			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
+				<?php if(function_exists('bcn_display'))
+				{
+					bcn_display();
+				}?>
 		</div>
 		<h1 class="title"><?php the_title(); ?></h1>
 		<div class="mt-5 mb-5">

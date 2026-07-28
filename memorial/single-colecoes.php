@@ -5,7 +5,7 @@ get_header("interno");
 if (have_posts()) :
 	while (have_posts()) : the_post();
 		$post_id = get_the_ID();
-		// Metabox
+// Metabox
 		$tainacan_url  = get_post_meta($post_id, '_memorial_tainacan_collection_url', true);
 		$tainacan_slug = get_post_meta($post_id, '_memorial_tainacan_collection_slug', true);
 		$perpage       = (int) get_post_meta($post_id, '_memorial_itens_por_pagina', true);
@@ -13,14 +13,14 @@ if (have_posts()) :
 		if ($perpage <= 0) {
 			$perpage = 6;
 		}
-		// Banner
+// Banner
 		$banner_url = get_the_post_thumbnail_url($post_id, 'full');
 
-		// Página (opcional via querystring)
+// Página (opcional via querystring)
 		$page = isset($_GET['pg']) ? (int) $_GET['pg'] : 1;
 		if ($page < 1) { $page = 1; }
 
-		// Consumir itens via integração
+// Consumir itens via integração
 		$items = [];
 		$error = null;
 
@@ -36,10 +36,16 @@ if (have_posts()) :
 			}
 		}
 		?>
+		<?php $lang = pll_current_language(); ?>
+
 		<main id="main_container" class="container">
 
 			<div class="breadcrumb mt-3">
-				<?php if (function_exists('bcn_display')) { bcn_display(); } ?>
+				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
+				<?php if(function_exists('bcn_display'))
+				{
+					bcn_display();
+				}?>
 			</div>
 			<header class="mb-4">
 				<div class="row">

@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 
 get_header("interno");
 
+
 // Monta uma query custom para ordenar:
 $paged = (get_query_var('paged')) ? (int) get_query_var('paged') : 1;
 
@@ -32,7 +33,7 @@ $args = [
 $query = new WP_Query($args);
 
 ?>
-
+<?php $lang = pll_current_language(); ?>
 <main class="container">
     <div class="breadcrumb mt-3 ">
         <span property="itemListElement" typeof="ListItem" data-fontsize="16">
