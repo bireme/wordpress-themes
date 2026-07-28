@@ -1,10 +1,11 @@
 <?php get_header('interno'); ?>
 <main id="main_container" class="mb-5">
 	<div class="container">
-		<div class="breadcrumb mt-3 d-none">
-			<?php if (function_exists('bcn_display')) { bcn_display(); } ?>
+		<div class="breadcrumb mt-3">
+			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
+			&nbsp > <?php the_title(); ?>
 		</div>
-		<h1 class="title mt-3"><?php  the_title(); ?></h1>
+		<h1 class="title"><?php  the_title(); ?></h1>
 		<div class="float-start me-5 mb-4">
 			<?php
 			if ( has_post_thumbnail() ) { 
@@ -31,7 +32,7 @@ $query = new WP_Query([
 		
 		<h1 class="title"><?php pll_e('Vozes da Pandemia'); ?></h1>
 		<div class="mt-5 mb-5">
-				<?php the_content(); ?>
+			<?php the_content(); ?>
 		</div>
 		<div class="row g-4" id="colecoes">
 			<?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -41,30 +42,30 @@ $query = new WP_Query([
 				$url   = get_field('link_da_colecao');
 				?>
 				<div class="col-12 col-md-6 col-lg-4">
-                    <article class="card h-100 shadow-sm">
-                        <a href="<?php the_permalink(); ?>" class="card-img-top d-block">
-                            <?php the_post_thumbnail('medium_large', ['class' => 'img-fluid']); ?>
-                        </a>
-                        <div class="card-body d-flex flex-column text-center">
-                            <h2 class="h5 card-title">
-                                <a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
-                                    <?php the_title(); ?>
-                                    <hr>
-                                </a>
-                            </h2>
+					<article class="card h-100 shadow-sm">
+						<a href="<?php the_permalink(); ?>" class="card-img-top d-block">
+							<?php the_post_thumbnail('medium_large', ['class' => 'img-fluid']); ?>
+						</a>
+						<div class="card-body d-flex flex-column text-center">
+							<h2 class="h5 card-title">
+								<a href="<?php echo esc_url($url); ?>" class="text-decoration-none">
+									<?php the_title(); ?>
+									<hr>
+								</a>
+							</h2>
 
-                            <p class="card-text text-muted">
-                                <?php the_content(); ?>
-                                <?php echo esc_html($autor); ?>
-                            </p>
-                            <div class="mt-auto">
-                                <a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
-                                    Coleção:  <i><?php echo esc_html($colecao); ?></i>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+							<p class="card-text text-muted">
+								<?php the_content(); ?>
+								<?php echo esc_html($autor); ?>
+							</p>
+							<div class="mt-auto">
+								<a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
+									Coleção:  <i><?php echo esc_html($colecao); ?></i>
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>
 			<?php endwhile; ?>
 		</div>
 	</div>

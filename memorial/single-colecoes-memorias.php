@@ -42,16 +42,13 @@ if (have_posts()) :
 		<?php $lang = pll_current_language(); ?>
 		
 		<main id="main_container" class="container">
-			<div class="breadcrumb mt-3 d-none">
+			<div class="breadcrumb mt-3">
 				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
-				<?php if(function_exists('bcn_display'))
-				{
-					bcn_display();
-				}?>
+				&nbsp > <?php the_title(); ?>
 			</div>
-			<header class="mb-4  mt-3">
+			<header class="mb-4 mt-3">
 				<div class="row">
-					<h1 class="title"><?php the_title(); ?></h1>
+					<h1 class="title mt-3"><?php the_title(); ?></h1>
 					<div class="col-md-8">
 						<?php if (!empty($banner_url)) : ?>
 							<img

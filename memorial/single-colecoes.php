@@ -40,8 +40,9 @@ if (have_posts()) :
 
 		<main id="main_container" class="container">
 
-			<div class="breadcrumb mt-3 d-none">
-				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>	
+			<div class="breadcrumb mt-3">
+				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
+				&nbsp > <?php the_title(); ?>
 			</div>
 			<header class="mb-4">
 				<div class="row">
