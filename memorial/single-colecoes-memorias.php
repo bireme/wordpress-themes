@@ -49,7 +49,7 @@ if (have_posts()) :
 					bcn_display();
 				}?>
 			</div>
-			<header class="mb-4">
+			<header class="mb-4  mt-3">
 				<div class="row">
 					<h1 class="title"><?php the_title(); ?></h1>
 					<div class="col-md-8">
