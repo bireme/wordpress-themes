@@ -42,7 +42,7 @@ if (have_posts()) :
 		<?php $lang = pll_current_language(); ?>
 		
 		<main id="main_container" class="container">
-			<div class="breadcrumb mt-3">
+			<div class="breadcrumb mt-3 d-none">
 				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
 				<?php if(function_exists('bcn_display'))
 				{

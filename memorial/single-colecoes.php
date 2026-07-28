@@ -40,12 +40,8 @@ if (have_posts()) :
 
 		<main id="main_container" class="container">
 
-			<div class="breadcrumb mt-3">
-				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
-				<?php if(function_exists('bcn_display'))
-				{
-					bcn_display();
-				}?>
+			<div class="breadcrumb mt-3 d-none">
+				<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>	
 			</div>
 			<header class="mb-4">
 				<div class="row">
