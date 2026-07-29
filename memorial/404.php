@@ -18,7 +18,7 @@ $bg = $thumb ? $thumb : get_template_directory_uri() . '/img/header-memorial.jpg
 <main id="main_container" class="mb-5">
 	<div class="container">
 		<div class="breadcrumb mt-3">
-			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">HOME</a>
+			<a href="<?php echo get_option('siteurl'); ?>/<?php echo $lang=='pt'?'':$lang; ?>">Home</a>
 				<?php if(function_exists('bcn_display'))
 				{
 					bcn_display();
