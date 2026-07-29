@@ -12,9 +12,12 @@
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
-                "wrapper": { "width": "", "class": "", "id": "" },
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
                 "layouts": {
-
                     "layout_metod_banner_v1": {
                         "key": "layout_metod_banner_v1",
                         "name": "banner_metodologia",
@@ -25,64 +28,92 @@
                                 "key": "field_metod_banner_titulo",
                                 "label": "Título",
                                 "name": "titulo_banner",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": "Ex.: Metodologia LILACS",
                                 "prepend": "",
-                                "append": ""
+                                "append": "",
+                                "maxlength": ""
                             },
                             {
                                 "key": "field_metod_banner_desc",
                                 "label": "Descrição",
                                 "name": "descricao_banner",
+                                "aria-label": "",
                                 "type": "textarea",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": "Subtítulo ou descrição do banner",
-                                "new_lines": ""
+                                "new_lines": "",
+                                "maxlength": "",
+                                "rows": ""
                             },
                             {
                                 "key": "field_metod_banner_cor_desc",
                                 "label": "Cor da descrição",
                                 "name": "cor_descricao_banner",
+                                "aria-label": "",
                                 "type": "color_picker",
                                 "instructions": "Cor do texto da descrição do banner.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "#00205C",
                                 "enable_opacity": 0,
-                                "return_format": "string"
+                                "return_format": "string",
+                                "custom_palette_source": "",
+                                "palette_colors": "",
+                                "show_color_wheel": true
                             },
                             {
                                 "key": "field_metod_banner_img",
                                 "label": "Imagem de fundo",
                                 "name": "imagem_banner",
+                                "aria-label": "",
                                 "type": "image",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "min_width": "",
                                 "min_height": "",
                                 "max_width": "",
                                 "max_height": "",
-                                "preview_size": "medium"
+                                "preview_size": "medium",
+                                "min_size": 0,
+                                "max_size": 0,
+                                "mime_types": ""
                             }
                         ],
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_guia_v1": {
                         "key": "layout_metod_guia_v1",
                         "name": "guia_selecao",
@@ -93,100 +124,158 @@
                                 "key": "field_metod_guia_titulo",
                                 "label": "Título do Guia",
                                 "name": "guia_titulo",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Guia de seleção de documentos LILACS",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "maxlength": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_metod_guia_desc",
                                 "label": "Descrição do Guia",
                                 "name": "guia_descricao",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "6ª edição revisada e ampliada - janeiro de 2022",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "maxlength": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_metod_guia_btn_texto",
                                 "label": "Texto do botão (Guia)",
                                 "name": "guia_btn_texto",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Ver guia",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "maxlength": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_metod_guia_btn_link",
                                 "label": "Link do botão (Guia)",
                                 "name": "guia_btn_link",
+                                "aria-label": "",
                                 "type": "url",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
-                                "placeholder": "https://"
+                                "placeholder": "https:\/\/"
                             },
                             {
                                 "key": "field_metod_crit_titulo",
                                 "label": "Título dos Critérios",
                                 "name": "criterios_titulo",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Critérios para seleção e permanência de periódicos na coleção LILACS",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "maxlength": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_metod_crit_botoes",
                                 "label": "Botões dos Critérios",
                                 "name": "criterios_botoes",
+                                "aria-label": "",
                                 "type": "repeater",
                                 "instructions": "Adicione os botões de critérios (ex.: Âmbito regional, Coleção Brasil)",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "",
                                 "min": 0,
                                 "max": 5,
                                 "layout": "table",
                                 "button_label": "Adicionar botão",
+                                "rows_per_page": 20,
                                 "sub_fields": [
                                     {
                                         "key": "field_metod_crit_btn_texto",
                                         "label": "Texto",
                                         "name": "texto",
+                                        "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "Ex.: Âmbito regional (2020)"
+                                        "placeholder": "Ex.: Âmbito regional (2020)",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_crit_botoes"
                                     },
                                     {
                                         "key": "field_metod_crit_btn_link",
                                         "label": "Link",
                                         "name": "link",
+                                        "aria-label": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "https://"
+                                        "placeholder": "https:\/\/",
+                                        "parent_repeater": "field_metod_crit_botoes"
                                     }
                                 ]
                             }
@@ -194,7 +283,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_guiasfaq_v1": {
                         "key": "layout_metod_guiasfaq_v1",
                         "name": "guias_faq",
@@ -205,66 +293,108 @@
                                 "key": "field_metod_guias_rep",
                                 "label": "Guias (botões da esquerda)",
                                 "name": "guias",
+                                "aria-label": "",
                                 "type": "repeater",
                                 "instructions": "Cada item vira um botão. Marque 'Largura total' para que o botão ocupe a linha inteira.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "60", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "60",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_guia_rep_label",
                                 "min": 1,
                                 "max": 10,
                                 "layout": "block",
                                 "button_label": "Adicionar guia",
+                                "rows_per_page": 20,
                                 "sub_fields": [
                                     {
                                         "key": "field_metod_guia_rep_label",
                                         "label": "Texto do botão",
                                         "name": "label",
+                                        "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "Ex.: Manual de gestão"
+                                        "placeholder": "Ex.: Manual de gestão",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_guias_rep"
                                     },
                                     {
                                         "key": "field_metod_guia_rep_link",
                                         "label": "Link",
                                         "name": "link",
+                                        "aria-label": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "https://"
+                                        "placeholder": "https:\/\/",
+                                        "parent_repeater": "field_metod_guias_rep"
                                     },
                                     {
                                         "key": "field_metod_guia_rep_icon",
                                         "label": "Ícone (imagem)",
                                         "name": "icone",
+                                        "aria-label": "",
                                         "type": "image",
-                                        "instructions": "PNG/SVG ~64px",
+                                        "instructions": "PNG\/SVG ~64px",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
-                                        "preview_size": "thumbnail"
+                                        "preview_size": "thumbnail",
+                                        "min_width": 0,
+                                        "min_height": 0,
+                                        "min_size": 0,
+                                        "max_width": 0,
+                                        "max_height": 0,
+                                        "max_size": 0,
+                                        "mime_types": "",
+                                        "parent_repeater": "field_metod_guias_rep"
                                     },
                                     {
                                         "key": "field_metod_guia_rep_grande",
                                         "label": "Largura total (ocupa linha inteira)",
                                         "name": "grande",
+                                        "aria-label": "",
                                         "type": "true_false",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "message": "",
                                         "default_value": 0,
-                                        "ui": 1
+                                        "ui": 1,
+                                        "ui_on_text": "",
+                                        "ui_off_text": "",
+                                        "parent_repeater": "field_metod_guias_rep"
                                     }
                                 ]
                             },
@@ -272,66 +402,103 @@
                                 "key": "field_metod_caixa_ferramentas",
                                 "label": "Caixa de ferramentas",
                                 "name": "caixa_ferramentas",
+                                "aria-label": "",
                                 "type": "repeater",
                                 "instructions": "Adicione uma ou mais ferramentas no painel azul da direita. Cada item tem título, texto e botão com link.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "40", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_ferramenta_titulo",
                                 "min": 0,
                                 "max": 10,
                                 "layout": "block",
                                 "button_label": "Adicionar ferramenta",
+                                "rows_per_page": 20,
                                 "sub_fields": [
                                     {
                                         "key": "field_metod_ferramenta_titulo",
                                         "label": "Título",
                                         "name": "titulo",
+                                        "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "Ex.: FI-Admin"
+                                        "placeholder": "Ex.: FI-Admin",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_caixa_ferramentas"
                                     },
                                     {
                                         "key": "field_metod_ferramenta_texto",
                                         "label": "Texto",
                                         "name": "texto",
+                                        "aria-label": "",
                                         "type": "textarea",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Descrição da ferramenta...",
                                         "new_lines": "wpautop",
-                                        "rows": 3
+                                        "maxlength": "",
+                                        "rows": 3,
+                                        "parent_repeater": "field_metod_caixa_ferramentas"
                                     },
                                     {
                                         "key": "field_metod_ferramenta_botao_texto",
                                         "label": "Texto do botão",
                                         "name": "botao_texto",
+                                        "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "Acessar",
-                                        "placeholder": "Ex.: Acessar"
+                                        "placeholder": "Ex.: Acessar",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_caixa_ferramentas"
                                     },
                                     {
                                         "key": "field_metod_ferramenta_botao_link",
                                         "label": "Link do botão",
                                         "name": "botao_link",
+                                        "aria-label": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "https://"
+                                        "placeholder": "https:\/\/",
+                                        "parent_repeater": "field_metod_caixa_ferramentas"
                                     }
                                 ]
                             }
@@ -339,7 +506,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_padroes_v1": {
                         "key": "layout_metod_padroes_v1",
                         "name": "padroes_internacionais",
@@ -350,65 +516,107 @@
                                 "key": "field_metod_padroes_titulo",
                                 "label": "Título da seção",
                                 "name": "titulo",
+                                "aria-label": "",
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Padrões internacionais que são a base da Metodologia LILACS",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "maxlength": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_metod_padroes_logos",
                                 "label": "Logos",
                                 "name": "logos",
+                                "aria-label": "",
                                 "type": "repeater",
                                 "instructions": "Adicione até 8 logos de padrões internacionais.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_padroes_logo_img",
                                 "min": 0,
                                 "max": 8,
                                 "layout": "table",
                                 "button_label": "Adicionar logo",
+                                "rows_per_page": 20,
                                 "sub_fields": [
                                     {
                                         "key": "field_metod_padroes_logo_img",
                                         "label": "Imagem",
                                         "name": "imagem",
+                                        "aria-label": "",
                                         "type": "image",
-                                        "instructions": "PNG/SVG, fundo transparente de preferência.",
+                                        "instructions": "PNG\/SVG, fundo transparente de preferência.",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
-                                        "preview_size": "thumbnail"
+                                        "preview_size": "thumbnail",
+                                        "min_width": 0,
+                                        "min_height": 0,
+                                        "min_size": 0,
+                                        "max_width": 0,
+                                        "max_height": 0,
+                                        "max_size": 0,
+                                        "mime_types": "",
+                                        "parent_repeater": "field_metod_padroes_logos"
                                     },
                                     {
                                         "key": "field_metod_padroes_logo_alt",
                                         "label": "Texto alternativo (alt)",
                                         "name": "alt",
+                                        "aria-label": "",
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "Ex.: DOI"
+                                        "placeholder": "Ex.: DOI",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_padroes_logos"
                                     },
                                     {
                                         "key": "field_metod_padroes_logo_link",
                                         "label": "Link (opcional)",
                                         "name": "link",
+                                        "aria-label": "",
                                         "type": "url",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
-                                        "placeholder": "https://"
+                                        "placeholder": "https:\/\/",
+                                        "parent_repeater": "field_metod_padroes_logos"
                                     }
                                 ]
                             }
@@ -416,7 +624,6 @@
                         "min": "",
                         "max": ""
                     }
-
                 },
                 "min": "",
                 "max": "",
@@ -440,6 +647,7 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     }
 ]

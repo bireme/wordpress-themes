@@ -189,17 +189,4 @@ $action  = 'https://lilacs.bvsalud.org/oer';
     </div>
   </div>
 
-  <script>
-    (function(){
-      var input = document.getElementById('cap-sessoes-q');
-      var btn   = document.getElementById('cap-sessoes-submit');
-      if(!input || !btn) return;
-
-      function sync(){
-        btn.disabled = input.value.trim().length === 0;
-      }
-      sync();
-      input.addEventListener('input', sync);
-    })();
-  </script>
 </section>
