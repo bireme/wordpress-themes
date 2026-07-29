@@ -207,15 +207,13 @@ function memorial_aspas_slider_shortcode($atts)
                                     <p class="aspas-card-author"><?php echo esc_html($autor); ?></p>
                                 <?php endif; ?>
                                 <?php if ($colecao) : ?>
-                                    <?php if ($url) : ?>
-                                        <a href="<?php echo esc_url($url); ?>" class="aspas-card-link">
-                                            <?php echo esc_html($colecao); ?>
-                                        </a>
-                                    <?php else : ?>
-                                        <span class="aspas-card-link aspas-card-link--static">
-                                            <?php echo esc_html($colecao); ?>
-                                        </span>
-                                    <?php endif; ?>
+                                 <div class="mt-auto text-start">
+                                    <hr>
+                                    <small><i><?php echo esc_html($colecao); ?></i></small>
+                                    <a href="<?php echo esc_url($url); ?>" >
+                                        <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
+                                    </a>
+                                </div>
                                 <?php endif; ?>
                             </div>
                         </article>

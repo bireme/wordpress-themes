@@ -97,7 +97,7 @@ if (! $query->have_posts()) {
                             <?php if ($colecao) : ?>
                                 <div class="mt-auto text-start">
                                 <hr>
-                                <small>  Coleção:  <i><?php echo esc_html($colecao); ?></i></small>
+                                <small> <i><?php echo esc_html($colecao); ?></i></small>
                                 <a href="<?php echo esc_url($url); ?>" >
                                     <img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
                                 </a>
