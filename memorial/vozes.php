@@ -46,11 +46,13 @@ $query = new WP_Query([
                                 <?php the_content(); ?>
                                 <?php echo esc_html($autor); ?>
                             </p>
-                            <div class="mt-auto">
-                                <a href="<?php echo esc_url($url); ?>" class="btn btn-primary mb-3">
-                                    Coleção:  <i><?php echo esc_html($colecao); ?></i>
-                                </a>
-                            </div>
+                            <div class="mt-auto text-start">
+								<hr>
+								<small>  Coleção:  <i><?php echo esc_html($colecao); ?></i></small>
+								<a href="<?php echo esc_url($url); ?>" >
+									<img src="<?php bloginfo('template_directory'); ?>/img/icon-right.svg" class="btn-more"  >
+								</a>
+							</div>
                         </div>
                     </article>
                 </div>
