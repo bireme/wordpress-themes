@@ -599,6 +599,18 @@ function lilacs_bvs_dobra( $slug, $args = array() ) {
     get_template_part( 'templates/dobras-acf/' . $slug, null, $args );
 }
 
+/**
+ * ACF Local JSON: sync field groups from assets/acf-json
+ */
+add_filter( 'acf/settings/save_json', function ( $path ) {
+	return get_stylesheet_directory() . '/assets/acf-json';
+} );
+
+add_filter( 'acf/settings/load_json', function ( $paths ) {
+	$paths[] = get_stylesheet_directory() . '/assets/acf-json';
+	return $paths;
+} );
+
 
 add_action('rest_api_init', function () {
     register_rest_route('debug/v1', '/bvs', [

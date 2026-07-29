@@ -4,7 +4,7 @@
         "title": "Sobre LILACS",
         "fields": [
             {
-                "key": "field_sobre_layout_v1",
+                "key": "field_archived_sobre_layout_v1",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -12,9 +12,12 @@
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
-                "wrapper": { "width": "", "class": "", "id": "" },
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
                 "layouts": {
-
                     "sobre_layout_hero_sobre": {
                         "key": "sobre_layout_hero_sobre",
                         "name": "hero_sobre",
@@ -29,7 +32,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "LILACS: 40 anos de ciência com identidade latino-americana",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -44,7 +51,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "A maior base de dados da produção científica em saúde da região.",
                                 "rows": "",
                                 "placeholder": "",
@@ -58,7 +69,11 @@
                                 "instructions": "Ex: \"A LILACS em números:\"",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "A LILACS em números:",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -73,7 +88,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "mime_types": "",
@@ -87,7 +106,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -101,7 +124,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -117,7 +144,11 @@
                                         "instructions": "Ex: +1.140 M",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "40", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "40",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "+1.140 M",
@@ -133,7 +164,11 @@
                                         "instructions": "Ex: Registros",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "60", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "60",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "Registros",
@@ -147,7 +182,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_nuvem_de_palavras": {
                         "key": "sobre_layout_nuvem_de_palavras",
                         "name": "nuvem_de_palavras",
@@ -162,7 +196,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "Ex: Redes Nacionais e Temáticas da LILACS",
@@ -177,7 +215,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "rows": "3",
                                 "placeholder": "",
@@ -191,7 +233,11 @@
                                 "instructions": "Uma palavra/expressão por linha, ou separadas por vírgula. Se vazio, usa fallback padrão.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "rows": "6",
                                 "placeholder": "rede\npaíses\ncooperação\ngestão",
@@ -205,7 +251,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -215,7 +265,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_banner": {
                         "key": "sobre_layout_banner",
                         "name": "banner",
@@ -230,7 +279,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -245,7 +298,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "min_width": "",
@@ -263,7 +320,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "rows": "",
                                 "placeholder": "",
@@ -277,7 +338,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -292,7 +357,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "choices": {
                                     "titulo": "Abaixo do titulo",
                                     "descricao": "Abaixo da descrição"
@@ -313,7 +382,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "choices": {
                                     "sim": "Sim",
                                     "nao": "Não"
@@ -334,7 +407,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -348,7 +425,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -358,7 +439,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_descricao_textual": {
                         "key": "sobre_layout_descricao_textual",
                         "name": "descricao_textual",
@@ -373,7 +453,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -388,7 +472,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
@@ -403,7 +491,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -417,7 +509,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -427,7 +523,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_vozes_da_rede": {
                         "key": "sobre_layout_vozes_da_rede",
                         "name": "vozes_da_rede",
@@ -442,7 +537,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -458,7 +557,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "mime_types": "",
@@ -473,7 +576,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -489,7 +596,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -505,7 +616,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "rows": "",
                                         "placeholder": "",
@@ -522,7 +637,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "mime_types": "",
@@ -532,7 +651,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_atuacao_dos_centros": {
                         "key": "sobre_layout_atuacao_dos_centros",
                         "name": "atuacao_dos_centros",
@@ -547,7 +665,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -562,7 +684,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -578,7 +704,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -588,13 +718,17 @@
                                     },
                                     {
                                         "key": "sobre_atuacao_item_icone",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "type": "image",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "mime_types": "",
@@ -609,7 +743,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "tabs": "all",
                                         "toolbar": "full",
@@ -625,7 +763,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "",
                                         "parent_repeater": "sobre_atuacao_repeater"
@@ -636,7 +778,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_sua_instituicao": {
                         "key": "sobre_layout_sua_instituicao",
                         "name": "sua_instituicao_na_rede",
@@ -651,7 +792,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -665,7 +810,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -679,7 +828,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -694,7 +847,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -710,7 +867,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -726,20 +887,28 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "",
                                         "parent_repeater": "sobre_inst_campos"
                                     },
                                     {
                                         "key": "sobre_inst_campo_icone",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "type": "image",
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "mime_types": "",
@@ -754,7 +923,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "rows": "",
                                         "placeholder": "",
@@ -767,7 +940,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_banner_interno": {
                         "key": "sobre_layout_banner_interno",
                         "name": "banner_interno",
@@ -782,7 +954,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -797,7 +973,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "rows": "",
                                 "placeholder": "",
@@ -811,7 +991,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "array",
                                 "library": "all",
                                 "mime_types": "",
@@ -825,7 +1009,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -840,7 +1028,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -854,7 +1046,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "enable_opacity": 0,
                                 "return_format": "string",
@@ -868,7 +1064,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": ""
                             },
@@ -880,7 +1080,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "choices": {
                                     "centro": "centro",
                                     "esquerda": "esquerda",
@@ -898,7 +1102,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_faq": {
                         "key": "sobre_layout_faq",
                         "name": "faq",
@@ -913,7 +1116,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -928,7 +1135,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -943,7 +1154,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
@@ -958,7 +1173,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "mime_types": "",
@@ -972,7 +1191,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -988,8 +1211,14 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
-                                        "post_type": ["ufaq"],
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "post_type": [
+                                            "ufaq"
+                                        ],
                                         "post_status": "",
                                         "taxonomy": "",
                                         "return_format": "object",
@@ -1009,7 +1238,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -1025,7 +1258,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "taxonomy": "ufaq-category",
                                         "add_term": 1,
                                         "save_terms": 0,
@@ -1042,7 +1279,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_box_de_listas": {
                         "key": "sobre_layout_box_de_listas",
                         "name": "box_de_listas",
@@ -1057,7 +1293,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "placeholder": "",
@@ -1072,7 +1312,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "mime_types": "",
@@ -1086,7 +1330,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -1102,7 +1350,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -1118,7 +1370,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "layout": "table",
                                         "min": 0,
                                         "max": 0,
@@ -1134,7 +1390,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "maxlength": "",
                                                 "placeholder": "",
@@ -1150,7 +1410,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "placeholder": "",
                                                 "parent_repeater": "sobre_boxlistas_itens"
@@ -1164,7 +1428,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_caixa_com_botoes": {
                         "key": "sobre_layout_caixa_com_botoes",
                         "name": "caixa_com_botoes",
@@ -1179,7 +1442,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -1195,7 +1462,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -1211,7 +1482,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "layout": "table",
                                         "min": 0,
                                         "max": 0,
@@ -1227,7 +1502,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "maxlength": "",
                                                 "placeholder": "",
@@ -1243,7 +1522,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "placeholder": "",
                                                 "parent_repeater": "sobre_caixa_botoes"
@@ -1257,7 +1540,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_linha_do_tempo": {
                         "key": "sobre_layout_linha_do_tempo",
                         "name": "linha_do_tempo",
@@ -1272,7 +1554,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -1288,7 +1574,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "15", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "15",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "Ex: 1982",
@@ -1304,7 +1594,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -1320,7 +1614,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "tabs": "all",
                                         "toolbar": "full",
@@ -1336,7 +1634,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "array",
                                         "library": "all",
                                         "mime_types": "",
@@ -1351,7 +1653,11 @@
                                         "instructions": "URL de vídeo (YouTube/Vimeo) ou link de mídia alternativo.",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://",
                                         "parent_repeater": "sobre_timeline_marcos"
@@ -1364,7 +1670,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://",
                                         "parent_repeater": "sobre_timeline_marcos"
@@ -1375,7 +1685,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "sobre_layout_slide_banner": {
                         "key": "sobre_layout_slide_banner",
                         "name": "slide_banner",
@@ -1390,7 +1699,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "layout": "table",
                                 "min": 0,
                                 "max": 0,
@@ -1406,7 +1719,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -1422,7 +1739,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "mime_types": "",
@@ -1437,7 +1758,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "maxlength": "",
                                         "placeholder": "",
@@ -1453,7 +1778,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "tabs": "all",
                                         "toolbar": "full",
@@ -1469,7 +1798,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "layout": "table",
                                         "min": 0,
                                         "max": 0,
@@ -1485,7 +1818,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "maxlength": "",
                                                 "placeholder": "",
@@ -1501,7 +1838,11 @@
                                                 "instructions": "",
                                                 "required": 0,
                                                 "conditional_logic": 0,
-                                                "wrapper": { "width": "", "class": "", "id": "" },
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
                                                 "default_value": "",
                                                 "placeholder": "",
                                                 "parent_repeater": "sobre_slide_botoes"
@@ -1515,7 +1856,6 @@
                         "min": "",
                         "max": ""
                     }
-
                 },
                 "min": "",
                 "max": "",
@@ -1537,7 +1877,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""

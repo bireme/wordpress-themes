@@ -4,7 +4,7 @@
         "title": "Centro coordenador",
         "fields": [
             {
-                "key": "field_692efe2d81459",
+                "key": "field_archived_692efe2d81459",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -249,7 +249,7 @@
                                     },
                                     {
                                         "key": "field_692efe2d848a4",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -458,7 +458,7 @@
                                     },
                                     {
                                         "key": "field_692efe2d8a1ba",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -726,7 +726,11 @@
                                 "instructions": "Título exibido acima dos depoimentos. Padrão: Depoimentos",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "70", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "70",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "maxlength": "",
                                 "allow_in_bindings": 0,
@@ -743,7 +747,11 @@
                                 "instructions": "Quantos cards exibir por vez em telas ≥ 900 px.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "30", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "30",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "choices": {
                                     "1": "1 por vez",
                                     "2": "2 por vez",
@@ -910,7 +918,11 @@
                                 "instructions": "Exibe um botão abaixo dos depoimentos.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "20", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "20",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "message": "",
                                 "default_value": 0,
                                 "allow_in_bindings": 0,
@@ -926,8 +938,20 @@
                                 "type": "text",
                                 "instructions": "",
                                 "required": 0,
-                                "conditional_logic": [[{"field": "field_vozes_btn_enable_coord", "operator": "==", "value": "1"}]],
-                                "wrapper": { "width": "40", "class": "", "id": "" },
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_vozes_btn_enable_coord",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Ver todos",
                                 "maxlength": "",
                                 "allow_in_bindings": 0,
@@ -943,8 +967,20 @@
                                 "type": "url",
                                 "instructions": "",
                                 "required": 0,
-                                "conditional_logic": [[{"field": "field_vozes_btn_enable_coord", "operator": "==", "value": "1"}]],
-                                "wrapper": { "width": "40", "class": "", "id": "" },
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_vozes_btn_enable_coord",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "allow_in_bindings": 0,
                                 "placeholder": "https://"
@@ -1095,7 +1131,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""

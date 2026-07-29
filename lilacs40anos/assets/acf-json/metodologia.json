@@ -4,7 +4,7 @@
         "title": "Metodologia",
         "fields": [
             {
-                "key": "field_metod_layout_v1",
+                "key": "field_archived_metod_layout_v1",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -195,7 +195,7 @@
                                     "id": ""
                                 },
                                 "default_value": "",
-                                "placeholder": "https:\/\/"
+                                "placeholder": "https://"
                             },
                             {
                                 "key": "field_metod_crit_titulo",
@@ -274,7 +274,7 @@
                                             "id": ""
                                         },
                                         "default_value": "",
-                                        "placeholder": "https:\/\/",
+                                        "placeholder": "https://",
                                         "parent_repeater": "field_metod_crit_botoes"
                                     }
                                 ]
@@ -346,7 +346,7 @@
                                             "id": ""
                                         },
                                         "default_value": "",
-                                        "placeholder": "https:\/\/",
+                                        "placeholder": "https://",
                                         "parent_repeater": "field_metod_guias_rep"
                                     },
                                     {
@@ -355,7 +355,7 @@
                                         "name": "icone",
                                         "aria-label": "",
                                         "type": "image",
-                                        "instructions": "PNG\/SVG ~64px",
+                                        "instructions": "PNG/SVG ~64px",
                                         "required": 0,
                                         "conditional_logic": 0,
                                         "wrapper": {
@@ -497,7 +497,7 @@
                                             "id": ""
                                         },
                                         "default_value": "",
-                                        "placeholder": "https:\/\/",
+                                        "placeholder": "https://",
                                         "parent_repeater": "field_metod_caixa_ferramentas"
                                     }
                                 ]
@@ -559,7 +559,7 @@
                                         "name": "imagem",
                                         "aria-label": "",
                                         "type": "image",
-                                        "instructions": "PNG\/SVG, fundo transparente de preferência.",
+                                        "instructions": "PNG/SVG, fundo transparente de preferência.",
                                         "required": 1,
                                         "conditional_logic": 0,
                                         "wrapper": {
@@ -615,7 +615,7 @@
                                             "id": ""
                                         },
                                         "default_value": "",
-                                        "placeholder": "https:\/\/",
+                                        "placeholder": "https://",
                                         "parent_repeater": "field_metod_padroes_logos"
                                     }
                                 ]
@@ -645,7 +645,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""

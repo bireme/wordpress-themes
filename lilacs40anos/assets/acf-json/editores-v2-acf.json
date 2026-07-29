@@ -4,7 +4,7 @@
         "title": "Editores v2",
         "fields": [
             {
-                "key": "field_69403c0883d5e",
+                "key": "field_archived_69403c0883d5e",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -3881,7 +3881,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""
