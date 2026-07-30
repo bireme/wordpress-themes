@@ -15,22 +15,8 @@ $paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) )
 
 $acf_intro     = function_exists( 'get_field' ) ? (string) get_field( 'intro' ) : '';
 $acf_per_page  = function_exists( 'get_field' ) ? (int) get_field( 'itens_por_pagina' ) : 0;
-$rss_ativo     = function_exists( 'get_field' ) ? get_field( 'rss_ativo' ) : true;
-$rss_titulo    = function_exists( 'get_field' ) ? (string) get_field( 'rss_titulo' ) : '';
-$rss_link      = function_exists( 'get_field' ) ? (string) get_field( 'rss_link' ) : '';
-$rss_max       = function_exists( 'get_field' ) ? (int) get_field( 'rss_max_itens' ) : 6;
 
 $per_page = $acf_per_page > 0 ? $acf_per_page : 12;
-if ( $rss_titulo === '' ) {
-	$rss_titulo = __( 'Multimídia LILACS', 'lilacs' );
-}
-if ( $rss_link === '' ) {
-	$rss_link = 'https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS';
-}
-if ( $rss_max < 1 ) {
-	$rss_max = 6;
-}
-$rss_ativo = ( $rss_ativo === null || $rss_ativo === '' ) ? true : (bool) $rss_ativo;
 
 /**
  * Amplia a busca do WP_Query para também procurar nos meta ACF:
@@ -128,57 +114,6 @@ if ( $acf_intro !== '' ) {
 	$page_intro = __( 'Conheça as vozes da rede LILACS: experiências de editores, pesquisadores e instituições.', 'lilacs' );
 }
 $total = (int) $query->found_posts;
-
-/**
- * Fetch multimídia RSS (cache 15 min)
- */
-$rss_items = [];
-if ( $rss_ativo && $rss_link !== '' ) {
-	$cache_key = 'lilacs_multimedia_rss_' . md5( $rss_link . '|' . $rss_max );
-	$cached    = get_transient( $cache_key );
-
-	if ( false !== $cached && is_array( $cached ) ) {
-		$rss_items = $cached;
-	} else {
-		$response = wp_remote_get( $rss_link, [
-			'timeout' => 12,
-			'headers' => [
-				'Accept' => 'application/rss+xml, application/xml, text/xml, */*;q=0.1',
-			],
-		] );
-
-		if ( ! is_wp_error( $response ) ) {
-			$body = wp_remote_retrieve_body( $response );
-			if ( $body ) {
-				libxml_use_internal_errors( true );
-				$xml = simplexml_load_string( $body );
-				if ( $xml && isset( $xml->channel->item ) ) {
-					$count = 0;
-					foreach ( $xml->channel->item as $it ) {
-						if ( $count >= $rss_max ) {
-							break;
-						}
-						$title = trim( (string) $it->title );
-						$link  = trim( (string) $it->link );
-						$desc  = trim( wp_strip_all_tags( (string) $it->description ) );
-						if ( $title === '' && $link === '' ) {
-							continue;
-						}
-						$rss_items[] = [
-							'title'       => $title,
-							'link'        => $link,
-							'description' => $desc,
-						];
-						$count++;
-					}
-				}
-				libxml_clear_errors();
-			}
-		}
-
-		set_transient( $cache_key, $rss_items, 15 * MINUTE_IN_SECONDS );
-	}
-}
 ?>
 
 <main class="lilacs-depo-archive" id="lilacs-depoimentos">
@@ -469,102 +404,14 @@ if ( $rss_ativo && $rss_link !== '' ) {
 			background: transparent;
 		}
 
-		/* Multimídia RSS */
-		.lilacs-depo-rss {
-			padding: 48px 20px 0;
-		}
-		.lilacs-depo-rss__title {
-			margin: 0 0 22px;
-			text-align: center;
-			font-size: clamp(1.4rem, 2vw, 1.85rem);
-			color: var(--blue-800);
-			letter-spacing: -0.02em;
-		}
-		.lilacs-depo-rss__grid {
-			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-			gap: 18px;
-		}
-		.lilacs-depo-rss__card {
-			background: #fff;
-			border: 1px solid var(--stroke);
-			border-radius: var(--radius);
-			padding: 22px;
-			box-shadow: 0 12px 28px rgba(2, 23, 55, .06);
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-			min-height: 100%;
-			transition: transform .15s ease, box-shadow .15s ease;
-			text-align: left;
-		}
-		.lilacs-depo-rss__card:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 16px 36px rgba(2, 23, 55, .10);
-		}
-		.lilacs-depo-rss__card h3 {
-			margin: 0;
-			font-size: 1.02rem;
-			line-height: 1.35;
-			color: var(--blue-900);
-		}
-		.lilacs-depo-rss__card h3 a {
-			color: inherit;
-			text-decoration: none;
-		}
-		.lilacs-depo-rss__card h3 a:hover {
-			color: var(--blue-800);
-			text-decoration: underline;
-		}
-		.lilacs-depo-rss__card p {
-			margin: 0;
-			color: var(--muted);
-			font-size: 14px;
-			line-height: 1.55;
-			flex: 1;
-			display: -webkit-box;
-			-webkit-line-clamp: 4;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
-		}
-		.lilacs-depo-rss__btn {
-			align-self: flex-start;
-			display: inline-flex;
-			align-items: center;
-			gap: 8px;
-			margin-top: auto;
-			padding: 10px 16px;
-			border-radius: 999px;
-			background: linear-gradient(90deg, var(--blue-800), #0b3a70);
-			color: #fff;
-			text-decoration: none;
-			font-weight: 700;
-			font-size: 13px;
-		}
-		.lilacs-depo-rss__btn:hover {
-			filter: brightness(1.05);
-			color: #fff;
-		}
-		.lilacs-depo-rss__empty {
-			text-align: center;
-			color: var(--muted);
-			padding: 24px;
-			border: 1px dashed var(--stroke);
-			border-radius: var(--radius);
-			background: #fff;
-		}
-
 		@media (max-width: 980px) {
 			.lilacs-depo-grid { grid-template-columns: 1fr 1fr; }
-			.lilacs-depo-rss__grid { grid-template-columns: 1fr 1fr; }
 		}
 		@media (max-width: 640px) {
 			.lilacs-depo-hero { padding: 40px 16px 20px; }
 			.lilacs-depo-toolbar,
-			.lilacs-depo-grid-wrap,
-			.lilacs-depo-rss { padding-left: 16px; padding-right: 16px; }
-			.lilacs-depo-grid,
-			.lilacs-depo-rss__grid { grid-template-columns: 1fr; }
+			.lilacs-depo-grid-wrap { padding-left: 16px; padding-right: 16px; }
+			.lilacs-depo-grid { grid-template-columns: 1fr; }
 			.lilacs-depo-search { border-radius: 16px; }
 			.lilacs-depo-search button { width: 100%; }
 		}
@@ -772,53 +619,6 @@ if ( $rss_ativo && $rss_link !== '' ) {
 			<?php wp_reset_postdata(); ?>
 		</div>
 	</section>
-
-	<?php if ( $rss_ativo ) : ?>
-	<section class="lilacs-depo-rss" aria-label="<?php echo esc_attr( $rss_titulo ); ?>">
-		<div class="lilacs-depo-inner">
-			<h2 class="lilacs-depo-rss__title"><?php echo esc_html( $rss_titulo ); ?></h2>
-
-			<?php if ( ! empty( $rss_items ) ) : ?>
-				<div class="lilacs-depo-rss__grid">
-					<?php foreach ( $rss_items as $item ) :
-						$item_title = (string) ( $item['title'] ?? '' );
-						$item_link  = (string) ( $item['link'] ?? '' );
-						$item_desc  = (string) ( $item['description'] ?? '' );
-						if ( $item_title === '' ) {
-							continue;
-						}
-					?>
-						<article class="lilacs-depo-rss__card">
-							<h3>
-								<?php if ( $item_link !== '' ) : ?>
-									<a href="<?php echo esc_url( $item_link ); ?>" target="_blank" rel="noopener">
-										<?php echo esc_html( $item_title ); ?>
-									</a>
-								<?php else : ?>
-									<?php echo esc_html( $item_title ); ?>
-								<?php endif; ?>
-							</h3>
-
-							<?php if ( $item_desc !== '' ) : ?>
-								<p><?php echo esc_html( $item_desc ); ?></p>
-							<?php endif; ?>
-
-							<?php if ( $item_link !== '' ) : ?>
-								<a class="lilacs-depo-rss__btn" href="<?php echo esc_url( $item_link ); ?>" target="_blank" rel="noopener">
-									<?php esc_html_e( 'Assistir / Acessar', 'lilacs' ); ?> →
-								</a>
-							<?php endif; ?>
-						</article>
-					<?php endforeach; ?>
-				</div>
-			<?php else : ?>
-				<div class="lilacs-depo-rss__empty">
-					<?php esc_html_e( 'Não foi possível carregar os itens do feed multimídia no momento.', 'lilacs' ); ?>
-				</div>
-			<?php endif; ?>
-		</div>
-	</section>
-	<?php endif; ?>
 
 	<script>
 	(function () {

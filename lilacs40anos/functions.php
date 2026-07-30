@@ -30,13 +30,18 @@ function bireme_lilacs_scripts() {
         'bireme-lilacs-style',
         get_stylesheet_uri(),
         array(),
-        '1.3.3' // altera a cada modificação
+        '1.3.5' // altera a cada modificação
     );
 
     
     // Scripts do tema
     if (file_exists(get_template_directory() . '/assets/js/header.js')) {
-        wp_enqueue_script('bireme-lilacs-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.1.0', true);
+        wp_enqueue_script('bireme-lilacs-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.2.0', true);
+        wp_localize_script('bireme-lilacs-header', 'lilacsHeader', array(
+            'openSubmenu' => function_exists('bireme_lilacs_translate')
+                ? bireme_lilacs_translate('Abrir submenu', 'Navigation')
+                : 'Abrir submenu',
+        ));
     }
 
     // Script da página Periódicos (carregado apenas quando necessário)
@@ -313,6 +318,245 @@ function bireme_get_lang_home_url() {
         return pll_home_url();
     }
     return home_url('/');
+}
+
+/**
+ * True na home do site (inclui front page traduzida no Polylang).
+ */
+function bireme_is_site_home() {
+    if ( is_front_page() ) {
+        return true;
+    }
+
+    // Polylang: home traduzida às vezes não marca is_front_page()
+    if ( function_exists( 'pll_get_post_translations' ) ) {
+        $front_id = (int) get_option( 'page_on_front' );
+        $current_id = (int) get_queried_object_id();
+        if ( $front_id && $current_id && is_page() ) {
+            $translations = pll_get_post_translations( $front_id );
+            if ( is_array( $translations ) ) {
+                $ids = array_map( 'intval', $translations );
+                if ( in_array( $current_id, $ids, true ) ) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Itens do breadcrumb do site (Home → … → página atual).
+ *
+ * @return array<int, array{label:string,url:string}>
+ */
+function bireme_breadcrumb_items() {
+    if ( bireme_is_site_home() ) {
+        return array();
+    }
+
+    $items = array(
+        array(
+            'label' => bireme_lilacs_translate( 'Home', 'Navigation' ),
+            'url'   => bireme_get_lang_home_url(),
+        ),
+    );
+
+    if ( is_home() ) {
+        $posts_page_id = (int) get_option( 'page_for_posts' );
+        $label = $posts_page_id ? get_the_title( $posts_page_id ) : bireme_lilacs_translate( 'Blog', 'Navigation' );
+        $items[] = array( 'label' => $label, 'url' => '' );
+        return $items;
+    }
+
+    if ( is_404() ) {
+        $items[] = array(
+            'label' => bireme_lilacs_translate( 'Página não encontrada', 'Navigation' ),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_search() ) {
+        $items[] = array(
+            'label' => sprintf(
+                /* translators: %s: search query */
+                bireme_lilacs_translate( 'Busca: %s', 'Navigation' ),
+                get_search_query()
+            ),
+            'url' => '',
+        );
+        return $items;
+    }
+
+    if ( is_page() ) {
+        $page_id = get_queried_object_id();
+        $ancestors = array_reverse( get_post_ancestors( $page_id ) );
+        foreach ( $ancestors as $ancestor_id ) {
+            $items[] = array(
+                'label' => get_the_title( $ancestor_id ),
+                'url'   => get_permalink( $ancestor_id ),
+            );
+        }
+        $items[] = array(
+            'label' => get_the_title( $page_id ),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_singular() ) {
+        $post_type = get_post_type();
+        $pto = get_post_type_object( $post_type );
+
+        if ( $post_type === 'post' ) {
+            $categories = get_the_category();
+            if ( ! empty( $categories ) ) {
+                $cat = $categories[0];
+                $items[] = array(
+                    'label' => $cat->name,
+                    'url'   => get_category_link( $cat->term_id ),
+                );
+            }
+        } elseif ( $pto && ! empty( $pto->has_archive ) ) {
+            $archive_link = get_post_type_archive_link( $post_type );
+            if ( $archive_link ) {
+                $items[] = array(
+                    'label' => $pto->labels->name,
+                    'url'   => $archive_link,
+                );
+            }
+        }
+
+        $items[] = array(
+            'label' => get_the_title(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_post_type_archive() ) {
+        $pto = get_queried_object();
+        $label = ( $pto && isset( $pto->labels->name ) )
+            ? $pto->labels->name
+            : post_type_archive_title( '', false );
+        $items[] = array( 'label' => $label, 'url' => '' );
+        return $items;
+    }
+
+    if ( is_category() || is_tag() || is_tax() ) {
+        $term = get_queried_object();
+        if ( $term && ! is_wp_error( $term ) ) {
+            if ( ! empty( $term->taxonomy ) ) {
+                $tax = get_taxonomy( $term->taxonomy );
+                if ( $tax && ! empty( $tax->object_type[0] ) ) {
+                    $pto = get_post_type_object( $tax->object_type[0] );
+                    if ( $pto && ! empty( $pto->has_archive ) ) {
+                        $archive_link = get_post_type_archive_link( $tax->object_type[0] );
+                        if ( $archive_link ) {
+                            $items[] = array(
+                                'label' => $pto->labels->name,
+                                'url'   => $archive_link,
+                            );
+                        }
+                    }
+                }
+
+                if ( is_taxonomy_hierarchical( $term->taxonomy ) && ! empty( $term->parent ) ) {
+                    $ancestors = array_reverse( get_ancestors( $term->term_id, $term->taxonomy ) );
+                    foreach ( $ancestors as $ancestor_id ) {
+                        $ancestor = get_term( $ancestor_id, $term->taxonomy );
+                        if ( $ancestor && ! is_wp_error( $ancestor ) ) {
+                            $items[] = array(
+                                'label' => $ancestor->name,
+                                'url'   => get_term_link( $ancestor ),
+                            );
+                        }
+                    }
+                }
+            }
+
+            $items[] = array(
+                'label' => $term->name,
+                'url'   => '',
+            );
+        }
+        return $items;
+    }
+
+    if ( is_author() ) {
+        $items[] = array(
+            'label' => get_the_author(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_date() ) {
+        $items[] = array(
+            'label' => get_the_archive_title(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    $title = get_the_archive_title();
+    if ( $title ) {
+        $items[] = array(
+            'label' => wp_strip_all_tags( $title ),
+            'url'   => '',
+        );
+    }
+
+    return $items;
+}
+
+/**
+ * Imprime o HTML do breadcrumb (somente os crumbs, sem wrapper externo).
+ */
+function bireme_breadcrumb() {
+    $items = bireme_breadcrumb_items();
+    if ( count( $items ) < 2 ) {
+        return;
+    }
+
+    $last = count( $items ) - 1;
+    foreach ( $items as $i => $item ) {
+        if ( $i > 0 ) {
+            echo '<span class="sep" aria-hidden="true"> / </span>';
+        }
+
+        $label = esc_html( $item['label'] );
+        if ( $i === $last || empty( $item['url'] ) ) {
+            echo '<span class="current" aria-current="page">' . $label . '</span>';
+        } else {
+            echo '<a href="' . esc_url( $item['url'] ) . '">' . $label . '</a>';
+        }
+    }
+}
+
+/**
+ * Renderiza a barra global de breadcrumb abaixo do menu.
+ */
+function bireme_render_site_breadcrumb() {
+    if ( is_admin() || bireme_is_site_home() || wp_doing_ajax() ) {
+        return;
+    }
+
+    $items = bireme_breadcrumb_items();
+    if ( count( $items ) < 2 ) {
+        return;
+    }
+    ?>
+    <div class="lilacs-site-breadcrumb">
+      <div class="container lilacs-site-breadcrumb__inner">
+        <nav class="lilacs-site-breadcrumb__nav" aria-label="<?php echo esc_attr( bireme_lilacs_translate( 'Breadcrumb', 'Navigation' ) ); ?>">
+          <?php bireme_breadcrumb(); ?>
+        </nav>
+      </div>
+    </div>
+    <?php
 }
 
 

@@ -312,7 +312,7 @@ SVG;
     <text class="st0" transform="translate(274.2 215.63)">
       <tspan x="0" y="0">{{TEXTOS_COMPLETOS}}</tspan><tspan x="-17.75" y="32.37">{{LABEL_MILHAO_TEXTOS_COMPLETOS}}</tspan>
     </text>
-    <text class="st2" text-anchor="end" transform="translate(348 273.65)"><tspan x="0" y="0">{{LABEL_TEXTOS_COMPLETOS}}</tspan></text>
+    <text class="st2" text-anchor="end" transform="translate(385 273.65)"><tspan x="0" y="0">{{LABEL_TEXTOS_COMPLETOS}}</tspan></text>
   </g>
 
   <!-- resto do SVG (ícones/paths) -->
