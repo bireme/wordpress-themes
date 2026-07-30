@@ -63,6 +63,15 @@ $style_bg     = $bg ? 'style="background-image:url(' . esc_url($bg) . ');"' : ''
           <?php echo esc_html($highlight); ?>
         </div>
       <?php endif; ?>
+
+      <?php
+      if ( function_exists( 'lilacs_banner_cta_styles' ) ) {
+          lilacs_banner_cta_styles();
+      }
+      if ( function_exists( 'lilacs_render_banner_cta_buttons' ) ) {
+          lilacs_render_banner_cta_buttons();
+      }
+      ?>
     </header>
 
     <!-- FORM (exatamente como você pediu) -->

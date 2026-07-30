@@ -14,6 +14,18 @@ $btn_color = get_sub_field( 'cor_do_texto_do_botao' ) ?: '#ffffff';
 $link      = get_sub_field( 'link_do_banner' );
 $align     = get_sub_field( 'alinhamento_do_titulo_e_texto_descritivo' ) ?: 'esquerda';
 
+$btn1 = function_exists( 'lilacs_normalize_banner_button' )
+	? lilacs_normalize_banner_button( get_sub_field( 'botao_1' ) )
+	: null;
+if ( ! $btn1 ) {
+	$btn1 = function_exists( 'lilacs_normalize_banner_button' )
+		? lilacs_normalize_banner_button( $link, (string) $btn_text )
+		: null;
+}
+$btn2 = function_exists( 'lilacs_normalize_banner_button' )
+	? lilacs_normalize_banner_button( get_sub_field( 'botao_2' ) )
+	: null;
+
 $img_url = '';
 if ( is_array( $imagem ) && ! empty( $imagem['url'] ) ) {
 	$img_url = esc_url( $imagem['url'] );
@@ -133,6 +145,25 @@ if ( $align === 'direita' ) $align_class = 'lbi-align-right';
 			opacity: .92;
 		}
 
+		#banner-interno-full .lbi-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+			margin-top: 8px;
+			align-items: center;
+		}
+
+		#banner-interno-full .lbi-btn--secondary {
+			background: transparent;
+			color: #fff;
+			border: 2px solid rgba(255,255,255,.92);
+			box-shadow: none;
+		}
+
+		#banner-interno-full .lbi-btn--secondary:hover {
+			background: rgba(255,255,255,.12);
+		}
+
 		@media (max-width: 900px) {
 			#banner-interno-full .lbi-card {
 				padding: 50px 20px;
@@ -160,10 +191,30 @@ if ( $align === 'direita' ) $align_class = 'lbi-align-right';
 					<div class="lbi-desc"><?php echo wp_kses_post( nl2br( $descricao ) ); ?></div>
 				<?php endif; ?>
 
-				<?php if ( $btn_text && $link ): ?>
-					<a href="<?php echo esc_url( $link ); ?>" class="lbi-btn">
-						<?php echo esc_html( $btn_text ); ?>
-					</a>
+				<?php if ( $btn1 || $btn2 ) : ?>
+					<div class="lbi-actions">
+						<?php if ( $btn1 ) :
+							$t1 = ! empty( $btn1['target'] ) ? $btn1['target'] : '_self';
+							$rel1 = ( $t1 === '_blank' ) ? ' rel="noopener noreferrer"' : '';
+							?>
+							<a href="<?php echo esc_url( $btn1['url'] ); ?>"
+							   class="lbi-btn"
+							   target="<?php echo esc_attr( $t1 ); ?>"<?php echo $rel1; ?>
+							   style="color:<?php echo esc_attr( $btn_color ); ?>;background:<?php echo esc_attr( $btn_bg ); ?>;">
+								<?php echo esc_html( $btn1['title'] ); ?>
+							</a>
+						<?php endif; ?>
+						<?php if ( $btn2 ) :
+							$t2 = ! empty( $btn2['target'] ) ? $btn2['target'] : '_self';
+							$rel2 = ( $t2 === '_blank' ) ? ' rel="noopener noreferrer"' : '';
+							?>
+							<a href="<?php echo esc_url( $btn2['url'] ); ?>"
+							   class="lbi-btn lbi-btn--secondary"
+							   target="<?php echo esc_attr( $t2 ); ?>"<?php echo $rel2; ?>>
+								<?php echo esc_html( $btn2['title'] ); ?>
+							</a>
+						<?php endif; ?>
+					</div>
 				<?php endif; ?>
 
 			</div>

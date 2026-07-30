@@ -143,6 +143,14 @@ if ( ! function_exists( 'bireme_render_breadcrumb_cp' ) ) {
       <?php if ( $banner_desc ) : ?>
         <p class="cp-desc" style="color:<?php echo esc_attr( $banner_cor_desc ); ?>"><?php echo wp_kses_post( $banner_desc ); ?></p>
       <?php endif; ?>
+      <?php
+      if ( function_exists( 'lilacs_banner_cta_styles' ) ) {
+          lilacs_banner_cta_styles();
+      }
+      if ( function_exists( 'lilacs_render_banner_cta_buttons' ) ) {
+          lilacs_render_banner_cta_buttons( 'lilacs-banner-ctas--on-light' );
+      }
+      ?>
     </div>
   </div>
 
