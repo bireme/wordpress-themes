@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $titulo  = get_sub_field( 'titulo' );
 $prefill = isset($_GET['q']) ? sanitize_text_field( wp_unslash($_GET['q']) ) : '';
-$action  = 'https://lilacs.teste.bvsalud.org/oer';
+$action  = 'https://lilacs.bvsalud.org/oer';
 ?>
 <section id="cap-sessoes-anteriores" aria-label="<?php echo esc_attr__( 'Sessões anteriores', 'lilacs' ); ?>">
   <style>
