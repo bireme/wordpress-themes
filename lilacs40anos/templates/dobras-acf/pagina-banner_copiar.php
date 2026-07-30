@@ -82,7 +82,7 @@ $style_bg     = $bg ? 'style="background-image:url(' . esc_url($bg) . ');"' : ''
         </button>
 
         <button type="submit" class="lilacs-search__btn" aria-label="Buscar">
-          <img src="https://lilacs.teste.bvsalud.org/wp-content/themes/bireme-lilacs/assets/images/lupa.png" alt="Ícone de lupa para busca">
+          <img src="https://lilacs.bvsalud.org/wp-content/themes/bireme-lilacs/assets/images/lupa.png" alt="Ícone de lupa para busca">
         </button>
       </div>
 
