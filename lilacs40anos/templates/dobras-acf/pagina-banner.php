@@ -259,6 +259,15 @@ p,span,a,div{
                     </div>
                 <?php endif; ?>
             <?php endif; ?>
+
+            <?php
+            if ( function_exists( 'lilacs_banner_cta_styles' ) ) {
+                lilacs_banner_cta_styles();
+            }
+            if ( function_exists( 'lilacs_render_banner_cta_buttons' ) ) {
+                lilacs_render_banner_cta_buttons();
+            }
+            ?>
         </div>
 
         <div class="lilacs-centro-banner-visual" aria-hidden="true"></div>

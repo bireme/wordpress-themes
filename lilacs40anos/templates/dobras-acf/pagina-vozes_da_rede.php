@@ -11,15 +11,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Campos ACF dentro do Flexible
 $depoimentos          = get_sub_field( 'depoimentos' );
 $bg_image             = get_sub_field( 'imagem_de_fundo' );
+$bg_color             = get_sub_field( 'cor_de_fundo' );
 $titulo_secao         = get_sub_field( 'titulo_secao' );
 $slides_por_vez       = (int) get_sub_field( 'slides_por_vez' );
 $btn_ativo            = get_sub_field( 'habilitar_botao_ver_todos' );
-$btn_texto            = get_sub_field( 'texto_botao_ver_todos' ) ?: __( 'Ver todos', 'rede-bvs' );
-$btn_link             = get_sub_field( 'link_botao_ver_todos' );
+$btn_texto            = trim( (string) ( get_sub_field( 'texto_botao_ver_todos' ) ?: '' ) );
+$btn_link             = trim( (string) ( get_sub_field( 'link_botao_ver_todos' ) ?: '' ) );
+if ( $btn_texto === '' ) {
+    $btn_texto = __( 'Ver todos', 'rede-bvs' );
+}
+$btn_enabled = ( $btn_ativo === true || $btn_ativo === 1 || $btn_ativo === '1' );
 $rotacao_automatica   = get_sub_field( 'rotacao_automatica' ); // true/false (ACF true/false ou select sim/nao)
-$auto = ( $rotacao_automatica === true || $rotacao_automatica === '1' || $rotacao_automatica === 'sim' || $rotacao_automatica === 'yes' ) ? 1 : 0;
+$intervalo_autoplay   = (int) get_sub_field( 'intervalo_autoplay' );
+$auto = ( $rotacao_automatica === true || $rotacao_automatica === 1 || $rotacao_automatica === '1' || $rotacao_automatica === 'sim' || $rotacao_automatica === 'yes' ) ? 1 : 0;
 if ( $slides_por_vez < 1 || $slides_por_vez > 3 ) {
     $slides_por_vez = 2; // padrão
+}
+if ( $intervalo_autoplay < 2000 || $intervalo_autoplay > 30000 ) {
+    $intervalo_autoplay = 5000;
+}
+if ( ! is_string( $bg_color ) || $bg_color === '' ) {
+    $bg_color = '#f3f4f6';
 }
 
 if ( ! $depoimentos || ! is_array( $depoimentos ) ) {
@@ -37,13 +49,12 @@ $total = count( $depoimentos );
     width: 100%;
     padding: 60px 16px;
     max-width: 100%;
+    background-color: <?php echo esc_attr( $bg_color ); ?>;
     <?php if ( $bg_image ) : ?>
     background-image: url('<?php echo esc_url( $bg_image ); ?>');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    <?php else : ?>
-    background: #f3f4f6;
     <?php endif; ?>
 }
 
@@ -189,6 +200,35 @@ $total = count( $depoimentos );
     height: 18px;
 }
 
+/* Botão Ver todos — centralizado abaixo do slide */
+#<?php echo esc_attr( $uid ); ?> .vozes-rede-footer {
+    text-align: center;
+    margin-top: 32px;
+}
+
+#<?php echo esc_attr( $uid ); ?> .vozes-rede-btn-ver-todos {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    height: 48px;
+    padding: 0 40px;
+    border-radius: 999px;
+    background: #F97316;
+    color: #fff;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .15s ease, opacity .15s ease;
+}
+
+#<?php echo esc_attr( $uid ); ?> .vozes-rede-btn-ver-todos:hover {
+    opacity: .92;
+    transform: translateY(-1px);
+    color: #fff;
+}
+
 /* responsivo: em telas menores sempre 1 por vez */
 @media (max-width: 900px) {
     #<?php echo esc_attr( $uid ); ?> {
@@ -211,7 +251,8 @@ $total = count( $depoimentos );
 
         <div class="vozes-rede-slider"
              data-total="<?php echo esc_attr( $total ); ?>"
-             data-auto="<?php echo esc_attr( $auto ); ?>">
+             data-auto="<?php echo esc_attr( $auto ); ?>"
+             data-interval="<?php echo esc_attr( $intervalo_autoplay ); ?>">
             <button type="button"
                     class="vozes-rede-nav prev"
                     aria-label="<?php esc_attr_e( 'Depoimento anterior', 'rede-bvs' ); ?>">
@@ -270,11 +311,9 @@ $total = count( $depoimentos );
             </button>
         </div>
 
-        <?php if ( $btn_ativo && $btn_link ) : ?>
-        <div class="vozes-rede-footer" style="text-align:center;margin-top:32px;">
-            <a href="<?php echo esc_url( $btn_link ); ?>"
-               class="vozes-rede-btn-ver-todos"
-               style="display:inline-flex;align-items:center;justify-content:center;min-width:200px;height:48px;padding:0 40px;border-radius:999px;background:#F97316;color:#fff;font-family:'Noto Sans',sans-serif;font-size:16px;font-weight:700;text-decoration:none;">
+        <?php if ( $btn_enabled && $btn_link !== '' ) : ?>
+        <div class="vozes-rede-footer">
+            <a href="<?php echo esc_url( $btn_link ); ?>" class="vozes-rede-btn-ver-todos">
                 <?php echo esc_html( $btn_texto ); ?>
             </a>
         </div>
@@ -295,7 +334,7 @@ $total = count( $depoimentos );
     const next   = root.querySelector('.vozes-rede-nav.next');
     const total  = cards.length;
     const autoPlay = slider && slider.dataset.auto === '1';
-    const AUTO_INTERVAL = 5000; // ms entre slides
+    const AUTO_INTERVAL = Math.max(2000, parseInt(slider && slider.dataset.interval, 10) || 5000);
 
     if (!track || !total) return;
 

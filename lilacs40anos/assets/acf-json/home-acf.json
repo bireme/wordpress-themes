@@ -237,6 +237,40 @@
                                 "show_color_wheel": 1,
                                 "custom_palette_source": "",
                                 "palette_colors": ""
+                            },
+                            {
+                                "key": "field_3489317695b6",
+                                "label": "Botão 1 (opcional)",
+                                "name": "botao_1",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
+                            },
+                            {
+                                "key": "field_d10a147a07ea",
+                                "label": "Botão 2 (opcional)",
+                                "name": "botao_2",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
                             }
                         ],
                         "min": "",
@@ -641,6 +675,40 @@
                                         "append": ""
                                     }
                                 ]
+                            },
+                            {
+                                "key": "field_72ed294b3488",
+                                "label": "Botão 1 (opcional)",
+                                "name": "botao_1",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
+                            },
+                            {
+                                "key": "field_fb56fe61e018",
+                                "label": "Botão 2 (opcional)",
+                                "name": "botao_2",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
                             }
                         ],
                         "min": "",
@@ -1182,6 +1250,40 @@
                                 "default_value": "",
                                 "allow_in_bindings": 0,
                                 "placeholder": ""
+                            },
+                            {
+                                "key": "field_87e00c03b48f",
+                                "label": "Botão 1 (opcional)",
+                                "name": "botao_1",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
+                            },
+                            {
+                                "key": "field_2cbf6080d541",
+                                "label": "Botão 2 (opcional)",
+                                "name": "botao_2",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
                             }
                         ],
                         "min": "",
@@ -2846,6 +2948,157 @@
                                 "mime_types": "",
                                 "allow_in_bindings": 0,
                                 "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_9d36d86b5996",
+                                "label": "Autoplay do slide",
+                                "name": "rotacao_automatica",
+                                "aria-label": "",
+                                "type": "true_false",
+                                "instructions": "Ativa a rotação automática dos depoimentos.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "30",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "allow_in_bindings": 0,
+                                "ui": 1,
+                                "ui_on_text": "Sim",
+                                "ui_off_text": "Não"
+                            },
+                            {
+                                "key": "field_d0c598bdeaf0",
+                                "label": "Intervalo do autoplay (ms)",
+                                "name": "intervalo_autoplay",
+                                "aria-label": "",
+                                "type": "number",
+                                "instructions": "Tempo entre slides em milissegundos. Padrão: 5000.",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_9d36d86b5996",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "30",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": 5000,
+                                "min": 2000,
+                                "max": 30000,
+                                "step": 500,
+                                "placeholder": "5000",
+                                "prepend": "",
+                                "append": "ms",
+                                "allow_in_bindings": 0
+                            },
+                            {
+                                "key": "field_6e52838e3061",
+                                "label": "Cor de fundo da seção",
+                                "name": "cor_de_fundo",
+                                "aria-label": "",
+                                "type": "color_picker",
+                                "instructions": "Cor de fundo da seção. Se houver imagem de fundo, a cor fica como base.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "#f3f4f6",
+                                "enable_opacity": 0,
+                                "return_format": "string",
+                                "allow_in_bindings": 0,
+                                "show_custom_palette": 0,
+                                "show_color_wheel": 1,
+                                "custom_palette_source": "",
+                                "palette_colors": ""
+                            },
+                            {
+                                "key": "field_7915e1b4c3dd",
+                                "label": "Habilitar botão \"Ver todos\"",
+                                "name": "habilitar_botao_ver_todos",
+                                "aria-label": "",
+                                "type": "true_false",
+                                "instructions": "Exibe um botão centralizado abaixo do slide de depoimentos.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "20",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "allow_in_bindings": 0,
+                                "ui": 1,
+                                "ui_on_text": "Sim",
+                                "ui_off_text": "Não"
+                            },
+                            {
+                                "key": "field_0c42bcfb0b9e",
+                                "label": "Label do botão",
+                                "name": "texto_botao_ver_todos",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "Texto exibido no botão (ex.: Ver todos).",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_7915e1b4c3dd",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Ver todos",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "ex.: Ver todos",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_563f91ccb563",
+                                "label": "Link do botão",
+                                "name": "link_botao_ver_todos",
+                                "aria-label": "",
+                                "type": "url",
+                                "instructions": "URL de destino do botão.",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_7915e1b4c3dd",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "https://"
                             }
                         ],
                         "min": "",
@@ -3437,6 +3690,40 @@
                                 "placeholder": "",
                                 "create_options": 0,
                                 "save_options": 0
+                            },
+                            {
+                                "key": "field_8b4429af03cf",
+                                "label": "Botão 1 (opcional)",
+                                "name": "botao_1",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
+                            },
+                            {
+                                "key": "field_d64e5f6e1b1e",
+                                "label": "Botão 2 (opcional)",
+                                "name": "botao_2",
+                                "aria-label": "",
+                                "type": "link",
+                                "instructions": "Opcional. Preencha título e URL para exibir o botão. Deixe vazio para não exibir.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50%",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "return_format": "array",
+                                "allow_in_bindings": 0
                             }
                         ],
                         "min": "",

@@ -321,6 +321,161 @@ function bireme_get_lang_home_url() {
 }
 
 /**
+ * Normaliza um campo ACF link (ou texto+url legados) em ['title','url','target'].
+ *
+ * @param mixed  $link   Array ACF link, string URL, ou vazio.
+ * @param string $title  Título opcional (legado).
+ * @return array{title:string,url:string,target:string}|null
+ */
+function lilacs_normalize_banner_button( $link, $title = '' ) {
+    if ( is_array( $link ) ) {
+        $url   = isset( $link['url'] ) ? trim( (string) $link['url'] ) : '';
+        $label = isset( $link['title'] ) ? trim( (string) $link['title'] ) : '';
+        $target = ! empty( $link['target'] ) ? (string) $link['target'] : '_self';
+        if ( $url === '' ) {
+            return null;
+        }
+        if ( $label === '' ) {
+            $label = $title !== '' ? $title : $url;
+        }
+        return array(
+            'title'  => $label,
+            'url'    => $url,
+            'target' => $target,
+        );
+    }
+
+    $url = is_string( $link ) ? trim( $link ) : '';
+    $label = trim( (string) $title );
+    if ( $url === '' || $label === '' ) {
+        return null;
+    }
+    return array(
+        'title'  => $label,
+        'url'    => $url,
+        'target' => '_self',
+    );
+}
+
+/**
+ * Coleta até 2 botões opcionais dos sub_fields da dobra banner.
+ * Compatível com legado de banner_interno (texto_do_botao + link_do_banner).
+ *
+ * @return array<int, array{title:string,url:string,target:string}>
+ */
+function lilacs_get_banner_cta_buttons() {
+    $buttons = array();
+
+    $b1 = function_exists( 'get_sub_field' ) ? get_sub_field( 'botao_1' ) : null;
+    $n1 = lilacs_normalize_banner_button( $b1 );
+    if ( $n1 ) {
+        $buttons[] = $n1;
+    } else {
+        // Legado banner_interno
+        $legacy_text = function_exists( 'get_sub_field' ) ? (string) get_sub_field( 'texto_do_botao' ) : '';
+        $legacy_url  = function_exists( 'get_sub_field' ) ? get_sub_field( 'link_do_banner' ) : '';
+        $n_legacy = lilacs_normalize_banner_button( $legacy_url, $legacy_text );
+        if ( $n_legacy ) {
+            $buttons[] = $n_legacy;
+        }
+    }
+
+    $b2 = function_exists( 'get_sub_field' ) ? get_sub_field( 'botao_2' ) : null;
+    $n2 = lilacs_normalize_banner_button( $b2 );
+    if ( $n2 ) {
+        $buttons[] = $n2;
+    }
+
+    return $buttons;
+}
+
+/**
+ * Imprime o grupo de CTAs do banner (só se houver botões preenchidos).
+ *
+ * @param string $class Classe CSS extra no wrapper.
+ */
+function lilacs_render_banner_cta_buttons( $class = '' ) {
+    $buttons = lilacs_get_banner_cta_buttons();
+    if ( empty( $buttons ) ) {
+        return;
+    }
+
+    $wrapper_class = trim( 'lilacs-banner-ctas ' . $class );
+    echo '<div class="' . esc_attr( $wrapper_class ) . '">';
+    foreach ( $buttons as $i => $btn ) {
+        $mod = 'lilacs-banner-ctas__btn lilacs-banner-ctas__btn--' . ( $i + 1 );
+        $target = $btn['target'] !== '' ? $btn['target'] : '_self';
+        $rel = ( $target === '_blank' ) ? ' rel="noopener noreferrer"' : '';
+        printf(
+            '<a class="%s" href="%s" target="%s"%s>%s</a>',
+            esc_attr( $mod ),
+            esc_url( $btn['url'] ),
+            esc_attr( $target ),
+            $rel,
+            esc_html( $btn['title'] )
+        );
+    }
+    echo '</div>';
+}
+
+/**
+ * CSS padrão dos CTAs de banner (idempotente).
+ */
+function lilacs_banner_cta_styles() {
+    static $printed = false;
+    if ( $printed ) {
+        return;
+    }
+    $printed = true;
+    ?>
+    <style id="lilacs-banner-cta-styles">
+      .lilacs-banner-ctas{
+        display:flex;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:20px;
+        align-items:center;
+      }
+      .lilacs-banner-ctas__btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 28px;
+        border-radius:999px;
+        font-family:"Noto Sans", system-ui, sans-serif;
+        font-size:16px;
+        font-weight:700;
+        line-height:1.2;
+        text-decoration:none;
+        transition:transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      }
+      .lilacs-banner-ctas__btn--1{
+        background:#F96A1E;
+        color:#fff;
+        box-shadow:0 4px 14px rgba(249,106,30,.28);
+      }
+      .lilacs-banner-ctas__btn--2{
+        background:transparent;
+        color:#fff;
+        border:2px solid rgba(255,255,255,.9);
+      }
+      .lilacs-banner-ctas__btn:hover{
+        transform:translateY(-1px);
+        opacity:.95;
+      }
+      .lilacs-banner-ctas--on-light .lilacs-banner-ctas__btn--2{
+        color:#082b61;
+        border-color:#082b61;
+      }
+      .lilacs-banner-ctas--on-light .lilacs-banner-ctas__btn--1{
+        background:#082b61;
+        box-shadow:0 4px 14px rgba(8,43,97,.22);
+      }
+    </style>
+    <?php
+}
+
+/**
  * True na home do site (inclui front page traduzida no Polylang).
  */
 function bireme_is_site_home() {
