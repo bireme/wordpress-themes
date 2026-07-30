@@ -4,7 +4,7 @@
         "title": "Metodologia",
         "fields": [
             {
-                "key": "field_metod_layout_v1",
+                "key": "field_archived_metod_layout_v1",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -12,9 +12,12 @@
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
-                "wrapper": { "width": "", "class": "", "id": "" },
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
                 "layouts": {
-
                     "layout_metod_banner_v1": {
                         "key": "layout_metod_banner_v1",
                         "name": "banner_metodologia",
@@ -29,7 +32,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": "Ex.: Metodologia LILACS",
                                 "prepend": "",
@@ -43,7 +50,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": "Subtítulo ou descrição do banner",
                                 "new_lines": ""
@@ -56,7 +67,11 @@
                                 "instructions": "Cor do texto da descrição do banner.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "#00205C",
                                 "enable_opacity": 0,
                                 "return_format": "string"
@@ -69,7 +84,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "return_format": "url",
                                 "library": "all",
                                 "min_width": "",
@@ -82,7 +101,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_guia_v1": {
                         "key": "layout_metod_guia_v1",
                         "name": "guia_selecao",
@@ -97,7 +115,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Guia de seleção de documentos LILACS",
                                 "placeholder": ""
                             },
@@ -109,7 +131,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "6ª edição revisada e ampliada - janeiro de 2022",
                                 "placeholder": ""
                             },
@@ -121,7 +147,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Ver guia",
                                 "placeholder": ""
                             },
@@ -133,7 +163,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "50", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "",
                                 "placeholder": "https://"
                             },
@@ -145,7 +179,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Critérios para seleção e permanência de periódicos na coleção LILACS",
                                 "placeholder": ""
                             },
@@ -157,7 +195,11 @@
                                 "instructions": "Adicione os botões de critérios (ex.: Âmbito regional, Coleção Brasil)",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "",
                                 "min": 0,
                                 "max": 5,
@@ -172,7 +214,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Ex.: Âmbito regional (2020)"
                                     },
@@ -184,7 +230,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://"
                                     }
@@ -194,7 +244,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_guiasfaq_v1": {
                         "key": "layout_metod_guiasfaq_v1",
                         "name": "guias_faq",
@@ -209,7 +258,11 @@
                                 "instructions": "Cada item vira um botão. Marque 'Largura total' para que o botão ocupe a linha inteira.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "60", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "60",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_guia_rep_label",
                                 "min": 1,
                                 "max": 10,
@@ -224,7 +277,11 @@
                                         "instructions": "",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Ex.: Manual de gestão"
                                     },
@@ -236,7 +293,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://"
                                     },
@@ -248,7 +309,11 @@
                                         "instructions": "PNG/SVG ~64px",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "preview_size": "thumbnail"
@@ -261,7 +326,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "message": "",
                                         "default_value": 0,
                                         "ui": 1
@@ -276,7 +345,11 @@
                                 "instructions": "Adicione uma ou mais ferramentas no painel azul da direita. Cada item tem título, texto e botão com link.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "40", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "40",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_ferramenta_titulo",
                                 "min": 0,
                                 "max": 10,
@@ -291,7 +364,11 @@
                                         "instructions": "",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Ex.: FI-Admin"
                                     },
@@ -303,7 +380,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Descrição da ferramenta...",
                                         "new_lines": "wpautop",
@@ -317,7 +398,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "Acessar",
                                         "placeholder": "Ex.: Acessar"
                                     },
@@ -329,7 +414,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "50", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://"
                                     }
@@ -339,7 +428,6 @@
                         "min": "",
                         "max": ""
                     },
-
                     "layout_metod_padroes_v1": {
                         "key": "layout_metod_padroes_v1",
                         "name": "padroes_internacionais",
@@ -354,7 +442,11 @@
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "default_value": "Padrões internacionais que são a base da Metodologia LILACS",
                                 "placeholder": ""
                             },
@@ -366,7 +458,11 @@
                                 "instructions": "Adicione até 8 logos de padrões internacionais.",
                                 "required": 0,
                                 "conditional_logic": 0,
-                                "wrapper": { "width": "", "class": "", "id": "" },
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
                                 "collapsed": "field_metod_padroes_logo_img",
                                 "min": 0,
                                 "max": 8,
@@ -381,7 +477,11 @@
                                         "instructions": "PNG/SVG, fundo transparente de preferência.",
                                         "required": 1,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "return_format": "url",
                                         "library": "all",
                                         "preview_size": "thumbnail"
@@ -394,7 +494,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "Ex.: DOI"
                                     },
@@ -406,7 +510,11 @@
                                         "instructions": "",
                                         "required": 0,
                                         "conditional_logic": 0,
-                                        "wrapper": { "width": "", "class": "", "id": "" },
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
                                         "default_value": "",
                                         "placeholder": "https://"
                                     }
@@ -416,7 +524,6 @@
                         "min": "",
                         "max": ""
                     }
-
                 },
                 "min": "",
                 "max": "",
@@ -438,7 +545,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0
     }

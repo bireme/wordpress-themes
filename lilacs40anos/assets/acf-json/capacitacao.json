@@ -4,7 +4,7 @@
         "title": "Capacitação",
         "fields": [
             {
-                "key": "field_6936dff8ee1b1",
+                "key": "field_archived_6936dff8ee1b1",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -391,7 +391,7 @@
                                     },
                                     {
                                         "key": "field_6936dff8f3786",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -600,7 +600,7 @@
                                     },
                                     {
                                         "key": "field_6936dff903bc0",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -1784,7 +1784,7 @@
                                 "sub_fields": [
                                     {
                                         "key": "field_693707065b7d0",
-                                        "label": "Sessão \/ encontro anterior",
+                                        "label": "Sessão / encontro anterior",
                                         "name": "sessao_",
                                         "aria-label": "",
                                         "type": "post_object",
@@ -1819,7 +1819,7 @@
                     "layout_69408eb2e1696": {
                         "key": "layout_69408eb2e1696",
                         "name": "proximas_sessoes_rss",
-                        "label": "Proximas Sessões RSS",
+                        "label": "RSS Multimídia / Sessões",
                         "display": "block",
                         "sub_fields": [
                             {
@@ -1832,14 +1832,53 @@
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
-                                    "width": "",
+                                    "width": "50",
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "",
+                                "default_value": "Multimídia LILACS",
                                 "maxlength": "",
                                 "allow_in_bindings": 0,
+                                "placeholder": "Multimídia LILACS",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_prox_rss_link",
+                                "label": "Link do RSS",
+                                "name": "rss_link",
+                                "aria-label": "",
+                                "type": "url",
+                                "instructions": "Feed multimídia LILACS. Padrão: https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "50",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+                                "placeholder": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS"
+                            },
+                            {
+                                "key": "field_prox_rss_max",
+                                "label": "Máximo de itens",
+                                "name": "rss_max_itens",
+                                "aria-label": "",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "25",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": 6,
+                                "min": 1,
+                                "max": 24,
                                 "placeholder": "",
+                                "step": 1,
                                 "prepend": "",
                                 "append": ""
                             }
@@ -1868,7 +1907,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""

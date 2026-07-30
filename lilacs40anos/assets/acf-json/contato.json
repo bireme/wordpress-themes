@@ -4,7 +4,7 @@
         "title": "Contato",
         "fields": [
             {
-                "key": "field_692f2564efdb1",
+                "key": "field_archived_692f2564efdb1",
                 "label": "Layout",
                 "name": "layout",
                 "aria-label": "",
@@ -249,7 +249,7 @@
                                     },
                                     {
                                         "key": "field_692f256500086",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -458,7 +458,7 @@
                                     },
                                     {
                                         "key": "field_692f256505551",
-                                        "label": "Icone\/imagem",
+                                        "label": "Icone/imagem",
                                         "name": "iconeimagem",
                                         "aria-label": "",
                                         "type": "image",
@@ -1077,7 +1077,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": true,
+        "active": false,
         "description": "",
         "show_in_rest": 0,
         "display_title": ""
