@@ -10,8 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$q     = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
-$paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
+$q = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
+
+// Paginação via query string (evita 404 de /page/2/ em Page templates).
+$paged = 1;
+if ( isset( $_GET['depo_page'] ) ) {
+	$paged = max( 1, (int) wp_unslash( $_GET['depo_page'] ) );
+} else {
+	$paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
+}
 
 $acf_intro     = function_exists( 'get_field' ) ? (string) get_field( 'intro' ) : '';
 $acf_per_page  = function_exists( 'get_field' ) ? (int) get_field( 'itens_por_pagina' ) : 0;
@@ -404,6 +411,26 @@ $total = (int) $query->found_posts;
 			background: transparent;
 		}
 
+		.lilacs-depo-card__name a {
+			color: inherit;
+			text-decoration: none;
+		}
+		.lilacs-depo-card__name a:hover {
+			color: var(--blue-800);
+			text-decoration: underline;
+		}
+		.lilacs-depo-card__more {
+			display: inline-flex;
+			margin-top: 10px;
+			font-size: 14px;
+			font-weight: 700;
+			color: var(--blue-800);
+			text-decoration: none;
+		}
+		.lilacs-depo-card__more:hover {
+			text-decoration: underline;
+		}
+
 		@media (max-width: 980px) {
 			.lilacs-depo-grid { grid-template-columns: 1fr 1fr; }
 		}
@@ -492,6 +519,7 @@ $total = (int) $query->found_posts;
 						$query->the_post();
 
 						$nome       = get_the_title();
+						$permalink  = get_permalink();
 						$foto       = function_exists( 'get_field' ) ? get_field( 'foto' ) : null;
 						$depoimento = function_exists( 'get_field' ) ? get_field( 'depoimento' ) : '';
 						$cargo      = function_exists( 'get_field' ) ? (string) get_field( 'cargo' ) : '';
@@ -542,7 +570,9 @@ $total = (int) $query->found_posts;
 								<?php endif; ?>
 
 								<div class="lilacs-depo-card__identity">
-									<h2 class="lilacs-depo-card__name"><?php echo esc_html( $nome ); ?></h2>
+									<h2 class="lilacs-depo-card__name">
+										<a href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $nome ); ?></a>
+									</h2>
 									<?php if ( $cargo !== '' ) : ?>
 										<p class="lilacs-depo-card__role"><?php echo esc_html( $cargo ); ?></p>
 									<?php endif; ?>
@@ -564,6 +594,10 @@ $total = (int) $query->found_posts;
 									<?php endif; ?>
 								</blockquote>
 							<?php endif; ?>
+
+							<a class="lilacs-depo-card__more" href="<?php echo esc_url( $permalink ); ?>">
+								<?php esc_html_e( 'Ver depoimento completo', 'lilacs' ); ?> →
+							</a>
 						</article>
 					<?php endwhile; ?>
 				</div>
@@ -571,16 +605,25 @@ $total = (int) $query->found_posts;
 				<?php
 				$total_pages = (int) $query->max_num_pages;
 				if ( $total_pages > 1 ) :
-					$pagination_base = trailingslashit( get_permalink() ) . '%_%';
+					$list_url = get_permalink();
+					$big      = 999999999;
+					$query_args = [ 'depo_page' => $big ];
+					if ( $q !== '' ) {
+						$query_args['q'] = $q;
+					}
+					$pagination_base = str_replace(
+						(string) $big,
+						'%#%',
+						esc_url_raw( add_query_arg( $query_args, $list_url ) )
+					);
 					$pagination = paginate_links( [
 						'base'      => $pagination_base,
-						'format'    => user_trailingslashit( 'page/%#%', 'single_paged' ),
+						'format'    => '',
 						'current'   => $paged,
 						'total'     => $total_pages,
 						'type'      => 'list',
 						'prev_text' => '←',
 						'next_text' => '→',
-						'add_args'  => $q !== '' ? [ 'q' => $q ] : false,
 					] );
 
 					if ( $pagination ) :
