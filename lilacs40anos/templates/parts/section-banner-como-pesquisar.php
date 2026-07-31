@@ -15,49 +15,18 @@ $banner_imgid = (int) get_post_meta($post_id, '_lilacs_cp_banner_img_id', true);
 $banner_img   = $banner_imgid ? wp_get_attachment_image_url($banner_imgid, 'full') : '';
 
  //if (!$banner_title) $banner_title = get_the_title($post_id);
-
-/** Breadcrumb helper */
-function bireme_render_breadcrumb_cp(){
-  echo '<div class="container-breadcrumb"><nav class="cp-breadcrumb" aria-label="Breadcrumb">';
-  if (function_exists('bireme_breadcrumb')) {
-    bireme_breadcrumb();
-  } elseif (function_exists('yoast_breadcrumb')) {
-    yoast_breadcrumb('<span class="crumbs">','</span>');
-  } else {
-    // Fallback simples: Home > Título
-    echo '<span class="crumbs"><a href="' . esc_url(home_url('/')) . '">Home</a> / ' . esc_html(get_the_title()) . '</span>';
-  }
-  echo '</nav></div>';
-}
 ?>
 <section id="lilacs-cp-banner" aria-label="Como pesquisar na LILACS – Banner"
   <?php if ($banner_img): ?> style="--cp-bg:url('<?php echo esc_url($banner_img); ?>');"<?php endif; ?>>
   <style>
     #lilacs-cp-banner{
       position:relative;
-      padding:0 0 0; /* espaço pro breadcrumb */
+      padding:0;
       background:#f3f4f6;
       overflow:hidden;
       /* usa CSS var como background quando houver imagem */
       --cp-bg:none;
     }
-    #lilacs-cp-banner .cp-breadcrumb{
-    max-width: 100%;
-    margin: 0;
-    padding: 6px 20px 10px;
-    color: #3b4b6a;
-    background: #fff;
-    display: flex;
-    font-family: 'Noto Sans';
-    font-size: 16px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
-    align-content: flex-start;
-    padding-left: 17.5vw;
-    }
-    #lilacs-cp-banner .cp-breadcrumb a{ color:#2d5ca8; text-decoration:none; }
     #lilacs-cp-banner .cp-hero{
          position: relative;
     padding: 44px 0 36px;
@@ -150,8 +119,6 @@ function bireme_render_breadcrumb_cp(){
       }
     }
   </style>
-
-  <?php bireme_render_breadcrumb_cp(); ?>
 
   <div class="cp-hero">
     <div class="cp-wrap">

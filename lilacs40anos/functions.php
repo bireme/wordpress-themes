@@ -321,6 +321,80 @@ function bireme_get_lang_home_url() {
 }
 
 /**
+ * Garante CPT depoimentos público (single acessível).
+ * Se já existir (ACF CPT UI / plugin), reforça flags públicas.
+ */
+function bireme_lilacs_register_depoimentos_cpt() {
+    if ( ! post_type_exists( 'depoimentos' ) ) {
+        register_post_type(
+            'depoimentos',
+            array(
+                'labels' => array(
+                    'name'          => __( 'Depoimentos', 'bireme-lilacs' ),
+                    'singular_name' => __( 'Depoimento', 'bireme-lilacs' ),
+                    'add_new_item'  => __( 'Adicionar depoimento', 'bireme-lilacs' ),
+                    'edit_item'     => __( 'Editar depoimento', 'bireme-lilacs' ),
+                    'view_item'     => __( 'Ver depoimento', 'bireme-lilacs' ),
+                    'search_items'  => __( 'Buscar depoimentos', 'bireme-lilacs' ),
+                ),
+                'public'             => true,
+                'publicly_queryable' => true,
+                'show_ui'            => true,
+                'show_in_menu'       => true,
+                'show_in_rest'       => true,
+                'has_archive'        => false,
+                'rewrite'            => array( 'slug' => 'depoimento', 'with_front' => false ),
+                'supports'           => array( 'title', 'thumbnail', 'editor' ),
+                'menu_icon'          => 'dashicons-format-quote',
+            )
+        );
+    }
+
+    // Garante rewrite do single após deploy do template.
+    if ( get_option( 'lilacs_depoimentos_rewrite_v1' ) !== '1' ) {
+        flush_rewrite_rules( false );
+        update_option( 'lilacs_depoimentos_rewrite_v1', '1' );
+    }
+}
+add_action( 'init', 'bireme_lilacs_register_depoimentos_cpt', 5 );
+
+/**
+ * Se o CPT já foi registrado por outro plugin, garante single público.
+ */
+function bireme_lilacs_depoimentos_cpt_args( $args, $post_type ) {
+    if ( $post_type !== 'depoimentos' ) {
+        return $args;
+    }
+    $args['public']             = true;
+    $args['publicly_queryable'] = true;
+    if ( empty( $args['rewrite'] ) || ! is_array( $args['rewrite'] ) ) {
+        $args['rewrite'] = array( 'slug' => 'depoimento', 'with_front' => false );
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'bireme_lilacs_depoimentos_cpt_args', 20, 2 );
+
+/**
+ * URL da página de listagem de depoimentos (template page-lilacs-depoimentos.php).
+ */
+function bireme_lilacs_depoimentos_list_url() {
+    $pages = get_posts(
+        array(
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
+            'posts_per_page' => 1,
+            'meta_key'       => '_wp_page_template',
+            'meta_value'     => 'page-lilacs-depoimentos.php',
+            'fields'         => 'ids',
+        )
+    );
+    if ( ! empty( $pages[0] ) ) {
+        return get_permalink( $pages[0] );
+    }
+    return bireme_get_lang_home_url();
+}
+
+/**
  * Normaliza um campo ACF link (ou texto+url legados) em ['title','url','target'].
  *
  * @param mixed  $link   Array ACF link, string URL, ou vazio.

@@ -18,20 +18,6 @@ $banner_img      = (string) get_sub_field( 'imagem_banner' );
 $banner_cor_desc = (string) get_sub_field( 'cor_descricao_banner' );
 if ( ! $banner_cor_desc ) $banner_cor_desc = '#00205C';
 
-/** Breadcrumb helper (reutiliza função se já definida) */
-if ( ! function_exists( 'bireme_render_breadcrumb_cp' ) ) {
-    function bireme_render_breadcrumb_cp() {
-        echo '<div class="container-breadcrumb"><nav class="cp-breadcrumb" aria-label="Breadcrumb">';
-        if ( function_exists( 'bireme_breadcrumb' ) ) {
-            bireme_breadcrumb();
-        } elseif ( function_exists( 'yoast_breadcrumb' ) ) {
-            yoast_breadcrumb( '<span class="crumbs">', '</span>' );
-        } else {
-            echo '<span class="crumbs"><a href="' . esc_url( home_url( '/' ) ) . '">Home</a> / ' . esc_html( get_the_title() ) . '</span>';
-        }
-        echo '</nav></div>';
-    }
-}
 ?>
 <section id="lilacs-cp-banner" aria-label="Metodologia LILACS – Banner"
   style="<?php echo $banner_img ? '--cp-bg:url(' . esc_url( $banner_img ) . ');' : ''; ?> --cp-desc-color:<?php echo esc_attr( $banner_cor_desc ); ?>">
@@ -44,23 +30,6 @@ if ( ! function_exists( 'bireme_render_breadcrumb_cp' ) ) {
       overflow: hidden;
       --cp-bg: none;
     }
-    #lilacs-cp-banner .cp-breadcrumb {
-      max-width: 100%;
-      margin: 0;
-      padding: 6px 20px 10px;
-      color: #3b4b6a;
-      background: #fff;
-      display: flex;
-      font-family: 'Noto Sans';
-      font-size: 16px;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-direction: column;
-      width: 100%;
-      align-content: flex-start;
-      padding-left: 17.5vw;
-    }
-    #lilacs-cp-banner .cp-breadcrumb a { color: #2d5ca8; text-decoration: none; }
     #lilacs-cp-banner .cp-hero {
       position: relative;
       padding: 44px 0 36px;
@@ -132,8 +101,6 @@ if ( ! function_exists( 'bireme_render_breadcrumb_cp' ) ) {
       }
     }
   </style>
-
-  <?php bireme_render_breadcrumb_cp(); ?>
 
   <div class="cp-hero">
     <div class="cp-wrap">

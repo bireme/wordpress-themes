@@ -177,10 +177,11 @@ if (!defined('ABSPATH')) exit;
   color:#5E5E5E;
   text-decoration:none;
   line-height:1.4;
+  max-width:88% !important;
 }
 .menu--primary > li > .sub-menu .sub-menu > li > a:hover {
   color:#082b61;
-  background:#f7f9fc;
+  background:transparent !important;
 }
 
 /* ====== MOBILE TOGGLE ====== */
