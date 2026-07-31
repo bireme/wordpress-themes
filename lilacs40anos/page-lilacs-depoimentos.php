@@ -10,6 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
+// Permalink da PÁGINA de listagem (não usar get_permalink() após o loop do CPT).
+$list_page_id  = get_queried_object_id();
+$list_page_url = get_permalink( $list_page_id );
+
 $q = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
 
 // Paginação via query string (evita 404 de /page/2/ em Page templates).
@@ -17,7 +21,7 @@ $paged = 1;
 if ( isset( $_GET['depo_page'] ) ) {
 	$paged = max( 1, (int) wp_unslash( $_GET['depo_page'] ) );
 } else {
-	$paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
+	$paged = max( 1, (int) get_query_var( 'paged' ) );
 }
 
 $acf_intro     = function_exists( 'get_field' ) ? (string) get_field( 'intro' ) : '';
@@ -461,7 +465,7 @@ $total = (int) $query->found_posts;
 
 	<section class="lilacs-depo-toolbar">
 		<div class="lilacs-depo-inner">
-			<form class="lilacs-depo-search" method="get" action="<?php echo esc_url( get_permalink() ); ?>" role="search">
+			<form class="lilacs-depo-search" method="get" action="<?php echo esc_url( $list_page_url ); ?>" role="search">
 				<label class="sr-only" for="lilacs-depo-q"><?php esc_html_e( 'Buscar depoimentos', 'lilacs' ); ?></label>
 				<div class="lilacs-depo-search__field">
 					<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -492,7 +496,7 @@ $total = (int) $query->found_posts;
 						);
 						?>
 					</span>
-					<a class="lilacs-depo-clear" href="<?php echo esc_url( get_permalink() ); ?>">
+					<a class="lilacs-depo-clear" href="<?php echo esc_url( $list_page_url ); ?>">
 						<?php esc_html_e( 'Limpar busca', 'lilacs' ); ?>
 					</a>
 				<?php else : ?>
@@ -603,10 +607,11 @@ $total = (int) $query->found_posts;
 				</div>
 
 				<?php
+				wp_reset_postdata();
+
 				$total_pages = (int) $query->max_num_pages;
 				if ( $total_pages > 1 ) :
-					$list_url = get_permalink();
-					$big      = 999999999;
+					$big = 999999999;
 					$query_args = [ 'depo_page' => $big ];
 					if ( $q !== '' ) {
 						$query_args['q'] = $q;
@@ -614,7 +619,7 @@ $total = (int) $query->found_posts;
 					$pagination_base = str_replace(
 						(string) $big,
 						'%#%',
-						esc_url_raw( add_query_arg( $query_args, $list_url ) )
+						esc_url_raw( add_query_arg( $query_args, $list_page_url ) )
 					);
 					$pagination = paginate_links( [
 						'base'      => $pagination_base,
@@ -651,15 +656,13 @@ $total = (int) $query->found_posts;
 					</p>
 					<?php if ( $q !== '' ) : ?>
 						<p style="margin-top:16px;">
-							<a class="lilacs-depo-clear" href="<?php echo esc_url( get_permalink() ); ?>">
+							<a class="lilacs-depo-clear" href="<?php echo esc_url( $list_page_url ); ?>">
 								<?php esc_html_e( 'Ver todos os depoimentos', 'lilacs' ); ?>
 							</a>
 						</p>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
-
-			<?php wp_reset_postdata(); ?>
 		</div>
 	</section>
 
