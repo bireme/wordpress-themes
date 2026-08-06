@@ -447,7 +447,7 @@ function configure_edition_archive( $query ) {
 	}
 
 	if ( is_post_type_archive( 'edition' ) ) {
-		$query->set( 'posts_per_page', 10 );
+		$query->set( 'posts_per_page', 20 );
 		$query->set( 'meta_key', 'date' );
 		$query->set( 'orderby', 'meta_value_num' );
 		$query->set( 'order', 'DESC' );
