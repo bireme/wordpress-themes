@@ -53,7 +53,7 @@ get_header();
 			?>
 
 			<h2 class="year-title">
-				<?php echo esc_html( $year ); ?>
+				<b><?php echo esc_html( $year ); ?></b>
 			</h2>
 
 		<?php endif; ?>
