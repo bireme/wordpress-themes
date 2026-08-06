@@ -1,4 +1,3 @@
-```php
 <?php
 /**
  * Template do arquivo de edições.
@@ -97,4 +96,4 @@ get_header();
 
 <?php
 get_footer();
-```
+?>
