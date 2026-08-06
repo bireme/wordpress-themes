@@ -36,118 +36,55 @@ query_posts( $args );
 $wp_query->is_search = false;
 
 get_header(); ?>
-	<main
-	id="content"
-	class="<?php echo esc_attr( odin_classes_page_sidebar() ); ?>"
-	tabindex="-1"
-	role="main"
->
-	<div
-		class="breadcrumbs"
-		typeof="BreadcrumbList"
-		vocab="https://schema.org/"
-	>
-		<?php
-		if ( function_exists( 'bcn_display' ) ) {
-			bcn_display();
-		}
-		?>
-	</div>
+	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+                <?php if ( function_exists( 'bcn_display' ) ) bcn_display(); ?>
+            </div>
+			<?php if ( have_posts() ) : $first = true; $class = ''; ?>
 
-	<?php if ( have_posts() ) : ?>
+				<header class="page-header">
+					<h1><?php _e( 'All editions', 'odin' ) ?></h1>
+				</header><!-- .page-header -->
 
-		<?php
-		$first = true;
-		$year  = null;
-		$month = null;
-		?>
+				<?php while ( have_posts() ) : the_post(); // Start the Loop. ?>
 
-		<header class="page-header">
-			<h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
-		</header>
+					<?php $date = strtotime( get_field( 'date' ) ); ?>
 
-		<?php while ( have_posts() ) : ?>
-			<?php
-			the_post();
+					<?php
+						if ( ! isset($year) || date( "Y", $date ) != $year ) :
+                        	$year = date( "Y", $date );
+                        	$class = $first ? 'first' : '';
+                        	$first = false;
+                    ?>
+						<div class="year" data-year="<?php echo $year; ?>">
+				        	<h2><a href="#"><?php echo __( 'Year', 'odin' ) . ' ' . date( "Y", $date ); ?></a></h2>
+				        </div>
+				    <?php endif; ?>
 
-			$date_field = get_field( 'date' );
-			$date       = $date_field ? strtotime( $date_field ) : false;
+		        	<?php
+						if ( ! isset($month) || date( "m", $date ) != $month ) :
+                        	$month = date( "m", $date );
+                    ?>
+		                <div class="month year-<?php echo $year; ?> <?php echo $class; ?>" data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
+		                	<h3><a href="#"><?php echo date_i18n( 'F', $date ); ?></a></h3>
+		                </div>
+			        <?php endif; ?>
 
-			if ( ! $date ) {
-				continue;
-			}
+			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() . ' - ' . date_i18n( "d/F/Y", $date ); ?></a></div>
 
-			$current_year  = date( 'Y', $date );
-			$current_month = date( 'm', $date );
-			$class         = '';
+			    <?php endwhile;
+
+					// Page navigation.
+					odin_paging_nav();
+
+				else :
+					// If no content, include the "No posts found" template.
+					get_template_part( 'content', 'none' );
+
+				endif;
 			?>
 
-			<?php if ( $current_year !== $year ) : ?>
-				<?php
-				$year  = $current_year;
-				$month = null;
-				$class = $first ? 'first' : '';
-				$first = false;
-				?>
-
-				<div
-					class="year <?php echo esc_attr( $class ); ?>"
-					data-year="<?php echo esc_attr( $year ); ?>"
-				>
-					<h2>
-						<button type="button">
-							<?php
-							printf(
-								'%s %s',
-								esc_html__( 'Year', 'odin' ),
-								esc_html( $year )
-							);
-							?>
-						</button>
-					</h2>
-				</div>
-			<?php endif; ?>
-
-			<?php if ( $current_month !== $month ) : ?>
-				<?php $month = $current_month; ?>
-
-				<div
-					class="month year-<?php echo esc_attr( $year ); ?> <?php echo esc_attr( $class ); ?>"
-					data-month="<?php echo esc_attr( $month ); ?>"
-					data-year="<?php echo esc_attr( $year ); ?>"
-				>
-					<h3>
-						<button type="button">
-							<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
-						</button>
-					</h3>
-				</div>
-			<?php endif; ?>
-
-			<div
-				class="edition month-<?php echo esc_attr( $month ); ?> year-<?php echo esc_attr( $year ); ?> <?php echo esc_attr( $class ); ?>"
-			>
-				<a href="<?php echo esc_url( get_permalink() ); ?>">
-					<?php
-					printf(
-						'%s - %s',
-						esc_html( get_the_title() ),
-						esc_html( date_i18n( 'd/F/Y', $date ) )
-					);
-					?>
-				</a>
-			</div>
-
-		<?php endwhile; ?>
-
-		<?php odin_paging_nav(); ?>
-
-	<?php else : ?>
-
-		<?php get_template_part( 'content', 'none' ); ?>
-
-	<?php endif; ?>
-</main>
+	</main><!-- #main -->
 
 <?php
 //get_sidebar();
