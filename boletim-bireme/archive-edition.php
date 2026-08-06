@@ -109,13 +109,13 @@ get_header(); ?>
 				</div>
 		<?php endwhile; ?>
 
-			</div>
 		<?php odin_paging_nav(); ?>
 
 	<?php else : ?>
 
 		<?php get_template_part( 'content', 'none' ); ?>
 
+			</div>
 	<?php endif; ?>
 
 </main>
