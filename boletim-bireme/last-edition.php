@@ -4,7 +4,7 @@
  */
 
 get_header(); ?>
-<h1>Last Edition</h1>
+
 <?php
     $args = array(
         'post_type' => 'edition',
