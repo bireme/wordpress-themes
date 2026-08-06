@@ -16,9 +16,6 @@
  * @since 2.2.0
  */
 
-
-
-
 global $wp_query;
 
 $args = $wp_query->query_vars;
@@ -39,83 +36,81 @@ query_posts( $args );
 $wp_query->is_search = false;
 
 get_header(); ?>
-	<?php if ( have_posts() ) : ?>
+	<main id="content" class="<?php echo esc_attr( odin_classes_page_sidebar() ); ?>" tabindex="-1" role="main">
 
-	<?php
-	$year  = '';
-	$month = '';
-	?>
+    <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+        <?php
+        if ( function_exists( 'bcn_display' ) ) {
+            bcn_display();
+        }
+        ?>
+    </div>
 
-	<header class="page-header">
-		<h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
-	</header>
+    <?php if ( have_posts() ) : ?>
 
-	<div class="boletins-list">
+        <?php
+        $year  = '';
+        $month = '';
+        ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+        <header class="page-header">
+            <h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
+        </header>
 
-			<?php
-			$date_field = get_field( 'date' );
-			$date       = $date_field ? strtotime( $date_field ) : false;
+        <?php while ( have_posts() ) : the_post(); ?>
 
-			if ( ! $date ) {
-				continue;
-			}
+            <?php
+            $date = strtotime( get_field( 'date' ) );
 
-			$current_year  = date( 'Y', $date );
-			$current_month = date( 'm', $date );
-			?>
+            if ( ! $date ) {
+                continue;
+            }
 
-			<?php if ( $current_year !== $year ) : ?>
-				<?php
-				$year  = $current_year;
-				$month = '';
-				?>
+            $current_year  = date( 'Y', $date );
+            $current_month = date( 'm', $date );
+            ?>
 
-				<h2 class="year-title">
-					<?php echo esc_html( $year ); ?>
-				</h2>
-			<?php endif; ?>
+            <?php if ( $current_year !== $year ) : ?>
+                <?php
+                $year  = $current_year;
+                $month = '';
+                ?>
 
-			<?php if ( $current_month !== $month ) : ?>
-				<?php $month = $current_month; ?>
+                <h2 class="year-title">
+                    <?php echo esc_html( $year ); ?>
+                </h2>
 
-				<h3 class="month-title">
-					<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
-				</h3>
-			<?php endif; ?>
+            <?php endif; ?>
 
-			<div class="edition-item">
-				<a href="<?php echo esc_url( get_permalink() ); ?>">
-					<?php echo esc_html( get_the_title() ); ?>
-				</a>
+            <?php if ( $current_month !== $month ) : ?>
+                <?php $month = $current_month; ?>
 
-				<span class="edition-date">
-					<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>
-				</span>
-			</div>
+                <h3 class="month-title">
+                    <?php echo esc_html( date_i18n( 'F', $date ) ); ?>
+                </h3>
 
-		<?php endwhile; ?>
+            <?php endif; ?>
 
-	</div>
+            <div class="edition-item">
+                <a href="<?php echo esc_url( get_permalink() ); ?>">
+                    <?php echo esc_html( get_the_title() ); ?>
+                </a>
+                <span class="edition-date">
+                    (<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>)
+                </span>
+            </div>
 
-	<nav class="boletins-pagination">
-		<?php
-		the_posts_pagination(
-			array(
-				'mid_size'  => 2,
-				'prev_text' => __( 'Anterior', 'odin' ),
-				'next_text' => __( 'Próxima', 'odin' ),
-			)
-		);
-		?>
-	</nav>
+        <?php endwhile; ?>
 
-<?php else : ?>
+        <?php odin_paging_nav(); ?>
 
-	<?php get_template_part( 'content', 'none' ); ?>
+    <?php else : ?>
 
-<?php endif; ?>
+        <?php get_template_part( 'content', 'none' ); ?>
+
+    <?php endif; ?>
+
+</main>
 
 <?php
 //get_sidebar();
