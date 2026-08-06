@@ -66,7 +66,6 @@ get_header(); ?>
 		</header>
 
 		<?php while ( have_posts() ) : the_post(); ?>
-			<div class="border-year">
 
 			<?php
 			$date = strtotime( get_field( 'date' ) );
@@ -84,6 +83,7 @@ get_header(); ?>
 					$month = '';
 					?>
 
+			<div class="border-year">
 					<h2 class="year-title">
 						<?php echo esc_html( $year ); ?>
 					</h2>
@@ -108,14 +108,13 @@ get_header(); ?>
 					</span>
 				</div>
 		<?php endwhile; ?>
-
+	</div>
 		<?php odin_paging_nav(); ?>
 
 	<?php else : ?>
 
 		<?php get_template_part( 'content', 'none' ); ?>
 
-			</div>
 	<?php endif; ?>
 
 </main>
