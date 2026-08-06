@@ -41,6 +41,7 @@ get_header(); ?>
 		border:1px solid #ddd;
 		border-radius: 8px;
 		padding: 20px 10px;
+		margin-bottom: 20px;
 	}
 </style>
 <main id="content" class="<?php echo esc_attr( odin_classes_page_sidebar() ); ?>" tabindex="-1" role="main">
@@ -65,6 +66,7 @@ get_header(); ?>
 		</header>
 
 		<?php while ( have_posts() ) : the_post(); ?>
+			<div class="border-year">
 
 			<?php
 			$date = strtotime( get_field( 'date' ) );
@@ -76,7 +78,6 @@ get_header(); ?>
 			$current_year  = date( 'Y', $date );
 			$current_month = date( 'm', $date );
 			?>
-			<div class="border-year">
 				<?php if ( $current_year !== $year ) : ?>
 					<?php
 					$year  = $current_year;
@@ -106,9 +107,9 @@ get_header(); ?>
 						(<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>)
 					</span>
 				</div>
-			</div>
 		<?php endwhile; ?>
 
+			</div>
 		<?php odin_paging_nav(); ?>
 
 	<?php else : ?>
