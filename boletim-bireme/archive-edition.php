@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+
 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 	<?php
 	if ( function_exists( 'bcn_display' ) ) {
@@ -31,58 +31,50 @@ get_header();
 		</h1>
 	</header>
 
-	<div class="editions-list">
+	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php while ( have_posts() ) : ?>
-			<?php the_post(); ?>
+		<?php
+		$date_field = get_field( 'date' );
+		$date       = $date_field ? strtotime( $date_field ) : false;
+
+		if ( ! $date ) {
+			continue;
+		}
+
+		$current_year  = date( 'Y', $date );
+		$current_month = date( 'm', $date );
+		?>
+
+		<?php if ( $current_year !== $year ) : ?>
 
 			<?php
-			$date_field = get_field( 'date' );
-			$date       = $date_field ? strtotime( $date_field ) : false;
-
-			if ( ! $date ) {
-				continue;
-			}
-
-			$current_year  = date( 'Y', $date );
-			$current_month = date( 'm', $date );
+			$year  = $current_year;
+			$month = '';
 			?>
 
-			<?php if ( $current_year !== $year ) : ?>
+			<h2 class="year-title">
+				<?php echo esc_html( $year ); ?>
+			</h2>
 
-				<?php
-				$year  = $current_year;
-				$month = '';
-				?>
+		<?php endif; ?>
 
-				<h2 class="year-title">
-					<?php echo esc_html( $year ); ?>
-				</h2>
+		<?php if ( $current_month !== $month ) : ?>
 
-			<?php endif; ?>
+			<?php $month = $current_month; ?>
 
-			<?php if ( $current_month !== $month ) : ?>
+			<h3 class="month-title">
+				<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
+			</h3>
 
-				<?php $month = $current_month; ?>
+		<?php endif; ?>
 
-				<h3 class="month-title">
-					<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
-				</h3>
+		<div class="edition-item">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_title(); ?>
+			</a>
+		</div>
 
-			<?php endif; ?>
-
-			<article
-				id="post-<?php the_ID(); ?>"
-				<?php post_class( 'edition-item' ); ?>
-			>
-				<a href="<?php echo esc_url( get_permalink() ); ?>">
-					<?php echo esc_html( get_the_title() ); ?>
-				</a>
-			</article>
-
-		<?php endwhile; ?>
-
-	</div>
+	<?php endwhile; ?>
 
 	<div class="editions-pagination">
 		<?php odin_paging_nav(); ?>
@@ -93,7 +85,6 @@ get_header();
 	<?php get_template_part( 'content', 'none' ); ?>
 
 <?php endif; ?>
-</main>
+
 <?php
 get_footer();
-?>
