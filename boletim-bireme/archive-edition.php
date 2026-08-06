@@ -17,20 +17,7 @@
  */
 
 
-function configurar_paginacao_boletins( $query ) {
-	if ( is_admin() || ! $query->is_main_query() ) {
-		return;
-	}
 
-	/*
-	 * Troque "boletins" pelo slug da página,
-	 * ou ajuste a condição para seu post type.
-	 */
-	if ( is_page( 'boletins' ) ) {
-		$query->set( 'posts_per_page', 20 );
-	}
-}
-add_action( 'pre_get_posts', 'configurar_paginacao_boletins' );
 
 global $wp_query;
 
