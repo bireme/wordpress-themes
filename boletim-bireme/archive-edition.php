@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-
+<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 	<?php
 	if ( function_exists( 'bcn_display' ) ) {
@@ -93,7 +93,7 @@ get_header();
 	<?php get_template_part( 'content', 'none' ); ?>
 
 <?php endif; ?>
-
+</main>
 <?php
 get_footer();
 ?>
