@@ -435,6 +435,7 @@ add_action('init', function() {
     pll_register_string('News', 'Upcoming News', 'Defaults'); 
 });
 
+
 /**
  * Configura a consulta principal do arquivo de edições.
  *
