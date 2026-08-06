@@ -36,55 +36,81 @@ query_posts( $args );
 $wp_query->is_search = false;
 
 get_header(); ?>
-	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
-			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-                <?php if ( function_exists( 'bcn_display' ) ) bcn_display(); ?>
+	<main id="content" class="<?php echo esc_attr( odin_classes_page_sidebar() ); ?>" tabindex="-1" role="main">
+
+    <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+        <?php
+        if ( function_exists( 'bcn_display' ) ) {
+            bcn_display();
+        }
+        ?>
+    </div>
+
+    <?php if ( have_posts() ) : ?>
+
+        <?php
+        $year  = '';
+        $month = '';
+        ?>
+
+        <header class="page-header">
+            <h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
+        </header>
+
+        <?php while ( have_posts() ) : the_post(); ?>
+
+            <?php
+            $date = strtotime( get_field( 'date' ) );
+
+            if ( ! $date ) {
+                continue;
+            }
+
+            $current_year  = date( 'Y', $date );
+            $current_month = date( 'm', $date );
+            ?>
+
+            <?php if ( $current_year !== $year ) : ?>
+                <?php
+                $year  = $current_year;
+                $month = '';
+                ?>
+
+                <h2 class="year-title">
+                    <?php echo esc_html( $year ); ?>
+                </h2>
+
+            <?php endif; ?>
+
+            <?php if ( $current_month !== $month ) : ?>
+                <?php $month = $current_month; ?>
+
+                <h3 class="month-title">
+                    <?php echo esc_html( date_i18n( 'F', $date ) ); ?>
+                </h3>
+
+            <?php endif; ?>
+
+            <div class="edition-item">
+                <a href="<?php echo esc_url( get_permalink() ); ?>">
+                    <?php echo esc_html( get_the_title() ); ?>
+                </a>
+                <span class="edition-date">
+                    (<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>)
+                </span>
             </div>
-			<?php if ( have_posts() ) : $first = true; $class = ''; ?>
 
-				<header class="page-header">
-					<h1><?php _e( 'All editions', 'odin' ) ?></h1>
-				</header><!-- .page-header -->
+        <?php endwhile; ?>
 
-				<?php while ( have_posts() ) : the_post(); // Start the Loop. ?>
+        <?php odin_paging_nav(); ?>
 
-					<?php $date = strtotime( get_field( 'date' ) ); ?>
+    <?php else : ?>
 
-					<?php
-						if ( ! isset($year) || date( "Y", $date ) != $year ) :
-                        	$year = date( "Y", $date );
-                        	$class = $first ? 'first' : '';
-                        	$first = false;
-                    ?>
-						<div class="year" data-year="<?php echo $year; ?>">
-				        	<h2><a href="#"><?php echo __( 'Year', 'odin' ) . ' ' . date( "Y", $date ); ?></a></h2>
-				        </div>
-				    <?php endif; ?>
+        <?php get_template_part( 'content', 'none' ); ?>
 
-		        	<?php
-						if ( ! isset($month) || date( "m", $date ) != $month ) :
-                        	$month = date( "m", $date );
-                    ?>
-		                <div class="month year-<?php echo $year; ?> <?php echo $class; ?>" data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
-		                	<h3><a href="#"><?php echo date_i18n( 'F', $date ); ?></a></h3>
-		                </div>
-			        <?php endif; ?>
+    <?php endif; ?>
 
-			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() . ' - ' . date_i18n( "d/F/Y", $date ); ?></a></div>
-
-			    <?php endwhile;
-
-					// Page navigation.
-					odin_paging_nav();
-
-				else :
-					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
-
-				endif;
-			?>
-
-	</main><!-- #main -->
+</main>
 
 <?php
 //get_sidebar();
