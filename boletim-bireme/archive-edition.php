@@ -16,6 +16,22 @@
  * @since 2.2.0
  */
 
+
+function configurar_paginacao_boletins( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	/*
+	 * Troque "boletins" pelo slug da página,
+	 * ou ajuste a condição para seu post type.
+	 */
+	if ( is_page( 'boletins' ) ) {
+		$query->set( 'posts_per_page', 20 );
+	}
+}
+add_action( 'pre_get_posts', 'configurar_paginacao_boletins' );
+
 global $wp_query;
 
 $args = $wp_query->query_vars;
@@ -36,126 +52,83 @@ query_posts( $args );
 $wp_query->is_search = false;
 
 get_header(); ?>
+	<?php if ( have_posts() ) : ?>
+
 	<?php
-$paged = max( 1, get_query_var( 'paged' ) );
+	$year  = '';
+	$month = '';
+	?>
 
-$boletins_query = new WP_Query(
-	array(
-		'post_type'      => 'post', // Troque pelo post type dos boletins.
-		'posts_per_page' => 20,
-		'paged'          => $paged,
-		'meta_key'       => 'date',
-		'orderby'        => 'meta_value',
-		'order'          => 'DESC',
-	)
-);
-?>
+	<header class="page-header">
+		<h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
+	</header>
 
-<main
-	id="content"
-	class="<?php echo esc_attr( odin_classes_page_sidebar() ); ?>"
-	tabindex="-1"
-	role="main"
->
-	<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-		<?php
-		if ( function_exists( 'bcn_display' ) ) {
-			bcn_display();
-		}
-		?>
-	</div>
+	<div class="boletins-list">
 
-	<?php if ( $boletins_query->have_posts() ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php
-		$year  = '';
-		$month = '';
-		?>
+			<?php
+			$date_field = get_field( 'date' );
+			$date       = $date_field ? strtotime( $date_field ) : false;
 
-		<header class="page-header">
-			<h1><?php esc_html_e( 'All editions', 'odin' ); ?></h1>
-		</header>
+			if ( ! $date ) {
+				continue;
+			}
 
-		<div class="boletins-list">
+			$current_year  = date( 'Y', $date );
+			$current_month = date( 'm', $date );
+			?>
 
-			<?php while ( $boletins_query->have_posts() ) : ?>
+			<?php if ( $current_year !== $year ) : ?>
 				<?php
-				$boletins_query->the_post();
-
-				$date_field = get_field( 'date' );
-				$date       = $date_field ? strtotime( $date_field ) : false;
-
-				if ( ! $date ) {
-					continue;
-				}
-
-				$current_year  = date( 'Y', $date );
-				$current_month = date( 'm', $date );
+				$year  = $current_year;
+				$month = '';
 				?>
 
-				<?php if ( $current_year !== $year ) : ?>
-					<?php
-					$year  = $current_year;
-					$month = '';
-					?>
+				<h2 class="year-title">
+					<?php echo esc_html( $year ); ?>
+				</h2>
+			<?php endif; ?>
 
-					<h2 class="year-title">
-						<?php echo esc_html( $year ); ?>
-					</h2>
-				<?php endif; ?>
+			<?php if ( $current_month !== $month ) : ?>
+				<?php $month = $current_month; ?>
 
-				<?php if ( $current_month !== $month ) : ?>
-					<?php $month = $current_month; ?>
+				<h3 class="month-title">
+					<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
+				</h3>
+			<?php endif; ?>
 
-					<h3 class="month-title">
-						<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
-					</h3>
-				<?php endif; ?>
+			<div class="edition-item">
+				<a href="<?php echo esc_url( get_permalink() ); ?>">
+					<?php echo esc_html( get_the_title() ); ?>
+				</a>
 
-				<div class="edition-item">
-					<a href="<?php echo esc_url( get_permalink() ); ?>">
-						<?php echo esc_html( get_the_title() ); ?>
-					</a>
+				<span class="edition-date">
+					<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>
+				</span>
+			</div>
 
-					<span class="edition-date">
-						<?php echo esc_html( date_i18n( 'd/m/Y', $date ) ); ?>
-					</span>
-				</div>
+		<?php endwhile; ?>
 
-			<?php endwhile; ?>
+	</div>
 
-		</div>
+	<nav class="boletins-pagination">
+		<?php
+		the_posts_pagination(
+			array(
+				'mid_size'  => 2,
+				'prev_text' => __( 'Anterior', 'odin' ),
+				'next_text' => __( 'Próxima', 'odin' ),
+			)
+		);
+		?>
+	</nav>
 
-		<nav class="boletins-pagination" aria-label="<?php esc_attr_e( 'Pagination', 'odin' ); ?>">
-			<?php
-			echo paginate_links(
-				array(
-					'base'      => str_replace(
-						999999999,
-						'%#%',
-						esc_url( get_pagenum_link( 999999999 ) )
-					),
-					'format'    => '?paged=%#%',
-					'current'   => $paged,
-					'total'     => $boletins_query->max_num_pages,
-					'mid_size'  => 2,
-					'end_size'  => 1,
-					'prev_text' => esc_html__( 'Anterior', 'odin' ),
-					'next_text' => esc_html__( 'Próxima', 'odin' ),
-				)
-			);
-			?>
-		</nav>
+<?php else : ?>
 
-		<?php wp_reset_postdata(); ?>
+	<?php get_template_part( 'content', 'none' ); ?>
 
-	<?php else : ?>
-
-		<?php get_template_part( 'content', 'none' ); ?>
-
-	<?php endif; ?>
-
-</main>
+<?php endif; ?>
 
 <?php
 //get_sidebar();
