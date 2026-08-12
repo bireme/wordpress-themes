@@ -434,3 +434,23 @@ add_image_size('tv',1440,980,true);
 add_action('init', function() {
     pll_register_string('News', 'Upcoming News', 'Defaults'); 
 });
+
+
+/**
+ * Configura a consulta principal do arquivo de edições.
+ *
+ * @param WP_Query $query Consulta atual.
+ */
+function configure_edition_archive( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( is_post_type_archive( 'edition' ) ) {
+		$query->set( 'posts_per_page', 20 );
+		$query->set( 'meta_key', 'date' );
+		$query->set( 'orderby', 'meta_value_num' );
+		$query->set( 'order', 'DESC' );
+	}
+}
+add_action( 'pre_get_posts', 'configure_edition_archive' );

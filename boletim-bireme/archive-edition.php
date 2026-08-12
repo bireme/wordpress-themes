@@ -1,92 +1,90 @@
 <?php
 /**
- * The template for displaying Archive pages.
+ * Template do arquivo de edições.
  *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * If you'd like to further customize these archive views, you may create a
- * new template file for each specific one. For example, Twenty Thirteen
- * already has tag.php for Tag archives, category.php for Category archives,
- * and author.php for Author archives.
- *
- * @link http://codex.wordpress.org/Template_Hierarchy
+ * Arquivo: archive-edition.php
  *
  * @package Odin
- * @since 2.2.0
  */
 
-global $wp_query;
+get_header();
+?>
+<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+	<?php
+	if ( function_exists( 'bcn_display' ) ) {
+		bcn_display();
+	}
+	?>
+</div>
 
-$args = $wp_query->query_vars;
+<?php if ( have_posts() ) : ?>
 
-$args['nopaging'] = true;
-$args['posts_per_page'] = -1;
-$args['posts_per_archive_page'] = -1;
+	<?php
+	$year  = '';
+	$month = '';
+	?>
 
-$args['meta_key'] = 'date';
-$args['orderby'] = 'meta_value';
-$args['order'] = 'DESC';
+	<header class="page-header">
+		<h1 class="page-title">
+			<?php esc_html_e( 'All editions', 'odin' ); ?>
+		</h1>
+	</header>
 
-unset( $args['paged'] );
-unset( $args['page'] );
+	<?php while ( have_posts() ) : the_post(); ?>
 
-query_posts( $args );
+		<?php
+		$date_field = get_field( 'date' );
+		$date       = $date_field ? strtotime( $date_field ) : false;
 
-$wp_query->is_search = false;
+		if ( ! $date ) {
+			continue;
+		}
 
-get_header(); ?>
+		$current_year  = date( 'Y', $date );
+		$current_month = date( 'm', $date );
+		?>
 
-	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
-			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-                <?php if ( function_exists( 'bcn_display' ) ) bcn_display(); ?>
-            </div>
-			<?php if ( have_posts() ) : $first = true; $class = ''; ?>
+		<?php if ( $current_year !== $year ) : ?>
 
-				<header class="page-header">
-					<h1><?php _e( 'All editions', 'odin' ) ?></h1>
-				</header><!-- .page-header -->
-
-				<?php while ( have_posts() ) : the_post(); // Start the Loop. ?>
-
-					<?php $date = strtotime( get_field( 'date' ) ); ?>
-
-					<?php
-						if ( ! isset($year) || date( "Y", $date ) != $year ) :
-                        	$year = date( "Y", $date );
-                        	$class = $first ? 'first' : '';
-                        	$first = false;
-                    ?>
-						<div class="year" data-year="<?php echo $year; ?>">
-				        	<h2><a href="#"><?php echo __( 'Year', 'odin' ) . ' ' . date( "Y", $date ); ?></a></h2>
-				        </div>
-				    <?php endif; ?>
-
-		        	<?php
-						if ( ! isset($month) || date( "m", $date ) != $month ) :
-                        	$month = date( "m", $date );
-                    ?>
-		                <div class="month year-<?php echo $year; ?> <?php echo $class; ?>" data-month="<?php echo $month; ?>" data-year="<?php echo $year; ?>">
-		                	<h3><a href="#"><?php echo date_i18n( 'F', $date ); ?></a></h3>
-		                </div>
-			        <?php endif; ?>
-
-			            <div class="edition month-<?php echo $month; ?> year-<?php echo $year; ?> <?php echo $class; ?>"><a href="<?php the_permalink(); ?>"><?php echo get_the_title() . ' - ' . date_i18n( "d/F/Y", $date ); ?></a></div>
-
-			    <?php endwhile;
-
-					// Page navigation.
-					odin_paging_nav();
-
-				else :
-					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
-
-				endif;
+			<?php
+			$year  = $current_year;
+			$month = '';
 			?>
 
-	</main><!-- #main -->
+			<h2 class="year-title">
+				<b><?php echo esc_html( $year ); ?></b>
+			</h2>
 
+		<?php endif; ?>
+
+		<?php if ( $current_month !== $month ) : ?>
+
+			<?php $month = $current_month; ?>
+
+			<h3 class="month-title">
+				<?php echo esc_html( date_i18n( 'F', $date ) ); ?>
+			</h3>
+
+		<?php endif; ?>
+
+		<div class="edition-item">
+			<a href="<?php the_permalink(); ?>">
+				<?php the_title(); ?>
+			</a>
+		</div>
+
+	<?php endwhile; ?>
+
+	<div class="editions-pagination">
+		<?php odin_paging_nav(); ?>
+	</div>
+
+<?php else : ?>
+
+	<?php get_template_part( 'content', 'none' ); ?>
+
+<?php endif; ?>
+</main>
 <?php
-//get_sidebar();
 get_footer();
