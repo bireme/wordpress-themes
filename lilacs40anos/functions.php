@@ -46,7 +46,7 @@ function bireme_lilacs_scripts() {
 
     // Script da página Periódicos (carregado apenas quando necessário)
     if (is_page_template('page-lilacs-periodicos.php')) {
-        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.0', true);
+        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.1', true);
     }
 }
 add_action('wp_enqueue_scripts', 'bireme_lilacs_scripts');
@@ -823,11 +823,13 @@ function bvs_journals_lilacs_test() {
     ];
 
     $params = [
-        'q'      => '*', // ou sua expressão
-        'fq'     => 'indexed_database:"LILACS"',
-        'count'  => 10000,
-        'start'  => 0,
-        'format' => 'json',
+        'q'           => '*', // ou sua expressão
+        'fq'          => 'indexed_database:"LILACS"',
+        'count'       => 10000,
+        'start'       => 0,
+        'format'      => 'json',
+        // Evita cortar países com poucas revistas (ex.: Estados Unidos) do facet.
+        'facet.limit' => 100,
     ];
 
     $request_url = add_query_arg( $params, $url  );
@@ -1475,6 +1477,81 @@ function lilacs_footer_settings_page_render() {
     </div>
     <?php
 }
+
+/**
+ * Substitui aspas tipográficas / entidades por aspas retas.
+ * Nas FAQs de busca, “ ” copiadas para a BVS viram caracteres inválidos e quebram o resultado.
+ */
+function bireme_lilacs_normalize_search_quotes( $text ) {
+	if ( ! is_string( $text ) || $text === '' ) {
+		return $text;
+	}
+
+	// Entidades HTML (antes de qualquer outra troca).
+	$text = str_ireplace(
+		array(
+			'&ldquo;', '&rdquo;', '&bdquo;', '&laquo;', '&raquo;',
+			'&#8220;', '&#8221;', '&#8222;', '&#171;', '&#187;',
+			'&#x201C;', '&#x201D;', '&#x201E;', '&#x00AB;', '&#x00BB;',
+			'&lsquo;', '&rsquo;', '&sbquo;',
+			'&#8216;', '&#8217;', '&#8218;',
+			'&#x2018;', '&#x2019;', '&#x201A;',
+		),
+		array(
+			'"', '"', '"', '"', '"',
+			'"', '"', '"', '"', '"',
+			'"', '"', '"', '"', '"',
+			"'", "'", "'",
+			"'", "'", "'",
+			"'", "'", "'",
+		),
+		$text
+	);
+
+	// Aspas tipográficas (Unicode) — via \x{...} para não depender do encoding do arquivo.
+	$text = preg_replace( '/[\x{201C}\x{201D}\x{201E}\x{201F}\x{00AB}\x{00BB}\x{2033}\x{275D}\x{275E}]/u', '"', $text );
+	$text = preg_replace( '/[\x{2018}\x{2019}\x{201A}\x{201B}\x{2032}]/u', "'", $text );
+
+	return is_string( $text ) ? $text : '';
+}
+
+/**
+ * Mantém aspas retas no conteúdo renderizado do CPT FAQ (ufaq).
+ */
+function bireme_lilacs_ufaq_straight_quotes( $content ) {
+	$post = get_post();
+	if ( ! $post || $post->post_type !== 'ufaq' ) {
+		return $content;
+	}
+
+	return bireme_lilacs_normalize_search_quotes( $content );
+}
+add_filter( 'the_content', 'bireme_lilacs_ufaq_straight_quotes', 999 );
+
+/**
+ * Garante aspas retas também na REST API usada pelo FAQ da página Contato.
+ */
+function bireme_lilacs_rest_ufaq_straight_quotes( $response, $post, $request ) {
+	if ( ! ( $response instanceof WP_REST_Response ) ) {
+		return $response;
+	}
+
+	$data = $response->get_data();
+
+	if ( isset( $data['content']['rendered'] ) ) {
+		$data['content']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['content']['rendered'] );
+	}
+	if ( isset( $data['excerpt']['rendered'] ) ) {
+		$data['excerpt']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['excerpt']['rendered'] );
+	}
+	if ( isset( $data['title']['rendered'] ) ) {
+		$data['title']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['title']['rendered'] );
+	}
+
+	$response->set_data( $data );
+	return $response;
+}
+add_filter( 'rest_prepare_ufaq', 'bireme_lilacs_rest_ufaq_straight_quotes', 999, 3 );
 
 /**
  * Walker pra aplicar classes iguais:
