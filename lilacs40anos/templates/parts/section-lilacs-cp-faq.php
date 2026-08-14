@@ -204,7 +204,12 @@ foreach ($terms as $ti => $term){
             <?php foreach($posts as $pi => $p): ?>
               <article class="topic-block" id="<?php echo esc_attr($p->_id); ?>" data-topic-of="<?php echo esc_attr($gid); ?>">
                 <h5 class="topic-title"><?php echo esc_html($p->title); ?></h5>
-                <div class="topic-content"><?php echo apply_filters('the_content', $p->content); ?></div>
+                <div class="topic-content"><?php
+                  $faq_html = apply_filters('the_content', $p->content);
+                  echo function_exists('bireme_lilacs_normalize_search_quotes')
+                    ? bireme_lilacs_normalize_search_quotes($faq_html)
+                    : $faq_html;
+                ?></div>
               </article>
             <?php endforeach; ?>
           </div>

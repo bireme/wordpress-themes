@@ -3257,7 +3257,7 @@
                                 "name": "guias",
                                 "aria-label": "",
                                 "type": "repeater",
-                                "instructions": "Cada item vira um botão. Marque 'Largura total' para que o botão ocupe a linha inteira.",
+                                "instructions": "Cada item vira um botão à esquerda. Preencha Título/descrição/botão da caixa para exibir uma chamada ao público (como na Caixa de ferramentas). Marque 'Largura total' para o botão ocupar a linha inteira.",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -3309,6 +3309,69 @@
                                         },
                                         "default_value": "",
                                         "placeholder": "https://",
+                                        "parent_repeater": "field_metod_guias_rep"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_titulo",
+                                        "label": "Título da caixa",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Título da chamada para o público (ex.: Manual de indexação).",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: Manual de indexação",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_metod_guias_rep"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_texto",
+                                        "label": "Subtítulo / descrição",
+                                        "name": "texto",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "Texto de chamada para o conteúdo deste guia.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "Ex.: Aprenda como indexar documentos utilizando a Metodologia LILACS e o DeCS.",
+                                        "new_lines": "wpautop",
+                                        "rows": 3,
+                                        "maxlength": "",
+                                        "parent_repeater": "field_metod_guias_rep"
+                                    },
+                                    {
+                                        "key": "field_metod_guia_rep_botao_texto",
+                                        "label": "Texto do botão da caixa",
+                                        "name": "botao_texto",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Botão da caixa de chamada. O link usado é o campo Link acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "Acessar",
+                                        "placeholder": "Ex.: Acessar",
+                                        "maxlength": "",
+                                        "prepend": "",
+                                        "append": "",
                                         "parent_repeater": "field_metod_guias_rep"
                                     },
                                     {

@@ -510,10 +510,6 @@ function bvsPeriodicosInit(){
         core = firstCore;
       }
 
-      S.countriesFacet = facetCountries
-        .map(([raw,count])=>({ raw, count, label: translateCountry(labelFromMulti(raw)) }))
-        .sort((a,b)=> a.label.localeCompare(b.label, UI_LANG, {sensitivity:'base'}));
-
       S.docs = allDocs.map(d=>{
         const fullTitle = d.title || "—";
         let shortTitle = "";
@@ -541,6 +537,27 @@ function bvsPeriodicosInit(){
           cc_code: undefined
         };
       }).sort(byTitle);
+
+      // A facet da API limita ~20 países e corta os de menor contagem (ex.: Estados Unidos).
+      // Conta pelos docs carregados para garantir que todos os países apareçam na sidebar.
+      const countryCount = new Map();
+      S.docs.forEach(d => {
+        if (!d.country_raw) return;
+        countryCount.set(d.country_raw, (countryCount.get(d.country_raw) || 0) + 1);
+      });
+      // Complementa com a facet da API (casos em que o doc não veio no lote atual).
+      facetCountries.forEach(([raw, count]) => {
+        if (!raw || countryCount.has(raw)) return;
+        countryCount.set(raw, Number(count) || 0);
+      });
+
+      S.countriesFacet = Array.from(countryCount.entries())
+        .map(([raw, count]) => ({
+          raw,
+          count,
+          label: translateCountry(labelFromMulti(raw))
+        }))
+        .sort((a,b)=> a.label.localeCompare(b.label, UI_LANG, {sensitivity:'base'}));
 
       if (S.initialCountryLabel && !S.countryRaw) {
         const target = S.initialCountryLabel.toLowerCase();

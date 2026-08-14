@@ -521,6 +521,25 @@ display: flex;
         });
     });
 
+    // Aspas tipográficas (“ ”) quebram a busca na BVS se o usuário copiar o exemplo.
+    function normalizeFaqQuotes(html) {
+        return String(html || '')
+            .replace(/&ldquo;|&rdquo;|&bdquo;|&laquo;|&raquo;|&#8220;|&#8221;|&#8222;|&#171;|&#187;|&#x201[CDEcd];|&#x00[Aa][Bb];/gi, '"')
+            .replace(/&lsquo;|&rsquo;|&sbquo;|&#8216;|&#8217;|&#8218;|&#x201[89ABab];/gi, "'")
+            .replace(/[\u201C\u201D\u201E\u201F\u00AB\u00BB\u2033\u275D\u275E]/g, '"')
+            .replace(/[\u2018\u2019\u201A\u201B\u2032]/g, "'");
+    }
+
+    function straightenQuotesInElement(root) {
+        if (!root) return;
+        var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+        var node;
+        while ((node = walker.nextNode())) {
+            var next = normalizeFaqQuotes(node.nodeValue);
+            if (next !== node.nodeValue) node.nodeValue = next;
+        }
+    }
+
     /* Carregar pergunta na área de conteúdo */
     function loadFaq(postId, itemEl) {
         if (!postId) return;
@@ -546,8 +565,11 @@ display: flex;
                     }
                 }
 
+                var faqTitle   = normalizeFaqQuotes(data.title && data.title.rendered ? data.title.rendered : '');
+                var faqContent = normalizeFaqQuotes(data.content.rendered);
+
                 contentArea.innerHTML = `
-                    <h2>${data.title.rendered}</h2>
+                    <h2>${faqTitle}</h2>
                     <div class="faq-content-meta">
                         <div class="faq-content-meta-right">
                             ${formattedDate ? `<span class="faq-date">${formattedDate}</span>` : ''}
@@ -556,8 +578,11 @@ display: flex;
                             </a>
                         </div>
                     </div>
-                    ${data.content.rendered}
+                    ${faqContent}
                 `;
+
+                // Garante aspas retas nos nós de texto (fallback se a API ainda vier tipografada).
+                straightenQuotesInElement(contentArea);
 
                 // rola suavemente até a área de conteúdo
                 contentArea.scrollIntoView({
