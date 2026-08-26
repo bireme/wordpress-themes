@@ -4120,7 +4120,7 @@
                                 "name": "cards",
                                 "aria-label": "",
                                 "type": "repeater",
-                                "instructions": "Adicione e arraste os cards para alterar a ordem. Cada card tem título, descrição e botão.",
+                                "instructions": "Adicione e arraste os cards para alterar a ordem. Cada card pode ter dois ou mais botões/links.",
                                 "required": 0,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -4253,17 +4253,9 @@
                                         "name": "titulo_2",
                                         "aria-label": "",
                                         "type": "text",
-                                        "instructions": "Usado no card Atualize (bloco secundário).",
+                                        "instructions": "Opcional. Título do segundo bloco de botão/link neste card.",
                                         "required": 0,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_home_card_tipo",
-                                                    "operator": "==",
-                                                    "value": "atualize_periodico"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -4284,15 +4276,7 @@
                                         "type": "wysiwyg",
                                         "instructions": "",
                                         "required": 0,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_home_card_tipo",
-                                                    "operator": "==",
-                                                    "value": "atualize_periodico"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
                                             "class": "",
@@ -4313,15 +4297,7 @@
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_home_card_tipo",
-                                                    "operator": "==",
-                                                    "value": "atualize_periodico"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -4342,15 +4318,7 @@
                                         "type": "text",
                                         "instructions": "",
                                         "required": 0,
-                                        "conditional_logic": [
-                                            [
-                                                {
-                                                    "field": "field_home_card_tipo",
-                                                    "operator": "==",
-                                                    "value": "atualize_periodico"
-                                                }
-                                            ]
-                                        ],
+                                        "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "50",
                                             "class": "",
@@ -4362,6 +4330,114 @@
                                         "prepend": "",
                                         "append": "",
                                         "parent_repeater": "field_home_sua_revista_cards"
+                                    },
+                                    {
+                                        "key": "field_home_card_botoes_adicionais",
+                                        "label": "Botões adicionais",
+                                        "name": "botoes_adicionais",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "Adicione mais botões/links além dos dois campos acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "field_home_card_ba_texto",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "Adicionar botão",
+                                        "rows_per_page": 20,
+                                        "parent_repeater": "field_home_sua_revista_cards",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_home_card_ba_titulo",
+                                                "label": "Título (opcional)",
+                                                "name": "titulo",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_home_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_home_card_ba_desc",
+                                                "label": "Descrição (opcional)",
+                                                "name": "descricao",
+                                                "aria-label": "",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0,
+                                                "parent_repeater": "field_home_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_home_card_ba_texto",
+                                                "label": "Texto do botão",
+                                                "name": "texto_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_home_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_home_card_ba_link",
+                                                "label": "Link do botão",
+                                                "name": "link_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "https://",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_home_card_botoes_adicionais"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
