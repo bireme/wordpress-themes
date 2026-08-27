@@ -118,34 +118,58 @@ position: absolute;
         
   <?php
 // Slugs originais das páginas em português
-$slug_rede_bvs       = 'a-rede-bvs';
-$slug_encontros_rede = 'encontros-com-a-rede-bvs';
+$slug_rede_bvs   = 'a-rede-bvs';
+$slugs_encontros = array( 'encontro-da-rede', 'encontros-com-a-rede-bvs' );
 
 // Recupera os IDs via slug
 $pagina_rede_bvs       = get_page_by_path( $slug_rede_bvs );
-$pagina_encontros_rede = get_page_by_path( $slug_encontros_rede );
+$pagina_encontros_rede = null;
 
-// Garante tradução via Polylang
-if ( function_exists('pll_get_post') ) {
+foreach ( $slugs_encontros as $slug_encontros ) {
+    $pagina_encontros_rede = get_page_by_path( $slug_encontros );
+    if ( $pagina_encontros_rede ) {
+        break;
+    }
+}
+
+// Garante tradução via Polylang (mantém o original se não houver tradução)
+if ( function_exists( 'pll_get_post' ) ) {
     if ( $pagina_rede_bvs ) {
-        $pagina_rede_bvs = pll_get_post( $pagina_rede_bvs->ID );
+        $translated_rede = pll_get_post( $pagina_rede_bvs->ID );
+        if ( $translated_rede ) {
+            $pagina_rede_bvs = get_post( $translated_rede );
+        }
     }
     if ( $pagina_encontros_rede ) {
-        $pagina_encontros_rede = pll_get_post( $pagina_encontros_rede->ID );
+        $translated_encontros = pll_get_post( $pagina_encontros_rede->ID );
+        if ( $translated_encontros ) {
+            $pagina_encontros_rede = get_post( $translated_encontros );
+        }
     }
+}
+
+$url_encontros = '';
+if ( $pagina_encontros_rede ) {
+    $url_encontros = get_permalink( $pagina_encontros_rede );
+}
+if ( ! $url_encontros ) {
+    $url_encontros = get_post_type_archive_link( 'encontro-da-rede' );
+}
+if ( ! $url_encontros ) {
+    $url_encontros = home_url( '/encontro-da-rede/' );
 }
 
 rede_bvs_breadcrumb( array(
     array(
         'label' => pll__('Rede BVS'),
-        'url'   => $pagina_rede_bvs ? get_permalink( $pagina_rede_bvs ) : '#',
+        'url'   => $pagina_rede_bvs ? get_permalink( $pagina_rede_bvs ) : home_url( '/' ),
     ),
     array(
         'label' => pll__('Encontros com a rede'),
-        'url'   => $pagina_encontros_rede ? get_permalink( $pagina_encontros_rede ) : '#',
+        'url'   => $url_encontros,
     ),
     array(
-        'label' => pll__('Encontros'),
+        'label' => get_the_title(),
     ),
 ) );
 ?>
