@@ -7,7 +7,8 @@
  * - titulo, descricao
  * - cards (repeater, arrastável):
  *     tipo, titulo, descricao, texto_do_botao, link_do_botao
- *     (+ titulo_2, descricao_2, texto_do_botao_2, link_do_botao_2 se tipo=atualize)
+ *     titulo_2, descricao_2, texto_do_botao_2, link_do_botao_2
+ *     botoes_adicionais (repeater)
  *
  * Fallback (conteúdo antigo): groups periodicos_indexados_na_lilacs,
  * portal_de_revistas_cientificas, atualize_os_dados_do_seu_periodico
@@ -19,6 +20,57 @@ $titulo    = get_sub_field( 'titulo' );
 $descricao = get_sub_field( 'descricao' );
 
 $perfil_link = 'https://lilacs.bvsalud.org/indicadores-lilacs/#perfil-periodicos';
+
+if ( ! function_exists( 'lilacs_revista_normalize_extras' ) ) {
+	/**
+	 * Normaliza o repeater de botões extras de um card/grupo.
+	 *
+	 * @param mixed $raw Repeater ACF.
+	 * @return array<int, array{titulo:string, descricao:string, texto_do_botao:string, link_do_botao:string}>
+	 */
+	function lilacs_revista_normalize_extras( $raw ) {
+		$extras = [];
+		if ( ! is_array( $raw ) || empty( $raw ) ) {
+			return $extras;
+		}
+		foreach ( $raw as $extra ) {
+			if ( ! is_array( $extra ) ) {
+				continue;
+			}
+			$extras[] = [
+				'titulo'         => (string) ( $extra['titulo'] ?? '' ),
+				'descricao'      => (string) ( $extra['descricao'] ?? '' ),
+				'texto_do_botao' => (string) ( $extra['texto_do_botao'] ?? '' ),
+				'link_do_botao'  => (string) ( $extra['link_do_botao'] ?? '' ),
+			];
+		}
+		return $extras;
+	}
+}
+
+if ( ! function_exists( 'lilacs_revista_card_from_row' ) ) {
+	/**
+	 * Monta um card a partir de uma linha de repeater ou group ACF.
+	 *
+	 * @param array  $row  Linha ACF.
+	 * @param string $type Tipo/ícone do card.
+	 * @return array
+	 */
+	function lilacs_revista_card_from_row( array $row, $type ) {
+		return [
+			'type'              => (string) $type,
+			'titulo'            => (string) ( $row['titulo'] ?? '' ),
+			'descricao'         => (string) ( $row['descricao'] ?? '' ),
+			'texto_do_botao'    => (string) ( $row['texto_do_botao'] ?? '' ),
+			'link_do_botao'     => (string) ( $row['link_do_botao'] ?? '' ),
+			'titulo_2'          => (string) ( $row['titulo_2'] ?? '' ),
+			'descricao_2'       => (string) ( $row['descricao_2'] ?? '' ),
+			'texto_do_botao_2'  => (string) ( $row['texto_do_botao_2'] ?? '' ),
+			'link_do_botao_2'   => (string) ( $row['link_do_botao_2'] ?? '' ),
+			'botoes_adicionais' => lilacs_revista_normalize_extras( $row['botoes_adicionais'] ?? [] ),
+		];
+	}
+}
 
 /**
  * Monta lista de cards na ordem definida no painel (repeater "cards").
@@ -37,17 +89,7 @@ if ( is_array( $cards_raw ) && ! empty( $cards_raw ) ) {
 		if ( $type === '' ) {
 			continue;
 		}
-		$cards[] = [
-			'type'             => $type,
-			'titulo'           => (string) ( $row['titulo'] ?? '' ),
-			'descricao'        => (string) ( $row['descricao'] ?? '' ),
-			'texto_do_botao'   => (string) ( $row['texto_do_botao'] ?? '' ),
-			'link_do_botao'    => (string) ( $row['link_do_botao'] ?? '' ),
-			'titulo_2'         => (string) ( $row['titulo_2'] ?? '' ),
-			'descricao_2'      => (string) ( $row['descricao_2'] ?? '' ),
-			'texto_do_botao_2' => (string) ( $row['texto_do_botao_2'] ?? '' ),
-			'link_do_botao_2'  => (string) ( $row['link_do_botao_2'] ?? '' ),
-		];
+		$cards[] = lilacs_revista_card_from_row( $row, $type );
 	}
 }
 
@@ -58,31 +100,9 @@ if ( empty( $cards ) ) {
 	$g_atualize   = (array) get_sub_field( 'atualize_os_dados_do_seu_periodico' );
 
 	$cards = [
-		[
-			'type'           => 'periodicos_indexados',
-			'titulo'         => (string) ( $g_periodicos['titulo'] ?? '' ),
-			'descricao'      => (string) ( $g_periodicos['descricao'] ?? '' ),
-			'texto_do_botao' => (string) ( $g_periodicos['texto_do_botao'] ?? '' ),
-			'link_do_botao'  => (string) ( $g_periodicos['link_do_botao'] ?? '' ),
-		],
-		[
-			'type'           => 'portal_revistas',
-			'titulo'         => (string) ( $g_portal['titulo'] ?? '' ),
-			'descricao'      => (string) ( $g_portal['descricao'] ?? '' ),
-			'texto_do_botao' => (string) ( $g_portal['texto_do_botao'] ?? '' ),
-			'link_do_botao'  => (string) ( $g_portal['link_do_botao'] ?? '' ),
-		],
-		[
-			'type'             => 'atualize_periodico',
-			'titulo'           => (string) ( $g_atualize['titulo'] ?? '' ),
-			'descricao'        => (string) ( $g_atualize['descricao'] ?? '' ),
-			'texto_do_botao'   => (string) ( $g_atualize['texto_do_botao'] ?? '' ),
-			'link_do_botao'    => (string) ( $g_atualize['link_do_botao'] ?? '' ),
-			'titulo_2'         => (string) ( $g_atualize['titulo_2'] ?? '' ),
-			'descricao_2'      => (string) ( $g_atualize['descricao_2'] ?? '' ),
-			'texto_do_botao_2' => (string) ( $g_atualize['texto_do_botao_2'] ?? '' ),
-			'link_do_botao_2'  => (string) ( $g_atualize['link_do_botao_2'] ?? '' ),
-		],
+		lilacs_revista_card_from_row( $g_periodicos, 'periodicos_indexados' ),
+		lilacs_revista_card_from_row( $g_portal, 'portal_revistas' ),
+		lilacs_revista_card_from_row( $g_atualize, 'atualize_periodico' ),
 	];
 }
 
@@ -139,7 +159,7 @@ if ( ! $lilacs_revista_css_printed ) :
 		}
 		.lilacs-grid{
 			display:grid;
-			grid-template-columns: 1fr 1fr 1.2fr;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			gap:16px;
 			align-items:stretch;
 		}
@@ -172,6 +192,7 @@ if ( ! $lilacs_revista_css_printed ) :
 			flex-direction:column;
 			align-items:flex-start;
 			width:100%;
+			min-width:0;
 		}
 		.lilacs-card__body h3{
 			margin:2px 0 8px;
@@ -185,7 +206,14 @@ if ( ! $lilacs_revista_css_printed ) :
 			font-size:14px;
 			line-height:1.55;
 		}
-		.lilacs-card__body .lilacs-btn{ margin-top:auto; }
+		.lilacs-card__actions{
+			margin-top:auto;
+			display:flex;
+			flex-direction:column;
+			align-items:flex-start;
+			gap:10px;
+			width:100%;
+		}
 
 		.lilacs-card--featured{
 			border-color:#BFD4EC;
@@ -215,13 +243,14 @@ if ( ! $lilacs_revista_css_printed ) :
 		.lilacs-btn__arrow{ font-weight:900; }
 
 		.lilacs-note{
-			margin-top:14px;
+			margin-top:4px;
 			padding-top:14px;
 			border-top:1px dashed #CFE0F3;
 			width:100%;
 		}
 		.lilacs-note strong{ color:var(--blue-900); font-size:14px; }
 		.lilacs-note p{ margin:6px 0 0; }
+		.lilacs-note .lilacs-btn{ margin-top:10px; }
 
 		.lilacs-btn--disabled{
 			margin-top:10px;
@@ -267,6 +296,29 @@ if ( ! $lilacs_revista_css_printed ) :
 				$c_desc   = $card['descricao'] ?? '';
 				$c_btn    = $card['texto_do_botao'] ?? '';
 				$c_link   = $card['link_do_botao'] ?? '';
+
+				$extras = [];
+
+				$t2 = (string) ( $card['titulo_2'] ?? '' );
+				$d2 = (string) ( $card['descricao_2'] ?? '' );
+				$b2 = (string) ( $card['texto_do_botao_2'] ?? '' );
+				$l2 = (string) ( $card['link_do_botao_2'] ?? '' );
+				if ( $t2 !== '' || $d2 !== '' || $b2 !== '' || $l2 !== '' ) {
+					$extras[] = [
+						'titulo'         => $t2,
+						'descricao'      => $d2,
+						'texto_do_botao' => $b2,
+						'link_do_botao'  => $l2,
+						'legacy_feat'    => $is_feat,
+					];
+				}
+
+				foreach ( (array) ( $card['botoes_adicionais'] ?? [] ) as $extra ) {
+					if ( ! is_array( $extra ) ) {
+						continue;
+					}
+					$extras[] = $extra;
+				}
 			?>
 				<article class="lilacs-card<?php echo $is_feat ? ' lilacs-card--featured' : ''; ?>">
 					<div class="lilacs-card__icon" aria-hidden="true">
@@ -281,52 +333,71 @@ if ( ! $lilacs_revista_css_printed ) :
 							<p><?php echo esc_html( $def['desc'] ); ?></p>
 						<?php endif; ?>
 
-						<?php if ( $c_link !== '' ) : ?>
-							<a class="lilacs-btn"
-							   href="<?php echo esc_url( $c_link ); ?>"
-							   target="_blank" rel="noopener">
-								<?php echo esc_html( $c_btn !== '' ? $c_btn : $def['btn'] ); ?>
-								<span class="lilacs-btn__arrow" aria-hidden="true">→</span>
-							</a>
-						<?php endif; ?>
+						<div class="lilacs-card__actions">
+							<?php if ( $c_link !== '' ) : ?>
+								<a class="lilacs-btn"
+								   href="<?php echo esc_url( $c_link ); ?>"
+								   target="_blank" rel="noopener">
+									<?php echo esc_html( $c_btn !== '' ? $c_btn : $def['btn'] ); ?>
+									<span class="lilacs-btn__arrow" aria-hidden="true">→</span>
+								</a>
+							<?php endif; ?>
 
-						<?php if ( $is_feat ) :
-							$t2 = $card['titulo_2'] ?? '';
-							$d2 = $card['descricao_2'] ?? '';
-							$b2 = $card['texto_do_botao_2'] ?? '';
-							$l2 = $card['link_do_botao_2'] ?? '';
-							if ( $t2 !== '' || $d2 !== '' || $l2 !== '' ) :
-						?>
-							<div class="lilacs-note" role="note">
-								<strong><?php echo esc_html( $t2 !== '' ? $t2 : 'Avaliação de permanência na coleção' ); ?></strong>
+							<?php foreach ( $extras as $extra ) :
+								$et = (string) ( $extra['titulo'] ?? '' );
+								$ed = (string) ( $extra['descricao'] ?? '' );
+								$eb = (string) ( $extra['texto_do_botao'] ?? '' );
+								$el = (string) ( $extra['link_do_botao'] ?? '' );
+								$legacy_feat = ! empty( $extra['legacy_feat'] );
+								$has_copy    = ( $et !== '' || $ed !== '' );
 
-								<?php if ( $d2 !== '' ) : ?>
-									<div class="lilacs-wysiwyg" style="margin-top:6px;"><?php echo wp_kses_post( $d2 ); ?></div>
-								<?php else : ?>
-									<p style="margin:6px 0 0; margin-bottom: 21px;">Acesse o Perfil de Periódicos LILACS quando o serviço estiver disponível.</p>
-								<?php endif; ?>
+								if ( ! $has_copy && $el === '' && ! $legacy_feat ) {
+									continue;
+								}
 
-								<?php if ( $l2 !== '' ) : ?>
-									<a class="lilacs-btn"
-									   href="<?php echo esc_url( $l2 ); ?>"
-									   target="_blank" rel="noopener">
-										<?php echo esc_html( $b2 !== '' ? $b2 : 'Acessar' ); ?>
-										<span class="lilacs-btn__arrow" aria-hidden="true">→</span>
-									</a>
-								<?php else : ?>
-									<a class="lilacs-btn lilacs-btn--disabled"
-									   href="<?php echo esc_url( $perfil_link ); ?>"
-									   aria-disabled="true"
-									   tabindex="-1"
-									   title="Temporariamente indisponível">
-										Perfil de periódicos (indisponível)
-									</a>
-								<?php endif; ?>
-							</div>
-						<?php
-							endif;
-						endif;
-						?>
+								if ( $has_copy || $legacy_feat ) :
+							?>
+								<div class="lilacs-note" role="note">
+									<?php if ( $et !== '' ) : ?>
+										<strong><?php echo esc_html( $et ); ?></strong>
+									<?php elseif ( $legacy_feat ) : ?>
+										<strong><?php echo esc_html( 'Avaliação de permanência na coleção' ); ?></strong>
+									<?php endif; ?>
+
+									<?php if ( $ed !== '' ) : ?>
+										<div class="lilacs-wysiwyg" style="margin-top:6px;"><?php echo wp_kses_post( $ed ); ?></div>
+									<?php elseif ( $legacy_feat ) : ?>
+										<p style="margin:6px 0 0; margin-bottom: 21px;">Acesse o Perfil de Periódicos LILACS quando o serviço estiver disponível.</p>
+									<?php endif; ?>
+
+									<?php if ( $el !== '' ) : ?>
+										<a class="lilacs-btn"
+										   href="<?php echo esc_url( $el ); ?>"
+										   target="_blank" rel="noopener">
+											<?php echo esc_html( $eb !== '' ? $eb : 'Acessar' ); ?>
+											<span class="lilacs-btn__arrow" aria-hidden="true">→</span>
+										</a>
+									<?php elseif ( $legacy_feat ) : ?>
+										<a class="lilacs-btn lilacs-btn--disabled"
+										   href="<?php echo esc_url( $perfil_link ); ?>"
+										   aria-disabled="true"
+										   tabindex="-1"
+										   title="Temporariamente indisponível">
+											Perfil de periódicos (indisponível)
+										</a>
+									<?php endif; ?>
+								</div>
+							<?php else : ?>
+								<a class="lilacs-btn"
+								   href="<?php echo esc_url( $el ); ?>"
+								   target="_blank" rel="noopener">
+									<?php echo esc_html( $eb !== '' ? $eb : 'Acessar' ); ?>
+									<span class="lilacs-btn__arrow" aria-hidden="true">→</span>
+								</a>
+							<?php
+								endif;
+							endforeach; ?>
+						</div>
 					</div>
 				</article>
 			<?php endforeach; ?>

@@ -7859,6 +7859,333 @@
                                 "new_lines": ""
                             },
                             {
+                                "key": "field_srvl_todas_cards",
+                                "label": "Cards",
+                                "name": "cards",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "Arraste as linhas pelas alças à esquerda para alterar a ordem dos cards (Periódicos indexados, Portal de Revistas e Atualize os dados).",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "field_srvl_todas_card_tipo",
+                                "min": 0,
+                                "max": 10,
+                                "layout": "block",
+                                "button_label": "Adicionar card",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_srvl_todas_card_tipo",
+                                        "label": "Tipo do card",
+                                        "name": "tipo",
+                                        "aria-label": "",
+                                        "type": "select",
+                                        "instructions": "Define o visual/ícone do card.",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "choices": {
+                                            "periodicos_indexados": "Periódicos indexados na LILACS",
+                                            "portal_revistas": "Portal de Revistas Científicas",
+                                            "atualize_periodico": "Atualize os dados do seu periódico"
+                                        },
+                                        "default_value": "periodicos_indexados",
+                                        "return_format": "value",
+                                        "multiple": 0,
+                                        "allow_null": 0,
+                                        "ui": 1,
+                                        "ajax": 0,
+                                        "placeholder": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_titulo",
+                                        "label": "Título",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_desc",
+                                        "label": "Descrição",
+                                        "name": "descricao",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0,
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_btn_texto",
+                                        "label": "Texto do botão",
+                                        "name": "texto_do_botao",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_btn_link",
+                                        "label": "Link do botão",
+                                        "name": "link_do_botao",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "https://",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_titulo_2",
+                                        "label": "Título 2",
+                                        "name": "titulo_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Opcional. Título do segundo bloco de botão/link neste card.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_desc_2",
+                                        "label": "Descrição 2",
+                                        "name": "descricao_2",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0,
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_btn_texto_2",
+                                        "label": "Texto do botão 2",
+                                        "name": "texto_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_btn_link_2",
+                                        "label": "Link do botão 2",
+                                        "name": "link_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "50",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "https://",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_srvl_todas_cards"
+                                    },
+                                    {
+                                        "key": "field_srvl_todas_card_botoes_adicionais",
+                                        "label": "Botões adicionais",
+                                        "name": "botoes_adicionais",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "Adicione mais botões/links além dos dois campos acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "field_srvl_todas_card_ba_texto",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "Adicionar botão",
+                                        "rows_per_page": 20,
+                                        "parent_repeater": "field_srvl_todas_cards",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_srvl_todas_card_ba_titulo",
+                                                "label": "Título (opcional)",
+                                                "name": "titulo",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_todas_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_todas_card_ba_desc",
+                                                "label": "Descrição (opcional)",
+                                                "name": "descricao",
+                                                "aria-label": "",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0,
+                                                "parent_repeater": "field_srvl_todas_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_todas_card_ba_texto",
+                                                "label": "Texto do botão",
+                                                "name": "texto_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_todas_card_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_todas_card_ba_link",
+                                                "label": "Link do botão",
+                                                "name": "link_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "https://",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_todas_card_botoes_adicionais"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
                                 "key": "field_6949ae9ae5ca0",
                                 "label": "Periódicos indexados na LILACS",
                                 "name": "periodicos_indexados_na_lilacs",
@@ -7869,7 +8196,7 @@
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
-                                    "class": "",
+                                    "class": "lilacs-acf-legacy-hidden",
                                     "id": ""
                                 },
                                 "layout": "block",
@@ -7957,6 +8284,197 @@
                                         "placeholder": "",
                                         "prepend": "",
                                         "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pi_titulo_2",
+                                        "label": "Título 2",
+                                        "name": "titulo_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Opcional. Título do segundo bloco de botão/link nesta caixa.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pi_desc_2",
+                                        "label": "Descrição 2",
+                                        "name": "descricao_2",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0
+                                    },
+                                    {
+                                        "key": "field_srvl_pi_btn_texto_2",
+                                        "label": "Texto do botão 2",
+                                        "name": "texto_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pi_btn_link_2",
+                                        "label": "Link do botão 2",
+                                        "name": "link_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "https://",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pi_botoes_adicionais",
+                                        "label": "Botões adicionais",
+                                        "name": "botoes_adicionais",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "Adicione mais botões/links além dos dois campos acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "field_srvl_pi_ba_texto",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "Adicionar botão",
+                                        "rows_per_page": 20,
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_srvl_pi_ba_titulo",
+                                                "label": "Título (opcional)",
+                                                "name": "titulo",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pi_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pi_ba_desc",
+                                                "label": "Descrição (opcional)",
+                                                "name": "descricao",
+                                                "aria-label": "",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0,
+                                                "parent_repeater": "field_srvl_pi_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pi_ba_texto",
+                                                "label": "Texto do botão",
+                                                "name": "texto_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pi_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pi_ba_link",
+                                                "label": "Link do botão",
+                                                "name": "link_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "https://",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pi_botoes_adicionais"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -7971,7 +8489,7 @@
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
-                                    "class": "",
+                                    "class": "lilacs-acf-legacy-hidden",
                                     "id": ""
                                 },
                                 "layout": "block",
@@ -8059,6 +8577,197 @@
                                         "placeholder": "",
                                         "prepend": "",
                                         "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pr_titulo_2",
+                                        "label": "Título 2",
+                                        "name": "titulo_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "Opcional. Título do segundo bloco de botão/link nesta caixa.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pr_desc_2",
+                                        "label": "Descrição 2",
+                                        "name": "descricao_2",
+                                        "aria-label": "",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "allow_in_bindings": 0,
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0
+                                    },
+                                    {
+                                        "key": "field_srvl_pr_btn_texto_2",
+                                        "label": "Texto do botão 2",
+                                        "name": "texto_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pr_btn_link_2",
+                                        "label": "Link do botão 2",
+                                        "name": "link_do_botao_2",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "allow_in_bindings": 0,
+                                        "placeholder": "https://",
+                                        "prepend": "",
+                                        "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_pr_botoes_adicionais",
+                                        "label": "Botões adicionais",
+                                        "name": "botoes_adicionais",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "Adicione mais botões/links além dos dois campos acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "field_srvl_pr_ba_texto",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "Adicionar botão",
+                                        "rows_per_page": 20,
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_srvl_pr_ba_titulo",
+                                                "label": "Título (opcional)",
+                                                "name": "titulo",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pr_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pr_ba_desc",
+                                                "label": "Descrição (opcional)",
+                                                "name": "descricao",
+                                                "aria-label": "",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0,
+                                                "parent_repeater": "field_srvl_pr_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pr_ba_texto",
+                                                "label": "Texto do botão",
+                                                "name": "texto_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pr_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_pr_ba_link",
+                                                "label": "Link do botão",
+                                                "name": "link_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "https://",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_pr_botoes_adicionais"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
@@ -8073,7 +8782,7 @@
                                 "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
-                                    "class": "",
+                                    "class": "lilacs-acf-legacy-hidden",
                                     "id": ""
                                 },
                                 "layout": "block",
@@ -8245,6 +8954,113 @@
                                         "placeholder": "",
                                         "prepend": "",
                                         "append": ""
+                                    },
+                                    {
+                                        "key": "field_srvl_ap_botoes_adicionais",
+                                        "label": "Botões adicionais",
+                                        "name": "botoes_adicionais",
+                                        "aria-label": "",
+                                        "type": "repeater",
+                                        "instructions": "Adicione mais botões/links além dos dois campos acima.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "collapsed": "field_srvl_ap_ba_texto",
+                                        "min": 0,
+                                        "max": 0,
+                                        "layout": "block",
+                                        "button_label": "Adicionar botão",
+                                        "rows_per_page": 20,
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_srvl_ap_ba_titulo",
+                                                "label": "Título (opcional)",
+                                                "name": "titulo",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_ap_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_ap_ba_desc",
+                                                "label": "Descrição (opcional)",
+                                                "name": "descricao",
+                                                "aria-label": "",
+                                                "type": "wysiwyg",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "tabs": "all",
+                                                "toolbar": "full",
+                                                "media_upload": 1,
+                                                "delay": 0,
+                                                "parent_repeater": "field_srvl_ap_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_ap_ba_texto",
+                                                "label": "Texto do botão",
+                                                "name": "texto_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_ap_botoes_adicionais"
+                                            },
+                                            {
+                                                "key": "field_srvl_ap_ba_link",
+                                                "label": "Link do botão",
+                                                "name": "link_do_botao",
+                                                "aria-label": "",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "50",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "maxlength": "",
+                                                "placeholder": "https://",
+                                                "prepend": "",
+                                                "append": "",
+                                                "parent_repeater": "field_srvl_ap_botoes_adicionais"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -9602,6 +10418,270 @@
                                         "default_value": "",
                                         "delay": 0,
                                         "parent_repeater": "field_l40_inst_paragraphs"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_o_que_voce_precisa_fazer": {
+                        "key": "layout_o_que_voce_precisa_fazer",
+                        "name": "o_que_voce_precisa_fazer",
+                        "label": "O que você precisa fazer?",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_precisa_titulo",
+                                "label": "Título da seção",
+                                "name": "titulo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "O que você precisa fazer?",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_precisa_cards",
+                                "label": "Cards",
+                                "name": "cards",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "Adicione e arraste os cards. Cada card tem ícone, título, descrição e um link (seta no canto).",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "field_precisa_card_titulo",
+                                "min": 0,
+                                "max": 12,
+                                "layout": "block",
+                                "button_label": "Adicionar card",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_precisa_card_icone",
+                                        "label": "Ícone",
+                                        "name": "icone",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "PNG ou SVG. Preferencialmente no tom roxo do layout.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "30",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "thumbnail",
+                                        "parent_repeater": "field_precisa_cards"
+                                    },
+                                    {
+                                        "key": "field_precisa_card_titulo",
+                                        "label": "Título",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "70",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "Ex.: Selecionar documentos",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_precisa_cards"
+                                    },
+                                    {
+                                        "key": "field_precisa_card_desc",
+                                        "label": "Descrição",
+                                        "name": "descricao",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "rows": 3,
+                                        "placeholder": "Ex.: Critérios e orientações para a seleção.",
+                                        "new_lines": "",
+                                        "parent_repeater": "field_precisa_cards"
+                                    },
+                                    {
+                                        "key": "field_precisa_card_link",
+                                        "label": "Link",
+                                        "name": "link",
+                                        "aria-label": "",
+                                        "type": "url",
+                                        "instructions": "URL de destino do card. Se preenchido, o card inteiro fica clicável e a seta aparece no canto.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "https://",
+                                        "parent_repeater": "field_precisa_cards"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_etapas_step_by_step": {
+                        "key": "layout_etapas_step_by_step",
+                        "name": "etapas_step_by_step",
+                        "label": "Etapas (passo a passo)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_etapas_titulo",
+                                "label": "Título da seção",
+                                "name": "titulo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "Como a Metodologia LILACS organiza o tratamento da informação",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_etapas_items",
+                                "label": "Etapas",
+                                "name": "etapas",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "Adicione as etapas na ordem do fluxo. O número (1, 2, 3…) é gerado automaticamente. Arraste para reordenar.",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "field_etapas_item_titulo",
+                                "min": 0,
+                                "max": 8,
+                                "layout": "block",
+                                "button_label": "Adicionar etapa",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_etapas_item_icone",
+                                        "label": "Ícone",
+                                        "name": "icone",
+                                        "aria-label": "",
+                                        "type": "image",
+                                        "instructions": "PNG ou SVG, preferencialmente no tom azul do layout.",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "30",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": "",
+                                        "allow_in_bindings": 0,
+                                        "preview_size": "thumbnail",
+                                        "parent_repeater": "field_etapas_items"
+                                    },
+                                    {
+                                        "key": "field_etapas_item_titulo",
+                                        "label": "Título",
+                                        "name": "titulo",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "70",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "Ex.: Seleção",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_etapas_items"
+                                    },
+                                    {
+                                        "key": "field_etapas_item_desc",
+                                        "label": "Descrição",
+                                        "name": "descricao",
+                                        "aria-label": "",
+                                        "type": "textarea",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "rows": 3,
+                                        "placeholder": "Ex.: Definição dos documentos que podem integrar a LILACS.",
+                                        "new_lines": "",
+                                        "parent_repeater": "field_etapas_items"
                                     }
                                 ]
                             }

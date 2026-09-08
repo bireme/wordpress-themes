@@ -1086,6 +1086,140 @@ add_filter( 'acf/settings/load_json', function ( $paths ) {
 	return $paths;
 } );
 
+/**
+ * Sua revista na LILACS: preenche o repeater "cards" a partir dos grupos antigos
+ * quando o repeater ainda está vazio, para permitir reordenar sem perder conteúdo.
+ */
+function lilacs_revista_row_pick( $row, $name, $key = '' ) {
+	if ( ! is_array( $row ) ) {
+		return null;
+	}
+	if ( array_key_exists( $name, $row ) ) {
+		return $row[ $name ];
+	}
+	if ( $key !== '' && array_key_exists( $key, $row ) ) {
+		return $row[ $key ];
+	}
+	return null;
+}
+
+function lilacs_revista_group_pick( $group, $name, $key = '' ) {
+	$val = lilacs_revista_row_pick( $group, $name, $key );
+	return $val === null ? '' : $val;
+}
+
+function lilacs_revista_legacy_groups_to_cards( $row ) {
+	$map = [
+		'periodicos_indexados' => [
+			'name' => 'periodicos_indexados_na_lilacs',
+			'key'  => 'field_6949ae9ae5ca0',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b17584',
+				'descricao'         => 'field_6949ae9b175bb',
+				'texto_do_botao'    => 'field_6949ae9b175f3',
+				'link_do_botao'     => 'field_6949ae9b1762a',
+				'titulo_2'          => 'field_srvl_pi_titulo_2',
+				'descricao_2'       => 'field_srvl_pi_desc_2',
+				'texto_do_botao_2'  => 'field_srvl_pi_btn_texto_2',
+				'link_do_botao_2'   => 'field_srvl_pi_btn_link_2',
+				'botoes_adicionais' => 'field_srvl_pi_botoes_adicionais',
+			],
+		],
+		'portal_revistas' => [
+			'name' => 'portal_de_revistas_cientificas',
+			'key'  => 'field_6949ae9ae5cdc',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b19733',
+				'descricao'         => 'field_6949ae9b19758',
+				'texto_do_botao'    => 'field_6949ae9b19790',
+				'link_do_botao'     => 'field_6949ae9b197c7',
+				'titulo_2'          => 'field_srvl_pr_titulo_2',
+				'descricao_2'       => 'field_srvl_pr_desc_2',
+				'texto_do_botao_2'  => 'field_srvl_pr_btn_texto_2',
+				'link_do_botao_2'   => 'field_srvl_pr_btn_link_2',
+				'botoes_adicionais' => 'field_srvl_pr_botoes_adicionais',
+			],
+		],
+		'atualize_periodico' => [
+			'name' => 'atualize_os_dados_do_seu_periodico',
+			'key'  => 'field_6949ae9ae5d15',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b1b935',
+				'descricao'         => 'field_6949ae9b1b96e',
+				'texto_do_botao'    => 'field_6949ae9b1b9a5',
+				'link_do_botao'     => 'field_6949ae9b1b9dd',
+				'titulo_2'          => 'field_6949ae9b1ba14',
+				'descricao_2'       => 'field_6949ae9b1ba4c',
+				'texto_do_botao_2'  => 'field_6949ae9b1ba84',
+				'link_do_botao_2'   => 'field_6949ae9b1babb',
+				'botoes_adicionais' => 'field_srvl_ap_botoes_adicionais',
+			],
+		],
+	];
+
+	$cards = [];
+	foreach ( $map as $tipo => $ids ) {
+		$g = lilacs_revista_row_pick( $row, $ids['name'], $ids['key'] );
+		$g = is_array( $g ) ? $g : [];
+		$botoes = lilacs_revista_group_pick( $g, 'botoes_adicionais', $ids['subs']['botoes_adicionais'] );
+
+		$named = [
+			'tipo'              => $tipo,
+			'titulo'            => (string) lilacs_revista_group_pick( $g, 'titulo', $ids['subs']['titulo'] ),
+			'descricao'         => (string) lilacs_revista_group_pick( $g, 'descricao', $ids['subs']['descricao'] ),
+			'texto_do_botao'    => (string) lilacs_revista_group_pick( $g, 'texto_do_botao', $ids['subs']['texto_do_botao'] ),
+			'link_do_botao'     => (string) lilacs_revista_group_pick( $g, 'link_do_botao', $ids['subs']['link_do_botao'] ),
+			'titulo_2'          => (string) lilacs_revista_group_pick( $g, 'titulo_2', $ids['subs']['titulo_2'] ),
+			'descricao_2'       => (string) lilacs_revista_group_pick( $g, 'descricao_2', $ids['subs']['descricao_2'] ),
+			'texto_do_botao_2'  => (string) lilacs_revista_group_pick( $g, 'texto_do_botao_2', $ids['subs']['texto_do_botao_2'] ),
+			'link_do_botao_2'   => (string) lilacs_revista_group_pick( $g, 'link_do_botao_2', $ids['subs']['link_do_botao_2'] ),
+			'botoes_adicionais' => is_array( $botoes ) ? $botoes : [],
+		];
+
+		$cards[] = $named + [
+			'field_srvl_todas_card_tipo'              => $named['tipo'],
+			'field_srvl_todas_card_titulo'            => $named['titulo'],
+			'field_srvl_todas_card_desc'              => $named['descricao'],
+			'field_srvl_todas_card_btn_texto'         => $named['texto_do_botao'],
+			'field_srvl_todas_card_btn_link'          => $named['link_do_botao'],
+			'field_srvl_todas_card_titulo_2'          => $named['titulo_2'],
+			'field_srvl_todas_card_desc_2'            => $named['descricao_2'],
+			'field_srvl_todas_card_btn_texto_2'       => $named['texto_do_botao_2'],
+			'field_srvl_todas_card_btn_link_2'        => $named['link_do_botao_2'],
+			'field_srvl_todas_card_botoes_adicionais' => $named['botoes_adicionais'],
+		];
+	}
+
+	return $cards;
+}
+
+add_filter( 'acf/load_value/name=layout', function ( $value, $post_id, $field ) {
+	if ( ! is_array( $value ) ) {
+		return $value;
+	}
+
+	foreach ( $value as $i => $row ) {
+		if ( ! is_array( $row ) || ( $row['acf_fc_layout'] ?? '' ) !== 'sua_revista_na_lilacs' ) {
+			continue;
+		}
+
+		$cards = lilacs_revista_row_pick( $row, 'cards', 'field_srvl_todas_cards' );
+		if ( is_array( $cards ) && ! empty( $cards ) ) {
+			continue;
+		}
+
+		$seeded = lilacs_revista_legacy_groups_to_cards( $row );
+		$value[ $i ]['cards']                  = $seeded;
+		$value[ $i ]['field_srvl_todas_cards'] = $seeded;
+	}
+
+	return $value;
+}, 20, 3 );
+
+add_action( 'acf/input/admin_head', function () {
+	echo '<style>.lilacs-acf-legacy-hidden{display:none!important;}</style>';
+} );
+
 
 add_action('rest_api_init', function () {
     register_rest_route('debug/v1', '/bvs', [
