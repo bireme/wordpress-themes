@@ -6,7 +6,7 @@
 					<ul type="none"><?php dynamic_sidebar('footer') ?></ul>
 				</div>
 				<div class="col-md-4" id="footer-logo-bir">
-					<a href="https://www.bireme.org/<?php echo $lang === 'pt' ? '' : $lang; ?>"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/v_bir_white.svg" class="img-fluid" alt=""></a>
+					<a href="https://www.bireme.org/<?php echo $lang === 'pt' ? '' : $lang; ?>" target="_blank"><img src="http://logos.bireme.org/img/<?php echo $lang; ?>/v_bir_white.svg" class="img-fluid" alt=""></a>
 				</div>
 			</div>
 			<hr>
