@@ -10455,7 +10455,7 @@
                             {
                                 "key": "field_precisa_cards",
                                 "label": "Cards",
-                                "name": "cards",
+                                "name": "precisa_cards",
                                 "aria-label": "",
                                 "type": "repeater",
                                 "instructions": "Adicione e arraste os cards. Cada card tem ícone, título, descrição e um link (seta no canto).",
@@ -10682,6 +10682,147 @@
                                         "placeholder": "Ex.: Definição dos documentos que podem integrar a LILACS.",
                                         "new_lines": "",
                                         "parent_repeater": "field_etapas_items"
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_nuvem_de_tags": {
+                        "key": "layout_nuvem_de_tags",
+                        "name": "nuvem_de_tags",
+                        "label": "Nuvem de tags",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_nuvem_tags_titulo",
+                                "label": "Título da seção",
+                                "name": "titulo",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "O ecossistema LILACS",
+                                "maxlength": "",
+                                "allow_in_bindings": 0,
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": ""
+                            },
+                            {
+                                "key": "field_nuvem_tags_desc",
+                                "label": "Descrição",
+                                "name": "descricao",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "basic",
+                                "media_upload": 0,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_nuvem_tags_items",
+                                "label": "Tags",
+                                "name": "tags",
+                                "aria-label": "",
+                                "type": "repeater",
+                                "instructions": "Adicione as tags da nuvem. Use o tamanho para destacar as principais (ex.: LILACS em Grande).",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "field_nuvem_tag_texto",
+                                "min": 0,
+                                "max": 80,
+                                "layout": "table",
+                                "button_label": "Adicionar tag",
+                                "rows_per_page": 20,
+                                "sub_fields": [
+                                    {
+                                        "key": "field_nuvem_tag_texto",
+                                        "label": "Texto",
+                                        "name": "texto",
+                                        "aria-label": "",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "40",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "maxlength": "",
+                                        "placeholder": "Ex.: LILACS",
+                                        "prepend": "",
+                                        "append": "",
+                                        "parent_repeater": "field_nuvem_tags_items"
+                                    },
+                                    {
+                                        "key": "field_nuvem_tag_tamanho",
+                                        "label": "Tamanho",
+                                        "name": "tamanho",
+                                        "aria-label": "",
+                                        "type": "select",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "25",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "choices": {
+                                            "pequena": "Pequena",
+                                            "media": "Média",
+                                            "grande": "Grande"
+                                        },
+                                        "default_value": "media",
+                                        "return_format": "value",
+                                        "multiple": 0,
+                                        "allow_null": 0,
+                                        "ui": 0,
+                                        "ajax": 0,
+                                        "placeholder": "",
+                                        "parent_repeater": "field_nuvem_tags_items"
+                                    },
+                                    {
+                                        "key": "field_nuvem_tag_link",
+                                        "label": "Link (opcional)",
+                                        "name": "link",
+                                        "aria-label": "",
+                                        "type": "url",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "35",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "https://",
+                                        "parent_repeater": "field_nuvem_tags_items"
                                     }
                                 ]
                             }

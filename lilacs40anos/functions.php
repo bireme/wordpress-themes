@@ -1071,7 +1071,121 @@ add_action('rest_api_init', function () {
  * Helper para carregar dobras de layout em /dobras
  */
 function lilacs_bvs_dobra( $slug, $args = array() ) {
-    get_template_part( 'templates/dobras-acf/' . $slug, null, $args );
+	$rel  = 'templates/dobras-acf/' . ltrim( (string) $slug, '/' ) . '.php';
+	$file = locate_template( $rel, false, false );
+
+	if ( ! $file ) {
+		$child = get_stylesheet_directory() . '/' . $rel;
+		$file  = file_exists( $child ) ? $child : '';
+	}
+
+	if ( ( ! $file || ! file_exists( $file ) ) && get_template_directory() !== get_stylesheet_directory() ) {
+		$parent = get_template_directory() . '/' . $rel;
+		$file   = file_exists( $parent ) ? $parent : $file;
+	}
+
+	if ( $file && file_exists( $file ) ) {
+		load_template( $file, false, $args );
+	}
+}
+
+/**
+ * Lê um subcampo da dobra ACF atual tentando nome e chave.
+ *
+ * @param string|string[] $names Nomes ou keys ACF.
+ * @return mixed
+ */
+function lilacs_fc_get_sub( $names, $default = '' ) {
+	foreach ( (array) $names as $name ) {
+		if ( ! $name || ! function_exists( 'get_sub_field' ) ) {
+			continue;
+		}
+		$value = get_sub_field( $name );
+		if ( $value !== null && $value !== false && $value !== '' ) {
+			return $value;
+		}
+	}
+
+	if ( function_exists( 'get_row' ) ) {
+		foreach ( array( true, false ) as $format ) {
+			$row = get_row( $format );
+			if ( ! is_array( $row ) ) {
+				continue;
+			}
+			foreach ( (array) $names as $name ) {
+				if ( isset( $row[ $name ] ) && $row[ $name ] !== '' && $row[ $name ] !== null ) {
+					return $row[ $name ];
+				}
+			}
+		}
+	}
+
+	return $default;
+}
+
+/**
+ * Lê um repeater da dobra ACF atual (nome e/ou key), inclusive via have_rows.
+ *
+ * @param string|string[] $names Nomes ou keys ACF do repeater.
+ * @return array
+ */
+function lilacs_fc_get_repeater( $names ) {
+	$names = array_values( array_filter( (array) $names ) );
+
+	$value = lilacs_fc_get_sub( $names, null );
+	if ( is_array( $value ) && ! empty( $value ) ) {
+		return $value;
+	}
+
+	if ( ! function_exists( 'have_rows' ) ) {
+		return array();
+	}
+
+	foreach ( $names as $name ) {
+		if ( ! have_rows( $name ) ) {
+			continue;
+		}
+		$rows = array();
+		while ( have_rows( $name ) ) {
+			the_row();
+			$row = function_exists( 'get_row' ) ? get_row( true ) : array();
+			if ( is_array( $row ) && ! empty( $row ) ) {
+				$rows[] = $row;
+			}
+		}
+		if ( ! empty( $rows ) ) {
+			return $rows;
+		}
+	}
+
+	return array();
+}
+
+/**
+ * Extrai URL de um campo de imagem ACF (array, ID ou URL).
+ *
+ * @param mixed $icon Campo image.
+ * @return string
+ */
+function lilacs_acf_image_url( $icon ) {
+	if ( is_array( $icon ) ) {
+		if ( ! empty( $icon['url'] ) ) {
+			return (string) $icon['url'];
+		}
+		if ( ! empty( $icon['ID'] ) ) {
+			$url = wp_get_attachment_image_url( (int) $icon['ID'], 'thumbnail' );
+			return $url ? (string) $url : '';
+		}
+		return '';
+	}
+	if ( is_numeric( $icon ) ) {
+		$url = wp_get_attachment_image_url( (int) $icon, 'thumbnail' );
+		return $url ? (string) $url : '';
+	}
+	if ( is_string( $icon ) ) {
+		return $icon;
+	}
+	return '';
 }
 
 /**
