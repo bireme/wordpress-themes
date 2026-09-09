@@ -1068,6 +1068,50 @@ add_action('rest_api_init', function () {
 
 
 /**
+ * Páginas com flexible content ACF geram dezenas de metas por revisão.
+ * A Metodologia (ID 5128) já tem centenas de revisões; ao salvar, o WP
+ * carrega o postmeta de todas elas e esgota os 128MB de memória.
+ *
+ * wp_revisions_to_keep = 0 desativa a criação de novas revisões e evita
+ * wp_get_post_revisions() no save (que é o que dispara o 500).
+ */
+function lilacs_page_uses_acf_layout( $post ) {
+	if ( ! $post || $post->post_type !== 'page' ) {
+		return false;
+	}
+	$tpl = basename( (string) get_page_template_slug( $post ) );
+	if ( $tpl === '' ) {
+		return false;
+	}
+	$acf_templates = array(
+		'page-lilacs-metodologia.php',
+		'page-lilacs-home.php',
+		'page-lilacs-sobre.php',
+		'page-lilacs-capacitacao.php',
+		'page-lilacs-coordenadores.php',
+		'page-lilacs-centro-cooperantes.php',
+		'page-lilacs-como-pesquisar.php',
+		'page-lilacs-como-se-tornar-centro.php',
+		'page-lilacs-contato.php',
+		'page-lilacs-blog.php',
+		'page-lilacs-40anos.php',
+		'page-lilacs-indicadores-v3.php',
+		'page-editores.php',
+		'page-encontro-lilcas.php',
+		'page-sobre-linha-tempo.php',
+		'page.php',
+	);
+	return in_array( $tpl, $acf_templates, true );
+}
+
+add_filter( 'wp_revisions_to_keep', function ( $num, $post ) {
+	if ( lilacs_page_uses_acf_layout( $post ) ) {
+		return 0;
+	}
+	return $num;
+}, 10, 2 );
+
+/**
  * Helper para carregar dobras de layout em /dobras
  */
 function lilacs_bvs_dobra( $slug, $args = array() ) {

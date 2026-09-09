@@ -44,22 +44,13 @@ if ( empty( $ferramentas ) ) {
   .guides-faq-section { padding: 40px 20px; }
   .guides-faq-wrapper { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: flex-start; }
   .guides-column { display: flex; flex-direction: column; gap: 12px; }
-  .guides-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .guide-btn { display: flex; align-items: center; gap: 12px; padding: 20px 16px; background: #00205C; color: #fff; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; font-weight: 600; transition: all .2s ease; text-align: left; text-decoration: none; width: 100%; box-sizing: border-box; }
-  .guide-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(13,59,102,.25); background: linear-gradient(135deg,#1a5490 0%,#2563a8 100%); }
-  .guide-btn-large { width: 100%; }
-  .btn-icon { font-size: 16px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; }
-  .btn-icon img { width: 28px; height: 28px; object-fit: cover; border-radius: 6px; display: block; }
-  .btn-label { flex: 1; line-height: 1.3; }
-  .btn-arrow { font-size: 14px; opacity: .7; transition: opacity .2s ease; padding: 7px 12px; border-radius: 99px; background: rgba(255,255,255,.15); }
-  .guide-btn:hover .btn-arrow { opacity: 1; }
 
   /* Caixas de chamada dos guias (título + descrição + botão) */
   .guides-cta-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 4px;
+    margin-top: 0;
   }
   .guide-cta {
     background: #f3f7fc;
@@ -166,79 +157,18 @@ if ( empty( $ferramentas ) ) {
 
   @media (max-width: 768px) {
     .guides-faq-wrapper { grid-template-columns: 1fr; gap: 20px; }
-    .guides-grid { grid-template-columns: 1fr; }
     .guides-column { width: 100%; }
     .toolbox-btn,
     .guide-cta-btn { width: 100%; }
   }
 </style>
 
-<?php
-// Agrupa guias: itens "grande" ficam sozinhos; os demais são agrupados em pares
-$groups = [];
-$pair_buffer = [];
-
-foreach ( $guias as $g ) {
-    $is_large = ! empty( $g['grande'] );
-    if ( $is_large ) {
-        if ( ! empty( $pair_buffer ) ) {
-            $groups[] = [ 'large' => false, 'items' => $pair_buffer ];
-            $pair_buffer = [];
-        }
-        $groups[] = [ 'large' => true, 'items' => [ $g ] ];
-    } else {
-        $pair_buffer[] = $g;
-        if ( count( $pair_buffer ) === 2 ) {
-            $groups[] = [ 'large' => false, 'items' => $pair_buffer ];
-            $pair_buffer = [];
-        }
-    }
-}
-if ( ! empty( $pair_buffer ) ) {
-    $groups[] = [ 'large' => false, 'items' => $pair_buffer ];
-}
-?>
-
 <section class="guides-faq-section">
   <div class="guides-faq-wrapper">
 
-    <!-- Lado Esquerdo: Botões dos Guias -->
+    <!-- Lado Esquerdo: chamadas dos guias (sem caixas azuis) -->
     <div class="guides-column">
-      <?php foreach ( $groups as $group ) :
-        if ( $group['large'] ) :
-          $g     = $group['items'][0];
-          $label = esc_html( (string) ( $g['label'] ?? '' ) );
-          $link  = esc_url( (string) ( $g['link']  ?? '#' ) );
-          $icon  = (string) ( $g['icone'] ?? '' );
-        ?>
-          <button class="guide-btn guide-btn-large" data-link="<?php echo $link; ?>">
-            <span class="btn-icon">
-              <?php if ( $icon ) : ?><img src="<?php echo esc_url( $icon ); ?>" alt=""><?php else : ?>📖<?php endif; ?>
-            </span>
-            <span class="btn-label"><?php echo $label; ?></span>
-            <span class="btn-arrow">❯</span>
-          </button>
-        <?php else : ?>
-          <div class="guides-grid">
-            <?php foreach ( $group['items'] as $g ) :
-              $label = esc_html( (string) ( $g['label'] ?? '' ) );
-              $link  = esc_url( (string) ( $g['link']  ?? '#' ) );
-              $icon  = (string) ( $g['icone'] ?? '' );
-            ?>
-              <button class="guide-btn" data-link="<?php echo $link; ?>">
-                <span class="btn-icon">
-                  <?php if ( $icon ) : ?><img src="<?php echo esc_url( $icon ); ?>" alt=""><?php else : ?>📖<?php endif; ?>
-                </span>
-                <span class="btn-label"><?php echo $label; ?></span>
-                <span class="btn-arrow">❯</span>
-              </button>
-            <?php endforeach; ?>
-          </div>
-        <?php endif;
-      endforeach; ?>
-
       <?php
-      // Caixas de chamada (título + descrição + botão), no mesmo espírito da Caixa de ferramentas
       $guias_com_caixa = array_filter( $guias, static function ( $g ) {
           $titulo = trim( (string) ( $g['titulo'] ?? '' ) );
           $texto  = trim( (string) ( $g['texto'] ?? '' ) );
@@ -315,14 +245,3 @@ if ( ! empty( $pair_buffer ) ) {
 
   </div>
 </section>
-
-<script>
-(function(){
-  document.querySelectorAll('.guide-btn[data-link]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var link = this.getAttribute('data-link');
-      if (link && link !== '#') { window.open(link, '_blank'); }
-    });
-  });
-})();
-</script>
