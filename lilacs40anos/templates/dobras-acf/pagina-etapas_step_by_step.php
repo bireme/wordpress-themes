@@ -13,60 +13,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$titulo = (string) get_sub_field( 'titulo' );
-$etapas = get_sub_field( 'etapas' );
+$titulo = (string) lilacs_fc_get_sub( array( 'field_etapas_titulo', 'titulo' ) );
+$etapas = lilacs_fc_get_repeater(
+	array(
+		'field_etapas_items',
+		'etapas',
+	)
+);
 
-if ( ! is_array( $etapas ) || empty( $etapas ) ) {
-	return;
-}
-
-$uid = 'lilacs-etapas-' . get_the_ID() . '-' . get_row_index();
-
-if ( ! function_exists( 'lilacs_etapas_icon_url' ) ) {
-	/**
-	 * Extrai URL de um campo de imagem ACF.
-	 *
-	 * @param mixed $icon Campo image (array, URL ou ID).
-	 * @return string
-	 */
-	function lilacs_etapas_icon_url( $icon ) {
-		if ( is_array( $icon ) ) {
-			return (string) ( $icon['url'] ?? '' );
-		}
-		if ( is_numeric( $icon ) ) {
-			return (string) wp_get_attachment_image_url( (int) $icon, 'thumbnail' );
-		}
-		if ( is_string( $icon ) ) {
-			return $icon;
-		}
-		return '';
-	}
-}
-
-$items = [];
+$items = array();
 foreach ( $etapas as $row ) {
 	if ( ! is_array( $row ) ) {
 		continue;
 	}
-	$title = trim( (string) ( $row['titulo'] ?? '' ) );
-	$desc  = trim( (string) ( $row['descricao'] ?? '' ) );
-	$icon  = lilacs_etapas_icon_url( $row['icone'] ?? null );
+	$title = trim( (string) ( $row['titulo'] ?? $row['field_etapas_item_titulo'] ?? '' ) );
+	$desc  = trim( (string) ( $row['descricao'] ?? $row['field_etapas_item_desc'] ?? '' ) );
+	$icon  = lilacs_acf_image_url( $row['icone'] ?? $row['field_etapas_item_icone'] ?? null );
 	if ( $title === '' && $desc === '' && $icon === '' ) {
 		continue;
 	}
-	$items[] = [
+	$items[] = array(
 		'titulo'    => $title,
 		'descricao' => $desc,
 		'icone'     => $icon,
-	];
+	);
 }
 
 if ( empty( $items ) ) {
 	return;
 }
 
-static $lilacs_etapas_css_printed = false;
+$uid   = 'lilacs-etapas-' . (int) get_the_ID() . '-' . ( function_exists( 'get_row_index' ) ? (int) get_row_index() : 0 );
 $count = count( $items );
+
+static $lilacs_etapas_css_printed = false;
 ?>
 
 <section class="lilacs-etapas" id="<?php echo esc_attr( $uid ); ?>"<?php echo $titulo !== '' ? ' aria-labelledby="' . esc_attr( $uid ) . '-title"' : ''; ?>>

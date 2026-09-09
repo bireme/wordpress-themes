@@ -5,49 +5,27 @@
  *
  * Campos ACF:
  * - titulo
- * - cards (repeater): icone, titulo, descricao, link
+ * - precisa_cards (repeater; legado: cards): icone, titulo, descricao, link
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$titulo = (string) get_sub_field( 'titulo' );
-$cards  = get_sub_field( 'cards' );
+$titulo = (string) lilacs_fc_get_sub( array( 'field_precisa_titulo', 'titulo' ) );
+$cards  = lilacs_fc_get_repeater(
+	array(
+		'field_precisa_cards',
+		'precisa_cards',
+		'cards',
+	)
+);
 
-if ( ! is_array( $cards ) || empty( $cards ) ) {
+if ( empty( $cards ) ) {
 	return;
 }
 
-$uid = 'lilacs-precisa-' . get_the_ID() . '-' . get_row_index();
-
-if ( ! function_exists( 'lilacs_precisa_icon_url' ) ) {
-	/**
-	 * Extrai URL e alt de um campo de imagem ACF.
-	 *
-	 * @param mixed $icon Campo image (array, URL ou ID).
-	 * @return array{url:string, alt:string}
-	 */
-	function lilacs_precisa_icon_url( $icon ) {
-		$url = '';
-		$alt = '';
-
-		if ( is_array( $icon ) ) {
-			$url = (string) ( $icon['url'] ?? '' );
-			$alt = (string) ( $icon['alt'] ?? '' );
-		} elseif ( is_numeric( $icon ) ) {
-			$url = (string) wp_get_attachment_image_url( (int) $icon, 'thumbnail' );
-			$alt = (string) get_post_meta( (int) $icon, '_wp_attachment_image_alt', true );
-		} elseif ( is_string( $icon ) ) {
-			$url = $icon;
-		}
-
-		return [
-			'url' => $url,
-			'alt' => $alt,
-		];
-	}
-}
+$uid = 'lilacs-precisa-' . (int) get_the_ID() . '-' . ( function_exists( 'get_row_index' ) ? (int) get_row_index() : 0 );
 
 static $lilacs_precisa_css_printed = false;
 ?>
@@ -64,23 +42,26 @@ static $lilacs_precisa_css_printed = false;
 					continue;
 				}
 
-				$c_title = trim( (string) ( $card['titulo'] ?? '' ) );
-				$c_desc  = trim( (string) ( $card['descricao'] ?? '' ) );
-				$c_link  = trim( (string) ( $card['link'] ?? '' ) );
-				$icon    = lilacs_precisa_icon_url( $card['icone'] ?? null );
+				$c_title = trim( (string) ( $card['titulo'] ?? $card['field_precisa_card_titulo'] ?? '' ) );
+				$c_desc  = trim( (string) ( $card['descricao'] ?? $card['field_precisa_card_desc'] ?? '' ) );
+				$c_link  = trim( (string) ( $card['link'] ?? $card['field_precisa_card_link'] ?? '' ) );
+				$icon    = lilacs_acf_image_url( $card['icone'] ?? $card['field_precisa_card_icone'] ?? null );
 
-				if ( $c_title === '' && $c_desc === '' && $icon['url'] === '' ) {
+				if ( $c_title === '' && $c_desc === '' && $icon === '' ) {
 					continue;
 				}
 
-				$tag     = $c_link !== '' ? 'a' : 'article';
-				$href    = $c_link !== '' ? ' href="' . esc_url( $c_link ) . '"' : '';
-				$icon_alt = $icon['alt'] !== '' ? $icon['alt'] : $c_title;
+				$is_link = $c_link !== '';
 			?>
-				<<?php echo $tag; ?> class="lilacs-precisa__card"<?php echo $href; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-					<?php if ( $icon['url'] !== '' ) : ?>
+				<?php if ( $is_link ) : ?>
+					<a class="lilacs-precisa__card" href="<?php echo esc_url( $c_link ); ?>">
+				<?php else : ?>
+					<article class="lilacs-precisa__card">
+				<?php endif; ?>
+
+					<?php if ( $icon !== '' ) : ?>
 						<span class="lilacs-precisa__icon" aria-hidden="true">
-							<img src="<?php echo esc_url( $icon['url'] ); ?>" alt="<?php echo esc_attr( $icon_alt ); ?>">
+							<img src="<?php echo esc_url( $icon ); ?>" alt="">
 						</span>
 					<?php endif; ?>
 
@@ -92,14 +73,19 @@ static $lilacs_precisa_css_printed = false;
 						<p class="lilacs-precisa__desc"><?php echo esc_html( $c_desc ); ?></p>
 					<?php endif; ?>
 
-					<?php if ( $c_link !== '' ) : ?>
+					<?php if ( $is_link ) : ?>
 						<span class="lilacs-precisa__arrow" aria-hidden="true">
 							<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</span>
 					<?php endif; ?>
-				</<?php echo $tag; ?>>
+
+				<?php if ( $is_link ) : ?>
+					</a>
+				<?php else : ?>
+					</article>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
