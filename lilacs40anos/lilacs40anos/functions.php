@@ -1,0 +1,1704 @@
+<?php
+if (!defined('ABSPATH')) exit;
+
+// Registra suporte a menus
+function bireme_lilacs_setup() {
+    // Suporte a logo personalizado
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-width'  => true,
+        'flex-height' => true,
+    ));
+
+    // Suporte a título dinâmico
+    add_theme_support('title-tag');
+
+    // Suporte a imagens destacadas
+    add_theme_support('post-thumbnails');
+
+    // Registra menus de navegação
+    register_nav_menus(array(
+        'primary' => __('Menu Principal', 'bireme-lilacs'),
+    ));
+}
+add_action('after_setup_theme', 'bireme_lilacs_setup');
+
+// Enfileira scripts e estilos
+function bireme_lilacs_scripts() {
+       wp_enqueue_style(
+        'bireme-lilacs-style',
+        get_stylesheet_uri(),
+        array(),
+        '1.3.5' // altera a cada modificação
+    );
+
+    
+    // Scripts do tema
+    if (file_exists(get_template_directory() . '/assets/js/header.js')) {
+        wp_enqueue_script('bireme-lilacs-header', get_template_directory_uri() . '/assets/js/header.js', array(), '1.2.0', true);
+        wp_localize_script('bireme-lilacs-header', 'lilacsHeader', array(
+            'openSubmenu' => function_exists('bireme_lilacs_translate')
+                ? bireme_lilacs_translate('Abrir submenu', 'Navigation')
+                : 'Abrir submenu',
+        ));
+    }
+
+    // Script da página Periódicos (carregado apenas quando necessário)
+    if (is_page_template('page-lilacs-periodicos.php')) {
+        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.1', true);
+    }
+}
+add_action('wp_enqueue_scripts', 'bireme_lilacs_scripts');
+
+// Adiciona preconnect de fontes e estilos globais no <head>
+function bireme_lilacs_head_extras() {
+    ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        #lilacs-indicadores-1 .lilacs-em-dados__card {
+            background: #082A53 !important;
+        }
+        a.saiba_mais_home {
+            font-size: 18px !important;
+        }
+        #lilacs-indicadores-3 .lilacs-em-dados__all-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 226px;
+            height: 49px;
+            padding: 0 58px;
+            border-radius: 999px;
+            background: #F97316;
+            color: #fff;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+            text-decoration: none;
+            box-shadow: none;
+        }
+        .pagina-banner_simples {
+            background-repeat: no-repeat !important;
+        }
+    </style>
+    <?php
+}
+add_action('wp_head', 'bireme_lilacs_head_extras', 1);
+
+// Suporte ao Polylang - registra menus por idioma
+function bireme_lilacs_polylang_menus() {
+    if (function_exists('pll_the_languages')) {
+        $languages = pll_the_languages(array('raw' => 1));
+        
+        if ($languages) {
+            $menu_locations = array();
+            foreach ($languages as $lang) {
+                $menu_locations['primary_' . $lang['slug']] = sprintf(__('Menu Principal - %s', 'bireme-lilacs'), $lang['name']);
+            }
+            
+            // Registra os menus específicos por idioma
+            register_nav_menus($menu_locations);
+        }
+    }
+}
+add_action('after_setup_theme', 'bireme_lilacs_polylang_menus', 20);
+
+// Função para obter o menu correto baseado no idioma atual
+function bireme_lilacs_get_menu_location() {
+    if (function_exists('pll_current_language')) {
+        $current_lang = pll_current_language();
+        $menu_location = 'primary_' . $current_lang;
+        
+        // Verifica se existe um menu para o idioma atual
+        $locations = get_nav_menu_locations();
+        if (isset($locations[$menu_location]) && $locations[$menu_location]) {
+            return $menu_location;
+        }
+    }
+    
+    // Fallback para o menu principal padrão
+    return 'primary';
+}
+
+// Adiciona classes CSS específicas por idioma no body
+function bireme_lilacs_body_classes($classes) {
+    if (function_exists('pll_current_language')) {
+        $current_lang = pll_current_language();
+        $classes[] = 'lang-' . $current_lang;
+    }
+    return $classes;
+}
+add_filter('body_class', 'bireme_lilacs_body_classes');
+
+// Filtro para modificar URLs no switcher de idiomas
+function bireme_lilacs_language_switcher_urls($url, $lang) {
+    // Permite personalização das URLs se necessário
+    return $url;
+}
+
+// Hook específico para quando o Polylang estiver ativo
+function bireme_lilacs_polylang_init() {
+    if (function_exists('pll_register_string')) {
+        // Registra strings para tradução
+        pll_register_string('bireme-lilacs', 'Conteúdo Principal', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Pesquisa', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Rodapé', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Alto Contraste', 'Accessibility');
+        pll_register_string('bireme-lilacs', 'Abrir menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Fechar menu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'Abrir submenu', 'Navigation');
+        pll_register_string('bireme-lilacs', 'LILACS', 'Site Name');
+    }
+}
+add_action('init', 'bireme_lilacs_polylang_init');
+
+// Função para debug dos logos (apenas para admins)
+function bireme_lilacs_debug_logo_info() {
+    if (!current_user_can('manage_options')) return;
+    
+    $current_lang = function_exists('pll_current_language') ? pll_current_language() : 'pt';
+    $logo_url = bireme_lilacs_get_logo();
+    $logo_path = str_replace(get_template_directory_uri(), get_template_directory(), $logo_url);
+    
+    echo '<!-- Logo Debug Info:';
+    echo ' Current Lang: ' . $current_lang;
+    echo ' | Logo URL: ' . $logo_url;
+    echo ' | File Exists: ' . (file_exists($logo_path) ? 'Yes' : 'No');
+    echo ' -->';
+}
+add_action('wp_head', 'bireme_lilacs_debug_logo_info');
+
+// Função helper para traduzir strings
+function bireme_lilacs_translate($string, $context = 'General') {
+    if (function_exists('pll__')) {
+        return pll__($string);
+    }
+    return __($string, 'bireme-lilacs');
+}
+/**
+ * Retorna o código de idioma normalizado (pt, en, es)
+ */
+function bireme_lilacs_get_lang_slug() {
+    $current_lang = 'pt';
+
+    if ( function_exists('pll_current_language') ) {
+        // slug do Polylang (pt, en, es, pt-br, en-us...)
+        $current_lang = pll_current_language();
+    }
+
+    $lang_map = array(
+        'pt'    => 'pt',
+        'pt-br' => 'pt',
+        'en'    => 'en',
+        'en-us' => 'en',
+        'es'    => 'es',
+        'es-es' => 'es',
+    );
+
+    return isset($lang_map[$current_lang]) ? $lang_map[$current_lang] : 'pt';
+}
+
+/**
+ * Logo LILACS por idioma (já existia – só usei o helper acima)
+ */
+function bireme_lilacs_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-color.jpg';
+    $logo_file = get_template_directory() . $logo_path;
+
+    if ( file_exists($logo_file) ) {
+        return get_template_directory_uri() . $logo_path;
+    }
+
+    // Fallback PT
+    $fallback_path = '/assets/images/logos/pt/logo-color.jpg';
+    $fallback_file = get_template_directory() . $fallback_path;
+
+    if ( file_exists($fallback_file) ) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+
+    // Fallback final
+    $default_logo = get_template_directory() . '/assets/images/logo-lilacs.png';
+    if ( file_exists($default_logo) ) {
+        return get_template_directory_uri() . '/assets/images/logo-lilacs.png';
+    }
+
+    return '';
+}
+
+/**
+ * Logo BVS por idioma
+ * Estrutura esperada:
+ * /assets/images/logos/{lang}/logo-bvs.svg
+ * Ex: /assets/images/logos/pt/logo-bvs.svg
+ */
+function bireme_bvs_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-bvs.svg';
+    $logo_file = get_template_directory() . $logo_path;
+
+    if ( file_exists($logo_file) ) {
+        return get_template_directory_uri() . $logo_path;
+    }
+
+    // Fallback PT
+    $fallback_path = '/assets/images/logos/pt/logo-bvs.svg';
+    $fallback_file = get_template_directory() . $fallback_path;
+
+    if ( file_exists($fallback_file) ) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+
+    // Fallback antigo
+    $legacy = get_template_directory() . '/assets/images/logo-bvs.svg';
+    if ( file_exists($legacy) ) {
+        return get_template_directory_uri() . '/assets/images/logo-bvs.svg';
+    }
+
+    return '';
+}
+
+/**
+ * Logo da REDE BVS por idioma
+ * Estrutura sugerida:
+ * /assets/images/logos/{lang}/logo-rede.svg
+ */
+function bireme_rede_get_logo() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    $logo_path = '/assets/images/logos/' . $logo_lang . '/logo-rede.svg';
+    $logo_file = get_template_directory() . $logo_path;
+
+    if ( file_exists($logo_file) ) {
+        return get_template_directory_uri() . $logo_path;
+    }
+
+    // Fallback PT
+    $fallback_path = '/assets/images/logos/pt/logo-rede.svg';
+    $fallback_file = get_template_directory() . $fallback_path;
+
+    if ( file_exists($fallback_file) ) {
+        return get_template_directory_uri() . $fallback_path;
+    }
+
+    return '';
+}
+
+/**
+ * URL da REDE por idioma
+ */
+function bireme_rede_get_url() {
+    $logo_lang = bireme_lilacs_get_lang_slug();
+
+    switch ( $logo_lang ) {
+        case 'es':
+            return 'https://bvsalud.org/es/ ';
+        case 'en':
+            return 'https://bvsalud.org/en/';
+        case 'pt':
+        default:
+            return 'https://bvsalud.org/';
+    }
+}
+
+/**
+ * Home URL no idioma atual (Polylang) com fallback
+ */
+function bireme_get_lang_home_url() {
+    if ( function_exists('pll_home_url') ) {
+        return pll_home_url();
+    }
+    return home_url('/');
+}
+
+/**
+ * Garante CPT depoimentos público (single acessível).
+ * Se já existir (ACF CPT UI / plugin), reforça flags públicas.
+ */
+function bireme_lilacs_register_depoimentos_cpt() {
+    if ( ! post_type_exists( 'depoimentos' ) ) {
+        register_post_type(
+            'depoimentos',
+            array(
+                'labels' => array(
+                    'name'          => __( 'Depoimentos', 'bireme-lilacs' ),
+                    'singular_name' => __( 'Depoimento', 'bireme-lilacs' ),
+                    'add_new_item'  => __( 'Adicionar depoimento', 'bireme-lilacs' ),
+                    'edit_item'     => __( 'Editar depoimento', 'bireme-lilacs' ),
+                    'view_item'     => __( 'Ver depoimento', 'bireme-lilacs' ),
+                    'search_items'  => __( 'Buscar depoimentos', 'bireme-lilacs' ),
+                ),
+                'public'             => true,
+                'publicly_queryable' => true,
+                'show_ui'            => true,
+                'show_in_menu'       => true,
+                'show_in_rest'       => true,
+                'has_archive'        => false,
+                'rewrite'            => array( 'slug' => 'depoimento', 'with_front' => false ),
+                'supports'           => array( 'title', 'thumbnail', 'editor' ),
+                'menu_icon'          => 'dashicons-format-quote',
+            )
+        );
+    }
+
+    // Garante rewrite do single após deploy do template.
+    if ( get_option( 'lilacs_depoimentos_rewrite_v1' ) !== '1' ) {
+        flush_rewrite_rules( false );
+        update_option( 'lilacs_depoimentos_rewrite_v1', '1' );
+    }
+}
+add_action( 'init', 'bireme_lilacs_register_depoimentos_cpt', 5 );
+
+/**
+ * Se o CPT já foi registrado por outro plugin, garante single público.
+ */
+function bireme_lilacs_depoimentos_cpt_args( $args, $post_type ) {
+    if ( $post_type !== 'depoimentos' ) {
+        return $args;
+    }
+    $args['public']             = true;
+    $args['publicly_queryable'] = true;
+    if ( empty( $args['rewrite'] ) || ! is_array( $args['rewrite'] ) ) {
+        $args['rewrite'] = array( 'slug' => 'depoimento', 'with_front' => false );
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'bireme_lilacs_depoimentos_cpt_args', 20, 2 );
+
+/**
+ * URL da página de listagem de depoimentos (template page-lilacs-depoimentos.php).
+ */
+function bireme_lilacs_depoimentos_list_url() {
+    $pages = get_posts(
+        array(
+            'post_type'      => 'page',
+            'post_status'    => 'publish',
+            'posts_per_page' => 1,
+            'meta_key'       => '_wp_page_template',
+            'meta_value'     => 'page-lilacs-depoimentos.php',
+            'fields'         => 'ids',
+        )
+    );
+    if ( ! empty( $pages[0] ) ) {
+        return get_permalink( $pages[0] );
+    }
+    return bireme_get_lang_home_url();
+}
+
+/**
+ * Normaliza um campo ACF link (ou texto+url legados) em ['title','url','target'].
+ *
+ * @param mixed  $link   Array ACF link, string URL, ou vazio.
+ * @param string $title  Título opcional (legado).
+ * @return array{title:string,url:string,target:string}|null
+ */
+function lilacs_normalize_banner_button( $link, $title = '' ) {
+    if ( is_array( $link ) ) {
+        $url   = isset( $link['url'] ) ? trim( (string) $link['url'] ) : '';
+        $label = isset( $link['title'] ) ? trim( (string) $link['title'] ) : '';
+        $target = ! empty( $link['target'] ) ? (string) $link['target'] : '_self';
+        if ( $url === '' ) {
+            return null;
+        }
+        if ( $label === '' ) {
+            $label = $title !== '' ? $title : $url;
+        }
+        return array(
+            'title'  => $label,
+            'url'    => $url,
+            'target' => $target,
+        );
+    }
+
+    $url = is_string( $link ) ? trim( $link ) : '';
+    $label = trim( (string) $title );
+    if ( $url === '' || $label === '' ) {
+        return null;
+    }
+    return array(
+        'title'  => $label,
+        'url'    => $url,
+        'target' => '_self',
+    );
+}
+
+/**
+ * Coleta até 2 botões opcionais dos sub_fields da dobra banner.
+ * Compatível com legado de banner_interno (texto_do_botao + link_do_banner).
+ *
+ * @return array<int, array{title:string,url:string,target:string}>
+ */
+function lilacs_get_banner_cta_buttons() {
+    $buttons = array();
+
+    $b1 = function_exists( 'get_sub_field' ) ? get_sub_field( 'botao_1' ) : null;
+    $n1 = lilacs_normalize_banner_button( $b1 );
+    if ( $n1 ) {
+        $buttons[] = $n1;
+    } else {
+        // Legado banner_interno
+        $legacy_text = function_exists( 'get_sub_field' ) ? (string) get_sub_field( 'texto_do_botao' ) : '';
+        $legacy_url  = function_exists( 'get_sub_field' ) ? get_sub_field( 'link_do_banner' ) : '';
+        $n_legacy = lilacs_normalize_banner_button( $legacy_url, $legacy_text );
+        if ( $n_legacy ) {
+            $buttons[] = $n_legacy;
+        }
+    }
+
+    $b2 = function_exists( 'get_sub_field' ) ? get_sub_field( 'botao_2' ) : null;
+    $n2 = lilacs_normalize_banner_button( $b2 );
+    if ( $n2 ) {
+        $buttons[] = $n2;
+    }
+
+    return $buttons;
+}
+
+/**
+ * Imprime o grupo de CTAs do banner (só se houver botões preenchidos).
+ *
+ * @param string $class Classe CSS extra no wrapper.
+ */
+function lilacs_render_banner_cta_buttons( $class = '' ) {
+    $buttons = lilacs_get_banner_cta_buttons();
+    if ( empty( $buttons ) ) {
+        return;
+    }
+
+    $wrapper_class = trim( 'lilacs-banner-ctas ' . $class );
+    echo '<div class="' . esc_attr( $wrapper_class ) . '">';
+    foreach ( $buttons as $i => $btn ) {
+        $mod = 'lilacs-banner-ctas__btn lilacs-banner-ctas__btn--' . ( $i + 1 );
+        $target = $btn['target'] !== '' ? $btn['target'] : '_self';
+        $rel = ( $target === '_blank' ) ? ' rel="noopener noreferrer"' : '';
+        printf(
+            '<a class="%s" href="%s" target="%s"%s>%s</a>',
+            esc_attr( $mod ),
+            esc_url( $btn['url'] ),
+            esc_attr( $target ),
+            $rel,
+            esc_html( $btn['title'] )
+        );
+    }
+    echo '</div>';
+}
+
+/**
+ * CSS padrão dos CTAs de banner (idempotente).
+ */
+function lilacs_banner_cta_styles() {
+    static $printed = false;
+    if ( $printed ) {
+        return;
+    }
+    $printed = true;
+    ?>
+    <style id="lilacs-banner-cta-styles">
+      .lilacs-banner-ctas{
+        display:flex;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:20px;
+        align-items:center;
+      }
+      .lilacs-banner-ctas__btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 28px;
+        border-radius:999px;
+        font-family:"Noto Sans", system-ui, sans-serif;
+        font-size:16px;
+        font-weight:700;
+        line-height:1.2;
+        text-decoration:none;
+        transition:transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      }
+      .lilacs-banner-ctas__btn--1{
+        background:#F96A1E;
+        color:#fff;
+        box-shadow:0 4px 14px rgba(249,106,30,.28);
+      }
+      .lilacs-banner-ctas__btn--2{
+        background:transparent;
+        color:#fff;
+        border:2px solid rgba(255,255,255,.9);
+      }
+      .lilacs-banner-ctas__btn:hover{
+        transform:translateY(-1px);
+        opacity:.95;
+      }
+      .lilacs-banner-ctas--on-light .lilacs-banner-ctas__btn--2{
+        color:#082b61;
+        border-color:#082b61;
+      }
+      .lilacs-banner-ctas--on-light .lilacs-banner-ctas__btn--1{
+        background:#082b61;
+        box-shadow:0 4px 14px rgba(8,43,97,.22);
+      }
+    </style>
+    <?php
+}
+
+/**
+ * True na home do site (inclui front page traduzida no Polylang).
+ */
+function bireme_is_site_home() {
+    if ( is_front_page() ) {
+        return true;
+    }
+
+    // Polylang: home traduzida às vezes não marca is_front_page()
+    if ( function_exists( 'pll_get_post_translations' ) ) {
+        $front_id = (int) get_option( 'page_on_front' );
+        $current_id = (int) get_queried_object_id();
+        if ( $front_id && $current_id && is_page() ) {
+            $translations = pll_get_post_translations( $front_id );
+            if ( is_array( $translations ) ) {
+                $ids = array_map( 'intval', $translations );
+                if ( in_array( $current_id, $ids, true ) ) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Itens do breadcrumb do site (Home → … → página atual).
+ *
+ * @return array<int, array{label:string,url:string}>
+ */
+function bireme_breadcrumb_items() {
+    if ( bireme_is_site_home() ) {
+        return array();
+    }
+
+    $items = array(
+        array(
+            'label' => bireme_lilacs_translate( 'Home', 'Navigation' ),
+            'url'   => bireme_get_lang_home_url(),
+        ),
+    );
+
+    if ( is_home() ) {
+        $posts_page_id = (int) get_option( 'page_for_posts' );
+        $label = $posts_page_id ? get_the_title( $posts_page_id ) : bireme_lilacs_translate( 'Blog', 'Navigation' );
+        $items[] = array( 'label' => $label, 'url' => '' );
+        return $items;
+    }
+
+    if ( is_404() ) {
+        $items[] = array(
+            'label' => bireme_lilacs_translate( 'Página não encontrada', 'Navigation' ),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_search() ) {
+        $items[] = array(
+            'label' => sprintf(
+                /* translators: %s: search query */
+                bireme_lilacs_translate( 'Busca: %s', 'Navigation' ),
+                get_search_query()
+            ),
+            'url' => '',
+        );
+        return $items;
+    }
+
+    if ( is_page() ) {
+        $page_id = get_queried_object_id();
+        $ancestors = array_reverse( get_post_ancestors( $page_id ) );
+        foreach ( $ancestors as $ancestor_id ) {
+            $items[] = array(
+                'label' => get_the_title( $ancestor_id ),
+                'url'   => get_permalink( $ancestor_id ),
+            );
+        }
+        $items[] = array(
+            'label' => get_the_title( $page_id ),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_singular() ) {
+        $post_type = get_post_type();
+        $pto = get_post_type_object( $post_type );
+
+        if ( $post_type === 'post' ) {
+            $categories = get_the_category();
+            if ( ! empty( $categories ) ) {
+                $cat = $categories[0];
+                $items[] = array(
+                    'label' => $cat->name,
+                    'url'   => get_category_link( $cat->term_id ),
+                );
+            }
+        } elseif ( $pto && ! empty( $pto->has_archive ) ) {
+            $archive_link = get_post_type_archive_link( $post_type );
+            if ( $archive_link ) {
+                $items[] = array(
+                    'label' => $pto->labels->name,
+                    'url'   => $archive_link,
+                );
+            }
+        }
+
+        $items[] = array(
+            'label' => get_the_title(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_post_type_archive() ) {
+        $pto = get_queried_object();
+        $label = ( $pto && isset( $pto->labels->name ) )
+            ? $pto->labels->name
+            : post_type_archive_title( '', false );
+        $items[] = array( 'label' => $label, 'url' => '' );
+        return $items;
+    }
+
+    if ( is_category() || is_tag() || is_tax() ) {
+        $term = get_queried_object();
+        if ( $term && ! is_wp_error( $term ) ) {
+            if ( ! empty( $term->taxonomy ) ) {
+                $tax = get_taxonomy( $term->taxonomy );
+                if ( $tax && ! empty( $tax->object_type[0] ) ) {
+                    $pto = get_post_type_object( $tax->object_type[0] );
+                    if ( $pto && ! empty( $pto->has_archive ) ) {
+                        $archive_link = get_post_type_archive_link( $tax->object_type[0] );
+                        if ( $archive_link ) {
+                            $items[] = array(
+                                'label' => $pto->labels->name,
+                                'url'   => $archive_link,
+                            );
+                        }
+                    }
+                }
+
+                if ( is_taxonomy_hierarchical( $term->taxonomy ) && ! empty( $term->parent ) ) {
+                    $ancestors = array_reverse( get_ancestors( $term->term_id, $term->taxonomy ) );
+                    foreach ( $ancestors as $ancestor_id ) {
+                        $ancestor = get_term( $ancestor_id, $term->taxonomy );
+                        if ( $ancestor && ! is_wp_error( $ancestor ) ) {
+                            $items[] = array(
+                                'label' => $ancestor->name,
+                                'url'   => get_term_link( $ancestor ),
+                            );
+                        }
+                    }
+                }
+            }
+
+            $items[] = array(
+                'label' => $term->name,
+                'url'   => '',
+            );
+        }
+        return $items;
+    }
+
+    if ( is_author() ) {
+        $items[] = array(
+            'label' => get_the_author(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    if ( is_date() ) {
+        $items[] = array(
+            'label' => get_the_archive_title(),
+            'url'   => '',
+        );
+        return $items;
+    }
+
+    $title = get_the_archive_title();
+    if ( $title ) {
+        $items[] = array(
+            'label' => wp_strip_all_tags( $title ),
+            'url'   => '',
+        );
+    }
+
+    return $items;
+}
+
+/**
+ * Imprime o HTML do breadcrumb (somente os crumbs, sem wrapper externo).
+ */
+function bireme_breadcrumb() {
+    $items = bireme_breadcrumb_items();
+    if ( count( $items ) < 2 ) {
+        return;
+    }
+
+    $last = count( $items ) - 1;
+    foreach ( $items as $i => $item ) {
+        if ( $i > 0 ) {
+            echo '<span class="sep" aria-hidden="true"> / </span>';
+        }
+
+        $label = esc_html( $item['label'] );
+        if ( $i === $last || empty( $item['url'] ) ) {
+            echo '<span class="current" aria-current="page">' . $label . '</span>';
+        } else {
+            echo '<a href="' . esc_url( $item['url'] ) . '">' . $label . '</a>';
+        }
+    }
+}
+
+/**
+ * Renderiza a barra global de breadcrumb abaixo do menu.
+ */
+function bireme_render_site_breadcrumb() {
+    if ( is_admin() || bireme_is_site_home() || wp_doing_ajax() ) {
+        return;
+    }
+
+    $items = bireme_breadcrumb_items();
+    if ( count( $items ) < 2 ) {
+        return;
+    }
+    ?>
+    <div class="lilacs-site-breadcrumb">
+      <div class="container lilacs-site-breadcrumb__inner">
+        <nav class="lilacs-site-breadcrumb__nav" aria-label="<?php echo esc_attr( bireme_lilacs_translate( 'Breadcrumb', 'Navigation' ) ); ?>">
+          <?php bireme_breadcrumb(); ?>
+        </nav>
+      </div>
+    </div>
+    <?php
+}
+
+
+// Adiciona suporte a campos personalizados traduzíveis
+function bireme_lilacs_polylang_metaboxes() {
+    if (function_exists('pll_is_translated_post_type')) {
+        // Adiciona suporte para tradução de campos personalizados se necessário
+    }
+}
+add_action('init', 'bireme_lilacs_polylang_metaboxes');
+
+// Carrega o loader de metaboxes específicos do template no admin
+if (is_admin()) {
+    // Preferir child theme (get_stylesheet_directory) se existir, senão usar parent (get_template_directory)
+    $admin_loader = trailingslashit(get_stylesheet_directory()) . 'inc/admin/meta-loader.php';
+    if (!file_exists($admin_loader)) {
+        $admin_loader = trailingslashit(get_template_directory()) . 'inc/admin/meta-loader.php';
+    }
+    if (file_exists($admin_loader)) {
+        require_once $admin_loader;
+    }
+}
+
+
+
+
+function bvs_journals_lilacs_test() {
+    $url = 'https://api.bvsalud.org/title/v1/search/';
+    $args = [
+        'headers' => [
+            'apikey' => 'bec15fb66a094aef16439c0169d42710',
+            'Accept' => 'application/json',
+        ],
+        'timeout' => 30,
+    ];
+
+    $params = [
+        'q'           => '*', // ou sua expressão
+        'fq'          => 'indexed_database:"LILACS"',
+        'count'       => 10000,
+        'start'       => 0,
+        'format'      => 'json',
+        // Evita cortar países com poucas revistas (ex.: Estados Unidos) do facet.
+        'facet.limit' => 100,
+    ];
+
+    $request_url = add_query_arg( $params, $url  );
+    $response = wp_remote_get( $request_url, $args );
+
+    if (is_wp_error($response)) {
+        return wp_send_json_error($response->get_error_message(), 500);
+    }
+
+    $code = wp_remote_retrieve_response_code($response);
+    $body = wp_remote_retrieve_body($response);
+
+    if ($code !== 200) {
+        return wp_send_json_error(['status' => $code, 'body' => $body], $code);
+    }
+
+    $data = json_decode($body, true);
+    return wp_send_json_success($data);
+}
+
+// /wp-json/test/bvs
+add_action('rest_api_init', function() {
+    register_rest_route('test/v1', '/bvs', [
+        'methods'  => 'GET',
+        'callback' => 'bvs_journals_lilacs_test',
+        'permission_callback' => '__return_true',
+    ]);
+});
+/**
+ * GET /wp-json/test/v1/bvs/journal/{id}
+ * Retorna um periódico específico da BVS pelo journalId (ex.: 1890)
+ */
+function bvs_get_journal_by_id( WP_REST_Request $request ) {
+    $journal_id = isset($request['id']) ? sanitize_text_field($request['id']) : '';
+
+    // validação simples (número ou alfa-num com hífen/underscore, caso a API aceite)
+    if (empty($journal_id) || !preg_match('/^[A-Za-z0-9\-_]+$/', $journal_id)) {
+        return wp_send_json_error(['message' => 'Parâmetro {id} inválido.'], 400);
+    }
+
+    // parâmetros opcionais
+    $format = sanitize_text_field($request->get_param('format') ?: 'json');
+
+    $url  = sprintf('https://api.bvsalud.org/title/v1/%s/', rawurlencode($journal_id));
+    $url  = add_query_arg(['format' => $format], $url);
+
+    $args = [
+        'headers' => [
+            'apikey' => 'bec15fb66a094aef16439c0169d42710',
+            'Accept' => 'application/json',
+        ],
+        'timeout' => 30,
+    ];
+
+    $response = wp_remote_get($url, $args);
+
+    if (is_wp_error($response)) {
+        return wp_send_json_error(['message' => $response->get_error_message()], 500);
+    }
+
+    $code = wp_remote_retrieve_response_code($response);
+    $body = wp_remote_retrieve_body($response);
+
+    if ($code !== 200) {
+        // tenta repassar o corpo de erro da BVS para facilitar o debug
+        return wp_send_json_error(['status' => $code, 'body' => $body], $code);
+    }
+
+    $data = json_decode($body, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        // fallback caso venha algo não-JSON por algum motivo
+        return wp_send_json_success(['raw' => $body, '_note' => 'Resposta não era JSON parseável.']);
+    }
+
+    return wp_send_json_success($data);
+}
+
+// Registra a rota /wp-json/test/v1/bvs/journal/{id}
+add_action('rest_api_init', function () {
+    register_rest_route('test/v1', '/bvs/journal/(?P<id>[A-Za-z0-9\-_]+)', [
+        'methods'             => 'GET',
+        'callback'            => 'bvs_get_journal_by_id',
+        'permission_callback' => '__return_true',
+        'args'                => [
+            'id' => [
+                'description' => 'Identificador único do periódico (journalId). Ex.: 1890',
+                'type'        => 'string',
+                'required'    => true,
+            ],
+            'format' => [
+                'description' => 'Formato do retorno (padrão: json)',
+                'type'        => 'string',
+                'required'    => false,
+                'default'     => 'json',
+                'enum'        => ['json'],
+            ],
+        ],
+    ]);
+});
+
+
+/**
+ * GET /wp-json/test/v1/bvs/journals/search
+ * Busca periódicos por expressão (q) e/ou por thematic_area.
+ */
+function bvs_search_journals_by_thematic_area( WP_REST_Request $request ) {
+    $base_url = 'https://api.bvsalud.org/title/v1/search/';
+
+    // --- params de entrada ---
+    $q      = trim( (string) $request->get_param('q') );
+    if ($q === '') $q = '*';
+
+    $format = sanitize_text_field( $request->get_param('format') ?: 'json' );
+    $count  = (int) ($request->get_param('count') ?? 10);
+    $start  = (int) ($request->get_param('start') ?? 0);
+    $sort   = sanitize_text_field( $request->get_param('sort') ?? '' );
+
+    // thematic_area pode vir como "area1,area2" ou array
+    $ta_param = $request->get_param('thematic_area');
+    $ta_list  = [];
+
+    if (is_array($ta_param)) {
+        $ta_list = array_filter(array_map('sanitize_text_field', $ta_param));
+    } elseif (is_string($ta_param) && $ta_param !== '') {
+        $ta_list = array_filter(array_map('sanitize_text_field', array_map('trim', explode(',', $ta_param))));
+    }
+
+    // monta fq (sempre força LILACS)
+    $fq_parts = ['indexed_database:"LILACS"'];
+
+    if (!empty($ta_list)) {
+        // ex.: (thematic_area:"Saúde Pública" OR thematic_area:"Atenção Primária")
+        $quoted = array_map(function($v){
+            // escapa aspas internas
+            $v = str_replace('"', '\"', $v);
+            return sprintf('thematic_area:"%s"', $v);
+        }, $ta_list);
+
+        $fq_parts[] = '(' . implode(' OR ', $quoted) . ')';
+    }
+
+    // permite complementar com fq extra (opcional)
+    $extra_fq = trim((string) $request->get_param('fq'));
+    if ($extra_fq !== '') {
+        $fq_parts[] = $extra_fq;
+    }
+
+    $params = [
+        'q'      => $q,
+        'fq'     => implode(' AND ', $fq_parts),
+        'count'  => max(1, min(10000, $count)), // limite seguro
+        'start'  => max(0, $start),
+        'format' => $format,
+    ];
+    if ($sort !== '') $params['sort'] = $sort;
+
+    $url = add_query_arg($params, $base_url);
+
+    $args = [
+        'headers' => [
+            'apikey' => 'bec15fb66a094aef16439c0169d42710',
+            'Accept' => 'application/json',
+        ],
+        'timeout' => 30,
+    ];
+
+    $response = wp_remote_get($url, $args);
+
+    if (is_wp_error($response)) {
+        return wp_send_json_error(['message' => $response->get_error_message()], 500);
+    }
+
+    $code = wp_remote_retrieve_response_code($response);
+    $body = wp_remote_retrieve_body($response);
+
+    if ($code !== 200) {
+        return wp_send_json_error(['status' => $code, 'body' => $body], $code);
+    }
+
+    $data = json_decode($body, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        return wp_send_json_success(['raw' => $body, '_note' => 'Resposta não era JSON parseável.']);
+    }
+
+    return wp_send_json_success($data);
+}
+
+add_action('rest_api_init', function () {
+    register_rest_route('test/v1', '/bvs/journals/search', [
+        'methods'             => 'GET',
+        'callback'            => 'bvs_search_journals_by_thematic_area',
+        'permission_callback' => '__return_true',
+        'args' => [
+            'q' => [
+                'description' => 'Expressão de busca (boolean OK). Padrão: *',
+                'type' => 'string',
+                'required' => false,
+            ],
+            'thematic_area' => [
+                'description' => 'Uma ou mais áreas temáticas (string única ou lista separada por vírgulas).',
+                'type' => 'string',
+                'required' => false,
+            ],
+            'fq' => [
+                'description' => 'Filtro adicional em Solr syntax (opcional).',
+                'type' => 'string',
+                'required' => false,
+            ],
+            'count' => [
+                'description' => 'Quantidade por página (1–10000).',
+                'type' => 'integer',
+                'required' => false,
+                'default' => 10,
+            ],
+            'start' => [
+                'description' => 'Offset inicial (>=0).',
+                'type' => 'integer',
+                'required' => false,
+                'default' => 0,
+            ],
+            'sort' => [
+                'description' => 'Ordenação (ex.: created_date DESC).',
+                'type' => 'string',
+                'required' => false,
+            ],
+            'format' => [
+                'description' => 'Formato de saída (json).',
+                'type' => 'string',
+                'required' => false,
+                'default' => 'json',
+                'enum' => ['json'],
+            ],
+        ],
+    ]);
+});
+
+
+/**
+ * Helper para carregar dobras de layout em /dobras
+ */
+function lilacs_bvs_dobra( $slug, $args = array() ) {
+    get_template_part( 'templates/dobras-acf/' . $slug, null, $args );
+}
+
+/**
+ * ACF Local JSON: sync field groups from assets/acf-json
+ */
+add_filter( 'acf/settings/save_json', function ( $path ) {
+	return get_stylesheet_directory() . '/assets/acf-json';
+} );
+
+add_filter( 'acf/settings/load_json', function ( $paths ) {
+	$paths[] = get_stylesheet_directory() . '/assets/acf-json';
+	return $paths;
+} );
+
+/**
+ * Sua revista na LILACS: preenche o repeater "cards" a partir dos grupos antigos
+ * quando o repeater ainda está vazio, para permitir reordenar sem perder conteúdo.
+ */
+function lilacs_revista_row_pick( $row, $name, $key = '' ) {
+	if ( ! is_array( $row ) ) {
+		return null;
+	}
+	if ( array_key_exists( $name, $row ) ) {
+		return $row[ $name ];
+	}
+	if ( $key !== '' && array_key_exists( $key, $row ) ) {
+		return $row[ $key ];
+	}
+	return null;
+}
+
+function lilacs_revista_group_pick( $group, $name, $key = '' ) {
+	$val = lilacs_revista_row_pick( $group, $name, $key );
+	return $val === null ? '' : $val;
+}
+
+function lilacs_revista_legacy_groups_to_cards( $row ) {
+	$map = [
+		'periodicos_indexados' => [
+			'name' => 'periodicos_indexados_na_lilacs',
+			'key'  => 'field_6949ae9ae5ca0',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b17584',
+				'descricao'         => 'field_6949ae9b175bb',
+				'texto_do_botao'    => 'field_6949ae9b175f3',
+				'link_do_botao'     => 'field_6949ae9b1762a',
+				'titulo_2'          => 'field_srvl_pi_titulo_2',
+				'descricao_2'       => 'field_srvl_pi_desc_2',
+				'texto_do_botao_2'  => 'field_srvl_pi_btn_texto_2',
+				'link_do_botao_2'   => 'field_srvl_pi_btn_link_2',
+				'botoes_adicionais' => 'field_srvl_pi_botoes_adicionais',
+			],
+		],
+		'portal_revistas' => [
+			'name' => 'portal_de_revistas_cientificas',
+			'key'  => 'field_6949ae9ae5cdc',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b19733',
+				'descricao'         => 'field_6949ae9b19758',
+				'texto_do_botao'    => 'field_6949ae9b19790',
+				'link_do_botao'     => 'field_6949ae9b197c7',
+				'titulo_2'          => 'field_srvl_pr_titulo_2',
+				'descricao_2'       => 'field_srvl_pr_desc_2',
+				'texto_do_botao_2'  => 'field_srvl_pr_btn_texto_2',
+				'link_do_botao_2'   => 'field_srvl_pr_btn_link_2',
+				'botoes_adicionais' => 'field_srvl_pr_botoes_adicionais',
+			],
+		],
+		'atualize_periodico' => [
+			'name' => 'atualize_os_dados_do_seu_periodico',
+			'key'  => 'field_6949ae9ae5d15',
+			'subs' => [
+				'titulo'            => 'field_6949ae9b1b935',
+				'descricao'         => 'field_6949ae9b1b96e',
+				'texto_do_botao'    => 'field_6949ae9b1b9a5',
+				'link_do_botao'     => 'field_6949ae9b1b9dd',
+				'titulo_2'          => 'field_6949ae9b1ba14',
+				'descricao_2'       => 'field_6949ae9b1ba4c',
+				'texto_do_botao_2'  => 'field_6949ae9b1ba84',
+				'link_do_botao_2'   => 'field_6949ae9b1babb',
+				'botoes_adicionais' => 'field_srvl_ap_botoes_adicionais',
+			],
+		],
+	];
+
+	$cards = [];
+	foreach ( $map as $tipo => $ids ) {
+		$g = lilacs_revista_row_pick( $row, $ids['name'], $ids['key'] );
+		$g = is_array( $g ) ? $g : [];
+		$botoes = lilacs_revista_group_pick( $g, 'botoes_adicionais', $ids['subs']['botoes_adicionais'] );
+
+		$named = [
+			'tipo'              => $tipo,
+			'titulo'            => (string) lilacs_revista_group_pick( $g, 'titulo', $ids['subs']['titulo'] ),
+			'descricao'         => (string) lilacs_revista_group_pick( $g, 'descricao', $ids['subs']['descricao'] ),
+			'texto_do_botao'    => (string) lilacs_revista_group_pick( $g, 'texto_do_botao', $ids['subs']['texto_do_botao'] ),
+			'link_do_botao'     => (string) lilacs_revista_group_pick( $g, 'link_do_botao', $ids['subs']['link_do_botao'] ),
+			'titulo_2'          => (string) lilacs_revista_group_pick( $g, 'titulo_2', $ids['subs']['titulo_2'] ),
+			'descricao_2'       => (string) lilacs_revista_group_pick( $g, 'descricao_2', $ids['subs']['descricao_2'] ),
+			'texto_do_botao_2'  => (string) lilacs_revista_group_pick( $g, 'texto_do_botao_2', $ids['subs']['texto_do_botao_2'] ),
+			'link_do_botao_2'   => (string) lilacs_revista_group_pick( $g, 'link_do_botao_2', $ids['subs']['link_do_botao_2'] ),
+			'botoes_adicionais' => is_array( $botoes ) ? $botoes : [],
+		];
+
+		$cards[] = $named + [
+			'field_srvl_todas_card_tipo'              => $named['tipo'],
+			'field_srvl_todas_card_titulo'            => $named['titulo'],
+			'field_srvl_todas_card_desc'              => $named['descricao'],
+			'field_srvl_todas_card_btn_texto'         => $named['texto_do_botao'],
+			'field_srvl_todas_card_btn_link'          => $named['link_do_botao'],
+			'field_srvl_todas_card_titulo_2'          => $named['titulo_2'],
+			'field_srvl_todas_card_desc_2'            => $named['descricao_2'],
+			'field_srvl_todas_card_btn_texto_2'       => $named['texto_do_botao_2'],
+			'field_srvl_todas_card_btn_link_2'        => $named['link_do_botao_2'],
+			'field_srvl_todas_card_botoes_adicionais' => $named['botoes_adicionais'],
+		];
+	}
+
+	return $cards;
+}
+
+add_filter( 'acf/load_value/name=layout', function ( $value, $post_id, $field ) {
+	if ( ! is_array( $value ) ) {
+		return $value;
+	}
+
+	foreach ( $value as $i => $row ) {
+		if ( ! is_array( $row ) || ( $row['acf_fc_layout'] ?? '' ) !== 'sua_revista_na_lilacs' ) {
+			continue;
+		}
+
+		$cards = lilacs_revista_row_pick( $row, 'cards', 'field_srvl_todas_cards' );
+		if ( is_array( $cards ) && ! empty( $cards ) ) {
+			continue;
+		}
+
+		$seeded = lilacs_revista_legacy_groups_to_cards( $row );
+		$value[ $i ]['cards']                  = $seeded;
+		$value[ $i ]['field_srvl_todas_cards'] = $seeded;
+	}
+
+	return $value;
+}, 20, 3 );
+
+add_action( 'acf/input/admin_head', function () {
+	echo '<style>.lilacs-acf-legacy-hidden{display:none!important;}</style>';
+} );
+
+
+add_action('rest_api_init', function () {
+    register_rest_route('debug/v1', '/bvs', [
+        'methods'  => 'GET',
+        'callback' => function () {
+            $url = get_rest_url(null, 'test/v1/bvs');
+            $response = wp_remote_get($url);
+
+            echo "<pre>";
+            print_r(json_decode(wp_remote_retrieve_body($response), true));
+            echo "</pre>";
+            die();
+        }
+    ]);
+});
+
+
+// Shortcode: Caixa de busca com estilo CTA moderno LILACS
+add_shortcode('lilacs_busca_capacitacao', function() {
+
+    $valor = isset($_GET['s']) ? esc_attr($_GET['s']) : '';
+
+    ob_start();
+    ?>
+
+    <div class="lilacs-cta-search-wrapper">
+        <form class="lilacs-cta-search-form" method="get" action="">
+            
+            <div class="lilacs-cta-search-label">
+                Pesquise capacitações anteriores:
+            </div>
+
+            <div class="lilacs-cta-search-box">
+                
+                <input 
+                    type="text"
+                    id="busca-capacitacao"
+                    name="s"
+                    class="lilacs-cta-input"
+                    placeholder="Digite um tema, título ou palavra-chave..."
+                    value="<?php echo $valor; ?>"
+                >
+
+                <button type="submit" class="lilacs-cta-button">
+                    🔍 Buscar
+                </button>
+            </div>
+
+            <input type="hidden" name="post_type" value="capacitacao">
+
+        </form>
+    </div>
+
+<style>
+/* ----------------------------- */
+/* WRAPPER PRINCIPAL             */
+/* ----------------------------- */
+.lilacs-cta-search-wrapper {
+    max-width: 1180px;
+    margin: 40px auto 60px;
+    padding: 0 16px;
+}
+
+/* ----------------------------- */
+/* TÍTULO / LABEL                */
+/* ----------------------------- */
+.lilacs-cta-search-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0b2c68;
+    margin-bottom: 12px;
+}
+
+/* ----------------------------- */
+/* CONTAINER DO INPUT + BOTÃO    */
+/* ----------------------------- */
+.lilacs-cta-search-box {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #ffffff;
+    border-radius: 50px;
+    padding: 6px;
+    border: 1px solid rgba(11, 44, 104, 0.20);
+    box-shadow: 0 10px 30px rgba(11, 44, 104, 0.15);
+    overflow: hidden;
+}
+
+/* ----------------------------- */
+/* INPUT                         */
+/* ----------------------------- */
+.lilacs-cta-input {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    padding: 14px 18px;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    color: #0b2c68;
+}
+
+.lilacs-cta-input::placeholder {
+    color: #6b7a90;
+}
+
+/* ----------------------------- */
+/* BOTÃO                         */
+/* ----------------------------- */
+.lilacs-cta-button {
+    background: linear-gradient(90deg, #0b2c68, #0a6ad8);
+    color: #fff;
+    border: none;
+    padding: 14px 26px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.lilacs-cta-button:hover {
+    background: linear-gradient(90deg, #0a6ad8, #0b2c68);
+    box-shadow: 0 8px 22px rgba(10, 106, 216, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ----------------------------- */
+/* RESPONSIVO                    */
+/* ----------------------------- */
+@media (max-width: 700px) {
+
+    .lilacs-cta-search-box {
+        flex-direction: column;
+        padding: 12px;
+        border-radius: 20px;
+        gap: 12px;
+    }
+
+    .lilacs-cta-input {
+        width: 100%;
+        border-radius: 12px;
+        padding: 14px;
+    }
+
+    .lilacs-cta-button {
+        width: 100%;
+        border-radius: 12px;
+    }
+}
+</style>
+
+    <?php
+    return ob_get_clean();
+});
+
+/**
+ * Painel do Footer (LILACS) por idioma (Polylang)
+ * - Logos por idioma
+ * - Textos por idioma
+ * - Seleção de menus por “bloco” (Home, Sobre, Rede, Revistas, Indicadores, Contato)
+ * - Guilherme 2WP
+ */
+
+if (!defined('ABSPATH')) exit;
+
+function lilacs_footer_get_langs() {
+    if (function_exists('pll_languages_list')) {
+        $langs = pll_languages_list(['fields' => 'slug']);
+        return !empty($langs) ? $langs : ['default'];
+    }
+    return ['default'];
+}
+
+function lilacs_footer_option_name($lang) {
+    return 'lilacs_footer_options_' . sanitize_key($lang);
+}
+
+function lilacs_footer_get_options($lang = null) {
+    if ($lang === null) {
+        $lang = function_exists('pll_current_language') ? pll_current_language('slug') : 'default';
+        if (!$lang) $lang = 'default';
+    }
+    $opts = get_option(lilacs_footer_option_name($lang), []);
+    return is_array($opts) ? $opts : [];
+}
+
+function lilacs_footer_opt($key, $default = '', $lang = null) {
+    $opts = lilacs_footer_get_options($lang);
+    return isset($opts[$key]) && $opts[$key] !== '' ? $opts[$key] : $default;
+}
+
+/**
+ * Admin page
+ */
+add_action('admin_menu', function () {
+    add_theme_page(
+        'Footer (LILACS)',
+        'Footer (LILACS)',
+        'manage_options',
+        'lilacs-footer-settings',
+        'lilacs_footer_settings_page_render'
+    );
+});
+
+add_action('admin_init', function () {
+    foreach (lilacs_footer_get_langs() as $lang) {
+        register_setting(
+            'lilacs_footer_settings_group_' . $lang,
+            lilacs_footer_option_name($lang),
+            [
+                'type' => 'array',
+                'sanitize_callback' => 'lilacs_footer_sanitize_options',
+                'default' => [],
+            ]
+        );
+    }
+});
+
+function lilacs_footer_sanitize_options($input) {
+    $out = [];
+    $fields_textarea = ['intro_text'];
+    $fields_text = [
+        'copyright_text',
+        'logo_lilacs_url',
+        'logo_opas_bireme_url',
+        'powered_by_image_url',
+    ];
+
+    // textareas (permite HTML básico)
+    foreach ($fields_textarea as $f) {
+        if (isset($input[$f])) {
+            $out[$f] = wp_kses_post($input[$f]);
+        }
+    }
+
+    // textos simples / urls
+    foreach ($fields_text as $f) {
+        if (isset($input[$f])) {
+            $val = $input[$f];
+            if (str_contains($f, '_url')) $val = esc_url_raw($val);
+            else $val = sanitize_text_field($val);
+            $out[$f] = $val;
+        }
+    }
+
+    // blocos -> menu IDs + títulos
+    $blocks = lilacs_footer_blocks_schema();
+    foreach ($blocks as $block_key => $block_label) {
+        $title_key = 'block_title_' . $block_key;
+        $menu_key  = 'block_menu_' . $block_key;
+
+        if (isset($input[$title_key])) {
+            $out[$title_key] = sanitize_text_field($input[$title_key]);
+        }
+        if (isset($input[$menu_key])) {
+            $out[$menu_key] = absint($input[$menu_key]);
+        }
+    }
+
+    return $out;
+}
+
+function lilacs_footer_blocks_schema() {
+    // Seus “H3” atuais viram blocos configuráveis:
+    return [
+        'home'       => 'Bloco: Home',
+        'sobre'      => 'Bloco: Sobre',
+        'rede'       => 'Bloco: Rede LILACS',
+        'revistas'   => 'Bloco: Revistas',
+        'indicadores'=> 'Bloco: Indicadores',
+        'contato'    => 'Bloco: Contato',
+    ];
+}
+
+function lilacs_footer_settings_page_render() {
+    if (!current_user_can('manage_options')) return;
+
+    $langs = lilacs_footer_get_langs();
+    $current_lang = isset($_GET['lilacs_lang']) ? sanitize_key($_GET['lilacs_lang']) : $langs[0];
+    if (!in_array($current_lang, $langs, true)) $current_lang = $langs[0];
+
+    $option_name = lilacs_footer_option_name($current_lang);
+    $opts = get_option($option_name, []);
+
+    $menus = wp_get_nav_menus();
+    $blocks = lilacs_footer_blocks_schema();
+    ?>
+    <div class="wrap">
+        <h1>Footer (LILACS)</h1>
+
+        <?php if (function_exists('pll_languages_list')): ?>
+            <p><strong>Idioma:</strong>
+                <?php foreach ($langs as $slug): ?>
+                    <?php
+                    $url = add_query_arg(['page' => 'lilacs-footer-settings', 'lilacs_lang' => $slug], admin_url('themes.php'));
+                    ?>
+                    <a class="button <?php echo $slug === $current_lang ? 'button-primary' : ''; ?>" href="<?php echo esc_url($url); ?>">
+                        <?php echo esc_html(strtoupper($slug)); ?>
+                    </a>
+                <?php endforeach; ?>
+            </p>
+        <?php endif; ?>
+
+        <form method="post" action="options.php">
+            <?php
+                settings_fields('lilacs_footer_settings_group_' . $current_lang);
+            ?>
+
+            <h2 class="title">Logos</h2>
+            <table class="form-table" role="presentation">
+                <tr>
+                    <th scope="row">Logo LILACS (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[logo_lilacs_url]" value="<?php echo esc_attr($opts['logo_lilacs_url'] ?? ''); ?>" class="regular-text" />
+                        <p class="description">Cole a URL da imagem (você pode pegar da Biblioteca de Mídia).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Logo OPAS/BIREME (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[logo_opas_bireme_url]" value="<?php echo esc_attr($opts['logo_opas_bireme_url'] ?? ''); ?>" class="regular-text" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Imagem “Powered by” (URL)</th>
+                    <td>
+                        <input type="url" name="<?php echo esc_attr($option_name); ?>[powered_by_image_url]" value="<?php echo esc_attr($opts['powered_by_image_url'] ?? ''); ?>" class="regular-text" />
+                    </td>
+                </tr>
+            </table>
+
+            <h2 class="title">Textos</h2>
+            <table class="form-table" role="presentation">
+                <tr>
+                    <th scope="row">Texto introdutório</th>
+                    <td>
+                        <textarea name="<?php echo esc_attr($option_name); ?>[intro_text]" rows="6" class="large-text"><?php echo esc_textarea($opts['intro_text'] ?? ''); ?></textarea>
+                        <p class="description">Aceita HTML básico (negrito, links, etc.).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Copyright</th>
+                    <td>
+                        <input type="text" name="<?php echo esc_attr($option_name); ?>[copyright_text]" value="<?php echo esc_attr($opts['copyright_text'] ?? ''); ?>" class="regular-text" />
+                        <p class="description">Ex: © Todos os direitos reservados</p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr/>
+
+            <h2 class="title">Menus por bloco (colunas)</h2>
+            <p class="description">Crie menus em <strong>Aparência → Menus</strong> e selecione abaixo qual aparece em cada bloco deste idioma.</p>
+
+            <table class="form-table" role="presentation">
+                <?php foreach ($blocks as $key => $label): ?>
+                    <?php
+                        $title_key = 'block_title_' . $key;
+                        $menu_key  = 'block_menu_' . $key;
+                        $title_val = $opts[$title_key] ?? '';
+                        $menu_val  = (int)($opts[$menu_key] ?? 0);
+                    ?>
+                    <tr>
+                        <th scope="row"><?php echo esc_html($label); ?></th>
+                        <td>
+                            <p style="margin:0 0 8px;">
+                                <label><strong>Título (H3)</strong></label><br/>
+                                <input type="text" name="<?php echo esc_attr($option_name); ?>[<?php echo esc_attr($title_key); ?>]" value="<?php echo esc_attr($title_val); ?>" class="regular-text" />
+                            </p>
+
+                            <p style="margin:0;">
+                                <label><strong>Menu</strong></label><br/>
+                                <select name="<?php echo esc_attr($option_name); ?>[<?php echo esc_attr($menu_key); ?>]">
+                                    <option value="0">— Nenhum —</option>
+                                    <?php foreach ($menus as $m): ?>
+                                        <option value="<?php echo (int)$m->term_id; ?>" <?php selected($menu_val, (int)$m->term_id); ?>>
+                                            <?php echo esc_html($m->name); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </p>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+
+            <?php submit_button('Salvar Footer'); ?>
+        </form>
+    </div>
+    <?php
+}
+
+/**
+ * Substitui aspas tipográficas / entidades por aspas retas.
+ * Nas FAQs de busca, “ ” copiadas para a BVS viram caracteres inválidos e quebram o resultado.
+ */
+function bireme_lilacs_normalize_search_quotes( $text ) {
+	if ( ! is_string( $text ) || $text === '' ) {
+		return $text;
+	}
+
+	// Entidades HTML (antes de qualquer outra troca).
+	$text = str_ireplace(
+		array(
+			'&ldquo;', '&rdquo;', '&bdquo;', '&laquo;', '&raquo;',
+			'&#8220;', '&#8221;', '&#8222;', '&#171;', '&#187;',
+			'&#x201C;', '&#x201D;', '&#x201E;', '&#x00AB;', '&#x00BB;',
+			'&lsquo;', '&rsquo;', '&sbquo;',
+			'&#8216;', '&#8217;', '&#8218;',
+			'&#x2018;', '&#x2019;', '&#x201A;',
+		),
+		array(
+			'"', '"', '"', '"', '"',
+			'"', '"', '"', '"', '"',
+			'"', '"', '"', '"', '"',
+			"'", "'", "'",
+			"'", "'", "'",
+			"'", "'", "'",
+		),
+		$text
+	);
+
+	// Aspas tipográficas (Unicode) — via \x{...} para não depender do encoding do arquivo.
+	$text = preg_replace( '/[\x{201C}\x{201D}\x{201E}\x{201F}\x{00AB}\x{00BB}\x{2033}\x{275D}\x{275E}]/u', '"', $text );
+	$text = preg_replace( '/[\x{2018}\x{2019}\x{201A}\x{201B}\x{2032}]/u', "'", $text );
+
+	return is_string( $text ) ? $text : '';
+}
+
+/**
+ * Mantém aspas retas no conteúdo renderizado do CPT FAQ (ufaq).
+ */
+function bireme_lilacs_ufaq_straight_quotes( $content ) {
+	$post = get_post();
+	if ( ! $post || $post->post_type !== 'ufaq' ) {
+		return $content;
+	}
+
+	return bireme_lilacs_normalize_search_quotes( $content );
+}
+add_filter( 'the_content', 'bireme_lilacs_ufaq_straight_quotes', 999 );
+
+/**
+ * Garante aspas retas também na REST API usada pelo FAQ da página Contato.
+ */
+function bireme_lilacs_rest_ufaq_straight_quotes( $response, $post, $request ) {
+	if ( ! ( $response instanceof WP_REST_Response ) ) {
+		return $response;
+	}
+
+	$data = $response->get_data();
+
+	if ( isset( $data['content']['rendered'] ) ) {
+		$data['content']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['content']['rendered'] );
+	}
+	if ( isset( $data['excerpt']['rendered'] ) ) {
+		$data['excerpt']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['excerpt']['rendered'] );
+	}
+	if ( isset( $data['title']['rendered'] ) ) {
+		$data['title']['rendered'] = bireme_lilacs_normalize_search_quotes( $data['title']['rendered'] );
+	}
+
+	$response->set_data( $data );
+	return $response;
+}
+add_filter( 'rest_prepare_ufaq', 'bireme_lilacs_rest_ufaq_straight_quotes', 999, 3 );
+
+/**
+ * Walker pra aplicar classes iguais:
+ * - UL raiz: lf-list
+ * - Submenu: lf-list lf-list--sub
+ */
+class Lilacs_Footer_Menu_Walker extends Walker_Nav_Menu {
+    public function start_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $class = ($depth === 0) ? 'lf-list lf-list--sub' : 'lf-list lf-list--sub';
+        $output .= "\n{$indent}<ul class=\"" . esc_attr($class) . "\">\n";
+    }
+}
+
+
+
