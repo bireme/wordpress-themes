@@ -1,0 +1,117 @@
+[
+    {
+        "key": "group_lilacs_page_depoimentos",
+        "title": "Página Depoimentos",
+        "fields": [
+            {
+                "key": "field_depo_page_tab_lista",
+                "label": "Listagem",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_depo_page_intro",
+                "label": "Texto introdutório (opcional)",
+                "name": "intro",
+                "type": "textarea",
+                "instructions": "Se vazio, usa o resumo da página ou o texto padrão.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "", "class": "", "id": "" },
+                "default_value": "",
+                "rows": 3,
+                "new_lines": ""
+            },
+            {
+                "key": "field_depo_page_por_pagina",
+                "label": "Itens por página",
+                "name": "itens_por_pagina",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "30", "class": "", "id": "" },
+                "default_value": 12,
+                "min": 3,
+                "max": 48,
+                "step": 1
+            },
+            {
+                "key": "field_depo_page_tab_rss",
+                "label": "Multimídia (RSS)",
+                "name": "",
+                "type": "tab",
+                "placement": "top"
+            },
+            {
+                "key": "field_depo_page_rss_ativo",
+                "label": "Exibir seção RSS",
+                "name": "rss_ativo",
+                "type": "true_false",
+                "instructions": "Mostra a listagem de itens do feed multimídia abaixo dos depoimentos.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "30", "class": "", "id": "" },
+                "default_value": 1,
+                "ui": 1
+            },
+            {
+                "key": "field_depo_page_rss_titulo",
+                "label": "Título da seção RSS",
+                "name": "rss_titulo",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "70", "class": "", "id": "" },
+                "default_value": "Multimídia LILACS",
+                "placeholder": "Ex.: Multimídia LILACS"
+            },
+            {
+                "key": "field_depo_page_rss_link",
+                "label": "Link do RSS",
+                "name": "rss_link",
+                "type": "url",
+                "instructions": "Feed multimídia LILACS. Padrão: https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "70", "class": "", "id": "" },
+                "default_value": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+                "placeholder": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS"
+            },
+            {
+                "key": "field_depo_page_rss_max",
+                "label": "Máximo de itens RSS",
+                "name": "rss_max_itens",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": { "width": "30", "class": "", "id": "" },
+                "default_value": 6,
+                "min": 1,
+                "max": 24,
+                "step": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-lilacs-depoimentos.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Campos da página de listagem de depoimentos + feed multimídia RSS",
+        "show_in_rest": 0
+    }
+]
