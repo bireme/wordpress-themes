@@ -9,7 +9,8 @@ function bvsPeriodicosInit(){
     const JOURNAL_BASE = cfg.journal_base;
     const JOURNAL_URL  = (id) => `${JOURNAL_BASE}/${id}`;
     const SEARCH_BASE  = cfg.search_base;
-    const SEARCH_URL   = (ta, start=0, rows=1000) => `${SEARCH_BASE}?thematic_area=${encodeURIComponent(ta)}&start=${start}&rows=${rows}`;
+    // A API REST (/bvs/journals/search) espera `count`, não `rows` (padrão PHP = 10).
+    const SEARCH_URL   = (ta, start=0, count=1000) => `${SEARCH_BASE}?thematic_area=${encodeURIComponent(ta)}&start=${start}&count=${count}`;
     const FETCH_ROWS   = 1000;
     const LANG         = cfg.lang;
     const PER_PAGE     = 50;
