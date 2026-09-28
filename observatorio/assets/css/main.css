@@ -555,18 +555,6 @@ a { text-decoration: none; }
 }
 
 
-/* Past events shown on the Home agenda */
-.event-card.is-past-event {
-  opacity: .55;
-  filter: saturate(.75);
-  transition: opacity .2s ease, filter .2s ease;
-}
-.event-card.is-past-event:hover,
-.event-card.is-past-event:focus-within {
-  opacity: .8;
-  filter: saturate(1);
-}
-
 /* Event details */
 .events-empty,
 .event-info-card {
