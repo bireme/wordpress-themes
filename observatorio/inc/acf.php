@@ -385,15 +385,15 @@ function observatorio_register_global_acf_fields() {
 			'fields' => array(
 				array(
 					'key'   => 'field_observatorio_preprint_tab',
-					'label' => __( 'Pre-print', 'observatorio' ),
+					'label' => __( 'PrePrint', 'observatorio' ),
 					'type'  => 'tab',
 				),
 				array(
 					'key'           => 'field_observatorio_preprint_description',
-					'label'         => __( 'Sobre o Pre-print', 'observatorio' ),
+					'label'         => __( 'Sobre o PrePrint', 'observatorio' ),
 					'name'          => 'preprint_description',
 					'type'          => 'wysiwyg',
-					'instructions'  => __( 'Texto de apresentação exibido na seção Pre-print da Home.', 'observatorio' ),
+					'instructions'  => __( 'Texto de apresentação exibido na seção PrePrint da Home.', 'observatorio' ),
 					'tabs'          => 'visual',
 					'toolbar'       => 'basic',
 					'media_upload'  => 0,
@@ -401,12 +401,20 @@ function observatorio_register_global_acf_fields() {
 				),
 				array(
 					'key'           => 'field_observatorio_preprint_image',
-					'label'         => __( 'Imagem do Pre-print', 'observatorio' ),
+					'label'         => __( 'Imagem de fundo do PrePrint', 'observatorio' ),
 					'name'          => 'preprint_image',
 					'type'          => 'image',
 					'return_format' => 'id',
 					'preview_size'  => 'medium',
 					'library'       => 'all',
+				),
+				array(
+					'key'           => 'field_observatorio_preprint_button',
+					'label'         => __( 'Botão do PrePrint', 'observatorio' ),
+					'name'          => 'preprint_button',
+					'type'          => 'link',
+					'instructions'  => __( 'Defina o texto e o destino do botão exibido na seção PrePrint.', 'observatorio' ),
+					'return_format' => 'array',
 				),
 				array(
 					'key'   => 'field_observatorio_partners_tab',

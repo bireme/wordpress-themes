@@ -48,7 +48,6 @@ $thematic_areas = new WP_Query(
 							<div class="thematic-overlay"></div>
 
 							<div class="thematic-content">
-								<span class="badge text-bg-light mb-3"><?php esc_html_e( 'Área temática', 'observatorio' ); ?></span>
 								<h3><?php the_title(); ?></h3>
 
 								<?php if ( $summary ) : ?>

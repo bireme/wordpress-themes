@@ -40,7 +40,7 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 
 					<?php if ( $events_archive_url ) : ?>
 						<a href="<?php echo esc_url( $events_archive_url ); ?>" class="btn btn-primary align-self-start mt-2">
-							<?php esc_html_e( 'Ver todos os eventos', 'observatorio' ); ?>
+							<?php esc_html_e( 'Ver agenda', 'observatorio' ); ?>
 						</a>
 					<?php endif; ?>
 				</div>

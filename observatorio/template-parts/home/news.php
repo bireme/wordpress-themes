@@ -16,6 +16,13 @@ $news_query = new WP_Query(
 
 $posts_page_id = (int) get_option( 'page_for_posts' );
 $news_page_url = $posts_page_id ? get_permalink( $posts_page_id ) : '';
+
+if ( ! $news_page_url ) {
+	$news_page = get_page_by_path( 'noticias' );
+	if ( $news_page ) {
+		$news_page_url = get_permalink( $news_page );
+	}
+}
 ?>
 
 <?php if ( $news_query->have_posts() ) : ?>
@@ -28,7 +35,7 @@ $news_page_url = $posts_page_id ? get_permalink( $posts_page_id ) : '';
 				</div>
 
 				<?php if ( $news_page_url ) : ?>
-					<a href="<?php echo esc_url( $news_page_url ); ?>" class="btn btn-primary">
+					<a href="<?php echo esc_url( $news_page_url ); ?>" class="btn btn-outline-primary mt-3 mt-md-0 flex-shrink-0">
 						<?php esc_html_e( 'Ver todas as notícias', 'observatorio' ); ?>
 					</a>
 				<?php endif; ?>

@@ -11,8 +11,8 @@ get_header();
 <main id="main-content" class="site-main events-archive">
 	<header class="page-hero section-space">
 		<div class="container">
-			<span class="section-kicker"><?php esc_html_e( 'Agenda', 'observatorio' ); ?></span>
-			<h1><?php post_type_archive_title(); ?></h1>
+			<span class="section-kicker"><?php esc_html_e( 'Eventos', 'observatorio' ); ?></span>
+			<h1><?php esc_html_e( 'Agenda', 'observatorio' ); ?></h1>
 			<p class="lead"><?php esc_html_e( 'Acompanhe encontros, seminários e outras atividades do Observatório.', 'observatorio' ); ?></p>
 		</div>
 	</header>
