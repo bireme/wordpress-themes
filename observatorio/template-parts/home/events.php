@@ -7,7 +7,7 @@
 
 $current_date = current_time( 'Ymd' );
 
-$events_query = new WP_Query(
+$future_events = get_posts(
 	array(
 		'post_type'      => 'evento',
 		'post_status'    => 'publish',
@@ -25,6 +25,33 @@ $events_query = new WP_Query(
 		),
 	)
 );
+
+$events = $future_events;
+
+if ( count( $events ) < 3 ) {
+	$remaining = 3 - count( $events );
+
+	$past_events = get_posts(
+		array(
+			'post_type'      => 'evento',
+			'post_status'    => 'publish',
+			'posts_per_page' => $remaining,
+			'meta_key'       => 'event_start_date',
+			'orderby'        => 'meta_value_num',
+			'order'          => 'DESC',
+			'meta_query'     => array(
+				array(
+					'key'     => 'event_start_date',
+					'value'   => $current_date,
+					'compare' => '<',
+					'type'    => 'NUMERIC',
+				),
+			),
+		)
+	);
+
+	$events = array_merge( $events, $past_events );
+}
 
 $events_archive_url = get_post_type_archive_link( 'evento' );
 $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-accent-coral' );
@@ -47,24 +74,25 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 			</div>
 
 			<div class="col-lg-8">
-				<?php if ( $events_query->have_posts() ) : ?>
+				<?php if ( $events ) : ?>
 					<div class="row g-3 h-100">
 						<?php
 						$event_index = 0;
 
-						while ( $events_query->have_posts() ) :
-							$events_query->the_post();
+						foreach ( $events as $event_post ) :
+							setup_postdata( $event_post );
 
-							$start_date = get_field( 'event_start_date' );
-							$event_time = get_field( 'event_time' );
-							$event_mode = get_field( 'event_mode' );
-							$format     = get_field( 'event_format' );
+							$start_date = get_field( 'event_start_date', $event_post->ID );
+							$event_time = get_field( 'event_time', $event_post->ID );
+							$event_mode = get_field( 'event_mode', $event_post->ID );
+							$format     = get_field( 'event_format', $event_post->ID );
 							$date       = $start_date ? DateTime::createFromFormat( 'Ymd', $start_date ) : false;
 							$accent     = $accent_classes[ $event_index % count( $accent_classes ) ];
 							$meta_parts = array_filter( array( $event_time, $event_mode ) );
+							$is_past    = $start_date && (int) $start_date < (int) $current_date;
 							?>
 							<div class="col-md-4">
-								<article class="event-card <?php echo esc_attr( $accent ); ?> h-100">
+								<article class="event-card <?php echo esc_attr( $accent ); ?><?php echo $is_past ? ' is-past-event' : ''; ?> h-100">
 									<?php if ( $date ) : ?>
 										<div class="event-date">
 											<strong><?php echo esc_html( $date->format( 'd' ) ); ?></strong>
@@ -89,12 +117,12 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 							</div>
 							<?php
 							$event_index++;
-						endwhile;
+						endforeach;
 						?>
 					</div>
 				<?php else : ?>
 					<div class="events-empty d-flex align-items-center justify-content-center h-100">
-						<p class="mb-0"><?php esc_html_e( 'Nenhum próximo evento disponível no momento.', 'observatorio' ); ?></p>
+						<p class="mb-0"><?php esc_html_e( 'Nenhum evento disponível no momento.', 'observatorio' ); ?></p>
 					</div>
 				<?php endif; ?>
 			</div>
