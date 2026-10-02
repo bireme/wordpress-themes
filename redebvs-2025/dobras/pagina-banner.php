@@ -14,7 +14,7 @@ $descricao    = get_sub_field( 'descricao' );
 // Na página Encontros (/encontro-da-rede/ e traduções) o fundo do banner é fixo.
 $banner_encontro = is_page_template( 'page-encontros-rede.php' );
 if ( $banner_encontro ) {
-    $imagem_fundo = get_template_directory_uri() . '/assets/dafult-encontros.png';
+    $imagem_fundo = 'https://red.bvsalud.org/wp-content/uploads/2025/12/Rectangle-42-1-1.webp';
 }
 ?>
 <style>

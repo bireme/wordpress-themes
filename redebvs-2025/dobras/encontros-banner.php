@@ -177,7 +177,7 @@ rede_bvs_breadcrumb( array(
 
         <div class="sobre-banner-wrapper">
       
-<div class="sobre-banner-image" style="background:url('<?= get_template_directory_uri() . '/assets/dafult-encontros.png'; ?>');">
+<div class="sobre-banner-image" style="background-image:url('https://red.bvsalud.org/wp-content/uploads/2025/12/Rectangle-42-1-1.webp');">
               
             </div>
 

@@ -79,6 +79,7 @@ function rede_bvs_register_polylang_strings() {
     // Botões e labels comuns
     pll_register_string( 'btn_ver_todos',            'Ver todos',                      $group );
     pll_register_string( 'btn_ver_rss',              'Ver RSS',                        $group );
+    pll_register_string( 'btn_inscreva_se',          'Inscreva-se',                    $group );
     pll_register_string( 'label_link_externo',       'Link externo',                   $group );
     pll_register_string( 'label_link_interno',       'Link interno',                   $group );
     pll_register_string( 'label_redes_relacionadas', 'Redes relacionadas',             $group );

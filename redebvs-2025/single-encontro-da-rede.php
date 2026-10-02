@@ -622,7 +622,7 @@ if ( 'livre' === $modo_encontro ) {
                                 <a class="encontro-cta-btn"
                                    href="<?php echo esc_url( $link_encontro['url'] ); ?>"
                                    target="<?php echo esc_attr( $link_encontro['target'] ?: '_self' ); ?>">
-                                    <?php echo esc_html( $link_encontro['title'] ?: __( 'Inscreva-se', 'bvs' ) ); ?>
+                                    <?php echo esc_html( ! empty( $link_encontro['title'] ) ? rede_bvs_pll( $link_encontro['title'] ) : rede_bvs_pll( 'Inscreva-se' ) ); ?>
                                 </a>
                             </p>
                         <?php endif; ?>
