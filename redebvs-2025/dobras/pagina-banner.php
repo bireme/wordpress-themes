@@ -10,6 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $imagem_fundo = get_sub_field( 'imagem_fundo_banner' ); // url
 $titulo       = get_sub_field( 'titulo' );
 $descricao    = get_sub_field( 'descricao' );
+
+// Na página Encontros (/encontro-da-rede/ e traduções) o fundo do banner é fixo.
+$banner_encontro = is_page_template( 'page-encontros-rede.php' );
+if ( $banner_encontro ) {
+    $imagem_fundo = get_template_directory_uri() . '/assets/dafult-encontros.png';
+}
 ?>
 <style>
 /* BANNER SOBRE */
@@ -72,6 +78,20 @@ position: absolute;
     font-size: 16px;
 }
 
+/* Mesmo véu da single de encontro */
+.sobre-banner--encontro .sobre-banner-text {
+    left: 0;
+    background: #2a377e99;
+    height: 100%;
+    width: 100%;
+    padding: 60px;
+    justify-content: center;
+}
+
+.sobre-banner--encontro .sobre-banner-text h1 {
+    max-width: 95%;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
     .sobre-banner {
@@ -92,6 +112,12 @@ position: absolute;
         max-width: none;
     }
 
+    .sobre-banner--encontro .sobre-banner-text {
+        left: 0;
+        right: 0;
+        padding: 24px 20px;
+    }
+
     .sobre-banner-text h1 {
         font-size: 18px;
     }
@@ -108,7 +134,7 @@ position: absolute;
 }
 </style>
 
-<section class="sobre-banner" aria-label="<?php echo esc_attr( $titulo ? $titulo : 'Banner Sobre BVS' ); ?>">
+<section class="sobre-banner<?php echo $banner_encontro ? ' sobre-banner--encontro' : ''; ?>" aria-label="<?php echo esc_attr( $titulo ? $titulo : 'Banner Sobre BVS' ); ?>">
     <div class="sobre-banner-inner">
         
             <?php

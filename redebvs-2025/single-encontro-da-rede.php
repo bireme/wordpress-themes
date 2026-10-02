@@ -556,7 +556,16 @@ margin-top: 6px;
 
 <!-- HERO -->
 <?php
- include('dobras/encontros-banner.php');
+include 'dobras/encontros-banner.php';
+
+$modo_encontro = '';
+if ( function_exists( 'get_field' ) ) {
+    $modo_encontro = (string) get_field( 'modo_do_encontro' );
+}
+
+if ( 'livre' === $modo_encontro ) {
+    include get_template_directory() . '/dobras/encontro-conteudo-livre.php';
+} else {
 ?>
 
 <main class="single-encontro-main">
@@ -729,4 +738,5 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php
+}
 get_footer();
