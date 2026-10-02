@@ -88,13 +88,13 @@ $uid = uniqid( 'bvs-encontros-proximos-' );
 
                 // URL e rótulo do botão
                 $btn_url    = '';
-                $btn_label  = __( 'Inscreva-se', 'rede-bvs' );
+                $btn_label  = rede_bvs_pll( 'Inscreva-se' );
                 $btn_target = '';
 
                 if ( is_array( $link_encontro ) && ! empty( $link_encontro['url'] ) ) {
                     $btn_url = $link_encontro['url'];
                     if ( ! empty( $link_encontro['title'] ) ) {
-                        $btn_label = $link_encontro['title'];
+                        $btn_label = rede_bvs_pll( $link_encontro['title'] );
                     }
                     if ( ! empty( $link_encontro['target'] ) ) {
                         $btn_target = $link_encontro['target'];

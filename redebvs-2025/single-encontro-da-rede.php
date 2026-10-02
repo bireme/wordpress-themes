@@ -556,7 +556,16 @@ margin-top: 6px;
 
 <!-- HERO -->
 <?php
- include('dobras/encontros-banner.php');
+include 'dobras/encontros-banner.php';
+
+$modo_encontro = '';
+if ( function_exists( 'get_field' ) ) {
+    $modo_encontro = (string) get_field( 'modo_do_encontro' );
+}
+
+if ( 'livre' === $modo_encontro ) {
+    include get_template_directory() . '/dobras/encontro-conteudo-livre.php';
+} else {
 ?>
 
 <main class="single-encontro-main">
@@ -613,7 +622,7 @@ margin-top: 6px;
                                 <a class="encontro-cta-btn"
                                    href="<?php echo esc_url( $link_encontro['url'] ); ?>"
                                    target="<?php echo esc_attr( $link_encontro['target'] ?: '_self' ); ?>">
-                                    <?php echo esc_html( $link_encontro['title'] ?: __( 'Inscreva-se', 'bvs' ) ); ?>
+                                    <?php echo esc_html( ! empty( $link_encontro['title'] ) ? rede_bvs_pll( $link_encontro['title'] ) : rede_bvs_pll( 'Inscreva-se' ) ); ?>
                                 </a>
                             </p>
                         <?php endif; ?>
@@ -729,4 +738,5 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php
+}
 get_footer();
