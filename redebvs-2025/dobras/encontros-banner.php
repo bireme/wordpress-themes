@@ -176,8 +176,18 @@ rede_bvs_breadcrumb( array(
 
 
         <div class="sobre-banner-wrapper">
-      
-<div class="sobre-banner-image" style="background-image:url('https://red.bvsalud.org/wp-content/uploads/2025/12/Rectangle-42-1-1.webp');">
+<?php
+$banner_fundo = 'https://red.bvsalud.org/wp-content/uploads/2025/12/Rectangle-42-1-1.webp';
+if ( function_exists( 'get_field' ) ) {
+    $banner_personalizado = get_field( 'imagem_fundo_hero' );
+    if ( is_string( $banner_personalizado ) && $banner_personalizado !== '' ) {
+        $banner_fundo = $banner_personalizado;
+    } elseif ( is_array( $banner_personalizado ) && ! empty( $banner_personalizado['url'] ) ) {
+        $banner_fundo = $banner_personalizado['url'];
+    }
+}
+?>
+<div class="sobre-banner-image" style="background-image:url('<?php echo esc_url( $banner_fundo ); ?>');">
               
             </div>
 
