@@ -39,6 +39,16 @@ function rede_bvs_register_encontro_livre_fields() {
         'title'                 => 'Modo de exibição do encontro',
         'fields'                => array(
             array(
+                'key'           => 'field_rede_bvs_encontro_imagem_hero',
+                'label'         => 'Imagem de fundo do cabeçalho',
+                'name'          => 'imagem_fundo_hero',
+                'type'          => 'image',
+                'instructions'  => 'Fundo do banner com o título e a busca nesta página. Se ficar vazio, usa a imagem padrão.',
+                'return_format' => 'url',
+                'preview_size'  => 'medium',
+                'library'       => 'all',
+            ),
+            array(
                 'key'           => 'field_rede_bvs_encontro_modo',
                 'label'         => 'Como exibir o conteúdo',
                 'name'          => 'modo_do_encontro',
