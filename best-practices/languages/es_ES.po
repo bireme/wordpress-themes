@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Best Practices Theme\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bibliographic\n"
-"POT-Creation-Date: 2023-05-31 01:36-0300\n"
-"PO-Revision-Date: 2023-05-31 16:20-0300\n"
+"POT-Creation-Date: 2026-10-13 01:57-0300\n"
+"PO-Revision-Date: 2026-10-13 01:57-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.9\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -34,20 +34,24 @@ msgstr ""
 msgid "Back to homepage"
 msgstr "Volver a la pagina principal"
 
-#: footer.php:32
+#: footer.php:39
 msgid "Terms and Conditions of Use"
 msgstr "Términos y Condiciones de Uso"
 
-#: footer.php:32
+#: footer.php:39
 msgid "Privacy Policy"
 msgstr "Políticas de Privacidad"
 
-#: footer.php:35
+#: footer.php:39
+msgid "Personal Data Protection Policy"
+msgstr "Política de Protección de Datos Personales​"
+
+#: footer.php:42
 msgid "Regional Office for the Americas of the World Health Organization"
 msgstr ""
 "Oficina Regional para las Américas de la Organización Mundial de la Salud"
 
-#: footer.php:37
+#: footer.php:44
 msgid "Pan American Health Organization. All rights reserved."
 msgstr "Organización Panamericana de la Salud. Todos los derechos reservados."
 
