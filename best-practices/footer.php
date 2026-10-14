@@ -1,7 +1,7 @@
 <?php
     $site_language = strtolower(get_bloginfo('language'));
     $lang = substr($site_language,0,2);
-    $lang = ( $lang == "fr" ) ? "en": $lang;
+    $lang = ( $lang == "fr" ) ? "en" : $lang;
 ?>
     <footer id="footer" class="padding2">
         <div class="container">
