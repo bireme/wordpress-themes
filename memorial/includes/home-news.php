@@ -12,11 +12,17 @@ if ( $posts_home->have_posts() ) : ?>
 			<h2 class="title"><?php pll_e('Novidades'); ?></h2>
 
 			<?php
-			// Ajuste aqui o destino do "Ver todas"
-			$blog_url = get_permalink( get_option('page_for_posts') ); // se você configurou "Página de posts" no WP
-			if ( ! $blog_url ) {
-				$blog_url = home_url('/blog/'); // fallback: ajuste se necessário
-			}
+			$idioma = function_exists('pll_current_language')
+			    ? pll_current_language('slug')
+			    : 'pt';
+			
+			$links_novidades = [
+			    'pt' => 'https://memorialdigitalcovid19.org.br/novidades/',
+			    'en' => 'https://memorialdigitalcovid19.org.br/en/whats-new/',
+			    'es' => 'https://memorialdigitalcovid19.org.br/es/novedades/',
+			];
+			
+			$blog_url = $links_novidades[$idioma] ?? $links_novidades['pt'];
 			?>
 		</div>
 
@@ -81,8 +87,8 @@ if ( $posts_home->have_posts() ) : ?>
 
 	</div>
 	<div class="mt-3 text-center me-5 mt-5">
-		<a href="<?php echo esc_url( $blog_url ); ?>/novidades" class="btn btn-primary">
-			<?php pll_e('Ver todas'); ?>
+		<a href="<?php echo esc_url($blog_url); ?>" class="btn btn-primary">
+		    <?php pll_e('Ver todas'); ?>
 		</a>
 	</div>
 </section>
