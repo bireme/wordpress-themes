@@ -760,7 +760,7 @@ a { text-decoration: none; }
 
 /* Reusable visual hero positioning */
 .inner-page-hero--left{background-position:left center}.inner-page-hero--right{background-position:right center}
-.about-intro .about-intro__text{max-width:850px}
+/*.about-intro .about-intro__text{max-width:850px}*/
 
 /* v4: subtle fixed-image parallax on large screens; no animation on mobile. */
 @media (min-width: 992px) and (prefers-reduced-motion: no-preference) {
