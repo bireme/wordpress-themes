@@ -91,48 +91,6 @@ add_action( 'init', 'observatorio_register_thematic_area_post_type' );
 
 
 /**
- * Register the thematic commission custom post type.
- */
-function observatorio_register_thematic_commission_post_type() {
-	$labels = array(
-		'name'               => __( 'Comissões Temáticas', 'observatorio' ),
-		'singular_name'      => __( 'Comissão Temática', 'observatorio' ),
-		'menu_name'          => __( 'Comissões Temáticas', 'observatorio' ),
-		'name_admin_bar'     => __( 'Comissão Temática', 'observatorio' ),
-		'add_new'            => __( 'Adicionar nova', 'observatorio' ),
-		'add_new_item'       => __( 'Adicionar nova comissão temática', 'observatorio' ),
-		'new_item'           => __( 'Nova comissão temática', 'observatorio' ),
-		'edit_item'          => __( 'Editar comissão temática', 'observatorio' ),
-		'view_item'          => __( 'Ver comissão temática', 'observatorio' ),
-		'all_items'          => __( 'Todas as comissões temáticas', 'observatorio' ),
-		'search_items'       => __( 'Buscar comissões temáticas', 'observatorio' ),
-		'not_found'          => __( 'Nenhuma comissão temática encontrada.', 'observatorio' ),
-		'not_found_in_trash' => __( 'Nenhuma comissão temática encontrada na lixeira.', 'observatorio' ),
-	);
-
-	$args = array(
-		'labels'             => $labels,
-		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'show_in_rest'       => true,
-		'menu_icon'          => 'dashicons-groups',
-		'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
-		'has_archive'        => true,
-		'rewrite'            => array(
-			'slug'       => 'comissoes-tematicas',
-			'with_front' => false,
-		),
-		'query_var'          => true,
-		'menu_position'      => 22,
-	);
-
-	register_post_type( 'comissao_tematica', $args );
-}
-add_action( 'init', 'observatorio_register_thematic_commission_post_type' );
-
-/**
  * Register the event custom post type.
  */
 function observatorio_register_event_post_type() {

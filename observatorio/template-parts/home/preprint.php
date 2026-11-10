@@ -1,41 +1,60 @@
 <?php
 /**
- * Home PrePrint section.
+ * Home PrePrint and experience reports section.
  *
  * @package Observatorio
  */
 
-$preprint_description = function_exists( 'get_field' ) ? get_field( 'preprint_description', 'option' ) : '';
-$preprint_image       = function_exists( 'get_field' ) ? (int) get_field( 'preprint_image', 'option' ) : 0;
-$preprint_button      = function_exists( 'get_field' ) ? get_field( 'preprint_button', 'option' ) : array();
+$blocks = array(
+ array(
+  'title' => __( 'PrePrint', 'observatorio' ),
+  'description' => function_exists( 'get_field' ) ? get_field( 'preprint_description', 'option' ) : '',
+  'image' => function_exists( 'get_field' ) ? (int) get_field( 'preprint_image', 'option' ) : 0,
+  'button' => function_exists( 'get_field' ) ? get_field( 'preprint_button', 'option' ) : array(),
+  'class' => 'preprint-block',
+ ),
+ array(
+  'title' => __( 'Relatos de Experiência', 'observatorio' ),
+  'description' => function_exists( 'get_field' ) ? get_field( 'experience_reports_description', 'option' ) : '',
+  'image' => function_exists( 'get_field' ) ? (int) get_field( 'experience_reports_image', 'option' ) : 0,
+  'button' => function_exists( 'get_field' ) ? get_field( 'experience_reports_button', 'option' ) : array(),
+  'class' => 'experience-reports-block',
+ ),
+);
 
-if ( ! $preprint_description && ! $preprint_image ) {
-	return;
+$has_content = false;
+foreach ( $blocks as $block ) {
+ if ( $block['description'] || $block['image'] || ( is_array( $block['button'] ) && ! empty( $block['button']['url'] ) ) ) {
+  $has_content = true;
+  break;
+ }
 }
-
-$preprint_background = $preprint_image ? wp_get_attachment_image_url( $preprint_image, 'full' ) : '';
-$preprint_style      = $preprint_background ? '--preprint-image: url(\'' . esc_url( $preprint_background ) . '\');' : '';
+if ( ! $has_content ) {
+ return;
+}
 ?>
-<section id="preprint" class="preprint-section"<?php echo $preprint_style ? ' style="' . esc_attr( $preprint_style ) . '"' : ''; ?>>
-	<div class="container position-relative">
-		<div class="preprint-content">
-			<h2><?php esc_html_e( 'PrePrint', 'observatorio' ); ?></h2>
-
-			<?php if ( $preprint_description ) : ?>
-				<div class="preprint-description">
-					<?php echo wp_kses_post( $preprint_description ); ?>
-				</div>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $preprint_button['url'] ) && ! empty( $preprint_button['title'] ) ) : ?>
-				<a
-					href="<?php echo esc_url( $preprint_button['url'] ); ?>"
-					class="btn btn-outline-light mt-3"
-					<?php echo ! empty( $preprint_button['target'] ) ? ' target="' . esc_attr( $preprint_button['target'] ) . '" rel="noopener"' : ''; ?>
-				>
-					<?php echo esc_html( $preprint_button['title'] ); ?>
-				</a>
-			<?php endif; ?>
-		</div>
-	</div>
+<section id="preprint" class="preprint-section">
+ <div class="container">
+  <div class="row g-3">
+   <?php foreach ( $blocks as $block ) : ?>
+    <?php
+    $background = $block['image'] ? wp_get_attachment_image_url( $block['image'], 'full' ) : '';
+    $style = $background ? '--preprint-image: url(\'' . esc_url( $background ) . '\');' : '';
+    ?>
+    <div class="col-lg-6">
+     <div class="preprint-panel <?php echo esc_attr( $block['class'] ); ?>"<?php echo $style ? ' style="' . esc_attr( $style ) . '"' : ''; ?>>
+      <div class="preprint-content">
+       <h2><?php echo esc_html( $block['title'] ); ?></h2>
+       <?php if ( $block['description'] ) : ?>
+        <div class="preprint-description"><?php echo wp_kses_post( $block['description'] ); ?></div>
+       <?php endif; ?>
+       <?php if ( is_array( $block['button'] ) && ! empty( $block['button']['url'] ) && ! empty( $block['button']['title'] ) ) : ?>
+        <a class="btn btn-outline-light mt-3" href="<?php echo esc_url( $block['button']['url'] ); ?>"<?php echo ! empty( $block['button']['target'] ) ? ' target="' . esc_attr( $block['button']['target'] ) . '" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $block['button']['title'] ); ?></a>
+       <?php endif; ?>
+      </div>
+     </div>
+    </div>
+   <?php endforeach; ?>
+  </div>
+ </div>
 </section>

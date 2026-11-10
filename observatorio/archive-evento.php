@@ -17,7 +17,7 @@ get_header();
 		</div>
 	</header>
 
-	<section class="section-space pt-0">
+	<section class="section-space">
 		<div class="container">
 			<?php if ( have_posts() ) : ?>
 				<div class="row g-4">

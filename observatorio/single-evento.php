@@ -38,7 +38,7 @@ get_header();
 				</div>
 			</header>
 
-			<div class="container section-space pt-0">
+			<div class="container section-space">
 				<div class="row g-5">
 					<div class="col-lg-8">
 						<?php if ( has_post_thumbnail() ) : ?>

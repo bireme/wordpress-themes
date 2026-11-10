@@ -9,6 +9,7 @@ get_header();
 ?>
 
 <main id="main-content" class="site-main section-space">
+	<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 	<div class="container">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

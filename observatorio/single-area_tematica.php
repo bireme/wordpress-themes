@@ -14,25 +14,6 @@ get_header();
 		$thematic_area_id = get_the_ID();
 		$today            = current_time( 'Ymd' );
 
-		$commissions_query = new WP_Query(
-			array(
-				'post_type'      => 'comissao_tematica',
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-				'orderby'        => array(
-					'menu_order' => 'ASC',
-					'title'      => 'ASC',
-				),
-				'meta_query'     => array(
-					array(
-						'key'     => 'commission_thematic_area',
-						'value'   => $thematic_area_id,
-						'compare' => '=',
-					),
-				),
-			)
-		);
-
 		$news_query = new WP_Query(
 			array(
 				'post_type'      => 'post',
@@ -116,32 +97,6 @@ get_header();
 					<?php the_content(); ?>
 				</div>
 			</div>
-
-			<?php if ( $commissions_query->have_posts() ) : ?>
-				<section class="thematic-related-section thematic-commissions-section section-space-sm" aria-labelledby="thematic-commissions-title">
-					<div class="container">
-						<div class="section-heading mb-4">
-							<p class="section-kicker"><?php esc_html_e( 'Participação', 'observatorio' ); ?></p>
-							<h2 id="thematic-commissions-title"><?php esc_html_e( 'Comissões Temáticas', 'observatorio' ); ?></h2>
-						</div>
-
-						<div class="row g-4">
-							<?php while ( $commissions_query->have_posts() ) : $commissions_query->the_post(); ?>
-								<div class="col-md-6 col-lg-4">
-									<article class="related-content-card h-100">
-										<h3 class="h5"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-										<?php if ( has_excerpt() ) : ?>
-											<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 22 ) ); ?></p>
-										<?php endif; ?>
-										<a class="related-content-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Ver comissão %s', 'observatorio' ), get_the_title() ) ); ?>">&rarr;</a>
-									</article>
-								</div>
-							<?php endwhile; ?>
-						</div>
-					</div>
-				</section>
-				<?php wp_reset_postdata(); ?>
-			<?php endif; ?>
 
 			<?php if ( $news_query->have_posts() ) : ?>
 				<section class="thematic-related-section thematic-news-section section-space-sm" aria-labelledby="thematic-news-title">
