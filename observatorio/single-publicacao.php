@@ -12,7 +12,7 @@ $area = function_exists('get_field') ? get_field('publication_thematic_area') : 
 $area_id = is_object($area) ? (int)$area->ID : (int)$area;
 ?>
 <article <?php post_class('publication-detail'); ?>>
-<header class="publication-detail-heading"><div class="container">
+<header class="publication-detail-heading unified-inner-hero"><div class="container">
 <span class="section-kicker"><?php echo esc_html($type ?: __('Publicação','observatorio')); ?></span>
 <h1><?php the_title(); ?></h1>
 <?php if (has_excerpt()) : ?><p class="lead"><?php echo esc_html(get_the_excerpt()); ?></p><?php endif; ?>

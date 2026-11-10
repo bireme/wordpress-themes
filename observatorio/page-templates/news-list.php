@@ -20,7 +20,7 @@ $news_query = new WP_Query( $news_args );
 <main id="main-content" class="site-main news-archive">
 <?php
 ?>
-<header class="page-hero section-space">
+<header class="page-hero unified-inner-hero section-space">
  <div class="container">
   <span class="section-kicker"><?php esc_html_e( 'Notícias', 'observatorio' ); ?></span>
   <h1><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>

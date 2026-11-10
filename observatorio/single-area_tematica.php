@@ -75,7 +75,7 @@ get_header();
 		?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'thematic-area-single' ); ?>>
-			<header class="page-hero section-space-sm">
+			<header class="page-hero unified-inner-hero section-space-sm">
 				<div class="container">
 					<p class="section-kicker"><?php esc_html_e( 'Área temática', 'observatorio' ); ?></p>
 					<h1><?php the_title(); ?></h1>

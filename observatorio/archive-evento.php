@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <main id="main-content" class="site-main events-archive">
-	<header class="page-hero section-space">
+	<header class="page-hero unified-inner-hero section-space">
 		<div class="container">
 			<span class="section-kicker"><?php esc_html_e( 'Eventos', 'observatorio' ); ?></span>
 			<h1><?php esc_html_e( 'Agenda', 'observatorio' ); ?></h1>

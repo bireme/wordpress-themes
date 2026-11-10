@@ -22,7 +22,7 @@ get_header();
 		?>
 
 		<article <?php post_class( 'event-detail' ); ?>>
-			<header class="page-hero section-space">
+			<header class="page-hero unified-inner-hero section-space">
 				<div class="container">
 					<?php if ( $event_format ) : ?>
 						<span class="section-kicker"><?php echo esc_html( $event_format ); ?></span>

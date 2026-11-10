@@ -835,46 +835,42 @@ a { text-decoration: none; }
 @media(max-width:991px){.thematic-publication-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:575px){.thematic-publication-list{grid-template-columns:1fr}.inner-page-hero h1,.page-hero h1{font-size:clamp(1.55rem,6vw,2rem)}}
 
-/* v4.6 - consistent dark inner headings and accessible contrast */
-/* Page hero is shared by news, events and thematic-area single pages. */
-.news-archive > .page-hero,
-.events-archive > .page-hero,
-.thematic-area-single > .page-hero {
+/* v4.7 - one compact, high-contrast heading for internal archives and singles.
+   Shared class prevents selectors from diverging between templates. */
+.unified-inner-hero,
+.publication-detail-v4 .publication-detail-heading.unified-inner-hero {
   background: #062c3d;
   color: #fff;
-  padding: 28px 0;
   min-height: 150px;
+  padding: 28px 0;
   display: flex;
   align-items: center;
 }
-.news-archive > .page-hero h1,
-.events-archive > .page-hero h1,
-.thematic-area-single > .page-hero h1 {
+.unified-inner-hero h1,
+.publication-detail-v4 .publication-detail-heading.unified-inner-hero h1 {
   color: #fff;
   font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 700;
+  margin-bottom: 12px;
 }
-.news-archive > .page-hero .lead,
-.events-archive > .page-hero .lead,
-.thematic-area-single > .page-hero .page-intro {
-  color: #fff;
-}
-.news-archive > .page-hero .section-kicker,
-.events-archive > .page-hero .section-kicker,
-.thematic-area-single > .page-hero .section-kicker {
+.unified-inner-hero .section-kicker,
+.unified-inner-hero .section-kicker p {
   color: #59d6cb;
+}
+.unified-inner-hero .lead,
+.unified-inner-hero .page-intro,
+.unified-inner-hero p:not(.section-kicker) {
+  color: #fff;
 }
 .inner-page-hero { min-height: 150px; }
 .inner-page-hero__content { padding-top: 28px; padding-bottom: 28px; }
 .inner-page-hero h1 { font-size: 2.5rem; }
 @media (max-width: 767px) {
+  .unified-inner-hero,
+  .publication-detail-v4 .publication-detail-heading.unified-inner-hero { padding: 24px 0; }
+  .unified-inner-hero h1,
+  .publication-detail-v4 .publication-detail-heading.unified-inner-hero h1,
+  .inner-page-hero h1 { font-size: clamp(1.7rem, 6vw, 2.1rem); }
   .inner-page-hero__content { padding-top: 24px; padding-bottom: 24px; }
-  .inner-page-hero h1,
-  .news-archive > .page-hero h1,
-  .events-archive > .page-hero h1,
-  .thematic-area-single > .page-hero h1 { font-size: clamp(1.7rem, 6vw, 2.1rem); }
-  .news-archive > .page-hero,
-  .events-archive > .page-hero,
-  .thematic-area-single > .page-hero { padding: 24px 0; }
 }
