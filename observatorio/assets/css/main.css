@@ -834,3 +834,30 @@ a { text-decoration: none; }
 .thematic-publication-list .archive-publication-card__body h2{font-size:1.08rem}
 @media(max-width:991px){.thematic-publication-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:575px){.thematic-publication-list{grid-template-columns:1fr}.inner-page-hero h1,.page-hero h1{font-size:clamp(1.55rem,6vw,2rem)}}
+
+/* v4.5 - readable archive headings and compact visual hero */
+.news-archive > .page-hero,
+.events-archive > .page-hero {
+  background: #f2f7f9;
+  color: #173d52;
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+.news-archive > .page-hero h1,
+.events-archive > .page-hero h1 { color: #12394e; font-size: 2.5rem; }
+.news-archive > .page-hero .lead,
+.events-archive > .page-hero .lead { color: #34566a; }
+.news-archive > .page-hero .section-kicker,
+.events-archive > .page-hero .section-kicker { color: #136c76; }
+.inner-page-hero { min-height: 150px; }
+.inner-page-hero__content { padding-top: 28px; padding-bottom: 28px; }
+.inner-page-hero h1 { font-size: 2.5rem; }
+@media (max-width: 767px) {
+  .inner-page-hero { min-height: 150px; }
+  .inner-page-hero__content { padding-top: 24px; padding-bottom: 24px; }
+  .inner-page-hero h1,
+  .news-archive > .page-hero h1,
+  .events-archive > .page-hero h1 { font-size: clamp(1.7rem, 6vw, 2.1rem); }
+  .news-archive > .page-hero,
+  .events-archive > .page-hero { padding-top: 30px; padding-bottom: 30px; }
+}
