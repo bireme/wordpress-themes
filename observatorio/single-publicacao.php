@@ -18,7 +18,7 @@ $area_id = is_object($area) ? (int)$area->ID : (int)$area;
 <?php if (has_excerpt()) : ?><p class="lead"><?php echo esc_html(get_the_excerpt()); ?></p><?php endif; ?>
 </div></header>
 <?php get_template_part('template-parts/components/breadcrumbs'); ?>
-<div class="container section-space"><div class="row g-5"><div class="col-lg-8">
+<div class="container publication-detail-content"><div class="row g-5"><div class="col-lg-8">
 <?php if(has_post_thumbnail()): ?><figure class="publication-featured-image mb-4"><?php the_post_thumbnail('large',array('class'=>'img-fluid rounded-4')); ?></figure><?php endif; ?>
 <div class="entry-content"><?php the_content(); ?></div>
 <div class="publication-share"><strong><?php esc_html_e('Compartilhar:', 'observatorio'); ?></strong>
@@ -45,7 +45,7 @@ if($related->have_posts()): ?>
 <section class="publication-related"><div class="container"><h2><?php esc_html_e('Outras publicações relacionadas','observatorio'); ?></h2><div class="row g-4">
 <?php while($related->have_posts()): $related->the_post(); ?><div class="col-md-4"><article class="publication-related-card">
 <?php if(has_post_thumbnail()): ?><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium_large'); ?></a><?php endif; ?>
-<div class="publication-related-card__body"><h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3><a class="btn btn-outline-primary btn-sm" href="<?php the_permalink(); ?>"><?php esc_html_e('Ver publicação','observatorio'); ?></a></div></article></div>
+<div class="publication-related-card__body"><h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3><a class="card-action-arrow" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Ver publicação: %s', 'observatorio' ), get_the_title() ) ); ?>"><span aria-hidden="true">→</span></a></div></article></div>
 <?php endwhile; ?></div></div></section>
 <?php endif; wp_reset_postdata(); ?>
 <?php endwhile; ?>

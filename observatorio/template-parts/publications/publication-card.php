@@ -14,6 +14,6 @@ $area_name = $area ? get_the_title( $area ) : '';
  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
  <p><?php echo esc_html( wp_trim_words( get_the_excerpt() ?: get_the_content(), 34 ) ); ?></p>
  <div class="archive-publication-card__footer"><span>▢ <?php echo esc_html( get_the_date( 'F Y' ) ); ?></span>
- <a href="<?php the_permalink(); ?>" class="btn btn-outline-primary"><?php esc_html_e( 'Ver publicação', 'observatorio' ); ?></a></div>
+ <a href="<?php the_permalink(); ?>" class="card-action-arrow" aria-label="<?php echo esc_attr( sprintf( __( 'Ver publicação: %s', 'observatorio' ), get_the_title() ) ); ?>"><span aria-hidden="true">→</span></a></div>
  </div>
 </article>

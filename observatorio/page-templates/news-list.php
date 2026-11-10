@@ -35,7 +35,7 @@ get_template_part( 'template-parts/components/page-hero', null, array(
 <time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 <p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 24 ) ); ?></p>
-<a class="btn btn-outline-primary btn-sm" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Ler notícia', 'observatorio' ); ?></a>
+<a class="card-action-arrow" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Ler notícia: %s', 'observatorio' ), get_the_title() ) ); ?>"><span aria-hidden="true">→</span></a>
 </div></article>
 <?php endwhile; ?>
 </div>

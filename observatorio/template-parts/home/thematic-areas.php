@@ -54,8 +54,8 @@ $thematic_areas = new WP_Query(
 									<p><?php echo esc_html( $summary ); ?></p>
 								<?php endif; ?>
 
-								<a href="<?php the_permalink(); ?>" class="btn btn-outline-light">
-									<?php esc_html_e( 'Acessar área temática', 'observatorio' ); ?>
+								<a href="<?php the_permalink(); ?>" class="card-action-arrow card-action-arrow--light" aria-label="<?php echo esc_attr( sprintf( __( 'Acessar área temática: %s', 'observatorio' ), get_the_title() ) ); ?>">
+									<span aria-hidden="true">→</span>
 								</a>
 							</div>
 						</article>

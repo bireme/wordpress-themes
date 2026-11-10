@@ -70,8 +70,8 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 											<p class="text-secondary"><?php echo esc_html( get_the_excerpt() ); ?></p>
 										<?php endif; ?>
 
-										<a href="<?php the_permalink(); ?>" class="btn btn-outline-primary mt-auto align-self-start">
-											<?php esc_html_e( 'Ver publicação', 'observatorio' ); ?>
+										<a href="<?php the_permalink(); ?>" class="card-action-arrow mt-auto align-self-start" aria-label="<?php echo esc_attr( sprintf( __( 'Ver publicação: %s', 'observatorio' ), get_the_title() ) ); ?>">
+											<span aria-hidden="true">→</span>
 										</a>
 									</div>
 								</div>
