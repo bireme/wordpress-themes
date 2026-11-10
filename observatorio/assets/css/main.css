@@ -849,7 +849,7 @@ a { text-decoration: none; }
 .unified-inner-hero h1,
 .publication-detail-v4 .publication-detail-heading.unified-inner-hero h1 {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.5rem!important;
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 12px;
