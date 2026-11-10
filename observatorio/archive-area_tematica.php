@@ -8,6 +8,7 @@ get_header();
  'title' => post_type_archive_title( '', false ),
  'description' => __( 'Conheça as áreas temáticas do Observatório.', 'observatorio' ),
 ) ); ?>
+<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 <section class="container section-space">
 <?php if ( have_posts() ) : ?>
 <div class="news-archive-grid">

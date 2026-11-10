@@ -19,11 +19,8 @@ $news_query = new WP_Query( $news_args );
 ?>
 <main id="main-content" class="site-main news-archive">
 <?php
-get_template_part( 'template-parts/components/page-hero', null, array(
-    'kicker' => __( 'Atualidades', 'observatorio' ),
-    'title' => __( 'Notícias', 'observatorio' ),
-    'description' => __( 'Acompanhe notícias e atualizações do Observatório.', 'observatorio' ),
-) );
+get_template_part( 'template-parts/components/breadcrumbs' );
+echo '<header class="container news-list-heading"><h1>' . esc_html( get_the_title( get_queried_object_id() ) ) . '</h1></header>';
 ?>
 <section class="container section-space">
 <?php if ( $news_query->have_posts() ) : ?>

@@ -17,6 +17,7 @@ get_header();
 		</div>
 	</header>
 
+	<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 	<section class="section-space">
 		<div class="container">
 			<?php if ( have_posts() ) : ?>

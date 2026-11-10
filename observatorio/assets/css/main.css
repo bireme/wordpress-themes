@@ -805,3 +805,13 @@ a { text-decoration: none; }
 .thematic-archive .news-archive-card__body{min-height:220px}
 .thematic-archive .news-archive-card__body p{flex-grow:1}
 @media(max-width:767px){.publication-detail-v4 .publication-detail-content{padding-top:45px;padding-bottom:75px}}
+
+/* v4.3: consistent inner page rhythm and action arrows. */
+.news-list-heading{padding-top:35px;padding-bottom:5px}.news-list-heading h1{margin:0;color:#0d3159}
+.thematic-area-single{padding-bottom:65px}.thematic-area-single .thematic-area-featured-image{margin-top:28px}.thematic-area-single .entry-content{margin:18px 0 32px}
+.thematic-related-section{margin-top:30px}.thematic-publication-list{display:grid;gap:20px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.thematic-publication-list .archive-publication-card{grid-template-columns:1fr}.thematic-publication-list .archive-publication-card__image{height:190px;min-height:0}
+.related-news-section{margin-top:55px;padding-top:30px;border-top:1px solid #e2eaf0}.related-news-section h2{margin-bottom:24px}.single-post .site-main{padding-bottom:80px}
+.archive-publication-card__footer a.card-action-arrow,.archive-publication-card__footer a.card-action-arrow:hover,.archive-publication-card__footer a.card-action-arrow:focus-visible{text-decoration:none!important}
+.content-share{margin-top:32px;padding-top:24px;border-top:1px solid #e1ebf0}
+@media(max-width:767px){.thematic-publication-list{grid-template-columns:1fr}}

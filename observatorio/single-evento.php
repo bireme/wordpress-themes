@@ -38,6 +38,7 @@ get_header();
 				</div>
 			</header>
 
+            <?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 			<div class="container section-space">
 				<div class="row g-5">
 					<div class="col-lg-8">
