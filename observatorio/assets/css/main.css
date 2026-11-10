@@ -815,3 +815,22 @@ a { text-decoration: none; }
 .archive-publication-card__footer a.card-action-arrow,.archive-publication-card__footer a.card-action-arrow:hover,.archive-publication-card__footer a.card-action-arrow:focus-visible{text-decoration:none!important}
 .content-share{margin-top:32px;padding-top:24px;border-top:1px solid #e1ebf0}
 @media(max-width:767px){.thematic-publication-list{grid-template-columns:1fr}}
+
+/* v4.4 - focused visual refinements */
+.inner-page-hero h1{font-size:clamp(1.7rem,3.4vw,2.55rem)}
+.inner-page-hero p{font-size:.85rem}
+.inner-page-hero{background-image:linear-gradient(90deg,#052b3e 0%,#052b3e 36%,rgba(5,43,62,.9) 53%,rgba(5,43,62,.28) 100%),var(--inner-hero-image,linear-gradient(120deg,#052b3e,#15546a))}
+.page-hero h1{font-size:clamp(1.7rem,3.4vw,2.55rem)}
+.page-hero .lead,.page-hero .page-intro{font-size:clamp(.95rem,1.35vw,1.08rem)}
+.page-hero{background-color:#082e44;padding-top:clamp(48px,5vw,76px);padding-bottom:clamp(48px,5vw,76px)}
+.thematic-archive-card h2,.thematic-archive-card h2 a{font-weight:750}
+.thematic-area-single .page-hero{padding-top:clamp(50px,5vw,76px);padding-bottom:clamp(50px,5vw,76px)}
+.thematic-area-single .thematic-related-section{padding-top:clamp(35px,4vw,55px);padding-bottom:clamp(35px,4vw,55px)}
+.thematic-area-single .thematic-related-section .section-heading{padding-bottom:18px;border-bottom:1px solid #dbe7ed;margin-bottom:26px!important}
+.thematic-area-single .thematic-related-section .section-heading h2{font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.3}
+.thematic-publication-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.thematic-publication-list .archive-publication-card{min-width:0}
+.thematic-publication-list .archive-publication-card__body{padding:18px}
+.thematic-publication-list .archive-publication-card__body h2{font-size:1.08rem}
+@media(max-width:991px){.thematic-publication-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:575px){.thematic-publication-list{grid-template-columns:1fr}.inner-page-hero h1,.page-hero h1{font-size:clamp(1.55rem,6vw,2rem)}}
