@@ -336,6 +336,19 @@ function observatorio_register_global_acf_fields() {
 			'key'    => 'group_observatorio_global_settings',
 			'title'  => __( 'Configurações globais', 'observatorio' ),
 			'fields' => array(
+				array( 'key' => 'field_observatorio_home_content_tab', 'label' => __( 'Conteúdos da Home', 'observatorio' ), 'type' => 'tab' ),
+				array( 'key' => 'field_observatorio_home_publications_kicker', 'label' => 'Publications - Chamada', 'name' => 'home_publications_kicker', 'type' => 'text', 'default_value' => 'Conhecimento', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_publications_title', 'label' => 'Publications - Título', 'name' => 'home_publications_title', 'type' => 'text', 'default_value' => 'Publicações', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_publications_description', 'label' => 'Publications - Descrição', 'name' => 'home_publications_description', 'type' => 'textarea', 'default_value' => 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'wrapper' => array( 'width' => '100' ) ),
+				array( 'key' => 'field_observatorio_home_thematic_areas_title', 'label' => 'Thematic Areas - Título', 'name' => 'home_thematic_areas_title', 'type' => 'text', 'default_value' => 'Áreas temáticas', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_thematic_areas_description', 'label' => 'Thematic Areas - Descrição', 'name' => 'home_thematic_areas_description', 'type' => 'textarea', 'default_value' => 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'wrapper' => array( 'width' => '100' ) ),
+				array( 'key' => 'field_observatorio_home_news_kicker', 'label' => 'News - Chamada', 'name' => 'home_news_kicker', 'type' => 'text', 'default_value' => 'Atualidades', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_news_title', 'label' => 'News - Título', 'name' => 'home_news_title', 'type' => 'text', 'default_value' => 'Notícias', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_events_title', 'label' => 'Events - Título', 'name' => 'home_events_title', 'type' => 'text', 'default_value' => 'Agenda', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_preprint_title', 'label' => 'Preprint - Título', 'name' => 'home_preprint_title', 'type' => 'text', 'default_value' => 'PrePrint', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_experience_reports_title', 'label' => 'Experience Reports - Título', 'name' => 'home_experience_reports_title', 'type' => 'text', 'default_value' => 'Relatos de Experiência', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_partners_kicker', 'label' => 'Partners - Chamada', 'name' => 'home_partners_kicker', 'type' => 'text', 'default_value' => 'Rede de colaboração', 'wrapper' => array( 'width' => '50' ) ),
+				array( 'key' => 'field_observatorio_home_partners_title', 'label' => 'Partners - Título', 'name' => 'home_partners_title', 'type' => 'text', 'default_value' => 'Parceiros', 'wrapper' => array( 'width' => '50' ) ),
 				array(
 					'key' => 'field_observatorio_commissions_tab',
 					'label' => __( 'Comissões Temáticas', 'observatorio' ),
@@ -527,38 +540,3 @@ function observatorio_register_global_acf_fields() {
 	);
 }
 add_action( 'acf/init', 'observatorio_register_global_acf_fields' );
-
-/** Reusable visual header fields for any page and publication archive. */
-add_action( 'acf/init', function () {
- if ( ! function_exists( 'acf_add_local_field_group' ) ) { return; }
- $hero_fields = array(
-  array( 'key'=>'field_obs_hero_kicker', 'label'=>'Identificação da seção', 'name'=>'page_hero_kicker', 'type'=>'text' ),
-  array( 'key'=>'field_obs_hero_title', 'label'=>'Título do banner', 'name'=>'page_hero_title', 'type'=>'text', 'instructions'=>'Em branco: utiliza o título da página.' ),
-  array( 'key'=>'field_obs_hero_description', 'label'=>'Descrição do banner', 'name'=>'page_hero_description', 'type'=>'textarea', 'rows'=>3 ),
-  array( 'key'=>'field_obs_hero_image', 'label'=>'Imagem de fundo', 'name'=>'page_hero_image', 'type'=>'image', 'return_format'=>'url', 'preview_size'=>'medium' ),
-  array( 'key'=>'field_obs_hero_position', 'label'=>'Posição da imagem', 'name'=>'page_hero_position', 'type'=>'select', 'choices'=>array('center'=>'Centro','left'=>'Esquerda','right'=>'Direita'), 'default_value'=>'center' ),
- );
- acf_add_local_field_group( array(
-  'key'=>'group_obs_page_hero', 'title'=>'Cabeçalho visual da página', 'fields'=>$hero_fields,
-  'location'=>array( array( array('param'=>'page_template','operator'=>'==','value'=>'page-templates/visual-header.php') ), array( array('param'=>'page_template','operator'=>'==','value'=>'page-sobre.php') ), array( array('param'=>'page_template','operator'=>'==','value'=>'page-templates/news-list.php') ), array( array('param'=>'page_type','operator'=>'==','value'=>'posts_page') ) ),
-  'active'=>true,
- ) );
- acf_add_local_field_group( array(
-  'key'=>'group_obs_about_video', 'title'=>'Vídeo institucional',
-  'fields'=>array( array('key'=>'field_obs_about_video_page','label'=>'URL do vídeo (YouTube/Vimeo)','name'=>'about_video_url_page','type'=>'url') ),
-  'location'=>array( array( array('param'=>'page_template','operator'=>'==','value'=>'page-sobre.php') ) ),
-  'active'=>true,
- ) );
- acf_add_local_field_group( array(
-  'key'=>'group_obs_newsletter', 'title'=>'Fique por dentro',
-  'fields'=>array( array('key'=>'field_obs_newsletter_url','label'=>'Link do botão de atualizações','name'=>'newsletter_signup_url','type'=>'url','instructions'=>'URL do formulário de inscrição. Sem URL, o botão não será exibido.') ),
-  'location'=>array( array( array('param'=>'options_page','operator'=>'==','value'=>'observatorio-settings') ) ),
-  'active'=>true,
- ) );
- acf_add_local_field_group( array(
-  'key'=>'group_obs_publications_hero', 'title'=>'Cabeçalho do arquivo de publicações',
-  'fields'=>array( array('key'=>'field_obs_publications_hero_image_v3','label'=>'Imagem do cabeçalho de Publicações','name'=>'publications_hero_image','type'=>'image','return_format'=>'url') ),
-  'location'=>array( array( array('param'=>'options_page','operator'=>'==','value'=>'observatorio-settings') ) ),
-  'active'=>true,
- ) );
-} );

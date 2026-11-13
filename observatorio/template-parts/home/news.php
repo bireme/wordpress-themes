@@ -30,13 +30,13 @@ if ( ! $news_page_url ) {
 		<div class="container">
 			<div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
 				<div class="section-heading mb-0">
-					<span class="section-kicker"><?php esc_html_e( 'Atualidades', 'observatorio' ); ?></span>
-					<h2><?php esc_html_e( 'Notícias', 'observatorio' ); ?></h2>
+					<span class="section-kicker"><?php echo esc_html( observatorio_home_copy( 'news', 'kicker', 'Atualidades' ) ); ?></span>
+					<h2><?php echo esc_html( observatorio_home_copy( 'news', 'title', 'Notícias' ) ); ?></h2>
 				</div>
 
 				<?php if ( $news_page_url ) : ?>
 					<a href="<?php echo esc_url( $news_page_url ); ?>" class="btn btn-outline-primary mt-3 mt-md-0 flex-shrink-0">
-						<?php esc_html_e( 'Ver todas as notícias', 'observatorio' ); ?>
+						<?php esc_html_e( 'Ver todas as notícias', 'observatorio' ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
 					</a>
 				<?php endif; ?>
 			</div>
@@ -74,7 +74,7 @@ if ( ! $news_page_url ) {
 									<?php endif; ?>
 
 									<a href="<?php the_permalink(); ?>" class="news-arrow stretched-link" aria-label="<?php echo esc_attr( sprintf( __( 'Ler notícia: %s', 'observatorio' ), get_the_title() ) ); ?>">
-										<span aria-hidden="true">→</span>
+										<svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
 									</a>
 								</div>
 							</article>
@@ -100,7 +100,7 @@ if ( ! $news_page_url ) {
 									</time>
 									<h3><?php the_title(); ?></h3>
 									<a href="<?php the_permalink(); ?>" class="news-arrow stretched-link" aria-label="<?php echo esc_attr( sprintf( __( 'Ler notícia: %s', 'observatorio' ), get_the_title() ) ); ?>">
-										<span aria-hidden="true">→</span>
+										<svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
 									</a>
 								</div>
 							</article>

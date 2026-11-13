@@ -7,14 +7,14 @@
 
 $blocks = array(
  array(
-  'title' => __( 'PrePrint', 'observatorio' ),
+  'title' => observatorio_home_copy( 'preprint', 'title', 'PrePrint' ),
   'description' => function_exists( 'get_field' ) ? get_field( 'preprint_description', 'option' ) : '',
   'image' => function_exists( 'get_field' ) ? (int) get_field( 'preprint_image', 'option' ) : 0,
   'button' => function_exists( 'get_field' ) ? get_field( 'preprint_button', 'option' ) : array(),
   'class' => 'preprint-block',
  ),
  array(
-  'title' => __( 'Relatos de Experiência', 'observatorio' ),
+  'title' => observatorio_home_copy( 'experience_reports', 'title', 'Relatos de Experiência' ),
   'description' => function_exists( 'get_field' ) ? get_field( 'experience_reports_description', 'option' ) : '',
   'image' => function_exists( 'get_field' ) ? (int) get_field( 'experience_reports_image', 'option' ) : 0,
   'button' => function_exists( 'get_field' ) ? get_field( 'experience_reports_button', 'option' ) : array(),
@@ -49,7 +49,7 @@ if ( ! $has_content ) {
         <div class="preprint-description"><?php echo wp_kses_post( $block['description'] ); ?></div>
        <?php endif; ?>
        <?php if ( is_array( $block['button'] ) && ! empty( $block['button']['url'] ) && ! empty( $block['button']['title'] ) ) : ?>
-        <a class="btn btn-outline-light mt-3" href="<?php echo esc_url( $block['button']['url'] ); ?>"<?php echo ! empty( $block['button']['target'] ) ? ' target="' . esc_attr( $block['button']['target'] ) . '" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $block['button']['title'] ); ?></a>
+        <a class="btn btn-outline-light mt-3" href="<?php echo esc_url( $block['button']['url'] ); ?>"<?php echo ! empty( $block['button']['target'] ) ? ' target="' . esc_attr( $block['button']['target'] ) . '" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $block['button']['title'] ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
        <?php endif; ?>
       </div>
      </div>

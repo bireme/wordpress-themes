@@ -22,7 +22,7 @@ get_header();
 		?>
 
 		<article <?php post_class( 'event-detail' ); ?>>
-			<header class="page-hero unified-inner-hero section-space">
+			<header class="page-hero section-space">
 				<div class="container">
 					<?php if ( $event_format ) : ?>
 						<span class="section-kicker"><?php echo esc_html( $event_format ); ?></span>
@@ -38,7 +38,6 @@ get_header();
 				</div>
 			</header>
 
-            <?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 			<div class="container section-space">
 				<div class="row g-5">
 					<div class="col-lg-8">

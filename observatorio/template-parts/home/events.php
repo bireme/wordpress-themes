@@ -53,6 +53,8 @@ if ( count( $events ) < 3 ) {
 	$events = array_merge( $events, $past_events );
 }
 
+$events = array_values( array_unique( $events, SORT_REGULAR ) );
+
 $events_archive_url = get_post_type_archive_link( 'evento' );
 $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-accent-coral' );
 ?>
@@ -62,12 +64,12 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 		<div class="row g-4 g-xl-5 align-items-stretch">
 			<div class="col-lg-4">
 				<div class="events-intro h-100 d-flex flex-column justify-content-center">
-					<h2><?php esc_html_e( 'Agenda', 'observatorio' ); ?></h2>
+					<h2><?php echo esc_html( observatorio_home_copy( 'events', 'title', 'Agenda' ) ); ?></h2>
 					<p><?php esc_html_e( 'Encontros, seminários e atividades para promover diálogo, intercâmbio de experiências e disseminação de conhecimento sobre políticas, sistemas e inovação em saúde.', 'observatorio' ); ?></p>
 
 					<?php if ( $events_archive_url ) : ?>
 						<a href="<?php echo esc_url( $events_archive_url ); ?>" class="btn btn-primary align-self-start mt-2">
-							<?php esc_html_e( 'Ver agenda', 'observatorio' ); ?>
+							<?php esc_html_e( 'Ver agenda', 'observatorio' ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
 						</a>
 					<?php endif; ?>
 				</div>
@@ -80,7 +82,6 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 						$event_index = 0;
 
 						foreach ( $events as $event_post ) :
-							setup_postdata( $event_post );
 
 							$start_date = get_field( 'event_start_date', $event_post->ID );
 							$event_time = get_field( 'event_time', $event_post->ID );
@@ -105,13 +106,13 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 											<span class="event-format"><?php echo esc_html( $format ); ?></span>
 										<?php endif; ?>
 
-										<h3><?php the_title(); ?></h3>
+										<h3><?php echo esc_html( get_the_title( $event_post->ID ) ); ?></h3>
 
 										<?php if ( $meta_parts ) : ?>
 											<p><?php echo esc_html( implode( ' · ', $meta_parts ) ); ?></p>
 										<?php endif; ?>
 
-										<a href="<?php the_permalink(); ?>" class="event-link stretched-link" aria-label="<?php echo esc_attr( sprintf( __( 'Ver evento %s', 'observatorio' ), get_the_title() ) ); ?>">→</a>
+										<a href="<?php echo esc_url( get_permalink( $event_post->ID ) ); ?>" class="event-link stretched-link" aria-label="<?php echo esc_attr( sprintf( __( 'Ver evento %s', 'observatorio' ), get_the_title( $event_post->ID ) ) ); ?>"><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></a>
 									</div>
 								</article>
 							</div>

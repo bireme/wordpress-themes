@@ -14,8 +14,8 @@ if ( empty( $partners ) || ! is_array( $partners ) ) {
 <section id="partners" class="partners-section section-space">
 	<div class="container">
 		<div class="section-heading text-center mb-4">
-			<span class="section-kicker"><?php esc_html_e( 'Rede de colaboração', 'observatorio' ); ?></span>
-			<h2><?php esc_html_e( 'Parceiros', 'observatorio' ); ?></h2>
+			<span class="section-kicker"><?php echo esc_html( observatorio_home_copy( 'partners', 'kicker', 'Rede de colaboração' ) ); ?></span>
+			<h2><?php echo esc_html( observatorio_home_copy( 'partners', 'title', 'Parceiros' ) ); ?></h2>
 		</div>
 
 		<div class="partners-grid" aria-label="<?php esc_attr_e( 'Instituições parceiras', 'observatorio' ); ?>">

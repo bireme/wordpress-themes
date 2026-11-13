@@ -23,7 +23,7 @@ function observatorio_enqueue_assets() {
 		'observatorio-main',
 		get_template_directory_uri() . '/assets/css/main.css',
 		array( 'observatorio-bootstrap' ),
-		filemtime( get_template_directory() . '/assets/css/main.css' )
+		$theme->get( 'Version' )
 	);
 
 	wp_enqueue_script(
