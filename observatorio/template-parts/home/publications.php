@@ -23,9 +23,9 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 	<div class="container">
 		<div class="section-heading mb-4 d-lg-flex justify-content-between align-items-end gap-4">
 			<div>
-				<span class="section-kicker"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_kicker', 'option' ) ) ?: __( 'Conhecimento', 'observatorio' ) ); ?></span>
-				<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_title', 'option' ) ) ?: __( 'Publicações', 'observatorio' ) ); ?></h2>
-				<p class="section-intro mb-0"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_description', 'option' ) ) ?: __( 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'observatorio' ) ); ?></p>
+				<span class="section-kicker"><?php echo esc_html( observatorio_home_text( 'home_publications_kicker', __( 'Conhecimento', 'observatorio' ) ) ); ?></span>
+				<h2><?php echo esc_html( observatorio_home_text( 'home_publications_title', __( 'Publicações', 'observatorio' ) ) ); ?></h2>
+				<p class="section-intro mb-0"><?php echo esc_html( observatorio_home_text( 'home_publications_description', __( 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'observatorio' ) ) ); ?></p>
 			</div>
 
 			<?php if ( $publications_archive_url ) : ?>

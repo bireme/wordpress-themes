@@ -14,8 +14,8 @@ if ( empty( $partners ) || ! is_array( $partners ) ) {
 <section id="partners" class="partners-section section-space">
 	<div class="container">
 		<div class="section-heading text-center mb-4">
-			<span class="section-kicker"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_partners_kicker', 'option' ) ) ?: __( 'Rede de colaboração', 'observatorio' ) ); ?></span>
-			<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_partners_title', 'option' ) ) ?: __( 'Parceiros', 'observatorio' ) ); ?></h2>
+			<span class="section-kicker"><?php echo esc_html( observatorio_home_text( 'home_partners_kicker', __( 'Rede de colaboração', 'observatorio' ) ) ); ?></span>
+			<h2><?php echo esc_html( observatorio_home_text( 'home_partners_title', __( 'Parceiros', 'observatorio' ) ) ); ?></h2>
 		</div>
 
 		<div class="partners-grid" aria-label="<?php esc_attr_e( 'Instituições parceiras', 'observatorio' ); ?>">

@@ -62,7 +62,7 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 		<div class="row g-4 g-xl-5 align-items-stretch">
 			<div class="col-lg-4">
 				<div class="events-intro h-100 d-flex flex-column justify-content-center">
-					<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_agenda_title', 'option' ) ) ?: __( 'Agenda', 'observatorio' ) ); ?></h2>
+					<h2><?php echo esc_html( observatorio_home_text( 'home_agenda_title', __( 'Agenda', 'observatorio' ) ) ); ?></h2>
 					<p><?php esc_html_e( 'Encontros, seminários e atividades para promover diálogo, intercâmbio de experiências e disseminação de conhecimento sobre políticas, sistemas e inovação em saúde.', 'observatorio' ); ?></p>
 
 					<?php if ( $events_archive_url ) : ?>
@@ -80,7 +80,9 @@ $accent_classes     = array( 'event-accent-teal', 'event-accent-yellow', 'event-
 						$event_index = 0;
 
 						foreach ( $events as $event_post ) :
-							setup_postdata( $event_post );
+							global $post;
+							$post = $event_post;
+							setup_postdata( $post );
 
 							$start_date = get_field( 'event_start_date', $event_post->ID );
 							$event_time = get_field( 'event_time', $event_post->ID );

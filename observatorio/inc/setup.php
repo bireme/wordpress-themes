@@ -56,3 +56,21 @@ function observatorio_nav_menu_link_attributes( $atts, $menu_item, $args ) {
 	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'observatorio_nav_menu_link_attributes', 10, 3 );
+
+/**
+ * Return a valid editable Home heading, falling back to the original text.
+ * Some existing option records contain the numeric flag "1" rather than text.
+ */
+function observatorio_home_text( $field_name, $fallback ) {
+    if ( ! function_exists( 'get_field' ) ) {
+        return $fallback;
+    }
+
+    $value = get_field( $field_name, 'option' );
+    if ( ! is_string( $value ) ) {
+        return $fallback;
+    }
+
+    $value = trim( $value );
+    return '' !== $value && '1' !== $value ? $value : $fallback;
+}

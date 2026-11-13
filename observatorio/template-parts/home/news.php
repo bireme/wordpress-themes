@@ -30,8 +30,8 @@ if ( ! $news_page_url ) {
 		<div class="container">
 			<div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
 				<div class="section-heading mb-0">
-					<span class="section-kicker"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_news_kicker', 'option' ) ) ?: __( 'Atualidades', 'observatorio' ) ); ?></span>
-					<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_news_title', 'option' ) ) ?: __( 'Notícias', 'observatorio' ) ); ?></h2>
+					<span class="section-kicker"><?php echo esc_html( observatorio_home_text( 'home_news_kicker', __( 'Atualidades', 'observatorio' ) ) ); ?></span>
+					<h2><?php echo esc_html( observatorio_home_text( 'home_news_title', __( 'Notícias', 'observatorio' ) ) ); ?></h2>
 				</div>
 
 				<?php if ( $news_page_url ) : ?>

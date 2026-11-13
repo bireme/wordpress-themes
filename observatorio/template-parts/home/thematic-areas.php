@@ -23,8 +23,8 @@ $thematic_areas = new WP_Query(
 	<div class="container">
 		<div class="section-heading mb-4">
 			<span class="section-kicker d-none"><?php esc_html_e( 'Áreas temáticas', 'observatorio' ); ?></span>
-			<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_thematic_areas_title', 'option' ) ) ?: __( 'Áreas temáticas', 'observatorio' ) ); ?></h2>
-			<p class="section-intro"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_thematic_areas_description', 'option' ) ) ?: __( 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'observatorio' ) ); ?></p>
+			<h2><?php echo esc_html( observatorio_home_text( 'home_thematic_areas_title', __( 'Áreas temáticas', 'observatorio' ) ) ); ?></h2>
+			<p class="section-intro"><?php echo esc_html( observatorio_home_text( 'home_thematic_areas_description', __( 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'observatorio' ) ) ); ?></p>
 		</div>
 
 		<?php if ( $thematic_areas->have_posts() ) : ?>

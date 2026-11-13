@@ -7,14 +7,14 @@
 
 $blocks = array(
  array(
-  'title' => ( function_exists( 'get_field' ) && get_field( 'home_preprint_title', 'option' ) ) ?: __( 'PrePrint', 'observatorio' ),
+  'title' => observatorio_home_text( 'home_preprint_title', __( 'PrePrint', 'observatorio' ) ),
   'description' => function_exists( 'get_field' ) ? get_field( 'preprint_description', 'option' ) : '',
   'image' => function_exists( 'get_field' ) ? (int) get_field( 'preprint_image', 'option' ) : 0,
   'button' => function_exists( 'get_field' ) ? get_field( 'preprint_button', 'option' ) : array(),
   'class' => 'preprint-block',
  ),
  array(
-  'title' => ( function_exists( 'get_field' ) && get_field( 'home_experience_reports_title', 'option' ) ) ?: __( 'Relatos de Experiência', 'observatorio' ),
+  'title' => observatorio_home_text( 'home_experience_reports_title', __( 'Relatos de Experiência', 'observatorio' ) ),
   'description' => function_exists( 'get_field' ) ? get_field( 'experience_reports_description', 'option' ) : '',
   'image' => function_exists( 'get_field' ) ? (int) get_field( 'experience_reports_image', 'option' ) : 0,
   'button' => function_exists( 'get_field' ) ? get_field( 'experience_reports_button', 'option' ) : array(),
