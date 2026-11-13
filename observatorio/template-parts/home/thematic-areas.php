@@ -22,9 +22,9 @@ $thematic_areas = new WP_Query(
 <section id="thematic-areas" class="thematic-section section-space">
 	<div class="container">
 		<div class="section-heading mb-4">
-			<span class="section-kicker d-none"><?php echo esc_html( observatorio_home_copy( 'thematic_areas', 'title', 'Áreas temáticas' ) ); ?></span>
-			<h2><?php esc_html_e( 'Áreas temáticas', 'observatorio' ); ?></h2>
-			<p class="section-intro"><?php echo esc_html( observatorio_home_copy( 'thematic_areas', 'description', 'Acesse conteúdos organizados nos eixos temáticos do Observatório.' ) ); ?></p>
+			<span class="section-kicker d-none"><?php esc_html_e( 'Áreas temáticas', 'observatorio' ); ?></span>
+			<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_thematic_areas_title', 'option' ) ) ?: __( 'Áreas temáticas', 'observatorio' ) ); ?></h2>
+			<p class="section-intro"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_thematic_areas_description', 'option' ) ) ?: __( 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'observatorio' ) ); ?></p>
 		</div>
 
 		<?php if ( $thematic_areas->have_posts() ) : ?>
@@ -35,7 +35,7 @@ $thematic_areas = new WP_Query(
 					$summary       = wp_html_excerpt( wp_strip_all_tags( get_the_excerpt() ), 180, '…' );
 					?>
 					<div class="col-lg-6">
-						<a class="thematic-card thematic-card-link d-block" href="<?php the_permalink(); ?>">
+						<article class="thematic-card">
 							<?php if ( $thumbnail_url ) : ?>
 								<div
 									class="thematic-image"
@@ -54,11 +54,11 @@ $thematic_areas = new WP_Query(
 									<p><?php echo esc_html( $summary ); ?></p>
 								<?php endif; ?>
 
-								<span class="btn btn-outline-light">
-									<?php esc_html_e( 'Acessar área temática', 'observatorio' ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
-								</span>
+								<a href="<?php the_permalink(); ?>" class="btn btn-outline-light">
+									<?php esc_html_e( 'Acessar área temática', 'observatorio' ); ?>
+								</a>
 							</div>
-						</a>
+						</article>
 					</div>
 				<?php endwhile; ?>
 			</div>

@@ -23,14 +23,14 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 	<div class="container">
 		<div class="section-heading mb-4 d-lg-flex justify-content-between align-items-end gap-4">
 			<div>
-				<span class="section-kicker"><?php echo esc_html( observatorio_home_copy( 'publications', 'kicker', 'Conhecimento' ) ); ?></span>
-				<h2><?php echo esc_html( observatorio_home_copy( 'publications', 'title', 'Publicações' ) ); ?></h2>
-				<p class="section-intro mb-0"><?php echo esc_html( observatorio_home_copy( 'publications', 'description', 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.' ) ); ?></p>
+				<span class="section-kicker"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_kicker', 'option' ) ) ?: __( 'Conhecimento', 'observatorio' ) ); ?></span>
+				<h2><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_title', 'option' ) ) ?: __( 'Publicações', 'observatorio' ) ); ?></h2>
+				<p class="section-intro mb-0"><?php echo esc_html( ( function_exists( 'get_field' ) && get_field( 'home_publications_description', 'option' ) ) ?: __( 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'observatorio' ) ); ?></p>
 			</div>
 
 			<?php if ( $publications_archive_url ) : ?>
 				<a href="<?php echo esc_url( $publications_archive_url ); ?>" class="btn btn-outline-primary mt-3 mt-lg-0 flex-shrink-0">
-					<?php esc_html_e( 'Ver todas as publicações', 'observatorio' ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
+					<?php esc_html_e( 'Ver todas as publicações', 'observatorio' ); ?>
 				</a>
 			<?php endif; ?>
 		</div>
@@ -64,14 +64,14 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 											<span class="publication-type"><?php echo esc_html( $publication_type ); ?></span>
 										<?php endif; ?>
 
-										<h3 class="h4 mt-2 publication-card-title"><?php the_title(); ?></h3>
+										<h3 class="h4 mt-2"><?php the_title(); ?></h3>
 
 										<?php if ( has_excerpt() ) : ?>
-											<p class="text-secondary publication-card-excerpt"><?php echo esc_html( wp_html_excerpt( wp_strip_all_tags( get_the_excerpt() ), 140, '…' ) ); ?></p>
+											<p class="text-secondary"><?php echo esc_html( get_the_excerpt() ); ?></p>
 										<?php endif; ?>
 
 										<a href="<?php the_permalink(); ?>" class="btn btn-outline-primary mt-auto align-self-start">
-											<?php esc_html_e( 'Ver publicação', 'observatorio' ); ?><svg class="action-arrow-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg>
+											<?php esc_html_e( 'Ver publicação', 'observatorio' ); ?>
 										</a>
 									</div>
 								</div>

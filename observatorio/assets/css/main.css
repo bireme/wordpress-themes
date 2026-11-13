@@ -718,20 +718,3 @@ a { text-decoration: none; }
 @media (max-width: 767.98px) {
   .preprint-panel { min-height: 320px; background-position: center; }
 }
-
-/* Home refinements: arrows, compact publications and clickable thematic cards. */
-.home .btn:has(> .action-arrow-icon) { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.15rem; }
-.action-arrow-icon { flex-shrink: 0; vertical-align: middle; transition: transform .2s ease; }
-a:hover .action-arrow-icon, a:focus-visible .action-arrow-icon { transform: translateX(3px); }
-.thematic-card-link, .thematic-card-link:hover, .thematic-card-link:focus { color: inherit; text-decoration: none; }
-.thematic-card-link .thematic-content { color: #fff; }
-.thematic-card-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
-.home .publication-cover { min-height: 220px; }
-.home .publication-card-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
-.home .publication-card-excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
-.home .publication-card .p-4 { padding: 1.25rem !important; }
-@media (max-width: 575.98px) { .home .publication-cover { min-height: 220px; } }
-
-.home .event-card.is-past-event { opacity: .58; transition: opacity .2s ease; }
-.home .event-card.is-past-event:hover, .home .event-card.is-past-event:focus-within { opacity: .9; }
-.home .thematic-card-link .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 1rem; }
