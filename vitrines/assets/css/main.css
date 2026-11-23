@@ -1,0 +1,105 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Variable.woff") format("woff");
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+body { margin: 0; color: #444; font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+.vitrines-frame, .vitrines-site-header, #vitrine-single > .vitrine-article {
+    box-sizing: border-box;
+    width: min(calc(100% - 24px), 1016px);
+    margin-inline: auto;
+}
+.vitrines-site-header {
+    color: #28367d;
+    background: #fff;
+    border-bottom: 1px solid #b8c9d3;
+}
+.vitrines-masthead {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr) auto;
+    grid-template-areas: "logo brand languages";
+    align-items: center;
+    gap: 8px;
+    min-height: 106px;
+    padding: 10px 0;
+}
+#vitrine-single, #vitrine-single > .vitrine-hero { width: 100%; max-width: none; }
+.vitrines-site-footer { width: 100%; }
+.vitrines-bvs { grid-area: logo; }
+.vitrines-bvs img, .vitrines-brand img { display: block; width: auto; height: auto; max-width: 100%; }
+.vitrines-brand { grid-area: brand; min-width: 0; justify-self: start; max-width: 100%; font-size: 1.25rem; font-weight: 700; overflow-wrap: anywhere; }
+.vitrines-brand img { max-width: min(100%, 240px); max-height: 72px; object-fit: contain; }
+.vitrines-site-header a { color: inherit; text-decoration: none; }
+.vitrines-site-header a:hover { text-decoration: underline; }
+.vitrines-site-header .vitrines-brand:hover { text-decoration: none; }
+.vitrines-site-header a:focus-visible, .vitrines-site-footer a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.vitrines-header-resources nav > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.vitrines-languages { grid-area: languages; justify-self: end; }
+.vitrines-languages ul {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.vitrines-site-header .vitrines-languages a {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: #31286b;
+    font: 400 12px/18px "Poppins", sans-serif;
+    text-decoration: none;
+}
+.vitrines-site-header .vitrines-languages a[aria-current="page"],
+.vitrines-site-header .vitrines-languages a:hover {
+    background: #ddd;
+    text-decoration: none;
+}
+.vitrines-site-header .vitrines-languages a:hover { color: #5b6efd; }
+.vitrines-header-resources { display: grid; gap: 12px; padding-block-end: 16px; }
+.vitrines-site-footer { margin-block-start: 24px; background: #d3d3d3; color: #176788; text-align: center; }
+.vitrines-footer-content { padding-block: 24px; font-size: .75rem; line-height: 1.45; overflow-wrap: anywhere; }
+.vitrines-footer-content p { margin: 0; }
+.vitrines-footer-content a { color: #151515; }
+.vitrines-footer-aux { padding-block: 16px; }
+.vitrines-layout { display: grid; gap: 24px; padding-block: 24px; }
+.vitrines-layout--sidebar { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); }
+.vitrines-entry { min-width: 0; overflow-wrap: anywhere; }
+.vitrines-entry img { max-width: 100%; height: auto; }
+.vitrines-entry iframe { max-width: 100%; }
+.vitrines-skip { position: fixed; inset-inline-start: 16px; top: -200px; z-index: 100000; }
+.vitrines-skip:focus { top: 48px; background: #fff; color: #28367d; padding: 8px 12px; }
+@media (max-width: 760px) {
+    .vitrines-masthead {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "languages" "logo" "brand";
+        justify-items: center;
+        gap: 12px;
+        padding-block: 12px;
+        text-align: center;
+    }
+    .vitrines-languages { justify-self: center; }
+    .vitrines-bvs { width: 82px; }
+    .vitrines-brand { justify-self: center; }
+    .vitrines-brand img { margin-inline: auto; }
+    .vitrines-languages ul { justify-content: center; }
+    .vitrines-layout--sidebar { grid-template-columns: minmax(0, 1fr); }
+}
