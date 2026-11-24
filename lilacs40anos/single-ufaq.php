@@ -51,10 +51,10 @@ get_header();
 
 	.lilacs-ufaq-single__content {
 		font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-		font-size: 16px;
-		line-height: 1.7;
+		font-size: 18px;
+		line-height: 1.65;
 		color: #1e293b;
-		overflow-wrap: break-word;
+		overflow-wrap: anywhere;
 	}
 
 	.lilacs-ufaq-single__content p,

@@ -27,6 +27,58 @@ Tags: theme lilacs, bireme, oms
     line-height: 1.65;
 }
 
+/* FAQ individual: o plugin joga título e resposta na largura da tela.
+   A coluna acompanha o breadcrumb (1230px) para o texto não ficar na borda. */
+body.single-ufaq #site-content > h1,
+body.single-ufaq #site-content > .ewd-ufaq-faq-list,
+body.single-ufaq .lilacs-ufaq-single__inner {
+    max-width: 1230px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+body.single-ufaq #site-content > h1,
+body.single-ufaq .lilacs-ufaq-single__title {
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: #00205c;
+}
+
+body.single-ufaq #site-content > .ewd-ufaq-faq-list,
+body.single-ufaq .lilacs-ufaq-single__content {
+    padding-bottom: 72px;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #1e293b;
+}
+
+body.single-ufaq .ewd-ufaq-faq-title,
+body.single-ufaq .ewd-ufaq-faq-categories,
+body.single-ufaq .ewd-ufaq-author-date,
+body.single-ufaq .ewd-ufaq-post-margin-symbol {
+    display: none !important;
+}
+
+body.single-ufaq .ewd-ufaq-faq-body,
+body.single-ufaq .ewd-ufaq-faq-post {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+}
+
+body.single-ufaq .ewd-ufaq-faq-post,
+body.single-ufaq .ewd-ufaq-faq-body,
+body.single-ufaq .lilacs-ufaq-single__content {
+    overflow-wrap: anywhere;
+}
+
 /* ============== TÍTULO OPCIONAL SOBRE DOBRA =============== */
 .lilacs-dobra-titulo-wrapper {
     text-align: center;
