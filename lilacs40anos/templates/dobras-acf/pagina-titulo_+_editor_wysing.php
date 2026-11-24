@@ -23,10 +23,14 @@ $uid = 'lilacs-tpw-' . get_the_ID() . '-' . get_row_index();
 /* ----------------------------- */
 /* WRAPPER GERAL                 */
 /* ----------------------------- */
+/* 1256 = coluna de 1200px da seção seguinte (LILACS Plus) + 28px de
+   respiro de cada lado do cartão. O texto fica na mesma margem. */
 #<?php echo esc_attr( $uid ); ?> {
-    max-width: 1180px;
-    margin: 40px auto 60px;
-    padding: 0 16px;
+    max-width: 1256px;
+    width: calc(100% - 32px);
+    margin: 36px auto 48px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Grid de cartões:
@@ -62,7 +66,7 @@ $uid = 'lilacs-tpw-' . get_the_ID() . '-' . get_row_index();
 
 /* Conteúdo vindo do WYSIWYG */
 #<?php echo esc_attr( $uid ); ?> .tpw-card-content {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.7;
     color: #111827;
 }
@@ -84,7 +88,64 @@ $uid = 'lilacs-tpw-' . get_the_ID() . '-' . get_row_index();
     text-decoration: underline;
 }
 
-/* Responsivo: em telas menores força 1 coluna */
+#<?php echo esc_attr( $uid ); ?> .tpw-card-content p {
+    margin: 0 0 12px;
+    text-align: left;
+}
+
+#<?php echo esc_attr( $uid ); ?> .tpw-card-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Ícone alinhado no editor (direita ou esquerda) fica ao lado do bloco
+   inteiro, sem encolher só as primeiras linhas do parágrafo. */
+#<?php echo esc_attr( $uid ); ?> .tpw-with-media {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+#<?php echo esc_attr( $uid ); ?> .tpw-with-media.is-left {
+    flex-direction: row-reverse;
+}
+
+#<?php echo esc_attr( $uid ); ?> .tpw-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+#<?php echo esc_attr( $uid ); ?> .tpw-media {
+    flex: 0 0 auto;
+}
+
+#<?php echo esc_attr( $uid ); ?> .tpw-media img {
+    display: block;
+    float: none !important;
+    width: auto;
+    max-width: 150px;
+    height: auto;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    #<?php echo esc_attr( $uid ); ?> .tpw-with-media,
+    #<?php echo esc_attr( $uid ); ?> .tpw-with-media.is-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* Responsivo: em telas menores força 1 coluna.
+   Abaixo de 1256px o cartão ocupa a largura útil; sem padding horizontal
+   o texto continua na mesma margem da seção LILACS Plus. */
+@media (max-width: 1288px) {
+    #<?php echo esc_attr( $uid ); ?> .tpw-card {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 @media (max-width: 900px) {
     #<?php echo esc_attr( $uid ); ?> .tpw-grid {
         grid-template-columns: minmax(0, 1fr);
@@ -119,3 +180,46 @@ $uid = 'lilacs-tpw-' . get_the_ID() . '-' . get_row_index();
         <?php endif; ?>
     </div>
 </section>
+
+<script>
+(function () {
+    var root = document.getElementById(<?php echo wp_json_encode( $uid ); ?>);
+    if (!root) return;
+
+    root.querySelectorAll('.tpw-card-content').forEach(function (content) {
+        if (content.querySelector('.tpw-with-media')) return;
+
+        var img = content.querySelector('img.alignright, img.alignleft, img.cad-img');
+        if (!img) return;
+
+        var onLeft = img.classList.contains('alignleft') && !img.classList.contains('alignright');
+
+        img.classList.remove('alignleft', 'alignright');
+        img.removeAttribute('width');
+        img.removeAttribute('height');
+        img.style.float = 'none';
+
+        var text = document.createElement('div');
+        text.className = 'tpw-text';
+        while (content.firstChild) {
+            text.appendChild(content.firstChild);
+        }
+
+        text.querySelectorAll('p').forEach(function (p) {
+            if (p.querySelector('img')) return;
+            var plain = (p.textContent || '').replace(/\u00a0/g, '').trim();
+            if (!plain) p.remove();
+        });
+
+        var media = document.createElement('div');
+        media.className = 'tpw-media';
+        media.appendChild(img);
+
+        var wrap = document.createElement('div');
+        wrap.className = 'tpw-with-media' + (onLeft ? ' is-left' : '');
+        wrap.appendChild(text);
+        wrap.appendChild(media);
+        content.appendChild(wrap);
+    });
+})();
+</script>

@@ -36,17 +36,59 @@ if ( $palavras ) {
     $lista = $fallback;
 }
 
-// monta JSON {text, frequency}
+// O editor informa a quantidade junto do nome. Vale para as duas nuvens:
+// LILACS Plus usa "MEDLINE (972833)"; o ecossistema usa "BDENF\t84016"
+// ou "BBO - Brasil 59235". O número só define o tamanho da fonte.
 $words_js = [];
-$base = 60;
-foreach ( $lista as $i => $w ) {
-    $freq       = $base + ( $i % 10 ) * 3;
-    $words_js[] = [ 'text' => $w, 'frequency' => $freq ];
+foreach ( $lista as $w ) {
+    $name   = $w;
+    $count  = null;
+    $w_norm = str_replace( array( "\xc2\xa0", "\t" ), ' ', $w );
+    $w_norm = trim( $w_norm );
+
+    if ( preg_match( '/^(.*)\((\d+)\)\s*$/u', $w_norm, $m ) && trim( $m[1] ) !== '' ) {
+        $name  = trim( $m[1] );
+        $count = (int) $m[2];
+    } elseif ( preg_match( '/^(.*\S)\s+(\d+)\s*$/u', $w_norm, $m ) ) {
+        $name  = trim( $m[1] );
+        $count = (int) $m[2];
+        // Ecossistema: "LILACS - ALyC 1241545" e "ColecionaSUS - Brasil 41599"
+        // exibem só a sigla. A coleção Plus usa parênteses e mantém o nome completo.
+        if ( preg_match( '/^(.+?)\s+-\s+.+$/u', $name, $short ) ) {
+            $name = trim( $short[1] );
+        }
+    }
+
+    $name = trim( $name );
+    if ( $name === '' || preg_match( '/^\d+$/', $name ) ) {
+        continue;
+    }
+
+    $words_js[] = [
+        'text'      => $name,
+        'frequency' => $count ? $count : 1,
+    ];
 }
 $words_json = wp_json_encode( $words_js, JSON_UNESCAPED_UNICODE );
 
 $uid       = 'nuvem-' . get_the_ID() . '-' . get_row_index();
 $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '';
+
+$show_plus_logo = $titulo && preg_match( '/lilacs\s*plus/i', wp_strip_all_tags( (string) $titulo ) );
+$plus_logo_src  = '';
+if ( $show_plus_logo ) {
+    $plus_logo_lang = 'pt';
+    if ( function_exists( 'pll_current_language' ) ) {
+        $lang_slug = pll_current_language( 'slug' );
+        if ( in_array( $lang_slug, array( 'pt', 'en', 'es' ), true ) ) {
+            $plus_logo_lang = $lang_slug;
+        }
+    }
+    $plus_logo_file = 'assets/images/logos/lilacs_color_' . $plus_logo_lang . '.svg';
+    if ( file_exists( get_template_directory() . '/' . $plus_logo_file ) ) {
+        $plus_logo_src = get_template_directory_uri() . '/' . $plus_logo_file;
+    }
+}
 ?>
 
 <style>
@@ -65,12 +107,25 @@ $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '
     color: #003d7a;
     margin: 0 0 16px;
 }
+#<?php echo esc_attr( $uid ); ?> .nuvem-lead {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin: 0 0 40px;
+}
+#<?php echo esc_attr( $uid ); ?> .nuvem-logo {
+    flex: 0 0 auto;
+    width: auto;
+    height: 52px;
+    margin-top: 4px;
+}
 #<?php echo esc_attr( $uid ); ?> .nuvem-desc {
     font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 1rem;
+    font-size: 18px;
     color: #555;
     line-height: 1.7;
-    margin: 0 0 40px;
+    margin: 0;
+    flex: 1 1 auto;
     text-align: justify;
 }
 #<?php echo esc_attr( $uid ); ?> .nuvem-cloud-wrap {
@@ -100,6 +155,7 @@ $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '
     font-size: .9rem;
     font-weight: 500;
     cursor: default;
+    white-space: nowrap;
     transition: background .2s ease, color .2s ease, transform .15s ease;
     line-height: 1.3;
 }
@@ -108,13 +164,11 @@ $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '
     color: #fff;
     transform: scale(1.08);
 }
-#<?php echo esc_attr( $uid ); ?> .nuvem-word.large  { font-size: 1.3rem; font-weight: 700; }
-#<?php echo esc_attr( $uid ); ?> .nuvem-word.medium { font-size: 1.1rem; font-weight: 600; }
-#<?php echo esc_attr( $uid ); ?> .nuvem-word.small  { font-size: .85rem; font-weight: 400; }
 
 @media (max-width: 768px) {
     #<?php echo esc_attr( $uid ); ?> { padding: 40px 16px; }
     #<?php echo esc_attr( $uid ); ?> .nuvem-title { font-size: 1.5rem; }
+    #<?php echo esc_attr( $uid ); ?> .nuvem-logo { height: 44px; }
     #<?php echo esc_attr( $uid ); ?> .nuvem-cloud-wrap { padding: 40px 20px; }
     #<?php echo esc_attr( $uid ); ?> .nuvem-cloud { gap: 10px; }
 }
@@ -131,8 +185,15 @@ $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '
             <h2 class="nuvem-title"><?php echo esc_html( $titulo ); ?></h2>
         <?php endif; ?>
 
-        <?php if ( $descricao ) : ?>
-            <p class="nuvem-desc"><?php echo esc_html( $descricao ); ?></p>
+        <?php if ( $descricao || $plus_logo_src ) : ?>
+            <div class="nuvem-lead">
+                <?php if ( $plus_logo_src ) : ?>
+                    <img class="nuvem-logo" src="<?php echo esc_url( $plus_logo_src ); ?>" alt="<?php echo esc_attr__( 'LILACS', 'rede-bvs' ); ?>">
+                <?php endif; ?>
+                <?php if ( $descricao ) : ?>
+                    <p class="nuvem-desc"><?php echo esc_html( $descricao ); ?></p>
+                <?php endif; ?>
+            </div>
         <?php endif; ?>
 
         <div class="nuvem-cloud-wrap">
@@ -157,23 +218,45 @@ $bg_style  = $cor_fundo ? 'background-color:' . esc_attr( $cor_fundo ) . ';' : '
 
     if (!words.length) return;
 
-    var freqs = words.map(function(w){ return Number(w.frequency)||0; });
-    var fmin  = Math.min.apply(null, freqs);
-    var fmax  = Math.max.apply(null, freqs);
+    function readWord(w) {
+        var text = String(w && w.text || '').replace(/\u00a0/g, ' ').trim();
+        var freq = Math.max(1, Number(w && w.frequency) || 1);
+        var m = text.match(/^(.*)\((\d+)\)\s*$/);
+        if (m && m[1].trim()) {
+            text = m[1].trim();
+            freq = parseInt(m[2], 10) || freq;
+        } else if ((m = text.match(/^(.*\S)\s+(\d+)\s*$/))) {
+            text = m[1].trim();
+            freq = parseInt(m[2], 10) || freq;
+            var shortName = text.match(/^(.+?)\s+-\s+.+$/);
+            if (shortName) text = shortName[1].trim();
+        }
+        return { text: text, frequency: Math.max(1, freq) };
+    }
 
-    // embaralha para visual orgânico
+    words = words.map(readWord).filter(function(w){ return w.text && !/^\d+$/.test(w.text); });
+    if (!words.length) return;
+
+    // Escala logarítmica: a diferença entre dezenas e mais de um milhão
+    // de registros continua legível, e bases maiores ficam claramente maiores.
+    var logs = words.map(function(w){ return Math.log(w.frequency); });
+    var lmin = Math.min.apply(null, logs);
+    var lmax = Math.max.apply(null, logs);
+    var span = (lmax - lmin) || 1;
+
     words = words.slice().sort(function(){ return Math.random() - 0.5; });
 
     cloud.innerHTML = '';
     words.forEach(function(w){
-        var freq = Number(w.frequency)||0;
-        var n    = (freq - fmin) / ((fmax - fmin) || 1);
-        var cls  = n >= .66 ? 'large' : (n >= .33 ? 'medium' : 'small');
+        var n    = (Math.log(w.frequency) - lmin) / span;
+        var size = 16 + n * 18;
 
-        var span = document.createElement('span');
-        span.className = 'nuvem-word ' + cls;
-        span.textContent = w.text;
-        cloud.appendChild(span);
+        var elWord = document.createElement('span');
+        elWord.className = 'nuvem-word';
+        elWord.textContent = w.text;
+        elWord.style.fontSize = size.toFixed(2) + 'px';
+        elWord.style.fontWeight = n >= 0.66 ? '700' : (n >= 0.33 ? '600' : '500');
+        cloud.appendChild(elWord);
     });
 })();
 </script>

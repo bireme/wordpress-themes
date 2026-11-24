@@ -385,7 +385,7 @@ display: flex;
                         continue;
                     }
                 ?>
-                    <div class="faq-item" data-id="<?php echo esc_attr( $post_obj->ID ); ?>">
+                    <div class="faq-item" data-id="<?php echo esc_attr( $post_obj->ID ); ?>" data-slug="<?php echo esc_attr( $post_obj->post_name ); ?>">
                         <span class="faq-item-label"><?php echo esc_html( get_the_title( $post_obj ) ); ?></span>
                         <span class="faq-star">★</span>
                     </div>
@@ -434,7 +434,7 @@ display: flex;
 
                         <div class="faq-category-items">
                             <?php foreach ( $perguntas_da_cat as $p ) : ?>
-                                <div class="faq-item" data-id="<?php echo esc_attr( $p->ID ); ?>">
+                                <div class="faq-item" data-id="<?php echo esc_attr( $p->ID ); ?>" data-slug="<?php echo esc_attr( $p->post_name ); ?>">
                                     <span class="faq-item-label"><?php echo esc_html( get_the_title( $p ) ); ?></span>
                                 </div>
                             <?php endforeach; ?>
@@ -590,14 +590,18 @@ display: flex;
                     block: 'start'
                 });
 
-                // adiciona / atualiza o identificador da pergunta na URL (?faq=ID)
+                // URL pública usa o slug. O ID numérico continua aceito na leitura
+                // para não quebrar links já publicados (?faq=23231, #faq-23231).
+                var faqSlug = itemEl && itemEl.getAttribute('data-slug') ? itemEl.getAttribute('data-slug') : '';
                 try {
                     var url = new URL(window.location.href);
-                    url.searchParams.set('faq', postId);
+                    url.searchParams.set('faq', faqSlug || postId);
+                    if (url.hash.indexOf('#faq-') === 0) {
+                        url.hash = '';
+                    }
                     window.history.replaceState(null, '', url.toString());
                 } catch (e) {
-                    // fallback simples com hash, se URL() não estiver disponível
-                    window.location.hash = 'faq-' + postId;
+                    window.location.hash = 'faq-' + (faqSlug || postId);
                 }
             })
             .catch(function(){
@@ -662,29 +666,43 @@ display: flex;
         });
     }
 
-    /* Abrir pergunta automaticamente via parâmetro de URL (?faq=ID) ou hash (#faq-ID) */
+    /* Abrir pergunta via ?faq=slug (novo) ou ?faq=ID / #faq-ID (links antigos). */
     (function initFromUrl() {
-        var initialId = null;
+        var initialKey = null;
 
         try {
             var url = new URL(window.location.href);
             var param = url.searchParams.get('faq');
             if (param) {
-                initialId = param;
+                initialKey = param;
             }
         } catch (e) {
             // fallback se URL() não existir
         }
 
-        if (!initialId && window.location.hash && window.location.hash.indexOf('#faq-') === 0) {
-            initialId = window.location.hash.replace('#faq-', '');
+        if (!initialKey && window.location.hash && window.location.hash.indexOf('#faq-') === 0) {
+            initialKey = decodeURIComponent(window.location.hash.replace('#faq-', ''));
         }
 
-        if (!initialId) return;
+        if (!initialKey) return;
 
-        // encontra o item correspondente
-        var itemEl = document.querySelector('#<?php echo esc_js( $faq_uid ); ?> .faq-item[data-id="' + initialId + '"]');
+        // Slug tem prioridade. Se não houver item com esse slug, tenta o ID numérico.
+        var itemEl = null;
+        faqItems.forEach(function(el) {
+            if (!itemEl && el.getAttribute('data-slug') === initialKey) {
+                itemEl = el;
+            }
+        });
+        if (!itemEl) {
+            faqItems.forEach(function(el) {
+                if (!itemEl && el.getAttribute('data-id') === initialKey) {
+                    itemEl = el;
+                }
+            });
+        }
         if (!itemEl) return;
+
+        var initialId = itemEl.getAttribute('data-id');
 
         // se estiver dentro de uma categoria colapsada, abre essa categoria
         var categoryItems = itemEl.closest('.faq-category-items');

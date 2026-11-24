@@ -12,11 +12,19 @@ Text Domain: bireme
 Tags: theme lilacs, bireme, oms
 */
 
-/* ============== ZOOM GLOBAL — monitores abaixo de 1920px =============== */
-@media screen and (max-width: 1919px) {
-    html {
-        zoom: 0.75;
-    }
+/* ============== LEITURA DO PORTAL ===============
+   Corpo em 18px, no tamanho real do navegador.
+   O zoom de 75% em telas abaixo de 1920px deixava o texto corrido
+   (15px) com cerca de 11px, menor que o restante da leitura e que a iAHx.
+*/
+#site-content p,
+#site-content li,
+#site-content .desc-text-content,
+#site-content .tpw-card-content,
+#site-content .nuvem-desc,
+#site-content .faq-content-area {
+    font-size: 18px;
+    line-height: 1.65;
 }
 
 /* ============== TÍTULO OPCIONAL SOBRE DOBRA =============== */
