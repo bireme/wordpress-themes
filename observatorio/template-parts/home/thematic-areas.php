@@ -23,8 +23,8 @@ $thematic_areas = new WP_Query(
 	<div class="container">
 		<div class="section-heading mb-4">
 			<span class="section-kicker d-none"><?php esc_html_e( 'Áreas temáticas', 'observatorio' ); ?></span>
-			<h2><?php esc_html_e( 'Áreas temáticas', 'observatorio' ); ?></h2>
-			<p class="section-intro"><?php esc_html_e( 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'observatorio' ); ?></p>
+			<h2><?php echo esc_html( observatorio_home_text( 'home_thematic_areas_title', __( 'Áreas temáticas', 'observatorio' ) ) ); ?></h2>
+			<p class="section-intro"><?php echo esc_html( observatorio_home_text( 'home_thematic_areas_description', __( 'Acesse conteúdos organizados nos eixos temáticos do Observatório.', 'observatorio' ) ) ); ?></p>
 		</div>
 
 		<?php if ( $thematic_areas->have_posts() ) : ?>
@@ -54,8 +54,8 @@ $thematic_areas = new WP_Query(
 									<p><?php echo esc_html( $summary ); ?></p>
 								<?php endif; ?>
 
-								<a href="<?php the_permalink(); ?>" class="card-action-arrow card-action-arrow--light" aria-label="<?php echo esc_attr( sprintf( __( 'Acessar área temática: %s', 'observatorio' ), get_the_title() ) ); ?>">
-									<span aria-hidden="true">→</span>
+								<a href="<?php the_permalink(); ?>" class="btn btn-outline-light">
+									<?php esc_html_e( 'Acessar área temática', 'observatorio' ); ?>
 								</a>
 							</div>
 						</article>

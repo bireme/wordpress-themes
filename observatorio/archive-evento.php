@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <main id="main-content" class="site-main events-archive">
-	<header class="page-hero unified-inner-hero section-space">
+	<header class="page-hero section-space">
 		<div class="container">
 			<span class="section-kicker"><?php esc_html_e( 'Eventos', 'observatorio' ); ?></span>
 			<h1><?php esc_html_e( 'Agenda', 'observatorio' ); ?></h1>
@@ -17,7 +17,6 @@ get_header();
 		</div>
 	</header>
 
-	<?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 	<section class="section-space">
 		<div class="container">
 			<?php if ( have_posts() ) : ?>

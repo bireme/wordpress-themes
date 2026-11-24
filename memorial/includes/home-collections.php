@@ -51,10 +51,12 @@ if (count($hero_posts) === 3) :
           <a href="<?php echo esc_url($big['link']); ?>" class="card overlay-card big text-white h-100">
             <img src="<?php echo esc_url($big['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($big['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
-              <p class="eyebrow mb-1"><?php echo esc_html($big['title']); ?></p>
-              <h5 class="mb-0">
-                <?php echo esc_html($trim_text($big['excerpt'], 14)); ?>
-              </h5>
+              <div class="box-text-hero">
+                <p class="eyebrow mb-1"><?php echo esc_html($big['title']); ?></p>
+                <h5 class="mb-0">
+                  <?php echo esc_html($trim_text($big['excerpt'], 14)); ?>
+                </h5>
+              </div>
             </div>
           </a>
         </div>
@@ -63,19 +65,23 @@ if (count($hero_posts) === 3) :
           <a href="<?php echo esc_url($small1['link']); ?>" class="card overlay-card text-white flex-fill">
             <img src="<?php echo esc_url($small1['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($small1['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
-              <p class="eyebrow mb-1"><?php echo esc_html($small1['title']); ?></p>
-              <h6 class="mb-0 d-lg-none">
-                <?php echo esc_html($trim_text($small1['excerpt'], 18)); ?>
-              </h6>
+              <div class="box-text-hero">
+                <p class="eyebrow mb-1"><?php echo esc_html($small1['title']); ?></p>
+                <h6 class="mb-0 d-lg-none">
+                  <?php echo esc_html($trim_text($small1['excerpt'], 18)); ?>
+                </h6>
+              </div>
             </div>
           </a>
           <a href="<?php echo esc_url($small2['link']); ?>" class="card overlay-card text-white flex-fill">
             <img src="<?php echo esc_url($small2['thumb']); ?>" class="card-img" alt="<?php echo esc_attr($small2['title']); ?>">
             <div class="card-img-overlay d-flex flex-column justify-content-end">
-              <p class="eyebrow mb-1"><?php echo esc_html($small2['title']); ?></p>
-              <h6 class="mb-0 d-lg-none">
-                <?php echo esc_html($trim_text($small2['excerpt'], 18)); ?>
-              </h6>
+              <div class="box-text-hero">
+                <p class="eyebrow mb-1"><?php echo esc_html($small2['title']); ?></p>
+                <h6 class="mb-0 d-lg-none">
+                  <?php echo esc_html($trim_text($small2['excerpt'], 18)); ?>
+                </h6>
+              </div>
             </div>
           </a>
         </div>

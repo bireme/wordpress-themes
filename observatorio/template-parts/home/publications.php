@@ -23,9 +23,9 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 	<div class="container">
 		<div class="section-heading mb-4 d-lg-flex justify-content-between align-items-end gap-4">
 			<div>
-				<span class="section-kicker"><?php esc_html_e( 'Conhecimento', 'observatorio' ); ?></span>
-				<h2><?php esc_html_e( 'Publicações', 'observatorio' ); ?></h2>
-				<p class="section-intro mb-0"><?php esc_html_e( 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'observatorio' ); ?></p>
+				<span class="section-kicker"><?php echo esc_html( observatorio_home_text( 'home_publications_kicker', __( 'Conhecimento', 'observatorio' ) ) ); ?></span>
+				<h2><?php echo esc_html( observatorio_home_text( 'home_publications_title', __( 'Publicações', 'observatorio' ) ) ); ?></h2>
+				<p class="section-intro mb-0"><?php echo esc_html( observatorio_home_text( 'home_publications_description', __( 'Policy briefs e materiais técnicos para apoiar decisões e políticas públicas.', 'observatorio' ) ) ); ?></p>
 			</div>
 
 			<?php if ( $publications_archive_url ) : ?>
@@ -70,8 +70,8 @@ $accent_classes           = array( 'publication-accent-teal', 'publication-accen
 											<p class="text-secondary"><?php echo esc_html( get_the_excerpt() ); ?></p>
 										<?php endif; ?>
 
-										<a href="<?php the_permalink(); ?>" class="card-action-arrow mt-auto align-self-start" aria-label="<?php echo esc_attr( sprintf( __( 'Ver publicação: %s', 'observatorio' ), get_the_title() ) ); ?>">
-											<span aria-hidden="true">→</span>
+										<a href="<?php the_permalink(); ?>" class="btn btn-outline-primary mt-auto align-self-start">
+											<?php esc_html_e( 'Ver publicação', 'observatorio' ); ?>
 										</a>
 									</div>
 								</div>

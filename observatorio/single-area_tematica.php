@@ -60,7 +60,7 @@ get_header();
 			array(
 				'post_type'      => 'publicacao',
 				'post_status'    => 'publish',
-				'posts_per_page' => 3,
+				'posts_per_page' => 4,
 				'orderby'        => 'date',
 				'order'          => 'DESC',
 				'meta_query'     => array(
@@ -75,7 +75,7 @@ get_header();
 		?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'thematic-area-single' ); ?>>
-			<header class="page-hero unified-inner-hero section-space-sm">
+			<header class="page-hero section-space-sm">
 				<div class="container">
 					<p class="section-kicker"><?php esc_html_e( 'Área temática', 'observatorio' ); ?></p>
 					<h1><?php the_title(); ?></h1>
@@ -86,7 +86,6 @@ get_header();
 				</div>
 			</header>
 
-            <?php get_template_part( 'template-parts/components/breadcrumbs' ); ?>
 			<?php if ( has_post_thumbnail() ) : ?>
 				<div class="container thematic-area-featured-image">
 					<?php the_post_thumbnail( 'full', array( 'class' => 'img-fluid rounded-4' ) ); ?>
@@ -169,12 +168,21 @@ get_header();
 							<h2 id="thematic-publications-title"><?php esc_html_e( 'Publicações relacionadas', 'observatorio' ); ?></h2>
 						</div>
 
-						<div class="thematic-publication-list">
+						<div class="row g-4">
 							<?php while ( $publications_query->have_posts() ) : $publications_query->the_post(); ?>
-								<?php get_template_part( 'template-parts/publications/publication-card' ); ?>
-                            <?php endwhile; ?>
+								<?php $publication_type = function_exists( 'get_field' ) ? get_field( 'publication_type' ) : ''; ?>
+								<div class="col-md-6">
+									<article class="related-content-card related-publication-card h-100">
+										<?php if ( $publication_type ) : ?>
+											<p class="related-content-meta"><?php echo esc_html( $publication_type ); ?></p>
+										<?php endif; ?>
+										<h3 class="h5"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+										<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 26 ) ); ?></p>
+										<a class="related-content-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Ver publicação %s', 'observatorio' ), get_the_title() ) ); ?>">&rarr;</a>
+									</article>
+								</div>
+							<?php endwhile; ?>
 						</div>
-                        <a class="btn btn-outline-primary mt-4" href="<?php echo esc_url( get_post_type_archive_link( 'publicacao' ) ); ?>"><?php esc_html_e( 'Ver todas as publicações', 'observatorio' ); ?> &rarr;</a>
 					</div>
 				</section>
 				<?php wp_reset_postdata(); ?>

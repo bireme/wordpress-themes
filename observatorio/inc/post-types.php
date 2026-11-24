@@ -173,12 +173,3 @@ function observatorio_register_publication_post_type() {
 	register_post_type( 'publicacao', $args );
 }
 add_action( 'init', 'observatorio_register_publication_post_type' );
-
-/** Limit thematic area archive to fifteen cards per page. */
-function observatorio_thematic_archive_query( $query ) {
- if ( ! is_admin() && $query->is_main_query() && $query->is_post_type_archive( 'area_tematica' ) ) {
-  $query->set( 'posts_per_page', 15 );
-  $query->set( 'orderby', array( 'menu_order' => 'ASC', 'title' => 'ASC' ) );
- }
-}
-add_action( 'pre_get_posts', 'observatorio_thematic_archive_query' );
