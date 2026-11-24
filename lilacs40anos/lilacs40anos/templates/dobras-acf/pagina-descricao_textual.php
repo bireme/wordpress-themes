@@ -55,7 +55,7 @@ $bg_style = $cor_fundo ? ' style="background:' . esc_attr( $cor_fundo ) . ';"' :
 
 /* Conteúdo vindo do WYSIWYG */
 #<?php echo esc_attr( $uid ); ?> .desc-text-content {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.7;
     color: #111827;
 }
