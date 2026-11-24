@@ -20,6 +20,35 @@ $rss_cache_secs = 10 * MINUTE_IN_SECONDS;
  *   ['title' => '...', 'link' => '...', 'desc' => '...'],
  * ]
  */
+if ( ! function_exists('bvs_reunioes_rss_item_sem_conteudo') ) {
+    /**
+     * O feed da agenda, sem eventos, devolve um item só com o aviso
+     * ("Não há eventos futuros.", "No hay eventos próximos.", "No upcoming events.") e sem link.
+     */
+    function bvs_reunioes_rss_item_sem_conteudo( $item ) {
+        $title = isset( $item['title'] ) ? trim( wp_strip_all_tags( (string) $item['title'] ) ) : '';
+        $link  = isset( $item['link'] ) ? trim( (string) $item['link'] ) : '';
+
+        if ( $link === '' || $title === '' ) {
+            return true;
+        }
+
+        $comparar = function_exists( 'remove_accents' ) ? remove_accents( $title ) : $title;
+        $comparar = function_exists( 'mb_strtolower' ) ? mb_strtolower( $comparar ) : strtolower( $comparar );
+
+        $avisos = array(
+            'nao ha eventos futuros.',
+            'no hay eventos proximos.',
+            'no hay eventos futuros.',
+            'no upcoming events.',
+            'there are no upcoming events.',
+            'there are no future events.',
+        );
+
+        return in_array( $comparar, $avisos, true );
+    }
+}
+
 if ( ! function_exists('bvs_reunioes_get_rss_items') ) {
     function bvs_reunioes_get_rss_items($rss_url, $limit = 3, $cache_secs = 600, &$debug_out = '') {
         $items = [];
@@ -36,9 +65,14 @@ if ( ! function_exists('bvs_reunioes_get_rss_items') ) {
         if ( $cache_secs > 0 ) {
             $cached = get_transient($cache_key);
             if ( is_array($cached) && ! empty($cached) ) {
-                $debug[] = 'cache hit (' . count($cached) . ' items)';
-                $debug_out = implode(' | ', $debug);
-                return $cached;
+                $cached = array_values( array_filter( $cached, function( $item ) {
+                    return ! bvs_reunioes_rss_item_sem_conteudo( $item );
+                } ) );
+                if ( ! empty( $cached ) ) {
+                    $debug[] = 'cache hit (' . count($cached) . ' items)';
+                    $debug_out = implode(' | ', $debug);
+                    return $cached;
+                }
             }
         }
         // Limpa transient anterior que pode estar vazio
@@ -98,11 +132,16 @@ if ( ! function_exists('bvs_reunioes_get_rss_items') ) {
                             $desc = (string)$it->summary;
                         }
 
-                        $items[] = [
+                        $item = [
                             'title' => wp_strip_all_tags($title),
                             'link'  => esc_url_raw($link),
                             'desc'  => wp_strip_all_tags($desc),
                         ];
+                        if ( bvs_reunioes_rss_item_sem_conteudo( $item ) ) {
+                            continue;
+                        }
+
+                        $items[] = $item;
 
                         $count++;
                         if ($count >= (int)$limit) break;
@@ -124,11 +163,15 @@ if ( ! function_exists('bvs_reunioes_get_rss_items') ) {
                 $max = (int) $feed->get_item_quantity((int)$limit);
                 $rss_items = $feed->get_items(0, $max);
                 foreach ($rss_items as $it) {
-                    $items[] = [
+                    $item = [
                         'title' => wp_strip_all_tags((string)$it->get_title()),
                         'link'  => esc_url_raw((string)$it->get_link()),
                         'desc'  => wp_strip_all_tags((string)$it->get_description()),
                     ];
+                    if ( bvs_reunioes_rss_item_sem_conteudo( $item ) ) {
+                        continue;
+                    }
+                    $items[] = $item;
                 }
                 $debug[] = 'fetch_feed_items=' . count($items);
             }
@@ -142,6 +185,32 @@ if ( ! function_exists('bvs_reunioes_get_rss_items') ) {
         $debug_out = implode(' | ', $debug);
         return $items;
     }
+}
+
+$cards_manuais = array();
+if ( $is_manual && function_exists( 'have_rows' ) && have_rows( 'url_do_rss_copiar' ) ) {
+    while ( have_rows( 'url_do_rss_copiar' ) ) {
+        the_row();
+        $card = array(
+            'title' => trim( (string) get_sub_field( 'titulo' ) ),
+            'meta'  => trim( (string) get_sub_field( 'linha_inferior' ) ),
+            'link'  => trim( (string) get_sub_field( 'link_do_rss' ) ),
+        );
+        if ( $card['title'] === '' && $card['meta'] === '' && $card['link'] === '' ) {
+            continue;
+        }
+        $cards_manuais[] = $card;
+    }
+}
+
+$rss_items = array();
+if ( empty( $cards_manuais ) ) {
+    $debug_rss = '';
+    $rss_items = bvs_reunioes_get_rss_items( $rss_url, $rss_limit, $rss_cache_secs, $debug_rss );
+}
+
+if ( empty( $cards_manuais ) && empty( $rss_items ) ) {
+    return;
 }
 ?>
 <style>
@@ -251,48 +320,39 @@ background: #ffffff;
             <?php endif; ?>
         </header>
 
-        <?php if ( $is_manual && have_rows('url_do_rss_copiar') ) : ?>
+        <?php if ( ! empty( $cards_manuais ) ) : ?>
 
             <div class="home-reunioes-cards">
-                <?php while ( have_rows('url_do_rss_copiar') ) : the_row();
-                    $titulo_card = get_sub_field('titulo');
-                    $linha_inf   = get_sub_field('linha_inferior');
-                    $linha_link   = get_sub_field('link_do_rss');
-                ?>
+                <?php foreach ( $cards_manuais as $card ) : ?>
                     <article class="reuniao-card">
-                        <a style="text-decoration:none;" href="<?php echo esc_url($linha_link); ?>">
+                        <a style="text-decoration:none;" href="<?php echo esc_url( $card['link'] ); ?>">
                         <div class="reuniao-card-inner">
-                            <?php if ( $titulo_card ) : ?>
+                            <?php if ( $card['title'] !== '' ) : ?>
                                 <h3 class="reuniao-card-title">
-                                    <?php echo esc_html( $titulo_card ); ?>
+                                    <?php echo esc_html( $card['title'] ); ?>
                                 </h3>
                             <?php endif; ?>
 
-                            <?php if ( $linha_inf ) : ?>
+                            <?php if ( $card['meta'] !== '' ) : ?>
                                 <p class="reuniao-card-meta">
-                                    <?php echo esc_html( $linha_inf ); ?>
+                                    <?php echo esc_html( $card['meta'] ); ?>
                                 </p>
                             <?php endif; ?>
                         </div>
                         </a>
                     </article>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             </div>
 
+            <?php if ( $linkGeral ) : ?>
             <div class="home-reunioes-footer">
                 <a href="<?php echo esc_url($linkGeral); ?>" class="home-reunioes-ver-todos">
                     <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
                 </a>
             </div>
+            <?php endif; ?>
 
         <?php else : ?>
-
-            <?php
-                $debug_rss = '';
-                $rss_items = bvs_reunioes_get_rss_items($rss_url, $rss_limit, $rss_cache_secs, $debug_rss);
-            ?>
-
-            <?php if (!empty($rss_items)) : ?>
 
                 <div class="home-reunioes-cards">
                     <?php foreach ($rss_items as $it) : 
@@ -320,24 +380,13 @@ background: #ffffff;
                     <?php endforeach; ?>
                 </div>
 
+                <?php if ( $linkGeral ) : ?>
                 <div class="home-reunioes-footer">
                     <a href="<?php echo esc_url($linkGeral); ?>" target="_blank" class="home-reunioes-ver-todos">
                         <?php echo esc_html( rede_bvs_pll( 'Ver todos' ) ); ?>
                     </a>
                 </div>
-
-            <?php else : ?>
-
-                <!-- Se cair aqui, o RSS não foi lido/parseado -->
-                <?php if ( $rss_url ): ?>
-                    <a href="<?php echo esc_url($rss_url); ?>" target="_blank" class="home-reunioes-ver-todos">
-                        <?php echo esc_html( rede_bvs_pll( 'Ver RSS' ) ); ?>
-                    </a>
-                <?php else: ?>
-                    <p><?php echo esc_html( rede_bvs_pll( 'Em breve: listagem das últimas reuniões via RSS.' ) ); ?></p>
                 <?php endif; ?>
-
-            <?php endif; ?>
 
         <?php endif; ?>
 
