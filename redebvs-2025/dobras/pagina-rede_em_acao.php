@@ -11,45 +11,52 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-// Título do bloco (fallback para "A Rede em ação")
-$titulo_bloco = get_sub_field( 'titulo_do_bloco' );
-if ( empty( $titulo_bloco ) ) {
-    $titulo_bloco = 'A Rede em ação';
+if ( ! isset( $args ) || ! is_array( $args ) ) {
+    $args = array();
 }
 
-// Modo de listagem
-$modo = get_sub_field( 'modo_de_listagem' );
+$lista_completa = ! empty( $args['lista_completa'] ) || ( function_exists( 'rede_bvs_is_rede_acao_todas' ) && rede_bvs_is_rede_acao_todas() );
+$na_linha       = function_exists( 'get_row_layout' ) && get_row_layout() === 'rede_em_acao';
+$page_id        = (int) get_queried_object_id();
 
-$eventos = array();
-
-if ( $modo === 'Via categorias' ) {
-    // Busca automática por categorias selecionadas
-    $cat_ids = get_sub_field( 'escolha_as_categorias' );
-    if ( ! empty( $cat_ids ) ) {
-        $cat_query = new WP_Query( array(
-            'post_type'      => 'post',
-            'post_status'    => 'publish',
-            'posts_per_page' => 6,
-            'category__in'   => (array) $cat_ids,
-            'orderby'        => 'date',
-            'order'          => 'DESC',
-        ) );
-        if ( $cat_query->have_posts() ) {
-            $eventos = $cat_query->posts;
-        }
-        wp_reset_postdata();
-    }
+if ( $na_linha && ! $lista_completa ) {
+    $titulo_bloco = get_sub_field( 'titulo_do_bloco' );
+    $modo         = get_sub_field( 'modo_de_listagem' );
+    $cat_ids      = rede_bvs_normalize_ids( get_sub_field( 'escolha_as_categorias' ) );
+    $post_ids     = rede_bvs_normalize_ids( get_sub_field( 'escolha_os_eventos' ) );
+} elseif ( $lista_completa ) {
+    $fonte        = rede_bvs_rede_acao_fonte( $page_id );
+    $titulo_bloco = $fonte['titulo'];
+    $modo         = $fonte['modo'];
+    $cat_ids      = $fonte['cat_ids'];
+    $post_ids     = $fonte['post_ids'];
 } else {
-    // Escolha manual
-    $manual = get_sub_field( 'escolha_os_eventos' );
-    if ( ! empty( $manual ) ) {
-        $eventos = $manual;
-    }
-}
-
-if ( empty( $eventos ) ) {
     return;
 }
+
+if ( empty( $titulo_bloco ) ) {
+    $titulo_bloco = rede_bvs_t( 'A Rede em ação', 'La red en acción', 'The Network in action' );
+}
+
+$per_page = $lista_completa ? 12 : 6;
+$paged    = $lista_completa ? rede_bvs_rede_acao_paged() : 1;
+$query    = rede_bvs_rede_acao_query( $modo, $cat_ids, $post_ids, $per_page, $paged );
+$total    = ( $query instanceof WP_Query ) ? (int) $query->found_posts : 0;
+$eventos  = ( $query instanceof WP_Query ) ? $query->posts : array();
+
+if ( $query instanceof WP_Query ) {
+    wp_reset_postdata();
+}
+
+// Na página do país, a prévia só aparece quando há notícias.
+// A listagem completa permanece, para o visitante ver o estado vazio.
+if ( ! $lista_completa && empty( $eventos ) ) {
+    return;
+}
+
+$mostrar_ver_mais = ( ! $lista_completa && $total > 6 );
+$more_url         = $mostrar_ver_mais ? rede_bvs_rede_acao_more_url( $page_id ) : '';
+$ver_mais_label   = rede_bvs_t( 'Ver mais', 'Ver más', 'See more' );
 ?>
 
 <style>
@@ -71,7 +78,7 @@ if ( empty( $eventos ) ) {
 
 .rede-acao-header{
 display: inline-block;
-    margin-top: 4px;
+    margin: 4px 0 0;
     padding: 8px 14px;
     border-radius: 8px;
     background: #e5e7eb;
@@ -151,7 +158,11 @@ display: inline-block;
     color: #4b5563;
 }
 
-/* botão "Mostrar mais" */
+/* botão "Ver mais" */
+
+.rede-acao-breadcrumb{
+    margin-bottom: 16px;
+}
 
 .rede-acao-footer{
     display: flex;
@@ -174,6 +185,41 @@ display: inline-block;
 
 .rede-acao-more:hover{
     filter: brightness(1.05);
+    color: #ffffff;
+}
+
+.rede-acao-empty{
+    margin: 0;
+    color: #4b5563;
+}
+
+.rede-acao-pagination{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.rede-acao-pagination .page-numbers{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    margin: 0 4px;
+    background: #f0f3fa;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #0056a6;
+    font-weight: 600;
+}
+
+.rede-acao-pagination .page-numbers:hover{
+    background: #dce4f3;
+    color: #003c80;
+}
+
+.rede-acao-pagination .current{
+    background: #0056a6;
+    color: #ffffff;
 }
 
 /* responsivo */
@@ -198,12 +244,43 @@ display: inline-block;
 }
 </style>
 
-<section class="rede-acao-section">
+<section id="rede-em-acao" class="rede-acao-section<?php echo $lista_completa ? ' rede-acao-section--lista' : ''; ?>">
+
+        <?php if ( $lista_completa && function_exists( 'rede_bvs_breadcrumb' ) ) : ?>
+            <?php
+            $rede_page_id = 18;
+            if ( function_exists( 'pll_get_post' ) ) {
+                $rede_traduzida = pll_get_post( 18 );
+                if ( $rede_traduzida ) {
+                    $rede_page_id = (int) $rede_traduzida;
+                }
+            }
+            ?>
+            <div class="rede-acao-breadcrumb">
+                <?php
+                rede_bvs_breadcrumb( array(
+                    array(
+                        'label' => get_the_title( $rede_page_id ),
+                        'url'   => get_permalink( $rede_page_id ),
+                    ),
+                    array(
+                        'label' => get_the_title( $page_id ),
+                        'url'   => get_permalink( $page_id ),
+                    ),
+                    array(
+                        'label' => $titulo_bloco,
+                    ),
+                ) );
+                ?>
+            </div>
+        <?php endif; ?>
+
     <div class="rede-acao-box">
 
-        <div class="rede-acao-header">
+        <?php $header_tag = ( $lista_completa ? 'h1' : 'div' ); ?>
+        <<?php echo $header_tag; ?> class="rede-acao-header">
             <?php echo esc_html( $titulo_bloco ); ?>
-        </div>
+        </<?php echo $header_tag; ?>>
 
         <div class="rede-acao-body">
             <div class="rede-acao-list">
@@ -260,16 +337,45 @@ display: inline-block;
                 <?php endforeach; ?>
             </div>
 
-            <div class="rede-acao-footer">
-                <?php
-                $archive_link = get_post_type_archive_link( 'acontece-na-rede' );
-                if ( $archive_link ) :
-                ?>
-                    <a class="rede-acao-more" href="<?php echo esc_url( $archive_link ); ?>">
-                        <?php esc_html_e( 'Mostrar mais', 'bvs' ); ?>
+            <?php if ( empty( $eventos ) ) : ?>
+                <p class="rede-acao-empty">
+                    <?php echo esc_html( rede_bvs_t( 'Nenhuma notícia encontrada.', 'No se encontraron noticias.', 'No news found.' ) ); ?>
+                </p>
+            <?php endif; ?>
+
+            <?php if ( $mostrar_ver_mais && $more_url ) : ?>
+                <div class="rede-acao-footer">
+                    <a class="rede-acao-more" href="<?php echo esc_url( $more_url ); ?>">
+                        <?php echo esc_html( $ver_mais_label ); ?>
                     </a>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if ( $lista_completa && $query instanceof WP_Query && $query->max_num_pages > 1 ) : ?>
+                <div class="rede-acao-pagination">
+                    <?php
+                    $big  = 999999999;
+                    $base = add_query_arg(
+                        array(
+                            'rede_acao'   => 'todas',
+                            'rede_pagina' => $big,
+                        ),
+                        get_permalink( $page_id )
+                    );
+                    $base = str_replace( (string) $big, '%#%', $base );
+
+                    echo paginate_links( array(
+                        'base'         => $base,
+                        'format'       => '',
+                        'current'      => $paged,
+                        'total'        => (int) $query->max_num_pages,
+                        'prev_text'    => '← ' . rede_bvs_t( 'Anterior', 'Anterior', 'Previous' ),
+                        'next_text'    => rede_bvs_t( 'Próximo', 'Siguiente', 'Next' ) . ' →',
+                        'add_fragment' => '#rede-em-acao',
+                    ) );
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
 
     </div>

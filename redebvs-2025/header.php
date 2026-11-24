@@ -35,6 +35,9 @@ if ( ! function_exists('bvs_lang_switcher_markup') ) {
                 $name   = !empty($lang['name']) ? $lang['name'] : strtoupper((string)($lang['slug'] ?? ''));
                 $slug   = (string)($lang['slug'] ?? '');
                 $url    = !empty($lang['url']) ? $lang['url'] : home_url('/');
+                if ( function_exists( 'rede_bvs_preserve_rede_acao_lang_url' ) ) {
+                    $url = rede_bvs_preserve_rede_acao_lang_url( $url, $slug );
+                }
                 $active = !empty($lang['current_lang']);
             ?>
                 <?php if ( $active ) : ?>
