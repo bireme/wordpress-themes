@@ -18,8 +18,12 @@ get_header();
         
             <div class="home-reunioes-inner">
         <?php
+        // Listagem completa das notícias do país, no mesmo idioma da página.
+        if ( function_exists( 'rede_bvs_is_rede_acao_todas' ) && rede_bvs_is_rede_acao_todas() ) :
+            rede_bvs_dobra( 'pagina-rede_em_acao', array( 'lista_completa' => true ) );
+
         // Loop ACF Flexible Content: campo "layout"
-        if ( have_rows( 'layout' ) ) :
+        elseif ( have_rows( 'layout' ) ) :
 
             while ( have_rows( 'layout' ) ) : the_row();
 

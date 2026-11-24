@@ -78,6 +78,7 @@ function rede_bvs_register_polylang_strings() {
 
     // Botões e labels comuns
     pll_register_string( 'btn_ver_todos',            'Ver todos',                      $group );
+    pll_register_string( 'btn_ver_mais',             'Ver mais',                       $group );
     pll_register_string( 'btn_ver_rss',              'Ver RSS',                        $group );
     pll_register_string( 'btn_inscreva_se',          'Inscreva-se',                    $group );
     pll_register_string( 'label_link_externo',       'Link externo',                   $group );
@@ -118,6 +119,215 @@ function rede_bvs_pll( $string ) {
         return pll__( $string );
     }
     return $string;
+}
+
+/**
+ * Slug de idioma atual normalizado para pt, es ou en.
+ */
+function rede_bvs_lang_slug() {
+    $lang = 'pt';
+
+    if ( function_exists( 'pll_current_language' ) ) {
+        $current = pll_current_language( 'slug' );
+        if ( is_string( $current ) && $current !== '' ) {
+            $lang = $current;
+        }
+    }
+
+    if ( strpos( $lang, 'es' ) === 0 ) {
+        return 'es';
+    }
+    if ( strpos( $lang, 'en' ) === 0 ) {
+        return 'en';
+    }
+
+    return 'pt';
+}
+
+/**
+ * Tradução com fallback no código para pt, es e en.
+ * Se o Polylang tiver uma tradução cadastrada, ela prevalece.
+ */
+function rede_bvs_t( $pt, $es = null, $en = null ) {
+    $map = array(
+        'pt' => $pt,
+        'es' => ( $es !== null ) ? $es : $pt,
+        'en' => ( $en !== null ) ? $en : $pt,
+    );
+    $lang     = rede_bvs_lang_slug();
+    $fallback = isset( $map[ $lang ] ) ? $map[ $lang ] : $pt;
+
+    if ( function_exists( 'pll__' ) ) {
+        $translated = pll__( $pt );
+        if ( is_string( $translated ) && $translated !== '' && $translated !== $pt ) {
+            return $translated;
+        }
+    }
+
+    return $fallback;
+}
+
+/**
+ * Lista completa da seção "Rede em ação" (?rede_acao=todas).
+ */
+function rede_bvs_is_rede_acao_todas() {
+    if ( ! isset( $_GET['rede_acao'] ) ) {
+        return false;
+    }
+
+    return sanitize_key( wp_unslash( $_GET['rede_acao'] ) ) === 'todas';
+}
+
+/**
+ * Página da listagem completa, no idioma e no país da página atual.
+ */
+function rede_bvs_rede_acao_more_url( $page_id = 0 ) {
+    $page_id = $page_id ? (int) $page_id : (int) get_queried_object_id();
+    $url     = get_permalink( $page_id );
+
+    if ( ! $url ) {
+        return '';
+    }
+
+    return add_query_arg( 'rede_acao', 'todas', $url ) . '#rede-em-acao';
+}
+
+/**
+ * Número da página da listagem completa.
+ * Usa um parâmetro próprio para não disparar o redirect canônico do WordPress.
+ */
+function rede_bvs_rede_acao_paged() {
+    if ( ! isset( $_GET['rede_pagina'] ) ) {
+        return 1;
+    }
+
+    return max( 1, (int) $_GET['rede_pagina'] );
+}
+
+/**
+ * Mantém país e idioma ao trocar o idioma na listagem completa.
+ */
+function rede_bvs_preserve_rede_acao_lang_url( $url, $lang_slug ) {
+    if ( ! rede_bvs_is_rede_acao_todas() || ! is_singular() || ! function_exists( 'pll_get_post' ) ) {
+        return $url;
+    }
+
+    $translated_id = pll_get_post( get_queried_object_id(), $lang_slug );
+    if ( ! $translated_id ) {
+        return $url;
+    }
+
+    return add_query_arg( 'rede_acao', 'todas', get_permalink( $translated_id ) ) . '#rede-em-acao';
+}
+
+/**
+ * Impede que o WordPress remova os parâmetros da listagem completa.
+ */
+function rede_bvs_rede_acao_disable_canonical( $redirect_url ) {
+    if ( rede_bvs_is_rede_acao_todas() ) {
+        return false;
+    }
+
+    return $redirect_url;
+}
+add_filter( 'redirect_canonical', 'rede_bvs_rede_acao_disable_canonical' );
+
+/**
+ * Normaliza IDs vindos de campos ACF (ID, objeto ou lista).
+ */
+function rede_bvs_normalize_ids( $value ) {
+    if ( $value instanceof WP_Post ) {
+        return array( (int) $value->ID );
+    }
+    if ( $value instanceof WP_Term ) {
+        return array( (int) $value->term_id );
+    }
+    if ( is_numeric( $value ) ) {
+        $id = (int) $value;
+        return $id > 0 ? array( $id ) : array();
+    }
+
+    $ids = array();
+    foreach ( (array) $value as $item ) {
+        if ( $item instanceof WP_Post ) {
+            $ids[] = (int) $item->ID;
+        } elseif ( $item instanceof WP_Term ) {
+            $ids[] = (int) $item->term_id;
+        } elseif ( is_numeric( $item ) ) {
+            $ids[] = (int) $item;
+        }
+    }
+
+    $ids = array_values( array_unique( array_filter( $ids ) ) );
+    return $ids;
+}
+
+/**
+ * Lê a configuração da dobra "Rede em ação" gravada na página do país.
+ */
+function rede_bvs_rede_acao_fonte( $page_id ) {
+    $fonte = array(
+        'titulo'   => '',
+        'modo'     => '',
+        'cat_ids'  => array(),
+        'post_ids' => array(),
+    );
+
+    if ( ! $page_id || ! function_exists( 'have_rows' ) ) {
+        return $fonte;
+    }
+
+    if ( ! have_rows( 'layout', $page_id ) ) {
+        return $fonte;
+    }
+
+    $encontrado = false;
+    while ( have_rows( 'layout', $page_id ) ) {
+        the_row();
+        if ( $encontrado || get_row_layout() !== 'rede_em_acao' ) {
+            continue;
+        }
+
+        $fonte['titulo']   = (string) get_sub_field( 'titulo_do_bloco' );
+        $fonte['modo']     = (string) get_sub_field( 'modo_de_listagem' );
+        $fonte['cat_ids']  = rede_bvs_normalize_ids( get_sub_field( 'escolha_as_categorias' ) );
+        $fonte['post_ids'] = rede_bvs_normalize_ids( get_sub_field( 'escolha_os_eventos' ) );
+        $encontrado        = true;
+    }
+
+    return $fonte;
+}
+
+/**
+ * Consulta as notícias da seção, no idioma corrente (filtro do Polylang).
+ */
+function rede_bvs_rede_acao_query( $modo, $cat_ids, $post_ids, $per_page, $paged ) {
+    $args = array(
+        'post_type'           => 'post',
+        'post_status'         => 'publish',
+        'posts_per_page'      => (int) $per_page,
+        'paged'               => max( 1, (int) $paged ),
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+        'ignore_sticky_posts' => true,
+    );
+
+    // O Polylang filtra a consulta pelo idioma da página atual.
+    if ( $modo === 'Via categorias' ) {
+        $cat_ids = array_filter( array_map( 'intval', (array) $cat_ids ) );
+        if ( empty( $cat_ids ) ) {
+            return null;
+        }
+        $args['category__in'] = $cat_ids;
+    } else {
+        $post_ids = array_filter( array_map( 'intval', (array) $post_ids ) );
+        if ( empty( $post_ids ) ) {
+            return null;
+        }
+        $args['post__in'] = $post_ids;
+    }
+
+    return new WP_Query( $args );
 }
 
 /**
