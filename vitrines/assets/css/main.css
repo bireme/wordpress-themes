@@ -103,16 +103,3 @@ body { margin: 0; color: #444; font-family: "Open Sans", Helvetica, Arial, sans-
     .vitrines-languages ul { justify-content: center; }
     .vitrines-layout--sidebar { grid-template-columns: minmax(0, 1fr); }
 }
-
-.vitrines-home-columns {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    gap: 24px;
-}
-.vitrines-home-columns > :only-child { grid-column: 1 / -1; }
-.vitrines-home-widgets .widget + .widget { margin-block-start: 24px; }
-.vitrines-home-widgets img { max-width: 100%; height: auto; }
-
-@media (max-width: 760px) {
-    .vitrines-home-columns { grid-template-columns: minmax(0, 1fr); }
-}
