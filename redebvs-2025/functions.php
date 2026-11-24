@@ -102,6 +102,7 @@ function rede_bvs_register_polylang_strings() {
 
     // Sidebar
     pll_register_string( 'sidebar_categorias',        'Categorias',                     $group );
+    pll_register_string( 'sidebar_arquivos_ano',      'Arquivos por Ano',               $group );
 
     // Archive Vozes
     pll_register_string( 'vozes_da_rede_titulo',      'Vozes da Rede',                  $group );
