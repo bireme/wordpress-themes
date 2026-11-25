@@ -46,7 +46,7 @@ function bireme_lilacs_scripts() {
 
     // Script da página Periódicos (carregado apenas quando necessário)
     if (is_page_template('page-lilacs-periodicos.php')) {
-        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.1', true);
+        wp_enqueue_script('bireme-lilacs-periodicos', get_template_directory_uri() . '/assets/js/periodicos.js', array(), '1.0.2', true);
     }
 }
 add_action('wp_enqueue_scripts', 'bireme_lilacs_scripts');
@@ -350,6 +350,28 @@ function bireme_lilacs_register_depoimentos_cpt() {
         );
     }
 
+    if ( ! taxonomy_exists( 'depoimento_colecao' ) ) {
+        register_taxonomy(
+            'depoimento_colecao',
+            'depoimentos',
+            array(
+                'labels'            => array(
+                    'name'          => __( 'Coleções', 'bireme-lilacs' ),
+                    'singular_name' => __( 'Coleção', 'bireme-lilacs' ),
+                    'add_new_item'  => __( 'Adicionar coleção ou evento', 'bireme-lilacs' ),
+                    'search_items'  => __( 'Buscar coleções', 'bireme-lilacs' ),
+                ),
+                'public'            => false,
+                'show_ui'           => true,
+                'show_admin_column' => true,
+                'show_in_rest'      => true,
+                'hierarchical'      => false,
+                'meta_box_cb'       => false,
+                'rewrite'           => false,
+            )
+        );
+    }
+
     // Garante rewrite do single após deploy do template.
     if ( get_option( 'lilacs_depoimentos_rewrite_v1' ) !== '1' ) {
         flush_rewrite_rules( false );
@@ -375,6 +397,194 @@ function bireme_lilacs_depoimentos_cpt_args( $args, $post_type ) {
 add_filter( 'register_post_type_args', 'bireme_lilacs_depoimentos_cpt_args', 20, 2 );
 
 /**
+ * Status "Arquivado" e tradução do depoimento no Polylang.
+ * Rascunho, Pendente (em revisão) e Publicado são os status nativos.
+ * A data de publicação é a data do post, distinta da data do depoimento.
+ */
+function bireme_lilacs_depoimentos_status() {
+    register_post_status(
+        'arquivado',
+        array(
+            'label'                     => _x( 'Arquivado', 'post status', 'bireme-lilacs' ),
+            'public'                    => false,
+            'internal'                  => false,
+            'protected'                 => true,
+            'exclude_from_search'       => true,
+            'show_in_admin_all_list'    => true,
+            'show_in_admin_status_list' => true,
+            'label_count'               => _n_noop(
+                'Arquivado <span class="count">(%s)</span>',
+                'Arquivados <span class="count">(%s)</span>',
+                'bireme-lilacs'
+            ),
+        )
+    );
+}
+add_action( 'init', 'bireme_lilacs_depoimentos_status' );
+
+function bireme_lilacs_depoimentos_polylang( $types, $is_settings = false ) {
+    unset( $is_settings );
+    $types['depoimentos'] = 'depoimentos';
+    return $types;
+}
+add_filter( 'pll_get_post_types', 'bireme_lilacs_depoimentos_polylang', 10, 2 );
+
+function bireme_lilacs_depoimento_title_placeholder( $text, $post ) {
+    if ( $post instanceof WP_Post && $post->post_type === 'depoimentos' ) {
+        return __( 'Título do depoimento', 'bireme-lilacs' );
+    }
+    return $text;
+}
+add_filter( 'enter_title_here', 'bireme_lilacs_depoimento_title_placeholder', 10, 2 );
+
+function bireme_lilacs_depoimento_default_colecoes() {
+    if ( get_option( 'lilacs_depoimento_colecoes_v1' ) === '1' || ! taxonomy_exists( 'depoimento_colecao' ) ) {
+        return;
+    }
+    $names = array( 'LILACS 40 anos', 'LILACS 35 anos', 'Rede de Indexadores', 'Rede de Referencistas', 'Rede LILACS' );
+    foreach ( $names as $name ) {
+        if ( ! term_exists( $name, 'depoimento_colecao' ) ) {
+            wp_insert_term( $name, 'depoimento_colecao' );
+        }
+    }
+    update_option( 'lilacs_depoimento_colecoes_v1', '1' );
+}
+add_action( 'init', 'bireme_lilacs_depoimento_default_colecoes', 20 );
+
+function bireme_lilacs_depoimento_status_script() {
+    $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+    if ( ! $screen || $screen->post_type !== 'depoimentos' ) {
+        return;
+    }
+    ?>
+    <script>
+    jQuery(function ($) {
+        var box = $('#post_status');
+        if (!box.length || box.find('option[value="arquivado"]').length) return;
+        box.append('<option value="arquivado">Arquivado</option>');
+        if ($('#hidden_post_status').val() === 'arquivado' || $('#original_post_status').val() === 'arquivado') {
+            box.val('arquivado');
+            $('#post-status-display').text('Arquivado');
+        }
+    });
+    </script>
+    <?php
+}
+add_action( 'admin_footer-post.php', 'bireme_lilacs_depoimento_status_script' );
+add_action( 'admin_footer-post-new.php', 'bireme_lilacs_depoimento_status_script' );
+
+/**
+ * Rótulos públicos dos campos de lista, no idioma da página.
+ */
+function bireme_lilacs_depoimento_label( $group, $value ) {
+    $value = (string) $value;
+    $lang  = function_exists( 'pll_current_language' ) ? pll_current_language( 'slug' ) : 'pt';
+    if ( ! in_array( $lang, array( 'pt', 'es', 'en' ), true ) ) {
+        $lang = 'pt';
+    }
+    $maps = array(
+        'formato' => array(
+            'escrito' => array( 'pt' => 'Relato escrito', 'es' => 'Relato escrito', 'en' => 'Written account' ),
+            'video'   => array( 'pt' => 'Vídeo', 'es' => 'Video', 'en' => 'Video' ),
+        ),
+        'idioma'  => array(
+            'pt' => array( 'pt' => 'Português', 'es' => 'Portugués', 'en' => 'Portuguese' ),
+            'es' => array( 'pt' => 'Espanhol', 'es' => 'Español', 'en' => 'Spanish' ),
+            'en' => array( 'pt' => 'Inglês', 'es' => 'Inglés', 'en' => 'English' ),
+            'fr' => array( 'pt' => 'Francês', 'es' => 'Francés', 'en' => 'French' ),
+        ),
+        'papel'   => array(
+            'centro-cooperante'  => array( 'pt' => 'Centro Cooperante', 'es' => 'Centro Cooperante', 'en' => 'Cooperating Center' ),
+            'editor-periodico'   => array( 'pt' => 'Editor de periódico', 'es' => 'Editor de revista', 'en' => 'Journal editor' ),
+            'coordenador-lilacs' => array( 'pt' => 'Coordenador LILACS', 'es' => 'Coordinador LILACS', 'en' => 'LILACS coordinator' ),
+            'pesquisador'        => array( 'pt' => 'Pesquisador (usuário)', 'es' => 'Investigador (usuario)', 'en' => 'Researcher (user)' ),
+            'rede-indexadores'   => array( 'pt' => 'Rede de Indexadores', 'es' => 'Red de Indizadores', 'en' => 'Indexers Network' ),
+            'rede-referencistas' => array( 'pt' => 'Rede de Referencistas', 'es' => 'Red de Referencistas', 'en' => 'Reference Network' ),
+        ),
+        'tema'    => array(
+            'trabalho-em-rede'         => array( 'pt' => 'Trabalho em rede', 'es' => 'Trabajo en red', 'en' => 'Network collaboration' ),
+            'indexacao'                => array( 'pt' => 'Indexação', 'es' => 'Indización', 'en' => 'Indexing' ),
+            'decs'                     => array( 'pt' => 'DeCS', 'es' => 'DeCS', 'en' => 'DeCS' ),
+            'formacao'                 => array( 'pt' => 'Formação', 'es' => 'Formación', 'en' => 'Training' ),
+            'cooperacao-automatizada'  => array( 'pt' => 'Cooperação automatizada', 'es' => 'Cooperación automatizada', 'en' => 'Automated cooperation' ),
+            'visibilidade'             => array( 'pt' => 'Visibilidade da produção', 'es' => 'Visibilidad de la producción', 'en' => 'Visibility of output' ),
+            'acesso-aberto'            => array( 'pt' => 'Acesso aberto', 'es' => 'Acceso abierto', 'en' => 'Open access' ),
+            'edicao-cientifica'        => array( 'pt' => 'Edição científica', 'es' => 'Edición científica', 'en' => 'Scientific publishing' ),
+            'cooperacao'               => array( 'pt' => 'Cooperação', 'es' => 'Cooperación', 'en' => 'Cooperation' ),
+        ),
+    );
+    if ( isset( $maps[ $group ][ $value ][ $lang ] ) ) {
+        return $maps[ $group ][ $value ][ $lang ];
+    }
+    return $value;
+}
+
+function bireme_lilacs_depoimento_labels( $group, $values ) {
+    if ( ! is_array( $values ) ) {
+        $values = ( $values !== '' && $values !== null && $values !== false ) ? array( $values ) : array();
+    }
+    $out = array();
+    foreach ( $values as $value ) {
+        if ( is_array( $value ) ) {
+            $value = $value['value'] ?? '';
+        }
+        $value = trim( (string) $value );
+        if ( $value === '' ) {
+            continue;
+        }
+        $out[] = bireme_lilacs_depoimento_label( $group, $value );
+    }
+    return $out;
+}
+
+function bireme_lilacs_depoimento_nome( $post_id = 0 ) {
+    $post_id = $post_id ? (int) $post_id : (int) get_the_ID();
+    $nome    = function_exists( 'get_field' ) ? trim( (string) get_field( 'nome', $post_id ) ) : '';
+    if ( $nome !== '' ) {
+        return $nome;
+    }
+    return get_the_title( $post_id );
+}
+
+function bireme_lilacs_format_depoimento_date( $ymd ) {
+    $ymd = preg_replace( '/[^0-9]/', '', (string) $ymd );
+    if ( strlen( $ymd ) !== 8 ) {
+        return '';
+    }
+    $ts = strtotime( substr( $ymd, 0, 4 ) . '-' . substr( $ymd, 4, 2 ) . '-' . substr( $ymd, 6, 2 ) );
+    if ( ! $ts ) {
+        return '';
+    }
+    $lang = function_exists( 'pll_current_language' ) ? pll_current_language( 'slug' ) : 'pt';
+    if ( $lang === 'en' ) {
+        return date_i18n( 'F j, Y', $ts );
+    }
+    return date_i18n( 'j \d\e F \d\e Y', $ts );
+}
+
+function bireme_lilacs_depoimento_media_html( $url, $title = '' ) {
+    $url = trim( (string) $url );
+    if ( $url === '' ) {
+        return '';
+    }
+    $title = $title !== '' ? $title : __( 'Vídeo do depoimento', 'lilacs' );
+    if ( preg_match( '/\.(mp4|webm|ogg)(\?.*)?$/i', $url ) ) {
+        return '<video controls playsinline preload="metadata" src="' . esc_url( $url ) . '"></video>';
+    }
+    $id = '';
+    if ( preg_match( '~(?:youtu\.be/|youtube(?:-nocookie)?\.com/(?:watch\?v=|embed/|shorts/))([A-Za-z0-9_-]{11})~', $url, $m ) ) {
+        $id = $m[1];
+    } elseif ( preg_match( '~[?&]v=([A-Za-z0-9_-]{11})~', $url, $m ) ) {
+        $id = $m[1];
+    }
+    if ( $id !== '' ) {
+        return '<iframe src="' . esc_url( 'https://www.youtube-nocookie.com/embed/' . rawurlencode( $id ) ) . '" title="' . esc_attr( $title ) . '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+    $embed = wp_oembed_get( $url, array( 'width' => 960 ) );
+    return $embed ? $embed : '';
+}
+
+/**
  * URL da página de listagem de depoimentos (template page-lilacs-depoimentos.php).
  */
 function bireme_lilacs_depoimentos_list_url() {
@@ -392,6 +602,146 @@ function bireme_lilacs_depoimentos_list_url() {
         return get_permalink( $pages[0] );
     }
     return bireme_get_lang_home_url();
+}
+
+/**
+ * Vídeos de uma playlist do YouTube, na ordem da playlist.
+ * O resultado fica em cache por 12 horas. $skip tira os primeiros itens
+ * (na playlist dos 40 anos, os dois primeiros são as gravações dos eventos).
+ *
+ * @return array<int, array{id:string,title:string,duration:string}>
+ */
+function bireme_lilacs_youtube_playlist_videos( $playlist_id, $skip = 0 ) {
+    $playlist_id = preg_replace( '/[^A-Za-z0-9_-]/', '', (string) $playlist_id );
+    if ( $playlist_id === '' ) {
+        return array();
+    }
+
+    $cache_key = 'lilacs_ytpl_' . md5( $playlist_id );
+    $cached    = get_transient( $cache_key );
+    if ( ! is_array( $cached ) ) {
+        $cached = bireme_lilacs_youtube_fetch_playlist( $playlist_id );
+        if ( $cached ) {
+            set_transient( $cache_key, $cached, 12 * HOUR_IN_SECONDS );
+        }
+    }
+
+    $skip = max( 0, (int) $skip );
+    if ( $skip > 0 ) {
+        $cached = array_slice( $cached, $skip );
+    }
+
+    return array_values( $cached );
+}
+
+/**
+ * @return array<int, array{id:string,title:string,duration:string}>
+ */
+function bireme_lilacs_youtube_fetch_playlist( $playlist_id ) {
+    $response = wp_remote_post(
+        'https://www.youtube.com/youtubei/v1/browse?prettyPrint=false',
+        array(
+            'timeout' => 12,
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'User-Agent'   => 'Mozilla/5.0',
+            ),
+            'body'    => wp_json_encode(
+                array(
+                    'context'  => array(
+                        'client' => array(
+                            'clientName'    => 'WEB',
+                            'clientVersion' => '2.20241126.01.00',
+                            'hl'            => 'pt',
+                            'gl'            => 'BR',
+                        ),
+                    ),
+                    'browseId' => 'VL' . $playlist_id,
+                )
+            ),
+        )
+    );
+
+    if ( is_wp_error( $response ) || (int) wp_remote_retrieve_response_code( $response ) !== 200 ) {
+        return array();
+    }
+
+    $data = json_decode( wp_remote_retrieve_body( $response ), true );
+    if ( ! is_array( $data ) ) {
+        return array();
+    }
+
+    $videos = array();
+    bireme_lilacs_youtube_collect_videos( $data, $videos );
+
+    $seen = array();
+    $out  = array();
+    foreach ( $videos as $video ) {
+        if ( isset( $seen[ $video['id'] ] ) ) {
+            continue;
+        }
+        $seen[ $video['id'] ] = true;
+        $out[] = $video;
+    }
+
+    return $out;
+}
+
+/**
+ * @param array<int, array{id:string,title:string,duration:string}> $videos
+ */
+function bireme_lilacs_youtube_collect_videos( $node, &$videos ) {
+    if ( ! is_array( $node ) ) {
+        return;
+    }
+
+    if ( isset( $node['lockupViewModel'] ) && is_array( $node['lockupViewModel'] ) ) {
+        $vm = $node['lockupViewModel'];
+        $id = isset( $vm['contentId'] ) ? (string) $vm['contentId'] : '';
+        if ( preg_match( '/^[A-Za-z0-9_-]{11}$/', $id ) ) {
+            $title = '';
+            if ( isset( $vm['metadata']['lockupMetadataViewModel']['title']['content'] ) ) {
+                $title = (string) $vm['metadata']['lockupMetadataViewModel']['title']['content'];
+            }
+            $videos[] = array(
+                'id'       => $id,
+                'title'    => bireme_lilacs_youtube_clean_title( $title ),
+                'duration' => bireme_lilacs_youtube_duration( isset( $vm['contentImage'] ) ? $vm['contentImage'] : array() ),
+            );
+        }
+        return;
+    }
+
+    foreach ( $node as $child ) {
+        if ( is_array( $child ) ) {
+            bireme_lilacs_youtube_collect_videos( $child, $videos );
+        }
+    }
+}
+
+function bireme_lilacs_youtube_clean_title( $title ) {
+    $title = trim( (string) $title );
+    $title = preg_replace( '/^#\s*lilacs\s*40\s*[-–—:]*\s*/iu', '', $title );
+    $title = trim( preg_replace( '/\s+/u', ' ', (string) $title ) );
+    return $title;
+}
+
+function bireme_lilacs_youtube_duration( $node ) {
+    if ( ! is_array( $node ) ) {
+        return '';
+    }
+    if ( isset( $node['text'] ) && is_string( $node['text'] ) && preg_match( '/^\d+:\d{2}(:\d{2})?$/', $node['text'] ) ) {
+        return $node['text'];
+    }
+    foreach ( $node as $child ) {
+        if ( is_array( $child ) ) {
+            $found = bireme_lilacs_youtube_duration( $child );
+            if ( $found !== '' ) {
+                return $found;
+            }
+        }
+    }
+    return '';
 }
 
 /**
@@ -636,6 +986,28 @@ function bireme_breadcrumb_items() {
     }
 
     if ( is_singular() ) {
+        if ( is_singular( 'depoimentos' ) ) {
+            $list_url = function_exists( 'bireme_lilacs_depoimentos_list_url' )
+                ? bireme_lilacs_depoimentos_list_url()
+                : '';
+            $items[] = array(
+                'label' => bireme_lilacs_translate( 'Histórias', 'Navigation' ),
+                'url'   => $list_url,
+            );
+            $colecoes = get_the_terms( get_the_ID(), 'depoimento_colecao' );
+            if ( $colecoes && ! is_wp_error( $colecoes ) ) {
+                $items[] = array(
+                    'label' => $colecoes[0]->name,
+                    'url'   => $list_url,
+                );
+            }
+            $items[] = array(
+                'label' => get_the_title(),
+                'url'   => '',
+            );
+            return $items;
+        }
+
         $post_type = get_post_type();
         $pto = get_post_type_object( $post_type );
 

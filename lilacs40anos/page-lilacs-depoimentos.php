@@ -54,7 +54,7 @@ $depo_search_hooks = static function () use ( $q ) {
 		}
 
 		$like = '%' . $wpdb->esc_like( $q ) . '%';
-		$meta_keys = [ 'cargo', 'pais', 'depoimento' ];
+		$meta_keys = [ 'cargo', 'pais', 'depoimento', 'nome', 'instituicao', 'citacao', 'transcricao' ];
 		$meta_sql  = [];
 		foreach ( $meta_keys as $key ) {
 			$meta_sql[] = $wpdb->prepare(
@@ -125,6 +125,37 @@ if ( $acf_intro !== '' ) {
 	$page_intro = __( 'Conheça as vozes da rede LILACS: experiências de editores, pesquisadores e instituições.', 'lilacs' );
 }
 $total = (int) $query->found_posts;
+
+/*
+ * Playlist dos 40 anos. Os dois primeiros vídeos são as gravações dos
+ * eventos, não depoimentos. A playlist dos 35 anos
+ * (PLZkQ-JIKvi_2P79NdZLhEYw9Ychk2akzu) entra quando esta página
+ * reunir também esses relatos.
+ */
+$videos = function_exists( 'bireme_lilacs_youtube_playlist_videos' )
+	? bireme_lilacs_youtube_playlist_videos( 'PLZkQ-JIKvi_0r9524zQ_Y75Li5vD_OmJH', 2 )
+	: array();
+
+if ( $q !== '' && $videos ) {
+	$needle = function_exists( 'mb_strtolower' ) ? mb_strtolower( $q ) : strtolower( $q );
+	$videos = array_values(
+		array_filter(
+			$videos,
+			static function ( $video ) use ( $needle ) {
+				$title = isset( $video['title'] ) ? (string) $video['title'] : '';
+				$hay   = function_exists( 'mb_strtolower' ) ? mb_strtolower( $title ) : strtolower( $title );
+				if ( function_exists( 'mb_strpos' ) ) {
+					return mb_strpos( $hay, $needle ) !== false;
+				}
+				return strpos( $hay, $needle ) !== false;
+			}
+		)
+	);
+}
+
+$video_total   = count( $videos );
+$show_videos   = $video_total > 0 && ( $paged === 1 || $q !== '' );
+$has_written   = $query->have_posts();
 ?>
 
 <main class="lilacs-depo-archive" id="lilacs-depoimentos">
@@ -246,6 +277,175 @@ $total = (int) $query->found_posts;
 		}
 		.lilacs-depo-clear:hover { text-decoration: underline; }
 
+		.lilacs-depo-formats {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-top: 16px;
+		}
+		.lilacs-depo-formats button {
+			appearance: none;
+			border: 1px solid var(--stroke);
+			background: #fff;
+			color: var(--blue-800);
+			border-radius: 999px;
+			padding: 8px 16px;
+			font: inherit;
+			font-size: 14px;
+			font-weight: 700;
+			cursor: pointer;
+		}
+		.lilacs-depo-formats button[aria-pressed="true"] {
+			background: var(--blue-800);
+			border-color: var(--blue-800);
+			color: #fff;
+		}
+
+		.lilacs-depo-block { margin-top: 8px; }
+		.lilacs-depo-block + .lilacs-depo-block { margin-top: 36px; }
+		.lilacs-depo-block__head { margin: 0 0 16px; }
+		.lilacs-depo-block__head h2 {
+			margin: 0 0 6px;
+			font-size: 1.45rem;
+			line-height: 1.2;
+			color: var(--blue-900);
+			letter-spacing: -0.02em;
+		}
+		.lilacs-depo-block__head p {
+			margin: 0;
+			color: var(--muted);
+			font-size: 15px;
+			line-height: 1.5;
+		}
+
+		.lilacs-depo-video {
+			appearance: none;
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding: 0;
+			border: 1px solid var(--stroke);
+			border-radius: var(--radius);
+			background: #fff;
+			overflow: hidden;
+			text-align: left;
+			color: inherit;
+			font: inherit;
+			cursor: pointer;
+			box-shadow: 0 12px 28px rgba(2, 23, 55, .06);
+			transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+		}
+		.lilacs-depo-video:hover {
+			transform: translateY(-2px);
+			border-color: #bfd4ec;
+			box-shadow: 0 16px 36px rgba(2, 23, 55, .10);
+		}
+		.lilacs-depo-video__media {
+			position: relative;
+			aspect-ratio: 16 / 9;
+			background: #0b2348;
+		}
+		.lilacs-depo-video__media img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+		.lilacs-depo-video__badge,
+		.lilacs-depo-video__time {
+			position: absolute;
+			z-index: 1;
+			border-radius: 999px;
+			background: rgba(8, 22, 48, .78);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 700;
+			line-height: 1;
+			padding: 6px 8px;
+		}
+		.lilacs-depo-video__badge { top: 10px; left: 10px; }
+		.lilacs-depo-video__time { right: 10px; bottom: 10px; }
+		.lilacs-depo-video__play {
+			position: absolute;
+			inset: 0;
+			margin: auto;
+			width: 54px;
+			height: 54px;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, .94);
+			display: grid;
+			place-items: center;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+		}
+		.lilacs-depo-video__play::before {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			margin-left: 4px;
+			border-style: solid;
+			border-width: 8px 0 8px 14px;
+			border-color: transparent transparent transparent var(--blue-800);
+		}
+		.lilacs-depo-video__title {
+			display: block;
+			padding: 14px 16px 16px;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 1.35;
+			color: var(--blue-900);
+		}
+
+		.lilacs-depo-player {
+			width: min(960px, calc(100vw - 32px));
+			max-height: calc(100vh - 32px);
+			padding: 0;
+			border: 0;
+			border-radius: 16px;
+			background: #041426;
+			color: #fff;
+			overflow: hidden;
+		}
+		.lilacs-depo-player::backdrop { background: rgba(2, 12, 32, .72); }
+		.lilacs-depo-player__bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 10px 12px 10px 16px;
+		}
+		.lilacs-depo-player__title {
+			margin: 0;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 1.35;
+		}
+		.lilacs-depo-player__close {
+			appearance: none;
+			border: 0;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, .12);
+			color: #fff;
+			font: inherit;
+			font-size: 13px;
+			font-weight: 700;
+			padding: 8px 12px;
+			cursor: pointer;
+		}
+		.lilacs-depo-player__frame {
+			position: relative;
+			aspect-ratio: 16 / 9;
+			background: #000;
+		}
+		.lilacs-depo-player__frame iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
 		.lilacs-depo-grid-wrap { padding: 0 20px; }
 		.lilacs-depo-grid {
 			display: grid;
@@ -318,6 +518,12 @@ $total = (int) $query->found_posts;
 			color: var(--blue-800);
 			font-weight: 600;
 			font-size: 12px;
+		}
+		.lilacs-depo-card__when {
+			margin: 8px 0 0;
+			color: var(--muted);
+			font-size: 12.5px;
+			line-height: 1.4;
 		}
 		.lilacs-depo-card__quote {
 			margin: 0;
@@ -488,10 +694,11 @@ $total = (int) $query->found_posts;
 				<?php if ( $q !== '' ) : ?>
 					<span>
 						<?php
+						$found = $total + $video_total;
 						printf(
 							/* translators: 1: total results, 2: search term */
-							esc_html( _n( '%1$s resultado para “%2$s”', '%1$s resultados para “%2$s”', $total, 'lilacs' ) ),
-							esc_html( number_format_i18n( $total ) ),
+							esc_html( _n( '%1$s resultado para “%2$s”', '%1$s resultados para “%2$s”', $found, 'lilacs' ) ),
+							esc_html( number_format_i18n( $found ) ),
 							esc_html( $q )
 						);
 						?>
@@ -502,32 +709,101 @@ $total = (int) $query->found_posts;
 				<?php else : ?>
 					<span>
 						<?php
-						printf(
-							/* translators: %s: total testimonials */
-							esc_html( _n( '%s depoimento', '%s depoimentos', $total, 'lilacs' ) ),
-							esc_html( number_format_i18n( $total ) )
-						);
+						$summary = array();
+						if ( $total > 0 ) {
+							$summary[] = sprintf(
+								/* translators: %s: number of written testimonials */
+								_n( '%s escrito', '%s escritos', $total, 'lilacs' ),
+								number_format_i18n( $total )
+							);
+						}
+						if ( $video_total > 0 ) {
+							$summary[] = sprintf(
+								/* translators: %s: number of video testimonials */
+								_n( '%s em vídeo', '%s em vídeo', $video_total, 'lilacs' ),
+								number_format_i18n( $video_total )
+							);
+						}
+						echo esc_html( $summary ? implode( ' · ', $summary ) : __( 'Nenhum depoimento publicado', 'lilacs' ) );
 						?>
 					</span>
 				<?php endif; ?>
 			</div>
+			<?php if ( $show_videos && $has_written ) : ?>
+				<div class="lilacs-depo-formats" role="group" aria-label="<?php esc_attr_e( 'Formato do depoimento', 'lilacs' ); ?>">
+					<button type="button" data-format="all" aria-pressed="true"><?php esc_html_e( 'Todos', 'lilacs' ); ?></button>
+					<button type="button" data-format="video" aria-pressed="false"><?php esc_html_e( 'Vídeos', 'lilacs' ); ?></button>
+					<button type="button" data-format="text" aria-pressed="false"><?php esc_html_e( 'Escritos', 'lilacs' ); ?></button>
+				</div>
+			<?php endif; ?>
 		</div>
 	</section>
 
 	<section class="lilacs-depo-grid-wrap">
 		<div class="lilacs-depo-inner">
+			<?php if ( $show_videos ) : ?>
+				<div class="lilacs-depo-block" data-panel="video">
+					<div class="lilacs-depo-block__head">
+						<h2><?php esc_html_e( 'Depoimentos em vídeo', 'lilacs' ); ?></h2>
+						<p><?php esc_html_e( 'Relatos gravados para a celebração dos 40 anos da LILACS.', 'lilacs' ); ?></p>
+					</div>
+					<div class="lilacs-depo-grid">
+						<?php foreach ( $videos as $video ) :
+							$video_id    = isset( $video['id'] ) ? (string) $video['id'] : '';
+							$video_title = isset( $video['title'] ) ? (string) $video['title'] : '';
+							$video_time  = isset( $video['duration'] ) ? (string) $video['duration'] : '';
+							if ( ! preg_match( '/^[A-Za-z0-9_-]{11}$/', $video_id ) ) {
+								continue;
+							}
+							$thumb = 'https://i.ytimg.com/vi/' . rawurlencode( $video_id ) . '/hqdefault.jpg';
+							?>
+							<button
+								type="button"
+								class="lilacs-depo-video"
+								data-video="<?php echo esc_attr( $video_id ); ?>"
+								data-title="<?php echo esc_attr( $video_title ); ?>"
+							>
+								<span class="lilacs-depo-video__media">
+									<img src="<?php echo esc_url( $thumb ); ?>" alt="" loading="lazy" width="480" height="360" />
+									<span class="lilacs-depo-video__badge"><?php esc_html_e( 'Vídeo', 'lilacs' ); ?></span>
+									<?php if ( $video_time !== '' ) : ?>
+										<span class="lilacs-depo-video__time"><?php echo esc_html( $video_time ); ?></span>
+									<?php endif; ?>
+									<span class="lilacs-depo-video__play" aria-hidden="true"></span>
+								</span>
+								<span class="lilacs-depo-video__title"><?php echo esc_html( $video_title !== '' ? $video_title : __( 'Depoimento em vídeo', 'lilacs' ) ); ?></span>
+							</button>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif; ?>
+
 			<?php if ( $query->have_posts() ) : ?>
+				<div class="lilacs-depo-block" data-panel="text">
+				<?php if ( $show_videos ) : ?>
+					<div class="lilacs-depo-block__head">
+						<h2><?php esc_html_e( 'Depoimentos escritos', 'lilacs' ); ?></h2>
+					</div>
+				<?php endif; ?>
 				<div class="lilacs-depo-grid">
 					<?php
 					while ( $query->have_posts() ) :
 						$query->the_post();
 
-						$nome       = get_the_title();
+						$nome       = function_exists( 'bireme_lilacs_depoimento_nome' ) ? bireme_lilacs_depoimento_nome() : get_the_title();
 						$permalink  = get_permalink();
 						$foto       = function_exists( 'get_field' ) ? get_field( 'foto' ) : null;
 						$depoimento = function_exists( 'get_field' ) ? get_field( 'depoimento' ) : '';
+						$citacao    = function_exists( 'get_field' ) ? trim( (string) get_field( 'citacao' ) ) : '';
 						$cargo      = function_exists( 'get_field' ) ? (string) get_field( 'cargo' ) : '';
 						$pais       = function_exists( 'get_field' ) ? (string) get_field( 'pais' ) : '';
+						$data_raw   = function_exists( 'get_field' ) ? (string) get_field( 'data_depoimento' ) : '';
+						$data_label = function_exists( 'bireme_lilacs_format_depoimento_date' ) ? bireme_lilacs_format_depoimento_date( $data_raw ) : '';
+						$colecoes   = get_the_terms( get_the_ID(), 'depoimento_colecao' );
+						$colecao    = ( $colecoes && ! is_wp_error( $colecoes ) ) ? $colecoes[0]->name : '';
+						if ( $citacao !== '' && trim( wp_strip_all_tags( (string) $depoimento ) ) === '' ) {
+							$depoimento = $citacao;
+						}
 
 						$foto_url = '';
 						$foto_alt = $nome;
@@ -582,6 +858,13 @@ $total = (int) $query->found_posts;
 									<?php endif; ?>
 									<?php if ( $pais !== '' ) : ?>
 										<span class="lilacs-depo-card__country"><?php echo esc_html( $pais ); ?></span>
+									<?php endif; ?>
+									<?php if ( $data_label !== '' || $colecao !== '' ) : ?>
+										<p class="lilacs-depo-card__when">
+											<?php
+											echo esc_html( implode( ' · ', array_filter( array( $data_label, $colecao ) ) ) );
+											?>
+										</p>
 									<?php endif; ?>
 								</div>
 							</header>
@@ -643,8 +926,9 @@ $total = (int) $query->found_posts;
 						</nav>
 					<?php endif; ?>
 				<?php endif; ?>
+				</div>
 
-			<?php else : ?>
+			<?php elseif ( ! $show_videos ) : ?>
 				<div class="lilacs-depo-empty">
 					<h2><?php esc_html_e( 'Nenhum depoimento encontrado', 'lilacs' ); ?></h2>
 					<p>
@@ -666,6 +950,14 @@ $total = (int) $query->found_posts;
 		</div>
 	</section>
 
+	<dialog class="lilacs-depo-player" id="lilacs-depo-player">
+		<div class="lilacs-depo-player__bar">
+			<p class="lilacs-depo-player__title" id="lilacs-depo-player-title"></p>
+			<button type="button" class="lilacs-depo-player__close" data-close><?php esc_html_e( 'Fechar', 'lilacs' ); ?></button>
+		</div>
+		<div class="lilacs-depo-player__frame" id="lilacs-depo-player-frame"></div>
+	</dialog>
+
 	<script>
 	(function () {
 		document.querySelectorAll('.lilacs-depo-toggle').forEach(function (btn) {
@@ -675,6 +967,54 @@ $total = (int) $query->found_posts;
 				var expanded = quote.classList.toggle('is-expanded');
 				btn.textContent = expanded ? (btn.getAttribute('data-less') || 'Mostrar menos') : (btn.getAttribute('data-more') || 'Ler mais');
 			});
+		});
+
+		document.querySelectorAll('.lilacs-depo-formats button').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var format = btn.getAttribute('data-format');
+				document.querySelectorAll('.lilacs-depo-formats button').forEach(function (other) {
+					other.setAttribute('aria-pressed', other === btn ? 'true' : 'false');
+				});
+				document.querySelectorAll('[data-panel]').forEach(function (panel) {
+					var show = format === 'all' || panel.getAttribute('data-panel') === format;
+					panel.hidden = !show;
+				});
+			});
+		});
+
+		var dialog = document.getElementById('lilacs-depo-player');
+		var frame = document.getElementById('lilacs-depo-player-frame');
+		var titleEl = document.getElementById('lilacs-depo-player-title');
+		if (!dialog || !frame) return;
+
+		function closePlayer() {
+			frame.replaceChildren();
+			if (dialog.open && dialog.close) dialog.close();
+		}
+
+		document.querySelectorAll('.lilacs-depo-video').forEach(function (card) {
+			card.addEventListener('click', function () {
+				var id = card.getAttribute('data-video');
+				if (!id) return;
+				if (!dialog.showModal) {
+					window.open('https://www.youtube.com/watch?v=' + encodeURIComponent(id), '_blank', 'noopener');
+					return;
+				}
+				if (titleEl) titleEl.textContent = card.getAttribute('data-title') || '';
+				frame.replaceChildren();
+				var iframe = document.createElement('iframe');
+				iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1';
+				iframe.title = card.getAttribute('data-title') || 'YouTube';
+				iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+				iframe.allowFullscreen = true;
+				frame.appendChild(iframe);
+				dialog.showModal();
+			});
+		});
+
+		dialog.addEventListener('close', function () { frame.replaceChildren(); });
+		dialog.addEventListener('click', function (event) {
+			if (event.target === dialog || event.target.closest('[data-close]')) closePlayer();
 		});
 	})();
 	</script>

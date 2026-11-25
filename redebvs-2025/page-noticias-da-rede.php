@@ -399,9 +399,20 @@ $noticias_query = new WP_Query( array(
                     'title_li'   => '',
                     'orderby'    => 'name',
                     'order'      => 'ASC',
-                    'hide_empty' => 0, // <<< MOSTRA CATEGORIAS MESMO SEM POSTS
-                    'number'     => 15
+                    'hide_empty' => 0,
                 ) ); 
+                ?>
+            </ul>
+        </div>
+
+        <div class="bvs-sidebar-box">
+            <h3 class="bvs-sidebar-title"><?php echo esc_html( rede_bvs_t( 'Arquivos por Ano', 'Archivos por año', 'Archives by year' ) ); ?></h3>
+            <ul>
+                <?php
+                wp_get_archives( array(
+                    'type'            => 'yearly',
+                    'show_post_count' => true,
+                ) );
                 ?>
             </ul>
         </div>
