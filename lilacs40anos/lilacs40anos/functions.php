@@ -640,6 +640,90 @@ function bireme_lilacs_youtube_playlist_videos( $playlist_id, $skip = 0 ) {
 }
 
 /**
+ * Cria um depoimento para cada vídeo da playlist que ainda não virou post.
+ * Não altera os que já existem, para a edição e a classificação permanecerem.
+ */
+function bireme_lilacs_sync_youtube_depoimentos() {
+    if ( get_transient( 'lilacs_yt_depo_sync_lock' ) ) {
+        return;
+    }
+    $last = (int) get_option( 'lilacs_yt_depo_sync_at', 0 );
+    if ( $last && ( time() - $last ) < DAY_IN_SECONDS ) {
+        return;
+    }
+
+    set_transient( 'lilacs_yt_depo_sync_lock', '1', 2 * MINUTE_IN_SECONDS );
+
+    $videos = bireme_lilacs_youtube_playlist_videos( 'PLZkQ-JIKvi_0r9524zQ_Y75Li5vD_OmJH', 2 );
+    if ( ! $videos ) {
+        delete_transient( 'lilacs_yt_depo_sync_lock' );
+        return;
+    }
+
+    $lang = function_exists( 'pll_default_language' ) ? (string) pll_default_language( 'slug' ) : '';
+    $term = term_exists( 'LILACS 40 anos', 'depoimento_colecao' );
+    if ( ! $term ) {
+        $term = wp_insert_term( 'LILACS 40 anos', 'depoimento_colecao' );
+    }
+    $term_id = 0;
+    if ( ! is_wp_error( $term ) && $term ) {
+        $term_id = is_array( $term ) ? (int) $term['term_id'] : (int) $term;
+    }
+
+    foreach ( $videos as $video ) {
+        $youtube_id = isset( $video['id'] ) ? (string) $video['id'] : '';
+        if ( ! preg_match( '/^[A-Za-z0-9_-]{11}$/', $youtube_id ) ) {
+            continue;
+        }
+
+        $existing = get_posts(
+            array(
+                'post_type'      => 'depoimentos',
+                'post_status'    => 'any',
+                'posts_per_page' => 1,
+                'fields'         => 'ids',
+                'lang'           => '',
+                'meta_key'       => '_lilacs_youtube_id',
+                'meta_value'     => $youtube_id,
+            )
+        );
+        if ( $existing ) {
+            continue;
+        }
+
+        $title   = isset( $video['title'] ) && $video['title'] !== '' ? $video['title'] : $youtube_id;
+        $post_id = wp_insert_post(
+            array(
+                'post_type'   => 'depoimentos',
+                'post_status' => 'publish',
+                'post_title'  => $title,
+            ),
+            true
+        );
+        if ( is_wp_error( $post_id ) || ! $post_id ) {
+            continue;
+        }
+
+        update_post_meta( $post_id, '_lilacs_youtube_id', $youtube_id );
+        update_post_meta( $post_id, '_lilacs_youtube_duration', isset( $video['duration'] ) ? (string) $video['duration'] : '' );
+        update_post_meta( $post_id, 'formato', 'video' );
+        update_post_meta( $post_id, 'video_url', 'https://www.youtube.com/watch?v=' . $youtube_id );
+        update_post_meta( $post_id, 'nome', $title );
+
+        if ( $term_id ) {
+            wp_set_object_terms( $post_id, array( $term_id ), 'depoimento_colecao', false );
+        }
+        if ( $lang !== '' && function_exists( 'pll_set_post_language' ) ) {
+            pll_set_post_language( $post_id, $lang );
+        }
+    }
+
+    update_option( 'lilacs_yt_depo_sync_at', time(), false );
+    delete_transient( 'lilacs_yt_depo_sync_lock' );
+}
+add_action( 'admin_init', 'bireme_lilacs_sync_youtube_depoimentos' );
+
+/**
  * @return array<int, array{id:string,title:string,duration:string}>
  */
 function bireme_lilacs_youtube_fetch_playlist( $playlist_id ) {

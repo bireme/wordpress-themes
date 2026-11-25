@@ -29,6 +29,11 @@ if ( ! function_exists( 'lilacs_depo_story_card' ) ) {
 			$formato = 'escrito';
 		}
 		$photo = $photo_of( $post_id );
+		$youtube_id = (string) get_post_meta( $post_id, '_lilacs_youtube_id', true );
+		if ( $photo === '' && preg_match( '/^[A-Za-z0-9_-]{11}$/', $youtube_id ) ) {
+			$photo = 'https://i.ytimg.com/vi/' . rawurlencode( $youtube_id ) . '/hqdefault.jpg';
+		}
+		$duration = trim( (string) get_post_meta( $post_id, '_lilacs_youtube_duration', true ) );
 		$meta  = implode( ' · ', array_filter( array( $nome !== $heading ? $nome : '', $cargo, $org, $pais ) ) );
 
 		ob_start();
@@ -39,6 +44,9 @@ if ( ! function_exists( 'lilacs_depo_story_card' ) ) {
 					<span class="story-card__media">
 						<img src="<?php echo esc_url( $photo ); ?>" alt="" loading="lazy" />
 						<span class="story-card__badge"><?php echo esc_html( $label( 'formato', $formato ) ); ?></span>
+						<?php if ( $duration !== '' ) : ?>
+							<span class="story-card__time"><?php echo esc_html( $duration ); ?></span>
+						<?php endif; ?>
 					</span>
 				<?php endif; ?>
 				<span class="story-card__body">
@@ -55,6 +63,10 @@ if ( ! function_exists( 'lilacs_depo_story_card' ) ) {
 		<?php
 		return (string) ob_get_clean();
 	}
+}
+
+if ( function_exists( 'bireme_lilacs_sync_youtube_depoimentos' ) ) {
+	bireme_lilacs_sync_youtube_depoimentos();
 }
 
 get_header();
@@ -289,23 +301,6 @@ if ( ! $has_structured_filter && $q === '' && $paged === 1 ) {
 	wp_reset_postdata();
 }
 
-$videos = array();
-$show_playlist = $paged === 1 && $filters['formato'] !== 'escrito' && $filters['pais'] === '' && $filters['papel'] === '' && $filters['colecao'] === '' && $filters['tema'] === '' && $filters['idioma'] === '' && $filters['ano'] === '' && $filters['destaque'] === '';
-if ( $show_playlist && function_exists( 'bireme_lilacs_youtube_playlist_videos' ) ) {
-	$videos = bireme_lilacs_youtube_playlist_videos( 'PLZkQ-JIKvi_0r9524zQ_Y75Li5vD_OmJH', 2 );
-	if ( $q !== '' && $videos ) {
-		$needle = function_exists( 'mb_strtolower' ) ? mb_strtolower( $q ) : strtolower( $q );
-		$videos = array_values( array_filter(
-			$videos,
-			static function ( $video ) use ( $needle ) {
-				$title = isset( $video['title'] ) ? (string) $video['title'] : '';
-				$hay   = function_exists( 'mb_strtolower' ) ? mb_strtolower( $title ) : strtolower( $title );
-				return function_exists( 'mb_strpos' ) ? mb_strpos( $hay, $needle ) !== false : strpos( $hay, $needle ) !== false;
-			}
-		) );
-	}
-}
-
 $hero_post = null;
 foreach ( $stats_ids as $stat_id ) {
 	$quote = trim( (string) get_post_meta( $stat_id, 'citacao', true ) );
@@ -354,7 +349,7 @@ $filter_url = static function ( $extra = array() ) use ( $list_page_url, $q, $fi
 	return add_query_arg( $args, $list_page_url );
 };
 
-$total = (int) $query->found_posts + count( $videos );
+$total = (int) $query->found_posts;
 
 $photo_of = static function ( $post_id ) {
 	$foto = function_exists( 'get_field' ) ? get_field( 'foto', $post_id ) : null;
@@ -493,9 +488,6 @@ $photo_of = static function ( $post_id ) {
 			<div class="lilacs-stories__visual">
 				<?php
 				$hero_photo = $hero_post ? $photo_of( $hero_post ) : '';
-				if ( $hero_photo === '' && $videos ) {
-					$hero_photo = 'https://i.ytimg.com/vi/' . rawurlencode( (string) $videos[0]['id'] ) . '/hqdefault.jpg';
-				}
 				if ( $hero_photo !== '' ) :
 					?>
 					<img src="<?php echo esc_url( $hero_photo ); ?>" alt="" />
@@ -624,32 +616,8 @@ $photo_of = static function ( $post_id ) {
 			</div>
 		</div>
 
-		<?php if ( $videos || $query->have_posts() ) : ?>
+		<?php if ( $query->have_posts() ) : ?>
 			<div class="stories compact" id="lilacs-depo-grid">
-				<?php foreach ( $videos as $video ) :
-					$video_id = isset( $video['id'] ) ? (string) $video['id'] : '';
-					if ( ! preg_match( '/^[A-Za-z0-9_-]{11}$/', $video_id ) ) {
-						continue;
-					}
-					$video_title = isset( $video['title'] ) ? (string) $video['title'] : '';
-					?>
-					<article class="story-card">
-						<button type="button" class="story-card__hit" data-video="<?php echo esc_attr( $video_id ); ?>" data-title="<?php echo esc_attr( $video_title ); ?>">
-							<span class="story-card__media">
-								<img src="<?php echo esc_url( 'https://i.ytimg.com/vi/' . rawurlencode( $video_id ) . '/hqdefault.jpg' ); ?>" alt="" loading="lazy" />
-								<span class="story-card__badge"><?php echo esc_html( $label( 'formato', 'video' ) ); ?></span>
-								<?php if ( ! empty( $video['duration'] ) ) : ?>
-									<span class="story-card__time"><?php echo esc_html( (string) $video['duration'] ); ?></span>
-								<?php endif; ?>
-							</span>
-							<span class="story-card__body">
-								<h3><?php echo esc_html( $video_title ); ?></h3>
-								<p><?php esc_html_e( 'Depoimento em vídeo · LILACS 40 anos', 'lilacs' ); ?></p>
-							</span>
-						</button>
-					</article>
-				<?php endforeach; ?>
-
 				<?php
 				while ( $query->have_posts() ) :
 					$query->the_post();
