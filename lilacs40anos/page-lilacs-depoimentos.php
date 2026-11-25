@@ -82,8 +82,9 @@ if ( isset( $_GET['depo_page'] ) ) {
 	$paged = max( 1, (int) get_query_var( 'paged' ) );
 }
 
-$acf_intro = function_exists( 'get_field' ) ? trim( (string) get_field( 'intro' ) ) : '';
-$per_page  = 15;
+$acf_intro    = function_exists( 'get_field' ) ? trim( (string) get_field( 'intro' ) ) : '';
+$acf_per_page = function_exists( 'get_field' ) ? (int) get_field( 'itens_por_pagina' ) : 0;
+$per_page     = $acf_per_page > 0 ? $acf_per_page : 12;
 
 $filters = array(
 	'pais'    => isset( $_GET['pais'] ) ? sanitize_text_field( wp_unslash( $_GET['pais'] ) ) : '',
@@ -300,6 +301,17 @@ if ( ! $has_structured_filter && $q === '' && $paged === 1 ) {
 	wp_reset_postdata();
 }
 
+$hero_post = null;
+foreach ( $stats_ids as $stat_id ) {
+	$quote = trim( (string) get_post_meta( $stat_id, 'citacao', true ) );
+	if ( $quote !== '' ) {
+		$hero_post = $stat_id;
+		if ( (string) get_post_meta( $stat_id, 'destaque', true ) === '1' ) {
+			break;
+		}
+	}
+}
+
 $page_title = get_the_title() ?: __( 'Depoimentos', 'lilacs' );
 $word_count = count( preg_split( '/\s+/', trim( wp_strip_all_tags( $page_title ) ) ) );
 $hero_title = ( $word_count < 4 && preg_match( '/depoimento/i', $page_title ) )
@@ -313,7 +325,6 @@ $page_intro = $acf_intro !== ''
 
 $contato = get_page_by_path( 'contato' );
 $enviar_url = $contato ? get_permalink( $contato ) : home_url( '/contato/' );
-$banner_image = get_template_directory_uri() . '/assets/images/bd12b061-c982-4696-9345-79057b19ad27.png';
 
 $filter_url = static function ( $extra = array() ) use ( $list_page_url, $q, $filters ) {
 	$args = array(
@@ -370,23 +381,26 @@ $photo_of = static function ( $post_id ) {
 		.lilacs-stories * { box-sizing: border-box; }
 		.lilacs-stories a { color: inherit; }
 		.lilacs-stories__inner { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-		.lilacs-stories__hero { position: relative; margin: 0 0 28px; background: #1e1b4b; color: #fff; }
-		.lilacs-stories__banner { display: block; width: 100%; height: auto; }
-		.lilacs-stories__hero::after {
-			content: ""; position: absolute; inset: 0; pointer-events: none;
-			background: linear-gradient(90deg, rgba(15, 23, 42, .72) 0%, rgba(15, 23, 42, .28) 30%, rgba(15, 23, 42, 0) 52%);
-		}
-		.lilacs-stories__hero .lilacs-stories__inner { position: absolute; inset: 0; display: flex; align-items: center; z-index: 1; }
-		.lilacs-stories__hero .lilacs-stories__inner > div { max-width: 460px; }
-		.lilacs-stories__kicker { display: inline-flex; margin-bottom: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.16); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
-		.lilacs-stories__hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.035em; color: #fff; }
-		.lilacs-stories__hero p { margin: 0 0 20px; max-width: 46ch; color: rgba(255,255,255,.9); font-size: 1.05rem; line-height: 1.6; }
+		.lilacs-stories__hero { padding: 42px 0 18px; }
+		.lilacs-stories__hero .lilacs-stories__inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr); gap: 36px; align-items: center; }
+		.lilacs-stories__kicker { display: inline-flex; margin-bottom: 12px; padding: 5px 10px; border-radius: 999px; background: #ede9fe; color: var(--violet); font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+		.lilacs-stories__hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.035em; color: var(--ink); }
+		.lilacs-stories__hero p { margin: 0 0 20px; max-width: 58ch; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 		.lilacs-stories__ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 		.lilacs-stories__ctas a, .lilacs-stories__search button, .lilacs-stories__cta a {
 			display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; text-decoration: none; font-weight: 800;
 		}
-		.lilacs-stories__ctas a { padding: 12px 18px; background: #fff; color: var(--violet); }
-		.lilacs-stories__ctas a.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.55); }
+		.lilacs-stories__ctas a { padding: 12px 18px; background: var(--violet); color: #fff; }
+		.lilacs-stories__ctas a.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+		.lilacs-stories__visual { position: relative; min-height: 280px; }
+		.lilacs-stories__visual img { width: 100%; height: 340px; object-fit: cover; border-radius: 28px; background: #ddd6fe; }
+		.lilacs-stories__quote {
+			position: absolute; left: 16px; right: 16px; bottom: 16px; margin: 0; padding: 16px 16px 14px;
+			border-radius: 18px; background: rgba(255,255,255,.94); color: var(--ink); box-shadow: 0 12px 30px rgba(49, 46, 129, .12);
+		}
+		.lilacs-stories__quote p { margin: 0 0 8px; font-size: 1rem; line-height: 1.4; }
+		.lilacs-stories__quote strong { display: block; font-size: 14px; }
+		.lilacs-stories__quote span { color: var(--muted); font-size: 12.5px; }
 		.lilacs-stories__search { display: flex; gap: 10px; align-items: center; margin: 8px 0 14px; padding: 8px; border: 1px solid var(--line); border-radius: 999px; background: #fff; box-shadow: 0 10px 24px rgba(49,46,129,.05); }
 		.lilacs-stories__search input { flex: 1; border: 0; outline: none; background: transparent; font: inherit; font-size: 15px; padding: 10px 8px; min-width: 0; }
 		.lilacs-stories__search button { border: 0; background: var(--violet); color: #fff; padding: 12px 22px; cursor: pointer; font: inherit; }
@@ -422,9 +436,6 @@ $photo_of = static function ( $post_id ) {
 		.panel h2 { margin: 0 0 4px; color: var(--ink); font-size: 1.4rem; }
 		.panel > p { margin: 0 0 16px; color: var(--muted); }
 		.map-layout { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: center; }
-		.country-map { width: 170px; height: 218px; display: block; }
-		.country-map .land { fill: #ddd6fe; stroke: #c4b5fd; stroke-width: 1.25; stroke-linejoin: round; }
-		.country-map .dot { fill: #6d28d9; stroke: #fff; stroke-width: 1.5; }
 		.country-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
 		.country-list a, .country-list span { display: grid; grid-template-columns: 1fr auto; gap: 8px; text-decoration: none; font-size: 14px; }
 		.country-list em { font-style: normal; font-weight: 800; color: var(--ink); }
@@ -439,9 +450,9 @@ $photo_of = static function ( $post_id ) {
 		.lilacs-stories__cta p { margin: 0; max-width: 62ch; color: rgba(255,255,255,.88); }
 		.lilacs-stories__cta a { background: #fff; color: var(--violet); padding: 12px 16px; white-space: nowrap; }
 		.lilacs-stories__empty { padding: 36px 16px; text-align: center; color: var(--muted); }
-		#lilacs-depoimentos .lilacs-stories__pager { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
-		#lilacs-depoimentos .lilacs-stories__pager .page-numbers { display: inline-flex; min-width: 40px; height: 40px; padding: 0 10px; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 800; line-height: 1; }
-		#lilacs-depoimentos .lilacs-stories__pager .page-numbers.current { background: var(--ink); color: #fff; border-color: var(--ink); }
+		.lilacs-stories__pager { display: flex; justify-content: center; gap: 6px; margin-top: 22px; }
+		.lilacs-stories__pager .page-numbers { display: inline-flex; min-width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line); background: #fff; text-decoration: none; font-weight: 800; }
+		.lilacs-stories__pager .page-numbers.current { background: var(--ink); color: #fff; }
 		.lilacs-stories__player { width: min(960px, calc(100vw - 32px)); border: 0; border-radius: 16px; padding: 0; background: #041426; color: #fff; }
 		.lilacs-stories__player::backdrop { background: rgba(15, 23, 42, .72); }
 		.lilacs-stories__player header { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 12px; }
@@ -454,9 +465,6 @@ $photo_of = static function ( $post_id ) {
 			.lilacs-stories__split, .lilacs-stories__hero .lilacs-stories__inner { grid-template-columns: 1fr; }
 		}
 		@media (max-width: 720px) {
-			.lilacs-stories__hero::after { display: none; }
-			.lilacs-stories__hero .lilacs-stories__inner { position: relative; inset: auto; display: block; padding-top: 22px; padding-bottom: 8px; }
-			.lilacs-stories__hero .lilacs-stories__inner > div { max-width: none; }
 			.lilacs-stories__filters, .stories, .stories.compact, .theme-grid, .map-layout { grid-template-columns: 1fr; }
 			.lilacs-stories__search { border-radius: 16px; flex-wrap: wrap; }
 			.lilacs-stories__search button, .lilacs-stories__cta { width: 100%; }
@@ -467,8 +475,7 @@ $photo_of = static function ( $post_id ) {
 	</style>
 
 	<section class="lilacs-stories__hero">
-		<img class="lilacs-stories__banner" src="<?php echo esc_url( $banner_image ); ?>" alt="" />
-		<div class="lilacs-stories__inner">
+			<div class="lilacs-stories__inner">
 			<div>
 				<span class="lilacs-stories__kicker"><?php esc_html_e( 'LILACS 40 ANOS', 'lilacs' ); ?></span>
 				<h1><?php echo esc_html( $hero_title ); ?></h1>
@@ -477,6 +484,28 @@ $photo_of = static function ( $post_id ) {
 					<a href="<?php echo esc_url( $enviar_url ); ?>"><?php esc_html_e( 'Envie seu depoimento', 'lilacs' ); ?> →</a>
 					<a class="ghost" href="#lilacs-depo-todos"><?php esc_html_e( 'Assistir ao vídeo', 'lilacs' ); ?></a>
 				</div>
+			</div>
+			<div class="lilacs-stories__visual">
+				<?php
+				$hero_photo = $hero_post ? $photo_of( $hero_post ) : '';
+				if ( $hero_photo !== '' ) :
+					?>
+					<img src="<?php echo esc_url( $hero_photo ); ?>" alt="" />
+				<?php endif; ?>
+				<?php if ( $hero_post ) :
+					$hero_nome = function_exists( 'bireme_lilacs_depoimento_nome' ) ? bireme_lilacs_depoimento_nome( $hero_post ) : get_the_title( $hero_post );
+					$hero_role = trim( (string) get_post_meta( $hero_post, 'cargo', true ) );
+					$hero_org  = trim( (string) get_post_meta( $hero_post, 'instituicao', true ) );
+					$hero_pais = trim( (string) get_post_meta( $hero_post, 'pais', true ) );
+					?>
+					<blockquote class="lilacs-stories__quote">
+						<p>“<?php echo esc_html( trim( (string) get_post_meta( $hero_post, 'citacao', true ) ) ); ?>”</p>
+						<strong><?php echo esc_html( $hero_nome ); ?></strong>
+						<span>
+							<?php echo esc_html( implode( ' · ', array_filter( array( $hero_role, $hero_org, $hero_pais ) ) ) ); ?>
+						</span>
+					</blockquote>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>
@@ -601,23 +630,20 @@ $photo_of = static function ( $post_id ) {
 			<?php
 			$total_pages = (int) $query->max_num_pages;
 			if ( $total_pages > 1 ) :
-				?>
-				<nav class="lilacs-stories__pager" aria-label="<?php esc_attr_e( 'Paginação dos depoimentos', 'lilacs' ); ?>">
-					<?php if ( $paged > 1 ) : ?>
-						<a class="page-numbers prev" href="<?php echo esc_url( $filter_url( array( 'depo_page' => $paged - 1 ) ) ); ?>">←</a>
-					<?php endif; ?>
-					<?php for ( $page_i = 1; $page_i <= $total_pages; $page_i++ ) : ?>
-						<?php if ( $page_i === $paged ) : ?>
-							<span class="page-numbers current" aria-current="page"><?php echo esc_html( (string) $page_i ); ?></span>
-						<?php else : ?>
-							<a class="page-numbers" href="<?php echo esc_url( $filter_url( array( 'depo_page' => $page_i ) ) ); ?>"><?php echo esc_html( (string) $page_i ); ?></a>
-						<?php endif; ?>
-					<?php endfor; ?>
-					<?php if ( $paged < $total_pages ) : ?>
-						<a class="page-numbers next" href="<?php echo esc_url( $filter_url( array( 'depo_page' => $paged + 1 ) ) ); ?>">→</a>
-					<?php endif; ?>
-				</nav>
-				<?php
+				$big = 999999999;
+				$pagination = paginate_links( array(
+					'base'      => str_replace( (string) $big, '%#%', esc_url( $filter_url( array( 'depo_page' => $big ) ) ) ),
+					'format'    => '',
+					'current'   => $paged,
+					'total'     => $total_pages,
+					'type'      => 'list',
+					'prev_text' => '←',
+					'next_text' => '→',
+				) );
+				if ( $pagination ) :
+					$pagination = str_replace( array( "<ul class='page-numbers'>", '<ul class="page-numbers">' ), '<ul class="page-numbers lilacs-stories__pager">', $pagination );
+					echo wp_kses_post( $pagination );
+				endif;
 			endif;
 			?>
 		<?php else : ?>
@@ -633,47 +659,12 @@ $photo_of = static function ( $post_id ) {
 				<h2><?php esc_html_e( 'Histórias por país', 'lilacs' ); ?></h2>
 				<p><?php esc_html_e( 'Explore os depoimentos da sua região.', 'lilacs' ); ?></p>
 				<div class="map-layout">
-					<svg class="country-map" viewBox="0 0 280 360" width="170" height="218" aria-hidden="true">
-						<path class="land" d="M11.1,9.9 L19,9.5 L44.1,12.6 L55.1,21.5 L67.7,33.1 L73.4,35.4 L71.5,48.6 L103.9,52.4 L101.7,64 L92.9,66.8 L80.3,72.9 L69.3,73.7 L59.9,69.8 L47.3,60.2 L45.7,48.6 L33.1,45.9 L19.9,31.2 L19,23.5 L14.3,17.7 Z"/>
-						<path class="land" d="M89.7,71.8 L100.7,74.5 L105.4,74.9 L116.4,81.4 L115.5,84.5 L115.5,93 L119.6,98.8 L125.9,103.9 L134.3,106.9 L136.2,103.1 L129,98.8 L114.9,92.3 L103.9,83.4 L94.4,78.3 L88.1,72.9 Z"/>
-						<ellipse class="land" cx="130" cy="51" rx="14" ry="5"/>
-						<ellipse class="land" cx="155" cy="62" rx="12" ry="4.5"/>
-						<circle class="land" cx="136" cy="65" r="3.5"/>
-						<path class="land" d="M136.2,104.6 L142.5,93.8 L152.6,88.4 L163.6,91.1 L182.4,94.6 L190.9,103.9 L205.4,112.4 L217,119.3 L221.1,127.8 L223.3,133.6 L239,141.3 L251.6,145.2 L264.1,152.9 L268.2,158 L269.2,166.5 L264.1,176.1 L257.9,185.8 L256.3,199.3 L251.6,214.8 L243.1,224.4 L228,234.1 L226.4,242.2 L220.1,251.5 L215.1,259.6 L209.1,268.9 L199.7,272.8 L184,284.4 L176.1,297.9 L169.9,313.3 L163.6,330.7 L164.2,347.4 L157.3,348.1 L147.9,338.5 L141.6,321.1 L146.3,303.7 L147.9,296 L148.8,278.6 L153.8,263.1 L156.3,239.9 L157.6,226.8 L157.9,207.1 L141.6,193.5 L136.5,181.9 L130.6,166.5 L123.7,154.9 L127.4,144.1 L130.6,129.8 L135.6,118.2 L134.3,107.7 Z"/>
-						<?php
-						$country_dots = array(
-							'mexico'                => array( 58, 45 ),
-							'guatemala'             => array( 95, 76 ),
-							'el salvador'           => array( 100, 83 ),
-							'honduras'              => array( 106, 78 ),
-							'nicaragua'             => array( 111, 86 ),
-							'costa rica'            => array( 115, 97 ),
-							'panama'                => array( 125, 103 ),
-							'cuba'                  => array( 130, 51 ),
-							'republica dominicana'  => array( 158, 63 ),
-							'haiti'                 => array( 151, 62 ),
-							'jamaica'               => array( 136, 65 ),
-							'colombia'              => array( 148, 119 ),
-							'venezuela'             => array( 171, 107 ),
-							'equador'               => array( 133, 141 ),
-							'peru'                  => array( 143, 172 ),
-							'brasil'                => array( 214, 176 ),
-							'bolivia'               => array( 176, 199 ),
-							'paraguai'              => array( 196, 226 ),
-							'paraguay'              => array( 196, 226 ),
-							'chile'                 => array( 156, 265 ),
-							'argentina'             => array( 176, 269 ),
-							'uruguai'               => array( 203, 263 ),
-						);
-						foreach ( $by_country as $country_name => $country_count ) {
-							$country_key = strtolower( remove_accents( (string) $country_name ) );
-							if ( ! isset( $country_dots[ $country_key ] ) ) {
-								continue;
-							}
-							$dot = $country_dots[ $country_key ];
-							echo '<circle class="dot" cx="' . esc_attr( (string) $dot[0] ) . '" cy="' . esc_attr( (string) $dot[1] ) . '" r="5"><title>' . esc_html( $country_name . ' ' . $country_count ) . '</title></circle>';
-						}
-						?>
+					<svg viewBox="0 0 180 220" aria-hidden="true">
+						<path fill="#ddd6fe" d="M92 12c28 6 48 28 46 58 18 10 28 36 18 58-8 28-6 48-28 62-18 12-34 8-42-8-16 6-34-8-42-28-10-24-6-46 8-62-16-20-8-52 18-68 8-6 14-12 22-12z"/>
+						<circle cx="78" cy="78" r="5" fill="#6d28d9"/>
+						<circle cx="96" cy="108" r="4" fill="#7c3aed"/>
+						<circle cx="70" cy="128" r="4" fill="#8b5cf6"/>
+						<circle cx="108" cy="146" r="4" fill="#6d28d9"/>
 					</svg>
 					<ol class="country-list">
 						<?php
