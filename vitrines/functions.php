@@ -24,9 +24,6 @@ add_action( 'wp_enqueue_scripts', function () {
 
 add_action( 'widgets_init', function () {
     foreach ( array(
-        'top_sidebar' => __( 'Área Auxiliar no Topo', 'vitrines' ),
-        'column-1' => __( 'Coluna 1', 'vitrines' ),
-        'column-2' => __( 'Coluna 2', 'vitrines' ),
         'header' => __( 'Cabeçalho', 'vitrines' ),
         'footer' => __( 'Rodapé (compatibilidade)', 'vitrines' ),
         'sidebar-footer' => __( 'Rodapé institucional', 'vitrines' ),
