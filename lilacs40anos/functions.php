@@ -395,6 +395,146 @@ function bireme_lilacs_depoimentos_list_url() {
 }
 
 /**
+ * Vídeos de uma playlist do YouTube, na ordem da playlist.
+ * O resultado fica em cache por 12 horas. $skip tira os primeiros itens
+ * (na playlist dos 40 anos, os dois primeiros são as gravações dos eventos).
+ *
+ * @return array<int, array{id:string,title:string,duration:string}>
+ */
+function bireme_lilacs_youtube_playlist_videos( $playlist_id, $skip = 0 ) {
+    $playlist_id = preg_replace( '/[^A-Za-z0-9_-]/', '', (string) $playlist_id );
+    if ( $playlist_id === '' ) {
+        return array();
+    }
+
+    $cache_key = 'lilacs_ytpl_' . md5( $playlist_id );
+    $cached    = get_transient( $cache_key );
+    if ( ! is_array( $cached ) ) {
+        $cached = bireme_lilacs_youtube_fetch_playlist( $playlist_id );
+        if ( $cached ) {
+            set_transient( $cache_key, $cached, 12 * HOUR_IN_SECONDS );
+        }
+    }
+
+    $skip = max( 0, (int) $skip );
+    if ( $skip > 0 ) {
+        $cached = array_slice( $cached, $skip );
+    }
+
+    return array_values( $cached );
+}
+
+/**
+ * @return array<int, array{id:string,title:string,duration:string}>
+ */
+function bireme_lilacs_youtube_fetch_playlist( $playlist_id ) {
+    $response = wp_remote_post(
+        'https://www.youtube.com/youtubei/v1/browse?prettyPrint=false',
+        array(
+            'timeout' => 12,
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'User-Agent'   => 'Mozilla/5.0',
+            ),
+            'body'    => wp_json_encode(
+                array(
+                    'context'  => array(
+                        'client' => array(
+                            'clientName'    => 'WEB',
+                            'clientVersion' => '2.20241126.01.00',
+                            'hl'            => 'pt',
+                            'gl'            => 'BR',
+                        ),
+                    ),
+                    'browseId' => 'VL' . $playlist_id,
+                )
+            ),
+        )
+    );
+
+    if ( is_wp_error( $response ) || (int) wp_remote_retrieve_response_code( $response ) !== 200 ) {
+        return array();
+    }
+
+    $data = json_decode( wp_remote_retrieve_body( $response ), true );
+    if ( ! is_array( $data ) ) {
+        return array();
+    }
+
+    $videos = array();
+    bireme_lilacs_youtube_collect_videos( $data, $videos );
+
+    $seen = array();
+    $out  = array();
+    foreach ( $videos as $video ) {
+        if ( isset( $seen[ $video['id'] ] ) ) {
+            continue;
+        }
+        $seen[ $video['id'] ] = true;
+        $out[] = $video;
+    }
+
+    return $out;
+}
+
+/**
+ * @param array<int, array{id:string,title:string,duration:string}> $videos
+ */
+function bireme_lilacs_youtube_collect_videos( $node, &$videos ) {
+    if ( ! is_array( $node ) ) {
+        return;
+    }
+
+    if ( isset( $node['lockupViewModel'] ) && is_array( $node['lockupViewModel'] ) ) {
+        $vm = $node['lockupViewModel'];
+        $id = isset( $vm['contentId'] ) ? (string) $vm['contentId'] : '';
+        if ( preg_match( '/^[A-Za-z0-9_-]{11}$/', $id ) ) {
+            $title = '';
+            if ( isset( $vm['metadata']['lockupMetadataViewModel']['title']['content'] ) ) {
+                $title = (string) $vm['metadata']['lockupMetadataViewModel']['title']['content'];
+            }
+            $videos[] = array(
+                'id'       => $id,
+                'title'    => bireme_lilacs_youtube_clean_title( $title ),
+                'duration' => bireme_lilacs_youtube_duration( isset( $vm['contentImage'] ) ? $vm['contentImage'] : array() ),
+            );
+        }
+        return;
+    }
+
+    foreach ( $node as $child ) {
+        if ( is_array( $child ) ) {
+            bireme_lilacs_youtube_collect_videos( $child, $videos );
+        }
+    }
+}
+
+function bireme_lilacs_youtube_clean_title( $title ) {
+    $title = trim( (string) $title );
+    $title = preg_replace( '/^#\s*lilacs\s*40\s*[-–—:]*\s*/iu', '', $title );
+    $title = trim( preg_replace( '/\s+/u', ' ', (string) $title ) );
+    return $title;
+}
+
+function bireme_lilacs_youtube_duration( $node ) {
+    if ( ! is_array( $node ) ) {
+        return '';
+    }
+    if ( isset( $node['text'] ) && is_string( $node['text'] ) && preg_match( '/^\d+:\d{2}(:\d{2})?$/', $node['text'] ) ) {
+        return $node['text'];
+    }
+    foreach ( $node as $child ) {
+        if ( is_array( $child ) ) {
+            $found = bireme_lilacs_youtube_duration( $child );
+            if ( $found !== '' ) {
+                return $found;
+            }
+        }
+    }
+    return '';
+}
+
+/**
  * Normaliza um campo ACF link (ou texto+url legados) em ['title','url','target'].
  *
  * @param mixed  $link   Array ACF link, string URL, ou vazio.

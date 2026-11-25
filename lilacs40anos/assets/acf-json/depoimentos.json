@@ -1,5 +1,4 @@
-[
-    {
+{
         "key": "group_68ff6e0a4d64b",
         "title": "Depoimentos",
         "fields": [
@@ -112,5 +111,4 @@
         "description": "",
         "show_in_rest": 0,
         "display_title": ""
-    }
-]
+}
