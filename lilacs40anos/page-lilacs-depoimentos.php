@@ -371,7 +371,7 @@ $photo_of = static function ( $post_id ) {
 		.lilacs-stories a { color: inherit; }
 		.lilacs-stories__inner { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
 		.lilacs-stories__hero { position: relative; margin: 0 0 28px; background: #1e1b4b; color: #fff; }
-		.lilacs-stories__banner { display: block; width: 100%; height: auto; }
+		.lilacs-stories__banner { display: block; width: 100%; height: 440px; object-fit: cover; object-position: center 40%; }
 		.lilacs-stories__hero::after {
 			content: ""; position: absolute; inset: 0; pointer-events: none;
 			background: linear-gradient(90deg, rgba(15, 23, 42, .72) 0%, rgba(15, 23, 42, .28) 30%, rgba(15, 23, 42, 0) 52%);
@@ -454,6 +454,7 @@ $photo_of = static function ( $post_id ) {
 			.lilacs-stories__split, .lilacs-stories__hero .lilacs-stories__inner { grid-template-columns: 1fr; }
 		}
 		@media (max-width: 720px) {
+			.lilacs-stories__banner { height: 240px; }
 			.lilacs-stories__hero::after { display: none; }
 			.lilacs-stories__hero .lilacs-stories__inner { position: relative; inset: auto; display: block; padding-top: 22px; padding-bottom: 8px; }
 			.lilacs-stories__hero .lilacs-stories__inner > div { max-width: none; }
@@ -674,7 +675,6 @@ $photo_of = static function ( $post_id ) {
 							echo '<circle class="dot" cx="' . esc_attr( (string) $dot[0] ) . '" cy="' . esc_attr( (string) $dot[1] ) . '" r="5"><title>' . esc_html( $country_name . ' ' . $country_count ) . '</title></circle>';
 						}
 						?>
-					</svg>
 					<ol class="country-list">
 						<?php
 						$shown = array_slice( $by_country, 0, 8, true );
