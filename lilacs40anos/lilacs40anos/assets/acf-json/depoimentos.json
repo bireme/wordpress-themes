@@ -1,114 +1,432 @@
 {
-        "key": "group_68ff6e0a4d64b",
-        "title": "Depoimentos",
-        "fields": [
-            {
-                "key": "field_68ff6e0a1ca80",
-                "label": "Foto",
-                "name": "foto",
-                "aria-label": "",
-                "type": "image",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "library": "all",
-                "min_width": "",
-                "min_height": "",
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": "",
-                "allow_in_bindings": 0,
-                "preview_size": "medium"
+    "key": "group_68ff6e0a4d64b",
+    "title": "Depoimentos",
+    "fields": [
+        {
+            "key": "field_lilacs_depo_tab_quem",
+            "label": "Identificação",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_lilacs_depo_msg_titulo",
+            "label": "Título",
+            "name": "",
+            "type": "message",
+            "message": "O título do depoimento é o título desta página, no campo acima. Ele vira o título da single e a URL permanente. O nome da pessoa fica no campo seguinte e é o que aparece no card.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_lilacs_depo_nome",
+            "label": "Nome da pessoa",
+            "name": "nome",
+            "type": "text",
+            "instructions": "Nome público de quem deu o depoimento.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_68ff6f024562d",
+            "label": "Cargo/função",
+            "name": "cargo",
+            "type": "text",
+            "instructions": "Cargo profissional ou institucional à época do depoimento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_lilacs_depo_instituicao",
+            "label": "Instituição",
+            "name": "instituicao",
+            "type": "text",
+            "instructions": "Instituição à época do depoimento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "70", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_lilacs_depo_sigla",
+            "label": "Sigla da instituição",
+            "name": "sigla",
+            "type": "text",
+            "instructions": "Se houver.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "30", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_68ff6f0daad8a",
+            "label": "País",
+            "name": "pais",
+            "type": "select",
+            "instructions": "Usado em filtros e agrupamentos.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "Argentina": "Argentina",
+                "Barbados": "Barbados",
+                "Belize": "Belize",
+                "Bolívia": "Bolívia",
+                "Brasil": "Brasil",
+                "Chile": "Chile",
+                "Colômbia": "Colômbia",
+                "Costa Rica": "Costa Rica",
+                "Cuba": "Cuba",
+                "El Salvador": "El Salvador",
+                "Equador": "Equador",
+                "Espanha": "Espanha",
+                "Estados Unidos": "Estados Unidos",
+                "Guatemala": "Guatemala",
+                "Guiana": "Guiana",
+                "Haiti": "Haiti",
+                "Honduras": "Honduras",
+                "Jamaica": "Jamaica",
+                "México": "México",
+                "Nicarágua": "Nicarágua",
+                "Panamá": "Panamá",
+                "Paraguai": "Paraguai",
+                "Peru": "Peru",
+                "Portugal": "Portugal",
+                "República Dominicana": "República Dominicana",
+                "Suriname": "Suriname",
+                "Trinidad e Tobago": "Trinidad e Tobago",
+                "Uruguai": "Uruguai",
+                "Venezuela": "Venezuela",
+                "Outro": "Outro"
             },
-            {
-                "key": "field_68ff6e1c1ca81",
-                "label": "Depoimento",
-                "name": "depoimento",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "delay": 0
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0
+        },
+        {
+            "key": "field_68ff6e0a1ca80",
+            "label": "Foto da pessoa",
+            "name": "foto",
+            "type": "image",
+            "instructions": "Pode ser uma foto pequena. A página ajusta o enquadramento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium",
+            "mime_types": "jpg,jpeg,png,webp"
+        },
+        {
+            "key": "field_lilacs_depo_tab_relato",
+            "label": "Relato",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_lilacs_depo_data",
+            "label": "Data do depoimento",
+            "name": "data_depoimento",
+            "type": "date_picker",
+            "instructions": "Dia em que o depoimento foi dado, não a data de publicação da página.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "34", "class": "", "id": "" },
+            "display_format": "d/m/Y",
+            "return_format": "Ymd",
+            "first_day": 1
+        },
+        {
+            "key": "field_lilacs_depo_formato",
+            "label": "Formato do relato",
+            "name": "formato",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "escrito": "Relato escrito",
+                "video": "Vídeo"
             },
-            {
-                "key": "field_68ff6f024562d",
-                "label": "Cargo",
-                "name": "cargo",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+            "default_value": "escrito",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0
+        },
+        {
+            "key": "field_lilacs_depo_idioma",
+            "label": "Idioma original",
+            "name": "idioma",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "pt": "Português",
+                "es": "Espanhol",
+                "en": "Inglês",
+                "fr": "Francês"
             },
+            "default_value": "pt",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0
+        },
+        {
+            "key": "field_lilacs_depo_colecao",
+            "label": "Coleção",
+            "name": "colecao",
+            "type": "taxonomy",
+            "instructions": "Contexto que originou o relato: LILACS 40 anos, Rede de Indexadores, um evento. Dá para criar uma coleção nova.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "taxonomy": "depoimento_colecao",
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "object",
+            "field_type": "select",
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_68ff6e1c1ca81",
+            "label": "Texto do depoimento",
+            "name": "depoimento",
+            "type": "wysiwyg",
+            "instructions": "Obrigatório quando o formato é relato escrito.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_lilacs_depo_formato",
+                        "operator": "!=",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_lilacs_depo_video_url",
+            "label": "Vídeo",
+            "name": "video_url",
+            "type": "url",
+            "instructions": "Link do YouTube. Obrigatório para relato em vídeo, se não houver arquivo.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_lilacs_depo_formato",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "70", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://www.youtube.com/watch?v="
+        },
+        {
+            "key": "field_lilacs_depo_video_arquivo",
+            "label": "Arquivo de vídeo",
+            "name": "video_arquivo",
+            "type": "file",
+            "instructions": "Use se o vídeo não estiver no YouTube.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_lilacs_depo_formato",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "30", "class": "", "id": "" },
+            "return_format": "array",
+            "library": "all",
+            "mime_types": "mp4,webm"
+        },
+        {
+            "key": "field_lilacs_depo_transcricao",
+            "label": "Transcrição do vídeo",
+            "name": "transcricao",
+            "type": "wysiwyg",
+            "instructions": "Obrigatória no vídeo: acessibilidade, busca e preservação do relato.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_lilacs_depo_formato",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_lilacs_depo_citacao",
+            "label": "Citação curta",
+            "name": "citacao",
+            "type": "textarea",
+            "instructions": "Trecho para o destaque da página, cards e compartilhamento.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_lilacs_depo_tab_class",
+            "label": "Classificação",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_lilacs_depo_papel",
+            "label": "Papel na Rede",
+            "name": "papel",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "centro-cooperante": "Centro Cooperante",
+                "editor-periodico": "Editor de periódico",
+                "coordenador-lilacs": "Coordenador LILACS",
+                "pesquisador": "Pesquisador (usuário)",
+                "rede-indexadores": "Rede de Indexadores",
+                "rede-referencistas": "Rede de Referencistas"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0
+        },
+        {
+            "key": "field_lilacs_depo_tema",
+            "label": "Tema",
+            "name": "tema",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "trabalho-em-rede": "Trabalho em rede",
+                "indexacao": "Indexação",
+                "decs": "DeCS",
+                "formacao": "Formação",
+                "cooperacao-automatizada": "Cooperação automatizada",
+                "visibilidade": "Visibilidade da produção",
+                "acesso-aberto": "Acesso aberto",
+                "edicao-cientifica": "Edição científica",
+                "cooperacao": "Cooperação"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0
+        },
+        {
+            "key": "field_lilacs_depo_destaque",
+            "label": "Destaque",
+            "name": "destaque",
+            "type": "true_false",
+            "instructions": "Marca editorial para escolher relatos em destaque. Não é o favorito do visitante.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1,
+            "message": "Usar este relato em destaque"
+        },
+        {
+            "key": "field_lilacs_depo_tab_pub",
+            "label": "Publicação",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_lilacs_depo_consentimento",
+            "label": "Consentimento",
+            "name": "consentimento",
+            "type": "true_false",
+            "instructions": "Registro da autorização para publicar o depoimento e usar a imagem.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1,
+            "message": "Há autorização de publicação e de uso da imagem"
+        },
+        {
+            "key": "field_lilacs_depo_msg_status",
+            "label": "Status e URL",
+            "name": "",
+            "type": "message",
+            "message": "Status, data de publicação e URL permanente ficam no quadro Publicar do WordPress. Use Rascunho, Pendente de revisão, Publicado ou Arquivado. A data de publicação é a data em que a página entrou no ar, diferente da data do depoimento. Para traduzir, use os idiomas do Polylang nesta mesma página: cada idioma tem os próprios campos.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        }
+    ],
+    "location": [
+        [
             {
-                "key": "field_68ff6f0daad8a",
-                "label": "Pais",
-                "name": "pais",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "param": "post_type",
+                "operator": "==",
+                "value": "depoimentos"
             }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "depoimentos"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "",
-        "show_in_rest": 0,
-        "display_title": ""
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Cadastro do depoimento: pessoa, relato, coleção, vídeo e autorização.",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1764072000
 }

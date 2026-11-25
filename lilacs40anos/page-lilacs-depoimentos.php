@@ -54,7 +54,7 @@ $depo_search_hooks = static function () use ( $q ) {
 		}
 
 		$like = '%' . $wpdb->esc_like( $q ) . '%';
-		$meta_keys = [ 'cargo', 'pais', 'depoimento' ];
+		$meta_keys = [ 'cargo', 'pais', 'depoimento', 'nome', 'instituicao', 'citacao', 'transcricao' ];
 		$meta_sql  = [];
 		foreach ( $meta_keys as $key ) {
 			$meta_sql[] = $wpdb->prepare(
@@ -519,6 +519,12 @@ $has_written   = $query->have_posts();
 			font-weight: 600;
 			font-size: 12px;
 		}
+		.lilacs-depo-card__when {
+			margin: 8px 0 0;
+			color: var(--muted);
+			font-size: 12.5px;
+			line-height: 1.4;
+		}
 		.lilacs-depo-card__quote {
 			margin: 0;
 			color: var(--muted);
@@ -784,12 +790,20 @@ $has_written   = $query->have_posts();
 					while ( $query->have_posts() ) :
 						$query->the_post();
 
-						$nome       = get_the_title();
+						$nome       = function_exists( 'bireme_lilacs_depoimento_nome' ) ? bireme_lilacs_depoimento_nome() : get_the_title();
 						$permalink  = get_permalink();
 						$foto       = function_exists( 'get_field' ) ? get_field( 'foto' ) : null;
 						$depoimento = function_exists( 'get_field' ) ? get_field( 'depoimento' ) : '';
+						$citacao    = function_exists( 'get_field' ) ? trim( (string) get_field( 'citacao' ) ) : '';
 						$cargo      = function_exists( 'get_field' ) ? (string) get_field( 'cargo' ) : '';
 						$pais       = function_exists( 'get_field' ) ? (string) get_field( 'pais' ) : '';
+						$data_raw   = function_exists( 'get_field' ) ? (string) get_field( 'data_depoimento' ) : '';
+						$data_label = function_exists( 'bireme_lilacs_format_depoimento_date' ) ? bireme_lilacs_format_depoimento_date( $data_raw ) : '';
+						$colecoes   = get_the_terms( get_the_ID(), 'depoimento_colecao' );
+						$colecao    = ( $colecoes && ! is_wp_error( $colecoes ) ) ? $colecoes[0]->name : '';
+						if ( $citacao !== '' && trim( wp_strip_all_tags( (string) $depoimento ) ) === '' ) {
+							$depoimento = $citacao;
+						}
 
 						$foto_url = '';
 						$foto_alt = $nome;
@@ -844,6 +858,13 @@ $has_written   = $query->have_posts();
 									<?php endif; ?>
 									<?php if ( $pais !== '' ) : ?>
 										<span class="lilacs-depo-card__country"><?php echo esc_html( $pais ); ?></span>
+									<?php endif; ?>
+									<?php if ( $data_label !== '' || $colecao !== '' ) : ?>
+										<p class="lilacs-depo-card__when">
+											<?php
+											echo esc_html( implode( ' · ', array_filter( array( $data_label, $colecao ) ) ) );
+											?>
+										</p>
 									<?php endif; ?>
 								</div>
 							</header>
