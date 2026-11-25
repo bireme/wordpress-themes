@@ -372,11 +372,6 @@ function bireme_lilacs_register_depoimentos_cpt() {
         );
     }
 
-    // Garante rewrite do single após deploy do template.
-    if ( get_option( 'lilacs_depoimentos_rewrite_v1' ) !== '1' ) {
-        flush_rewrite_rules( false );
-        update_option( 'lilacs_depoimentos_rewrite_v1', '1' );
-    }
 }
 add_action( 'init', 'bireme_lilacs_register_depoimentos_cpt', 5 );
 
@@ -389,12 +384,22 @@ function bireme_lilacs_depoimentos_cpt_args( $args, $post_type ) {
     }
     $args['public']             = true;
     $args['publicly_queryable'] = true;
-    if ( empty( $args['rewrite'] ) || ! is_array( $args['rewrite'] ) ) {
-        $args['rewrite'] = array( 'slug' => 'depoimento', 'with_front' => false );
-    }
+    $args['rewrite']            = array( 'slug' => 'depoimento', 'with_front' => false );
     return $args;
 }
 add_filter( 'register_post_type_args', 'bireme_lilacs_depoimentos_cpt_args', 20, 2 );
+
+/**
+ * Grava de novo a regra de /depoimento/nome/ depois que o tipo de conteúdo já existe.
+ */
+function bireme_lilacs_depoimentos_flush_rewrites() {
+    if ( get_option( 'lilacs_depoimentos_rewrite_v2' ) === '1' ) {
+        return;
+    }
+    flush_rewrite_rules( false );
+    update_option( 'lilacs_depoimentos_rewrite_v2', '1' );
+}
+add_action( 'init', 'bireme_lilacs_depoimentos_flush_rewrites', 99 );
 
 /**
  * Status "Arquivado" e tradução do depoimento no Polylang.
