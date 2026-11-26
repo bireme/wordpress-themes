@@ -542,6 +542,14 @@ function bireme_lilacs_depoimento_labels( $group, $values ) {
     return $out;
 }
 
+function bireme_lilacs_depoimento_query_lang( $query ) {
+    if ( is_admin() || ! $query->is_main_query() || ! $query->is_singular( 'depoimentos' ) ) {
+        return;
+    }
+    $query->set( 'lang', '' );
+}
+add_action( 'pre_get_posts', 'bireme_lilacs_depoimento_query_lang' );
+
 function bireme_lilacs_depoimento_nome( $post_id = 0 ) {
     $post_id = $post_id ? (int) $post_id : (int) get_the_ID();
     $nome    = function_exists( 'get_field' ) ? trim( (string) get_field( 'nome', $post_id ) ) : '';

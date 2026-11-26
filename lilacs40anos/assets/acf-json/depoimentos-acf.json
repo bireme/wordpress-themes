@@ -1,117 +1,271 @@
-[
-    {
-        "key": "group_lilacs_page_depoimentos",
-        "title": "Página Depoimentos",
-        "fields": [
+{
+    "key": "group_lilacs_page_depoimentos",
+    "title": "Página Depoimentos",
+    "fields": [
+        {
+            "key": "field_depo_page_tab_banner",
+            "label": "Banner",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_depo_page_banner_img",
+            "label": "Imagem do banner",
+            "name": "banner_imagem",
+            "type": "image",
+            "instructions": "Use uma imagem por idioma (pt/es/en). Se vazio, usa a imagem padrão do tema.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "jpg,jpeg,png,webp"
+        },
+        {
+            "key": "field_depo_page_banner_kicker",
+            "label": "Selo / etiqueta",
+            "name": "banner_selo",
+            "type": "text",
+            "instructions": "Texto pequeno acima do título. Ex.: LILACS 40 ANOS",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "40", "class": "", "id": "" },
+            "default_value": "LILACS 40 ANOS",
+            "placeholder": "LILACS 40 ANOS"
+        },
+        {
+            "key": "field_depo_page_banner_titulo",
+            "label": "Título do banner",
+            "name": "banner_titulo",
+            "type": "text",
+            "instructions": "Se vazio, usa o título da página ou o texto padrão.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "60", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Histórias que conectam pessoas, conhecimento e saúde"
+        },
+        {
+            "key": "field_depo_page_banner_texto",
+            "label": "Texto do banner",
+            "name": "banner_texto",
+            "type": "textarea",
+            "instructions": "Parágrafo sob o título. Se vazio, usa o resumo da página ou o texto padrão.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_depo_page_cta1",
+            "label": "Botão principal — texto",
+            "name": "banner_cta_primario",
+            "type": "text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Envie seu depoimento",
+            "placeholder": "Envie seu depoimento"
+        },
+        {
+            "key": "field_depo_page_cta1_url",
+            "label": "Botão principal — link",
+            "name": "banner_cta_primario_url",
+            "type": "url",
+            "instructions": "Se vazio, aponta para a página Contato.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": ""
+        },
+        {
+            "key": "field_depo_page_cta2",
+            "label": "Botão secundário — texto",
+            "name": "banner_cta_secundario",
+            "type": "text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Assistir ao vídeo",
+            "placeholder": "Assistir ao vídeo"
+        },
+        {
+            "key": "field_depo_page_cta2_url",
+            "label": "Botão secundário — link",
+            "name": "banner_cta_secundario_url",
+            "type": "text",
+            "instructions": "URL ou âncora. Se vazio, vai para #lilacs-depo-todos.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "#lilacs-depo-todos",
+            "placeholder": "#lilacs-depo-todos"
+        },
+        {
+            "key": "field_depo_page_tab_lista",
+            "label": "Listagem",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_depo_page_intro",
+            "label": "Texto introdutório (legado)",
+            "name": "intro",
+            "type": "textarea",
+            "instructions": "Usado só se o Texto do banner estiver vazio.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "",
+            "rows": 3,
+            "new_lines": ""
+        },
+        {
+            "key": "field_depo_page_por_pagina",
+            "label": "Itens por página",
+            "name": "itens_por_pagina",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "30", "class": "", "id": "" },
+            "default_value": 15,
+            "min": 3,
+            "max": 48,
+            "step": 1
+        },
+        {
+            "key": "field_depo_page_tab_cta",
+            "label": "Chamada final",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_depo_page_cta_final_titulo",
+            "label": "Título da chamada",
+            "name": "cta_titulo",
+            "type": "text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Sua história também faz parte da LILACS",
+            "placeholder": "Sua história também faz parte da LILACS"
+        },
+        {
+            "key": "field_depo_page_cta_final_texto",
+            "label": "Texto da chamada",
+            "name": "cta_texto",
+            "type": "textarea",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "", "class": "", "id": "" },
+            "default_value": "Compartilhe sua experiência em vídeo ou texto e ajude a registrar a trajetória da nossa rede.",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_depo_page_cta_final_botao",
+            "label": "Botão da chamada — texto",
+            "name": "cta_botao",
+            "type": "text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "Enviar meu depoimento",
+            "placeholder": "Enviar meu depoimento"
+        },
+        {
+            "key": "field_depo_page_cta_final_url",
+            "label": "Botão da chamada — link",
+            "name": "cta_botao_url",
+            "type": "url",
+            "instructions": "Se vazio, aponta para Contato.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": ""
+        },
+        {
+            "key": "field_depo_page_tab_rss",
+            "label": "Multimídia (RSS)",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_depo_page_rss_ativo",
+            "label": "Exibir seção RSS",
+            "name": "rss_ativo",
+            "type": "true_false",
+            "instructions": "Mostra a listagem de itens do feed multimídia abaixo dos depoimentos.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "30", "class": "", "id": "" },
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_depo_page_rss_titulo",
+            "label": "Título da seção RSS",
+            "name": "rss_titulo",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "70", "class": "", "id": "" },
+            "default_value": "Multimídia LILACS",
+            "placeholder": "Ex.: Multimídia LILACS"
+        },
+        {
+            "key": "field_depo_page_rss_link",
+            "label": "Link do RSS",
+            "name": "rss_link",
+            "type": "url",
+            "instructions": "Feed multimídia LILACS. Padrão: https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "70", "class": "", "id": "" },
+            "default_value": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
+            "placeholder": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS"
+        },
+        {
+            "key": "field_depo_page_rss_max",
+            "label": "Máximo de itens RSS",
+            "name": "rss_max_itens",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "30", "class": "", "id": "" },
+            "default_value": 6,
+            "min": 1,
+            "max": 24,
+            "step": 1
+        }
+    ],
+    "location": [
+        [
             {
-                "key": "field_depo_page_tab_lista",
-                "label": "Listagem",
-                "name": "",
-                "type": "tab",
-                "placement": "top"
-            },
-            {
-                "key": "field_depo_page_intro",
-                "label": "Texto introdutório (opcional)",
-                "name": "intro",
-                "type": "textarea",
-                "instructions": "Se vazio, usa o resumo da página ou o texto padrão.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "", "class": "", "id": "" },
-                "default_value": "",
-                "rows": 3,
-                "new_lines": ""
-            },
-            {
-                "key": "field_depo_page_por_pagina",
-                "label": "Itens por página",
-                "name": "itens_por_pagina",
-                "type": "number",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "30", "class": "", "id": "" },
-                "default_value": 12,
-                "min": 3,
-                "max": 48,
-                "step": 1
-            },
-            {
-                "key": "field_depo_page_tab_rss",
-                "label": "Multimídia (RSS)",
-                "name": "",
-                "type": "tab",
-                "placement": "top"
-            },
-            {
-                "key": "field_depo_page_rss_ativo",
-                "label": "Exibir seção RSS",
-                "name": "rss_ativo",
-                "type": "true_false",
-                "instructions": "Mostra a listagem de itens do feed multimídia abaixo dos depoimentos.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "30", "class": "", "id": "" },
-                "default_value": 1,
-                "ui": 1
-            },
-            {
-                "key": "field_depo_page_rss_titulo",
-                "label": "Título da seção RSS",
-                "name": "rss_titulo",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "70", "class": "", "id": "" },
-                "default_value": "Multimídia LILACS",
-                "placeholder": "Ex.: Multimídia LILACS"
-            },
-            {
-                "key": "field_depo_page_rss_link",
-                "label": "Link do RSS",
-                "name": "rss_link",
-                "type": "url",
-                "instructions": "Feed multimídia LILACS. Padrão: https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "70", "class": "", "id": "" },
-                "default_value": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS",
-                "placeholder": "https://lilacs.bvsalud.org/multimedia/multimedia-feed?q=&filter=LILACS"
-            },
-            {
-                "key": "field_depo_page_rss_max",
-                "label": "Máximo de itens RSS",
-                "name": "rss_max_itens",
-                "type": "number",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": { "width": "30", "class": "", "id": "" },
-                "default_value": 6,
-                "min": 1,
-                "max": 24,
-                "step": 1
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-lilacs-depoimentos.php"
             }
-        ],
-        "location": [
-            [
-                {
-                    "param": "page_template",
-                    "operator": "==",
-                    "value": "page-lilacs-depoimentos.php"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": "",
-        "active": true,
-        "description": "Campos da página de listagem de depoimentos + feed multimídia RSS",
-        "show_in_rest": 0
-    }
-]
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Banner, textos e listagem da página de depoimentos. Cada idioma da página (Polylang) tem seus próprios valores.",
+    "show_in_rest": 0,
+    "modified": 1764172800
+}

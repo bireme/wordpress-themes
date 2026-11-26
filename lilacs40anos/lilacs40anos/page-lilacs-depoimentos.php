@@ -82,8 +82,20 @@ if ( isset( $_GET['depo_page'] ) ) {
 	$paged = max( 1, (int) get_query_var( 'paged' ) );
 }
 
-$acf_intro = function_exists( 'get_field' ) ? trim( (string) get_field( 'intro' ) ) : '';
-$per_page  = 15;
+$acf_text = static function ( $key, $default = '' ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return $default;
+	}
+	$value = get_field( $key );
+	if ( is_array( $value ) ) {
+		$value = $value['value'] ?? ( $value['url'] ?? '' );
+	}
+	$value = trim( (string) $value );
+	return $value !== '' ? $value : $default;
+};
+$acf_intro    = $acf_text( 'intro' );
+$acf_per_page = function_exists( 'get_field' ) ? (int) get_field( 'itens_por_pagina' ) : 0;
+$per_page     = $acf_per_page > 0 ? $acf_per_page : 15;
 
 $filters = array(
 	'pais'    => isset( $_GET['pais'] ) ? sanitize_text_field( wp_unslash( $_GET['pais'] ) ) : '',
@@ -302,18 +314,45 @@ if ( ! $has_structured_filter && $q === '' && $paged === 1 ) {
 
 $page_title = get_the_title() ?: __( 'Depoimentos', 'lilacs' );
 $word_count = count( preg_split( '/\s+/', trim( wp_strip_all_tags( $page_title ) ) ) );
-$hero_title = ( $word_count < 4 && preg_match( '/depoimento/i', $page_title ) )
+$default_title = ( $word_count < 4 && preg_match( '/depoimento/i', $page_title ) )
 	? __( 'Histórias que conectam pessoas, conhecimento e saúde', 'lilacs' )
 	: $page_title;
-$page_intro = $acf_intro !== ''
-	? $acf_intro
-	: ( has_excerpt()
-		? get_the_excerpt()
-		: __( 'Depoimentos de pessoas e instituições que fazem parte da Rede LILACS e contribuem para ampliar o acesso à informação científica e técnica em saúde na América Latina e no Caribe.', 'lilacs' ) );
+$default_intro = has_excerpt()
+	? get_the_excerpt()
+	: __( 'Depoimentos de pessoas e instituições que fazem parte da Rede LILACS e contribuem para ampliar o acesso à informação científica e técnica em saúde na América Latina e no Caribe.', 'lilacs' );
+
+$banner_selo   = $acf_text( 'banner_selo', __( 'LILACS 40 ANOS', 'lilacs' ) );
+$hero_title    = $acf_text( 'banner_titulo', $default_title );
+$page_intro    = $acf_text( 'banner_texto', $acf_intro !== '' ? $acf_intro : $default_intro );
+$cta1_label    = $acf_text( 'banner_cta_primario', __( 'Envie seu depoimento', 'lilacs' ) );
+$cta2_label    = $acf_text( 'banner_cta_secundario', __( 'Assistir ao vídeo', 'lilacs' ) );
+$cta_titulo    = $acf_text( 'cta_titulo', __( 'Sua história também faz parte da LILACS', 'lilacs' ) );
+$cta_texto     = $acf_text( 'cta_texto', __( 'Compartilhe sua experiência em vídeo ou texto e ajude a registrar a trajetória da nossa rede.', 'lilacs' ) );
+$cta_botao     = $acf_text( 'cta_botao', __( 'Enviar meu depoimento', 'lilacs' ) );
 
 $contato = get_page_by_path( 'contato' );
-$enviar_url = $contato ? get_permalink( $contato ) : home_url( '/contato/' );
+$contato_url = $contato ? get_permalink( $contato ) : home_url( '/contato/' );
+$enviar_url = $acf_text( 'banner_cta_primario_url', $contato_url );
+$cta2_url   = $acf_text( 'banner_cta_secundario_url', '#lilacs-depo-todos' );
+$cta_final_url = $acf_text( 'cta_botao_url', $contato_url );
+
 $banner_image = get_template_directory_uri() . '/assets/images/bd12b061-c982-4696-9345-79057b19ad27.png';
+$banner_alt   = '';
+if ( function_exists( 'get_field' ) ) {
+	$banner_field = get_field( 'banner_imagem' );
+	if ( is_array( $banner_field ) && ! empty( $banner_field['url'] ) ) {
+		$banner_image = (string) ( $banner_field['sizes']['2048x2048'] ?? $banner_field['url'] );
+		$banner_alt   = (string) ( $banner_field['alt'] ?? '' );
+	} elseif ( is_numeric( $banner_field ) ) {
+		$url = wp_get_attachment_image_url( (int) $banner_field, 'full' );
+		if ( $url ) {
+			$banner_image = $url;
+			$banner_alt   = (string) get_post_meta( (int) $banner_field, '_wp_attachment_image_alt', true );
+		}
+	} elseif ( is_string( $banner_field ) && $banner_field !== '' ) {
+		$banner_image = $banner_field;
+	}
+}
 
 $filter_url = static function ( $extra = array() ) use ( $list_page_url, $q, $filters ) {
 	$args = array(
@@ -370,17 +409,17 @@ $photo_of = static function ( $post_id ) {
 		.lilacs-stories * { box-sizing: border-box; }
 		.lilacs-stories a { color: inherit; }
 		.lilacs-stories__inner { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-		.lilacs-stories__hero { position: relative; margin: 0 0 28px; background: #1e1b4b; color: #fff; }
-		.lilacs-stories__banner { display: block; width: 100%; height: 440px; object-fit: cover; object-position: center 40%; }
+		.lilacs-stories__hero { position: relative; margin: 0 0 28px; background: #1e1b4b; color: #fff; overflow: hidden; }
+		.lilacs-stories__banner { display: block; width: 100%; height: clamp(360px, 42vw, 560px); object-fit: cover; object-position: center 38%; }
 		.lilacs-stories__hero::after {
 			content: ""; position: absolute; inset: 0; pointer-events: none;
 			background: linear-gradient(90deg, rgba(15, 23, 42, .72) 0%, rgba(15, 23, 42, .28) 30%, rgba(15, 23, 42, 0) 52%);
 		}
 		.lilacs-stories__hero .lilacs-stories__inner { position: absolute; inset: 0; display: flex; align-items: center; z-index: 1; }
-		.lilacs-stories__hero .lilacs-stories__inner > div { max-width: 460px; }
-		.lilacs-stories__kicker { display: inline-flex; margin-bottom: 12px; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.16); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
-		.lilacs-stories__hero h1 { margin: 0 0 12px; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.035em; color: #fff; }
-		.lilacs-stories__hero p { margin: 0 0 20px; max-width: 46ch; color: rgba(255,255,255,.9); font-size: 1.05rem; line-height: 1.6; }
+		.lilacs-stories__hero .lilacs-stories__inner > div { max-width: min(460px, 42vw); }
+		.lilacs-stories__kicker { display: inline-flex; margin-bottom: 10px; padding: 5px 10px; border-radius: 999px; background: rgba(255,255,255,.16); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: .04em; }
+		.lilacs-stories__hero h1 { margin: 0 0 10px; font-size: clamp(1.7rem, 3.2vw, 2.7rem); line-height: 1.1; letter-spacing: -.035em; color: #fff; }
+		.lilacs-stories__hero p { margin: 0 0 16px; max-width: 46ch; color: rgba(255,255,255,.9); font-size: clamp(.95rem, 1.4vw, 1.05rem); line-height: 1.55; }
 		.lilacs-stories__ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 		.lilacs-stories__ctas a, .lilacs-stories__search button, .lilacs-stories__cta a {
 			display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; text-decoration: none; font-weight: 800;
@@ -454,9 +493,11 @@ $photo_of = static function ( $post_id ) {
 			.lilacs-stories__split, .lilacs-stories__hero .lilacs-stories__inner { grid-template-columns: 1fr; }
 		}
 		@media (max-width: 720px) {
-			.lilacs-stories__banner { height: 240px; }
-			.lilacs-stories__hero::after { display: none; }
-			.lilacs-stories__hero .lilacs-stories__inner { position: relative; inset: auto; display: block; padding-top: 22px; padding-bottom: 8px; }
+			.lilacs-stories__banner { height: 280px; object-position: center 30%; }
+			.lilacs-stories__hero::after {
+				background: linear-gradient(180deg, rgba(15, 23, 42, .55) 0%, rgba(15, 23, 42, .78) 100%);
+			}
+			.lilacs-stories__hero .lilacs-stories__inner { align-items: flex-end; padding-bottom: 22px; }
 			.lilacs-stories__hero .lilacs-stories__inner > div { max-width: none; }
 			.lilacs-stories__filters, .stories, .stories.compact, .theme-grid, .map-layout { grid-template-columns: 1fr; }
 			.lilacs-stories__search { border-radius: 16px; flex-wrap: wrap; }
@@ -468,15 +509,23 @@ $photo_of = static function ( $post_id ) {
 	</style>
 
 	<section class="lilacs-stories__hero">
-		<img class="lilacs-stories__banner" src="<?php echo esc_url( $banner_image ); ?>" alt="" />
+		<img class="lilacs-stories__banner" src="<?php echo esc_url( $banner_image ); ?>" alt="<?php echo esc_attr( $banner_alt ); ?>" />
 		<div class="lilacs-stories__inner">
 			<div>
-				<span class="lilacs-stories__kicker"><?php esc_html_e( 'LILACS 40 ANOS', 'lilacs' ); ?></span>
+				<?php if ( $banner_selo !== '' ) : ?>
+					<span class="lilacs-stories__kicker"><?php echo esc_html( $banner_selo ); ?></span>
+				<?php endif; ?>
 				<h1><?php echo esc_html( $hero_title ); ?></h1>
-				<p><?php echo esc_html( $page_intro ); ?></p>
+				<?php if ( $page_intro !== '' ) : ?>
+					<p><?php echo esc_html( $page_intro ); ?></p>
+				<?php endif; ?>
 				<div class="lilacs-stories__ctas">
-					<a href="<?php echo esc_url( $enviar_url ); ?>"><?php esc_html_e( 'Envie seu depoimento', 'lilacs' ); ?> →</a>
-					<a class="ghost" href="#lilacs-depo-todos"><?php esc_html_e( 'Assistir ao vídeo', 'lilacs' ); ?></a>
+					<?php if ( $cta1_label !== '' ) : ?>
+						<a href="<?php echo esc_url( $enviar_url ); ?>"><?php echo esc_html( $cta1_label ); ?> →</a>
+					<?php endif; ?>
+					<?php if ( $cta2_label !== '' ) : ?>
+						<a class="ghost" href="<?php echo esc_attr( $cta2_url[0] === '#' ? $cta2_url : esc_url( $cta2_url ) ); ?>"><?php echo esc_html( $cta2_label ); ?></a>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -722,10 +771,14 @@ $photo_of = static function ( $post_id ) {
 
 		<section class="lilacs-stories__cta">
 			<div>
-				<h2><?php esc_html_e( 'Sua história também faz parte da LILACS', 'lilacs' ); ?></h2>
-				<p><?php esc_html_e( 'Compartilhe sua experiência em vídeo ou texto e ajude a registrar a trajetória da nossa rede.', 'lilacs' ); ?></p>
+				<h2><?php echo esc_html( $cta_titulo ); ?></h2>
+				<?php if ( $cta_texto !== '' ) : ?>
+					<p><?php echo esc_html( $cta_texto ); ?></p>
+				<?php endif; ?>
 			</div>
-			<a href="<?php echo esc_url( $enviar_url ); ?>"><?php esc_html_e( 'Enviar meu depoimento', 'lilacs' ); ?> →</a>
+			<?php if ( $cta_botao !== '' ) : ?>
+				<a href="<?php echo esc_url( $cta_final_url ); ?>"><?php echo esc_html( $cta_botao ); ?> →</a>
+			<?php endif; ?>
 		</section>
 	</div>
 

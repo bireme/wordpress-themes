@@ -19,27 +19,54 @@ if ( ! have_posts() ) {
 while ( have_posts() ) :
 	the_post();
 
-	$post_id    = (int) get_the_ID();
+	$post_id  = (int) get_the_ID();
+	$as_text  = static function ( $value ) {
+		if ( is_array( $value ) ) {
+			$value = $value['value'] ?? ( $value['url'] ?? '' );
+		}
+		if ( is_object( $value ) || is_array( $value ) ) {
+			return '';
+		}
+		return trim( (string) $value );
+	};
+	$field = static function ( $key ) use ( $post_id, $as_text ) {
+		$value = function_exists( 'get_field' ) ? get_field( $key, $post_id ) : null;
+		$text  = $as_text( $value );
+		if ( $text !== '' ) {
+			return $text;
+		}
+		return $as_text( get_post_meta( $post_id, $key, true ) );
+	};
 	$nome       = function_exists( 'bireme_lilacs_depoimento_nome' ) ? bireme_lilacs_depoimento_nome( $post_id ) : get_the_title();
 	$titulo     = get_the_title();
 	$headline   = ( trim( wp_strip_all_tags( $titulo ) ) !== '' && $titulo !== $nome ) ? $titulo : $nome;
-	$foto       = function_exists( 'get_field' ) ? get_field( 'foto' ) : null;
-	$texto      = function_exists( 'get_field' ) ? get_field( 'depoimento' ) : '';
-	$cargo      = function_exists( 'get_field' ) ? trim( (string) get_field( 'cargo' ) ) : '';
-	$pais       = function_exists( 'get_field' ) ? trim( (string) get_field( 'pais' ) ) : '';
-	$instituicao = function_exists( 'get_field' ) ? trim( (string) get_field( 'instituicao' ) ) : '';
-	$sigla      = function_exists( 'get_field' ) ? trim( (string) get_field( 'sigla' ) ) : '';
-	$citacao    = function_exists( 'get_field' ) ? trim( (string) get_field( 'citacao' ) ) : '';
-	$transcricao = function_exists( 'get_field' ) ? get_field( 'transcricao' ) : '';
-	$formato    = function_exists( 'get_field' ) ? (string) get_field( 'formato' ) : '';
-	$idioma     = function_exists( 'get_field' ) ? (string) get_field( 'idioma' ) : '';
-	$papeis     = function_exists( 'get_field' ) ? get_field( 'papel' ) : array();
-	$temas      = function_exists( 'get_field' ) ? get_field( 'tema' ) : array();
-	$destaque   = function_exists( 'get_field' ) ? (bool) get_field( 'destaque' ) : false;
-	$data_raw   = function_exists( 'get_field' ) ? (string) get_field( 'data_depoimento' ) : '';
+	$foto       = function_exists( 'get_field' ) ? get_field( 'foto', $post_id ) : null;
+	$texto       = $field( 'depoimento' );
+	$cargo       = $field( 'cargo' );
+	$pais        = $field( 'pais' );
+	$instituicao = $field( 'instituicao' );
+	$sigla       = $field( 'sigla' );
+	$citacao     = $field( 'citacao' );
+	$transcricao = $field( 'transcricao' );
+	$formato     = $field( 'formato' );
+	$idioma      = $field( 'idioma' );
+	$papeis      = function_exists( 'get_field' ) ? get_field( 'papel', $post_id ) : get_post_meta( $post_id, 'papel', true );
+	$temas       = function_exists( 'get_field' ) ? get_field( 'tema', $post_id ) : get_post_meta( $post_id, 'tema', true );
+	if ( ! $papeis ) {
+		$papeis = get_post_meta( $post_id, 'papel', true );
+	}
+	if ( ! $temas ) {
+		$temas = get_post_meta( $post_id, 'tema', true );
+	}
+	$destaque   = $field( 'destaque' ) === '1';
+	$data_raw   = $field( 'data_depoimento' );
 	$data_label = function_exists( 'bireme_lilacs_format_depoimento_date' ) ? bireme_lilacs_format_depoimento_date( $data_raw ) : '';
-	$video_url  = function_exists( 'get_field' ) ? trim( (string) get_field( 'video_url' ) ) : '';
-	$arquivo    = function_exists( 'get_field' ) ? get_field( 'video_arquivo' ) : null;
+	$video_url  = $field( 'video_url' );
+	$youtube_id = $as_text( get_post_meta( $post_id, '_lilacs_youtube_id', true ) );
+	if ( $video_url === '' && preg_match( '/^[A-Za-z0-9_-]{11}$/', $youtube_id ) ) {
+		$video_url = 'https://www.youtube.com/watch?v=' . $youtube_id;
+	}
+	$arquivo = function_exists( 'get_field' ) ? get_field( 'video_arquivo', $post_id ) : null;
 	$list_url   = function_exists( 'bireme_lilacs_depoimentos_list_url' ) ? bireme_lilacs_depoimentos_list_url() : home_url( '/' );
 
 	$file_url = '';
@@ -50,8 +77,10 @@ while ( have_posts() ) :
 	}
 	$media_url = $video_url !== '' ? $video_url : $file_url;
 
-	if ( $formato !== 'video' && $formato !== 'escrito' ) {
-		$formato = ( $media_url !== '' && trim( wp_strip_all_tags( (string) $texto ) ) === '' ) ? 'video' : 'escrito';
+	if ( $media_url !== '' && trim( wp_strip_all_tags( $texto ) ) === '' ) {
+		$formato = 'video';
+	} elseif ( $formato !== 'video' && $formato !== 'escrito' ) {
+		$formato = 'escrito';
 	}
 	$is_video = $formato === 'video';
 
@@ -64,6 +93,8 @@ while ( have_posts() ) :
 		$foto_url = $foto;
 	} elseif ( has_post_thumbnail() ) {
 		$foto_url = (string) get_the_post_thumbnail_url( $post_id, 'medium_large' );
+	} elseif ( preg_match( '/^[A-Za-z0-9_-]{11}$/', $youtube_id ) ) {
+		$foto_url = 'https://i.ytimg.com/vi/' . rawurlencode( $youtube_id ) . '/hqdefault.jpg';
 	}
 
 	$org = $instituicao;
@@ -99,6 +130,7 @@ while ( have_posts() ) :
 		'ignore_sticky_posts' => true,
 		'orderby'             => 'date',
 		'order'               => 'DESC',
+		'lang'                => '',
 	);
 	if ( $colecoes && ! is_wp_error( $colecoes ) ) {
 		$related_args['tax_query'] = array(
@@ -436,16 +468,24 @@ while ( have_posts() ) :
 							$rel_nome   = function_exists( 'bireme_lilacs_depoimento_nome' ) ? bireme_lilacs_depoimento_nome( $rel_id ) : get_the_title();
 							$rel_title  = get_the_title();
 							$rel_foto   = function_exists( 'get_field' ) ? get_field( 'foto' ) : null;
-							$rel_pais   = function_exists( 'get_field' ) ? trim( (string) get_field( 'pais' ) ) : '';
-							$rel_org    = function_exists( 'get_field' ) ? trim( (string) get_field( 'instituicao' ) ) : '';
-							$rel_formato = function_exists( 'get_field' ) ? (string) get_field( 'formato' ) : 'escrito';
+							$rel_pais    = $as_text( function_exists( 'get_field' ) ? get_field( 'pais', $rel_id ) : get_post_meta( $rel_id, 'pais', true ) );
+							$rel_org     = $as_text( function_exists( 'get_field' ) ? get_field( 'instituicao', $rel_id ) : get_post_meta( $rel_id, 'instituicao', true ) );
+							$rel_formato = $as_text( function_exists( 'get_field' ) ? get_field( 'formato', $rel_id ) : get_post_meta( $rel_id, 'formato', true ) );
+							if ( $rel_formato === '' ) {
+								$rel_formato = get_post_meta( $rel_id, '_lilacs_youtube_id', true ) ? 'video' : 'escrito';
+							}
 							$rel_thumb  = '';
 							if ( is_array( $rel_foto ) ) {
 								$rel_thumb = (string) ( $rel_foto['sizes']['thumbnail'] ?? $rel_foto['url'] ?? '' );
 							} elseif ( is_string( $rel_foto ) ) {
 								$rel_thumb = $rel_foto;
-							} elseif ( has_post_thumbnail() ) {
+							} elseif ( has_post_thumbnail( $rel_id ) ) {
 								$rel_thumb = (string) get_the_post_thumbnail_url( $rel_id, 'thumbnail' );
+							} else {
+								$rel_youtube = $as_text( get_post_meta( $rel_id, '_lilacs_youtube_id', true ) );
+								if ( preg_match( '/^[A-Za-z0-9_-]{11}$/', $rel_youtube ) ) {
+									$rel_thumb = 'https://i.ytimg.com/vi/' . rawurlencode( $rel_youtube ) . '/hqdefault.jpg';
+								}
 							}
 							$rel_badge = function_exists( 'bireme_lilacs_depoimento_label' )
 								? bireme_lilacs_depoimento_label( 'formato', $rel_formato === 'video' ? 'video' : 'escrito' )
