@@ -898,3 +898,158 @@ blockquote footer{
 .biblioteca-cards:hover img{
 	transform:scale(1.1)
 }
+
+/* ==========================================
+   MEMORIAL DIGITAL
+   COMPONENTE COMPARTILHADO DE NOTICIAS
+   ========================================== */
+
+/* Estrutura dos cards */
+
+#news .memorial-news-card .home-news-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px;
+}
+
+/* Categorias */
+
+#news .memorial-news-card .home-news-categories {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+#news .memorial-news-card .home-news-category {
+    display: inline-block;
+    background-color: #eeeeee;
+    color: #555555;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+#news .memorial-news-card .home-news-category:hover {
+    background-color: #dddddd;
+    color: #333333;
+    text-decoration: none;
+}
+
+#news .memorial-news-card .home-news-category:focus-visible {
+    outline: 2px solid #20395b;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Titulo */
+
+#news .memorial-news-card .card-title {
+    margin-bottom: 10px !important;
+}
+
+#news .memorial-news-card .card-title a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#news .memorial-news-card .card-title a:hover {
+    color: #20395b !important;
+}
+
+/* Resumo */
+
+#news .memorial-news-card .home-news-excerpt {
+    display: block;
+    margin-bottom: 16px;
+    overflow: visible;
+}
+
+#news .memorial-news-card .home-news-excerpt p {
+    margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Rodape */
+
+#news .memorial-news-card .home-news-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #dedede;
+}
+
+/* Seta original do Memorial */
+
+#news .memorial-news-card .home-news-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+#news .memorial-news-card .home-news-arrow .btn-more {
+    display: block;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+
+#news .memorial-news-card .home-news-arrow:hover {
+    transform: translateX(3px);
+}
+
+#news .memorial-news-card .home-news-arrow:focus-visible {
+    outline: 3px solid rgba(13, 110, 253, 0.35);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+/* Responsividade */
+
+@media (max-width: 767px) {
+
+    #news .memorial-news-card .home-news-body {
+        padding: 16px;
+    }
+
+    #news .memorial-news-card .home-news-categories {
+        margin-bottom: 10px;
+    }
+
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #news .memorial-news-card .home-news-arrow,
+    #news .memorial-news-card .home-news-category,
+    #news .memorial-news-card .card-title a {
+        transition: none;
+    }
+
+    #news .memorial-news-card .home-news-arrow:hover {
+        transform: none;
+    }
+
+}

@@ -25,61 +25,7 @@
 			<?php if ( $posts->have_posts() ) : ?>
 				<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 
-					<article class="col">
-						<div class="card h-100">
-							<?php if ( has_post_thumbnail() ) : ?>
-								<a href="<?php the_permalink(); ?>" class="d-block">
-									<?php the_post_thumbnail('medium', ['class' => 'card-img-top card-img-fixed']); ?>
-								</a>
-							<?php else : ?>
-								<a href="<?php the_permalink(); ?>" class="d-block">
-									<img
-									src="<?php echo esc_url( get_template_directory_uri() . '/img/blog-default.jpg' ); ?>"
-									class="card-img-top card-img-fixed"
-									alt="<?php echo esc_attr( get_the_title() ); ?>"
-									>
-								</a>
-							<?php endif; ?>
-							<div class="card-body">
-								<h5 class="card-title mb-2">
-									<a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
-										<?php the_title(); ?>
-									</a>
-								</h5>
-								<?php
-								$categories = get_the_category();
-								if ( ! empty( $categories ) ) :
-
-									$limit = 3; // <<< ajuste aqui quantos badges quer mostrar
-									$count = 0;
-									?>
-									<div class="mb-3">
-										<?php foreach ( $categories as $category ) :
-											if ( $count >= $limit ) {
-												break;
-											}
-											$count++;
-											?>
-											<a
-											href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"
-											class="text-decoration-none me-1"
-											aria-label="Ver posts da categoria <?php echo esc_attr( $category->name ); ?>"
-											>
-											<span class="badge bg-primary d-inline-block">
-												<?php echo esc_html( $category->name ); ?>
-											</span>
-										</a>
-									<?php endforeach; ?>
-								</div>
-							<?php endif; ?>
-
-							<p class="card-text">
-								<?php the_excerpt(); ?>
-							</p>
-
-						</div>
-					</div>
-				</article>
+					<?php get_template_part('includes/news-card', null, ['fixed_image' => true]); ?>
 
 			<?php endwhile; ?>
 			<?php wp_reset_postdata(); ?>
