@@ -16,73 +16,26 @@ if ( $posts_home->have_posts() ) : ?>
 			    ? pll_current_language('slug')
 			    : 'pt';
 			
-			$links_novidades = [
-			    'pt' => 'https://memorialdigitalcovid19.org.br/novidades/',
-			    'en' => 'https://memorialdigitalcovid19.org.br/en/whats-new/',
-			    'es' => 'https://memorialdigitalcovid19.org.br/es/novedades/',
-			];
-			
-			$blog_url = $links_novidades[$idioma] ?? $links_novidades['pt'];
+			$idioma = $idioma ?: 'pt';
+
+$home_idioma = function_exists('pll_home_url')
+    ? pll_home_url($idioma)
+    : home_url('/');
+
+$links_novidades = [
+    'pt' => 'novidades/',
+    'en' => 'whats-new/',
+    'es' => 'novedades/',
+];
+
+$blog_url = trailingslashit($home_idioma)
+    . ($links_novidades[$idioma] ?? $links_novidades['pt']);
 			?>
 		</div>
 
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="news">
 			<?php while ( $posts_home->have_posts() ) : $posts_home->the_post(); ?>
-				<article class="col">
-					<div class="card h-100">
-
-						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" class="d-block">
-								<?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
-							</a>
-						<?php else : ?>
-							<a href="<?php the_permalink(); ?>" class="d-block">
-								<img
-								src="<?php echo esc_url( get_template_directory_uri() . '/img/blog-default.jpg' ); ?>"
-								class="card-img-top"
-								alt="<?php echo esc_attr( get_the_title() ); ?>"
-								>
-							</a>
-						<?php endif; ?>
-
-						<div class="card-body">
-							<h5 class="card-title mb-2">
-								<a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark">
-									<?php the_title(); ?>
-								</a>
-							</h5>
-
-							<?php
-							$categories = get_the_category();
-							if ( ! empty( $categories ) ) :
-								$limit = 3; // quantos badges por post
-								$count = 0;
-								?>
-								<div class="mb-3">
-									<?php foreach ( $categories as $category ) :
-										if ( $count >= $limit ) break;
-										$count++;
-										?>
-										<a
-										href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>"
-										class="text-decoration-none me-1"
-										aria-label="Ver posts da categoria <?php echo esc_attr( $category->name ); ?>"
-										>
-										<span class="badge bg-primary d-inline-block">
-											<?php echo esc_html( $category->name ); ?>
-										</span>
-									</a>
-								<?php endforeach; ?>
-							</div>
-						<?php endif; ?>
-
-						<p class="card-text">
-							<?php the_excerpt(); ?>
-						</p>
-					</div>
-
-				</div>
-			</article>
+				<?php get_template_part('includes/news-card', null, ['fixed_image' => false]); ?>
 		<?php endwhile; ?>
 
 	</div>
