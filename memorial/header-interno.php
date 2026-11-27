@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
 </head>
-<?php $lang = pll_current_language(); ?>
+<?php $lang = function_exists('pll_current_language') ? pll_current_language() : 'pt'; ?>
 <body>
 	<?php wp_body_open(); ?>
 	<header id="header">

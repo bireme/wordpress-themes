@@ -20,7 +20,11 @@
 				<hr >
 				<div class="text-center">
 					<img src="<?php bloginfo('template_directory'); ?>/img/powered.svg" id="logo-poweredby" alt=""> <br>	
-					<div class="mt-3"><small>© <?php pll_e('Todos os direitos são reservados'); ?></small></div>
+					<div class="mt-3"><small>© <?php echo esc_html(function_exists('pll__') ? pll__('Todos os direitos são reservados') : __('Todos os direitos são reservados', 'memorial')); ?></small></div>
+					<?php $sitemap_url = memorial_sitemap_url(); ?>
+					<?php if ($sitemap_url) : ?>
+						<div class="mt-2"><small><a href="<?php echo esc_url($sitemap_url); ?>"><?php echo esc_html(memorial_sitemap_text('title')); ?></a></small></div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</footer>
