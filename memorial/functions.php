@@ -95,8 +95,13 @@ require_once get_template_directory() . '/includes/functions-aspas.php';
 //Custom functions and shortcodes
 require_once get_template_directory() . '/includes/functions-shortcodes.php';
 
+require_once get_template_directory() . '/includes/functions-sitemap.php';
+
 //polylang
 add_action('init', function() {
+    if (!function_exists('pll_register_string')) {
+        return;
+    }
     // thema
     pll_register_string('Footer', 'Todos os direitos são reservados', 'Tema'); 
     pll_register_string('Search', 'Pesquisar', 'Tema');
