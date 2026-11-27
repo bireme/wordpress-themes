@@ -1,0 +1,254 @@
+/* Orientation layout, loaded only by the sitemap template. */
+.sitemap-intro, .sitemap-layout {
+    --sitemap-blue: #203c53;
+    --sitemap-green: #49894e;
+    --sitemap-rule: #dce6df;
+    color: var(--sitemap-blue);
+}
+
+.sitemap-intro {
+    background: #f0f5f2;
+    border-radius: 6px;
+    padding: clamp(1rem, 2vw, 1.5rem);
+    margin-block: 1rem 1.5rem;
+}
+
+.sitemap-intro h2, .sitemap-layout h2 {
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.sitemap-intro h2 {
+    margin-block: 0 .4rem;
+    font-size: clamp(1.25rem, 2.6vw, 1.625rem);
+}
+
+.sitemap-intro p {
+    margin-block: 0 .8rem;
+    line-height: 1.55;
+}
+
+.sitemap-layout :is(.sitemap-primary, .sitemap-support section) > h2 {
+    margin-block: 0 .65rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 600;
+}
+
+.sitemap-filter[hidden], .sitemap-filter button[hidden],
+#sitemap-navigation li[hidden] { display: none !important; }
+
+.sitemap-filter { inline-size: 100%; }
+
+@media (min-width: 992px) {
+    .sitemap-filter { inline-size: 60%; }
+}
+
+.sitemap-filter__controls {
+    position: relative;
+}
+
+.sitemap-filter__controls input {
+    appearance: none;
+    box-sizing: border-box;
+    inline-size: 100%;
+    min-block-size: 44px;
+    border: 1px solid #a7b9b0;
+    border-radius: 6px;
+    background-color: #fff;
+    color: inherit;
+    padding: .5rem 3rem .5rem 2.5rem;
+    font: inherit;
+}
+
+.sitemap-filter__controls input::-webkit-search-cancel-button {
+    appearance: none;
+}
+
+.sitemap-filter__controls > .sitemap-icon,
+.sitemap-filter__controls button {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+}
+
+.sitemap-filter__controls > .sitemap-icon {
+    inset-inline-start: .85rem;
+    pointer-events: none;
+}
+
+.sitemap-filter__controls button {
+    inset-inline-end: 2px;
+    display: grid;
+    place-items: center;
+    inline-size: 40px;
+    block-size: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background-color: transparent;
+    color: inherit;
+}
+
+.sitemap-filter__controls button:hover,
+.sitemap-support a:hover {
+    background-color: #f4f7f5;
+}
+
+.sitemap-filter__controls :focus-visible, .sitemap-layout a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.sitemap-layout {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+@media (min-width: 992px) {
+    .sitemap-layout:has(.sitemap-support) {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+}
+
+.sitemap-support section + section {
+    border-block-start: 1px solid var(--sitemap-rule);
+    margin-block-start: 1.25rem;
+    padding-block-start: 1.25rem;
+}
+
+.sitemap-support__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-block-end: .8rem;
+}
+
+.sitemap-support p {
+    line-height: 1.55;
+    margin-block: 0 .55rem;
+}
+
+.sitemap-support a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-inline-size: 100%;
+    padding: 4px 6px;
+    border-radius: 3px;
+    color: inherit;
+    background-color: transparent;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sitemap-support a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sitemap-icon { flex: 0 0 16px; }
+
+#sitemap-status:not(.sitemap-no-results) {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+
+#sitemap-navigation {
+    --sitemap-recuo: clamp(.75rem, 2vw, 1.25rem);
+    margin: .5rem 0 0;
+    overflow-wrap: anywhere;
+}
+
+#main_container #sitemap-navigation > ul.row {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#main_container #sitemap-navigation > ul.row > li {
+    inline-size: auto;
+    max-inline-size: none;
+    margin: 0 !important;
+    padding: .1rem 0;
+}
+
+#main_container #sitemap-navigation > ul.row > li:first-child { padding-block-end: .35rem; }
+#main_container #sitemap-navigation > ul.row > li:not(:first-child) { padding-inline-start: var(--sitemap-recuo); }
+#main_container #sitemap-navigation > ul.row > li > h2 { font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1.5; margin: 0 !important; }
+
+#main_container #sitemap-navigation li > ul {
+    list-style: none;
+    margin: .2rem 0 .4rem var(--sitemap-recuo);
+    padding: 0 0 0 calc(var(--sitemap-recuo) - 1px);
+    border-inline-start: 1px solid var(--sitemap-rule);
+}
+#main_container #sitemap-navigation li > ul > li { font-size: 14px; font-weight: 400; line-height: 1.5; }
+#main_container #sitemap-navigation :is(h2, li) > :is(a, span) {
+    display: inline-block;
+    max-inline-size: 100%;
+    padding: 4px 6px;
+    color: inherit;
+    font: inherit;
+}
+#main_container #sitemap-navigation :is(h2, li) > a {
+    border-radius: 3px;
+    background: transparent;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+}
+#main_container #sitemap-navigation :is(h2, li) > a:hover { color: inherit; background: #f4f7f5; text-decoration: none; }
+#main_container #sitemap-navigation > ul.row > li > h2 > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-block: 3px;
+    vertical-align: top;
+}
+
+#main_container #sitemap-navigation > ul.row > li:first-child > h2 > a::before,
+#main_container #sitemap-navigation > ul.row > li > h2 > a::after {
+    content: "";
+    flex: 0 0 14px;
+    inline-size: 14px;
+    block-size: 14px;
+    background: currentColor;
+    mask: var(--sitemap-icon) center / contain no-repeat;
+}
+
+#main_container #sitemap-navigation > ul.row > li:first-child > h2 > a::before {
+    --sitemap-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 7 8 2l6 5M3.5 6.25v7.5h3v-4h3v4h3v-7.5'/%3E%3C/svg%3E");
+}
+#main_container #sitemap-navigation > ul.row > li > h2 > a::after {
+    --sitemap-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12 8-8M6 4h6v6'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #main_container #sitemap-navigation :is(h2, li) > a { transition: none; }
+}
+/* Mapa do site — manter a foto dentro da coluna de apoio */
+#main_container .sitemap-layout > .sitemap-support {
+    min-width: 0;
+}
+
+#main_container .sitemap-support section picture {
+    display: block;
+    width: 100%;
+}
+
+#main_container .sitemap-support section img {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: .8rem;
+}
